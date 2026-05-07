@@ -51,14 +51,7 @@ const toCSSLength = (value: number | string | undefined, fallback: number) => {
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
   const [, token] = useToken();
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    style,
-    children,
-    color,
-    outset,
-  } = props;
+  const { prefixCls: customizePrefixCls, className, style, children, color, outset } = props;
 
   const {
     getPrefixCls,
@@ -105,7 +98,6 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   });
 
   const { canInjectIntoChild } = useBorderBeamInjection({
-    validationStyleVar: varName('beam-size'),
     children,
     hostElement,
   });
@@ -152,10 +144,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   const beamCls = `${prefixCls}-beam`;
 
-  const effectInfo = React.useMemo(
-    () => ({ className: beamCls, style: beamStyle }),
-    [beamCls, beamStyle],
-  );
+  const effectInfo = {
+    className: beamCls,
+    holderClassName: rootClsName,
+    holderStyle: getRootStyle(),
+    style: beamStyle,
+  };
 
   useBorderBeamEffect({
     prefixCls,
@@ -181,12 +175,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     );
   }
 
-  // Follow Wave's holder pattern in direct mode: merge className/style/ref into the child
-  // first, then insert the holder into the real DOM in a layout effect.
-  const mergedChild = cloneElement(children, (originProps) => ({
+  // Follow Wave's holder pattern in direct mode: keep BorderBeam styles on the holder we own
+  // and only merge the ref needed to insert it into the real DOM.
+  const mergedChild = cloneElement(children, () => ({
     ref: composeRef(getNodeRef(children), setHostNode),
-    className: clsx(originProps.className, rootClsName),
-    style: getRootStyle(originProps.style),
   }));
 
   return mergedChild;

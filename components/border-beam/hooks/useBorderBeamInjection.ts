@@ -6,16 +6,11 @@ import { supportRef } from '@rc-component/util/lib/ref';
 import { canElementHostBorderBeam, canHTMLTagHostBorderBeam } from '../util';
 
 type UseBorderBeamInjectionOptions = {
-  validationStyleVar: string;
   children: React.ReactNode;
   hostElement: HTMLElement | null;
 };
 
-const useBorderBeamInjection = ({
-  validationStyleVar,
-  children,
-  hostElement,
-}: UseBorderBeamInjectionOptions) => {
+const useBorderBeamInjection = ({ children, hostElement }: UseBorderBeamInjectionOptions) => {
   const childType = React.isValidElement(children) ? children.type : null;
   const childKey = React.isValidElement(children) ? children.key : null;
   const isHostElement = React.isValidElement(children) && typeof children.type === 'string';
@@ -34,7 +29,7 @@ const useBorderBeamInjection = ({
   }, [childKey, childType]);
 
   // Make the direct-injection decision once per child instance. If the host never resolves or
-  // swallows the injected class/style, fall back to wrapper mode and stay there.
+  // cannot safely contain the holder, fall back to wrapper mode and stay there.
   useLayoutEffect(() => {
     if (!canInjectByType || fallbackToWrapper) {
       return;
@@ -51,22 +46,8 @@ const useBorderBeamInjection = ({
     }
     if (!canElementHostBorderBeam(hostElement)) {
       setFallbackToWrapper(true);
-      return;
     }
-
-    const hostPosition = window.getComputedStyle(hostElement).position;
-
-    if (!hostPosition || hostPosition === 'static') {
-      setFallbackToWrapper(true);
-      return;
-    }
-
-    const receivesInjectedStyleVar = !!hostElement.style.getPropertyValue(validationStyleVar);
-
-    if (!receivesInjectedStyleVar) {
-      setFallbackToWrapper(true);
-    }
-  }, [canInjectByType, fallbackToWrapper, hostElement, validationStyleVar]);
+  }, [canInjectByType, fallbackToWrapper, hostElement]);
 
   return {
     canInjectIntoChild,

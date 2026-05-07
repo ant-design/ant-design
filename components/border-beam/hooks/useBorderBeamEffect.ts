@@ -16,7 +16,12 @@ const useBorderBeamEffect = ({
   hostElement,
 }: UseBorderBeamEffectOptions) => {
   const effectRef = React.useRef<BorderBeamEffectHandler | null>(null);
-  const { className: effectClassName, style: effectStyle } = effectInfo;
+  const {
+    className: effectClassName,
+    holderClassName: effectHolderClassName,
+    holderStyle: effectHolderStyle,
+    style: effectStyle,
+  } = effectInfo;
 
   useLayoutEffect(() => {
     if (!hostElement) {
@@ -33,6 +38,8 @@ const useBorderBeamEffect = ({
       effectRef.current = showBorderBeamEffect(hostElement, {
         prefixCls,
         className: effectClassName,
+        holderClassName: effectHolderClassName,
+        holderStyle: effectHolderStyle,
         style: effectStyle,
       });
 
@@ -41,9 +48,18 @@ const useBorderBeamEffect = ({
 
     effectRef.current.update({
       className: effectClassName,
+      holderClassName: effectHolderClassName,
+      holderStyle: effectHolderStyle,
       style: effectStyle,
     });
-  }, [effectClassName, effectStyle, hostElement, prefixCls]);
+  }, [
+    effectClassName,
+    effectHolderClassName,
+    effectHolderStyle,
+    effectStyle,
+    hostElement,
+    prefixCls,
+  ]);
 
   React.useEffect(
     () => () => {

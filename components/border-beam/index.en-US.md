@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Do I need to set `position` myself? {#faq-position}
 
-`BorderBeam` first attempts to insert the beam layer into the root node of `children` so the original component layout is not changed by an extra wrapper. This mode requires the computed `position` of the `children` root node to be non-`static`; otherwise, BorderBeam falls back to its own wrapper to host the beam effect.
+`BorderBeam` first attempts to insert the beam layer into the root node of `children` so the original component layout is not changed by an extra wrapper. When this mode is used, make sure the inserted root node can position the beam holder, such as by setting its `position` to a non-`static` value. BorderBeam does not inspect or patch the child position for you; it only falls back to its own wrapper when the child cannot host the beam holder.
 
 For performance reasons, whether `children` can host the beam is resolved during initialization and is not continuously updated when the child structure or positioning styles change later.
 

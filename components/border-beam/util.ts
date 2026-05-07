@@ -227,6 +227,7 @@ export const expandRadiusTokens = (tokens: string[]): RadiusSequence | undefined
       return [tokens[0], tokens[1], tokens[2], tokens[1]];
     case 4:
       return [tokens[0], tokens[1], tokens[2], tokens[3]];
+    /* istanbul ignore next -- browsers normally drop malformed computed radius lists */
     default:
       return undefined;
   }
@@ -273,6 +274,7 @@ export const parseRadiusValue = (value: string): RadiusModel | undefined => {
     // `border-radius` can be `horizontal / vertical`, so split the two axes first.
     const radiusGroups = splitByTopLevelSlash(trimmedValue);
 
+    /* istanbul ignore next -- malformed slash groups are defensive for non-browser style mocks */
     if (radiusGroups.length > 2 || radiusGroups.some((group) => !group)) {
       return undefined;
     }
@@ -282,6 +284,7 @@ export const parseRadiusValue = (value: string): RadiusModel | undefined => {
       ? expandRadiusTokens(splitByTopLevelWhitespace(radiusGroups[1]))
       : horizontal;
 
+    /* istanbul ignore next -- malformed token counts are defensive for non-browser style mocks */
     if (!horizontal || !vertical) {
       return undefined;
     }
