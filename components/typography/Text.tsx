@@ -24,7 +24,6 @@ const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography.Text');
-
     warning(
       !isPlainObject(ellipsis) || (!('expandable' in ellipsis) && !('rows' in ellipsis)),
       'usage',

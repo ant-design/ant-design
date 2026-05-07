@@ -1,13 +1,13 @@
-import url from 'node:url';
 import path from 'node:path';
+import url from 'node:url';
 import React from 'react';
 import { globSync } from 'glob';
 
 type StyleFn = (prefix?: string) => void;
 
-interface GenCssinjsOptions {
+interface GenCssinjsOptions<P> {
   key: string;
-  render?: (Component: React.FC, filepath: string) => void;
+  render?: (Component: React.ComponentType<P>, filepath: string) => void;
   beforeRender?: (componentName: string) => void;
 }
 
@@ -21,7 +21,7 @@ export const styleFiles = globSync(
     .join('/'),
 );
 
-export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions) =>
+export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions<any>) =>
   Promise.all(
     styleFiles.map(async (file) => {
       const absPath = url.pathToFileURL(file).href;

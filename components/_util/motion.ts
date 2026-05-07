@@ -5,7 +5,7 @@ import type {
 } from '@rc-component/motion';
 
 import { defaultPrefixCls } from '../config-provider';
-import { isPlainObject } from './is';
+import { isTransitionEvent } from './is';
 
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({
@@ -22,14 +22,8 @@ const getCurrentHeight: MotionEventHandler = (node) => ({
   height: node?.offsetHeight ?? 0,
 });
 
-const isTransitionEvent = (event: Event): event is TransitionEvent => {
-  return isPlainObject(event) && 'propertyName' in event;
-};
-
 const skipOpacityTransition: MotionEndEventHandler = (_, event) => {
-  return (
-    event?.deadline === true || (isTransitionEvent(event) ? event.propertyName === 'height' : false)
-  );
+  return event?.deadline === true || (isTransitionEvent(event) && event.propertyName === 'height');
 };
 
 const initCollapseMotion = (rootCls = defaultPrefixCls): CSSMotionProps => ({

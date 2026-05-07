@@ -4128,7 +4128,11 @@ Array [
         <span
           class="ant-dropdown-menu-title-content ant-dropdown-menu-title-content-with-extra"
         >
-          Profile
+          <span
+            class="ant-dropdown-menu-item-label"
+          >
+            Profile
+          </span>
           <span
             class="ant-dropdown-menu-item-extra"
           >
@@ -4164,7 +4168,11 @@ Array [
         <span
           class="ant-dropdown-menu-title-content ant-dropdown-menu-title-content-with-extra"
         >
-          Billing
+          <span
+            class="ant-dropdown-menu-item-label"
+          >
+            Billing
+          </span>
           <span
             class="ant-dropdown-menu-item-extra"
           >
@@ -4219,7 +4227,11 @@ Array [
         <span
           class="ant-dropdown-menu-title-content ant-dropdown-menu-title-content-with-extra"
         >
-          Settings
+          <span
+            class="ant-dropdown-menu-item-label"
+          >
+            Settings
+          </span>
           <span
             class="ant-dropdown-menu-item-extra"
           >
