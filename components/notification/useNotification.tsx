@@ -223,10 +223,10 @@ export function useInternalNotification(
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        title: mergedTitle || null,
-        description: description || null,
+        title: mergedTitle,
+        description,
         icon: iconNode,
-        actions: mergedActions || null,
+        actions: mergedActions,
         role,
         classNames: {
           ...semanticClassNames,

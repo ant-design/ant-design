@@ -155,9 +155,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         closable={mergedClosable}
         className={contextClassName}
         title={hasTitle ? mergedTitle : null}
-        description={description || null}
+        description={description}
         icon={iconNode}
-        actions={mergedActions || null}
+        actions={mergedActions}
         role={role}
         classNames={{
           ...contentClassNames,
