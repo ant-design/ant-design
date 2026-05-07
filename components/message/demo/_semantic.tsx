@@ -44,8 +44,8 @@ const App: React.FC = () => {
       componentName="Message"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
+        { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.4.0' },
         { name: 'list', desc: locale.list, version: '6.4.0' },
         { name: 'listContent', desc: locale.listContent, version: '6.4.0' },
