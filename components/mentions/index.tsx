@@ -260,7 +260,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       suffix={suffixNode}
       styles={{
         textarea: mergedStyles.textarea,
-        popup: { zIndex, ...mergedStyles.popup },
+        popup: { ...mergedStyles.popup, zIndex },
         suffix: mergedStyles.suffix,
       }}
       classNames={{
