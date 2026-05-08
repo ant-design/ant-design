@@ -9,7 +9,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
@@ -223,6 +223,9 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
+  // ====================== zIndex =========================
+  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.zIndex as number);
+
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = clsx(
@@ -257,7 +260,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       suffix={suffixNode}
       styles={{
         textarea: mergedStyles.textarea,
-        popup: mergedStyles.popup,
+        popup: { ...mergedStyles.popup, zIndex },
         suffix: mergedStyles.suffix,
       }}
       classNames={{
