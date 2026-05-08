@@ -8,6 +8,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -247,20 +248,18 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     const onInternalSelect = (date: DateType, source: SelectInfo['source']) => {
       triggerChange(date);
-
       onSelect?.(date, { source });
     };
 
     // ====================== Render ======================
     const dateRender = React.useCallback(
       (date: DateType, info: CellRenderInfo<DateType>): React.ReactNode => {
-        if (fullCellRender) {
+        if (isFunction(fullCellRender)) {
           return fullCellRender(date, info);
         }
-        if (dateFullCellRender) {
+        if (isFunction(dateFullCellRender)) {
           return dateFullCellRender(date);
         }
-
         return (
           <div
             className={clsx(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
@@ -274,7 +273,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
               style={mergedItemContentStyle}
             >
-              {typeof cellRender === 'function' ? cellRender(date, info) : dateCellRender?.(date)}
+              {isFunction(cellRender) ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
         );
@@ -317,7 +316,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
               style={mergedItemContentStyle}
             >
-              {typeof cellRender === 'function' ? cellRender(date, info) : monthCellRender?.(date)}
+              {isFunction(cellRender) ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
         );

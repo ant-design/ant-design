@@ -254,7 +254,7 @@ const theme = {
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |  |
 | cssVar | CSS 变量配置 | [cssVar](#css-var) | - |  |
 | hashed | 将样式添加至 hash className 上 | boolean | true |  |
-| zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | true | 6.0.0 |
+| zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | false | 6.0.0 |
 
 ### ComponentsConfig
 

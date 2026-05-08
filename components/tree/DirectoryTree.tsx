@@ -107,7 +107,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     event: {
       event: 'select';
       selected: boolean;
-      node: any;
+      node: EventDataNode<DataNode>;
       selectedNodes: DataNode[];
       nativeEvent: MouseEvent;
     },

@@ -46,6 +46,7 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="calendar"
       class="anticon anticon-calendar"
       role="img"
@@ -133,6 +134,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
