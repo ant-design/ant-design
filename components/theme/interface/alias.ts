@@ -168,6 +168,13 @@ export interface AliasToken extends MapToken {
    * @descEN Control the color of form control prefix/suffix in error state.
    */
   colorErrorAffix: string;
+  /**
+   * @nameZH 警告状态下前后缀颜色
+   * @nameEN Warning affix color
+   * @desc 控制表单控件前后缀在警告状态下的颜色。
+   * @descEN Control the color of form control prefix/suffix in warning state.
+   */
+  colorWarningAffix: string;
 
   // Font
   /**
