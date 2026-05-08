@@ -7,8 +7,6 @@ title: LLMs.txt
 tag: New
 ---
 
-<!-- CI test PR marker. -->
-
 This guide explains how to enable AI tools to better understand Ant Design.
 
 ## What is LLMs.txt?
