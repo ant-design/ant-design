@@ -4,16 +4,15 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import { Notice } from '@rc-component/notification';
-import type { NoticeProps } from '@rc-component/notification/lib/Notice';
+import { Notification as RcNotification } from '@rc-component/notification';
+import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
-import useStyle from './style';
+import useStyle, { PurePanelStyle } from './style';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -23,38 +22,22 @@ export const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-export interface PureContentProps {
-  prefixCls: string;
+export const getMessageIcon = (type?: NoticeType, icon?: React.ReactNode) =>
+  icon || (type && TypeIcon[type]) || null;
+
+export interface MessageContentProps {
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: MessageSemanticAllType['classNames'];
-  styles?: MessageSemanticAllType['styles'];
 }
 
-export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
-  const { prefixCls, type, icon, children, classNames: pureContentClassNames, styles } = props;
-  const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode = cloneElement<React.HTMLAttributes<HTMLElement>>(iconElement, (currentProps) => {
-    const mergedStyle: React.CSSProperties = { ...currentProps?.style, ...styles?.icon };
-    return {
-      className: clsx(currentProps.className, pureContentClassNames?.icon),
-      style: mergedStyle,
-    };
-  });
-  return (
-    <div className={clsx(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
-      {iconNode}
-      <span className={pureContentClassNames?.content} style={styles?.content}>
-        {children}
-      </span>
-    </div>
-  );
-};
-
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
+  extends Omit<
+      RcNotificationProps,
+      'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions'
+    >,
+    MessageContentProps {
   prefixCls?: string;
+  content?: React.ReactNode;
   classNames?: MessageSemanticAllType['classNamesAndFn'];
   styles?: MessageSemanticAllType['stylesAndFn'];
 }
@@ -81,6 +64,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   } = useComponentConfig('message');
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
+  const noticePrefixCls = `${prefixCls}-notice`;
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -92,35 +76,44 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       props: props as unknown as ArgsProps,
     },
   );
+  const iconNode = getMessageIcon(type, icon);
+  const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
+  const rcClassNames: RcNotificationProps['classNames'] = {
+    wrapper: clsx(type && `${prefixCls}-${type}`, mergedClassNames.wrapper),
+    icon: clsx(typeIconCls, mergedClassNames.icon),
+    title: mergedClassNames.title,
+  };
+  const rcStyles: RcNotificationProps['styles'] = {
+    wrapper: mergedStyles.wrapper,
+    icon: mergedStyles.icon,
+    title: mergedStyles.title,
+  };
 
   return (
-    <Notice
-      {...restProps}
-      prefixCls={prefixCls}
+    <div
       className={clsx(
-        contextClassName,
-        mergedClassNames.root,
-        className,
+        `${noticePrefixCls}-pure-panel`,
         hashId,
-        `${prefixCls}-notice-pure-panel`,
+        className,
         cssVarCls,
         rootCls,
+        mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      eventKey="pure"
-      duration={null}
-      content={
-        <PureContent
-          prefixCls={prefixCls}
-          type={type}
-          icon={icon}
-          classNames={mergedClassNames}
-          styles={mergedStyles}
-        >
-          {content}
-        </PureContent>
-      }
-    />
+      style={mergedStyles.root}
+    >
+      <PurePanelStyle prefixCls={prefixCls} />
+      <RcNotification
+        {...restProps}
+        prefixCls={prefixCls}
+        className={contextClassName}
+        style={{ ...contextStyle, ...style }}
+        duration={null}
+        icon={iconNode}
+        title={content}
+        classNames={rcClassNames}
+        styles={rcStyles}
+      />
+    </div>
   );
 };
 

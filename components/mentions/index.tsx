@@ -8,6 +8,7 @@ import type {
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import { useZIndex } from '../_util/hooks';
 import useAllowClear from '../_util/hooks/useAllowClear';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
@@ -123,7 +124,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Mentions');
-
     warning.deprecated(!children, 'Mentions.Option', 'options');
   }
 
@@ -223,6 +223,9 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
+  // ====================== zIndex =========================
+  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.zIndex as number);
+
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = clsx(
@@ -257,7 +260,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       suffix={suffixNode}
       styles={{
         textarea: mergedStyles.textarea,
-        popup: mergedStyles.popup,
+        popup: { ...mergedStyles.popup, zIndex },
         suffix: mergedStyles.suffix,
       }}
       classNames={{
