@@ -127,6 +127,12 @@ ant-design/
 
 ## Changelog 规范
 
+### 适用范围
+
+- 本节仅适用于用户明确要求收集/生成 changelog、准备 release PR、版本发布，或正在编辑 `CHANGELOG.en-US.md` / `CHANGELOG.zh-CN.md` 的场景。
+- 普通功能、修复、文档、demo PR 不要求直接修改 `CHANGELOG.en-US.md` / `CHANGELOG.zh-CN.md`；代码 CR 时也不应仅因缺少 CHANGELOG 文件改动而提出 finding。
+- 普通 PR 如需填写 PR 模板中的 Change Log，仅描述本 PR 对用户或开发者的影响，或按模板填写 `N/A` / `No changelog required` / `无需更新日志`。正式 CHANGELOG 由 release owner 在发布流程中统一整理。
+
 ### 核心原则
 
 - 文件位置：`CHANGELOG.en-US.md` 和 `CHANGELOG.zh-CN.md`
