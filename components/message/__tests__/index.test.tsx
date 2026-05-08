@@ -115,12 +115,12 @@ describe('message', () => {
       jest.advanceTimersByTime(2500);
     });
 
-    expect(document.querySelector('.ant-message-move-up-leave')).toBeFalsy();
+    expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
 
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    expect(document.querySelector('.ant-message-move-up-leave')).toBeTruthy();
+    expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
   });
 
   it('trigger onClick method', async () => {
@@ -217,7 +217,7 @@ describe('message', () => {
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
-    expect(document.querySelector('.ant-message-move-up-leave')).toBeFalsy();
+    expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
 
     await triggerMotionEnd();
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
@@ -240,7 +240,7 @@ describe('message', () => {
     act(() => {
       jest.advanceTimersByTime(1500);
     });
-    expect(document.querySelectorAll('.ant-message-move-up-leave')).toHaveLength(1);
+    expect(document.querySelectorAll('.ant-message-fade-leave')).toHaveLength(1);
   });
 
   it('should not throw error when pass null', async () => {

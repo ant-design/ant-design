@@ -6,14 +6,20 @@ export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export type MessageSemanticType = {
   classNames?: {
+    list?: string;
+    listContent?: string;
     root?: string;
+    wrapper?: string;
     icon?: string;
-    content?: string;
+    title?: string;
   };
   styles?: {
+    list?: React.CSSProperties;
+    listContent?: React.CSSProperties;
     root?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
     icon?: React.CSSProperties;
-    content?: React.CSSProperties;
+    title?: React.CSSProperties;
   };
 };
 
@@ -27,6 +33,7 @@ export interface ConfigOptions {
   transitionName?: string;
   maxCount?: number;
   rtl?: boolean;
+  stack?: boolean | { threshold?: number };
   /**
    * @descCN 悬停时是否暂停计时器
    * @descEN keep the timer running or not on hover
