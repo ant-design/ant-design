@@ -45,7 +45,7 @@ exports[`renders components/input/demo/_semantic_input.tsx correctly 1`] = `
           class="ant-input-suffix semantic-mark-suffix"
         >
           <button
-            class="ant-input-clear-icon ant-input-clear-icon-has-suffix semantic-mark-clear"
+            class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
             tabindex="-1"
             type="button"
           >
@@ -1121,7 +1121,7 @@ exports[`renders components/input/demo/_semantic_password.tsx correctly 1`] = `
           class="ant-input-suffix semantic-mark-suffix"
         >
           <button
-            class="ant-input-clear-icon ant-input-clear-icon-has-suffix semantic-mark-clear"
+            class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
             tabindex="-1"
             type="button"
           >
@@ -1827,7 +1827,7 @@ exports[`renders components/input/demo/_semantic_search.tsx correctly 1`] = `
             class="ant-input-suffix semantic-mark-suffix"
           >
             <button
-              class="ant-input-clear-icon ant-input-clear-icon-has-suffix semantic-mark-clear"
+              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
               tabindex="-1"
               type="button"
             >

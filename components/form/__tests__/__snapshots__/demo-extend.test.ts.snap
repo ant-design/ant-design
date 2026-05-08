@@ -7637,6 +7637,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
 exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: \`disabled\` should not set with empty \`value\`. You should set \`allowEmpty\` or \`value\` instead.",
 ]
 `;
 
