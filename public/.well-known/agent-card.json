@@ -10,6 +10,13 @@
     "streaming": false,
     "pushNotifications": false
   },
+  "supportedInterfaces": [
+    {
+      "protocol": "https",
+      "url": "https://ant.design",
+      "version": "1.0"
+    }
+  ],
   "skills": [
     {
       "id": "component-lookup",
