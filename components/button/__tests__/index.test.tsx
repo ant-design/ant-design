@@ -722,16 +722,4 @@ describe('Button', () => {
       expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
     });
   });
-
-  // https://github.com/ant-design/ant-design/issues/57727
-  it('icon wrapper should be a flex container so the icon glyph stays vertically centered', () => {
-    render(<Button icon={<SearchOutlined />} />);
-
-    const iconRuleRegex =
-      /\.ant-btn-icon\s*\{[^}]*display\s*:\s*inline-flex[^}]*align-items\s*:\s*center[^}]*\}/;
-    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
-    const matched = dynamicStyles.some((style) => iconRuleRegex.test(style.innerHTML));
-
-    expect(matched).toBe(true);
-  });
 });

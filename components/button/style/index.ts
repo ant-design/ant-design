@@ -54,7 +54,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        lineHeight: 0,
       },
 
       '> a': {
