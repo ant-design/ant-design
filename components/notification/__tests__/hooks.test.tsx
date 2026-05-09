@@ -219,7 +219,7 @@ describe('notification.hooks', () => {
     fireEvent.click(container.querySelector('a')!);
 
     function getNoticeCount() {
-      return Array.from(document.querySelectorAll('.ant-notification-notice-wrapper')).filter(
+      return Array.from(document.querySelectorAll('.ant-notification-notice')).filter(
         (node) => !node.classList.contains('ant-notification-fade-leave'),
       ).length;
     }
