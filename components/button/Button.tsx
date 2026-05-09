@@ -258,6 +258,7 @@ const InternalCompoundedButton = React.forwardRef<
       return () => clearTimeout(delayTimer);
     }
     setInnerLoading(loadingOrDelay.loading);
+    return undefined;
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
