@@ -123,7 +123,7 @@ export default () => {
 
 ## API
 
-通用属性参考：[通用属性](/docs/react/common-props.zh-CN.md)
+通用属性参考：[通用属性](/docs/react/common-props-cn)
 
 > 自 `antd@5.1.0` 版本开始提供该组件。
 
