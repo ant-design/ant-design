@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: millionco/react-doctor@main
-        continue-on-error: true
         with:
           diff: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
