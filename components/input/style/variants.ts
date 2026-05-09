@@ -111,7 +111,7 @@ export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CS
       hoverBorderColor: token.colorWarningBorderHover,
       activeBorderColor: token.colorWarning,
       activeShadow: token.warningActiveShadow,
-      affixColor: token.colorWarning,
+      affixColor: token.colorWarningAffix,
     }),
 
     ...extraStyles,
@@ -215,6 +215,9 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
         '&, & input, & textarea': {
           color: token.colorWarning,
         },
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          color: token.colorWarningAffix,
+        },
       },
 
       ...extraStyles,
@@ -300,7 +303,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
       hoverBg: token.colorWarningBgHover,
       activeBorderColor: token.colorWarning,
       inputColor: token.colorWarningText,
-      affixColor: token.colorWarning,
+      affixColor: token.colorWarningAffix,
     }),
 
     ...extraStyles,
@@ -457,7 +460,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       hoverBorderColor: token.colorWarningBorderHover,
       activeBorderColor: token.colorWarning,
       activeShadow: token.warningActiveShadow,
-      affixColor: token.colorWarning,
+      affixColor: token.colorWarningAffix,
     }),
 
     ...extraStyles,

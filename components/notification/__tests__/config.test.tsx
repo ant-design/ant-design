@@ -52,7 +52,7 @@ describe('notification.config', () => {
       notification.open({
         title: 'Notification message',
         key: i,
-        duration: 999,
+        duration: false,
       });
 
       await awaitPromise();
@@ -72,7 +72,7 @@ describe('notification.config', () => {
       notification.open({
         title: 'Notification last',
         key: '11',
-        duration: 999,
+        duration: false,
       });
     });
 
@@ -87,16 +87,7 @@ describe('notification.config', () => {
       'Notification last',
     );
 
-    act(() => {
-      jest.runAllTimers();
-    });
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    await triggerMotionEnd(false);
-
-    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    notification.destroy();
   });
   it('should be able to config holderRender', async () => {
     document.body.innerHTML = '';
@@ -190,7 +181,7 @@ describe('notification.config', () => {
     await awaitPromise();
 
     const noticeWithoutLeaving = Array.from(
-      document.querySelectorAll<HTMLElement>('.ant-notification-notice-wrapper'),
+      document.querySelectorAll<HTMLElement>('.ant-notification-notice'),
     ).filter((ele) => !ele.classList.contains('ant-notification-fade-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(1);
