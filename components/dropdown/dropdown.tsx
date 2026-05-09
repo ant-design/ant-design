@@ -106,11 +106,13 @@ export interface DropdownProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
-type CompoundedComponent = React.FC<DropdownProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  DropdownProps & React.RefAttributes<HTMLElement>
+> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
-const Dropdown: CompoundedComponent = (props) => {
+const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProps>((props, ref) => {
   const {
     menu,
     arrow,
@@ -233,6 +235,7 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled: child.props.disabled ?? disabled,
+    ref,
   });
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
@@ -369,7 +372,7 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   return renderNode;
-};
+}) as CompoundedComponent;
 
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
