@@ -27,7 +27,6 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/with-btn.tsx">Custom close button</code>
 <code src="./demo/custom-icon.tsx">Customized Icon</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/stack.tsx" version="5.10.0">Stack</code>
 <code src="./demo/show-with-progress.tsx" version="5.18.0">Show with progress</code>
@@ -35,7 +34,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/progress-color.tsx">Customize progress bar color</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic styles</code>
 
 ## API
 

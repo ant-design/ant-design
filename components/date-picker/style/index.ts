@@ -45,6 +45,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
       },
 
       [`&${componentCls}-status-warning`]: {
+        [varName('affix-color')]: token.colorWarningAffix,
         [`${componentCls}-active-bar`]: {
           background: colorWarning,
         },

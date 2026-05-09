@@ -598,6 +598,20 @@ describe('DatePicker', () => {
         expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
       });
     });
+
+    it('should support global colorWarningAffix token for warning status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorWarningAffix: '#12abcd' } }}>
+          <DatePicker status="warning" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+      });
+    });
   });
 
   describe('allowClear', () => {

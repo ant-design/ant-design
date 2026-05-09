@@ -22,10 +22,10 @@ demo:
 <code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
 <code src="./demo/other.tsx">其他提示类型</code>
 <code src="./demo/duration.tsx">修改延时</code>
+<code src="./demo/stack.tsx" version="6.4.0">堆叠</code>
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/thenable.tsx">Promise 接口</code>
-<code src="./demo/custom-style.tsx">自定义样式</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -113,6 +113,7 @@ message.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  | × |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 | × |
 | rtl | 是否开启 RTL 模式 | boolean | false |  | × |
+| stack | 堆叠模式，超过阈值时会将所有消息收起。折叠状态下仅展示最新的消息 | boolean \| `{ threshold: number }` | false | 6.4.0 | × |
 | top | 消息距离顶部的位置 | string \| number | 8 |  | × |
 
 ## Semantic DOM
