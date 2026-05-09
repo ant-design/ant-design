@@ -5,6 +5,7 @@ import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
+import { useComposeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
@@ -228,6 +229,8 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     isPrimitive(children) ? <span>{children}</span> : children,
   ) as React.ReactElement<{ className?: string; disabled?: boolean }>;
 
+  const composedRef = useComposeRef(ref, (child as any).ref);
+
   const popupTrigger = cloneElement(child, {
     className: clsx(
       `${prefixCls}-trigger`,
@@ -235,7 +238,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       child.props.className,
     ),
     disabled: child.props.disabled ?? disabled,
-    ref,
+    ref: composedRef,
   });
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
