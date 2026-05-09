@@ -1,66 +1,18 @@
 import type * as React from 'react';
+import { unit } from '@ant-design/cssinjs';
 import type { CSSMotionProps } from '@rc-component/motion';
 
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
-import type { NotificationConfig, NotificationPlacement } from './interface';
+import type { NotificationConfig } from './interface';
 
-export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {
-  let style: React.CSSProperties;
-
-  switch (placement) {
-    case 'top':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top,
-        bottom: 'auto',
-      };
-      break;
-
-    case 'topLeft':
-      style = {
-        left: 0,
-        top,
-        bottom: 'auto',
-      };
-      break;
-
-    case 'topRight':
-      style = {
-        right: 0,
-        top,
-        bottom: 'auto',
-      };
-      break;
-
-    case 'bottom':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top: 'auto',
-        bottom,
-      };
-      break;
-
-    case 'bottomLeft':
-      style = {
-        left: 0,
-        top: 'auto',
-        bottom,
-      };
-      break;
-
-    default:
-      style = {
-        right: 0,
-        top: 'auto',
-        bottom,
-      };
-      break;
-  }
-  return style;
+export function getPlacementOffsetStyle(
+  top?: number | string,
+  bottom?: number | string,
+): React.CSSProperties {
+  return {
+    ...(top !== undefined && { '--notification-top': unit(top) }),
+    ...(bottom !== undefined && { '--notification-bottom': unit(bottom) }),
+  } as React.CSSProperties;
 }
 
 export function getMotion(prefixCls: string): CSSMotionProps {
