@@ -16,6 +16,10 @@ export default defineConfig({
   routePrefetch: {},
   manifest: {},
 
+  sitemap: {
+    hostname: 'https://ant.design',
+  },
+
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [/index\/components\//],
