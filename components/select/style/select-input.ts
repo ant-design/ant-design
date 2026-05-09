@@ -130,7 +130,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // ==========================================================
         // ==                         Base                         ==
         // ==========================================================
-        ...resetComponent(token, true),
+        ...resetComponent(token),
 
         display: 'inline-flex',
         // gap: calc(token.paddingXXS).mul(1.5).equal(),
