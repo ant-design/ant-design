@@ -8,9 +8,11 @@ import type { SizeType } from '../config-provider/SizeContext';
  */
 export type AvatarSize = SizeType | 'default' | number | ScreenSizeMap;
 
+export type AvatarShape = 'circle' | 'square';
+
 export interface AvatarContextType {
   size?: AvatarSize;
-  shape?: 'circle' | 'square';
+  shape?: AvatarShape;
 }
 
 const AvatarContext = React.createContext<AvatarContextType>({});
