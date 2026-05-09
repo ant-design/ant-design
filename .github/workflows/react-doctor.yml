@@ -1,8 +1,6 @@
 name: 🏥 React Doctor
 
-on:
-  pull_request:
-    branches: [master, feature]
+on: push
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
