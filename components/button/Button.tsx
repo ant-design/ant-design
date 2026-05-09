@@ -251,14 +251,24 @@ const InternalCompoundedButton = React.forwardRef<
   // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
   // https://github.com/ant-design/ant-design/issues/51325
   useLayoutEffect(() => {
+    let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
-      const delayTimer = setTimeout(() => {
+      delayTimer = setTimeout(() => {
+        delayTimer = null;
         setInnerLoading(true);
       }, loadingOrDelay.delay);
-      return () => clearTimeout(delayTimer);
+    } else {
+      setInnerLoading(loadingOrDelay.loading);
     }
-    setInnerLoading(loadingOrDelay.loading);
-    return undefined;
+
+    function cleanupTimer() {
+      if (delayTimer) {
+        clearTimeout(delayTimer);
+        delayTimer = null;
+      }
+    }
+
+    return cleanupTimer;
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
