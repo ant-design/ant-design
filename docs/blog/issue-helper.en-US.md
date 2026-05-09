@@ -4,13 +4,13 @@ date: 2023-02-22
 author: afc163
 ---
 
-There are some common mistake when submitting an issue to the community for the first time, making it difficult for maintainers to help solve problems. Repost an old article, hoping helps for submit issue after laughing :)
+There are some common mistakes when submitting an issue to the community for the first time, making it difficult for maintainers to help solve problems. Reposting an old article, hoping it helps with submitting issues after laughing :)
 
 > Original link: [How to submit a issue which never can be answered to open source projects](https://zhuanlan.zhihu.com/p/25795393)
 
 ---
 
-As a developer, I use and participate in many open source projects. In the open source community, questions and answers are the most interesting part. Some issue with fully communication and some others are not. There are many fascinating and useful commonalities in the way people ask questions. I've distilled them in the hope that they will help those like me who are curious and willing to go out of their way to annoy the maintainers of open source projects.
+As a developer, I use and participate in many open source projects. In the open source community, questions and answers are the most interesting part. Some issues are well-communicated, while others are not. There are many fascinating and useful commonalities in the way people ask questions. I've distilled them in the hope that they will help those like me who are curious and willing to go out of their way to annoy the maintainers of open source projects.
 
 Here are thirteen tips on how to ask questions which never can be answered:
 
@@ -208,7 +208,7 @@ Maintainer: 0.8.4 should have fixed this problem, and upgrading to the new versi
 
 ## 8. Feel free to vent your emotions
 
-Open source projects cause bugs in your project, cause you to work overtime on Saturday night, make your missing the party and someone must be responsible. Your work and life are ruined by them, and don't make it easier for them.
+Open source projects cause bugs in your project, cause you to work overtime on Saturday night, make you miss the party and someone must be responsible. Your work and life are ruined by them, so don't make it easier for them.
 
 #### 😈 'Good Way'
 
@@ -316,7 +316,7 @@ Official channel: Hello, our project uses your framework. I would like to ask, c
 
 ## 13. High level strike
 
-Raise your question to a higher level, take the moral high ground and make accusations, making they unable to argue.
+Raise your question to a higher level, take the moral high ground and make accusations, making them unable to argue.
 
 #### 😈 'Good Way'
 
