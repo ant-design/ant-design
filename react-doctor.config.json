@@ -1,0 +1,15 @@
+{
+  "ignore": {
+    "files": [
+      ".dumi/**",
+      "docs/**",
+      "tests/**",
+      "scripts/**",
+      "**/demo/**",
+      "**/__tests__/**",
+      "**/*.md"
+    ]
+  },
+  "failOn": "none",
+  "adoptExistingLintConfig": true
+}
