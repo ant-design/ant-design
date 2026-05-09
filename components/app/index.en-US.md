@@ -122,7 +122,7 @@ export default () => {
 
 ## API
 
-Common props ref：[Common props](/docs/react/common-props.en-US.md)
+Common props ref: [Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.1.0`.
 
