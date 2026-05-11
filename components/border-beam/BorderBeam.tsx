@@ -3,11 +3,8 @@ import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useToken } from '../theme/internal';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
-import useBorderBeamGeometry from './hooks/useBorderBeamGeometry';
-import useBorderBeamInjection from './hooks/useBorderBeamInjection';
 import useBorderSize from './hooks/useBorderSize';
 import useChildDom from './hooks/useChildDom';
 import useStyle from './style';
@@ -25,7 +22,6 @@ export interface BorderBeamProps {
 }
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
-  const [, token] = useToken();
   const { prefixCls: customizePrefixCls, children } = props;
 
   const { getPrefixCls } = useComponentConfig('borderBeam');
@@ -37,30 +33,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const [varName] = genCssVar(rootPrefixCls, 'border-beam');
 
-  // ========================= BorderWidth ==========================
-  const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
-
   // ============================= Host =============================
-  // `hostElement` is the real DOM node that carries the beam holder. It is the decorated
-  // child in direct mode. Use state so the first resolved host can trigger the one-time
-  // injection and radius measurement flow.
   const [childNode, childDomNode] = useChildDom(children);
-  const childHostElement =
-    typeof HTMLElement === 'undefined' || childDomNode instanceof HTMLElement
-      ? (childDomNode as HTMLElement | null)
-      : null;
-
-  const { canInjectIntoChild } = useBorderBeamInjection({
-    children,
-    hostElement: childHostElement,
-  });
-  const hostElement = childHostElement;
-  const { beamVisible } = useBorderBeamGeometry({
-    prefixCls,
-    hostElement,
-    canInjectIntoChild,
-  });
-  const { borderSize, borderRadius } = useBorderSize(hostElement);
+  const { borderSize, borderRadius } = useBorderSize(childDomNode);
   const [borderTopSize, borderRightSize, borderBottomSize, borderLeftSize] = borderSize;
   const [
     borderTopLeftRadius,
@@ -68,17 +43,6 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     borderBottomRightRadius,
     borderBottomLeftRadius,
   ] = borderRadius;
-
-  // ============================ Styles ============================
-  const beamStyle = React.useMemo(() => {
-    const nextBeamStyle: React.CSSProperties = {};
-
-    if (!beamVisible || mergedBorderWidth <= 0) {
-      nextBeamStyle.display = 'none';
-    }
-
-    return nextBeamStyle;
-  }, [beamVisible, mergedBorderWidth]);
 
   // ============================ Render ============================
   return (
@@ -97,7 +61,6 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           [varName('border-top-right-radius')]: borderTopRightRadius,
           [varName('border-bottom-right-radius')]: borderBottomRightRadius,
           [varName('border-bottom-left-radius')]: borderBottomLeftRadius,
-          ...beamStyle,
         }}
       />
     </>
