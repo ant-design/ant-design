@@ -87,7 +87,7 @@ When the PR is finally merged, usually the maintainers will release a version. I
 
 ### Deprecation
 
-In a large project, if you want to remove a property or a method, it is actually very troublesome. Since your project may already have a lot of items in use, other projects depending on it may get broken. But as the project iterates, we will encounter more and more problems for which solutions from long time ago may no longer fit. Then, we need to adopt a soft, less radical way to remove it, leaving enough time for users to modify.
+In a large project, if you want to remove a property or a method, it is actually very troublesome. Since your project may already have a lot of items in use, other projects depending on it may get broken. But as the project iterates, we will encounter more and more problems for which solutions from a long time ago may no longer fit. Then, we need to adopt a soft, less radical way to remove it, leaving enough time for users to modify.
 
 In Ant Design, we adopt a **five-step strategic** to deprecate property or method:
 
