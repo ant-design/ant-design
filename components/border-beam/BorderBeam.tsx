@@ -1,19 +1,16 @@
 import React from 'react';
-import { useEvent } from '@rc-component/util';
-import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
-import { composeRef, getNodeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import { genCssVar } from '../theme/util/genStyleUtils';
-import useBorderBeamEffect from './hooks/useBorderBeamEffect';
+import BorderBeamEffect from './BorderBeamEffect';
 import useBorderBeamGeometry from './hooks/useBorderBeamGeometry';
 import useBorderBeamInjection from './hooks/useBorderBeamInjection';
+import useBorderSize from './hooks/useBorderSize';
+import useChildDom from './hooks/useChildDom';
 import useStyle from './style';
-import { canHTMLTagWrapWithDiv, getBorderBeamGradient, getMotionPathRadius } from './util';
 import type { BorderBeamColor } from './util';
 
 export type { BorderBeamColor, BorderBeamGradient } from './util';
@@ -27,37 +24,11 @@ export interface BorderBeamProps {
   outset?: number | string;
 }
 
-// Keep the motion defaults in CSS variables so both direct-injection and wrapper mode
-// consume the same runtime contract.
-const DEFAULT_BEAM_DURATION = 6;
-const DEFAULT_BEAM_DELAY = 0;
-const DEFAULT_BEAM_OFFSET_START = 0;
-const DEFAULT_BEAM_OFFSET_END = 100;
-const DEFAULT_BEAM_SIZE = 100;
-// Make the motion path slightly rounder than the visible track to smooth corner transitions.
-const DEFAULT_MOTION_PATH_RADIUS = 200;
-// Keep the head slightly ahead of the path so the transparent tail remains visible.
-const DEFAULT_BEAM_ANCHOR = '90%';
-
-const toCSSLength = (value: number | string | undefined, fallback: number) => {
-  if (typeof value === 'number') {
-    return `${value}px`;
-  }
-
-  const trimmedValue = value?.trim();
-
-  return trimmedValue || `${fallback}px`;
-};
-
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
   const [, token] = useToken();
-  const { prefixCls: customizePrefixCls, className, style, children, color, outset } = props;
+  const { prefixCls: customizePrefixCls, children } = props;
 
-  const {
-    getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-  } = useComponentConfig('borderBeam');
+  const { getPrefixCls } = useComponentConfig('borderBeam');
 
   // ============================ Prefix ============================
   const prefixCls = getPrefixCls('border-beam', customizePrefixCls);
@@ -66,77 +37,39 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const [varName] = genCssVar(rootPrefixCls, 'border-beam');
 
-  // ============================ BorderWidth ============================
+  // ========================= BorderWidth ==========================
   const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
-  const mergedOutset = toCSSLength(outset, mergedBorderWidth);
 
-  // ============================ Color ============================
-  const fallbackStartColor = token.colorPrimary;
-  const fallbackEndColor = token.colorPrimaryHover;
-  const mergedBeamGradient = getBorderBeamGradient(color, fallbackStartColor, fallbackEndColor);
-  const rootClsName = clsx(prefixCls, hashId, cssVarCls);
-  const wrapperClsName = clsx(rootClsName, className, contextClassName, `${prefixCls}-wrapper`);
-  const childTagName =
-    React.isValidElement(children) && typeof children.type === 'string' ? children.type : null;
-  const canFallbackToWrapper = !childTagName || canHTMLTagWrapWithDiv(childTagName);
-
-  // ============================ Host ============================
+  // ============================= Host =============================
   // `hostElement` is the real DOM node that carries the beam holder. It is the decorated
-  // child in direct mode and the synthetic wrapper in fallback mode. Use state so the first
-  // resolved host can trigger the one-time injection and radius measurement flow.
-  const [hostElement, setHostElement] = React.useState<HTMLElement | null>(null);
-  const setHostNode = useEvent((node: React.ReactInstance | HTMLElement | null) => {
-    const nextHostElement = getDOM(node);
-    const nextHTMLElement =
-      typeof HTMLElement === 'undefined' || nextHostElement instanceof HTMLElement
-        ? (nextHostElement as HTMLElement | null)
-        : null;
-
-    setHostElement((prevHostElement) =>
-      /* istanbul ignore next -- repeated writes of the same DOM ref do not change any observable behavior */
-      prevHostElement === nextHTMLElement ? prevHostElement : nextHTMLElement,
-    );
-  });
+  // child in direct mode. Use state so the first resolved host can trigger the one-time
+  // injection and radius measurement flow.
+  const [childNode, childDomNode] = useChildDom(children);
+  const childHostElement =
+    typeof HTMLElement === 'undefined' || childDomNode instanceof HTMLElement
+      ? (childDomNode as HTMLElement | null)
+      : null;
 
   const { canInjectIntoChild } = useBorderBeamInjection({
     children,
-    hostElement,
+    hostElement: childHostElement,
   });
-  const { beamVisible, trackRadius } = useBorderBeamGeometry({
+  const hostElement = childHostElement;
+  const { beamVisible } = useBorderBeamGeometry({
     prefixCls,
     hostElement,
     canInjectIntoChild,
   });
-
-  // ============================ Motion Path Radius ============================
-  const motionPathRadius = getMotionPathRadius(trackRadius, DEFAULT_MOTION_PATH_RADIUS);
+  const { borderSize, borderRadius } = useBorderSize(hostElement);
+  const [borderTopSize, borderRightSize, borderBottomSize, borderLeftSize] = borderSize;
+  const [
+    borderTopLeftRadius,
+    borderTopRightRadius,
+    borderBottomRightRadius,
+    borderBottomLeftRadius,
+  ] = borderRadius;
 
   // ============================ Styles ============================
-  const getBeamVarStyle = (): React.CSSProperties => ({
-    [varName('beam-gradient')]: mergedBeamGradient, // Visible beam gradient.
-    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation delay.
-    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Full loop duration.
-    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // End offset on the path.
-    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Start offset on the path.
-    [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Beam anchor point on the path.
-    [varName('beam-clip-radius')]: trackRadius, // Visible ring radius from the measured target.
-    [varName('beam-outset')]: mergedOutset, // Beam layer outset from the decorated edge.
-    [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by motion path.
-    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length.
-    [varName('border-width')]: `${mergedBorderWidth}px`, // Ring width.
-  });
-
-  const getRootStyle = (originStyle?: React.CSSProperties): React.CSSProperties => {
-    const nextRootStyle: React.CSSProperties = {
-      ...originStyle,
-      ...getBeamVarStyle(),
-      ...contextStyle,
-      ...style,
-    };
-
-    return nextRootStyle;
-  };
-
   const beamStyle = React.useMemo(() => {
     const nextBeamStyle: React.CSSProperties = {};
 
@@ -147,44 +80,28 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     return nextBeamStyle;
   }, [beamVisible, mergedBorderWidth]);
 
-  const beamCls = `${prefixCls}-beam`;
-
-  const effectInfo = {
-    className: beamCls,
-    rootClassName: rootClsName,
-    style: {
-      ...getBeamVarStyle(),
-      ...beamStyle,
-    },
-  };
-
-  useBorderBeamEffect({
-    prefixCls,
-    effectInfo,
-    hostElement: canInjectIntoChild ? hostElement : null,
-  });
-
   // ============================ Render ============================
-  if (!canInjectIntoChild) {
-    if (!canFallbackToWrapper) {
-      return children;
-    }
-
-    return (
-      <div ref={setHostNode} className={wrapperClsName} style={getRootStyle()}>
-        {children}
-        <div aria-hidden="true" className={beamCls} style={beamStyle} />
-      </div>
-    );
-  }
-
-  // Follow Wave's holder pattern in direct mode: keep BorderBeam styles on the holder we own
-  // and only merge the ref needed to insert it into the real DOM.
-  const mergedChild = cloneElement(children, () => ({
-    ref: composeRef(getNodeRef(children), setHostNode),
-  }));
-
-  return mergedChild;
+  return (
+    <>
+      {childNode}
+      <BorderBeamEffect
+        prefixCls={prefixCls}
+        hostDom={childDomNode}
+        className={clsx(hashId, cssVarCls)}
+        style={{
+          [varName('border-top-width')]: `-${borderTopSize}px`,
+          [varName('border-right-width')]: `-${borderRightSize}px`,
+          [varName('border-bottom-width')]: `-${borderBottomSize}px`,
+          [varName('border-left-width')]: `-${borderLeftSize}px`,
+          [varName('border-top-left-radius')]: borderTopLeftRadius,
+          [varName('border-top-right-radius')]: borderTopRightRadius,
+          [varName('border-bottom-right-radius')]: borderBottomRightRadius,
+          [varName('border-bottom-left-radius')]: borderBottomLeftRadius,
+          ...beamStyle,
+        }}
+      />
+    </>
+  );
 };
 
 if (process.env.NODE_ENV !== 'production') {

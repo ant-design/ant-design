@@ -1,12 +1,18 @@
 import React from 'react';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 
-import showBorderBeamEffect from '../BorderBeamEffect';
-import type { BorderBeamEffectHandler, BorderBeamEffectProps } from '../BorderBeamEffect';
+import { showBorderBeamEffect } from '../BorderBeamEffect';
+import type { BorderBeamEffectHandler } from '../BorderBeamEffect';
+
+type BorderBeamEffectInfo = {
+  className: string;
+  rootClassName: string;
+  style?: React.CSSProperties;
+};
 
 type UseBorderBeamEffectOptions = {
   prefixCls: string;
-  effectInfo: BorderBeamEffectProps;
+  effectInfo: BorderBeamEffectInfo;
   hostElement: HTMLElement | null;
 };
 
