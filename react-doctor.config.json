@@ -16,6 +16,13 @@
         "rules": ["react/dom-no-flush-sync", "react-dom/no-flush-sync"]
       },
       {
+        "files": ["components/splitter/SplitBar.tsx"],
+        "rules": [
+          "react/web-api-no-leaked-event-listener",
+          "react-web-api/no-leaked-event-listener"
+        ]
+      },
+      {
         "files": ["components/form/Form.tsx", "components/input/Input.tsx"],
         "rules": ["react-hooks/rules-of-hooks"]
       }
