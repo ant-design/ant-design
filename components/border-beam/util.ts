@@ -9,16 +9,15 @@ export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 
 const MAX_BEAM_COLOR_STOP_PERCENT = 70;
+const getLinearGradient = (...colorStops: string[]) =>
+  `linear-gradient(to left, ${colorStops.join(', ')}, transparent)`;
 
 // Map user-facing 0~100 stops into the visible beam segment so the tail area stays reserved.
 // We scale instead of hard-clamping because users describe the gradient against the full beam length:
 // `30` should stay around the first third of the visible segment, rather than remain `30%` after
 // the available range shrinks, which would distort the original color distribution.
-const getMappedBeamColorStopPercent = (percent: number) => {
-  const clampedPercent = Math.min(Math.max(percent, 0), 100);
-
-  return Number(((clampedPercent / 100) * MAX_BEAM_COLOR_STOP_PERCENT).toFixed(2));
-};
+const getMappedBeamColorStopPercent = (percent: number) =>
+  Number(((Math.min(Math.max(percent, 0), 100) / 100) * MAX_BEAM_COLOR_STOP_PERCENT).toFixed(2));
 
 // Build the beam gradient from a solid color or explicit gradient stops.
 export const getBorderBeamGradient = (
@@ -26,16 +25,12 @@ export const getBorderBeamGradient = (
   fallbackStartColor: string,
   fallbackEndColor: string,
 ) => {
-  const fallbackGradient = `linear-gradient(to left, ${fallbackStartColor}, ${fallbackEndColor}, transparent)`;
+  const fallbackGradient = getLinearGradient(fallbackStartColor, fallbackEndColor);
 
   if (typeof value === 'string') {
     const trimmedValue = value.trim();
 
-    if (trimmedValue) {
-      return `linear-gradient(to left, ${trimmedValue}, ${trimmedValue}, transparent)`;
-    }
-
-    return fallbackGradient;
+    return trimmedValue ? getLinearGradient(trimmedValue, trimmedValue) : fallbackGradient;
   }
 
   if (Array.isArray(value)) {
@@ -51,11 +46,9 @@ export const getBorderBeamGradient = (
       }))
       .sort((prev, next) => prev.percent - next.percent);
 
-    if (normalizedStops.length) {
-      const colorStops = normalizedStops.map((item) => `${item.color} ${item.percent}%`).join(', ');
-
-      return `linear-gradient(to left, ${colorStops}, transparent)`;
-    }
+    return normalizedStops.length
+      ? getLinearGradient(...normalizedStops.map((item) => `${item.color} ${item.percent}%`))
+      : fallbackGradient;
   }
 
   return fallbackGradient;
