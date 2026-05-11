@@ -383,7 +383,7 @@ describe('Input allowClear', () => {
 
     expect(argumentEventTarget).toBe(input);
     expect(argumentEventCurrentTarget).toBe(input);
-    expect(document.contains(argumentEventTarget as Node)).toBeTruthy();
+    expect(document.contains(argumentEventTarget as unknown as Node)).toBeTruthy();
   });
 
   it('should focus input after clear', () => {
