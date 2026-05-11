@@ -13,6 +13,7 @@ export default () => (
           dotSize: 4,
           textFontWeight: 'bold',
           statusSize: 8,
+          paddingInline: 12,
         },
       },
     }}
