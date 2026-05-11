@@ -55,6 +55,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     title,
     classNames,
     styles,
+    defaultChecked,
+    checked,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -70,8 +72,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   // ====================== Checked ======================
   const [innerChecked, setInnerChecked] = useControlledState<boolean>(
-    radioProps.defaultChecked ?? false,
-    radioProps.checked,
+    defaultChecked ?? false,
+    checked,
   );
 
   const onChange = (e: RadioChangeEvent) => {
