@@ -208,5 +208,11 @@ export default defineConfig({
             .toString(),
         }
       : null,
+    {
+      async: true,
+      content: fs
+        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'webmcp.js'))
+        .toString(),
+    },
   ].filter((script) => !!script),
 });
