@@ -49,7 +49,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
           <div
             class="ant-card-head-title"
           >
-            Default token
+            Default line width
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
           <div
             class="ant-card-head-title"
           >
-            Custom token
+            Custom line width
           </div>
         </div>
       </div>

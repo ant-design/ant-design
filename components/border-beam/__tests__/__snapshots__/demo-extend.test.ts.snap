@@ -8,15 +8,6 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
     class="ant-card ant-card-bordered css-var-test-id"
   >
     <div
-      class="ant-border-beam css-var-test-id ant-border-beam-holder"
-    >
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
-      />
-    </div>
-    <div
       class="ant-card-head"
     >
       <div
@@ -34,6 +25,11 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
     >
       Review task status, deployment health, and recent automation activity in one panel.
     </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
   </div>
 </div>
 `;
@@ -52,15 +48,6 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       class="ant-card ant-card-bordered css-var-test-id"
     >
       <div
-        class="ant-border-beam css-var-test-id ant-border-beam-holder"
-      >
-        <div
-          aria-hidden="true"
-          class="ant-border-beam-beam"
-          style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
-        />
-      </div>
-      <div
         class="ant-card-head"
       >
         <div
@@ -69,7 +56,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
           <div
             class="ant-card-head-title"
           >
-            Default token
+            Default line width
           </div>
         </div>
       </div>
@@ -82,6 +69,11 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
           Uses the default global lineWidth token from the current theme.
         </span>
       </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
     </div>
   </div>
   <div
@@ -91,15 +83,6 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       class="ant-card ant-card-bordered css-var-test-id"
     >
       <div
-        class="ant-border-beam css-var-test-id ant-border-beam-holder"
-      >
-        <div
-          aria-hidden="true"
-          class="ant-border-beam-beam"
-          style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 3px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 3px;"
-        />
-      </div>
-      <div
         class="ant-card-head"
       >
         <div
@@ -108,7 +91,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
           <div
             class="ant-card-head-title"
           >
-            Custom token
+            Custom line width
           </div>
         </div>
       </div>
@@ -121,6 +104,11 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
           Override lineWidth from theme.token.
         </span>
       </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
     </div>
   </div>
 </div>
@@ -240,15 +228,6 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     class="ant-card ant-card-bordered css-var-test-id"
   >
     <div
-      class="ant-border-beam css-var-test-id ant-border-beam-holder"
-    >
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
-      />
-    </div>
-    <div
       class="ant-card-head"
     >
       <div
@@ -308,6 +287,11 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
         Stop positions use the public 0-100 input range.
       </span>
     </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
   </div>
 </div>
 `;
@@ -322,15 +306,6 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
     class="ant-card ant-card-bordered css-var-test-id"
     style="border-radius: 20px 20px 0 0; overflow: hidden;"
   >
-    <div
-      class="ant-border-beam css-var-test-id ant-border-beam-holder"
-    >
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px 20px 0 0; --ant-border-beam-beam-outset: 0px; --ant-border-beam-beam-path-radius: 200px 200px 0 0; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
-      />
-    </div>
     <div
       class="ant-card-head"
     >
@@ -373,6 +348,11 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
         </button>
       </div>
     </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-inset-offset: -0px; --ant-border-beam-border-radius: 20px 20px 0 0;"
+    />
   </div>
 </div>
 `;

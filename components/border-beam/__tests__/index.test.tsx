@@ -3,7 +3,7 @@ import React from 'react';
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, waitFor } from '../../../tests/utils';
+import { render, waitFor } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
@@ -12,12 +12,10 @@ describe('BorderBeam', () => {
   rtlTest(() => <BorderBeam>content</BorderBeam>);
 
   const [varName] = genCssVar(defaultPrefixCls, 'border-beam');
-  const getRootElement = (container: HTMLElement) =>
-    container.querySelector<HTMLElement>('.ant-border-beam')!;
   const getBeamElement = (container: HTMLElement) =>
-    container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
+    container.querySelector<HTMLElement>('.ant-border-beam')!;
 
-  it('should inject into child when the host already provides a containing block', () => {
+  it('should inject the beam effect into the child host', async () => {
     const { container } = render(
       <BorderBeam className="beam-root">
         <div className="beam-child" style={{ position: 'relative' }}>
@@ -26,76 +24,75 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    const rootElement = getRootElement(container);
-    const childElement = container.querySelector<HTMLElement>('.beam-child');
-    const beamElement = getBeamElement(container);
+    await waitFor(() => {
+      const beamElement = getBeamElement(container);
+      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
 
-    expect(rootElement).not.toHaveClass('beam-root');
-    expect(rootElement.parentElement).toBe(childElement);
-    expect(childElement).not.toHaveClass('ant-border-beam');
-    expect(childElement?.style.getPropertyValue(varName('beam-size'))).toBe('');
-    expect(rootElement.style.getPropertyValue(varName('beam-size'))).toBe('');
-    expect(beamElement.style.getPropertyValue(varName('beam-size'))).toBe('100px');
-    expect(beamElement.closest('.ant-border-beam')).toBe(rootElement);
-    expect(beamElement).toHaveAttribute('aria-hidden', 'true');
+      expect(beamElement).toHaveClass('beam-root');
+      expect(beamElement.parentElement).toBe(childElement);
+      expect(childElement).not.toHaveClass('ant-border-beam');
+      expect(beamElement).toHaveAttribute('aria-hidden', 'true');
+    });
   });
 
-  it('should still inject into child when the child host is statically positioned', () => {
+  it('should still inject into child when the child host is statically positioned', async () => {
     const { container } = render(
       <BorderBeam className="beam-root">
         <div className="beam-child">content</div>
       </BorderBeam>,
     );
 
-    const rootElement = getRootElement(container);
-    const childElement = container.querySelector<HTMLElement>('.beam-child');
-    const beamElement = getBeamElement(container);
-
-    expect(rootElement.parentElement).toBe(childElement);
-    expect(rootElement).toHaveClass('ant-border-beam-holder');
-    expect(beamElement.parentElement).toBe(rootElement);
-  });
-
-  it('should render wrapper mode for plain text children', () => {
-    const { container } = render(<BorderBeam>content</BorderBeam>);
-
-    const rootElement = getRootElement(container);
-    const beamElement = getBeamElement(container);
-
-    expect(rootElement.tagName).toBe('DIV');
-    expect(rootElement).toHaveTextContent('content');
-    expect(beamElement.parentElement).toBe(rootElement);
-  });
-
-  it('should skip decoration instead of wrapping structured host tags', async () => {
-    const { container } = render(
-      <table>
-        <BorderBeam>
-          <tbody>
-            <tr>
-              <td>cell</td>
-            </tr>
-          </tbody>
-        </BorderBeam>
-      </table>,
-    );
-
     await waitFor(() => {
-      expect(container.querySelector('.ant-border-beam-wrapper')).toBeFalsy();
-      expect(container.querySelector('.ant-border-beam-beam')).toBeFalsy();
-      expect(container.querySelector('table > tbody')).toBeTruthy();
+      const beamElement = getBeamElement(container);
+      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
+
+      expect(beamElement).toHaveClass('ant-border-beam');
+      expect(beamElement.parentElement).toBe(childElement);
     });
   });
 
-  it('should support component and ConfigProvider common className and style', () => {
+  it('should skip decoration for plain text children', () => {
+    const { container } = render(<BorderBeam>content</BorderBeam>);
+
+    expect(container).toHaveTextContent('content');
+    expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+  });
+
+  it('should skip decoration when the child cannot hold a DOM ref', () => {
+    const FunctionChild = () => <div className="beam-child">content</div>;
+
+    const { container } = render(
+      <BorderBeam>
+        <FunctionChild />
+      </BorderBeam>,
+    );
+
+    expect(container.querySelector('.beam-child')).toBeTruthy();
+    expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+  });
+
+  it('should skip decoration when the resolved host is not HTMLElement', async () => {
+    const { container } = render(
+      <BorderBeam>
+        <svg data-testid="beam-svg" />
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('[data-testid="beam-svg"]')).toBeTruthy();
+      expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+    });
+  });
+
+  it('should support component and ConfigProvider common className and style', async () => {
     const { container } = render(
       <ConfigProvider
         borderBeam={{
           className: 'context-root',
-          style: { animationIterationCount: 2, padding: 6 },
+          style: { opacity: 0.5, padding: 6 },
         }}
       >
-        <BorderBeam className="beam-root" style={{ animationDuration: '3s', padding: 8 }}>
+        <BorderBeam className="beam-root" style={{ opacity: 0.8 }}>
           <div>
             <span>content</span>
           </div>
@@ -103,221 +100,93 @@ describe('BorderBeam', () => {
       </ConfigProvider>,
     );
 
-    const rootElement = getRootElement(container);
+    await waitFor(() => {
+      const beamElement = getBeamElement(container);
 
-    expect(rootElement).toHaveClass('context-root');
-    expect(rootElement).toHaveClass('beam-root');
-    expect(rootElement).toHaveStyle({ padding: '8px' });
-    expect(rootElement.style.animationIterationCount).toBe('2');
-    expect(rootElement.style.animationDuration).toBe('3s');
+      expect(beamElement).toHaveClass('context-root');
+      expect(beamElement).toHaveClass('beam-root');
+      expect(beamElement).toHaveStyle({ opacity: '0.8', padding: '6px' });
+    });
   });
 
-  it('should support customizing the beam layer outset', () => {
+  it('should infer border width and support customizing the inset offset', async () => {
     const { container, rerender } = render(
-      <BorderBeam outset={0}>
-        <div>content</div>
+      <BorderBeam>
+        <div style={{ border: '2px solid red' }}>content</div>
       </BorderBeam>,
     );
 
-    const beamElement = getBeamElement(container);
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('inset-offset'))).toBe(
+        '-2px -2px -2px -2px',
+      );
+    });
 
-    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('0px');
+    rerender(
+      <BorderBeam outset={4}>
+        <div style={{ border: '2px solid red' }}>content</div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('inset-offset'))).toBe('-4px');
 
     rerender(
       <BorderBeam outset="2em">
-        <div>content</div>
+        <div style={{ border: '2px solid red' }}>content</div>
       </BorderBeam>,
     );
 
-    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('2em');
-
-    rerender(
-      <BorderBeam outset=" ">
-        <div>content</div>
-      </BorderBeam>,
+    expect(getBeamElement(container).style.getPropertyValue(varName('inset-offset'))).toBe(
+      'calc(-1 * 2em)',
     );
-
-    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('1px');
   });
 
-  it('should decide wrapper fallback once when the child ref never resolves', async () => {
-    jest.useFakeTimers();
-
-    const DeferredChild = React.forwardRef<
-      HTMLDivElement,
-      React.HTMLAttributes<HTMLDivElement> & { ready: boolean }
-    >(({ ready, ...restProps }, ref) => <div ref={ready ? ref : undefined} {...restProps} />);
-
-    try {
-      const { container, rerender } = render(
-        <BorderBeam>
-          <DeferredChild ready={false} className="beam-child" />
-        </BorderBeam>,
-      );
-
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      await waitFor(() => {
-        const rootElement = getRootElement(container);
-        const childElement = container.querySelector<HTMLElement>('.beam-child')!;
-
-        expect(rootElement).not.toBe(childElement);
-        expect(getBeamElement(container).parentElement).toBe(rootElement);
-      });
-
-      rerender(
-        <BorderBeam>
-          <DeferredChild ready className="beam-child" />
-        </BorderBeam>,
-      );
-
-      await waitFor(() => {
-        const rootElement = getRootElement(container);
-        const childElement = container.querySelector<HTMLElement>('.beam-child')!;
-
-        expect(rootElement).not.toBe(childElement);
-        expect(getBeamElement(container).parentElement).toBe(rootElement);
-      });
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
-  it('should fall back to wrapper when a custom child renders an unsupported host', async () => {
-    const InputChild = React.forwardRef<
-      HTMLInputElement,
-      React.InputHTMLAttributes<HTMLInputElement>
-    >((props, ref) => <input ref={ref} data-testid="beam-input" {...props} />);
-
-    const { container } = render(
-      <BorderBeam style={{ borderRadius: 18 }}>
-        <InputChild className="beam-input" aria-label="name" />
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      const rootElement = getRootElement(container);
-      const inputElement = container.querySelector<HTMLElement>('[data-testid="beam-input"]')!;
-
-      expect(rootElement).not.toBe(inputElement);
-      expect(rootElement.contains(inputElement)).toBe(true);
-      expect(inputElement.querySelector('.ant-border-beam-holder')).toBeNull();
-      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
-    });
-
-    const { container: zeroRadiusContainer } = render(
-      <BorderBeam style={{ borderRadius: 0 }}>
-        <InputChild aria-label="age" />
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      expect(
-        getRootElement(zeroRadiusContainer).style.getPropertyValue(varName('beam-clip-radius')),
-      ).toBe('0');
-    });
-
-    const { container: cssVarContainer } = render(
-      <BorderBeam style={{ borderRadius: 'var(--beam-radius)' }}>
-        <InputChild aria-label="email" />
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      expect(
-        getRootElement(cssVarContainer).style.getPropertyValue(varName('beam-clip-radius')),
-      ).toBe('var(--beam-radius)');
-    });
-  });
-
-  it('should inject into child when the child drops injected styles and infer radius once', async () => {
-    const RadiusChild = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-      ({ className }, ref) => (
-        <div
-          ref={ref}
-          className={className}
-          data-testid="beam-child"
-          style={{ position: 'relative', borderRadius: 12 }}
-        >
-          content
-        </div>
-      ),
-    );
-
+  it('should infer child border radius from computed style', async () => {
     const { container } = render(
       <BorderBeam>
-        <RadiusChild />
+        <div style={{ borderRadius: 12 }}>content</div>
       </BorderBeam>,
     );
 
     await waitFor(() => {
-      const rootElement = getRootElement(container);
-      const childElement = container.querySelector<HTMLElement>('[data-testid="beam-child"]')!;
-
-      expect(rootElement.parentElement).toBe(childElement);
-      expect(getBeamElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+      expect(getBeamElement(container).style.getPropertyValue(varName('border-radius'))).toBe(
         '12px',
-      );
-      expect(childElement.style.getPropertyValue(varName('beam-size'))).toBe('');
-    });
-  });
-
-  it('should prefer explicit wrapper radius once wrapper mode is chosen', async () => {
-    const { container } = render(<BorderBeam style={{ borderRadius: 18 }}>content</BorderBeam>);
-
-    await waitFor(() => {
-      expect(getRootElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
-        '18px',
       );
     });
 
     const { container: cssVarContainer } = render(
-      <BorderBeam style={{ borderRadius: 'var(--beam-radius)' }}>content</BorderBeam>,
+      <BorderBeam>
+        <div style={{ borderRadius: 'var(--beam-radius)' }}>content</div>
+      </BorderBeam>,
     );
 
     await waitFor(() => {
-      expect(
-        getRootElement(cssVarContainer).style.getPropertyValue(varName('beam-clip-radius')),
-      ).toBe('var(--beam-radius)');
+      expect(getBeamElement(cssVarContainer).style.getPropertyValue(varName('border-radius'))).toBe(
+        'var(--beam-radius)',
+      );
     });
   });
 
-  it('should resolve solid, fallback, and gradient colors', () => {
+  it('should resolve solid and gradient colors', async () => {
     const { container, rerender } = render(
       <BorderBeam color="#36cfc9">
         <div>content</div>
       </BorderBeam>,
     );
 
-    let element = getBeamElement(container);
-    let beamGradient = element.style.getPropertyValue(varName('beam-gradient'));
-
-    expect(beamGradient).toContain('#36cfc9');
-    expect(beamGradient).toContain('transparent');
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('beam-gradient'))).toBe(
+        'linear-gradient(to left, #36cfc9 0%, #36cfc9 70%, transparent)',
+      );
+    });
 
     rerender(
-      <BorderBeam color="   ">
+      <BorderBeam>
         <div>content</div>
       </BorderBeam>,
     );
 
-    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
-      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
-    );
-
-    rerender(
-      <BorderBeam color={[{ color: '   ', percent: 20 }]}>
-        <div>content</div>
-      </BorderBeam>,
-    );
-
-    element = getBeamElement(container);
-
-    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
-      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
-    );
+    expect(getBeamElement(container).style.getPropertyValue(varName('beam-gradient'))).toBe('');
 
     rerender(
       <BorderBeam
@@ -331,267 +200,11 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    beamGradient = element.style.getPropertyValue(varName('beam-gradient'));
+    const beamGradient = getBeamElement(container).style.getPropertyValue(varName('beam-gradient'));
 
-    expect(beamGradient).toContain('#1677ff');
-    expect(beamGradient).toContain('#36cfc9');
-    expect(beamGradient).toContain('#95de64');
-    expect(beamGradient).toContain('transparent');
-    expect(beamGradient.indexOf('#1677ff')).toBeLessThan(beamGradient.indexOf('#36cfc9'));
-    expect(beamGradient.indexOf('#36cfc9')).toBeLessThan(beamGradient.indexOf('#95de64'));
-
-    const stopPercents = Array.from(beamGradient.matchAll(/(\d+(?:\.\d+)?)%/g)).map((match) =>
-      Number(match[1]),
+    expect(beamGradient).toBe(
+      'linear-gradient(to left, #1677ff 0%, #36cfc9 38.5%, #95de64 70%, transparent)',
     );
-
-    expect(stopPercents).toHaveLength(3);
-    expect(stopPercents[0]).toBeGreaterThanOrEqual(0);
-    expect(stopPercents[1]).toBeGreaterThan(stopPercents[0]);
-    expect(stopPercents[2]).toBeGreaterThan(stopPercents[1]);
-    expect(stopPercents[2]).toBeLessThan(100);
-  });
-
-  it('should normalize configured border radius values without locking path smoothing details', () => {
-    const { container: singleContainer } = render(
-      <BorderBeam style={{ borderRadius: ' 18px ' }}>content</BorderBeam>,
-    );
-
-    const element = getRootElement(singleContainer);
-
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
-
-    const { container: dualContainer } = render(
-      <BorderBeam style={{ borderRadius: '8px 16px' }}>content</BorderBeam>,
-    );
-    expect(getRootElement(dualContainer).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
-      '8px 16px',
-    );
-
-    const { container: tripleContainer } = render(
-      <BorderBeam style={{ borderRadius: '8px 16px 24px' }}>content</BorderBeam>,
-    );
-    expect(
-      getRootElement(tripleContainer).style.getPropertyValue(varName('beam-clip-radius')),
-    ).toBe('8px 16px 24px');
-
-    const { container: ellipticalContainer } = render(
-      <BorderBeam style={{ borderRadius: '8px 16px / 20px 24px' }}>content</BorderBeam>,
-    );
-    expect(
-      getRootElement(ellipticalContainer).style.getPropertyValue(varName('beam-clip-radius')),
-    ).toBe('8px 16px / 20px 24px');
-
-    const { container: blankContainer } = render(
-      <BorderBeam style={{ borderRadius: '   ' }}>content</BorderBeam>,
-    );
-    expect(getRootElement(blankContainer).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
-      '0px',
-    );
-
-    const { container: numericContainer } = render(
-      <BorderBeam style={{ borderRadius: 18 }}>content</BorderBeam>,
-    );
-    const numericElement = getRootElement(numericContainer);
-
-    expect(numericElement.style.borderRadius).toBe('18px');
-    expect(numericElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
-    expect(numericElement.style.getPropertyValue(varName('beam-path-radius'))).not.toBe('');
-    expect(numericElement.style.getPropertyValue(varName('beam-path-radius'))).not.toBe(
-      numericElement.style.getPropertyValue(varName('beam-clip-radius')),
-    );
-
-    const { container: cssVarContainer } = render(
-      <BorderBeam style={{ borderRadius: 'var(--beam-radius)' }}>content</BorderBeam>,
-    );
-    const cssVarElement = getRootElement(cssVarContainer);
-    expect(cssVarElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe(
-      'var(--beam-radius)',
-    );
-    expect(cssVarElement.style.getPropertyValue(varName('beam-path-radius'))).toBe(
-      'var(--beam-radius)',
-    );
-  });
-
-  it('should infer child radius from inline styles and longhand computed corners', async () => {
-    const originGetComputedStyle = window.getComputedStyle;
-
-    window.getComputedStyle = ((element: Element, pseudoElt?: string | null) => {
-      const style = originGetComputedStyle.call(window, element, pseudoElt);
-
-      if ((element as HTMLElement).classList.contains('beam-radius-2')) {
-        return {
-          ...style,
-          borderTopLeftRadius: '8px',
-          borderTopRightRadius: '16px',
-          borderBottomRightRadius: '8px',
-          borderBottomLeftRadius: '16px',
-          borderRadius: '',
-        } as CSSStyleDeclaration;
-      }
-
-      if ((element as HTMLElement).classList.contains('beam-radius-3')) {
-        return {
-          ...style,
-          borderTopLeftRadius: '8px',
-          borderTopRightRadius: '16px',
-          borderBottomRightRadius: '24px',
-          borderBottomLeftRadius: '16px',
-          borderRadius: '',
-        } as CSSStyleDeclaration;
-      }
-
-      if ((element as HTMLElement).classList.contains('beam-radius-ellipse')) {
-        return {
-          ...style,
-          borderTopLeftRadius: '8px 12px',
-          borderTopRightRadius: '16px 20px',
-          borderBottomRightRadius: '8px 12px',
-          borderBottomLeftRadius: '16px 20px',
-          borderRadius: '',
-        } as CSSStyleDeclaration;
-      }
-
-      return style;
-    }) as typeof window.getComputedStyle;
-
-    try {
-      const { container } = render(
-        <BorderBeam>
-          <div style={{ borderRadius: 12 }}>content</div>
-        </BorderBeam>,
-      );
-
-      const element = getBeamElement(container);
-
-      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
-
-      const { container: twoTokenContainer } = render(
-        <BorderBeam>
-          <div className="beam-radius-2">content</div>
-        </BorderBeam>,
-      );
-
-      await waitFor(() => {
-        expect(
-          getBeamElement(twoTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
-        ).toBe('8px 16px');
-      });
-
-      const { container: threeTokenContainer } = render(
-        <BorderBeam>
-          <div className="beam-radius-3">content</div>
-        </BorderBeam>,
-      );
-
-      await waitFor(() => {
-        expect(
-          getBeamElement(threeTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
-        ).toBe('8px 16px 24px');
-      });
-
-      const { container: ellipseContainer } = render(
-        <BorderBeam>
-          <div className="beam-radius-ellipse">content</div>
-        </BorderBeam>,
-      );
-
-      await waitFor(() => {
-        expect(
-          getBeamElement(ellipseContainer).style.getPropertyValue(varName('beam-clip-radius')),
-        ).toBe('8px 16px / 12px 20px');
-      });
-
-      const { container: fourTokenContainer } = render(
-        <BorderBeam>
-          <div style={{ borderRadius: '20px 18px 12px 6px' }}>content</div>
-        </BorderBeam>,
-      );
-
-      await waitFor(() => {
-        expect(
-          getBeamElement(fourTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
-        ).toBe('20px 18px 12px 6px');
-      });
-    } finally {
-      window.getComputedStyle = originGetComputedStyle;
-    }
-  });
-
-  it('should delay beam display until radius becomes measurable on the next frame', async () => {
-    jest.useFakeTimers();
-
-    const originGetComputedStyle = window.getComputedStyle;
-    let measureCount = 0;
-
-    window.getComputedStyle = ((element: Element, pseudoElt?: string | null) => {
-      const style = originGetComputedStyle.call(window, element, pseudoElt);
-
-      if ((element as HTMLElement).classList.contains('beam-child')) {
-        if (measureCount < 2) {
-          measureCount += 1;
-
-          return {
-            ...style,
-            position: 'relative',
-            borderRadius: '',
-            borderTopLeftRadius: '',
-            borderTopRightRadius: '',
-            borderBottomRightRadius: '',
-            borderBottomLeftRadius: '',
-          } as CSSStyleDeclaration;
-        }
-
-        return {
-          ...style,
-          position: 'relative',
-          borderRadius: '12px',
-          borderTopLeftRadius: '12px',
-          borderTopRightRadius: '12px',
-          borderBottomRightRadius: '12px',
-          borderBottomLeftRadius: '12px',
-        } as CSSStyleDeclaration;
-      }
-
-      return style;
-    }) as typeof window.getComputedStyle;
-
-    try {
-      const { container } = render(
-        <BorderBeam>
-          <div className="beam-child" style={{ position: 'relative' }}>
-            content
-          </div>
-        </BorderBeam>,
-      );
-
-      const beamElement = getBeamElement(container);
-
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      await waitFor(() => {
-        expect(beamElement.style.display).toBe('');
-        expect(beamElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
-      });
-    } finally {
-      window.getComputedStyle = originGetComputedStyle;
-      jest.useRealTimers();
-    }
-  });
-
-  it('should hide the beam when the line width token is zero', async () => {
-    const { container } = render(
-      <ConfigProvider theme={{ token: { lineWidth: 0 } }}>
-        <BorderBeam>
-          <div style={{ borderRadius: 12 }}>content</div>
-        </BorderBeam>
-      </ConfigProvider>,
-    );
-
-    await waitFor(() => {
-      expect(getBeamElement(container).style.display).toBe('none');
-    });
   });
 
   it('should expose the entry export and keep production bundles without displayName', async () => {
