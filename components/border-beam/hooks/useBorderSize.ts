@@ -8,11 +8,9 @@ export type BorderInfo = {
   borderRadius: BorderRadius;
 };
 
-const DEFAULT_BORDER_SIZE: BorderSize = [0, 0, 0, 0];
-const DEFAULT_BORDER_RADIUS: BorderRadius = [0, 0, 0, 0];
 const DEFAULT_BORDER_INFO: BorderInfo = {
-  borderSize: DEFAULT_BORDER_SIZE,
-  borderRadius: DEFAULT_BORDER_RADIUS,
+  borderSize: [0, 0, 0, 0],
+  borderRadius: [0, 0, 0, 0],
 };
 
 const parseBorderValue = (value: string) => {
