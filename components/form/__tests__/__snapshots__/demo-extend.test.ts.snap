@@ -8451,7 +8451,7 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
   style="max-width: 600px;"
 >
   <div
-    class="ant-alert ant-alert-info css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -31918,7 +31918,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
   style="max-width: 600px;"
 >
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >

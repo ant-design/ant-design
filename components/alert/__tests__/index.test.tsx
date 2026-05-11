@@ -225,6 +225,34 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBe(element);
   });
 
+  it('should add outlined variant class by default and support variant prop', () => {
+    const { container, rerender } = render(<Alert title="Info" />);
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-outlined');
+
+    rerender(<Alert title="Info" variant="filled" />);
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-filled');
+  });
+
+  it('should support variant from ConfigProvider', () => {
+    const { container, rerender } = render(
+      <ConfigProvider alert={{ variant: 'filled' }}>
+        <Alert title="Info" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-filled');
+
+    rerender(
+      <ConfigProvider alert={{ variant: 'filled' }}>
+        <Alert title="Info" variant="outlined" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-outlined');
+  });
+
   it('should apply custom styles to Alert', () => {
     const customClassNames: Required<GetProp<AlertProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
