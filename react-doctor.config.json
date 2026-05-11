@@ -1,8 +1,6 @@
 {
   "ignore": {
-    "rules": [
-      "react-doctor/effect-needs-cleanup"
-    ],
+    "rules": ["react-doctor/effect-needs-cleanup"],
     "files": [
       ".dumi/**",
       "docs/**",
