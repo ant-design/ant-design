@@ -59,7 +59,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          Uses the default BorderBeam component token values derived from the current theme.
+          Uses the default global lineWidth token from the current theme.
         </span>
       </div>
     </div>
@@ -89,7 +89,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          Override borderBeamWidth from theme.components.BorderBeam.
+          Override lineWidth from theme.token.
         </span>
       </div>
     </div>

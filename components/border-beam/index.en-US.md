@@ -22,7 +22,7 @@ tag: 6.4.0
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
 <code src="./demo/non-uniform-radius.tsx" debug>Non-uniform radius</code>
-<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/component-token.tsx" debug>Line width</code>
 
 ## API
 
@@ -50,11 +50,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 `percent` represents the authored stop position and accepts values from `0` to `100`. BorderBeam maps those stops into the visible beam segment and reserves the trailing area for transparent fade-out so the moving tail stays visible.
 
-### Do I need to set `position` myself? {#faq-position}
+### Why is `BorderBeam` not working? {#faq-not-working}
 
-`BorderBeam` first attempts to insert the beam layer into the root node of `children` so the original component layout is not changed by an extra wrapper. When this mode is used, make sure the inserted root node can position the beam holder, such as by setting its `position` to a non-`static` value. BorderBeam does not inspect or patch the child position for you; it only falls back to its own wrapper when the child cannot host the beam holder.
+`BorderBeam` needs to resolve the actual DOM node from `children` and insert the beam layer into that node. Make sure the wrapped content is a native DOM element, or a React component that correctly forwards its `ref` to a DOM element. Otherwise BorderBeam cannot locate the real container and the beam cannot be rendered.
 
-For performance reasons, whether `children` can host the beam is resolved during initialization and is not continuously updated when the child structure or positioning styles change later.
+The beam layer is positioned with `position: absolute`, so the resolved DOM node also needs to provide a positioning context. In most cases, set `position: relative` on the wrapped element. BorderBeam does not inspect or patch the child positioning style for you.
+
+For performance reasons, whether `children` can host the beam and its positioning information are resolved during initialization, and are not continuously updated when the child structure or positioning styles change later.
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 

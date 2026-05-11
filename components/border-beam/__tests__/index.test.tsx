@@ -87,7 +87,7 @@ describe('BorderBeam', () => {
     });
   });
 
-  it('should support ConfigProvider common className and style', () => {
+  it('should support component and ConfigProvider common className and style', () => {
     const { container } = render(
       <ConfigProvider
         borderBeam={{
@@ -95,15 +95,21 @@ describe('BorderBeam', () => {
           style: { animationIterationCount: 2, padding: 6 },
         }}
       >
-        <BorderBeam>content</BorderBeam>
+        <BorderBeam className="beam-root" style={{ animationDuration: '3s', padding: 8 }}>
+          <div>
+            <span>content</span>
+          </div>
+        </BorderBeam>
       </ConfigProvider>,
     );
 
     const rootElement = getRootElement(container);
 
     expect(rootElement).toHaveClass('context-root');
-    expect(rootElement).toHaveStyle({ padding: '6px' });
+    expect(rootElement).toHaveClass('beam-root');
+    expect(rootElement).toHaveStyle({ padding: '8px' });
     expect(rootElement.style.animationIterationCount).toBe('2');
+    expect(rootElement.style.animationDuration).toBe('3s');
   });
 
   it('should support customizing the beam layer outset', () => {
@@ -574,9 +580,9 @@ describe('BorderBeam', () => {
     }
   });
 
-  it('should hide the beam when the border width token is zero', async () => {
+  it('should hide the beam when the line width token is zero', async () => {
     const { container } = render(
-      <ConfigProvider theme={{ components: { BorderBeam: { borderBeamWidth: 0 } } }}>
+      <ConfigProvider theme={{ token: { lineWidth: 0 } }}>
         <BorderBeam>
           <div style={{ borderRadius: 12 }}>content</div>
         </BorderBeam>

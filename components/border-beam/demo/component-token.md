@@ -4,8 +4,8 @@ debug: true
 
 ## zh-CN
 
-自定义组件 Token。
+使用全局线宽 Token。
 
 ## en-US
 
-Custom component token.
+Use global line width token.

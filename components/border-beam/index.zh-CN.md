@@ -23,7 +23,7 @@ tag: 6.4.0
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
-<code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/component-token.tsx" debug>线宽</code>
 
 ## API
 
@@ -51,11 +51,13 @@ tag: 6.4.0
 
 `percent` 表示渐变停靠点的输入位置，取值范围为 `0 ~ 100`。组件会将这些停靠点映射到可见 beam 段内，并为尾部透明过渡保留空间，以保持流光尾迹连续可见。
 
-### 需要自己设置 `position` 吗？ {#faq-position}
+### 为什么 `BorderBeam` 没有效果？ {#faq-not-working}
 
-`BorderBeam` 会优先尝试将流光层插入到 `children` 的根节点中，以避免额外包裹层影响原组件布局。使用该模式时，请确保被插入的根节点可以为流光层提供定位上下文，例如将 `position` 设置为非 `static` 值。BorderBeam 不会主动检测或修正子节点的定位；仅当子节点无法承载流光层时，才会回退到自身包裹层。
+`BorderBeam` 需要通过 `children` 获取实际 DOM 节点，并将流光层插入到该节点中。请确保被包裹的内容是原生 DOM 元素，或是正确透传 `ref` 到 DOM 的 React 组件，否则组件无法定位真实容器，也就无法渲染流光效果。
 
-为保证性能，`children` 是否可以插入的判断会在初始化时完成，后续不会持续监听子节点结构或定位样式变化。
+流光层使用 `position: absolute` 定位，因此被索引到的 DOM 节点还需要提供定位上下文，通常可以为它设置 `position: relative`。`BorderBeam` 不会主动检测或修正子节点的定位样式。
+
+为保证性能，`children` 是否可以插入以及其定位信息会在初始化时判断，后续不会持续监听子节点结构或定位样式变化。
 
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
 

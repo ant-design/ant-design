@@ -2,17 +2,11 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 
 import { genNoMotionStyle } from '../../style/motion';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
-export interface ComponentToken {
-  /**
-   * @desc 流光边框环宽度
-   * @descEN Beam ring width
-   */
-  borderBeamWidth: number;
-}
+export type ComponentToken = object;
 
 interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 
@@ -48,11 +42,10 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       borderBottomLeftRadius: varRef('border-bottom-left-radius', '0px'),
       zIndex: 1,
       overflow: 'hidden',
-      boxSizing: 'border-box',
       pointerEvents: 'none',
 
       // Border Beam
-      padding: token.borderBeamWidth,
+      padding: token.lineWidth,
 
       // Border Beam Effect
       '@supports ((mask-composite: exclude) or (-webkit-mask-composite: xor))': {
@@ -73,7 +66,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             width: 100,
             aspectRatio: '1 / 1',
             opacity: 0.95,
-            backgroundImage: 'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+            backgroundImage: varRef('beam-gradient'),
             offsetAnchor: '90% 50%',
             offsetDistance: '0%',
             offsetPath: 'rect(0 auto auto 0 round 200px)',
@@ -96,10 +89,4 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'BorderBeam'> = (token) => ({
-  borderBeamWidth: token.lineWidth,
-});
-
-export default genStyleHooks('BorderBeam', genBorderBeamStyle, prepareComponentToken, {
-  resetStyle: false,
-});
+export default genStyleHooks('BorderBeam', genBorderBeamStyle);

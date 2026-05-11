@@ -16,22 +16,19 @@ const Panel: React.FC<{ title: string; desc: string }> = ({ title, desc }) => {
 const App: React.FC = () => (
   <Flex gap={24} wrap>
     <Panel
-      title="Default token"
-      desc="Uses the default BorderBeam component token values derived from the current theme."
+      title="Default line width"
+      desc="Uses the default global lineWidth token from the current theme."
     />
     <ConfigProvider
       theme={{
         components: {
           BorderBeam: {
-            borderBeamWidth: 3,
+            lineWidth: 3,
           },
         },
       }}
     >
-      <Panel
-        title="Custom token"
-        desc="Override borderBeamWidth from theme.components.BorderBeam."
-      />
+      <Panel title="Custom line width" desc="Override lineWidth from theme.token." />
     </ConfigProvider>
   </Flex>
 );
