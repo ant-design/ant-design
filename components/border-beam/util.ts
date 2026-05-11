@@ -37,15 +37,11 @@ const normalizeGradientItems = (items: BorderBeamGradient) =>
   }));
 
 // Build the beam gradient from a solid color or explicit gradient stops.
-export const getBorderBeamGradient = (
-  value: BorderBeamColor | undefined,
-  fallbackStartColor: string,
-  fallbackEndColor: string,
-) => {
+export const getBorderBeamGradient = (value: BorderBeamColor | undefined) => {
   // Reserve the trailing section for fade-out so custom gradients keep a visible tail.
   const normalizedStops = normalizeGradientItems(normalizeBorderBeamColor(value));
 
   return normalizedStops.length
     ? getLinearGradient(...normalizedStops.map((item) => `${item.color} ${item.percent}%`))
-    : getLinearGradient(fallbackStartColor, fallbackEndColor);
+    : undefined;
 };
