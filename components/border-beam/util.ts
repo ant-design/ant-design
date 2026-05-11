@@ -11,12 +11,17 @@ const getLinearGradient = (...colorStops: string[]) =>
   `linear-gradient(to left, ${colorStops.join(', ')}, transparent)`;
 
 const normalizeBorderBeamColor = (value: BorderBeamColor | undefined): BorderBeamGradient =>
-  typeof value === 'string'
-    ? [
-        { color: value, percent: 0 },
-        { color: value, percent: 100 },
-      ]
-    : (value ?? []);
+  typeof value === 'string' ? [{ color: value, percent: 0 }] : (value ?? []);
+
+const fillGradientEnd = (items: BorderBeamGradient): BorderBeamGradient => {
+  const lastItem = items[items.length - 1];
+
+  if (!lastItem || lastItem.percent === 100) {
+    return items;
+  }
+
+  return [...items, { ...lastItem, percent: 100 }];
+};
 
 // Map user-facing 0~100 stops into the visible beam segment so the tail area stays reserved.
 // We scale instead of hard-clamping because users describe the gradient against the full beam length:
@@ -26,12 +31,10 @@ const getMappedBeamColorStopPercent = (percent: number) =>
   Number(((Math.min(Math.max(percent, 0), 100) / 100) * MAX_BEAM_COLOR_STOP_PERCENT).toFixed(2));
 
 const normalizeGradientItems = (items: BorderBeamGradient) =>
-  items
-    .map((item) => ({
-      color: item.color,
-      percent: getMappedBeamColorStopPercent(item.percent),
-    }))
-    .sort((prev, next) => prev.percent - next.percent);
+  fillGradientEnd(items).map((item) => ({
+    color: item.color,
+    percent: getMappedBeamColorStopPercent(item.percent),
+  }));
 
 // Build the beam gradient from a solid color or explicit gradient stops.
 export const getBorderBeamGradient = (
