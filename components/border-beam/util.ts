@@ -6,7 +6,7 @@ type BorderBeamGradientItem = {
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 
-const MAX_BEAM_COLOR_STOP_PERCENT = 70;
+export const MAX_BEAM_COLOR_STOP_PERCENT = 70;
 const getLinearGradient = (...colorStops: string[]) =>
   `linear-gradient(to left, ${colorStops.join(', ')}, transparent)`;
 

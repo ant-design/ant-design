@@ -5,6 +5,7 @@ import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import { MAX_BEAM_COLOR_STOP_PERCENT } from '../util';
 
 export type ComponentToken = object;
 
@@ -13,9 +14,7 @@ interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [, varRef] = genCssVar(antCls, 'border-beam');
-  const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary}, ${
-    token.colorPrimaryHover
-  }, transparent)`;
+  const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary} 0%, ${token.colorPrimaryHover} ${MAX_BEAM_COLOR_STOP_PERCENT}%, transparent)`;
 
   // =========================== Animation ============================
   const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
