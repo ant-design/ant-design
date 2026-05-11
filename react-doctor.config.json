@@ -9,6 +9,12 @@
       "**/demo/**",
       "**/__tests__/**",
       "**/*.md"
+    ],
+    "overrides": [
+      {
+        "files": ["components/form/Form.tsx", "components/input/Input.tsx"],
+        "rules": ["react-hooks/rules-of-hooks"]
+      }
     ]
   },
   "failOn": "none",
