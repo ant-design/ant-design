@@ -1,5 +1,5 @@
 ---
-title: Contributor development maintenance guide
+title: Contributor Development Maintenance Guide
 date: 2023-03-10
 author: kiner-tang
 zhihu_url: https://zhuanlan.zhihu.com/p/639266384
@@ -7,15 +7,15 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/rixou58ogv8hlev2
 juejin_url: https://juejin.cn/post/7322305961196273673
 ---
 
-Hi, I'm [kiner-tang](https://github.com/kiner-tang) who is a heavy user of Ant Design. As the same reason, I come up to be a contributor for fixing bug and some features. Finally, it's my honer to become a member of Ant Design Collaborator.
+Hi, I'm [kiner-tang](https://github.com/kiner-tang) who is a heavy user of Ant Design. As the same reason, I come up to be a contributor for fixing bugs and some features. Finally, it's my honor to become a member of Ant Design Collaborator.
 
-During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to share my experience with the problem I meet. Hope it can help you to join the Ant Design community.
+During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to share my experience with the problems I met. Hope it can help you to join the Ant Design community.
 
 ## Some frequently asked Questions
 
 ### About dependent version
 
-There are various of package managers, such as npm, yarn, or pnpm, providing version-locking solutions to avoid version-inconsistencies issue. However, in Ant Design projects, many functions depend on the original components in the `react-component` repository. We expect that when we encounter some bugs, after the `react-component` fixes and releases the patch version, Instead of manually upgrading the version in the Ant Design project, we can install the latest patch installation package only by reinstalling the dependencies. At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
+There are various package managers, such as npm, yarn, or pnpm, providing version-locking solutions to avoid version inconsistency issues. However, in Ant Design projects, many functions depend on the original components in the `react-component` repository. We expect that when we encounter some bugs, after the `react-component` fixes and releases the patch version, instead of manually upgrading the version in the Ant Design project, we can install the latest patch installation package only by reinstalling the dependencies. At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
 
 Based on the above reasons, we adopt the following methods:
 
@@ -60,7 +60,7 @@ Back to the topic, what should we do if we find snapshot test failed after chang
    The common causes are as follows:
    - Local dependency is out of date. This may happen when you pull the latest code, but did not update the local dependency. Deleting `lock` file, `node_modules`, and then reinstalling dependencies could solve this problem.
 
-     solution is as simple as deleting the lock file, node_modules and reinstall dependencies.
+     Solution is as simple as deleting the lock file, node_modules and reinstall dependencies.
 
    - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 
@@ -76,7 +76,7 @@ Run `npm link "Project name"` in Ant Design
 
 ![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
-Once we have verified, we can open PR to the repo. Noted that link may cause exceptions when running the test command. Therefore, we need to run the following commands locally to delete the package from link.
+Once we have verified, we can open PR to the repo. Note that linking may cause exceptions when running the test command. Therefore, we need to run the following commands locally to delete the package from link.
 
 ```bash
 npm unlink "@rc-component/form" --no-save
@@ -87,7 +87,7 @@ When the PR is finally merged, usually the maintainers will release a version. I
 
 ### Deprecation
 
-In a large project, if you want to remove a property or a method, it is actually very troublesome. Since your project may already have a lot of items in use, other projects depending on it may get broken. But as the project iterated, we will encounter more and more problems which solutions long time ago may no longer fit. Then, we need to adopt a soft, less radical way to remove it, leaving enough time for users to modify.
+In a large project, if you want to remove a property or a method, it is actually very troublesome. Since your project may already have a lot of items in use, other projects depending on it may get broken. But as the project iterates, we will encounter more and more problems for which solutions from a long time ago may no longer fit. Then, we need to adopt a soft, less radical way to remove it, leaving enough time for users to modify.
 
 In Ant Design, we adopt a **five-step strategic** to deprecate property or method:
 
@@ -146,7 +146,7 @@ Merge in Ant Design requires at least one collaborator's approve. Collaborator w
 
 ### Identify XY Problems
 
-During routine maintenance, some issues can easily reproduce but some others are not. Report sometimes get stuck in XY problem which makes requirement or bug question strange to understand. Thus, before resolving the superficial problems, we should dig into the real question.
+During routine maintenance, some issues can be easily reproduced but some others cannot. Reports sometimes get stuck in XY problem which makes requirement or bug question strange to understand. Thus, before resolving the superficial problems, we should dig into the real question.
 
 - [X-Y PROBLEM](https://xyproblem.info/)
 
