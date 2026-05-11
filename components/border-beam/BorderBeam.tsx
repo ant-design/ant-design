@@ -42,11 +42,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ============================ Border ============================
   const getBorderWidth = () => {
-    if (outset === undefined) {
-      return borderWidth;
-    }
+    const getInset = (width: number | string) =>
+      typeof width === 'string' ? `calc(-1 * ${width})` : `-${width}px`;
 
-    return typeof outset === 'string' ? `calc(-1 * ${outset})` : `-${outset}px`;
+    return outset === undefined ? borderWidth.map(getInset).join(' ') : getInset(outset);
   };
 
   // ============================ Render ============================
