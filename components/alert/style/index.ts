@@ -111,7 +111,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         opacity: 0,
       },
 
-      '&-with-description': {
+      [`&${componentCls}-with-description`]: {
         alignItems: 'flex-start',
         padding: withDescriptionPadding,
         [`${componentCls}-icon`]: {
@@ -133,7 +133,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         },
       },
 
-      '&-banner': {
+      [`&${componentCls}-banner`]: {
         marginBottom: 0,
         border: '0 !important',
         borderRadius: 0,
