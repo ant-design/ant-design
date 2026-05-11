@@ -385,6 +385,25 @@ describe('Input allowClear', () => {
     expect(receivedTargets).toHaveLength(1);
     expect(document.contains(receivedTargets[0] as Node)).toBe(true);
   });
+  
+  // https://github.com/ant-design/ant-design/issues/46999 — IME composition path
+  it('onChange e.target should be document-connected after IME composition', () => {
+    const receivedTargets: EventTarget[] = [];
+    const { container } = render(
+      <Input
+        defaultValue=""
+        onChange={(e) => receivedTargets.push(e.target)}
+      />,
+    );
+    const input = container.querySelector('input')!;
+    fireEvent.compositionStart(input);
+    fireEvent.compositionUpdate(input, { data: '你' });
+    fireEvent.compositionEnd(input, { data: '你好' });
+    expect(receivedTargets.length).toBeGreaterThan(0);
+    receivedTargets.forEach((target) => {
+      expect(document.contains(target as Node)).toBe(true);
+    });
+  });
   it('should focus input after clear', () => {
     const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
       container: document.body,
