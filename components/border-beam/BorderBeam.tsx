@@ -38,21 +38,16 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ============================= Host =============================
   const [childNode, childDomNode] = useChildDom(children);
-  const { borderSize, borderRadius } = useBorderSize(childDomNode);
-  const [borderTopSize, borderRightSize, borderBottomSize, borderLeftSize] = borderSize;
-  const [
-    borderTopLeftRadius,
-    borderTopRightRadius,
-    borderBottomRightRadius,
-    borderBottomLeftRadius,
-  ] = borderRadius;
+  const { borderWidth, borderRadius } = useBorderSize(childDomNode);
 
   // ============================ Border ============================
-  const getBorderWidth = (size: number) => {
-    const mergedSize: string | number = outset ?? size;
-    return typeof mergedSize === 'string' ? `calc(-1 * ${mergedSize})` : `-${mergedSize}px`;
+  const getBorderWidth = () => {
+    if (outset === undefined) {
+      return borderWidth;
+    }
+
+    return typeof outset === 'string' ? `calc(-1 * ${outset})` : `-${outset}px`;
   };
-  const getBorderRadius = (size: number) => `${size}px`;
 
   // ============================ Render ============================
   return (
@@ -66,14 +61,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           [varName('beam-gradient')]: getBorderBeamGradient(color, '#1677ff', '#4096ff'),
-          [varName('border-top-width')]: getBorderWidth(borderTopSize),
-          [varName('border-right-width')]: getBorderWidth(borderRightSize),
-          [varName('border-bottom-width')]: getBorderWidth(borderBottomSize),
-          [varName('border-left-width')]: getBorderWidth(borderLeftSize),
-          [varName('border-top-left-radius')]: getBorderRadius(borderTopLeftRadius),
-          [varName('border-top-right-radius')]: getBorderRadius(borderTopRightRadius),
-          [varName('border-bottom-right-radius')]: getBorderRadius(borderBottomRightRadius),
-          [varName('border-bottom-left-radius')]: getBorderRadius(borderBottomLeftRadius),
+          [varName('border-width')]: getBorderWidth(),
+          [varName('border-radius')]: borderRadius,
         }}
       />
     </>

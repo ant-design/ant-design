@@ -34,7 +34,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | `1` | 6.4.0 | × |
+| outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | 6.4.0 | × |
 
 ## Design Token
 

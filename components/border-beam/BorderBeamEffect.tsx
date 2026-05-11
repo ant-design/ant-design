@@ -11,6 +11,43 @@ export type BorderBeamEffectProps = {
 
 type BorderBeamEffectElementProps = Omit<BorderBeamEffectProps, 'hostDom'>;
 
+const UNSAFE_PORTAL_HOST_TAGS = new Set([
+  'area',
+  'base',
+  'br',
+  'caption',
+  'col',
+  'colgroup',
+  'embed',
+  'hr',
+  'iframe',
+  'img',
+  'input',
+  'link',
+  'meta',
+  'option',
+  'param',
+  'script',
+  'select',
+  'source',
+  'style',
+  'tbody',
+  'td',
+  'template',
+  'tfoot',
+  'th',
+  'thead',
+  'title',
+  'tr',
+  'track',
+  'wbr',
+]);
+
+const supportPortalHost = (hostDom: BorderBeamEffectProps['hostDom']): hostDom is HTMLElement =>
+  typeof HTMLElement !== 'undefined' &&
+  hostDom instanceof HTMLElement &&
+  !UNSAFE_PORTAL_HOST_TAGS.has(hostDom.tagName.toLowerCase());
+
 const BorderBeamEffectElement: React.FC<BorderBeamEffectElementProps> = ({
   prefixCls,
   className,
@@ -23,7 +60,7 @@ const BorderBeamEffect: React.FC<BorderBeamEffectProps> = ({
   className,
   style,
 }) => {
-  if (!hostDom) {
+  if (!hostDom || !supportPortalHost(hostDom)) {
     return null;
   }
 

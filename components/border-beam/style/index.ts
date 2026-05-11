@@ -30,16 +30,8 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       // Container
       display: 'none',
       position: 'absolute',
-      inset: [
-        varRef('border-top-width', '0px'),
-        varRef('border-right-width', '0px'),
-        varRef('border-bottom-width', '0px'),
-        varRef('border-left-width', '0px'),
-      ].join(' '),
-      borderTopLeftRadius: varRef('border-top-left-radius', '0px'),
-      borderTopRightRadius: varRef('border-top-right-radius', '0px'),
-      borderBottomRightRadius: varRef('border-bottom-right-radius', '0px'),
-      borderBottomLeftRadius: varRef('border-bottom-left-radius', '0px'),
+      inset: varRef('border-width', '0px'),
+      borderRadius: varRef('border-radius', '0px'),
       zIndex: 1,
       overflow: 'hidden',
       pointerEvents: 'none',
