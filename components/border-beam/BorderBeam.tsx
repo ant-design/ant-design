@@ -52,6 +52,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     const mergedSize: string | number = outset ?? size;
     return typeof mergedSize === 'string' ? `calc(-1 * ${mergedSize})` : `-${mergedSize}px`;
   };
+  const getBorderRadius = (size: number) => `${size}px`;
 
   // ============================ Render ============================
   return (
@@ -69,10 +70,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           [varName('border-right-width')]: getBorderWidth(borderRightSize),
           [varName('border-bottom-width')]: getBorderWidth(borderBottomSize),
           [varName('border-left-width')]: getBorderWidth(borderLeftSize),
-          [varName('border-top-left-radius')]: borderTopLeftRadius,
-          [varName('border-top-right-radius')]: borderTopRightRadius,
-          [varName('border-bottom-right-radius')]: borderBottomRightRadius,
-          [varName('border-bottom-left-radius')]: borderBottomLeftRadius,
+          [varName('border-top-left-radius')]: getBorderRadius(borderTopLeftRadius),
+          [varName('border-top-right-radius')]: getBorderRadius(borderTopRightRadius),
+          [varName('border-bottom-right-radius')]: getBorderRadius(borderBottomRightRadius),
+          [varName('border-bottom-left-radius')]: getBorderRadius(borderBottomLeftRadius),
         }}
       />
     </>
