@@ -41,7 +41,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const { borderWidth, borderRadius } = useBorderSize(childDomNode);
 
   // ============================ Border ============================
-  const getBorderWidth = () => {
+  const getInsetOffset = () => {
     const getInset = (width: number | string) =>
       typeof width === 'string' ? `calc(-1 * ${width})` : `-${width}px`;
 
@@ -60,7 +60,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           [varName('beam-gradient')]: getBorderBeamGradient(color, '#1677ff', '#4096ff'),
-          [varName('border-width')]: getBorderWidth(),
+          [varName('inset-offset')]: getInsetOffset(),
           [varName('border-radius')]: borderRadius,
         }}
       />

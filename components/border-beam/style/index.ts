@@ -30,7 +30,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       // Container
       display: 'none',
       position: 'absolute',
-      inset: varRef('border-width', '0px'),
+      inset: varRef('inset-offset', '0px'),
       borderRadius: varRef('border-radius', '0px'),
       zIndex: 1,
       overflow: 'hidden',
