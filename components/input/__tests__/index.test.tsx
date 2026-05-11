@@ -369,6 +369,23 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('111');
   });
 
+  it('should pass the real input element when normalized change event target is cloned', () => {
+    let argumentEventTarget: EventTarget | null = null;
+    let argumentEventCurrentTarget: EventTarget | null = null;
+    const onChange: InputProps['onChange'] = (e) => {
+      argumentEventTarget = e.target;
+      argumentEventCurrentTarget = e.currentTarget;
+    };
+    const { container } = render(<Input allowClear defaultValue="111" onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    expect(argumentEventTarget).toBe(input);
+    expect(argumentEventCurrentTarget).toBe(input);
+    expect(document.contains(argumentEventTarget as Node)).toBeTruthy();
+  });
+
   it('should focus input after clear', () => {
     const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
       container: document.body,

@@ -226,6 +226,19 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
+
+    const input = inputRef.current?.input;
+    if (onChange && input && e.target !== input) {
+      input.value = e.target.value;
+      onChange(
+        Object.create(e, {
+          target: { value: input },
+          currentTarget: { value: input },
+        }),
+      );
+      return;
+    }
+
     onChange?.(e);
   };
 
