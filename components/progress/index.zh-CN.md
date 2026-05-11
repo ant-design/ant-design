@@ -29,6 +29,7 @@ demo:
 <code src="./demo/format.tsx">自定义文字格式</code>
 <code src="./demo/dashboard.tsx">仪表盘</code>
 <code src="./demo/segment.tsx">分段进度条</code>
+<code src="./demo/multi-value.tsx">多值进度条</code>
 <code src="./demo/linecap.tsx">边缘形状</code>
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
@@ -47,7 +48,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | format | 内容的模板函数 | function(percent, successPercent) | (percent) => percent + `%` | - |
-| percent | 百分比 | number | 0 | - |
+| percent | 百分比。当传入数组时，每个元素代表一个分段，包含 `value` 以及可选的 `status` 和 `strokeColor` | number \| Array<{ value: number; status?: 'success' \| 'exception' \| 'active' \| 'normal'; strokeColor?: string }> | 0 | - |
 | railColor | 未完成的分段的颜色 | string | - | - |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true | - |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - | - |
