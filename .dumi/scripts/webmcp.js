@@ -1,4 +1,4 @@
-(function () {
+(() => {
   if (!('modelContext' in navigator)) return;
   const mc = navigator.modelContext;
 
@@ -19,16 +19,14 @@
         required: ['query'],
       },
     },
-    function (input) {
-      return {
-        content: [
-          {
-            type: 'text',
-            text: `Search Ant Design docs at: https://ant.design/components/overview. Query: ${input.query}`,
-          },
-        ],
-      };
-    },
+    (input) => ({
+      content: [
+        {
+          type: 'text',
+          text: `Search Ant Design docs at: https://ant.design/components/overview. Query: ${input.query}`,
+        },
+      ],
+    }),
     { signal: controller.signal },
   );
 })();
