@@ -606,7 +606,7 @@ Array [
     </span>
   </label>,
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
+    class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
