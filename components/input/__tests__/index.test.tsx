@@ -369,6 +369,22 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('111');
   });
 
+  // https://github.com/ant-design/ant-design/issues/46999
+  it('onChange e.target should be document-connected (react-number-format customInput compat)', () => {
+    const receivedTargets: EventTarget[] = [];
+    const { container } = render(
+      <Input
+        allowClear
+        defaultValue="hello"
+        onChange={(e) => receivedTargets.push(e.target)}
+      />,
+    );
+    // Trigger a clear-button click — resolveOnChange synthesises a change event
+    // whose target is a cloneNode() that is NOT connected to the document.
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(receivedTargets).toHaveLength(1);
+    expect(document.contains(receivedTargets[0] as Node)).toBe(true);
+  });
   it('should focus input after clear', () => {
     const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
       container: document.body,
