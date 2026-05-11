@@ -13,8 +13,8 @@ interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [, varRef] = genCssVar(antCls, 'border-beam');
-  const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary ?? '#1677ff'}, ${
-    token.colorPrimaryHover ?? token.colorPrimary ?? '#4096ff'
+  const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary}, ${
+    token.colorPrimaryHover
   }, transparent)`;
 
   // =========================== Animation ============================
