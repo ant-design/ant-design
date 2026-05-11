@@ -60,10 +60,8 @@ export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticSty
   InputNumberSemanticStyles
 >;
 
-export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
-  RcInputNumberProps<T>,
-  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
-> {
+export interface InputNumberProps<T extends ValueType = ValueType>
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberClassNamesType;

@@ -38,17 +38,14 @@ export type SegmentedSemanticStyles = {
   item?: React.CSSProperties;
 };
 
-interface SegmentedLabeledOptionWithoutIcon<
-  ValueType = RcSegmentedValue,
-> extends RcSegmentedLabeledOption<ValueType> {
+interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
+  extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
   tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
-  RcSegmentedLabeledOption<ValueType>,
-  'label'
-> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
+  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -74,10 +71,11 @@ export type SegmentedClassNamesType = SemanticClassNamesType<
 
 export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSemanticStyles>;
 
-export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
-  RCSegmentedProps<ValueType>,
-  'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
-> {
+export interface SegmentedProps<ValueType = RcSegmentedValue>
+  extends Omit<
+    RCSegmentedProps<ValueType>,
+    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+  > {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
