@@ -224,11 +224,27 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus?.(e);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+    if (onChange) {
+      // @rc-component/input's resolveOnChange clones the DOM node when synthesising
+      // events (e.g. clear button, IME composition).  The clone is detached from the
+      // document, which breaks libraries such as react-number-format that verify
+      // e.target via document.contains().  Swap in the live element so callers
+      // always receive a connected node.
+      const liveInput = inputRef.current?.input;
+      if (liveInput && !e.target.isConnected) {
+        onChange(
+          Object.create(e, {
+            target: { value: liveInput, configurable: true },
+            currentTarget: { value: liveInput, configurable: true },
+          }) as React.ChangeEvent<HTMLInputElement>,
+        );
+        return;
+      }
+      onChange(e);
+    }
   };
-
   const suffixNode = (hasFeedback || suffix) && (
     <>
       {suffix}
