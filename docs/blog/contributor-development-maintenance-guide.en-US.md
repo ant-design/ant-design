@@ -146,7 +146,7 @@ Merge in Ant Design requires at least one collaborator's approve. Collaborator w
 
 ### Identify XY Problems
 
-During routine maintenance, some issues can be easily reproduced but some others cannot. Report sometimes get stuck in XY problem which makes requirement or bug question strange to understand. Thus, before resolving the superficial problems, we should dig into the real question.
+During routine maintenance, some issues can be easily reproduced but some others cannot. Reports sometimes get stuck in XY problem which makes requirement or bug question strange to understand. Thus, before resolving the superficial problems, we should dig into the real question.
 
 - [X-Y PROBLEM](https://xyproblem.info/)
 
