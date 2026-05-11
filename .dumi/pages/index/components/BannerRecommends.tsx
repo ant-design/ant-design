@@ -161,12 +161,10 @@ const RecommendItem: React.FC<RecommendItemProps> = (props) => {
       href={extra.href}
       target="_blank"
       className={clsx(styles.itemBase, className)}
-      style={
-        {
-          '--mouse-x': `${transMousePosition[0]}px`,
-          '--mouse-y': `${transMousePosition[1]}px`,
-        } as React.CSSProperties
-      }
+      style={{
+        '--mouse-x': `${transMousePosition[0]}px`,
+        '--mouse-y': `${transMousePosition[1]}px`,
+      }}
       rel="noopener noreferrer"
       onMouseMove={onMouseMove}
     >
