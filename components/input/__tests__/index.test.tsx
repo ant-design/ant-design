@@ -575,6 +575,57 @@ describe('typescript types', () => {
   });
 });
 
+describe('detached event target normalization', () => {
+  it('should provide connected target when allowClear fires onChange', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Input allowClear value="hello" onChange={onChange} />);
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    expect(onChange).toHaveBeenCalled();
+    const event = onChange.mock.calls[0][0];
+    expect(event.target).toBe(container.querySelector('input'));
+    expect(event.currentTarget).toBe(container.querySelector('input'));
+    expect(event.target.isConnected).toBe(true);
+  });
+
+  it('should preserve cleared value on normalized target', () => {
+    let capturedValue: string | undefined;
+    const onChange = jest.fn((e) => {
+      capturedValue = e.target.value;
+    });
+    const { container } = render(<Input allowClear defaultValue="test-value" onChange={onChange} />);
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    expect(onChange).toHaveBeenCalled();
+    expect(capturedValue).toBe('');
+  });
+
+  it('should not interfere with normal typing onChange', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Input onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.change(input, { target: { value: 'abc' } });
+
+    expect(onChange).toHaveBeenCalled();
+    const event = onChange.mock.calls[0][0];
+    expect(event.target).toBe(input);
+    expect(event.target.value).toBe('abc');
+  });
+
+  it('document.contains should return true for normalized target', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Input allowClear value="check" onChange={onChange} />);
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    const event = onChange.mock.calls[0][0];
+    expect(document.contains(event.target)).toBe(true);
+  });
+});
+
 describe('triggerFocus', () => {
   it('triggerFocus correctly run when element is null', () => {
     expect(() => {
