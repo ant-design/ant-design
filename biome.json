@@ -89,6 +89,14 @@
   },
   "overrides": [
     {
+      "includes": ["renovate.json"],
+      "json": {
+        "parser": {
+          "allowComments": true
+        }
+      }
+    },
+    {
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
