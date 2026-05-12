@@ -1,0 +1,16 @@
+{
+  "ignore": {
+    "rules": ["react-doctor/effect-needs-cleanup"],
+    "files": [
+      ".dumi/**",
+      "docs/**",
+      "tests/**",
+      "scripts/**",
+      "**/demo/**",
+      "**/__tests__/**",
+      "**/*.md"
+    ]
+  },
+  "failOn": "none",
+  "adoptExistingLintConfig": true
+}

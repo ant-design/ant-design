@@ -5,6 +5,7 @@ import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
+import { useComposeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
@@ -106,11 +107,13 @@ export interface DropdownProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
-type CompoundedComponent = React.FC<DropdownProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  DropdownProps & React.RefAttributes<HTMLElement>
+> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
-const Dropdown: CompoundedComponent = (props) => {
+const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProps>((props, ref) => {
   const {
     menu,
     arrow,
@@ -226,6 +229,8 @@ const Dropdown: CompoundedComponent = (props) => {
     isPrimitive(children) ? <span>{children}</span> : children,
   ) as React.ReactElement<{ className?: string; disabled?: boolean }>;
 
+  const composedRef = useComposeRef(ref, (child as any).ref);
+
   const popupTrigger = cloneElement(child, {
     className: clsx(
       `${prefixCls}-trigger`,
@@ -233,6 +238,7 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled: child.props.disabled ?? disabled,
+    ref: composedRef,
   });
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
@@ -369,7 +375,7 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   return renderNode;
-};
+}) as CompoundedComponent;
 
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
