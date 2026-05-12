@@ -369,17 +369,37 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('111');
   });
 
-  it('should keep onChange target compatible with mounted-input checks', () => {
+  it('should normalize non-click onChange target back to the mounted input', () => {
+    let receivedTarget: EventTarget | null = null;
+    let receivedCurrentTarget: EventTarget | null = null;
+
+    const { container } = render(
+      <Input
+        onChange={(e) => {
+          receivedTarget = e.target;
+          receivedCurrentTarget = e.currentTarget;
+        }}
+      />,
+    );
+
+    const input = container.querySelector('input')!;
+    fireEvent.change(input, { target: { value: '123' } });
+
+    expect(receivedTarget).toBe(input);
+    expect(receivedCurrentTarget).toBe(input);
+    expect(document.contains(receivedTarget as Node)).toBe(true);
+  });
+
+  it('should preserve exceedFormatter trimmed value in onChange', () => {
     const Demo = () => {
       const [value, setValue] = useState('');
 
       return (
         <Input
+          count={{ max: 2, exceedFormatter: (currentValue) => currentValue.slice(0, 2) }}
           value={value}
           onChange={(e) => {
-            if (document.contains(e.target as Node)) {
-              setValue(e.target.value);
-            }
+            setValue(e.target.value);
           }}
         />
       );
@@ -389,7 +409,7 @@ describe('Input allowClear', () => {
 
     fireEvent.change(container.querySelector('input')!, { target: { value: '123' } });
 
-    expect(container.querySelector('input')?.value).toBe('123');
+    expect(container.querySelector('input')?.value).toBe('12');
   });
 
   it('should focus input after clear', () => {
