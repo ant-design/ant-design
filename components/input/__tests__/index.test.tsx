@@ -369,6 +369,29 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('111');
   });
 
+  it('should pass the mounted input as the change target when rc-input clones the event', () => {
+    let argumentEventTarget: EventTarget | null = null;
+    let argumentEventCurrentTarget: EventTarget | null = null;
+    let argumentEventObjectValue;
+
+    const onChange: InputProps['onChange'] = (e) => {
+      argumentEventTarget = e.target;
+      argumentEventCurrentTarget = e.currentTarget;
+      argumentEventObjectValue = e.target.value;
+    };
+
+    const { container } = render(<Input allowClear value="111" onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    expect(argumentEventTarget).toBe(input);
+    expect(argumentEventCurrentTarget).toBe(input);
+    expect(document.contains(argumentEventTarget as Node)).toBe(true);
+    expect(argumentEventObjectValue).toBe('');
+    expect(input.value).toBe('111');
+  });
+
   it('should focus input after clear', () => {
     const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
       container: document.body,

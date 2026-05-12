@@ -226,7 +226,37 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+    if (!onChange) {
+      return;
+    }
+
+    const liveInput = inputRef.current?.input;
+
+    if (liveInput && e.target !== liveInput) {
+      const eventValue = e.target.value;
+      const originalValue = liveInput.value;
+      const shouldPatchValue = eventValue !== originalValue;
+
+      if (shouldPatchValue) {
+        liveInput.value = eventValue;
+      }
+
+      try {
+        onChange(
+          Object.create(e, {
+            target: { value: liveInput, enumerable: true, configurable: true },
+            currentTarget: { value: liveInput, enumerable: true, configurable: true },
+          }) as React.ChangeEvent<HTMLInputElement>,
+        );
+      } finally {
+        if (shouldPatchValue && liveInput.value === eventValue) {
+          liveInput.value = originalValue;
+        }
+      }
+      return;
+    }
+
+    onChange(e);
   };
 
   const suffixNode = (hasFeedback || suffix) && (
