@@ -1,3 +1,5 @@
+import { isString } from '../_util/is';
+
 type BorderBeamGradientItem = {
   color: string;
   percent: number;
@@ -7,11 +9,12 @@ export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 
 export const MAX_BEAM_COLOR_STOP_PERCENT = 70;
+
 const getLinearGradient = (...colorStops: string[]) =>
   `linear-gradient(to left, ${colorStops.join(', ')}, transparent)`;
 
-const normalizeBorderBeamColor = (value: BorderBeamColor | undefined): BorderBeamGradient =>
-  typeof value === 'string' ? [{ color: value, percent: 0 }] : (value ?? []);
+const normalizeBorderBeamColor = (value?: BorderBeamColor): BorderBeamGradient =>
+  isString(value) ? [{ color: value, percent: 0 }] : (value ?? []);
 
 const fillGradientEnd = (items: BorderBeamGradient): BorderBeamGradient => {
   const lastItem = items[items.length - 1];
@@ -32,12 +35,12 @@ const getMappedBeamColorStopPercent = (percent: number) =>
 
 const normalizeGradientItems = (items: BorderBeamGradient) =>
   fillGradientEnd(items).map((item) => ({
-    color: item.color,
+    ...item,
     percent: getMappedBeamColorStopPercent(item.percent),
   }));
 
 // Build the beam gradient from a solid color or explicit gradient stops.
-export const getBorderBeamGradient = (value: BorderBeamColor | undefined) => {
+export const getBorderBeamGradient = (value?: BorderBeamColor) => {
   // Reserve the trailing section for fade-out so custom gradients keep a visible tail.
   const normalizedStops = normalizeGradientItems(normalizeBorderBeamColor(value));
 

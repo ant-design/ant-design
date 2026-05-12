@@ -28,12 +28,7 @@ const useChildDom = (
     return [children, domNode];
   }
 
-  return [
-    cloneElement(childNode, {
-      ref: mergedRef,
-    }),
-    domNode,
-  ];
+  return [cloneElement(childNode, { ref: mergedRef }), domNode];
 };
 
 export default useChildDom;

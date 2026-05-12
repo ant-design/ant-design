@@ -31,7 +31,7 @@ const PureList: React.FC<PureListProps> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const noticePrefixCls = `${prefixCls}-notice`;
 
-  const configList: NotificationListConfig[] = items.map((item) => {
+  const configList = items.map<NotificationListConfig>((item) => {
     const { content, duration, key, type } = item;
     const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 

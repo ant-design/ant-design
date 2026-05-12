@@ -97,7 +97,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   );
 
   // =============================== Style ===============================
-  const getStyle = (): React.CSSProperties => getPlacementOffsetStyle(top, bottom);
+  const getStyle = () => getPlacementOffsetStyle(top, bottom);
 
   const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 

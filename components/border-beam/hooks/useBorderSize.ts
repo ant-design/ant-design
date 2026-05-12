@@ -18,7 +18,7 @@ const parseBorderWidth = (value: string) => {
   return Number.isFinite(size) ? size : 0;
 };
 
-const useBorderSize = (domNode: Element | null): BorderInfo => {
+const useBorderSize = (domNode: Element | null) => {
   const [borderInfo, setBorderInfo] = React.useState<BorderInfo>(DEFAULT_BORDER_INFO);
 
   React.useEffect(() => {
