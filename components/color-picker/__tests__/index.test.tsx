@@ -492,6 +492,16 @@ describe('ColorPicker', () => {
     ).toEqual('background: rgb(39, 59, 87);');
   });
 
+  it('Should internal PurePanel work', async () => {
+    const PurePanel = ColorPicker._InternalPanelDoNotUseOrYouWillBeFired;
+    const { container } = render(<PurePanel defaultValue="#1677ff" />);
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(container.querySelector('.ant-popover-placement-bottom')).toBeTruthy();
+  });
+
   it('Should disable ColorPicker.Panel interactions', () => {
     const spyRect = spyElementPrototypes(HTMLElement, {
       getBoundingClientRect: () => ({
