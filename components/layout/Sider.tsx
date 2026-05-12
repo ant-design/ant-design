@@ -37,19 +37,25 @@ export type CollapseType = 'clickTrigger' | 'responsive';
 
 export type SiderTheme = 'light' | 'dark';
 
-export type SiderSemanticName = keyof SiderSemanticClassNames & keyof SiderSemanticStyles;
+export interface SiderSemanticClassNames {
+  children?: string;
+}
 
-export type SiderSemanticClassNames = {
+export interface SiderSemanticStyles {
+  children?: React.CSSProperties;
+}
+
+type SiderSemanticClassNamesRecord = {
   children?: string;
 };
 
-export type SiderSemanticStyles = {
+type SiderSemanticStylesRecord = {
   children?: React.CSSProperties;
 };
 
-export type SiderClassNamesType = SemanticClassNamesType<SiderProps, SiderSemanticClassNames>;
+export type SiderClassNamesType = SemanticClassNamesType<SiderProps, SiderSemanticClassNamesRecord>;
 
-export type SiderStylesType = SemanticStylesType<SiderProps, SiderSemanticStyles>;
+export type SiderStylesType = SemanticStylesType<SiderProps, SiderSemanticStylesRecord>;
 
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -106,8 +112,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const { siderHook } = useContext(LayoutContext);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SiderClassNamesType,
-    SiderStylesType,
+    SiderSemanticClassNamesRecord,
+    SiderSemanticStylesRecord,
     SiderProps
   >([classNames], [styles], {
     props,

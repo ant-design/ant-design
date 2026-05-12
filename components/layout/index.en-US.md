@@ -103,15 +103,15 @@ The sidebar.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 6.3.0 |
-| classNames | Customize class for each semantic structure inside the Sider component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | className | Container className | string | - |  |
+| classNames | Customize class for each semantic structure inside the Sider component, supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | collapsed | To set the current status | boolean | - |  |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  |
 | collapsible | Whether can be collapsed | boolean | false |  |
 | defaultCollapsed | To set the initial status | boolean | false |  |
 | reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
 | style | To customize the styles | CSSProperties | - |  |
-| styles | Customize inline style for each semantic structure inside the Sider component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| styles | Customize inline style for each semantic structure inside the Sider component, supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |
 | trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  |
 | width | Width of the sidebar | number \| string | 200 |  |
