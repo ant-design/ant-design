@@ -29,4 +29,3 @@ Button, Input, Select, Table, Form, Modal, Tabs, Menu, DatePicker, Upload, messa
 - Component names in URLs use kebab-case (e.g., `date-picker`, `float-button`)
 - The `llms-full.txt` file contains the most comprehensive documentation
 - For TypeScript types, refer to the component's type definitions in the antd package
-

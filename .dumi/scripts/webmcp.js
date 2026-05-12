@@ -1,5 +1,7 @@
 (() => {
-  if (!('modelContext' in navigator)) return;
+  if (!('modelContext' in navigator)) {
+    return;
+  }
   const mc = navigator.modelContext;
 
   const controller = new AbortController();
