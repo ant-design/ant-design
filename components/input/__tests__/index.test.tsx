@@ -376,7 +376,7 @@ describe('Input allowClear', () => {
       <Input
         allowClear
         defaultValue="hello"
-        onChange={(e) => receivedTargets.push(e.target)}
+onChange={(e) => { receivedTargets.push(e.target); receivedTargets.push(e.currentTarget); }}
       />,
     );
     // Trigger a clear-button click — resolveOnChange synthesises a change event
@@ -392,7 +392,7 @@ describe('Input allowClear', () => {
     const { container } = render(
       <Input
         defaultValue=""
-        onChange={(e) => receivedTargets.push(e.target)}
+        onChange={(e) => { receivedTargets.push(e.target); receivedTargets.push(e.currentTarget); }}
       />,
     );
     const input = container.querySelector('input')!;
