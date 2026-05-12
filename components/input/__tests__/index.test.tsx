@@ -372,7 +372,7 @@ describe('Input allowClear', () => {
   it('should pass the mounted input as the change target when rc-input clones the event', () => {
     let argumentEventTarget: EventTarget | null = null;
     let argumentEventCurrentTarget: EventTarget | null = null;
-    let argumentEventObjectValue;
+    let argumentEventObjectValue: string | undefined;
 
     const onChange: InputProps['onChange'] = (e) => {
       argumentEventTarget = e.target;

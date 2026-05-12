@@ -233,7 +233,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     const liveInput = inputRef.current?.input;
 
     if (liveInput && e.target !== liveInput) {
-      const eventValue = e.target.value;
+      const eventValue = String(e.target.value);
       const originalValue = liveInput.value;
       const shouldPatchValue = eventValue !== originalValue;
 
