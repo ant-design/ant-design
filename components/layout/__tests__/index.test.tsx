@@ -205,6 +205,26 @@ describe('Layout', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should customize the children container with semantic classNames and styles', () => {
+    const { container } = render(
+      <Sider
+        classNames={{ children: 'custom-sider-children' }}
+        styles={{ children: { display: 'flex', flexDirection: 'column' } }}
+      >
+        Sider
+      </Sider>,
+    );
+    const sider = container.querySelector<HTMLElement>('.ant-layout-sider')!;
+    const children = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+
+    expect(sider).not.toHaveClass('custom-sider-children');
+    expect(children).toHaveClass('custom-sider-children');
+    expect(children).toHaveStyle({
+      display: 'flex',
+      flexDirection: 'column',
+    });
+  });
+
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
     const { container } = render(
       <Layout hasSider={false}>

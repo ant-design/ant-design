@@ -6,6 +6,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -35,6 +37,20 @@ export type CollapseType = 'clickTrigger' | 'responsive';
 
 export type SiderTheme = 'light' | 'dark';
 
+export type SiderSemanticName = keyof SiderSemanticClassNames & keyof SiderSemanticStyles;
+
+export type SiderSemanticClassNames = {
+  children?: string;
+};
+
+export type SiderSemanticStyles = {
+  children?: React.CSSProperties;
+};
+
+export type SiderClassNamesType = SemanticClassNamesType<SiderProps, SiderSemanticClassNames>;
+
+export type SiderStylesType = SemanticStylesType<SiderProps, SiderSemanticStyles>;
+
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   collapsible?: boolean;
@@ -49,6 +65,8 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: Breakpoint;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
+  classNames?: SiderClassNamesType;
+  styles?: SiderStylesType;
 }
 
 export interface SiderState {
@@ -81,9 +99,19 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     breakpoint,
     onCollapse,
     onBreakpoint,
+    classNames,
+    styles,
     ...otherProps
   } = props;
   const { siderHook } = useContext(LayoutContext);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SiderClassNamesType,
+    SiderStylesType,
+    SiderProps
+  >([classNames], [styles], {
+    props,
+  });
 
   const [collapsed, setCollapsed] = useState(
     'collapsed' in props ? props.collapsed : defaultCollapsed,
@@ -216,7 +244,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   return (
     <SiderContext.Provider value={contextValue}>
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
-        <div className={`${prefixCls}-children`}>{children}</div>
+        <div
+          className={clsx(`${prefixCls}-children`, mergedClassNames.children)}
+          style={mergedStyles.children}
+        >
+          {children}
+        </div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
     </SiderContext.Provider>
