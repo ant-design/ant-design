@@ -239,8 +239,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     ) {
       onChange(
         Object.create(e, {
-          target: { value: liveInput, enumerable: true, configurable: true },
-          currentTarget: { value: liveInput, enumerable: true, configurable: true },
+          target: { value: liveInput, enumerable: true, configurable: true, writable: true },
+          currentTarget: { value: liveInput, enumerable: true, configurable: true, writable: true },
         }) as React.ChangeEvent<HTMLInputElement>,
       );
       return;

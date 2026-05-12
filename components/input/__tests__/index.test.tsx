@@ -372,22 +372,38 @@ describe('Input allowClear', () => {
   it('should normalize non-click onChange target back to the mounted input', () => {
     let receivedTarget: EventTarget | null = null;
     let receivedCurrentTarget: EventTarget | null = null;
+    const targetsBeforeChange: EventTarget[] = [];
+    let targetWasMounted = false;
 
-    const { container } = render(
-      <Input
-        onChange={(e) => {
-          receivedTarget = e.target;
-          receivedCurrentTarget = e.currentTarget;
-        }}
-      />,
-    );
+    const Demo = () => {
+      const [value, setValue] = useState('');
+
+      return (
+        <Input
+          value={value}
+          onChange={(e) => {
+            targetsBeforeChange.push(e.target);
+            receivedTarget = e.target;
+            receivedCurrentTarget = e.currentTarget;
+            targetWasMounted = document.contains(e.target as Node);
+
+            if (targetWasMounted) {
+              setValue(e.target.value);
+            }
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
 
     const input = container.querySelector('input')!;
     fireEvent.change(input, { target: { value: '123' } });
 
-    expect(receivedTarget).toBe(input);
-    expect(receivedCurrentTarget).toBe(input);
-    expect(document.contains(receivedTarget as Node)).toBe(true);
+    expect(targetsBeforeChange).toHaveLength(1);
+    expect(receivedTarget).toBe(receivedCurrentTarget);
+    expect(targetWasMounted).toBe(true);
+    expect(input.value).toBe('123');
   });
 
   it('should preserve exceedFormatter trimmed value in onChange', () => {
