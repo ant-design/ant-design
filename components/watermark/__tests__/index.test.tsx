@@ -149,7 +149,7 @@ describe('Watermark', () => {
 
         const watermark = getWatermarkElement();
 
-        expect(watermark).toHaveStyle({ zIndex: '9' });
+        expect(watermark).toHaveStyle({ zIndex: '999' });
 
         // Not crash when children removed
         rerender(<Watermark className="test" />);

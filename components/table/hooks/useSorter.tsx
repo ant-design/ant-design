@@ -4,13 +4,14 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
-import { isNumber, isPlainObject } from '../../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
   ColumnGroupType,
+  ColumnSorter,
   ColumnsType,
   ColumnTitleProps,
   ColumnType,
@@ -30,7 +31,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (column.sorter && typeof column.sorter === 'object' && isNumber(column.sorter.multiple)) {
+  if (isPlainObject<ColumnSorter<RecordType>>(column.sorter) && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;
@@ -39,10 +40,10 @@ const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
 const getSortFunction = <RecordType extends AnyObject = AnyObject>(
   sorter: ColumnType<RecordType>['sorter'],
 ): CompareFn<RecordType> | false => {
-  if (typeof sorter === 'function') {
+  if (isFunction(sorter)) {
     return sorter;
   }
-  if (isPlainObject(sorter) && sorter.compare) {
+  if (isPlainObject<ColumnSorter<RecordType>>(sorter) && sorter.compare) {
     return sorter.compare;
   }
   return false;

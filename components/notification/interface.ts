@@ -22,18 +22,30 @@ export type IconType = 'success' | 'info' | 'error' | 'warning';
 
 export type NotificationSemanticType = {
   classNames?: {
+    list?: string;
+    listContent?: string;
+    wrapper?: string;
     root?: string;
     title?: string;
     description?: string;
     actions?: string;
     icon?: string;
+    section?: string;
+    close?: string;
+    progress?: string;
   };
   styles?: {
+    list?: React.CSSProperties;
+    listContent?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
     root?: React.CSSProperties;
     title?: React.CSSProperties;
     description?: React.CSSProperties;
     actions?: React.CSSProperties;
     icon?: React.CSSProperties;
+    section?: React.CSSProperties;
+    close?: React.CSSProperties;
+    progress?: React.CSSProperties;
   };
 };
 
@@ -61,7 +73,10 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
-  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
+  closable?:
+    | boolean
+    | null
+    | (Exclude<NonNullable<ClosableType>, boolean> & { onClose?: () => void });
   props?: DivProps;
   role?: 'alert' | 'status';
 }

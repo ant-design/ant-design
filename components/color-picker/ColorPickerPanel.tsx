@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isFunction } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -213,7 +214,7 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
       <PanelPickerContext.Provider value={panelContext}>
         <PanelPresetsContext.Provider value={presetContext}>
           <div className={`${prefixCls}-inner`}>
-            {typeof panelRender === 'function'
+            {isFunction(panelRender)
               ? panelRender(innerPanel, {
                   components: {
                     Picker: PanelPicker,

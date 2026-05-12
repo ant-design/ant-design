@@ -14,7 +14,7 @@ import { clsx } from 'clsx';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -129,8 +129,7 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
     }
 
     let label = node[fieldNames.label!];
-    const type = typeof label;
-    if (type === 'string' || type === 'number') {
+    if (isString(label) || isNumber(label)) {
       label = highlightKeyword(String(label), lower, prefixCls);
     }
 
@@ -144,9 +143,9 @@ export interface CascaderProps<
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > extends Omit<
-  RcCascaderProps<OptionType, ValueField, Multiple>,
-  'checkable' | 'classNames' | 'styles'
-> {
+    RcCascaderProps<OptionType, ValueField, Multiple>,
+    'checkable' | 'classNames' | 'styles'
+  > {
   multiple?: Multiple;
   size?: SizeType;
   /**
@@ -380,7 +379,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon: mergedLoadingIcon,
     suffixIcon,
     contextSuffixIcon,
-    searchIcon: typeof showSearch === 'object' && showSearch ? showSearch.searchIcon : undefined,
+    searchIcon: isPlainObject(showSearch) ? showSearch.searchIcon : undefined,
     contextSearchIcon,
     hasFeedback,
     feedbackIcon,

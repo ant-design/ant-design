@@ -4,7 +4,7 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import { merge } from '@rc-component/util';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 
-import { isPlainObject } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
@@ -20,6 +20,7 @@ import type {
   AlertConfig,
   AnchorStyleConfig,
   BadgeConfig,
+  BorderBeamConfig,
   BreadcrumbConfig,
   ButtonConfig,
   CalendarConfig,
@@ -264,6 +265,7 @@ export interface ConfigProviderProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
@@ -420,6 +422,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     otp,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,
@@ -544,6 +547,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,
@@ -707,10 +711,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       if ('algorithm' in parsedToken) {
         if (parsedToken.algorithm === true) {
           parsedToken.theme = themeObj;
-        } else if (
-          Array.isArray(parsedToken.algorithm) ||
-          typeof parsedToken.algorithm === 'function'
-        ) {
+        } else if (Array.isArray(parsedToken.algorithm) || isFunction(parsedToken.algorithm)) {
           parsedToken.theme = createTheme(parsedToken.algorithm);
         }
         delete parsedToken.algorithm;

@@ -168,10 +168,14 @@ describe('notification semantic styles and classNames', () => {
         <ConfigProvider
           notification={{
             classNames: {
+              list: 'config-list-class',
+              listContent: 'config-list-content-class',
               root: 'config-root-class',
               title: 'config-title-class',
             },
             styles: {
+              list: { backgroundColor: 'rgb(1 2 3)' },
+              listContent: { paddingTop: 4 },
               root: { backgroundColor: 'rgb(128 0 128)' },
               title: { color: 'rgb(255 165 0)' },
             },
@@ -188,6 +192,18 @@ describe('notification semantic styles and classNames', () => {
     const { container } = render(<TestComponent />);
 
     fireEvent.click(container.querySelector('button')!);
+
+    const listEl = document.querySelector('.config-list-class');
+    expect(listEl).toBeTruthy();
+    expect(listEl).toHaveStyle({
+      backgroundColor: 'rgb(1 2 3)',
+    });
+
+    const listContentEl = document.querySelector('.config-list-content-class');
+    expect(listContentEl).toBeTruthy();
+    expect(listContentEl).toHaveStyle({
+      paddingTop: '4px',
+    });
 
     const noticeEl = document.querySelector('.ant-notification-notice');
     expect(noticeEl).toBeTruthy();

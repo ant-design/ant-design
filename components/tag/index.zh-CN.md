@@ -67,7 +67,7 @@ demo:
 | defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | 禁用选中 | `boolean` | - |  |
 | multiple | 多选模式 | `boolean` | - |  |
-| options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| options | 选项列表。对象类型的选项支持为每一项单独设置 `className` 和 `style` | `Array<{ className?: string; label: ReactNode; style?: CSSProperties; value: string \| number } \| string \| number>` | - | `className` 和 `style`: 6.4.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
 | value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |

@@ -65,6 +65,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -1227,6 +1228,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1844,6 +1846,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2516,6 +2519,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2758,6 +2762,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2914,6 +2919,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3174,6 +3180,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3816,6 +3823,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -5961,6 +5969,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -6603,6 +6612,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -8745,6 +8755,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -9410,6 +9421,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -10577,6 +10589,7 @@ exports[`renders components/date-picker/demo/components.tsx extend context corre
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -10711,6 +10724,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -11364,6 +11378,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -11982,6 +11997,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -12272,6 +12288,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13473,6 +13490,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -14652,6 +14670,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -15306,6 +15325,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -17411,6 +17431,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -17699,6 +17720,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -18899,6 +18921,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -20620,6 +20643,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                       class="ant-picker-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="calendar"
                         class="anticon anticon-calendar"
                         role="img"
@@ -21441,6 +21465,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                     class="ant-picker-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="calendar"
                       class="anticon anticon-calendar"
                       role="img"
@@ -22633,6 +22658,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -23255,6 +23281,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -25411,6 +25438,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -26620,6 +26648,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -28727,6 +28756,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -28989,6 +29019,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -29607,6 +29638,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -29897,6 +29929,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -31098,6 +31131,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -32278,6 +32312,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -32921,6 +32956,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -33585,6 +33621,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -34786,6 +34823,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -35950,6 +35988,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -36592,6 +36631,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -37234,6 +37274,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -37502,6 +37543,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -38245,6 +38287,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -39425,6 +39468,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -40076,6 +40120,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -40693,6 +40738,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -41320,6 +41366,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -42932,6 +42979,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -43206,6 +43254,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -43844,6 +43893,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -44482,6 +44532,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -45117,6 +45168,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -46104,6 +46156,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -47116,6 +47169,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -48128,6 +48182,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -48754,6 +48809,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -49471,6 +49527,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -50132,6 +50189,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -51295,6 +51353,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -51973,6 +52032,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -53191,6 +53251,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -55374,6 +55435,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -56574,6 +56636,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -58722,6 +58785,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -60068,6 +60132,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -60552,6 +60617,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -60866,6 +60932,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -61311,6 +61378,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -61991,6 +62059,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -63200,6 +63269,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -63715,6 +63785,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -64332,6 +64403,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -64620,6 +64692,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -65774,6 +65847,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -66455,6 +66529,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -68560,6 +68635,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -70676,6 +70752,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -71294,6 +71371,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -71958,6 +72036,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -73159,6 +73238,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -74321,6 +74401,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
         style="opacity: 0.85;"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -74935,6 +75016,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -80974,6 +81056,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -81651,6 +81734,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -82392,6 +82476,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -83743,6 +83828,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -85052,6 +85138,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -86263,6 +86350,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -88280,6 +88368,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -89851,6 +89940,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -92002,6 +92092,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -93510,6 +93601,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -94169,6 +94261,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -95324,6 +95417,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -95983,6 +96077,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -97138,6 +97233,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -97797,6 +97893,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -98952,6 +99049,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -99611,6 +99709,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
