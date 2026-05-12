@@ -231,7 +231,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     }
 
     const liveInput = inputRef.current?.input;
-    if (liveInput && e.type !== 'click' && e.target !== liveInput) {
+    if (
+      liveInput &&
+      e.type !== 'click' &&
+      e.target !== liveInput &&
+      e.target.value === liveInput.value
+    ) {
       onChange(
         Object.create(e, {
           target: { value: liveInput, enumerable: true, configurable: true },
