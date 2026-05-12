@@ -44,7 +44,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   // ============================= Host =============================
   const [childNode, childDomNode] = useChildDom(children);
   const { borderWidth, borderRadius } = useBorderSize(childDomNode);
-  const beamGradient = getBorderBeamGradient(color);
+  const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
 
   // ============================ Border ============================
   const insetOffset = useMemo<string>(() => {
