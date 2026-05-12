@@ -225,6 +225,32 @@ describe('Layout', () => {
     });
   });
 
+  it('should pass merged state to semantic classNames and styles callbacks', () => {
+    const { container } = render(
+      <Sider
+        collapsible
+        classNames={({ props }) => ({
+          children: props.collapsed ? 'children-collapsed' : 'children-expanded',
+        })}
+        styles={({ props }) => ({
+          children: { opacity: props.collapsed ? 0.5 : 1 },
+        })}
+      >
+        Sider
+      </Sider>,
+    );
+    const children = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+
+    expect(children).toHaveClass('children-expanded');
+    expect(children).toHaveStyle({ opacity: '1' });
+
+    fireEvent.click(trigger);
+
+    expect(children).toHaveClass('children-collapsed');
+    expect(children).toHaveStyle({ opacity: '0.5' });
+  });
+
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
     const { container } = render(
       <Layout hasSider={false}>

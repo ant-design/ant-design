@@ -103,14 +103,6 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   } = props;
   const { siderHook } = useContext(LayoutContext);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SiderSemanticClassNames,
-    SiderSemanticStyles,
-    SiderProps
-  >([classNames], [styles], {
-    props,
-  });
-
   const [collapsed, setCollapsed] = useState(
     'collapsed' in props ? props.collapsed : defaultCollapsed,
   );
@@ -128,6 +120,30 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     }
     onCollapse?.(value, type);
   };
+
+  const semanticProps: SiderProps = {
+    ...props,
+    collapsed,
+    defaultCollapsed,
+    theme,
+    style,
+    collapsible,
+    reverseArrow,
+    width,
+    collapsedWidth,
+    zeroWidthTriggerStyle,
+    breakpoint,
+    onCollapse,
+    onBreakpoint,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SiderSemanticClassNames,
+    SiderSemanticStyles,
+    SiderProps
+  >([classNames], [styles], {
+    props: semanticProps,
+  });
 
   // =========================== Prefix ===========================
   const { getPrefixCls, direction } = useContext(ConfigContext);
