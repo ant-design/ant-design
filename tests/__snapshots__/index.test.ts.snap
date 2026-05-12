@@ -10,6 +10,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Avatar",
   "BackTop",
   "Badge",
+  "BorderBeam",
   "Breadcrumb",
   "Button",
   "Calendar",

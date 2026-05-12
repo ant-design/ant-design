@@ -96,6 +96,7 @@
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
     "tsc": "tsc --noEmit",
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
+    "doctor": "react-doctor .",
     "version": "tsx scripts/generate-version.ts"
   },
   "browserslist": [
@@ -162,7 +163,7 @@
     "@ant-design/x": "^2.7.0",
     "@ant-design/x-sdk": "^2.7.0",
     "@antfu/eslint-config": "8.2.0",
-    "@biomejs/biome": "2.4.14",
+    "@biomejs/biome": "2.4.15",
     "@blazediff/core": "^1.9.1",
     "@codecov/webpack-plugin": "^2.0.1",
     "@codesandbox/sandpack-react": "^2.20.0",
@@ -289,6 +290,7 @@
     "rc-tween-one": "^3.0.6",
     "react": "^19.2.5",
     "react-countup": "^6.5.3",
+    "react-doctor": "^0.1.2",
     "react-dom": "^19.2.5",
     "react-draggable": "^4.5.0",
     "react-fast-marquee": "^1.6.5",
@@ -329,7 +331,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "440 KiB",
+      "limit": "441 KiB",
       "gzip": true
     },
     {
