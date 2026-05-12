@@ -369,6 +369,27 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('111');
   });
 
+  it('onChange event.target and currentTarget should be mounted input element', () => {
+    let argumentEventTarget: EventTarget | null = null;
+    let argumentEventCurrentTarget: EventTarget | null = null;
+
+    const { container } = render(
+      <Input
+        onChange={(e) => {
+          argumentEventTarget = e.target;
+          argumentEventCurrentTarget = e.currentTarget;
+        }}
+      />,
+    );
+
+    const input = container.querySelector('input')!;
+    fireEvent.change(input, { target: { value: '123' } });
+
+    expect(argumentEventTarget).toBe(input);
+    expect(argumentEventCurrentTarget).toBe(input);
+    expect(document.contains(argumentEventTarget as unknown as Node)).toBeTruthy();
+  });
+
   it('should focus input after clear', () => {
     const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
       container: document.body,

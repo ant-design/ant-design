@@ -226,7 +226,27 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+    if (onChange) {
+      const realInput = inputRef.current?.input;
+
+      // @rc-component/input may emit an event whose target points to a detached
+      // cloned input element. Normalize to the mounted input element to keep
+      // integrations like react-number-format working.
+      const isDetachedTarget =
+        typeof document !== 'undefined' &&
+        typeof Node !== 'undefined' &&
+        e.target instanceof Node &&
+        !document.contains(e.target);
+      const normalizedEvent =
+        realInput && e.type !== 'click' && e.target !== realInput && isDetachedTarget
+          ? (Object.create(e, {
+              target: { value: realInput, enumerable: true, configurable: true },
+              currentTarget: { value: realInput, enumerable: true, configurable: true },
+            }) as React.ChangeEvent<HTMLInputElement>)
+          : e;
+
+      onChange(normalizedEvent);
+    }
   };
 
   const suffixNode = (hasFeedback || suffix) && (
