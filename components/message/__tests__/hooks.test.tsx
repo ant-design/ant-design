@@ -391,4 +391,38 @@ describe('message.hooks', () => {
       expect(clearTimeout).toHaveBeenCalledTimes(1);
     });
   });
+
+  it('should support stack', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage({ stack: { threshold: 3 } });
+
+      React.useEffect(() => {
+        api.info({ content: 'test1', duration: 0 });
+        api.info({ content: 'test2', duration: 0 });
+        api.info({ content: 'test3', duration: 0 });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.ant-message-stack')).toBeTruthy();
+  });
+
+  it('should disable stack', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage({ stack: false });
+
+      React.useEffect(() => {
+        api.info({ content: 'test', duration: 0 });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.ant-message-stack')).toBeFalsy();
+  });
 });

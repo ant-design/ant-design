@@ -27,6 +27,7 @@ demo:
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/stack.tsx">堆叠</code>
 <code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -112,6 +113,7 @@ message.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
+| stack | 堆叠模式，超出阈值时会将消息折叠 | boolean \| { threshold?: number } | `{ threshold: 3 }` |  |
 | top | 消息距离顶部的位置 | string \| number | 8 |  |
 
 ## Semantic DOM

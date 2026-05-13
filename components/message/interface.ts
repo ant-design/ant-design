@@ -35,6 +35,11 @@ export interface ConfigOptions {
    * @descEN keep the timer running or not on hover
    */
   pauseOnHover?: boolean;
+  /**
+   * @descCN 堆叠模式，超出阈值时会将消息折叠
+   * @descEN Stack mode, messages will be stacked when exceeding the threshold
+   */
+  stack?: boolean | { threshold?: number };
   classNames?: ArgsClassNamesType;
   styles?: ArgsStylesType;
 }

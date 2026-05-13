@@ -53,10 +53,10 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: ConfigOptions = {};
 
 function getGlobalContext() {
-  const { getContainer, duration, rtl, maxCount, top } = defaultGlobalConfig;
+  const { getContainer, duration, rtl, maxCount, top, stack } = defaultGlobalConfig;
   const mergedContainer = getContainer?.() || document.body;
 
-  return { getContainer: () => mergedContainer, duration, rtl, maxCount, top };
+  return { getContainer: () => mergedContainer, duration, rtl, maxCount, top, stack };
 }
 
 interface GlobalHolderRef {
