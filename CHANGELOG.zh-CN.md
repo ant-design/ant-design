@@ -74,7 +74,7 @@ tag: vVERSION
   - 🐞 修复 Select 选中项样式优先级高于激活项的问题。[#56924](https://github.com/ant-design/ant-design/pull/56924) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Select `showArrowPaddingInlineEnd` 对内容间距无效的问题。[#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Select error 状态颜色在 outlined 和 filled 变体下与 Input 不一致的问题。[#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
-  - 💄 修复 Select 在根节点使用 token 字体。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Select 选中值字体未跟随 antd 字体 token 的问题。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
 - 🆕 新增 Space.Addon Design Token 支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
 - 🛎 更新 Spin `size` 属性废弃警告并移除冗余检查。[#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
 - Splitter
@@ -82,7 +82,7 @@ tag: vVERSION
   - 🆕 新增 Splitter 可折叠面板的平滑过渡动画。[#56814](https://github.com/ant-design/ant-design/pull/56814) [@spider-yamet](https://github.com/spider-yamet)
   - 🗑 废弃 Splitter `collapsibleIcon`，新增 `collapsible.icon` 替代。[#57044](https://github.com/ant-design/ant-design/pull/57044) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Splitter.Panel 存在意外的 1px 水平内边距。[#57838](https://github.com/ant-design/ant-design/pull/57838) [@wanpan11](https://github.com/wanpan11)
-- 🆕 新增 Statistic 数值语义化 `className` 和 `style` 支持。[#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 新增 Statistic 数值语义化 `classNames` 和 `styles` 支持。[#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
 - Table
   - 🆕 新增 Table `column` 属性，支持通过 ConfigProvider 配置列。[#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Table `scrollTo` align 参数，升级 rc-table 至 1.10.0。[#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
