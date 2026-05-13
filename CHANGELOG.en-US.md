@@ -15,6 +15,125 @@ tag: vVERSION
 
 ---
 
+## 6.4.0
+
+`2026-05-13`
+
+- 🔥 Add BorderBeam component. [#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
+- Alert
+  - 🆕 Add Alert `variant` prop and ConfigProvider support. [#57764](https://github.com/ant-design/ant-design/pull/57764) [@guoyunhe](https://github.com/guoyunhe)
+- Anchor
+  - 🆕 Add Anchor.Link `targetOffset` prop. [#57521](https://github.com/ant-design/ant-design/pull/57521) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- App
+  - 🆕 Add App `ref` support. [#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
+- Badge
+  - 🆕 Add Badge `paddingInline` design token. [#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
+- Button
+  - 🆕 Add Button default colors for solid variants. [#57495](https://github.com/ant-design/ant-design/pull/57495) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Button icon glyph vertical centering in icon-only buttons. [#57896](https://github.com/ant-design/ant-design/pull/57896) [@RenzoMXD](https://github.com/RenzoMXD)
+- Calendar
+  - 🆕 Add Calendar `itemContent` semantic DOM support. [#57430](https://github.com/ant-design/ant-design/pull/57430) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Cascader
+  - 🆕 Add Cascader and ConfigProvider `searchIcon`, `clearIcon`, `removeIcon`, `suffixIcon` config support. [#56725](https://github.com/ant-design/ant-design/pull/56725) [@guoyunhe](https://github.com/guoyunhe)
+- Checkbox
+  - 🐞 Fix Checkbox redundant Form.Item native input size and width/height overlay settings. [#57714](https://github.com/ant-design/ant-design/pull/57714) [@lcsy1234](https://github.com/lcsy1234)
+- ConfigProvider
+  - 🆕 Add Select `allowClear` config support. [#56476](https://github.com/ant-design/ant-design/pull/56476) [@ug-hero](https://github.com/ug-hero)
+  - 🆕 Add Select `showSearch`, `allowClear`, `clearIcon`, `loadingIcon`, `menuItemSelectedIcon`, `removeIcon`, `suffixIcon` config support. [#56930](https://github.com/ant-design/ant-design/pull/56930) [@Pareder](https://github.com/Pareder)
+  - 🆕 Add DatePicker and TimePicker `allowClear` and `clearIcon` config support. [#57002](https://github.com/ant-design/ant-design/pull/57002) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add RangePicker `allowClear`, `clearIcon`, `suffixIcon` config support. [#57075](https://github.com/ant-design/ant-design/pull/57075) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Modal `infoIcon`, `successIcon`, `warningIcon`, `errorIcon` config support. [#57168](https://github.com/ant-design/ant-design/pull/57168) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Upload `progress` config support. [#57283](https://github.com/ant-design/ant-design/pull/57283) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Upload `accept` config support. [#57286](https://github.com/ant-design/ant-design/pull/57286) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Modal and Drawer `focusable` config support. [#57314](https://github.com/ant-design/ant-design/pull/57314) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Mentions `allowClear` config support. [#57330](https://github.com/ant-design/ant-design/pull/57330) [@guoyunhe](https://github.com/guoyunhe)
+  - 🐞 Fix ConfigProvider css var prefix not following `prefixCls`. [#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
+- DatePicker
+  - 🆕 Add DatePicker `tagRender` support in multiple mode. [#57706](https://github.com/ant-design/ant-design/pull/57706) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ Improve DatePicker and TimePicker accessibility. [#57400](https://github.com/ant-design/ant-design/pull/57400) [@cyphercodes](https://github.com/cyphercodes)
+- Dropdown
+  - 🐞 Fix Dropdown missing `forwardRef` for React 18 compatibility. [#57902](https://github.com/ant-design/ant-design/pull/57902) [@xxiaoxiong](https://github.com/xxiaoxiong)
+- FloatButton
+  - 🆕 Add FloatButton `disabled` support. [#57123](https://github.com/ant-design/ant-design/pull/57123) [@zombieJ](https://github.com/zombieJ)
+- Form
+  - 🆕 Add Form `labelAlign` prop support in ConfigProvider. [#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Add Form semantic DOM support for `help`, `helpItem` and `extra`. [#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
+- Icons
+  - 🆕 Update @ant-design/icons to 6.2.0. [#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
+- Image
+  - 🆕 Add Image `placeholder.progress` for loading effect. [#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
+  - 🆕 Add Image preview mask `closable` support. [#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Image close button semantic element. [#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
+  - ⌨️ Add focus-visible styles and focusTrap support for Image preview. [#57610](https://github.com/ant-design/ant-design/pull/57610) [@aojunhao123](https://github.com/aojunhao123)
+- Input
+  - 🆕 Add Input `allowClear.disabled` support. [#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Input.TextArea `allowClear.disabled` support. [#57328](https://github.com/ant-design/ant-design/pull/57328) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Input `clear` semantic segment for classNames and styles. [#57391](https://github.com/ant-design/ant-design/pull/57391) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Input.Search `searchIcon` support. [#57256](https://github.com/ant-design/ant-design/pull/57256) [@guoyunhe](https://github.com/guoyunhe)
+  - ⌨️ Improve Input.Password accessibility and add ConfigProvider support. [#57271](https://github.com/ant-design/ant-design/pull/57271) [@Pareder](https://github.com/Pareder)
+- Menu
+  - 🐞 Fix Menu item extra layout with icon. [#57818](https://github.com/ant-design/ant-design/pull/57818) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Menu item extra ellipsis and tooltip padding. [#57823](https://github.com/ant-design/ant-design/pull/57823) [@QDyanbing](https://github.com/QDyanbing)
+- Mentions
+  - 🐞 Fix Mentions popup z-index. [#57873](https://github.com/ant-design/ant-design/pull/57873) [@meet-student](https://github.com/meet-student)
+- Modal
+  - 🆕 Add Modal close button semantic element. [#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- Notification
+  - 🆕 Add Notification fully semantic structure support. [#57824](https://github.com/ant-design/ant-design/pull/57824) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Fix Notification close spacing without title. [#57821](https://github.com/ant-design/ant-design/pull/57821) [@QDyanbing](https://github.com/QDyanbing)
+- Popconfirm
+  - 🆕 Add Popconfirm icon semantic support. [#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
+- Select
+  - 🐞 Fix Select option active style priority higher than selected. [#56924](https://github.com/ant-design/ant-design/pull/56924) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Fix Select `showArrowPaddingInlineEnd` not working for content gap. [#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Select error status colors not matching Input across outlined and filled variants. [#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
+  - 💄 Fix Select to use token font family on root. [#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
+- Space
+  - 🆕 Add Space.Addon design token support. [#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
+- Spin
+  - 🛎 Update Spin `size` prop deprecation warning and remove redundant check. [#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
+- Splitter
+  - 🆕 Add Splitter `destroyOnHidden` prop for panel content mounting. [#56772](https://github.com/ant-design/ant-design/pull/56772) [@AhmeddEsmat](https://github.com/AhmeddEsmat)
+  - 🆕 Add Splitter smooth transition animation for collapsible panels. [#56814](https://github.com/ant-design/ant-design/pull/56814) [@spider-yamet](https://github.com/spider-yamet)
+  - 🗑 Deprecate Splitter `collapsibleIcon` and add `collapsible.icon` replacement. [#57044](https://github.com/ant-design/ant-design/pull/57044) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix unexpected 1px horizontal padding from Splitter.Panel. [#57838](https://github.com/ant-design/ant-design/pull/57838) [@wanpan11](https://github.com/wanpan11)
+- Statistic
+  - 🆕 Add Statistic value semantic `className` and `style` support. [#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
+- Table
+  - 🆕 Add Table `column` prop support. [#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Table `scrollTo` align parameter and upgrade rc-table to 1.10.0. [#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Tag
+  - 🆕 Add Tag close icon semantic support. [#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Tag CheckableTagGroup per-option `className` and `style` support. [#57840](https://github.com/ant-design/ant-design/pull/57840) [@ZQDesigned](https://github.com/ZQDesigned)
+- Tabs
+  - 🆕 Add Tabs remove button semantic element. [#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
+- Theme
+  - 🆕 Add `colorErrorAffix` Design Token. [#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add `colorWarningAffix` Design Token. [#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
+  - 🐞 Fix Design Token heading font size tokens not supporting string values. [#57598](https://github.com/ant-design/ant-design/pull/57598) [@EndlessLucky](https://github.com/EndlessLucky)
+- Tour
+  - 🆕 Add Tour close button semantic element. [#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
+- Transfer
+  - 🆕 Add Transfer source and target semantic DOM support. [#57101](https://github.com/ant-design/ant-design/pull/57101) [@QDyanbing](https://github.com/QDyanbing)
+- Tree
+  - 🆕 Add `itemSwitcher` semantic for Tree and TreeSelect. [#57281](https://github.com/ant-design/ant-design/pull/57281) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Tree scroll-to-top when context menu closes and tree regains focus. [#57329](https://github.com/ant-design/ant-design/pull/57329) [@aojunhao123](https://github.com/aojunhao123)
+- Typography
+  - 🆕 Add Typography actions placement support. [#57440](https://github.com/ant-design/ant-design/pull/57440) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Typography default styles for table elements. [#57633](https://github.com/ant-design/ant-design/pull/57633) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Add Typography more flexible semantic structure. [#56971](https://github.com/ant-design/ant-design/pull/56971) [@zombieJ](https://github.com/zombieJ)
+- Upload
+  - 🆕 Add Upload image type detection with avif, tif and tiff. [#57287](https://github.com/ant-design/ant-design/pull/57287) [@guoyunhe](https://github.com/guoyunhe)
+- Watermark
+  - 🐞 Fix Watermark not covering Table fixed columns by default. [#57813](https://github.com/ant-design/ant-design/pull/57813) [@QDyanbing](https://github.com/QDyanbing)
+- Wave
+  - 🆕 Add Wave trigger type config support. [#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
+  - 🐞 Fix Wave ignoring transparent hex colors. [#57859](https://github.com/ant-design/ant-design/pull/57859) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇺🇸 Add Form `defaultValidateMessages` for 8 languages. [#57038](https://github.com/ant-design/ant-design/pull/57038) [@mixelburg](https://github.com/mixelburg) [#57045](https://github.com/ant-design/ant-design/pull/57045) [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)
+- 🆕 Improve antd component semantic type definitions. [#56821](https://github.com/ant-design/ant-design/pull/56821) [@crazyair](https://github.com/crazyair) [#56854](https://github.com/ant-design/ant-design/pull/56854) [@crazyair](https://github.com/crazyair)
+- 🆕 Add antd `GetProp` support for Return type. [#57001](https://github.com/ant-design/ant-design/pull/57001) [@crazyair](https://github.com/crazyair)
+- 🆕 Improve antd component type definitions. [#57811](https://github.com/ant-design/ant-design/pull/57811) [@meet-student](https://github.com/meet-student) [#57860](https://github.com/ant-design/ant-design/pull/57860) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 6.3.7
 
 `2026-04-27`
