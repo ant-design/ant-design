@@ -16,6 +16,10 @@ export default defineConfig({
   routePrefetch: {},
   manifest: {},
 
+  sitemap: {
+    hostname: 'https://ant.design',
+  },
+
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [/index\/components\//],
@@ -204,5 +208,9 @@ export default defineConfig({
             .toString(),
         }
       : null,
+    {
+      async: true,
+      content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'webmcp.js')).toString(),
+    },
   ].filter((script) => !!script),
 });
