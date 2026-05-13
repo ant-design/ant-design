@@ -1,12 +1,13 @@
 import React from 'react';
 
 import TimeLine from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
-import type { StepsSemanticClassNames, StepsSemanticName, StepsSemanticStyles } from '../../steps';
+import type { TimelineProps } from '../Timeline';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {
-    const classNames: StepsSemanticClassNames = {
+    const classNames: Required<GetProp<TimelineProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -18,7 +19,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: StepsSemanticClassNames = {
+    const classNamesTargets: Required<GetProp<TimelineProps, 'classNames', 'Return'>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -30,7 +31,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: StepsSemanticStyles = {
+    const styles: Required<GetProp<TimelineProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -57,9 +58,11 @@ describe('Timeline.Semantic', () => {
     );
 
     Object.keys(classNames).forEach((key) => {
-      const className = classNames[key as StepsSemanticName];
-      const oriClassName = classNamesTargets[key as StepsSemanticName];
-      const style = styles[key as StepsSemanticName];
+      const className =
+        classNames[key as keyof Required<GetProp<TimelineProps, 'classNames', 'Return'>>];
+      const oriClassName =
+        classNamesTargets[key as keyof Required<GetProp<TimelineProps, 'classNames', 'Return'>>];
+      const style = styles[key as keyof Required<GetProp<TimelineProps, 'styles', 'Return'>>];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName as any);

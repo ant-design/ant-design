@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
+import { isNumber } from '../../_util/is';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -10,7 +11,7 @@ export interface ComponentToken {
    * @desc 标题字体大小
    * @descEN Title font size
    */
-  titleFontSize: number;
+  titleFontSize: number | string;
   /**
    * @desc 副标题字体大小
    * @descEN Subtitle font size
@@ -20,7 +21,7 @@ export interface ComponentToken {
    * @desc 图标大小
    * @descEN Icon size
    */
-  iconFontSize: number;
+  iconFontSize: number | string;
   /**
    * @desc 额外区域外间距
    * @descEN Margin of extra area
@@ -138,12 +139,17 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
 ];
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
-  titleFontSize: token.fontSizeHeading3,
-  subtitleFontSize: token.fontSize,
-  iconFontSize: token.fontSizeHeading3 * 3,
-  extraMargin: `${token.paddingLG}px 0 0 0`,
-});
+export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => {
+  const { fontSizeHeading3, fontSize, paddingLG } = token;
+  return {
+    titleFontSize: fontSizeHeading3,
+    subtitleFontSize: fontSize,
+    iconFontSize: isNumber(fontSizeHeading3)
+      ? fontSizeHeading3 * 3
+      : `calc(${fontSizeHeading3} * 3)`,
+    extraMargin: `${paddingLG}px 0 0 0`,
+  };
+};
 
 export default genStyleHooks(
   'Result',

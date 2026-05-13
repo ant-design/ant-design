@@ -18,6 +18,8 @@ const localeValues: Locale = {
     placeholder: '请选择',
     close: '关闭',
     sortable: '可排序',
+    show: '显示',
+    hide: '隐藏',
   },
   Table: {
     filterTitle: '筛选',

@@ -246,7 +246,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
               width: '100%',
             },
 
-            '> a': {
+            [`> a, > ${menuCls}-item-label > a`]: {
               color: 'inherit',
               transition: `all ${motionDurationMid}`,
 

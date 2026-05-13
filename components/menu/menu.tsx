@@ -6,7 +6,7 @@ import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isFunction } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
@@ -209,11 +209,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    MenuClassNamesType,
-    MenuStylesType,
-    MenuProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {

@@ -20,6 +20,7 @@ import type {
   AlertConfig,
   AnchorStyleConfig,
   BadgeConfig,
+  BorderBeamConfig,
   BreadcrumbConfig,
   ButtonConfig,
   CalendarConfig,
@@ -46,6 +47,7 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
   ListConfig,
   MasonryConfig,
@@ -87,6 +89,7 @@ import type {
   TransferConfig,
   TreeConfig,
   TreeSelectConfig,
+  TypographyConfig,
   UploadConfig,
   Variant,
   WaveConfig,
@@ -193,6 +196,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
@@ -238,7 +242,7 @@ export interface ConfigProviderProps {
   collapse?: CollapseConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
@@ -261,6 +265,7 @@ export interface ConfigProviderProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
@@ -411,10 +416,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    inputPassword,
+    inputSearch,
     textArea,
     otp,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,
@@ -522,6 +530,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    inputPassword,
+    inputSearch,
     textArea,
     otp,
     layout,
@@ -537,6 +547,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,

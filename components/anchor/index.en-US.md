@@ -27,6 +27,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/onClick.tsx">Customize the onClick event</code>
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
 <code src="./demo/targetOffset.tsx" iframe="200">Set Anchor scroll offset</code>
+<code src="./demo/targetOffset-per-link.tsx" iframe="200" version="6.4.0" debug>Set scroll offset per link</code>
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
 <code src="./demo/replace.tsx" iframe="200">Replace href in history</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
@@ -66,16 +67,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | title | The content of hyperlink | ReactNode |  |  |
 | children | Nested Anchor Link, `Attention: This attribute does not support horizontal orientation` | [AnchorItem](#anchoritem)\[] | - |  |
 | replace | Replace item href in browser history instead of pushing it | boolean | false | 5.7.0 |
+| targetOffset | Customize scroll offset for this anchor link. It takes precedence over the `targetOffset` prop of the Anchor component | number | - | 6.4.0 |
 
 ### Link Props
 
 We recommend using the items form instead.
 
-| Property | Description                               | Type      | Default | Version |
-| -------- | ----------------------------------------- | --------- | ------- | ------- |
-| href     | The target of hyperlink                   | string    |         |         |
-| target   | Specifies where to display the linked URL | string    |         |         |
-| title    | The content of hyperlink                  | ReactNode |         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| href | The target of hyperlink | string |  |  |
+| target | Specifies where to display the linked URL | string |  |  |
+| title | The content of hyperlink | ReactNode |  |  |
+| targetOffset | Customize scroll offset for this anchor link. It takes precedence over the `targetOffset` prop of the Anchor component | number | - | 6.4.0 |
 
 ## Semantic DOM
 
