@@ -20,23 +20,16 @@ tag: vVERSION
 `2026-05-13`
 
 - 🔥 新增 BorderBeam 边框流光组件，在容器边框上呈现流动的高光动画效果。[#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
-- Alert
-  - 🆕 新增 Alert `variant` 属性，支持 filled 和 outlined 样式变体，并支持 ConfigProvider 配置。[#57764](https://github.com/ant-design/ant-design/pull/57764) [@guoyunhe](https://github.com/guoyunhe)
-- Anchor
-  - 🆕 新增 Anchor.Link `targetOffset` 属性，支持为每个链接单独设置滚动偏移。[#57521](https://github.com/ant-design/ant-design/pull/57521) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- App
-  - 🆕 新增 App `ref` 支持，可通过 ref 访问实例方法。[#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
-- Badge
-  - 🆕 新增 Badge `paddingInline` Design Token。[#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 新增 Alert `variant` 属性，支持 filled 和 outlined 样式变体，并支持 ConfigProvider 配置。[#57764](https://github.com/ant-design/ant-design/pull/57764) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 新增 Anchor.Link `targetOffset` 属性，支持为每个链接单独设置滚动偏移。[#57521](https://github.com/ant-design/ant-design/pull/57521) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 新增 App `ref` 支持，可通过 ref 访问实例方法。[#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 新增 Badge `paddingInline` Design Token。[#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
 - Button
   - 🆕 新增 Button solid 变体的默认颜色支持。[#57495](https://github.com/ant-design/ant-design/pull/57495) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Button 图标按钮中图标垂直未居中的问题。[#57896](https://github.com/ant-design/ant-design/pull/57896) [@RenzoMXD](https://github.com/RenzoMXD)
-- Calendar
-  - 🆕 新增 Calendar `itemContent` 语义化 DOM 支持。[#57430](https://github.com/ant-design/ant-design/pull/57430) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- Cascader
-  - 🆕 新增 Cascader 和 ConfigProvider 的 `searchIcon`、`clearIcon`、`removeIcon`、`suffixIcon` 配置支持。[#56725](https://github.com/ant-design/ant-design/pull/56725) [@guoyunhe](https://github.com/guoyunhe)
-- Checkbox
-  - 🐞 修复 Checkbox 在 Form.Item 中冗余的原生 input 尺寸和 width/height 覆盖设置。[#57714](https://github.com/ant-design/ant-design/pull/57714) [@lcsy1234](https://github.com/lcsy1234)
+- 🆕 新增 Calendar `itemContent` 语义化 DOM 支持。[#57430](https://github.com/ant-design/ant-design/pull/57430) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 新增 Cascader 和 ConfigProvider 的 `searchIcon`、`clearIcon`、`removeIcon`、`suffixIcon` 配置支持。[#56725](https://github.com/ant-design/ant-design/pull/56725) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Checkbox 在 Form.Item 中冗余的原生 input 尺寸和 width/height 覆盖设置。[#57714](https://github.com/ant-design/ant-design/pull/57714) [@lcsy1234](https://github.com/lcsy1234)
 - ConfigProvider
   - 🆕 新增 Select `allowClear` 全局配置支持。[#56476](https://github.com/ant-design/ant-design/pull/56476) [@ug-hero](https://github.com/ug-hero)
   - 🆕 新增 Select `showSearch`、`allowClear`、`clearIcon`、`loadingIcon`、`menuItemSelectedIcon`、`removeIcon`、`suffixIcon` 全局配置支持。[#56930](https://github.com/ant-design/ant-design/pull/56930) [@Pareder](https://github.com/Pareder)
@@ -51,15 +44,12 @@ tag: vVERSION
 - DatePicker
   - 🆕 新增 DatePicker 多选模式下 `tagRender` 属性，支持自定义标签渲染。[#57706](https://github.com/ant-design/ant-design/pull/57706) [@QDyanbing](https://github.com/QDyanbing)
   - ⌨️ 优化 DatePicker 和 TimePicker 的可访问性。[#57400](https://github.com/ant-design/ant-design/pull/57400) [@cyphercodes](https://github.com/cyphercodes)
-- Dropdown
-  - 🐞 修复 Dropdown 缺少 `forwardRef` 导致 React 18 兼容性问题。[#57902](https://github.com/ant-design/ant-design/pull/57902) [@xxiaoxiong](https://github.com/xxiaoxiong)
-- FloatButton
-  - 🆕 新增 FloatButton `disabled` 支持。[#57123](https://github.com/ant-design/ant-design/pull/57123) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Dropdown 缺少 `forwardRef` 导致 React 18 兼容性问题。[#57902](https://github.com/ant-design/ant-design/pull/57902) [@xxiaoxiong](https://github.com/xxiaoxiong)
+- 🆕 新增 FloatButton `disabled` 支持。[#57123](https://github.com/ant-design/ant-design/pull/57123) [@zombieJ](https://github.com/zombieJ)
 - Form
   - 🆕 新增 ConfigProvider 下 Form `labelAlign` 属性，支持全局控制标签对齐方式。[#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 新增 Form `help`、`helpItem` 和 `extra` 语义化 DOM 支持，便于自定义样式。[#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
-- Icons
-  - 📦 升级 @ant-design/icons 至 6.2.0，切换为真正的 ESM 输出以改善 tree shaking 效果。[#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
+- 📦 升级 @ant-design/icons 至 6.2.0，切换为真正的 ESM 输出以改善 tree shaking 效果。[#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
   - 🆕 新增 Image `placeholder.progress` 属性，支持显示加载进度指示器。[#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 新增 Image 预览蒙层 `closable` 支持。[#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
@@ -74,47 +64,38 @@ tag: vVERSION
 - Menu
   - 🐞 修复 Menu 带图标的 item extra 布局问题。[#57818](https://github.com/ant-design/ant-design/pull/57818) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Menu item extra 省略和 tooltip padding 问题。[#57823](https://github.com/ant-design/ant-design/pull/57823) [@QDyanbing](https://github.com/QDyanbing)
-- Mentions
-  - 🐞 修复 Mentions 弹出层 z-index 问题。[#57873](https://github.com/ant-design/ant-design/pull/57873) [@meet-student](https://github.com/meet-student)
-- Modal
-  - 🆕 新增 Modal 关闭按钮语义化元素。[#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🐞 修复 Mentions 弹出层 z-index 问题。[#57873](https://github.com/ant-design/ant-design/pull/57873) [@meet-student](https://github.com/meet-student)
+- 🆕 新增 Modal 关闭按钮语义化元素。[#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
 - Notification
   - 🆕 新增 Notification 完整语义化结构支持。[#57824](https://github.com/ant-design/ant-design/pull/57824) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Notification 无标题时关闭按钮间距不足的问题。[#57821](https://github.com/ant-design/ant-design/pull/57821) [@QDyanbing](https://github.com/QDyanbing)
-- Popconfirm
-  - 🆕 新增 Popconfirm icon 语义化支持。[#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Popconfirm icon 语义化支持。[#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
 - Select
   - 🐞 修复 Select 选中项样式优先级高于激活项的问题。[#56924](https://github.com/ant-design/ant-design/pull/56924) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Select `showArrowPaddingInlineEnd` 对内容间距无效的问题。[#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Select error 状态颜色在 outlined 和 filled 变体下与 Input 不一致的问题。[#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
   - 💄 修复 Select 在根节点使用 token 字体。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
-- Space
-  - 🆕 新增 Space.Addon Design Token 支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
-- Spin
-  - 🛎 更新 Spin `size` 属性废弃警告并移除冗余检查。[#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
+- 🆕 新增 Space.Addon Design Token 支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
+- 🛎 更新 Spin `size` 属性废弃警告并移除冗余检查。[#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
 - Splitter
   - 🆕 新增 Splitter `destroyOnHidden` 属性，用于面板内容挂载管理。[#56772](https://github.com/ant-design/ant-design/pull/56772) [@AhmeddEsmat](https://github.com/AhmeddEsmat)
   - 🆕 新增 Splitter 可折叠面板的平滑过渡动画。[#56814](https://github.com/ant-design/ant-design/pull/56814) [@spider-yamet](https://github.com/spider-yamet)
   - 🗑 废弃 Splitter `collapsibleIcon`，新增 `collapsible.icon` 替代。[#57044](https://github.com/ant-design/ant-design/pull/57044) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Splitter.Panel 存在意外的 1px 水平内边距。[#57838](https://github.com/ant-design/ant-design/pull/57838) [@wanpan11](https://github.com/wanpan11)
-- Statistic
-  - 🆕 新增 Statistic 数值语义化 `className` 和 `style` 支持。[#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 新增 Statistic 数值语义化 `className` 和 `style` 支持。[#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
 - Table
   - 🆕 新增 Table `column` 属性，支持通过 ConfigProvider 配置列。[#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Table `scrollTo` align 参数，升级 rc-table 至 1.10.0。[#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Tag
   - 🆕 新增 Tag 关闭图标语义化支持。[#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Tag CheckableTagGroup 逐项 `className` 和 `style` 支持。[#57840](https://github.com/ant-design/ant-design/pull/57840) [@ZQDesigned](https://github.com/ZQDesigned)
-- Tabs
-  - 🆕 新增 Tabs 移除按钮语义化元素。[#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
+- 🆕 新增 Tabs 移除按钮语义化元素。[#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
 - Theme
   - 🆕 新增 `colorErrorAffix` Design Token，控制输入框后缀的错误状态颜色。[#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 新增 `colorWarningAffix` Design Token，控制输入框后缀的警告状态颜色。[#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
   - 🐞 修复 Design Token heading 字号令牌不支持字符串值的问题。[#57598](https://github.com/ant-design/ant-design/pull/57598) [@EndlessLucky](https://github.com/EndlessLucky)
-- Tour
-  - 🆕 新增 Tour 关闭按钮语义化元素。[#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
-- Transfer
-  - 🆕 新增 Transfer source 和 target 语义化 DOM 支持。[#57101](https://github.com/ant-design/ant-design/pull/57101) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Tour 关闭按钮语义化元素。[#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
+- 🆕 新增 Transfer source 和 target 语义化 DOM 支持。[#57101](https://github.com/ant-design/ant-design/pull/57101) [@QDyanbing](https://github.com/QDyanbing)
 - Tree
   - 🆕 新增 Tree 和 TreeSelect 的 `itemSwitcher` 语义化支持。[#57281](https://github.com/ant-design/ant-design/pull/57281) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Tree 右键菜单关闭后焦点回到树导致滚动到顶部的问题。[#57329](https://github.com/ant-design/ant-design/pull/57329) [@aojunhao123](https://github.com/aojunhao123)
@@ -122,10 +103,8 @@ tag: vVERSION
   - 🆕 新增 Typography `actions` 位置配置属性，支持控制操作按钮的摆放位置。[#57440](https://github.com/ant-design/ant-design/pull/57440) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Typography 内表格元素默认样式。[#57633](https://github.com/ant-design/ant-design/pull/57633) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 新增 Typography 更灵活的语义化结构。[#56971](https://github.com/ant-design/ant-design/pull/56971) [@zombieJ](https://github.com/zombieJ)
-- Upload
-  - 🆕 新增 Upload 对 avif、tif 和 tiff 图片类型的检测支持。[#57287](https://github.com/ant-design/ant-design/pull/57287) [@guoyunhe](https://github.com/guoyunhe)
-- Watermark
-  - 🐞 修复 Watermark 默认未覆盖 Table 固定列的问题。[#57813](https://github.com/ant-design/ant-design/pull/57813) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Upload 对 avif、tif 和 tiff 图片类型的检测支持。[#57287](https://github.com/ant-design/ant-design/pull/57287) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Watermark 默认未覆盖 Table 固定列的问题。[#57813](https://github.com/ant-design/ant-design/pull/57813) [@QDyanbing](https://github.com/QDyanbing)
 - Wave
   - 🆕 新增 Wave `triggerType` 配置，控制哪个元素触发水波纹效果。[#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Wave 忽略透明十六进制颜色的问题。[#57859](https://github.com/ant-design/ant-design/pull/57859) [@li-jia-nan](https://github.com/li-jia-nan)
