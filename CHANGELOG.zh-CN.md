@@ -27,7 +27,7 @@ tag: vVERSION
 - App
   - 🆕 新增 App `ref` 支持，可通过 ref 访问实例方法。[#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
 - Badge
-  - 🆕 新增 Badge `paddingInline` 设计令牌。[#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 新增 Badge `paddingInline` Design Token。[#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
 - Button
   - 🆕 新增 Button solid 变体的默认颜色支持。[#57495](https://github.com/ant-design/ant-design/pull/57495) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Button 图标按钮中图标垂直未居中的问题。[#57896](https://github.com/ant-design/ant-design/pull/57896) [@RenzoMXD](https://github.com/RenzoMXD)
@@ -89,7 +89,7 @@ tag: vVERSION
   - 🐞 修复 Select error 状态颜色在 outlined 和 filled 变体下与 Input 不一致的问题。[#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
   - 💄 修复 Select 在根节点使用 token 字体。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
 - Space
-  - 🆕 新增 Space.Addon 设计令牌支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 新增 Space.Addon Design Token支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
 - Spin
   - 🛎 更新 Spin `size` 属性废弃警告并移除冗余检查。[#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
 - Splitter
