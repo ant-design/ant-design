@@ -380,6 +380,7 @@ describe('Input allowClear', () => {
 
       return (
         <Input
+          count={{ max: 2, exceedFormatter: (currentValue) => currentValue }}
           value={value}
           onChange={(e) => {
             targetsBeforeChange.push(e.target);
@@ -401,6 +402,7 @@ describe('Input allowClear', () => {
     fireEvent.change(input, { target: { value: '123' } });
 
     expect(targetsBeforeChange).toHaveLength(1);
+    expect(receivedTarget).toBe(input);
     expect(receivedTarget).toBe(receivedCurrentTarget);
     expect(targetWasMounted).toBe(true);
     expect(input.value).toBe('123');
