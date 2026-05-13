@@ -59,7 +59,7 @@ tag: vVERSION
   - 🆕 Add Form `labelAlign` prop to ConfigProvider for global label alignment control. [#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Add Form semantic DOM support for `help`, `helpItem` and `extra` to allow custom styling. [#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
 - Icons
-  - 🆕 Update @ant-design/icons to 6.2.0. [#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
+  - 📦 Upgrade @ant-design/icons to 6.2.0, switching to real ESM output to improve tree shaking. [#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
   - 🆕 Add Image `placeholder.progress` prop to show loading progress indicator. [#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 Add Image preview mask `closable` support. [#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
@@ -130,9 +130,7 @@ tag: vVERSION
   - 🆕 Add Wave `triggerType` config to control which element triggers the wave effect. [#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
   - 🐞 Fix Wave ignoring transparent hex colors. [#57859](https://github.com/ant-design/ant-design/pull/57859) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🇺🇸 Add Form `defaultValidateMessages` for 8 languages. [#57038](https://github.com/ant-design/ant-design/pull/57038) [@mixelburg](https://github.com/mixelburg) [#57045](https://github.com/ant-design/ant-design/pull/57045) [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)
-- 🆕 Improve antd component semantic type definitions. [#56821](https://github.com/ant-design/ant-design/pull/56821) [@crazyair](https://github.com/crazyair) [#56854](https://github.com/ant-design/ant-design/pull/56854) [@crazyair](https://github.com/crazyair)
 - 🆕 Add antd `GetProp` support for Return type. [#57001](https://github.com/ant-design/ant-design/pull/57001) [@crazyair](https://github.com/crazyair)
-- 🆕 Improve antd component type definitions. [#57811](https://github.com/ant-design/ant-design/pull/57811) [@meet-student](https://github.com/meet-student) [#57860](https://github.com/ant-design/ant-design/pull/57860) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 6.3.7
 

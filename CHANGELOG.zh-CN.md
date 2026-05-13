@@ -59,7 +59,7 @@ tag: vVERSION
   - 🆕 新增 ConfigProvider 下 Form `labelAlign` 属性，支持全局控制标签对齐方式。[#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 新增 Form `help`、`helpItem` 和 `extra` 语义化 DOM 支持，便于自定义样式。[#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
 - Icons
-  - 🆕 升级 @ant-design/icons 至 6.2.0。[#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
+  - 📦 升级 @ant-design/icons 至 6.2.0，切换为真正的 ESM 输出以改善 tree shaking 效果。[#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
   - 🆕 新增 Image `placeholder.progress` 属性，支持显示加载进度指示器。[#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 新增 Image 预览蒙层 `closable` 支持。[#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
@@ -130,9 +130,7 @@ tag: vVERSION
   - 🆕 新增 Wave `triggerType` 配置，控制哪个元素触发水波纹效果。[#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
   - 🐞 修复 Wave 忽略透明十六进制颜色的问题。[#57859](https://github.com/ant-design/ant-design/pull/57859) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🇺🇸 新增 8 种语言的 Form `defaultValidateMessages`。[#57038](https://github.com/ant-design/ant-design/pull/57038) [@mixelburg](https://github.com/mixelburg) [#57045](https://github.com/ant-design/ant-design/pull/57045) [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)
-- 🆕 改进 antd 组件语义化类型定义。[#56821](https://github.com/ant-design/ant-design/pull/56821) [@crazyair](https://github.com/crazyair) [#56854](https://github.com/ant-design/ant-design/pull/56854) [@crazyair](https://github.com/crazyair)
 - 🆕 新增 antd `GetProp` 支持 Return 类型。[#57001](https://github.com/ant-design/ant-design/pull/57001) [@crazyair](https://github.com/crazyair)
-- 🆕 改进 antd 组件类型定义。[#57811](https://github.com/ant-design/ant-design/pull/57811) [@meet-student](https://github.com/meet-student) [#57860](https://github.com/ant-design/ant-design/pull/57860) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 6.3.7
 
