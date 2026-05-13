@@ -89,7 +89,7 @@ tag: vVERSION
   - 🐞 修复 Select error 状态颜色在 outlined 和 filled 变体下与 Input 不一致的问题。[#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
   - 💄 修复 Select 在根节点使用 token 字体。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
 - Space
-  - 🆕 新增 Space.Addon Design Token支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 新增 Space.Addon Design Token 支持。[#56915](https://github.com/ant-design/ant-design/pull/56915) [@zombieJ](https://github.com/zombieJ)
 - Spin
   - 🛎 更新 Spin `size` 属性废弃警告并移除冗余检查。[#57812](https://github.com/ant-design/ant-design/pull/57812) [@meet-student](https://github.com/meet-student)
 - Splitter
