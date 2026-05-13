@@ -19,13 +19,13 @@ tag: vVERSION
 
 `2026-05-13`
 
-- 🔥 Add BorderBeam component. [#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
+- 🔥 Add BorderBeam component for animated border beam effect along container edges. [#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
 - Alert
-  - 🆕 Add Alert `variant` prop and ConfigProvider support. [#57764](https://github.com/ant-design/ant-design/pull/57764) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Alert `variant` prop to support filled and outlined styles, and ConfigProvider support. [#57764](https://github.com/ant-design/ant-design/pull/57764) [@guoyunhe](https://github.com/guoyunhe)
 - Anchor
-  - 🆕 Add Anchor.Link `targetOffset` prop. [#57521](https://github.com/ant-design/ant-design/pull/57521) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Add Anchor.Link `targetOffset` prop to set scroll offset for each link individually. [#57521](https://github.com/ant-design/ant-design/pull/57521) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - App
-  - 🆕 Add App `ref` support. [#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Add App `ref` support to access instance methods programmatically. [#56951](https://github.com/ant-design/ant-design/pull/56951) [@li-jia-nan](https://github.com/li-jia-nan)
 - Badge
   - 🆕 Add Badge `paddingInline` design token. [#57891](https://github.com/ant-design/ant-design/pull/57891) [@guoyunhe](https://github.com/guoyunhe)
 - Button
@@ -45,31 +45,31 @@ tag: vVERSION
   - 🆕 Add Modal `infoIcon`, `successIcon`, `warningIcon`, `errorIcon` config support. [#57168](https://github.com/ant-design/ant-design/pull/57168) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Add Upload `progress` config support. [#57283](https://github.com/ant-design/ant-design/pull/57283) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Add Upload `accept` config support. [#57286](https://github.com/ant-design/ant-design/pull/57286) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 Add Modal and Drawer `focusable` config support. [#57314](https://github.com/ant-design/ant-design/pull/57314) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Modal and Drawer `focusable` config to control whether the component can receive focus. [#57314](https://github.com/ant-design/ant-design/pull/57314) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Mentions `allowClear` config support. [#57330](https://github.com/ant-design/ant-design/pull/57330) [@guoyunhe](https://github.com/guoyunhe)
   - 🐞 Fix ConfigProvider css var prefix not following `prefixCls`. [#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
 - DatePicker
-  - 🆕 Add DatePicker `tagRender` support in multiple mode. [#57706](https://github.com/ant-design/ant-design/pull/57706) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add DatePicker `tagRender` prop to customize tag rendering in multiple mode. [#57706](https://github.com/ant-design/ant-design/pull/57706) [@QDyanbing](https://github.com/QDyanbing)
   - ⌨️ Improve DatePicker and TimePicker accessibility. [#57400](https://github.com/ant-design/ant-design/pull/57400) [@cyphercodes](https://github.com/cyphercodes)
 - Dropdown
   - 🐞 Fix Dropdown missing `forwardRef` for React 18 compatibility. [#57902](https://github.com/ant-design/ant-design/pull/57902) [@xxiaoxiong](https://github.com/xxiaoxiong)
 - FloatButton
   - 🆕 Add FloatButton `disabled` support. [#57123](https://github.com/ant-design/ant-design/pull/57123) [@zombieJ](https://github.com/zombieJ)
 - Form
-  - 🆕 Add Form `labelAlign` prop support in ConfigProvider. [#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-  - 🆕 Add Form semantic DOM support for `help`, `helpItem` and `extra`. [#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Form `labelAlign` prop to ConfigProvider for global label alignment control. [#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Add Form semantic DOM support for `help`, `helpItem` and `extra` to allow custom styling. [#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
 - Icons
   - 🆕 Update @ant-design/icons to 6.2.0. [#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
-  - 🆕 Add Image `placeholder.progress` for loading effect. [#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
+  - 🆕 Add Image `placeholder.progress` prop to show loading progress indicator. [#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 Add Image preview mask `closable` support. [#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Image close button semantic element. [#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
   - ⌨️ Add focus-visible styles and focusTrap support for Image preview. [#57610](https://github.com/ant-design/ant-design/pull/57610) [@aojunhao123](https://github.com/aojunhao123)
 - Input
-  - 🆕 Add Input `allowClear.disabled` support. [#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 Add Input.TextArea `allowClear.disabled` support. [#57328](https://github.com/ant-design/ant-design/pull/57328) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 Add Input `clear` semantic segment for classNames and styles. [#57391](https://github.com/ant-design/ant-design/pull/57391) [@QDyanbing](https://github.com/QDyanbing)
-  - 🆕 Add Input.Search `searchIcon` support. [#57256](https://github.com/ant-design/ant-design/pull/57256) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Input `allowClear.disabled` prop to disable the clear button while keeping it visible. [#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Input.TextArea `allowClear.disabled` prop to disable the clear button while keeping it visible. [#57328](https://github.com/ant-design/ant-design/pull/57328) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add Input `clear` semantic segment for customizing clear button `classNames` and `styles`. [#57391](https://github.com/ant-design/ant-design/pull/57391) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Input.Search `searchIcon` prop to customize the search icon. [#57256](https://github.com/ant-design/ant-design/pull/57256) [@guoyunhe](https://github.com/guoyunhe)
   - ⌨️ Improve Input.Password accessibility and add ConfigProvider support. [#57271](https://github.com/ant-design/ant-design/pull/57271) [@Pareder](https://github.com/Pareder)
 - Menu
   - 🐞 Fix Menu item extra layout with icon. [#57818](https://github.com/ant-design/ant-design/pull/57818) [@QDyanbing](https://github.com/QDyanbing)
@@ -100,7 +100,7 @@ tag: vVERSION
 - Statistic
   - 🆕 Add Statistic value semantic `className` and `style` support. [#57656](https://github.com/ant-design/ant-design/pull/57656) [@li-jia-nan](https://github.com/li-jia-nan)
 - Table
-  - 🆕 Add Table `column` prop support. [#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Table `column` prop to configure columns via ConfigProvider. [#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Table `scrollTo` align parameter and upgrade rc-table to 1.10.0. [#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Tag
   - 🆕 Add Tag close icon semantic support. [#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
@@ -108,8 +108,8 @@ tag: vVERSION
 - Tabs
   - 🆕 Add Tabs remove button semantic element. [#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
 - Theme
-  - 🆕 Add `colorErrorAffix` Design Token. [#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 Add `colorWarningAffix` Design Token. [#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add `colorErrorAffix` Design Token to control the error color of input affix. [#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Add `colorWarningAffix` Design Token to control the warning color of input affix. [#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
   - 🐞 Fix Design Token heading font size tokens not supporting string values. [#57598](https://github.com/ant-design/ant-design/pull/57598) [@EndlessLucky](https://github.com/EndlessLucky)
 - Tour
   - 🆕 Add Tour close button semantic element. [#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
@@ -119,7 +119,7 @@ tag: vVERSION
   - 🆕 Add `itemSwitcher` semantic for Tree and TreeSelect. [#57281](https://github.com/ant-design/ant-design/pull/57281) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 Fix Tree scroll-to-top when context menu closes and tree regains focus. [#57329](https://github.com/ant-design/ant-design/pull/57329) [@aojunhao123](https://github.com/aojunhao123)
 - Typography
-  - 🆕 Add Typography actions placement support. [#57440](https://github.com/ant-design/ant-design/pull/57440) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Typography `actions` placement prop to control the position of action buttons. [#57440](https://github.com/ant-design/ant-design/pull/57440) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Typography default styles for table elements. [#57633](https://github.com/ant-design/ant-design/pull/57633) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Add Typography more flexible semantic structure. [#56971](https://github.com/ant-design/ant-design/pull/56971) [@zombieJ](https://github.com/zombieJ)
 - Upload
@@ -127,7 +127,7 @@ tag: vVERSION
 - Watermark
   - 🐞 Fix Watermark not covering Table fixed columns by default. [#57813](https://github.com/ant-design/ant-design/pull/57813) [@QDyanbing](https://github.com/QDyanbing)
 - Wave
-  - 🆕 Add Wave trigger type config support. [#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
+  - 🆕 Add Wave `triggerType` config to control which element triggers the wave effect. [#57402](https://github.com/ant-design/ant-design/pull/57402) [@wanpan11](https://github.com/wanpan11)
   - 🐞 Fix Wave ignoring transparent hex colors. [#57859](https://github.com/ant-design/ant-design/pull/57859) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🇺🇸 Add Form `defaultValidateMessages` for 8 languages. [#57038](https://github.com/ant-design/ant-design/pull/57038) [@mixelburg](https://github.com/mixelburg) [#57045](https://github.com/ant-design/ant-design/pull/57045) [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)
 - 🆕 Improve antd component semantic type definitions. [#56821](https://github.com/ant-design/ant-design/pull/56821) [@crazyair](https://github.com/crazyair) [#56854](https://github.com/ant-design/ant-design/pull/56854) [@crazyair](https://github.com/crazyair)
