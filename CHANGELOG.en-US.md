@@ -49,11 +49,10 @@ tag: vVERSION
 - Form
   - 🆕 Add Form `labelAlign` prop to ConfigProvider for global label alignment control. [#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 Add Form semantic DOM support for `help`, `helpItem` and `extra` to allow custom styling. [#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
-- 📦 Upgrade @ant-design/icons to 6.2.0, switching to real ESM output to improve tree shaking. [#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
   - 🆕 Add Image `placeholder.progress` prop to show loading progress indicator. [#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 Add Image preview mask `closable` support. [#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
-  - 🆕 Add Image close button semantic element. [#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
+  - 🆕 Add Image `closeIcon` semantic node for `classNames` and `styles` configuration. [#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
   - ⌨️ Add focus-visible styles and focusTrap support for Image preview. [#57610](https://github.com/ant-design/ant-design/pull/57610) [@aojunhao123](https://github.com/aojunhao123)
 - Input
   - 🆕 Add Input `allowClear.disabled` prop to disable the clear button while keeping it visible. [#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
@@ -65,11 +64,11 @@ tag: vVERSION
   - 🐞 Fix Menu item extra layout with icon. [#57818](https://github.com/ant-design/ant-design/pull/57818) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 Fix Menu item extra ellipsis and tooltip padding. [#57823](https://github.com/ant-design/ant-design/pull/57823) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Mentions popup z-index. [#57873](https://github.com/ant-design/ant-design/pull/57873) [@meet-student](https://github.com/meet-student)
-- 🆕 Add Modal close button semantic element. [#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🆕 Add Modal `closeIcon` semantic node for `classNames` and `styles` configuration. [#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
 - Notification
   - 🆕 Add Notification fully semantic structure support. [#57824](https://github.com/ant-design/ant-design/pull/57824) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix Notification close spacing without title. [#57821](https://github.com/ant-design/ant-design/pull/57821) [@QDyanbing](https://github.com/QDyanbing)
-- 🆕 Add Popconfirm icon semantic support. [#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 Add Popconfirm `icon` semantic node for `classNames` and `styles` configuration. [#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
 - Select
   - 🐞 Fix Select option active style priority higher than selected. [#56924](https://github.com/ant-design/ant-design/pull/56924) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix Select `showArrowPaddingInlineEnd` not working for content gap. [#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
@@ -87,14 +86,14 @@ tag: vVERSION
   - 🆕 Add Table `column` prop to configure columns via ConfigProvider. [#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Table `scrollTo` align parameter and upgrade rc-table to 1.10.0. [#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Tag
-  - 🆕 Add Tag close icon semantic support. [#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add Tag `close` semantic node for close icon `classNames` and `styles` configuration. [#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Tag CheckableTagGroup per-option `className` and `style` support. [#57840](https://github.com/ant-design/ant-design/pull/57840) [@ZQDesigned](https://github.com/ZQDesigned)
-- 🆕 Add Tabs remove button semantic element. [#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Add Tabs `remove` semantic node for close button `classNames` and `styles` configuration. [#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
 - Theme
   - 🆕 Add `colorErrorAffix` Design Token to control the error color of input affix. [#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Add `colorWarningAffix` Design Token to control the warning color of input affix. [#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
   - 🐞 Fix Design Token heading font size tokens not supporting string values. [#57598](https://github.com/ant-design/ant-design/pull/57598) [@EndlessLucky](https://github.com/EndlessLucky)
-- 🆕 Add Tour close button semantic element. [#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
+- 🆕 Add Tour `closeIcon` semantic node for `classNames` and `styles` configuration. [#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Add Transfer source and target semantic DOM support. [#57101](https://github.com/ant-design/ant-design/pull/57101) [@QDyanbing](https://github.com/QDyanbing)
 - Tree
   - 🆕 Add `itemSwitcher` semantic for Tree and TreeSelect. [#57281](https://github.com/ant-design/ant-design/pull/57281) [@QDyanbing](https://github.com/QDyanbing)

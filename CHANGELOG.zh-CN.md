@@ -49,11 +49,10 @@ tag: vVERSION
 - Form
   - 🆕 新增 ConfigProvider 下 Form `labelAlign` 属性，支持全局控制标签对齐方式。[#56979](https://github.com/ant-design/ant-design/pull/56979) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 新增 Form `help`、`helpItem` 和 `extra` 语义化 DOM 支持，便于自定义样式。[#57607](https://github.com/ant-design/ant-design/pull/57607) [@QDyanbing](https://github.com/QDyanbing)
-- 📦 升级 @ant-design/icons 至 6.2.0，切换为真正的 ESM 输出以改善 tree shaking 效果。[#57790](https://github.com/ant-design/ant-design/pull/57790) [@guoyunhe](https://github.com/guoyunhe)
 - Image
   - 🆕 新增 Image `placeholder.progress` 属性，支持显示加载进度指示器。[#57173](https://github.com/ant-design/ant-design/pull/57173) [@afc163](https://github.com/afc163)
   - 🆕 新增 Image 预览蒙层 `closable` 支持。[#57611](https://github.com/ant-design/ant-design/pull/57611) [@QDyanbing](https://github.com/QDyanbing)
-  - 🆕 新增 Image 关闭按钮语义化元素。[#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
+  - 🆕 新增 Image `closeIcon` 语义化节点，支持 `classNames` 和 `styles` 配置。[#57263](https://github.com/ant-design/ant-design/pull/57263) [@coding-ice](https://github.com/coding-ice)
   - ⌨️ 新增 Image 预览的 focus-visible 样式和 focusTrap 支持。[#57610](https://github.com/ant-design/ant-design/pull/57610) [@aojunhao123](https://github.com/aojunhao123)
 - Input
   - 🆕 新增 Input `allowClear.disabled` 属性，支持禁用清除按钮但保持可见。[#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
@@ -65,11 +64,11 @@ tag: vVERSION
   - 🐞 修复 Menu 带图标的 item extra 布局问题。[#57818](https://github.com/ant-design/ant-design/pull/57818) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Menu item extra 省略和 tooltip padding 问题。[#57823](https://github.com/ant-design/ant-design/pull/57823) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Mentions 弹出层 z-index 问题。[#57873](https://github.com/ant-design/ant-design/pull/57873) [@meet-student](https://github.com/meet-student)
-- 🆕 新增 Modal 关闭按钮语义化元素。[#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
+- 🆕 新增 Modal `closeIcon` 语义化节点，支持 `classNames` 和 `styles` 配置。[#57264](https://github.com/ant-design/ant-design/pull/57264) [@divyeshagrawal](https://github.com/divyeshagrawal)
 - Notification
   - 🆕 新增 Notification 完整语义化结构支持。[#57824](https://github.com/ant-design/ant-design/pull/57824) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Notification 无标题时关闭按钮间距不足的问题。[#57821](https://github.com/ant-design/ant-design/pull/57821) [@QDyanbing](https://github.com/QDyanbing)
-- 🆕 新增 Popconfirm icon 语义化支持。[#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Popconfirm `icon` 语义化节点，支持 `classNames` 和 `styles` 配置。[#57528](https://github.com/ant-design/ant-design/pull/57528) [@QDyanbing](https://github.com/QDyanbing)
 - Select
   - 🐞 修复 Select 选中项样式优先级高于激活项的问题。[#56924](https://github.com/ant-design/ant-design/pull/56924) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Select `showArrowPaddingInlineEnd` 对内容间距无效的问题。[#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
@@ -87,14 +86,14 @@ tag: vVERSION
   - 🆕 新增 Table `column` 属性，支持通过 ConfigProvider 配置列。[#57545](https://github.com/ant-design/ant-design/pull/57545) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Table `scrollTo` align 参数，升级 rc-table 至 1.10.0。[#57594](https://github.com/ant-design/ant-design/pull/57594) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Tag
-  - 🆕 新增 Tag 关闭图标语义化支持。[#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 新增 Tag `close` 语义化节点，支持关闭图标 `classNames` 和 `styles` 配置。[#57331](https://github.com/ant-design/ant-design/pull/57331) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Tag CheckableTagGroup 逐项 `className` 和 `style` 支持。[#57840](https://github.com/ant-design/ant-design/pull/57840) [@ZQDesigned](https://github.com/ZQDesigned)
-- 🆕 新增 Tabs 移除按钮语义化元素。[#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
+- 🆕 新增 Tabs `remove` 语义化节点，支持关闭按钮 `classNames` 和 `styles` 配置。[#57267](https://github.com/ant-design/ant-design/pull/57267) [@coding-ice](https://github.com/coding-ice)
 - Theme
   - 🆕 新增 `colorErrorAffix` Design Token，控制输入框后缀的错误状态颜色。[#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 新增 `colorWarningAffix` Design Token，控制输入框后缀的警告状态颜色。[#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
   - 🐞 修复 Design Token heading 字号令牌不支持字符串值的问题。[#57598](https://github.com/ant-design/ant-design/pull/57598) [@EndlessLucky](https://github.com/EndlessLucky)
-- 🆕 新增 Tour 关闭按钮语义化元素。[#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
+- 🆕 新增 Tour `closeIcon` 语义化节点，支持 `classNames` 和 `styles` 配置。[#57268](https://github.com/ant-design/ant-design/pull/57268) [@coding-ice](https://github.com/coding-ice)
 - 🆕 新增 Transfer source 和 target 语义化 DOM 支持。[#57101](https://github.com/ant-design/ant-design/pull/57101) [@QDyanbing](https://github.com/QDyanbing)
 - Tree
   - 🆕 新增 Tree 和 TreeSelect 的 `itemSwitcher` 语义化支持。[#57281](https://github.com/ant-design/ant-design/pull/57281) [@QDyanbing](https://github.com/QDyanbing)
