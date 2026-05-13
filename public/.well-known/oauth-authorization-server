@@ -1,0 +1,10 @@
+{
+  "issuer": "https://ant.design",
+  "authorization_endpoint": "https://ant.design/authorize",
+  "token_endpoint": "https://ant.design/token",
+  "jwks_uri": "https://ant.design/.well-known/jwks.json",
+  "grant_types_supported": ["client_credentials"],
+  "response_types_supported": ["none"],
+  "token_endpoint_auth_methods_supported": ["client_secret_basic"],
+  "service_documentation": "https://ant.design/docs/react/introduce"
+}
