@@ -78,6 +78,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorErrorOutline: getAlphaColor(mergedToken.colorErrorBg, mergedToken.colorBgContainer),
     colorWarningOutline: getAlphaColor(mergedToken.colorWarningBg, mergedToken.colorBgContainer),
+    colorErrorAffix: mergedToken.colorError,
+    colorWarningAffix: mergedToken.colorWarning,
 
     // Font
     fontSizeIcon: mergedToken.fontSizeSM,

@@ -1235,6 +1235,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="calendar"
               class="anticon anticon-calendar"
               role="img"
@@ -1903,6 +1904,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3128,6 +3130,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4931,6 +4934,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -6680,6 +6684,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -11497,6 +11502,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12578,6 +12584,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -14339,6 +14346,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -16094,6 +16102,28 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/space/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-space-compact"
+>
+  <div
+    class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
+  >
+    Addon
+  </div>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/space/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = `
 <div

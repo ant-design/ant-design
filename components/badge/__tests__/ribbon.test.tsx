@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import type { RibbonProps } from '..';
+import Badge from '..';
+import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Badge from '../index';
 
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);
@@ -81,13 +83,13 @@ describe('Ribbon', () => {
     });
   });
   it('should apply custom styles to Badge.Ribbon', () => {
-    const customClassNames = {
+    const customClassNames: Required<GetProp<RibbonProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       indicator: 'custom-indicator',
       content: 'custom-content',
     };
 
-    const customStyles = {
+    const customStyles: Required<GetProp<RibbonProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       indicator: { color: 'rgb(0, 128, 0)' },
       content: { color: 'rgb(255, 255, 0)' },
@@ -109,9 +111,9 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass(customClassNames.content);
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator?.color });
-    expect(contentElement).toHaveStyle({ color: customStyles.content?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator.color });
+    expect(contentElement).toHaveStyle({ color: customStyles.content.color });
   });
 
   it('should support function-based classNames and styles', () => {

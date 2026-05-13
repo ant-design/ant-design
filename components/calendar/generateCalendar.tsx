@@ -6,8 +6,8 @@ import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -30,32 +30,28 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
-export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles;
-
-export type CalendarSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  content?: string;
-  item?: string;
+export type CalendarSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    content?: string;
+    item?: string;
+    itemContent?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    content?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+  };
 };
 
-export type CalendarSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
-
-export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
-  CalendarProps<DateType>,
-  CalendarSemanticClassNames
->;
-
-export type CalendarStylesType<DateType> = SemanticStylesType<
-  CalendarProps<DateType>,
-  CalendarSemanticStyles
+export type CalendarSemanticAllType<T = any> = GenerateSemantic<
+  CalendarSemanticType,
+  CalendarProps<T>
 >;
 
 export interface CalendarProps<DateType> {
@@ -63,8 +59,8 @@ export interface CalendarProps<DateType> {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: CalendarClassNamesType<DateType>;
-  styles?: CalendarStylesType<DateType>;
+  classNames?: CalendarSemanticAllType<DateType>['classNamesAndFn'];
+  styles?: CalendarSemanticAllType<DateType>['stylesAndFn'];
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
@@ -148,13 +144,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       showWeek,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      CalendarClassNamesType<DateType>,
-      CalendarStylesType<DateType>,
-      CalendarProps<DateType>
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {
@@ -173,6 +169,9 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           nextPanelStyles,
         ] as const;
       }, [mergedClassNames, mergedStyles]);
+
+    const mergedItemContentClassName = mergedClassNames.itemContent;
+    const mergedItemContentStyle = mergedStyles.itemContent;
 
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
@@ -249,17 +248,16 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     const onInternalSelect = (date: DateType, source: SelectInfo['source']) => {
       triggerChange(date);
-
       onSelect?.(date, { source });
     };
 
     // ====================== Render ======================
     const dateRender = React.useCallback(
       (date: DateType, info: CellRenderInfo<DateType>): React.ReactNode => {
-        if (fullCellRender) {
+        if (isFunction(fullCellRender)) {
           return fullCellRender(date, info);
         }
-        if (dateFullCellRender) {
+        if (isFunction(dateFullCellRender)) {
           return dateFullCellRender(date);
         }
         return (
@@ -271,7 +269,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             <div className={`${calendarPrefixCls}-date-value`}>
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
-            <div className={`${calendarPrefixCls}-date-content`}>
+            <div
+              className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
+              style={mergedItemContentStyle}
+            >
               {isFunction(cellRender) ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
@@ -285,6 +286,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         dateFullCellRender,
         cellRender,
         dateCellRender,
+        mergedItemContentClassName,
+        mergedItemContentStyle,
       ],
     );
 
@@ -309,7 +312,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             <div className={`${calendarPrefixCls}-date-value`}>
               {months[generateConfig.getMonth(date)]}
             </div>
-            <div className={`${calendarPrefixCls}-date-content`}>
+            <div
+              className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
+              style={mergedItemContentStyle}
+            >
               {isFunction(cellRender) ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
@@ -323,6 +329,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         monthFullCellRender,
         cellRender,
         monthCellRender,
+        mergedItemContentClassName,
+        mergedItemContentStyle,
       ],
     );
 

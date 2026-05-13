@@ -1,23 +1,50 @@
 import React from 'react';
 import { Button, notification, Space } from 'antd';
-import type { NotificationArgsProps } from 'antd';
-import { createStaticStyles } from 'antd-style';
+import type { GetProp, NotificationArgsProps } from 'antd';
 
-const classNames = createStaticStyles(({ css }) => ({
-  root: css`
-    border: 2px dashed #ccc;
-  `,
-}));
+const defaultStyles: GetProp<NotificationArgsProps, 'styles', 'Return'> = {
+  root: {
+    backgroundColor: '#f6ffed',
+    border: '2px solid #95de64',
+    borderRadius: 16,
+    boxShadow: '4px 4px 0 #d9f7be',
+  },
+  icon: {
+    color: '#237804',
+  },
+  title: {
+    color: '#237804',
+    fontWeight: 600,
+  },
+  description: {
+    color: '#3f6600',
+  },
+};
 
-const styleFn: NotificationArgsProps['styles'] = ({ props }) => {
+const styleFn: NotificationArgsProps['styles'] = ({
+  props,
+}): GetProp<NotificationArgsProps, 'styles', 'Return'> => {
   if (props.type === 'error') {
     return {
+      ...defaultStyles,
       root: {
-        backgroundColor: `rgba(255, 200, 200, 0.3)`,
+        ...defaultStyles.root,
+        backgroundColor: '#fff2f0',
+        borderColor: '#ffccc7',
+        boxShadow: '4px 4px 0 #ffccc7',
       },
-    } satisfies NotificationArgsProps['styles'];
+      icon: {
+        color: '#cf1322',
+      },
+      title: {
+        color: '#cf1322',
+      },
+      description: {
+        color: '#5c0011',
+      },
+    };
   }
-  return {};
+  return defaultStyles;
 };
 
 const App: React.FC = () => {
@@ -27,13 +54,12 @@ const App: React.FC = () => {
     title: 'Notification Title',
     description: 'This is a notification description.',
     duration: false,
-    classNames: { root: classNames.root },
   };
 
   const openDefault = () => {
     api.info({
       ...sharedProps,
-      styles: { root: { borderRadius: 8 } },
+      styles: defaultStyles,
     });
   };
 

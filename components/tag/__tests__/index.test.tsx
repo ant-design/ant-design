@@ -316,6 +316,31 @@ describe('Tag', () => {
     expect(tagElement).not.toBeNull();
   });
 
+  it('solid variant should provide default color', () => {
+    const { container } = render(<Tag variant="solid">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-solid');
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
+  });
+
+  it('ConfigProvider tag variant should provide default color', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ variant: 'solid' }}>
+        <Tag>tag</Tag>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-solid');
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
+  });
+
+  it('non-solid variant should not provide default color', () => {
+    const { container } = render(<Tag variant="outlined">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-outlined');
+    expect(container.querySelector('.ant-tag')).not.toHaveClass('ant-tag-default');
+  });
+
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 
@@ -365,6 +390,123 @@ describe('Tag', () => {
       // Click again
       fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
       expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+    });
+
+    it('should apply option className and style in single mode', () => {
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          defaultValue="foo"
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              className: 'foo-option',
+              style: { borderColor: 'rgb(255, 0, 0)' },
+            },
+            {
+              value: 'bar',
+              label: 'Bar',
+              className: 'bar-option',
+              style: { borderColor: 'rgb(0, 0, 255)' },
+            },
+          ]}
+        />,
+      );
+
+      const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+      expect(itemElements[0]).toHaveClass('foo-option');
+      expect(itemElements[0]).toHaveStyle({ borderColor: 'rgb(255, 0, 0)' });
+      expect(itemElements[0]).toHaveClass('ant-tag-checkable-checked');
+
+      expect(itemElements[1]).toHaveClass('bar-option');
+      expect(itemElements[1]).toHaveStyle({ borderColor: 'rgb(0, 0, 255)' });
+      expect(itemElements[1]).not.toHaveClass('ant-tag-checkable-checked');
+    });
+
+    it('should apply option className and style in multiple mode', () => {
+      const defaultValue: Array<string | number> = ['foo'];
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={defaultValue}
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              className: 'foo-option',
+              style: { borderColor: 'rgb(255, 0, 0)' },
+            },
+            {
+              value: 'bar',
+              label: 'Bar',
+              className: 'bar-option',
+              style: { borderColor: 'rgb(0, 0, 255)' },
+            },
+          ]}
+        />,
+      );
+
+      const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+      expect(itemElements[0]).toHaveClass('foo-option');
+      expect(itemElements[0]).toHaveStyle({ borderColor: 'rgb(255, 0, 0)' });
+      expect(itemElements[0]).toHaveClass('ant-tag-checkable-checked');
+
+      expect(itemElements[1]).toHaveClass('bar-option');
+      expect(itemElements[1]).toHaveStyle({ borderColor: 'rgb(0, 0, 255)' });
+      expect(itemElements[1]).not.toHaveClass('ant-tag-checkable-checked');
+    });
+
+    it('should allow option style to override group item styles', () => {
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          styles={{
+            item: {
+              color: 'rgb(0, 0, 255)',
+              borderRadius: '4px',
+            },
+          }}
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              style: { color: 'rgb(255, 0, 0)' },
+            },
+            { value: 'bar', label: 'Bar' },
+          ]}
+        />,
+      );
+
+      const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+      expect(itemElements[0]).toHaveStyle({
+        color: 'rgb(255, 0, 0)',
+        borderRadius: '4px',
+      });
+      expect(itemElements[1]).toHaveStyle({
+        color: 'rgb(0, 0, 255)',
+        borderRadius: '4px',
+      });
+    });
+
+    it('should still support primitive options in multiple mode', () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo']}
+          options={['foo', 'bar']}
+          onChange={onChange}
+        />,
+      );
+
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[0]);
+      expect(onChange).toHaveBeenCalledWith(['bar']);
     });
 
     it('id', () => {
