@@ -7,7 +7,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
@@ -51,17 +51,16 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    | 'wrapperClassName'
-    | 'groupClassName'
-    | 'inputClassName'
-    | 'affixWrapperClassName'
-    | 'classes'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  | 'wrapperClassName'
+  | 'groupClassName'
+  | 'inputClassName'
+  | 'affixWrapperClassName'
+  | 'classes'
+  | 'classNames'
+  | 'styles'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;

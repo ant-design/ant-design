@@ -305,6 +305,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
             '&-has-search-value': {
               color: 'transparent',
+
+              [`> :not(${componentCls}-input)`]: {
+                opacity: 0,
+              },
             },
 
             // >>> Value
