@@ -27,10 +27,13 @@ function compactItemBorder(
 ): CSSObject {
   const { focusElCls, focus, borderElCls } = options;
   const childCombinator = borderElCls ? '> *' : '';
-  const hoverEffects = ['hover', focus ? 'focus' : null, 'active']
-    .filter(Boolean)
-    .map((n) => `&:${n} ${childCombinator}`)
-    .join(',');
+  const genEffects = (effects: (string | null)[]) =>
+    effects
+      .filter(Boolean)
+      .map((n) => `&:${n}${childCombinator ? ` ${childCombinator}` : ''}`)
+      .join(',');
+  const hoverEffects = genEffects(['hover']);
+  const focusEffects = genEffects([focus ? 'focus' : null, 'active']);
 
   return {
     [`&-item:not(${parentCls}-last-item)`]: {
@@ -42,8 +45,12 @@ function compactItemBorder(
     },
 
     '&-item': {
-      [hoverEffects]: {
+      [focusEffects]: {
         zIndex: 3,
+      },
+
+      [hoverEffects]: {
+        zIndex: 4,
       },
 
       ...(focusElCls
