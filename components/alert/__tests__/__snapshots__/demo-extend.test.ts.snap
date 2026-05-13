@@ -1762,7 +1762,7 @@ exports[`renders components/alert/demo/vertical-align-debug.tsx extend context c
   style="width: 360px;"
 >
   <div
-    class="ant-alert ant-alert-info css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined css-var-test-id"
     data-show="true"
     role="alert"
     style="margin-block-end: 12px;"
@@ -1827,7 +1827,7 @@ exports[`renders components/alert/demo/vertical-align-debug.tsx extend context c
     </button>
   </div>
   <div
-    class="ant-alert ant-alert-success css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-outlined css-var-test-id"
     data-show="true"
     role="alert"
     style="margin-block-end: 12px;"
@@ -1904,7 +1904,7 @@ exports[`renders components/alert/demo/vertical-align-debug.tsx extend context c
     </button>
   </div>
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
     style="margin-block-end: 12px;"
@@ -1974,7 +1974,7 @@ exports[`renders components/alert/demo/vertical-align-debug.tsx extend context c
     </button>
   </div>
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-outlined ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
