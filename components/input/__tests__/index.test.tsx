@@ -624,6 +624,19 @@ describe('detached event target normalization', () => {
     const event = onChange.mock.calls[0][0];
     expect(document.contains(event.target)).toBe(true);
   });
+
+  it('should normalize event when target is detached from DOM', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Input allowClear value="test" onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+
+    const event = onChange.mock.calls[0][0];
+    expect(event.target).toBe(input);
+    expect(event.target.isConnected).toBe(true);
+    expect(input.value).toBe('');
+  });
 });
 
 describe('triggerFocus', () => {

@@ -233,6 +233,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
     const liveInput = inputRef.current?.input;
     if (liveInput && e.target !== liveInput && !e.target.isConnected) {
+      // Sync the detached clone's value to the live input before normalizing the event,
+      // so libraries that read from event.target directly (e.g. react-number-format) see
+      // a DOM-connected element. The subsequent onChange call lets the parent re-render
+      // and React's controlled-component flow resumes normally.
       liveInput.value = e.target.value;
       const normalized = Object.create(e, {
         target: { value: liveInput, enumerable: true, writable: true, configurable: true },
