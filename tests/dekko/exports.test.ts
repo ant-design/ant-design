@@ -23,21 +23,18 @@ if (!fs.existsSync(esDir)) {
   process.exit(0);
 }
 
-// Use a stable temp path inside the project (same convention as check-cssinjs.tsx)
-// so leftover files are visible and easy to clean up if the process is interrupted.
-const tmpDir = path.join(`${__filename}.tmp`);
+const tmpDir = `${__filename}.tmp`;
 fs.rmSync(tmpDir, { recursive: true, force: true });
 fs.mkdirSync(tmpDir, { recursive: true });
 
 try {
-  // Simulate an npm-installed antd by creating a node_modules/antd symlink
-  // so that `import from 'antd/es/...'` triggers package.json exports resolution
+  // Symlink node_modules/antd → project root so `import from 'antd/es/...'` triggers package.json exports
   const nodeModulesDir = path.join(tmpDir, 'node_modules');
   const antdLinkDir = path.join(nodeModulesDir, 'antd');
   fs.mkdirSync(nodeModulesDir, { recursive: true });
   fs.symlinkSync(rootDir, antdLinkDir, 'junction');
 
-  // tsconfig with moduleResolution: "bundler" (default for Vite projects)
+  // moduleResolution: "bundler" — Vite default
   fs.writeFileSync(
     path.join(tmpDir, 'tsconfig.json'),
     JSON.stringify(
@@ -54,9 +51,7 @@ try {
     ),
   );
 
-  // Test file that imports types via package name (same as downstream consumers)
-  // - Directory-based subpath: antd/es/theme/interface → es/theme/interface/index.d.ts
-  // - File-based subpath: antd/es/config-provider/context → es/config-provider/context.d.ts
+  // Test directory-based and file-based deep subpath type imports
   fs.writeFileSync(
     path.join(tmpDir, 'test-types.ts'),
     [
@@ -81,7 +76,7 @@ try {
     chalk.red(
       'Deep subpath type resolution failed under moduleResolution: "bundler". ' +
         'This is likely caused by a misconfigured `exports` field in package.json. ' +
-        'See https://github.com/ant-design/ant-design/issues/56868 for details.',
+        'See https://github.com/ant-design/ant-design/issues/56858 for details.',
     ),
   );
   console.error(chalk.red(error.stdout?.toString() || error.message));
