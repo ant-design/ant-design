@@ -96,6 +96,34 @@ describe('Select', () => {
     expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
+  describe('tokenSeparators', () => {
+    it('supports function tokenSeparators in tags mode', () => {
+      const handleChange = jest.fn();
+      const tokenize = jest.fn((input: string) => {
+        const tokens: string[] = [];
+        const regex = /"([^"]*)"|([^,\n]+)/g;
+        let match: RegExpExecArray | null = regex.exec(input);
+        while (match) {
+          tokens.push((match[1] ?? match[2]).trim());
+          match = regex.exec(input);
+        }
+        return tokens.filter(Boolean);
+      });
+      const { container } = render(
+        <Select mode="tags" tokenSeparators={tokenize} onChange={handleChange} />,
+      );
+      const input = container.querySelector<HTMLInputElement>('input');
+      expect(input).toBeTruthy();
+      fireEvent.change(input!, { target: { value: '"a, b", c' } });
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect(tokenize).toHaveBeenCalled();
+      expect(handleChange).toHaveBeenCalledWith(['a, b', 'c'], expect.anything());
+      expect(input!.value).toBe('');
+    });
+  });
+
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const { rerender, asFragment } = render(
