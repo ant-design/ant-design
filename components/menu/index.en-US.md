@@ -105,7 +105,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
+| theme | Color theme of the SubMenu (inherits from Menu by default) | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 | popupRender | Custom popup renderer for current sub-menu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
 
