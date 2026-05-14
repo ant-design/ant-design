@@ -55,7 +55,7 @@ const computeClosableConfig = (
     return false;
   }
 
-  if (!isNonNullable(closable) && closeIcon === undefined) {
+  if (!isNonNullable(closable) && !isNonNullable(closeIcon)) {
     return null;
   }
 

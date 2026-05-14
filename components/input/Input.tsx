@@ -7,7 +7,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
@@ -192,7 +192,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
   const prevHasPrefixSuffixRef = useRef<boolean>(inputHasPrefixSuffix);
 
-  /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
@@ -208,7 +207,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prevHasPrefixSuffixRef.current = inputHasPrefixSuffix;
     }, [inputHasPrefixSuffix]);
   }
-  /* eslint-enable */
 
   // ===================== Remove Password value =====================
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);

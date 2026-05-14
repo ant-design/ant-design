@@ -37,11 +37,10 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
 }
 
-export interface PurePanelProps
-  extends Omit<
-    RcNotificationProps,
-    'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions' | 'role'
-  > {
+export interface PurePanelProps extends Omit<
+  RcNotificationProps,
+  'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions' | 'role'
+> {
   prefixCls?: string;
   icon?: React.ReactNode;
   /** @deprecated Please use `title` instead */

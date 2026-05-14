@@ -7,7 +7,7 @@ import type {
 import { TextArea as RcTextArea } from '@rc-component/input';
 import { clsx } from 'clsx';
 
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';

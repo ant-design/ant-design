@@ -20,6 +20,7 @@ import type {
   AlertConfig,
   AnchorStyleConfig,
   BadgeConfig,
+  BorderBeamConfig,
   BreadcrumbConfig,
   ButtonConfig,
   CalendarConfig,
@@ -264,6 +265,7 @@ export interface ConfigProviderProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
@@ -420,6 +422,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     otp,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,
@@ -544,6 +547,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     empty,
     badge,
+    borderBeam,
     radio,
     rate,
     ribbon,

@@ -135,7 +135,7 @@ gh pr view <pr-number> --json title,body,author,number
 
 ##### 从 PR body 提取并校验中英文描述
 
-**有限使用 PR body 中的 changelog，但必须校验合规性。**
+**PR body 中的 changelog 作为参考，以实际改动为准。** PR 作者的描述可能不准确，需结合实际改动判断，必要时重新撰写。
 
 PR body 中提取 changelog 的模式：
 
@@ -193,6 +193,8 @@ Chinese:
 | 中文与英文/数字之间保留空格 | `修复 Select 在暗色主题的问题` | `修复Select在暗色主题的问题` |
 | 每条只选一个 Emoji，不叠加 | `🐞 Fix Select ...` | `🐞🆕 Fix Select ...` |
 | 描述开发者影响，不描述实现细节 | `Fix Select height when empty` | `Remove minHeight CSS property` |
+| **新组件必须描述功能用途** | `🔥 Add BorderBeam component for animated border beam effect along container edges.` | `🔥 Add BorderBeam component.` |
+| **新属性必须说明用途或效果** | `🆕 Add Input \`allowClear.disabled\` prop to disable the clear button while keeping it visible.` | `🆕 Add Input \`allowClear.disabled\` support.` |
 
 **Emoji 规范**（完整版，从 CLAUDE.md 同步）：
 
@@ -351,7 +353,7 @@ const componentNames = [
 #### 分组逻辑
 
 - **同一组件有 2 条及以上改动时**，使用 `- 组件名` 作为分类标题，改动条目缩进列在其下
-- **单项改动**直接写单行条目，不需要标题
+- **单项改动直接写单行条目，不需要分组标题**。即使组件名已出现在条目正文中，也不单独写 `- 组件名` 分组行
 
 **示例（多条）**：
 
