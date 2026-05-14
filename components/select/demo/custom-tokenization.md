@@ -1,7 +1,7 @@
 ## zh-CN
 
-自定义分词函数，支持引号内包含分隔符。
+自定义分词函数，按业务规则拆分输入内容。
 
 ## en-US
 
-Custom tokenizer that keeps separators inside quotes.
+Customize tokenization logic to split input with your own rules.
