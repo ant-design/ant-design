@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
 | value | scanned text | `string \| string[]` | - | `string[]`: 5.28.0 |
-| type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
+| type | render type | `canvas \| svg` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |  |
 | size | QRCode size | number | 160 |  |
 | iconSize | include image size | number \| { width: number; height: number } | 40 | 5.19.0 |
