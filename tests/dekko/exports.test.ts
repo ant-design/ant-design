@@ -23,16 +23,39 @@ if (!fs.existsSync(esDir)) {
   process.exit(1);
 }
 
-const typeTestCases = [
-  `import type { AliasToken } from 'antd/es/theme/interface';`,
-  `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
-  `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
-  `const _config: ThemeConfig = {};`,
-];
-
-const resolutionCases = [
-  { label: 'bundler', compilerOptions: { moduleResolution: 'bundler' } },
-  { label: 'node16', compilerOptions: { module: 'node16', moduleResolution: 'node16' } },
+const testCases = [
+  {
+    label: 'directory-based subpath (moduleResolution: bundler)',
+    code: [
+      `import type { AliasToken } from 'antd/es/theme/interface';`,
+      `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
+    ],
+    compilerOptions: { moduleResolution: 'bundler' },
+  },
+  {
+    label: 'directory-based subpath (moduleResolution: node16)',
+    code: [
+      `import type { AliasToken } from 'antd/es/theme/interface';`,
+      `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
+    ],
+    compilerOptions: { module: 'node16', moduleResolution: 'node16' },
+  },
+  {
+    label: 'file-based subpath (moduleResolution: bundler)',
+    code: [
+      `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
+      `const _config: ThemeConfig = {};`,
+    ],
+    compilerOptions: { moduleResolution: 'bundler' },
+  },
+  {
+    label: 'file-based subpath (moduleResolution: node16)',
+    code: [
+      `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
+      `const _config: ThemeConfig = {};`,
+    ],
+    compilerOptions: { module: 'node16', moduleResolution: 'node16' },
+  },
 ];
 
 const tmpDir = `${__filename}.tmp`;
@@ -46,11 +69,11 @@ try {
   fs.mkdirSync(nodeModulesDir, { recursive: true });
   fs.symlinkSync(rootDir, antdLinkDir, 'junction');
 
-  fs.writeFileSync(path.join(tmpDir, 'test-types.ts'), typeTestCases.join('\n'));
-
   const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
 
-  for (const { label, compilerOptions } of resolutionCases) {
+  for (const { label, code, compilerOptions } of testCases) {
+    fs.writeFileSync(path.join(tmpDir, 'test-types.ts'), code.join('\n'));
+
     fs.writeFileSync(
       path.join(tmpDir, 'tsconfig.json'),
       JSON.stringify(
@@ -72,7 +95,7 @@ try {
       stdio: 'pipe',
       timeout: 30_000,
     });
-    console.log(chalk.green(`✨ type resolution passed (moduleResolution: ${label}).`));
+    console.log(chalk.green(`✨ ${label} passed.`));
   }
 } catch (error: unknown) {
   const detail =
