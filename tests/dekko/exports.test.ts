@@ -23,6 +23,18 @@ if (!fs.existsSync(esDir)) {
   process.exit(1);
 }
 
+const typeTestCases = [
+  `import type { AliasToken } from 'antd/es/theme/interface';`,
+  `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
+  `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
+  `const _config: ThemeConfig = {};`,
+];
+
+const resolutionCases = [
+  { label: 'bundler', compilerOptions: { moduleResolution: 'bundler' } },
+  { label: 'node16', compilerOptions: { module: 'node16', moduleResolution: 'node16' } },
+];
+
 const tmpDir = `${__filename}.tmp`;
 fs.rmSync(tmpDir, { recursive: true, force: true });
 fs.mkdirSync(tmpDir, { recursive: true });
@@ -34,67 +46,34 @@ try {
   fs.mkdirSync(nodeModulesDir, { recursive: true });
   fs.symlinkSync(rootDir, antdLinkDir, 'junction');
 
-  // Test directory-based and file-based deep subpath type imports
-  fs.writeFileSync(
-    path.join(tmpDir, 'test-types.ts'),
-    [
-      `import type { AliasToken } from 'antd/es/theme/interface';`,
-      `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
-      `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
-      `const _config: ThemeConfig = {};`,
-    ].join('\n'),
-  );
+  fs.writeFileSync(path.join(tmpDir, 'test-types.ts'), typeTestCases.join('\n'));
 
   const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
 
-  // Test moduleResolution: "bundler" (Vite default)
-  fs.writeFileSync(
-    path.join(tmpDir, 'tsconfig.json'),
-    JSON.stringify(
-      {
-        compilerOptions: {
-          moduleResolution: 'bundler',
-          strict: true,
-          skipLibCheck: true,
-          noEmit: true,
+  for (const { label, compilerOptions } of resolutionCases) {
+    fs.writeFileSync(
+      path.join(tmpDir, 'tsconfig.json'),
+      JSON.stringify(
+        {
+          compilerOptions: {
+            ...compilerOptions,
+            strict: true,
+            skipLibCheck: true,
+            noEmit: true,
+          },
         },
-      },
-      null,
-      2,
-    ),
-  );
+        null,
+        2,
+      ),
+    );
 
-  execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
-    cwd: tmpDir,
-    stdio: 'pipe',
-    timeout: 30_000,
-  });
-  console.log(chalk.green('✨ type resolution passed (moduleResolution: bundler).'));
-
-  // Test moduleResolution: "node16"
-  fs.writeFileSync(
-    path.join(tmpDir, 'tsconfig.json'),
-    JSON.stringify(
-      {
-        compilerOptions: {
-          module: 'node16',
-          moduleResolution: 'node16',
-          strict: true,
-          skipLibCheck: true,
-          noEmit: true,
-        },
-      },
-      null,
-      2,
-    ),
-  );
-
-  execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
-    cwd: tmpDir,
-    stdio: 'pipe',
-    timeout: 30_000,
-  });
-  console.log(chalk.green('✨ type resolution passed (moduleResolution: node16).'));
+    execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
+      cwd: tmpDir,
+      stdio: 'pipe',
+      timeout: 30_000,
+    });
+    console.log(chalk.green(`✨ type resolution passed (moduleResolution: ${label}).`));
+  }
 } catch (error: unknown) {
   const detail =
     (error as { stdout?: Buffer })?.stdout?.toString() ||
