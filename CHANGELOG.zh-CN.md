@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.4.0
 
-`2026-05-13`
+`2026-05-14`
 
 - 🔥 新增 BorderBeam 边框流光组件，在容器边框上呈现流动的高光动画效果。[#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
 - ConfigProvider
