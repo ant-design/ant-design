@@ -6,7 +6,7 @@ import chalk from 'chalk';
 
 // Ref: https://github.com/ant-design/ant-design/issues/56858
 // Ensure that deep subpath type imports like `antd/es/theme/interface`
-// resolve correctly under moduleResolution: "bundler".
+// resolve correctly under `moduleResolution: "bundler"` and `"node16"`.
 //
 // This catches regressions where an `exports` field in package.json
 // breaks TypeScript type resolution for directory-based subpath imports.
@@ -26,13 +26,26 @@ if (!fs.existsSync(esDir)) {
   fs.mkdirSync(tmpDir, { recursive: true });
 
   try {
-    // Symlink node_modules/antd → project root so `import from 'antd/es/...'` triggers package.json exports
+    // Symlink node_modules/antd → project root so `import from 'antd/es/...'` resolves through package.json
     const nodeModulesDir = path.join(tmpDir, 'node_modules');
     const antdLinkDir = path.join(nodeModulesDir, 'antd');
     fs.mkdirSync(nodeModulesDir, { recursive: true });
     fs.symlinkSync(rootDir, antdLinkDir, 'junction');
 
-    // moduleResolution: "bundler" — Vite default
+    // Test directory-based and file-based deep subpath type imports
+    fs.writeFileSync(
+      path.join(tmpDir, 'test-types.ts'),
+      [
+        `import type { AliasToken } from 'antd/es/theme/interface';`,
+        `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
+        `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
+        `const _config: ThemeConfig = {};`,
+      ].join('\n'),
+    );
+
+    const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
+
+    // Test moduleResolution: "bundler" (Vite default)
     fs.writeFileSync(
       path.join(tmpDir, 'tsconfig.json'),
       JSON.stringify(
@@ -49,32 +62,44 @@ if (!fs.existsSync(esDir)) {
       ),
     );
 
-    // Test directory-based and file-based deep subpath type imports
-    fs.writeFileSync(
-      path.join(tmpDir, 'test-types.ts'),
-      [
-        `import type { AliasToken } from 'antd/es/theme/interface';`,
-        `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
-        `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
-        `const _config: ThemeConfig = {};`,
-      ].join('\n'),
-    );
-
-    const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
     execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
       cwd: tmpDir,
       stdio: 'pipe',
       timeout: 30_000,
     });
+    console.log(chalk.green('✨ type resolution passed (moduleResolution: bundler).'));
 
-    console.log(chalk.green('✨ Deep subpath type resolution passed (moduleResolution: bundler).'));
+    // Test moduleResolution: "node16"
+    fs.writeFileSync(
+      path.join(tmpDir, 'tsconfig.json'),
+      JSON.stringify(
+        {
+          compilerOptions: {
+            module: 'node16',
+            moduleResolution: 'node16',
+            strict: true,
+            skipLibCheck: true,
+            noEmit: true,
+          },
+        },
+        null,
+        2,
+      ),
+    );
+
+    execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
+      cwd: tmpDir,
+      stdio: 'pipe',
+      timeout: 30_000,
+    });
+    console.log(chalk.green('✨ type resolution passed (moduleResolution: node16).'));
   } catch (error: unknown) {
     const detail =
       (error as { stdout?: Buffer })?.stdout?.toString() ||
       (error instanceof Error ? error.message : String(error));
     console.error(
       chalk.red(
-        'Deep subpath type resolution failed under moduleResolution: "bundler". ' +
+        'Deep subpath type resolution failed. ' +
           'This is likely caused by a misconfigured `exports` field in package.json. ' +
           'See https://github.com/ant-design/ant-design/issues/56858 for details.',
       ),
