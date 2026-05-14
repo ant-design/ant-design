@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2026-05-14`
 
-- 🐞 Fix Message and Notification build error in strict ESM toolchains caused by deep rc notification runtime import. [#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix message and notification build error in strict ESM toolchains caused by deep rc notification runtime import. [#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.4.1
 
