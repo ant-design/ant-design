@@ -19,8 +19,8 @@ const rootDir = path.resolve(__dirname, '../../');
 const esDir = path.join(rootDir, 'es');
 
 if (!fs.existsSync(esDir)) {
-  console.log(chalk.yellow('⏭ `es` directory not found, skipping exports type check.'));
-  process.exit(0);
+  console.error(chalk.red('`es` directory not found. Please run build first.'));
+  process.exit(1);
 }
 
 const tmpDir = `${__filename}.tmp`;
