@@ -5,7 +5,7 @@ import AutoComplete from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { render, screen, waitFor } from '../../../tests/utils';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
@@ -96,6 +96,23 @@ describe('AutoComplete', () => {
       </AutoComplete>,
     );
     expect(screen.getByRole('combobox')).toHaveClass('custom');
+  });
+
+  it('should align large custom Search input and button height', async () => {
+    const { container } = render(
+      <AutoComplete>
+        <Input.Search size="large" />
+      </AutoComplete>,
+    );
+
+    const input = container.querySelector<HTMLInputElement>('.ant-input-lg')!;
+    const button = container.querySelector<HTMLButtonElement>('.ant-input-search-btn')!;
+
+    await waitFor(() => {
+      const inputHeight = getComputedStyle(input).height;
+      expect(inputHeight).toBeTruthy();
+      expect(inputHeight).toBe(getComputedStyle(button).height);
+    });
   });
 
   it('deprecated popupClassName', () => {
