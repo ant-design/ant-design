@@ -55,8 +55,8 @@ group:
 | infoIcon | （仅支持全局配置）自定义信息图标 | ReactNode | - | × | 6.2.0 |
 | ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  | × |
 | ~~onClose~~ | 关闭时触发的回调函数，请使用 `closable.onClose` 替换 | (e: MouseEvent) => void | - |  | × |
-| ~~closeIcon~~ | 自定义关闭图标，请使用 `closable.closeIcon` 替代 | ReactNode | - | - |
-| ~~closeText~~ | 自定义关闭文案，请使用 `closable.closeIcon` 替代 | ReactNode | - | - |
+| ~~closeIcon~~ | 自定义关闭图标，请使用 `closable.closeIcon` 替代 | ReactNode | - | - | × |
+| ~~closeText~~ | 自定义关闭文案，请使用 `closable.closeIcon` 替代 | ReactNode | - | - | × |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  | × |
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | successIcon | （仅支持全局配置）自定义成功图标 | ReactNode | - | × | 6.2.0 |

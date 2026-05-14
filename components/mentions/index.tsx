@@ -8,8 +8,7 @@ import type {
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';

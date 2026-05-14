@@ -1,5 +1,6 @@
 // eslint.config.mjs
 import antfu from '@antfu/eslint-config';
+import eslintReact from '@eslint-react/eslint-plugin';
 import compat from 'eslint-plugin-compat';
 import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -9,6 +10,16 @@ export default antfu(
   {
     plugins: {
       'react-hooks': reactHooks,
+      'react-dom': {
+        rules: {
+          'no-flush-sync': eslintReact.rules['dom-no-flush-sync'],
+        },
+      },
+      'react-web-api': {
+        rules: {
+          'no-leaked-event-listener': eslintReact.rules['web-api-no-leaked-event-listener'],
+        },
+      },
     },
     ignores: [
       '**/node_modules/**',
@@ -73,10 +84,20 @@ export default antfu(
       'e18e/prefer-date-now': 'off',
       'e18e/prefer-object-has-own': 'off',
       // 升级 @eslint-react/eslint-plugin@3 带来的 warning
+      'react/dom-no-dangerously-set-innerhtml': 'off',
+      'react/dom-no-flush-sync': 'off',
+      'react-dom/no-flush-sync': 'warn',
       'react/component-hook-factories': 'off',
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
       'react/exhaustive-deps': 'off',
+      // 升级 @eslint-react/eslint-plugin@5 带来的 warning
+      'react/jsx-no-key-after-spread': 'off',
+      'react/jsx-no-children-prop': 'off',
+      'react/naming-convention-id-name': 'off',
+      'react/naming-convention-ref-name': 'off',
+      'react/static-components': 'off',
+      'react/use-memo': 'off',
       'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
     },
   },
@@ -139,6 +160,7 @@ export default antfu(
     rules: {
       'react/purity': 'off',
       'react-naming-convention/ref-name': 'off',
+      'react/naming-convention-ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
       'unicorn/consistent-function-scoping': 'off',
