@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.3.7",
+  "version": "6.4.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -29,18 +29,6 @@
   "sideEffects": [
     "*.css"
   ],
-  "exports": {
-    ".": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.js",
-      "require": "./lib/index.js"
-    },
-    "./es/*": "./es/*",
-    "./lib/*": "./lib/*",
-    "./dist/*": "./dist/*",
-    "./locale/*": "./locale/*",
-    "./package.json": "./package.json"
-  },
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -123,7 +111,7 @@
     "@ant-design/cssinjs": "^2.1.2",
     "@ant-design/cssinjs-utils": "^2.1.2",
     "@ant-design/fast-color": "^3.0.1",
-    "@ant-design/icons": "^6.2.2",
+    "@ant-design/icons": "^6.2.3",
     "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.29.2",
     "@rc-component/cascader": "~1.15.0",
@@ -185,7 +173,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "5.6.0",
+    "@eslint-react/eslint-plugin": "5.7.7",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@inquirer/prompts": "^8.4.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -245,7 +233,7 @@
     "dekko": "^0.2.1",
     "domparser-rs": "0.1.1",
     "dotenv": "^17.4.2",
-    "dumi": "~2.5.0-beta.0",
+    "dumi": "^2.4.26",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
     "eslint": "10.3.0",

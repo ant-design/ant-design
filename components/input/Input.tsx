@@ -51,16 +51,17 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps extends Omit<
-  RcInputProps,
-  | 'wrapperClassName'
-  | 'groupClassName'
-  | 'inputClassName'
-  | 'affixWrapperClassName'
-  | 'classes'
-  | 'classNames'
-  | 'styles'
-> {
+export interface InputProps
+  extends Omit<
+    RcInputProps,
+    | 'wrapperClassName'
+    | 'groupClassName'
+    | 'inputClassName'
+    | 'affixWrapperClassName'
+    | 'classes'
+    | 'classNames'
+    | 'styles'
+  > {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
@@ -191,7 +192,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
   const prevHasPrefixSuffixRef = useRef<boolean>(inputHasPrefixSuffix);
 
-  /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
@@ -207,7 +207,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prevHasPrefixSuffixRef.current = inputHasPrefixSuffix;
     }, [inputHasPrefixSuffix]);
   }
-  /* eslint-enable */
 
   // ===================== Remove Password value =====================
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
