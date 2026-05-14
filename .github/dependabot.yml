@@ -14,11 +14,11 @@ updates:
     groups:
       jest-dependencies:
         patterns:
-          - "jest"
+          - jest
           - "jest-*"
           - "@types/jest*"
           - "@testing-library/jest-dom"
-          - "eslint-plugin-jest"
+          - eslint-plugin-jest
       dependencies:
         dependency-type: production
         update-types: [major, minor]
