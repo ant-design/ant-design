@@ -1,6 +1,5 @@
 // eslint.config.mjs
 import antfu from '@antfu/eslint-config';
-import eslintReact from '@eslint-react/eslint-plugin';
 import compat from 'eslint-plugin-compat';
 import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -10,16 +9,6 @@ export default antfu(
   {
     plugins: {
       'react-hooks': reactHooks,
-      'react-dom': {
-        rules: {
-          'no-flush-sync': eslintReact.rules['dom-no-flush-sync'],
-        },
-      },
-      'react-web-api': {
-        rules: {
-          'no-leaked-event-listener': eslintReact.rules['web-api-no-leaked-event-listener'],
-        },
-      },
     },
     ignores: [
       '**/node_modules/**',
