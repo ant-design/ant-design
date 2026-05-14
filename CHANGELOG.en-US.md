@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.4.0
 
-`2026-05-13`
+`2026-05-14`
 
 - 🔥 Add BorderBeam component for animated border beam effect along container edges. [#57720](https://github.com/ant-design/ant-design/pull/57720) [@QDyanbing](https://github.com/QDyanbing)
 
