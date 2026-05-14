@@ -52,6 +52,7 @@ tag: vVERSION
   - 🐞 修复 Select `showArrowPaddingInlineEnd` 对内容间距无效的问题。[#57769](https://github.com/ant-design/ant-design/pull/57769) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Select error 状态颜色在 outlined 和 filled 变体下与 Input 不一致的问题。[#57807](https://github.com/ant-design/ant-design/pull/57807) [@nickmopen](https://github.com/nickmopen)
   - 🐞 修复 Select 选中值字体未跟随 antd 字体 token 的问题。[#57897](https://github.com/ant-design/ant-design/pull/57897) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Select 和 TreeSelect 搜索时 `labelRender` 非文本内容仍可见的问题。[#57954](https://github.com/ant-design/ant-design/pull/57954) [@QDyanbing](https://github.com/QDyanbing)
 - Theme
   - 🆕 新增 `colorErrorAffix` Design Token，控制输入框后缀的错误状态颜色。[#57604](https://github.com/ant-design/ant-design/pull/57604) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 新增 `colorWarningAffix` Design Token，控制输入框后缀的警告状态颜色。[#57760](https://github.com/ant-design/ant-design/pull/57760) [@guoyunhe](https://github.com/guoyunhe)
@@ -109,6 +110,7 @@ tag: vVERSION
 - 🐞 修复 Watermark 默认未覆盖 Table 固定列的问题。[#57813](https://github.com/ant-design/ant-design/pull/57813) [@QDyanbing](https://github.com/QDyanbing)
 - 🇺🇸 新增 8 种语言的 Form `defaultValidateMessages`。[#57038](https://github.com/ant-design/ant-design/pull/57038) [@mixelburg](https://github.com/mixelburg) [#57045](https://github.com/ant-design/ant-design/pull/57045) [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)
 - 🆕 新增 antd `GetProp` 支持 Return 类型。[#57001](https://github.com/ant-design/ant-design/pull/57001) [@crazyair](https://github.com/crazyair)
+- 📖 新增 Agent Readiness 文件（包含 robots.txt、sitemap、agent-skills、api-catalog 等），提升 ant.design 对 AI 代理的友好度。[#57903](https://github.com/ant-design/ant-design/pull/57903) [@afc163](https://github.com/afc163)
 
 ## 6.3.7
 
