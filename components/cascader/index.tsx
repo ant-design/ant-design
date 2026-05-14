@@ -143,9 +143,9 @@ export interface CascaderProps<
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > extends Omit<
-  RcCascaderProps<OptionType, ValueField, Multiple>,
-  'checkable' | 'classNames' | 'styles'
-> {
+    RcCascaderProps<OptionType, ValueField, Multiple>,
+    'checkable' | 'classNames' | 'styles'
+  > {
   multiple?: Multiple;
   size?: SizeType;
   /**

@@ -248,6 +248,8 @@ export type AlertConfig = ComponentStyleConfig &
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
+export type BorderBeamConfig = ComponentStyleConfig;
+
 export type TypographyConfig = ComponentStyleConfig &
   Pick<TypographyProps, 'classNames' | 'styles'>;
 
@@ -514,6 +516,7 @@ export interface ConfigComponentProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   switch?: SwitchStyleConfig;
