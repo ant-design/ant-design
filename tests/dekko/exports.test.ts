@@ -1,6 +1,5 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 
 import chalk from 'chalk';
@@ -24,7 +23,11 @@ if (!fs.existsSync(esDir)) {
   process.exit(0);
 }
 
-const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'antd-exports-check-'));
+// Use a stable temp path inside the project (same convention as check-cssinjs.tsx)
+// so leftover files are visible and easy to clean up if the process is interrupted.
+const tmpDir = path.join(`${__filename}.tmp`);
+fs.rmSync(tmpDir, { recursive: true, force: true });
+fs.mkdirSync(tmpDir, { recursive: true });
 
 try {
   // Simulate an npm-installed antd by creating a node_modules/antd symlink
