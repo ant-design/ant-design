@@ -17,7 +17,7 @@ interface UseAllowClearOptions {
   componentName: string;
 }
 
-const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
+export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
   const {
     allowClear,
     clearIcon,
@@ -49,5 +49,3 @@ const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
     };
   }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
 };
-
-export default useAllowClear;
