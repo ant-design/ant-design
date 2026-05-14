@@ -33,6 +33,7 @@ demo:
 <code src="./demo/search-box.tsx">搜索框</code>
 <code src="./demo/label-in-value.tsx">获得选项的文本</code>
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
+<code src="./demo/custom-tokenization.tsx">自定义分词</code>
 <code src="./demo/select-users.tsx">搜索用户</code>
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
