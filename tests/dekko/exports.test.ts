@@ -20,93 +20,94 @@ const esDir = path.join(rootDir, 'es');
 
 if (!fs.existsSync(esDir)) {
   console.log(chalk.yellow('⏭ `es` directory not found, skipping exports type check.'));
-} else {
-  const tmpDir = `${__filename}.tmp`;
+  process.exit(0);
+}
+
+const tmpDir = `${__filename}.tmp`;
+fs.rmSync(tmpDir, { recursive: true, force: true });
+fs.mkdirSync(tmpDir, { recursive: true });
+
+try {
+  // Symlink node_modules/antd → project root so `import from 'antd/es/...'` resolves through package.json
+  const nodeModulesDir = path.join(tmpDir, 'node_modules');
+  const antdLinkDir = path.join(nodeModulesDir, 'antd');
+  fs.mkdirSync(nodeModulesDir, { recursive: true });
+  fs.symlinkSync(rootDir, antdLinkDir, 'junction');
+
+  // Test directory-based and file-based deep subpath type imports
+  fs.writeFileSync(
+    path.join(tmpDir, 'test-types.ts'),
+    [
+      `import type { AliasToken } from 'antd/es/theme/interface';`,
+      `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
+      `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
+      `const _config: ThemeConfig = {};`,
+    ].join('\n'),
+  );
+
+  const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
+
+  // Test moduleResolution: "bundler" (Vite default)
+  fs.writeFileSync(
+    path.join(tmpDir, 'tsconfig.json'),
+    JSON.stringify(
+      {
+        compilerOptions: {
+          moduleResolution: 'bundler',
+          strict: true,
+          skipLibCheck: true,
+          noEmit: true,
+        },
+      },
+      null,
+      2,
+    ),
+  );
+
+  execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
+    cwd: tmpDir,
+    stdio: 'pipe',
+    timeout: 30_000,
+  });
+  console.log(chalk.green('✨ type resolution passed (moduleResolution: bundler).'));
+
+  // Test moduleResolution: "node16"
+  fs.writeFileSync(
+    path.join(tmpDir, 'tsconfig.json'),
+    JSON.stringify(
+      {
+        compilerOptions: {
+          module: 'node16',
+          moduleResolution: 'node16',
+          strict: true,
+          skipLibCheck: true,
+          noEmit: true,
+        },
+      },
+      null,
+      2,
+    ),
+  );
+
+  execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
+    cwd: tmpDir,
+    stdio: 'pipe',
+    timeout: 30_000,
+  });
+  console.log(chalk.green('✨ type resolution passed (moduleResolution: node16).'));
+} catch (error: unknown) {
+  const detail =
+    (error as { stdout?: Buffer })?.stdout?.toString() ||
+    (error instanceof Error ? error.message : String(error));
+  console.error(
+    chalk.red(
+      'Deep subpath type resolution failed. ' +
+        'This is likely caused by a misconfigured `exports` field in package.json. ' +
+        'See https://github.com/ant-design/ant-design/issues/56858 for details.',
+    ),
+  );
+  console.error(chalk.red(detail));
+  process.exit(1);
+} finally {
   fs.rmSync(tmpDir, { recursive: true, force: true });
-  fs.mkdirSync(tmpDir, { recursive: true });
-
-  try {
-    // Symlink node_modules/antd → project root so `import from 'antd/es/...'` resolves through package.json
-    const nodeModulesDir = path.join(tmpDir, 'node_modules');
-    const antdLinkDir = path.join(nodeModulesDir, 'antd');
-    fs.mkdirSync(nodeModulesDir, { recursive: true });
-    fs.symlinkSync(rootDir, antdLinkDir, 'junction');
-
-    // Test directory-based and file-based deep subpath type imports
-    fs.writeFileSync(
-      path.join(tmpDir, 'test-types.ts'),
-      [
-        `import type { AliasToken } from 'antd/es/theme/interface';`,
-        `import type { ThemeConfig } from 'antd/es/config-provider/context';`,
-        `const _check: Pick<AliasToken, 'colorText' | 'fontSize' | 'controlHeight' | 'screenXS'> = {} as AliasToken;`,
-        `const _config: ThemeConfig = {};`,
-      ].join('\n'),
-    );
-
-    const tscBin = path.join(rootDir, 'node_modules', '.bin', 'tsc');
-
-    // Test moduleResolution: "bundler" (Vite default)
-    fs.writeFileSync(
-      path.join(tmpDir, 'tsconfig.json'),
-      JSON.stringify(
-        {
-          compilerOptions: {
-            moduleResolution: 'bundler',
-            strict: true,
-            skipLibCheck: true,
-            noEmit: true,
-          },
-        },
-        null,
-        2,
-      ),
-    );
-
-    execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
-      cwd: tmpDir,
-      stdio: 'pipe',
-      timeout: 30_000,
-    });
-    console.log(chalk.green('✨ type resolution passed (moduleResolution: bundler).'));
-
-    // Test moduleResolution: "node16"
-    fs.writeFileSync(
-      path.join(tmpDir, 'tsconfig.json'),
-      JSON.stringify(
-        {
-          compilerOptions: {
-            module: 'node16',
-            moduleResolution: 'node16',
-            strict: true,
-            skipLibCheck: true,
-            noEmit: true,
-          },
-        },
-        null,
-        2,
-      ),
-    );
-
-    execFileSync(tscBin, ['--project', path.join(tmpDir, 'tsconfig.json'), '--noEmit'], {
-      cwd: tmpDir,
-      stdio: 'pipe',
-      timeout: 30_000,
-    });
-    console.log(chalk.green('✨ type resolution passed (moduleResolution: node16).'));
-  } catch (error: unknown) {
-    const detail =
-      (error as { stdout?: Buffer })?.stdout?.toString() ||
-      (error instanceof Error ? error.message : String(error));
-    console.error(
-      chalk.red(
-        'Deep subpath type resolution failed. ' +
-          'This is likely caused by a misconfigured `exports` field in package.json. ' +
-          'See https://github.com/ant-design/ant-design/issues/56858 for details.',
-      ),
-    );
-    console.error(chalk.red(detail));
-    process.exit(1);
-  } finally {
-    fs.rmSync(tmpDir, { recursive: true, force: true });
-  }
 }
