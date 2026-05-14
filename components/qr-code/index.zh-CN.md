@@ -49,7 +49,7 @@ group:
 | bgColor | 二维码背景颜色 | string | `transparent` | 5.5.0 |
 | marginSize | 留白（安静区）大小（单位为模块数），`0` 表示无留白 | number | `0` | 6.2.0 |
 | bordered | 是否有边框 | boolean | `true` |  |
-| errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |  |
+| errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H'` | `M` |  |
 | boostLevel | 如果启用，自动提升纠错等级，结果的纠错级别可能会高于指定的纠错级别 | `boolean` | true | 5.28.0 |
 | status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | statusRender | 自定义状态渲染器 | (info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode | - | 5.20.0 |
