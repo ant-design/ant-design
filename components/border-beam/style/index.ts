@@ -63,7 +63,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             backgroundImage: varRef('beam-gradient', defaultBeamGradient),
             offsetAnchor: '90% 50%',
             offsetDistance: '0%',
-            offsetPath: 'rect(0 auto auto 0 round 200px)',
+            offsetPath: 'rect(0 auto auto 0 round 100px)',
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
             animationDuration: '6s',
