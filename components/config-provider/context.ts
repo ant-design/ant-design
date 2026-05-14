@@ -239,7 +239,7 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles' | 'showIcon'> & {
+  Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classNames' | 'styles' | 'showIcon'> & {
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
@@ -247,6 +247,8 @@ export type AlertConfig = ComponentStyleConfig &
   };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type BorderBeamConfig = ComponentStyleConfig;
 
 export type TypographyConfig = ComponentStyleConfig &
   Pick<TypographyProps, 'classNames' | 'styles'>;
@@ -514,6 +516,7 @@ export interface ConfigComponentProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   switch?: SwitchStyleConfig;

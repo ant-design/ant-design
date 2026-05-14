@@ -7,8 +7,7 @@ import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';
 
 export interface TextProps
-  extends
-    BlockProps<'span'>,
+  extends BlockProps<'span'>,
     Omit<React.HTMLAttributes<HTMLSpanElement>, 'type' | keyof BlockProps<'span'>> {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
 }

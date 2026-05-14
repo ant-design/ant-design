@@ -43,6 +43,7 @@ const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) =
   if (enablePopover) {
     dotNode = (
       <Popover
+        destroyOnHidden
         placement="left"
         content={<div hidden />}
         styles={{
@@ -53,9 +54,8 @@ const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) =
             borderRadius: theme.borderRadiusLG,
           },
           root: {
-            '--antd-arrow-background-color': dotColor,
-            backgroundColor: 'transparent',
-          } as React.CSSProperties,
+            '--ant-tooltip-arrow-background-color': dotColor,
+          },
         }}
       >
         {dotNode}
