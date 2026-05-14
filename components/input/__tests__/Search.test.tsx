@@ -10,6 +10,7 @@ import ConfigProvider from '../../config-provider';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
+import { genBasicInputStyle } from '../style';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -30,6 +31,29 @@ describe('Input.Search', () => {
     expect(() => {
       render(<Search enterButton={null} />);
     }).not.toThrow();
+  });
+
+  it('should only apply large height to native input element', () => {
+    const style = genBasicInputStyle({
+      paddingBlock: 4,
+      paddingInline: 11,
+      colorText: '#000',
+      inputFontSize: 14,
+      lineHeight: 1.5715,
+      borderRadius: 6,
+      motionDurationMid: '0.2s',
+      colorTextPlaceholder: '#999',
+      paddingBlockLG: 7,
+      paddingInlineLG: 11,
+      inputFontSizeLG: 16,
+      controlHeightLG: 40,
+      paddingBlockSM: 0,
+      paddingInlineSM: 7,
+      borderRadiusSM: 4,
+    } as Parameters<typeof genBasicInputStyle>[0]);
+
+    expect(style['&-lg']).not.toHaveProperty('height');
+    expect(style['input&-lg']).toEqual({ height: 40 });
   });
 
   it('should support ReactNode suffix without error', () => {

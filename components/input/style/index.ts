@@ -78,8 +78,10 @@ export const genBasicInputStyle = (
   // Size
   '&-lg': {
     ...genInputLargeStyle(token),
-    height: token.controlHeightLG,
     ...option.largeStyle,
+  },
+  'input&-lg': {
+    height: token.controlHeightLG,
   },
   '&-sm': {
     ...genInputSmallStyle(token),
