@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 6.4.2
+
+`2026-05-14`
+
+- 🐞 Fix message and notification build error in strict ESM toolchains caused by deep rc notification runtime import. [#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
+
+## 6.4.1
+
+`2026-05-14`
+
+- 🐞 Revert the `exports` field added in [#57930](https://github.com/ant-design/ant-design/pull/57930) to fix antd TypeScript type resolution failure under `moduleResolution: "bundler"`. [#57968](https://github.com/ant-design/ant-design/pull/57968) [@afc163](https://github.com/afc163)
+- 🐞 Fix BorderBeam beam animation breaking at rounded corners. [#57969](https://github.com/ant-design/ant-design/pull/57969) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.4.0
 
 `2026-05-14`

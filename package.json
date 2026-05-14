@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.4.0",
+  "version": "6.4.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -29,18 +29,6 @@
   "sideEffects": [
     "*.css"
   ],
-  "exports": {
-    ".": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.js",
-      "require": "./lib/index.js"
-    },
-    "./es/*": "./es/*",
-    "./lib/*": "./lib/*",
-    "./dist/*": "./dist/*",
-    "./locale/*": "./locale/*",
-    "./package.json": "./package.json"
-  },
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -185,7 +173,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "5.6.0",
+    "@eslint-react/eslint-plugin": "5.7.7",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@inquirer/prompts": "^8.4.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",

@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 6.4.2
+
+`2026-05-14`
+
+- 🐞 修复 message 和 notification 在严格 ESM 构建链路下因 rc notification 运行时深层导入导致的构建报错。[#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
+
+## 6.4.1
+
+`2026-05-14`
+
+- 🐞 回滚 [#57930](https://github.com/ant-design/ant-design/pull/57930) 中新增的 `exports` 字段，修复 antd 在 `moduleResolution: "bundler"` 下 TypeScript 类型解析失败的问题。[#57968](https://github.com/ant-design/ant-design/pull/57968) [@afc163](https://github.com/afc163)
+- 🐞 修复 BorderBeam 光束动画在圆角转弯处断开的问题。[#57969](https://github.com/ant-design/ant-design/pull/57969) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.4.0
 
 `2026-05-14`
