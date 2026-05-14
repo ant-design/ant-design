@@ -2,6 +2,7 @@ import type * as React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSMotionProps } from '@rc-component/motion';
 
+import { isNonNullable } from '../_util/is';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import type { NotificationConfig } from './interface';
 
@@ -10,9 +11,13 @@ export function getPlacementOffsetStyle(
   bottom?: number | string,
 ): React.CSSProperties {
   return {
-    ...(top !== undefined && { '--notification-top': unit(top) }),
-    ...(bottom !== undefined && { '--notification-bottom': unit(bottom) }),
-  } as React.CSSProperties;
+    ...(isNonNullable(top) && {
+      '--notification-top': unit(top),
+    }),
+    ...(isNonNullable(bottom) && {
+      '--notification-bottom': unit(bottom),
+    }),
+  };
 }
 
 export function getMotion(prefixCls: string): CSSMotionProps {
