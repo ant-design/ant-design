@@ -39,7 +39,7 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
-interface FilterRestProps {
+interface FilterResetProps {
   confirm?: boolean;
   closeDropdown?: boolean;
 }
@@ -297,7 +297,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
 
   const onReset = (
-    { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
+    { confirm, closeDropdown }: FilterResetProps = { confirm: false, closeDropdown: false },
   ) => {
     if (confirm) {
       internalTriggerFilter([]);
