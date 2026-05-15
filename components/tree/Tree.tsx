@@ -287,14 +287,17 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     return mergedDraggable;
   }, [draggable]);
 
-  const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
-    <SwitcherIconCom
-      prefixCls={prefixCls}
-      switcherIcon={switcherIcon}
-      switcherLoadingIcon={switcherLoadingIcon}
-      treeNodeProps={nodeProps}
-      showLine={showLine}
-    />
+  const renderSwitcherIcon = React.useCallback(
+    (nodeProps: AntTreeNodeProps) => (
+      <SwitcherIconCom
+        prefixCls={prefixCls}
+        switcherIcon={switcherIcon}
+        switcherLoadingIcon={switcherLoadingIcon}
+        treeNodeProps={nodeProps}
+        showLine={showLine}
+      />
+    ),
+    [prefixCls, switcherIcon, switcherLoadingIcon, showLine],
   );
   return (
     <RcTree

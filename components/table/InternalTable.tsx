@@ -276,7 +276,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     },
   );
 
-  const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
+  const tableLocale: TableLocale = React.useMemo(
+    () => ({ ...contextLocale.Table, ...locale }),
+    [contextLocale.Table, locale],
+  );
   const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
@@ -294,13 +297,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedExpandable: ExpandableConfig<RecordType> = {
-    childrenColumnName: legacyChildrenColumnName,
-    expandIconColumnIndex,
-    ...expandable,
-    expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
-  };
-  const { childrenColumnName = 'children' } = mergedExpandable;
+  const childrenColumnName =
+    expandable?.childrenColumnName ?? legacyChildrenColumnName ?? 'children';
 
   const expandType = React.useMemo<ExpandType>(() => {
     if (rawData.some((item) => item?.[childrenColumnName])) {
@@ -314,9 +312,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [childrenColumnName, rawData]);
 
-  const internalRef: NonNullable<RcTableProps['internalRefs']> = {
-    body: React.useRef<HTMLDivElement>(null),
-  } as NonNullable<RcTableProps['internalRefs']>;
+  const internalRefBody = React.useRef<HTMLDivElement>(null);
+  const internalRef = React.useMemo<NonNullable<RcTableProps['internalRefs']>>(
+    () => ({ body: internalRefBody as React.MutableRefObject<HTMLDivElement> }),
+    [],
+  );
 
   // ============================ Width =============================
   const getContainerWidth = useContainerWidth(prefixCls);
@@ -539,35 +539,57 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedRowSelection,
   );
 
-  const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    return clsx(
-      {
-        [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
-      },
-      isFunction(rowClassName) ? rowClassName(record, index, indent) : rowClassName,
-    );
-  };
+  const internalRowClassName = React.useCallback(
+    (record: RecordType, index: number, indent: number) => {
+      return clsx(
+        {
+          [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
+        },
+        isFunction(rowClassName) ? rowClassName(record, index, indent) : rowClassName,
+      );
+    },
+    [prefixCls, selectedKeySet, getRowKey, rowClassName],
+  );
 
   // ========================== Expandable ==========================
+  const mergedExpandable = React.useMemo<ExpandableConfig<RecordType>>(() => {
+    const config: ExpandableConfig<RecordType> = {
+      childrenColumnName: legacyChildrenColumnName,
+      expandIconColumnIndex,
+      ...expandable,
+      expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
+    };
 
-  // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
-  (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
+    // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
+    (config as any).__PARENT_RENDER_ICON__ = config.expandIcon;
 
-  // Customize expandable icon
-  mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale);
+    // Customize expandable icon
+    config.expandIcon = config.expandIcon || expandIcon || renderExpandIcon(tableLocale);
 
-  // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
-  if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
-    mergedExpandable.expandIconColumnIndex = mergedRowSelection ? 1 : 0;
-  } else if (mergedExpandable.expandIconColumnIndex! > 0 && mergedRowSelection) {
-    mergedExpandable.expandIconColumnIndex! -= 1;
-  }
+    // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
+    if (expandType === 'nest' && config.expandIconColumnIndex === undefined) {
+      config.expandIconColumnIndex = mergedRowSelection ? 1 : 0;
+    } else if ((config.expandIconColumnIndex ?? 0) > 0 && mergedRowSelection) {
+      config.expandIconColumnIndex! -= 1;
+    }
 
-  // Indent size
-  if (!isNumber(mergedExpandable.indentSize)) {
-    mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
-  }
+    // Indent size
+    if (!isNumber(config.indentSize)) {
+      config.indentSize = isNumber(indentSize) ? indentSize : 15;
+    }
+
+    return config;
+  }, [
+    legacyChildrenColumnName,
+    expandIconColumnIndex,
+    expandable,
+    table?.expandable?.expandIcon,
+    expandIcon,
+    tableLocale,
+    expandType,
+    mergedRowSelection,
+    indentSize,
+  ]);
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
@@ -676,6 +698,20 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }, [spinProps?.spinning, rawData, locale?.emptyText, renderEmpty]);
 
   // ========================== Render ==========================
+  const measureGetPopupContainer = React.useCallback(
+    (triggerNode?: HTMLElement) => triggerNode as HTMLElement,
+    [],
+  );
+
+  const measureRowRender = React.useCallback(
+    (measureRow: React.ReactNode) => (
+      <TableMeasureRowContext.Provider value>
+        <ConfigProvider getPopupContainer={measureGetPopupContainer}>{measureRow}</ConfigProvider>
+      </TableMeasureRowContext.Provider>
+    ),
+    [measureGetPopupContainer],
+  );
+
   const TableComponent = virtual ? RcVirtualTable : RcTable;
 
   // >>> Virtual Table props. We set height here since it will affect height collection
@@ -736,13 +772,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           internalRefs={internalRef}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
-          measureRowRender={(measureRow) => (
-            <TableMeasureRowContext.Provider value>
-              <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
-                {measureRow}
-              </ConfigProvider>
-            </TableMeasureRowContext.Provider>
-          )}
+          measureRowRender={measureRowRender}
         />
         {bottomPaginationNode}
       </Spin>

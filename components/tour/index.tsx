@@ -74,14 +74,17 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     },
   );
 
-  const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
-    getPlacements({
-      arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
-      autoAdjustOverflow: true,
-      offset: token.marginXXS,
-      arrowWidth: token.sizePopupArrow,
-      borderRadius: token.borderRadius,
-    });
+  const builtinPlacements: TourProps['builtinPlacements'] = React.useCallback(
+    (config) =>
+      getPlacements({
+        arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
+        autoAdjustOverflow: true,
+        offset: token.marginXXS,
+        arrowWidth: token.sizePopupArrow,
+        borderRadius: token.borderRadius,
+      }),
+    [token],
+  );
 
   const mergedRootClassName = clsx(
     { [`${prefixCls}-rtl`]: direction === 'rtl' },

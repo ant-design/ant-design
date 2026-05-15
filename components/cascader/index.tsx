@@ -440,6 +440,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // ==================== Render =====================
+  const computedBuiltinPlacements = React.useMemo(
+    () => mergedBuiltinPlacements(builtinPlacements, popupOverflow),
+    [builtinPlacements, popupOverflow],
+  );
+
   return (
     <RcCascader
       prefixCls={prefixCls}
@@ -468,7 +473,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       classNames={mergedClassNames}
       styles={mergedStyles}
       {...(restProps as any)}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={computedBuiltinPlacements}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}

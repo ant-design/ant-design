@@ -275,19 +275,15 @@ const InternalCompoundedButton = React.forwardRef<
 
   // Two chinese characters check
   useEffect(() => {
-    // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef.current || !mergedInsertSpace) {
       return;
     }
     const buttonText = buttonRef.current.textContent || '';
-    if (needInserted && isTwoCNChar(buttonText)) {
-      if (!hasTwoCNChar) {
-        setHasTwoCNChar(true);
-      }
-    } else if (hasTwoCNChar) {
-      setHasTwoCNChar(false);
-    }
-  });
+    setHasTwoCNChar((prev) => {
+      const matched = needInserted && isTwoCNChar(buttonText);
+      return matched === prev ? prev : matched;
+    });
+  }, [needInserted, mergedInsertSpace, children]);
 
   // Auto focus
   useEffect(() => {

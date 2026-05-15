@@ -74,22 +74,28 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
-  const onInternalClick = (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
-    onItemSelect(item.key, !selectedKeys.includes(item.key), e);
-  };
+  const onInternalClick = React.useCallback(
+    (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
+      onItemSelect(item.key, !selectedKeys.includes(item.key), e);
+    },
+    [onItemSelect, selectedKeys],
+  );
 
-  const onRemove = (item: KeyWiseTransferItem) => {
-    onItemRemove?.([item.key]);
-  };
+  const onRemove = React.useCallback(
+    (item: KeyWiseTransferItem) => {
+      onItemRemove?.([item.key]);
+    },
+    [onItemRemove],
+  );
 
-  const onPageChange = (cur: number) => {
+  const onPageChange = React.useCallback((cur: number) => {
     setCurrent(cur);
-  };
+  }, []);
 
-  const onSizeChange = (cur: number, size: number) => {
+  const onSizeChange = React.useCallback((cur: number, size: number) => {
     setCurrent(cur);
     setPageSize(size);
-  };
+  }, []);
 
   const memoizedItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
     const displayItems = mergedPagination
