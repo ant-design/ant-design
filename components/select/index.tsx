@@ -420,6 +420,11 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
+  const computedBuiltinPlacements = React.useMemo(
+    () => mergedBuiltinPlacements(builtinPlacements, popupOverflow),
+    [builtinPlacements, popupOverflow],
+  );
+
   const [zIndex] = useZIndex(
     'SelectLike',
     (mergedStyles.popup.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
@@ -437,7 +442,7 @@ const InternalSelect = <
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={computedBuiltinPlacements}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}

@@ -145,9 +145,9 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     nativeElement: tabsRef.current,
   }));
 
-  let editable: EditableConfig | undefined;
-  if (type === 'editable-card') {
-    editable = {
+  const editable = React.useMemo<EditableConfig | undefined>(() => {
+    if (type !== 'editable-card') return undefined;
+    return {
       onEdit: (editType, { key, event }) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
@@ -155,7 +155,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
-  }
+  }, [type, onEdit, removeIcon, tabs?.removeIcon, addIcon, tabs?.addIcon, hideAdd]);
   const rootPrefixCls = getPrefixCls();
 
   if (process.env.NODE_ENV !== 'production') {

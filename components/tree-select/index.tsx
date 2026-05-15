@@ -410,6 +410,11 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.root?.zIndex as number);
 
+  const computedBuiltinPlacements = React.useMemo(
+    () => mergedBuiltinPlacements(builtinPlacements, popupOverflow),
+    [builtinPlacements, popupOverflow],
+  );
+
   return (
     <RcTreeSelect
       classNames={mergedClassNames}
@@ -418,7 +423,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       disabled={mergedDisabled}
       {...selectProps}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={computedBuiltinPlacements}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}

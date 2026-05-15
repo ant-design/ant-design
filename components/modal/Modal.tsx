@@ -125,20 +125,24 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Open ============================
-  const handleCancel = (
-    e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>,
-  ) => {
-    if (confirmLoading) {
-      return;
-    }
-    onCancel?.(e);
-    onClose?.();
-  };
+  const handleCancel = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>) => {
+      if (confirmLoading) {
+        return;
+      }
+      onCancel?.(e);
+      onClose?.();
+    },
+    [confirmLoading, onCancel, onClose],
+  );
 
-  const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
-    onOk?.(e);
-    onClose?.();
-  };
+  const handleOk = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      onOk?.(e);
+      onClose?.();
+    },
+    [onOk, onClose],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
@@ -195,9 +199,15 @@ const Modal: React.FC<ModalProps> = (props) => {
     : false;
 
   // ============================ modalRender ============================
-  const mergedModalRender = modalRender
-    ? (node: React.ReactNode) => <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
-    : undefined;
+  const mergedModalRender = React.useMemo(
+    () =>
+      modalRender
+        ? (node: React.ReactNode) => (
+            <div className={`${prefixCls}-render`}>{modalRender(node)}</div>
+          )
+        : undefined,
+    [modalRender, prefixCls],
+  );
   // ============================ Refs ============================
   // Select `ant-modal-container` by `panelRef`
   const panelClassName = `.${prefixCls}-${modalRender ? 'render' : 'container'}`;

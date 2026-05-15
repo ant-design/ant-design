@@ -257,13 +257,17 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: isPlainObject(arrow) && arrow.pointAtCenter,
-    autoAdjustOverflow,
-    offset: token.marginXXS,
-    arrowWidth: arrow ? token.sizePopupArrow : 0,
-    borderRadius: token.borderRadius,
-  });
+  const builtinPlacements = React.useMemo(
+    () =>
+      getPlacements({
+        arrowPointAtCenter: isPlainObject(arrow) && arrow.pointAtCenter,
+        autoAdjustOverflow,
+        offset: token.marginXXS,
+        arrowWidth: arrow ? token.sizePopupArrow : 0,
+        borderRadius: token.borderRadius,
+      }),
+    [arrow, autoAdjustOverflow, token],
+  );
 
   const onMenuClick = useEvent(() => {
     if (menu?.selectable && menu?.multiple) {
