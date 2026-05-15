@@ -445,7 +445,7 @@ describe('Table.filter', () => {
       }),
     );
 
-    expect(Array.from(filterKeys)).toEqual(['Lucy', '12', 'true']);
+    expect([...filterKeys]).toEqual(['Lucy', '12', 'true']);
 
     filterKeys = new Set();
     rerender(
@@ -462,7 +462,7 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    expect(Array.from(filterKeys)).toHaveLength(0);
+    expect([...filterKeys]).toHaveLength(0);
   });
 
   it('can be controlled by filteredValue null', () => {
@@ -629,7 +629,7 @@ describe('Table.filter', () => {
       }),
     );
 
-    expect([...container.querySelectorAll('tbody tr')].map((item) => item.textContent)).toEqual([
+    expect(Array.from(container.querySelectorAll('tbody tr'), (item) => item.textContent)).toEqual([
       'Jack',
       'Jim',
       'Tom',
@@ -754,7 +754,10 @@ describe('Table.filter', () => {
 
     // Select Level3 value
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
-    fireEvent.click(items?.[items.length - 1]!);
+    if (items && items.length > 0) {
+      // eslint-disable-next-line e18e/prefer-array-at
+      fireEvent.click(items[items.length - 1]!);
+    }
     fireEvent.click(
       getFilterMenu()?.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
@@ -820,9 +823,9 @@ describe('Table.filter', () => {
           ).toEqual(true),
         );
 
-        expect(typeof Array.from(filterKeys)[0]).toEqual('number');
+        expect(typeof [...filterKeys][0]).toEqual('number');
 
-        expect(Array.from(filterKeys).length > 0).toBeTruthy();
+        expect([...filterKeys].length > 0).toBeTruthy();
 
         onChange.mock.calls.forEach(([, currentFilters]) => {
           const [, val] = Object.entries(currentFilters)[0];
