@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2026-05-14`
 
-- 🐞 修复 message 和 notification 在严格 ESM 构建链路下因 rc notification 运行时深层导入导致的构建报错。[#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 message 和 notification 在严格 ESM 构建链路下因 rc-notification 运行时深层导入导致的构建报错。[#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.4.1
 
@@ -43,7 +43,7 @@ tag: vVERSION
   - 🆕 新增 Upload `accept` 全局配置支持。[#57286](https://github.com/ant-design/ant-design/pull/57286) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 新增 Modal 和 Drawer `focusable` 全局配置，控制组件是否可获得焦点。[#57314](https://github.com/ant-design/ant-design/pull/57314) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 新增 Mentions `allowClear` 全局配置支持。[#57330](https://github.com/ant-design/ant-design/pull/57330) [@guoyunhe](https://github.com/guoyunhe)
-  - 🐞 修复 ConfigProvider 的 css var 前缀未跟随 `prefixCls` 的问题。[#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 ConfigProvider 的 `cssVar` 前缀未跟随 `prefixCls` 的问题。[#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
 - Input
   - 🆕 新增 Input `allowClear.disabled` 属性，支持禁用清除按钮但保持可见。[#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 新增 Input.TextArea `allowClear.disabled` 属性，支持禁用清除按钮但保持可见。[#57328](https://github.com/ant-design/ant-design/pull/57328) [@guoyunhe](https://github.com/guoyunhe)

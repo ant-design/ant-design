@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2026-05-14`
 
-- 🐞 Fix message and notification build error in strict ESM toolchains caused by deep rc notification runtime import. [#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix message and notification build error in strict ESM toolchains caused by deep rc-notification runtime import. [#57976](https://github.com/ant-design/ant-design/pull/57976) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.4.1
 
@@ -44,7 +44,7 @@ tag: vVERSION
   - 🆕 Add Upload `accept` config support. [#57286](https://github.com/ant-design/ant-design/pull/57286) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Add Modal and Drawer `focusable` config to control whether the component can receive focus. [#57314](https://github.com/ant-design/ant-design/pull/57314) [@QDyanbing](https://github.com/QDyanbing)
   - 🆕 Add Mentions `allowClear` config support. [#57330](https://github.com/ant-design/ant-design/pull/57330) [@guoyunhe](https://github.com/guoyunhe)
-  - 🐞 Fix ConfigProvider css var prefix not following `prefixCls`. [#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix ConfigProvider `cssVar` prefix not following `prefixCls`. [#57803](https://github.com/ant-design/ant-design/pull/57803) [@QDyanbing](https://github.com/QDyanbing)
 
 - Input
   - 🆕 Add Input `allowClear.disabled` prop to disable the clear button while keeping it visible. [#57240](https://github.com/ant-design/ant-design/pull/57240) [@guoyunhe](https://github.com/guoyunhe)
