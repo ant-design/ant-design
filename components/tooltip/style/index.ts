@@ -116,7 +116,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           [`${componentCls}-container`]: {
             border: 'none',
             background: 'transparent',
-            boxShadow: 'none',
           },
         },
 
@@ -186,6 +185,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         ...sharedTransformOrigin,
         position: 'absolute',
         zIndex: calc(zIndexPopup).sub(1).equal(),
+        filter: `drop-shadow(${boxShadowPopoverArrow})`,
 
         '&-hidden': {
           display: 'none',
