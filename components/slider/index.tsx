@@ -78,7 +78,7 @@ export interface SliderBaseProps {
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;
-  disabled?: boolean;
+  disabled?: boolean | boolean[];
   keyboard?: boolean;
   orientation?: Orientation;
   vertical?: boolean;
