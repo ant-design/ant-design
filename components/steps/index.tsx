@@ -107,6 +107,13 @@ export interface BaseStepsProps {
   /** @deprecated Please use `titlePlacement` instead. */
   labelPlacement?: 'horizontal' | 'vertical';
   titlePlacement?: 'horizontal' | 'vertical';
+  /**
+   * Control label display mode in horizontal `default` and `dot` steps.
+   * - `auto`: Default behavior.
+   * - `wrap`: Allow title/content to wrap.
+   * - `scroll`: Keep single line and enable horizontal scrolling.
+   */
+  labelDisplay?: 'auto' | 'wrap' | 'scroll';
   /** @deprecated Please use `type` and `iconRender` instead. */
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
@@ -158,6 +165,7 @@ const Steps = (props: StepsProps) => {
     progressDot,
     labelPlacement,
     titlePlacement,
+    labelDisplay = 'auto',
     ellipsis,
     offset = 0,
 
@@ -260,6 +268,23 @@ const Steps = (props: StepsProps) => {
     return titlePlacement || labelPlacement || 'horizontal';
   }, [isDot, labelPlacement, mergedOrientation, titlePlacement, type]);
 
+  const supportLabelDisplayType =
+    mergedType === undefined || mergedType === 'default' || mergedType === 'dot';
+
+  const mergedLabelDisplay = React.useMemo<NonNullable<StepsProps['labelDisplay']>>(() => {
+    if (labelDisplay === 'auto') {
+      return 'auto';
+    }
+
+    if (supportLabelDisplayType && mergedOrientation === 'horizontal') {
+      return labelDisplay;
+    }
+
+    return 'auto';
+  }, [labelDisplay, mergedOrientation, supportLabelDisplayType]);
+
+  const mergedEllipsis = mergedLabelDisplay === 'auto' ? ellipsis : false;
+
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
 
@@ -275,6 +300,8 @@ const Steps = (props: StepsProps) => {
     percent: mergedPercent,
     responsive,
     offset,
+    labelDisplay: mergedLabelDisplay,
+    ellipsis: mergedEllipsis,
   };
 
   // ============================ Styles ============================
@@ -398,7 +425,8 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-${mergedType}`]: mergedType !== 'dot' ? mergedType : false,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: isDot,
-      [`${prefixCls}-ellipsis`]: ellipsis,
+      [`${prefixCls}-ellipsis`]: mergedEllipsis,
+      [`${prefixCls}-label-${mergedLabelDisplay}`]: mergedLabelDisplay !== 'auto',
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-small`]: mergedSize === 'small',
     },
@@ -419,6 +447,16 @@ const Steps = (props: StepsProps) => {
       mergedItems.every((item) => !item.description),
       'items.description',
       'items.content',
+    );
+    warning(
+      labelDisplay === 'auto' || (supportLabelDisplayType && mergedOrientation === 'horizontal'),
+      'usage',
+      '`labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
+    );
+    warning(
+      !(labelDisplay !== 'auto' && ellipsis),
+      'usage',
+      '`ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
     );
   }
 
