@@ -117,7 +117,7 @@ export interface FilterResetProps {
 }
 
 /** @deprecated Please use `FilterResetProps` instead. */
-export type FilterRestProps = FilterResetProps;
+export interface FilterRestProps extends FilterResetProps {}
 
 export interface FilterDropdownProps {
   prefixCls: string;
