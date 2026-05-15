@@ -184,4 +184,64 @@ describe('Steps', () => {
       },
     });
   });
+
+  it('supports wrap and scroll labelDisplay in horizontal steps', () => {
+    const { container: wrapContainer } = render(
+      <Steps
+        responsive={false}
+        labelDisplay="wrap"
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+    expect(wrapContainer.querySelector('.ant-steps-label-wrap')).toBeTruthy();
+
+    const { container: scrollContainer } = render(
+      <Steps
+        responsive={false}
+        labelDisplay="scroll"
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+    expect(scrollContainer.querySelector('.ant-steps-label-scroll')).toBeTruthy();
+  });
+
+  it('ignores ellipsis when labelDisplay is wrap or scroll', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(
+      <Steps
+        responsive={false}
+        labelDisplay="wrap"
+        ellipsis
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-steps-ellipsis')).toBeFalsy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  it('falls back to auto labelDisplay for unsupported type', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(
+      <Steps
+        responsive={false}
+        type="navigation"
+        labelDisplay="scroll"
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-steps-label-scroll')).toBeFalsy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
+    );
+
+    errorSpy.mockRestore();
+  });
 });
