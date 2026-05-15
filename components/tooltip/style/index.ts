@@ -109,10 +109,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
         [varName('arrow-background-color')]: tooltipBg,
 
-        [`${componentCls}-arrow::after`]: {
-          boxShadow: 'none !important',
-        },
-
         // Wrapper for the tooltip content
         [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
 
@@ -198,6 +194,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         '&-visible': {
           transition: `all ${token.motionDurationSlow}`,
         },
+      },
+    },
+    {
+      [`${componentCls}>${componentCls}-arrow::after`]: {
+        boxShadow: 'none',
       },
     },
   ];
