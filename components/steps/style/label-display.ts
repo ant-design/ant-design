@@ -8,7 +8,7 @@ const genLabelDisplayStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const itemCls = `${componentCls}-item`;
 
   return {
-    [`${componentCls}${componentCls}-label-wrap`]: {
+    [`${componentCls}-label-wrap`]: {
       [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
         overflow: 'visible',
         textOverflow: 'unset',
@@ -16,7 +16,7 @@ const genLabelDisplayStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
     },
 
-    [`${componentCls}${componentCls}-label-scroll`]: {
+    [`${componentCls}-label-scroll`]: {
       overflowX: 'auto',
       overflowY: 'hidden',
 
