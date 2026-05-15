@@ -80,9 +80,6 @@ export const genBasicInputStyle = (
     ...genInputLargeStyle(token),
     ...option.largeStyle,
   },
-  'input&-lg': {
-    height: token.controlHeightLG,
-  },
   '&-sm': {
     ...genInputSmallStyle(token),
     ...option.smallStyle,
@@ -369,6 +366,11 @@ export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
       ...genUnderlinedStyle(token),
+
+      // https://github.com/ant-design/ant-design/issues/57065
+      [`&${componentCls}-lg`]: {
+        height: token.controlHeightLG,
+      },
 
       '&[type="color"]': {
         height: token.controlHeight,

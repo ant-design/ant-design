@@ -10,7 +10,6 @@ import ConfigProvider from '../../config-provider';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
-import { genBasicInputStyle } from '../style';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -33,27 +32,18 @@ describe('Input.Search', () => {
     }).not.toThrow();
   });
 
-  it('should only apply large height to native input element', () => {
-    const style = genBasicInputStyle({
-      paddingBlock: 4,
-      paddingInline: 11,
-      colorText: '#000',
-      inputFontSize: 14,
-      lineHeight: 1.5715,
-      borderRadius: 6,
-      motionDurationMid: '0.2s',
-      colorTextPlaceholder: '#999',
-      paddingBlockLG: 7,
-      paddingInlineLG: 11,
-      inputFontSizeLG: 16,
-      controlHeightLG: 40,
-      paddingBlockSM: 0,
-      paddingInlineSM: 7,
-      borderRadiusSM: 4,
-    } as Parameters<typeof genBasicInputStyle>[0]);
+  // https://github.com/ant-design/ant-design/issues/57065
+  it('should pin large native input height in the .ant-input scope only', () => {
+    render(<Search size="large" />);
 
-    expect(style['&-lg']).not.toHaveProperty('height');
-    expect(style['input&-lg']).toHaveProperty('height', 40);
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+    const cssText = dynamicStyles.map((s) => s.innerHTML).join('');
+
+    expect(cssText).toMatch(/\.ant-input\.ant-input-lg\s*\{[^}]*height/);
+    // Ensure the rule does not leak into affix-wrapper / Mentions / InputNumber / Pagination scopes
+    // (where the previous `input&-lg` placement emitted unused selectors).
+    expect(cssText).not.toMatch(/input\.ant-input-affix-wrapper-lg/);
+    expect(cssText).not.toMatch(/input\.ant-mentions-lg/);
   });
 
   it('should support ReactNode suffix without error', () => {
