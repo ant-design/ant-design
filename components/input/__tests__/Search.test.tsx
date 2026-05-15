@@ -33,15 +33,18 @@ describe('Input.Search', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/57065
-  it('should pin large native input height in the .ant-input scope only', () => {
+  it('should pin large native input height without affecting TextArea or affix-wrappers', () => {
     render(<Search size="large" />);
 
     const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
     const cssText = dynamicStyles.map((s) => s.innerHTML).join('');
 
-    expect(cssText).toMatch(/\.ant-input\.ant-input-lg\s*\{[^}]*height/);
-    // Ensure the rule does not leak into affix-wrapper / Mentions / InputNumber / Pagination scopes
-    // (where the previous `input&-lg` placement emitted unused selectors).
+    // Rule emits as `input.ant-input.ant-input-lg` — scoped to <input> tag so
+    // <textarea class="ant-input ant-input-lg"> keeps its auto height.
+    expect(cssText).toMatch(/input\.ant-input\.ant-input-lg\s*\{[^}]*height/);
+    // No tag-less .ant-input.ant-input-lg rule that would override textarea sizing.
+    expect(cssText).not.toMatch(/(?:^|[^a-z])\.ant-input\.ant-input-lg\s*\{[^}]*height/);
+    // No leaked rules in affix-wrapper / Mentions scopes.
     expect(cssText).not.toMatch(/input\.ant-input-affix-wrapper-lg/);
     expect(cssText).not.toMatch(/input\.ant-mentions-lg/);
   });
