@@ -24,9 +24,9 @@ const App: React.FC = () => {
         disabled={disabled}
       />
       <Space>
-        {value.map((v, index) => (
+        {value.map((_, index) => (
           <Checkbox
-            key={v}
+            key={`handle-${index}`}
             checked={disabled[index]}
             onChange={(e) => handleDisabledChange(index, e.target.checked)}
           >

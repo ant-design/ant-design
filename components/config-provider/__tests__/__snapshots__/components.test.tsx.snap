@@ -24139,7 +24139,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
-    class="config-slider-handle config-tooltip-open"
+    class="config-slider-handle config-slider-handle-disabled config-tooltip-open"
     role="slider"
     style="left: 0%; transform: translateX(-50%);"
   />
