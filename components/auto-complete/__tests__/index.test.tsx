@@ -108,7 +108,7 @@ describe('AutoComplete', () => {
     const input = container.querySelector<HTMLInputElement>('.ant-input-lg')!;
     const button = container.querySelector<HTMLButtonElement>('.ant-input-search-btn')!;
 
-    expect(container.querySelector('.ant-input-search-large')).toBeTruthy();
+    expect(container.querySelector('.ant-input-search-large')).toBeInTheDocument();
     expect(input).toHaveClass('ant-input-lg');
     expect(button).toHaveClass('ant-btn-lg');
   });

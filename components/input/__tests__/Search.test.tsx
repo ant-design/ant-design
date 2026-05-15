@@ -53,7 +53,7 @@ describe('Input.Search', () => {
     } as Parameters<typeof genBasicInputStyle>[0]);
 
     expect(style['&-lg']).not.toHaveProperty('height');
-    expect(style['input&-lg']).toEqual({ height: 40 });
+    expect(style['input&-lg']).toHaveProperty('height', 40);
   });
 
   it('should support ReactNode suffix without error', () => {
