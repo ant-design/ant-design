@@ -244,4 +244,27 @@ describe('Steps', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('should not warn ellipsis ignored when labelDisplay falls back to auto', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Steps
+        responsive={false}
+        type="navigation"
+        labelDisplay="scroll"
+        ellipsis
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
+    );
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
+    );
+
+    errorSpy.mockRestore();
+  });
 });

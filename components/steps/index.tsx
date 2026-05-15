@@ -439,6 +439,7 @@ const Steps = (props: StepsProps) => {
   // =========================== Warning ============================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Steps');
+    const isExplicitVertical = (orientation || direction) === 'vertical';
 
     warning.deprecated(!labelPlacement, 'labelPlacement', 'titlePlacement');
     warning.deprecated(!progressDot, 'progressDot', 'type="dot"');
@@ -449,12 +450,12 @@ const Steps = (props: StepsProps) => {
       'items.content',
     );
     warning(
-      labelDisplay === 'auto' || (supportLabelDisplayType && mergedOrientation === 'horizontal'),
+      labelDisplay === 'auto' || (supportLabelDisplayType && !isExplicitVertical),
       'usage',
       '`labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
     );
     warning(
-      !(labelDisplay !== 'auto' && ellipsis),
+      !(mergedLabelDisplay !== 'auto' && ellipsis),
       'usage',
       '`ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
     );
