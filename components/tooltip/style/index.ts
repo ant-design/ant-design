@@ -48,7 +48,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     tooltipBorderRadius,
     zIndexPopup,
     controlHeight,
-    boxShadowSecondary,
+    boxShadowPopoverArrow,
     paddingSM,
     paddingXS,
     arrowOffsetHorizontal,
@@ -77,7 +77,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     wordWrap: 'break-word',
     backgroundColor: tooltipBg,
     borderRadius: tooltipBorderRadius,
-    boxShadow: boxShadowSecondary,
     boxSizing: 'border-box',
   };
 
@@ -100,6 +99,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
+        filter: `drop-shadow(${boxShadowPopoverArrow})`,
 
         ...sharedTransformOrigin,
 
@@ -108,6 +108,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         },
 
         [varName('arrow-background-color')]: tooltipBg,
+
+        [`${componentCls}-arrow::after`]: {
+          boxShadow: 'none !important',
+        },
 
         // Wrapper for the tooltip content
         [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
