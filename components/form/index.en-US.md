@@ -699,7 +699,7 @@ Form can not get real DOM node when customize component not support `ref`. It wi
 
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`? {#faq-set-fields-no-trigger}
 
-It's by design. Only user interactive can trigger the change event. This design aims to avoid calling `setFieldsValue` in change events, which may make loop calling.
+It's by design. Only user interaction can trigger the change event. This design aims to avoid calling `setFieldsValue` in change events, which may cause infinite loops.
 
 ### Why Form.Item not update value when children is nest? {#faq-item-nested-update}
 
