@@ -5,7 +5,7 @@ import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';

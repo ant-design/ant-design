@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { get, set } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { get, set, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPlainObject } from '../_util/is';

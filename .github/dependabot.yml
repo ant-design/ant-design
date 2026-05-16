@@ -12,6 +12,13 @@ updates:
       time: "05:00"
       timezone: Asia/Shanghai
     groups:
+      jest-dependencies:
+        patterns:
+          - jest
+          - "jest-*"
+          - "@types/jest*"
+          - "@testing-library/jest-dom"
+          - eslint-plugin-jest
       dependencies:
         dependency-type: production
         update-types: [major, minor]

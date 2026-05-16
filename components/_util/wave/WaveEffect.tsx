@@ -1,8 +1,7 @@
 import * as React from 'react';
 import CSSMotion from '@rc-component/motion';
-import raf from '@rc-component/util/lib/raf';
+import { composeRef, raf } from '@rc-component/util';
 import { render, unmount } from '@rc-component/util/lib/React/render';
-import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';

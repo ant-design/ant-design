@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { createTheme, StyleContext as CssInJsStyleContext } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { merge } from '@rc-component/util';
-import useMemo from '@rc-component/util/lib/hooks/useMemo';
+import { merge, useMemo } from '@rc-component/util';
 
 import { isFunction, isPlainObject } from '../_util/is';
 import warning, { devUseWarning, WarningContext } from '../_util/warning';

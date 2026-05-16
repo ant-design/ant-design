@@ -6,7 +6,7 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
-import useId from '@rc-component/util/lib/hooks/useId';
+import { useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
@@ -40,14 +40,17 @@ export type SegmentedSemanticType = {
 
 export type SegmentedSemanticAllType = GenerateSemantic<SegmentedSemanticType, SegmentedProps>;
 
-interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
-  extends RcSegmentedLabeledOption<ValueType> {
+interface SegmentedLabeledOptionWithoutIcon<
+  ValueType = RcSegmentedValue,
+> extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
   tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
-  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
+  RcSegmentedLabeledOption<ValueType>,
+  'label'
+> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -66,11 +69,10 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
-export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<
-    RCSegmentedProps<ValueType>,
-    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
-  > {
+export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
+  RCSegmentedProps<ValueType>,
+  'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
