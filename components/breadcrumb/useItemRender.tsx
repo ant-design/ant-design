@@ -1,5 +1,5 @@
 import * as React from 'react';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isNonNullable, isPlainObject } from '../_util/is';

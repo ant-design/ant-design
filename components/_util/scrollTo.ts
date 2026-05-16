@@ -1,4 +1,4 @@
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 
 import { easeInOutCubic } from './easings';
 import getScroll, { isWindow } from './getScroll';

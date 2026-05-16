@@ -1,9 +1,5 @@
-import {
-  injectCSS,
-  updateCSS,
-  clearContainerCache,
-  removeCSS,
-} from '@rc-component/util/lib/Dom/dynamicCSS';
+import { injectCSS, updateCSS, removeCSS } from '@rc-component/util';
+import { clearContainerCache } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 const fixCSS = (css: string) => {
   return css.replace(/@container\s+[^)]*\)/g, '@supports (display: not-exist)');

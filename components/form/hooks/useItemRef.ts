@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { composeRef, getNodeRef } from '@rc-component/util/lib/ref';
+import { composeRef, getNodeRef } from '@rc-component/util';
 
 import { isPlainObject } from '../../_util/is';
 import { FormContext } from '../context';
