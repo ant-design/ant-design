@@ -143,7 +143,7 @@ notification.config({
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification? {#faq-context-redux}
 
-antd will dynamically create a React instance by `ReactDOM.render` when calling notification methods. Whose context is different with origin code located context.
+When you call notification methods, antd dynamically creates a React instance using `ReactDOM.render`, which runs in a different execution context than your original code.
 
 When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
 
