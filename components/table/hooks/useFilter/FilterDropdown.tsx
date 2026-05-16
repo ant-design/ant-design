@@ -185,6 +185,8 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   const [visible, setVisible] = React.useState(false);
   const inMeasureRow = React.useContext(TableMeasureRowContext);
 
+  const flattenedKeys = React.useMemo(() => flattenKeys(column.filters), [column.filters]);
+
   const filtered: boolean = !!(
     filterState &&
     (filterState.filteredKeys?.length || filterState.forceFiltered)
@@ -344,7 +346,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const onCheckAll = (e: CheckboxChangeEvent) => {
     if (e.target.checked) {
-      const allFilterKeys = flattenKeys(column?.filters).map<string>(String);
+      const allFilterKeys = flattenedKeys.map<string>(String);
       setFilteredKeysSync(allFilterKeys);
     } else {
       setFilteredKeysSync([]);
@@ -424,10 +426,9 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               {filterMultiple ? (
                 <Checkbox
-                  checked={selectedKeys.length === flattenKeys(column.filters).length}
+                  checked={selectedKeys.length === flattenedKeys.length}
                   indeterminate={
-                    selectedKeys.length > 0 &&
-                    selectedKeys.length < flattenKeys(column.filters).length
+                    selectedKeys.length > 0 && selectedKeys.length < flattenedKeys.length
                   }
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}

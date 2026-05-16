@@ -231,11 +231,18 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       filterRenderItems.push(renderedItem);
     });
     return [filterItems, filterRenderItems] as const;
-  }, [dataSource, filterValue]);
+  }, [dataSource, filterValue, filterOption, direction]);
+
+  const checkedKeySet = useMemo(() => new Set(checkedKeys), [checkedKeys]);
 
   const checkedActiveItems = useMemo<RecordType[]>(() => {
-    return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
-  }, [checkedKeys, filteredItems]);
+    return filteredItems.filter((item) => checkedKeySet.has(item.key) && !item.disabled);
+  }, [checkedKeySet, filteredItems]);
+
+  const enabledItemKeys = useMemo(
+    () => filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
+    [filteredItems],
+  );
 
   const checkStatus = useMemo<string>(() => {
     if (checkedActiveItems.length === 0) {
@@ -299,16 +306,13 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
+      disabled={enabledItemKeys.length === 0 || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${listPrefixCls}-checkbox`}
       onChange={() => {
         // Only select enabled items
-        onItemSelectAll?.(
-          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-          checkStatus !== 'all',
-        );
+        onItemSelectAll?.(enabledItemKeys, checkStatus !== 'all');
       }}
     />
   );

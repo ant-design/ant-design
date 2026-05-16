@@ -496,13 +496,22 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive =
-    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const targetSelectedKeySet = React.useMemo(
+    () => new Set(targetSelectedKeys),
+    [targetSelectedKeys],
+  );
+  const sourceSelectedKeySet = React.useMemo(
+    () => new Set(sourceSelectedKeys),
+    [sourceSelectedKeys],
+  );
 
-  const rightActive =
-    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const leftActive = rightDataSource.some(
+    (d) => targetSelectedKeySet.has(d.key as TransferKey) && !d.disabled,
+  );
+
+  const rightActive = leftDataSource.some(
+    (d) => sourceSelectedKeySet.has(d.key as TransferKey) && !d.disabled,
+  );
 
   // ====================== Styles ======================
   const [mergedClassNames, mergedStyles] = useMergeSemantic(

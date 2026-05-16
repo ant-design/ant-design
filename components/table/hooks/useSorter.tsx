@@ -500,18 +500,29 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
   };
 
-  const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
-    injectSorter(
+  const transformColumns = React.useCallback(
+    (innerColumns: ColumnsType<RecordType>) =>
+      injectSorter(
+        prefixCls,
+        innerColumns,
+        mergedSorterStates,
+        triggerSorter,
+        sortDirections,
+        tableLocale,
+        showSorterTooltip,
+        undefined,
+        globalLocale,
+      ),
+    [
       prefixCls,
-      innerColumns,
       mergedSorterStates,
       triggerSorter,
       sortDirections,
       tableLocale,
       showSorterTooltip,
-      undefined,
       globalLocale,
-    );
+    ],
+  );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);
 

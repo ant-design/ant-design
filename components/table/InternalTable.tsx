@@ -450,7 +450,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     rootClassName: clsx(rootClassName, rootCls),
   });
-  const mergedData = getFilterData(sortedData, filterStates, childrenColumnName);
+  const mergedData = React.useMemo(
+    () => getFilterData(sortedData, filterStates, childrenColumnName),
+    [sortedData, filterStates, childrenColumnName],
+  );
 
   changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;

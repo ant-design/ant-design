@@ -326,18 +326,29 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
     onFilterChange(generateFilterInfo<RecordType>(newFilterStates), newFilterStates);
   };
 
-  const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
-    injectFilter(
+  const transformColumns = React.useCallback(
+    (innerColumns: ColumnsType<RecordType>) =>
+      injectFilter(
+        prefixCls,
+        dropdownPrefixCls,
+        innerColumns,
+        mergedFilterStates,
+        tableLocale,
+        triggerFilter,
+        getPopupContainer,
+        undefined,
+        rootClassName,
+      ),
+    [
       prefixCls,
       dropdownPrefixCls,
-      innerColumns,
       mergedFilterStates,
       tableLocale,
       triggerFilter,
       getPopupContainer,
-      undefined,
       rootClassName,
-    );
+    ],
+  );
 
   return [transformColumns, mergedFilterStates, filters] as const;
 };

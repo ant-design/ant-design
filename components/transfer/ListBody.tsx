@@ -74,11 +74,13 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
+  const selectedKeySet = React.useMemo(() => new Set(selectedKeys), [selectedKeys]);
+
   const onInternalClick = React.useCallback(
     (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
-      onItemSelect(item.key, !selectedKeys.includes(item.key), e);
+      onItemSelect(item.key, !selectedKeySet.has(item.key), e);
     },
-    [onItemSelect, selectedKeys],
+    [onItemSelect, selectedKeySet],
   );
 
   const onRemove = React.useCallback(
