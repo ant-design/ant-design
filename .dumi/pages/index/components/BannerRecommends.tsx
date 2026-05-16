@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 import { Alert, Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { clsx } from 'clsx';

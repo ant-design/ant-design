@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { toArray } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { toArray, useLayoutEffect } from '@rc-component/util';
 
 import { isValidText } from './util';
 

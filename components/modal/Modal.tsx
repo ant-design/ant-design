@@ -2,7 +2,7 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
 import type { DialogProps } from '@rc-component/dialog';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
