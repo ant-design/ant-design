@@ -94,7 +94,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
 | onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
 | onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
-| clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | 5.18.0 |
+| clearOnDestroy | Clear form values when the form is unmounted | boolean | false | 5.18.0 |
 
 > It accepts all props which native forms support but `onSubmit`.
 
@@ -141,7 +141,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | htmlFor | Set sub label `htmlFor` | string | - |  |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
 | label | Label text. When there is no need for a label but it needs to be aligned with a colon, it can be set to null | ReactNode | - | null: 5.22.0 |
-| labelAlign | The text align of label, | `left` \| `right` | `right` |  |
+| labelAlign | The text alignment of the label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
 | messageVariables | The default validate field info, description [see below](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#namepath) | - |  |
@@ -458,7 +458,7 @@ const Demo = () => {
 
 `type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`. Added `error` and `warnings` in `5.4.0`, Could be used to get error messages and warning messages of Form.Item:
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`. Added `errors` and `warnings` in `5.4.0`, Could be used to get error messages and warning messages of Form.Item:
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
@@ -482,7 +482,7 @@ export default () => (
 );
 ```
 
-#### Difference between other data fetching method
+#### Difference from other data fetching methods
 
 Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
@@ -626,7 +626,7 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 
 `getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
 
-### Why some component not response with `setFieldsValue` to `undefined`? {#faq-set-fields-undefined}
+### Why some component does not respond to `setFieldsValue` with `undefined`? {#faq-set-fields-undefined}
 
 `value` change from certain one to `undefined` in React means from controlled mode to uncontrolled mode. Thus it will not change display value but modified FormStore in fact. You can HOC to handle this:
 
@@ -644,7 +644,7 @@ const MyInput = ({
 
 ### Why does `onFieldsChange` trigger three times on change when field sets `rules`? {#faq-rules-trigger-three-times}
 
-Validating is also part of the value updating. It pass follow steps:
+Validating is also part of the value updating. It passes through the following steps:
 
 1. Trigger value change
 2. Rule validating
@@ -677,7 +677,7 @@ dependencies should be `['users', 0, 'name']`
 
 ### Why doesn't `normalize` support async? {#faq-normalize-async}
 
-React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
+React cannot get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
 ### `scrollToFirstError` and `scrollToField` not working? {#faq-scroll-not-working}
 
@@ -699,7 +699,7 @@ Form can not get real DOM node when customize component not support `ref`. It wi
 
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`? {#faq-set-fields-no-trigger}
 
-It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
+It's by design. Only user interactive can trigger the change event. This design aims to avoid calling `setFieldsValue` in change events, which may make loop calling.
 
 ### Why Form.Item not update value when children is nest? {#faq-item-nested-update}
 
