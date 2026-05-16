@@ -296,9 +296,12 @@ const stateToInfo = <RecordType extends AnyObject = AnyObject>(
 const generateSorterInfo = <RecordType extends AnyObject = AnyObject>(
   sorterStates: SortState<RecordType>[],
 ): SorterResult<RecordType> | SorterResult<RecordType>[] => {
-  const activeSorters = sorterStates
-    .filter(({ sortOrder }) => sortOrder)
-    .map<SorterResult<RecordType>>(stateToInfo);
+  const activeSorters = sorterStates.reduce<SorterResult<RecordType>[]>((list, sorterState) => {
+    if (sorterState.sortOrder) {
+      list.push(stateToInfo(sorterState));
+    }
+    return list;
+  }, []);
 
   // =========== Legacy compatible support ===========
   // https://github.com/ant-design/ant-design/pull/19226
