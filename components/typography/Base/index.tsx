@@ -3,9 +3,7 @@ import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import type { AutoSizeType } from '@rc-component/input';
 import ResizeObserver from '@rc-component/resize-observer';
-import { omit, toArray, useControlledState } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, omit, toArray, useControlledState, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
@@ -106,8 +104,9 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+export interface BlockProps<
+  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
   /**
    * @since 6.4.0
    */

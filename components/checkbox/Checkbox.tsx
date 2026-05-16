@@ -1,8 +1,7 @@
 import * as React from 'react';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
-import { useControlledState, useEvent } from '@rc-component/util';
-import { useComposeRef } from '@rc-component/util/lib/ref';
+import { useComposeRef, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';

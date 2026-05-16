@@ -5,8 +5,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks';

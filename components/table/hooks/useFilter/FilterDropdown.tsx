@@ -1,8 +1,7 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import type { FieldDataNode } from '@rc-component/tree';
-import { mergeProps } from '@rc-component/util';
-import isEqual from '@rc-component/util/lib/isEqual';
+import { isEqual, mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
