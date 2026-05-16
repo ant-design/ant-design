@@ -291,8 +291,9 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
         getColumnKey(column, getColumnPos(index)),
       );
       return filterStates.reduce<FilterState<RecordType>[]>((list, item) => {
-        if (keyList.includes(item.key)) {
-          const col = mergedColumns[keyList.indexOf(item.key)];
+        const keyIndex = keyList.indexOf(item.key);
+        if (keyIndex !== -1) {
+          const col = mergedColumns[keyIndex];
           list.push({
             ...item,
             column: {
