@@ -235,7 +235,15 @@ const Overview: React.FC = () => {
                       >
                         <div className={styles.componentsOverviewImg}>
                           {isBorderBeam ? (
-                            <Skeleton avatar paragraph={{ rows: 4 }} />
+                            <img
+                              draggable={false}
+                              src={
+                                isDark
+                                  ? 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original'
+                                  : 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original'
+                              }
+                              alt={'border-beam'}
+                            />
                           ) : (
                             <img
                               draggable={false}
@@ -244,17 +252,13 @@ const Overview: React.FC = () => {
                                   ? component.coverDark
                                   : component.cover
                               }
-                              alt=""
+                              alt={component.title}
                             />
                           )}
                         </div>
                       </Card>
                     );
-                    const wrappedCardContent = isBorderBeam ? (
-                      <BorderBeam>{cardContent}</BorderBeam>
-                    ) : (
-                      cardContent
-                    );
+
                     const linkContent = isExternalLink ? (
                       <a
                         href={url}
@@ -262,11 +266,11 @@ const Overview: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {wrappedCardContent}
+                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
                       </a>
                     ) : (
                       <Link to={url} key={`${component.title}-internal-link`}>
-                        {wrappedCardContent}
+                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
                       </Link>
                     );
 
