@@ -590,7 +590,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   const { nativeEvent } = event;
                   const { shiftKey } = nativeEvent;
                   const currentSelectedIndex = recordKeys.indexOf(key);
-                  const isMultiple = derivedSelectedKeys.some((item) => recordKeys.includes(item));
+                  const isMultiple =
+                    derivedSelectedKeySet.size > 0 &&
+                    recordKeys.some((key) => derivedSelectedKeySet.has(key));
 
                   if (shiftKey && checkStrictly && isMultiple) {
                     const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);
