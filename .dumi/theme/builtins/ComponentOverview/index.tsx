@@ -1,7 +1,19 @@
 import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
+import {
+  Affix,
+  BorderBeam,
+  Card,
+  Col,
+  Divider,
+  Flex,
+  Input,
+  Row,
+  Skeleton,
+  Tag,
+  Typography,
+} from 'antd';
 import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -196,6 +208,7 @@ const Overview: React.FC = () => {
                     let url = component.link;
                     /** 是否是外链 */
                     const isExternalLink = url.startsWith('http');
+                    const isBorderBeam = component.title === 'BorderBeam';
 
                     if (!isExternalLink) {
                       url += urlSearch;
@@ -209,7 +222,7 @@ const Overview: React.FC = () => {
                           body: {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'bottom right',
-                            backgroundImage: `url(${component.tag || ''})`,
+                            backgroundImage: component.tag ? `url(${component.tag})` : undefined,
                           },
                         }}
                         size="small"
@@ -221,24 +234,39 @@ const Overview: React.FC = () => {
                         }
                       >
                         <div className={styles.componentsOverviewImg}>
-                          <img
-                            draggable={false}
-                            src={
-                              isDark && component.coverDark ? component.coverDark : component.cover
-                            }
-                            alt=""
-                          />
+                          {isBorderBeam ? (
+                            <Skeleton avatar paragraph={{ rows: 4 }} />
+                          ) : (
+                            <img
+                              draggable={false}
+                              src={
+                                isDark && component.coverDark
+                                  ? component.coverDark
+                                  : component.cover
+                              }
+                              alt=""
+                            />
+                          )}
                         </div>
                       </Card>
                     );
-
+                    const wrappedCardContent = isBorderBeam ? (
+                      <BorderBeam>{cardContent}</BorderBeam>
+                    ) : (
+                      cardContent
+                    );
                     const linkContent = isExternalLink ? (
-                      <a href={url} key={component.title}>
-                        {cardContent}
+                      <a
+                        href={url}
+                        key={`${component.title}-external-link`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {wrappedCardContent}
                       </a>
                     ) : (
-                      <Link to={url} key={component.title}>
-                        {cardContent}
+                      <Link to={url} key={`${component.title}-internal-link`}>
+                        {wrappedCardContent}
                       </Link>
                     );
 
