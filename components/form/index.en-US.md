@@ -677,7 +677,7 @@ dependencies should be `['users', 0, 'name']`
 
 ### Why doesn't `normalize` support async? {#faq-normalize-async}
 
-React cannot get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
+React cannot get correct interaction of controlled components with async value updates. When a user triggers `onChange`, the component will not respond since the `value` update is async. If you want to trigger value updates asynchronously, you should use a custom component to handle the value state internally and pass synchronous value control to the Form instead.
 
 ### `scrollToFirstError` and `scrollToField` not working? {#faq-scroll-not-working}
 
