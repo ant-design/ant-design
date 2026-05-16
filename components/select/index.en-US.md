@@ -106,7 +106,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| suffixIcon | The custom suffix icon. Customize icon will not respond to click to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
+| suffixIcon | The custom suffix icon. Custom icons will not respond to clicks to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
