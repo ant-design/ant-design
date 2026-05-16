@@ -233,6 +233,7 @@ async function generateLLms(api: IApi) {
     '',
     '## Navigation',
     '',
+    '- [Design Language (DESIGN.md)](./design.md)',
     '- [Full Documentation (EN)](./llms-full.txt)',
     '- [Full Documentation (CN)](./llms-full-cn.txt)',
     '- [Semantic Documentation (EN)](./llms-semantic.md)',
