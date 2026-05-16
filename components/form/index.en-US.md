@@ -458,7 +458,7 @@ const Demo = () => {
 
 `type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-The `Form.Item.useStatus` hook returns the validate status of a Form.Item and was added in `4.22.0`. When used outside Form.Item, it returns `undefined` for the `status` field. The `errors` and `warnings` fields were added in `5.4.0` to obtain error and warning messages of Form.Item:
+The `Form.Item.useStatus` hook returns the validation status of a Form.Item and was added in `4.22.0`. When used outside Form.Item, it returns `undefined` for the `status` field. The `errors` and `warnings` fields were added in `5.4.0` to obtain error and warning messages of Form.Item:
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
