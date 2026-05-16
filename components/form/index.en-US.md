@@ -626,7 +626,7 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 
 `getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
 
-### Why some component does not respond to `setFieldsValue` with `undefined`? {#faq-set-fields-undefined}
+### Why do some components not respond to `setFieldsValue` with `undefined`? {#faq-set-fields-undefined}
 
 `value` change from certain one to `undefined` in React means from controlled mode to uncontrolled mode. Thus it will not change display value but modified FormStore in fact. You can HOC to handle this:
 
