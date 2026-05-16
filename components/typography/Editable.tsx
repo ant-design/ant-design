@@ -1,7 +1,7 @@
 import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import type { TextAreaProps } from '@rc-component/input';
-import KeyCode from '@rc-component/util/lib/KeyCode';
+import { KeyCode } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
