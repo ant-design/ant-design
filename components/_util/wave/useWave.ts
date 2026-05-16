@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useEvent } from '@rc-component/util';
-import raf from '@rc-component/util/lib/raf';
+import { raf, useEvent } from '@rc-component/util';
 
 import type { WaveProps } from '.';
 import { ConfigContext } from '../../config-provider';
