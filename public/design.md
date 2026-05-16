@@ -164,3 +164,110 @@ components:
     backgroundColor: '{colors.surface-container}'
     textColor: '{colors.on-surface}'
 ---
+
+## Overview
+
+Ant Design is the open-source design system Ant Group uses to ship enterprise software — primarily mid- and back-office consoles, dashboards, and operational tools. The system was created in 2015 to give large product teams a shared, opinionated foundation so they could ship dense, data-rich interfaces without re-deciding the basics on every screen.
+
+Four values guide every decision in the system:
+
+- **Natural.** The interface follows established conventions; nothing surprises a returning user. Patterns that already exist in operating systems and prior generations of enterprise software are preferred over novel inventions.
+- **Certain.** Users always know what state they're in, what their inputs did, and what the next step is. Hover, focus, loading, and error states are explicit and consistent.
+- **Meaningful.** Visual emphasis is reserved for action. Decoration that does not communicate is removed.
+- **Growing.** The system scales from small forms to dense tables to multi-tenant admin consoles without losing coherence.
+
+Themes are customized through the `ConfigProvider` component and a `theme` prop. The `theme.token` field overrides any seed token; the `theme.algorithm` field switches between `defaultAlgorithm` (light, the subject of this file), `darkAlgorithm` (dark mode), and `compactAlgorithm` (denser sizing). To produce a dark-mode UI, do not invert these tokens by hand — apply `theme.darkAlgorithm` and the system will derive the dark palette from the same seeds.
+
+## Colors
+
+The palette is built from six functional seeds: a single **primary** brand color and five semantic states (`success`, `warning`, `error`, `info`, plus the neutral background). Each seed expands automatically through `@ant-design/colors` into a ten-step gradient covering background tint, hover, active, and outline variants — change the seed, and the entire derived palette moves with it.
+
+`#1677FF` was chosen as the primary because blue reads as trustworthy and focused without the corporate flatness of a darker navy or the playfulness of a saturated cyan. It also remains legible against both white and pale-grey surfaces — the two surfaces enterprise consoles use most.
+
+Neutral text and overlays in the runtime token system are expressed as `rgba(0, 0, 0, α)` rather than flat grey hex values. The reason is overlay: when text sits above a tinted card or a colored cell highlight, an opaque grey breaks the tint, while a transparent black blends naturally. The four standard alpha steps are `0.88` (primary text, exported here as `#1F1F1F`), `0.65` (secondary text, `#595959`), `0.45` (placeholder / disabled label), and `0.25` (disabled control text, `#BFBFBF`). The hex values listed in this document are the equivalent composited result on a white surface, suitable for static export targets that require hex; downstream consumers that support alpha should prefer the `rgba()` form from `@ant-design/cssinjs`.
+
+The thirteen preset colors (`blue`, `purple`, `cyan`, `green`, `magenta`, `red`, `orange`, `yellow`, `volcano`, `geekblue`, `gold`, `lime`, plus the same brand `blue`) are reserved for tagging, charts, and categorical visualization — never for primary UI affordances. Use functional colors (`success`/`warning`/`error`/`info`) for status, and reserve `primary` for the single most important action on each screen.
+
+## Typography
+
+The base font size is **14 px**, not 16. Enterprise consoles trade legibility headroom for information density — a 1440 px-wide window has to comfortably fit a sidebar, a header, a data table with eight columns, and a detail pane. At 14 px, a row of body copy reaches the eye-saccade sweet spot of ~75 characters at the column widths these layouts demand.
+
+The font stack prioritizes the OS UI font in order: Apple's `-apple-system`, then `BlinkMacSystemFont`, then Windows' `Segoe UI`, then Android/ChromeOS' `Roboto`, then `Helvetica Neue`, then `Arial`, with `Noto Sans` covering Linux. Emoji fallbacks are kept short. The code font uses `SFMono-Regular`, `Consolas`, `Liberation Mono`, `Menlo`, and `Courier` in the same order.
+
+No more than **three font weights** are used in product UI: 400 (body), 500 (emphasized labels and selected tabs), and 600 (headings). Thin (100–300), bold (700+), and italics are not used in interface chrome — they fight the calm, certain tone the system targets. Italics are acceptable only inside long-form documentation prose.
+
+## Layout
+
+All spacing snaps to a **4 px grid**. The six-step spacing scale (`unit`, `xs`, `sm`, `md`, `lg`, `xl` → 4 / 4 / 8 / 16 / 24 / 32 px) covers every gap, gutter, and inset in the system. Magic numbers — `padding: 11px`, `gap: 13px` — do not appear in token-driven code; the input field's 11 px horizontal padding exists only because the design pre-dates the 4 px grid and a one-pixel migration would shift millions of existing screens.
+
+Surfaces use a **three-layer model**:
+
+1. **`bg-layout`** (`#F5F5F5`) — the page background. It surrounds and contains everything else.
+2. **`bg-container`** (`#FFFFFF`) — the surface for cards, panels, tables, and forms. This is where most content lives.
+3. **`bg-elevated`** (`#FFFFFF`, same hex as `bg-container`) — the surface for modals, dropdowns, popovers. Distinguished from `bg-container` not by color but by shadow.
+
+Never hard-code `#FFF` or `#FAFAFA` in product code. Read the token. The three-layer model is what lets a dark-mode algorithm flip the surface ladder without breaking layouts.
+
+## Elevation & Depth
+
+Ant Design is **flat-first**. Borders and tonal contrast carry hierarchy. Shadows appear only on surfaces that genuinely float above their context.
+
+Four shadow tiers exist (CSS variables `--ant-box-shadow-tertiary`, `--ant-box-shadow-secondary`, `--ant-box-shadow`, `--ant-box-shadow-popover-arrow`). In ascending strength:
+
+- **Tertiary** — inset hairline, used for input internal stroke.
+- **Default** — `0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 6px -1px rgba(0,0,0,0.02), 0 2px 4px 0 rgba(0,0,0,0.02)` — for raised cards and floating action surfaces.
+- **Secondary** — `0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12), 0 9px 28px 8px rgba(0,0,0,0.05)` — for modals, drawers, and dropdowns.
+- **Popover arrow** — used only for the small triangular pointer on tooltip and popover arrows.
+
+Motion uses three durations and a small library of cubic-bezier easings, all exposed as tokens:
+
+- `motionDurationFast` — 0.1 s, for state changes (hover, focus, press).
+- `motionDurationMid` — 0.2 s, for component-internal transitions (collapse, fade).
+- `motionDurationSlow` — 0.3 s, for surface-level changes (modal enter, drawer slide).
+
+Easings are pre-defined: `motionEaseInOut`, `motionEaseOut`, `motionEaseIn`, `motionEaseOutBack`, `motionEaseOutCirc`, etc. Do not pick a `transition-timing-function` arbitrarily. If the design need does not match an existing easing, use `motionEaseInOut` and move on.
+
+## Shapes
+
+The default corner radius is **6 px**. It is round enough to read as modern and friendly, but small enough that a 32-pixel-tall button still presents a clean, almost-rectangular silhouette suitable for dense forms.
+
+By component class:
+
+- **Controls** (button, input, select, dropdown trigger) — 6 px (`rounded.DEFAULT`).
+- **Surfaces** (card, modal, drawer, notification) — 8 px (`rounded.lg`).
+- **Tags and small chips** — 4 px (`rounded.md`).
+- **Tooltip and popover** — 4 px (`rounded.md`).
+
+Full-pill (`rounded.full`, 9999 px) is reserved for circular avatars, badges, and dots — not for buttons or tags. Square (0 px) is reserved for tables and the inner edges of segmented controls. Mixing radii on adjacent elements is a smell: a card with 8 px corners should not contain a button with 16 px corners.
+
+## Components
+
+Twelve component archetypes capture most of the system's surface area. Each entry below maps to the token references in the YAML front-matter.
+
+- **Button (primary)** — the single dominant action per screen. Solid `primary` fill, white text, 32 px tall, 6 px radius. Hover lightens the fill to `#4096FF`; active darkens to `#0958D9`. Do not stack two `primary` buttons in one decision.
+- **Button (default)** — secondary actions. Transparent background on a white surface, dark text, 1 px outline border. Hover changes text color to `#4096FF`; the border tints to match.
+- **Input field** — 32 px tall to match buttons. Subtle 1 px outline border; focus state thickens the border to `primary` and adds an inset glow. Placeholder text uses `on-surface-disabled`.
+- **Select** — visually identical to Input. The trigger reads as an input until interacted with.
+- **Card** — the workhorse container. White surface, 8 px radius, default shadow tier. Internal padding is 24 px on all sides; nested controls maintain 16 px gaps.
+- **Modal** — same surface and radius as Card, but uses the secondary shadow tier and is centered on a `rgba(0, 0, 0, 0.45)` mask. Body padding is 20 px top/bottom × 24 px left/right.
+- **Menu (selected item)** — `#E6F4FF` background, `primary` text. This is the single visual cue for "you are here" in navigation.
+- **Tabs (active tab)** — `primary` text and a 2 px `primary` underline. Inactive tabs are `on-surface-variant`. No background fill on tabs at any state.
+- **Table (header row)** — `surface-container` background, semibold body-md typography. Body rows alternate on hover only, not by default — the system trusts users to read dense data without zebra striping.
+- **Tag** — small categorical label. 4 px radius, 12 px font, low-saturation pastel fills from the preset palette. Never use a tag for a critical state — use Alert or Badge.
+- **Tooltip** — high-contrast inverse surface: `rgba(0,0,0,0.85)` background, white text. Always positioned by the framework, never manually pinned.
+- **Dropdown menu (item hover)** — `surface-container` fill on hover, no text-color change. The hover affordance is enough.
+
+## Do's and Don'ts
+
+- **Do** use the four design values as a tie-breaker. When two approaches conflict, the one that produces a more certain, more legible state for the user wins.
+- **Don't** stack two `primary`-colored buttons on the same surface. Pick one. Demote the rest to `default`.
+- **Do** derive dark mode by setting `theme.algorithm` to `darkAlgorithm`. The full token graph regenerates from the same seeds.
+- **Don't** hand-invert colors. The algorithm accounts for non-linear gradient stops that flat inversion cannot reproduce.
+- **Do** read surfaces from `colors.surface`, `colors.surface-container`, and `colors.surface-layout`. They reflect the three-layer model.
+- **Don't** hard-code `#FFFFFF` or `#FAFAFA`. The hex is incidental; the role is what matters.
+- **Do** use `motionDurationMid` (0.2 s) for any component-level transition you cannot find a more specific token for.
+- **Don't** invent custom `cubic-bezier` curves. Use the named easings.
+- **Do** reserve the preset color palette (`blue` through `lime`) for tags, charts, and categorical visualization.
+- **Don't** mint accent colors outside the preset palette for one-off UI surfaces. If a screen seems to need one, the design probably needs a different layout instead.
+- **Do** snap every gap, inset, and gutter to the 4 px grid through the spacing scale.
+- **Don't** use magic numbers in product code. If the scale lacks a step you need, the design needs revisiting, not a one-pixel override.
