@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import getScroll from '../_util/getScroll';

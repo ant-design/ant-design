@@ -1,7 +1,6 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { toArray } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';

@@ -3,8 +3,7 @@ import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
-import useId from '@rc-component/util/lib/hooks/useId';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -40,7 +39,8 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<
+  extends
+    Omit<
       RcDrawerProps,
       | 'maskStyle'
       | 'destroyOnClose'
