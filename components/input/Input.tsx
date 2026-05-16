@@ -1,9 +1,8 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import type { InputFocusOptions } from '@rc-component/util/lib/Dom/focus';
-import { triggerFocus } from '@rc-component/util/lib/Dom/focus';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, triggerFocus } from '@rc-component/util';
+import type { InputFocusOptions } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -51,17 +50,16 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    | 'wrapperClassName'
-    | 'groupClassName'
-    | 'inputClassName'
-    | 'affixWrapperClassName'
-    | 'classes'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  | 'wrapperClassName'
+  | 'groupClassName'
+  | 'inputClassName'
+  | 'affixWrapperClassName'
+  | 'classes'
+  | 'classNames'
+  | 'styles'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;

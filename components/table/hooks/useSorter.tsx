@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
-import KeyCode from '@rc-component/util/lib/KeyCode';
+import { KeyCode } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isNumber, isPlainObject } from '../../_util/is';
