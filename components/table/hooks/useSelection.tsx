@@ -295,79 +295,82 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     const selectionList: INTERNAL_SELECTION_ITEM[] =
       selections === true ? [SELECTION_ALL, SELECTION_INVERT, SELECTION_NONE] : selections;
 
-    return selectionList
-      .map((selection: INTERNAL_SELECTION_ITEM) => {
-        if (selection === SELECTION_ALL) {
-          return {
-            key: 'all',
-            text: tableLocale.selectionAll,
-            onSelect() {
-              setSelectedKeys(
-                data
-                  .map((record, index) => getRowKey(record, index))
-                  .filter((key) => {
-                    const checkProps = checkboxPropsMap.get(key);
-                    return !checkProps?.disabled || derivedSelectedKeySet.has(key);
-                  }),
-                'all',
-              );
-            },
-          };
-        }
-        if (selection === SELECTION_INVERT) {
-          return {
-            key: 'invert',
-            text: tableLocale.selectInvert,
-            onSelect() {
-              const keySet = new Set(derivedSelectedKeySet);
-              pageData.forEach((record, index) => {
+    return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {
+      let mergedSelection: SelectionItem;
+
+      if (selection === SELECTION_ALL) {
+        mergedSelection = {
+          key: 'all',
+          text: tableLocale.selectionAll,
+          onSelect() {
+            setSelectedKeys(
+              data.reduce<Key[]>((keys, record, index) => {
                 const key = getRowKey(record, index);
                 const checkProps = checkboxPropsMap.get(key);
-
-                if (!checkProps?.disabled) {
-                  if (keySet.has(key)) {
-                    keySet.delete(key);
-                  } else {
-                    keySet.add(key);
-                  }
+                if (!checkProps?.disabled || derivedSelectedKeySet.has(key)) {
+                  keys.push(key);
                 }
-              });
+                return keys;
+              }, []),
+              'all',
+            );
+          },
+        };
+      } else if (selection === SELECTION_INVERT) {
+        mergedSelection = {
+          key: 'invert',
+          text: tableLocale.selectInvert,
+          onSelect() {
+            const keySet = new Set(derivedSelectedKeySet);
+            pageData.forEach((record, index) => {
+              const key = getRowKey(record, index);
+              const checkProps = checkboxPropsMap.get(key);
 
-              const keys = Array.from(keySet);
-              if (onSelectInvert) {
-                warning.deprecated(false, 'onSelectInvert', 'onChange');
-                onSelectInvert(keys);
+              if (!checkProps?.disabled) {
+                if (keySet.has(key)) {
+                  keySet.delete(key);
+                } else {
+                  keySet.add(key);
+                }
               }
+            });
 
-              setSelectedKeys(keys, 'invert');
-            },
-          };
-        }
-        if (selection === SELECTION_NONE) {
-          return {
-            key: 'none',
-            text: tableLocale.selectNone,
-            onSelect() {
-              onSelectNone?.();
-              setSelectedKeys(
-                Array.from(derivedSelectedKeySet).filter((key) => {
-                  const checkProps = checkboxPropsMap.get(key);
-                  return checkProps?.disabled;
-                }),
-                'none',
-              );
-            },
-          };
-        }
-        return selection as SelectionItem;
-      })
-      .map((selection) => ({
-        ...selection,
-        onSelect: (...rest) => {
-          selection.onSelect?.(...rest);
+            const keys = Array.from(keySet);
+            if (onSelectInvert) {
+              warning.deprecated(false, 'onSelectInvert', 'onChange');
+              onSelectInvert(keys);
+            }
+
+            setSelectedKeys(keys, 'invert');
+          },
+        };
+      } else if (selection === SELECTION_NONE) {
+        mergedSelection = {
+          key: 'none',
+          text: tableLocale.selectNone,
+          onSelect() {
+            onSelectNone?.();
+            setSelectedKeys(
+              Array.from(derivedSelectedKeySet).filter((key) => {
+                const checkProps = checkboxPropsMap.get(key);
+                return checkProps?.disabled;
+              }),
+              'none',
+            );
+          },
+        };
+      } else {
+        mergedSelection = selection as SelectionItem;
+      }
+
+      return {
+        ...mergedSelection,
+        onSelect: (currentRowKeys) => {
+          mergedSelection.onSelect?.(currentRowKeys);
           updatePrevSelectedIndex(null);
         },
-      }));
+      };
+    });
   }, [
     selections,
     hideSelectAll,
@@ -402,9 +405,13 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       const keySet = new Set(derivedSelectedKeySet);
 
       // Record key only need check with enabled
-      const recordKeys = flattedData
-        .map(getRowKey)
-        .filter((key) => !checkboxPropsMap.get(key)!.disabled);
+      const recordKeys = flattedData.reduce<Key[]>((keys, record, index) => {
+        const key = getRowKey(record, index);
+        if (!checkboxPropsMap.get(key)!.disabled) {
+          keys.push(key);
+        }
+        return keys;
+      }, []);
       const checkedCurrentAll = recordKeys.every((key) => keySet.has(key));
       const checkedCurrentSome = recordKeys.some((key) => keySet.has(key));
 
@@ -469,13 +476,17 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           );
         }
 
-        const allDisabledData = flattedData
-          .map((record, index) => {
-            const key = getRowKey(record, index);
-            const checkboxProps = checkboxPropsMap.get(key) || {};
-            return { checked: keySet.has(key), ...checkboxProps };
-          })
-          .filter(({ disabled }) => disabled);
+        const allDisabledData = flattedData.reduce<
+          Array<Partial<CheckboxProps> & { checked?: boolean }>
+        >((list, record, index) => {
+          const key = getRowKey(record, index);
+          const checkboxProps = checkboxPropsMap.get(key) || {};
+          const item = { checked: keySet.has(key), ...checkboxProps };
+          if (item.disabled) {
+            list.push(item);
+          }
+          return list;
+        }, []);
 
         const allDisabled =
           !!allDisabledData.length && allDisabledData.length === flattedData.length;
