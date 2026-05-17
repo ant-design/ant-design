@@ -91,7 +91,6 @@ const genSelectInputVariantStyle = (
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const {
     componentCls,
-    fontHeight,
     controlHeight,
     fontSizeIcon,
     showArrowPaddingInlineEnd,
@@ -105,6 +104,15 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
   const contentMarginInlineEnd = max(calc(showArrowPaddingInlineEnd).sub(fontSizeIcon).equal(), 0);
 
+  // Derive font-height from component-level `fontSize` × `lineHeight` so that
+  // overriding Select's `fontSize` via ConfigProvider keeps the rendered height
+  // aligned with `controlHeight`. Using the global `fontHeight` token here
+  // causes the rendered height to differ from `controlHeight` whenever the
+  // component-level `fontSize` token differs from the global `fontSize`.
+  // See #55953.
+  const selectFontHeight = Math.round(token.fontSize * token.lineHeight);
+  const selectFontHeightLG = Math.round(token.fontSizeLG * token.lineHeightLG);
+
   return {
     [componentCls]: [
       {
@@ -117,7 +125,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Font
         [varName('font-size')]: token.fontSize,
         [varName('line-height')]: token.lineHeight,
-        [varName('font-height')]: fontHeight,
+        [varName('font-height')]: selectFontHeight,
         [varName('color')]: token.colorText,
         [varName('affix-color')]: token.colorText,
         // Size
@@ -252,7 +260,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [varName('height')]: token.controlHeightLG,
           [varName('font-size')]: token.fontSizeLG,
           [varName('line-height')]: token.lineHeightLG,
-          [varName('font-height')]: token.fontHeightLG,
+          [varName('font-height')]: selectFontHeightLG,
           [varName('border-radius')]: token.borderRadiusLG,
         },
       },
