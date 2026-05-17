@@ -67,14 +67,14 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| type | 计时类型，正计时或者倒计时 | `countdown` `countup` | - |  |
+| type | 计时类型，倒计时或者正计时 | `countdown` \| `countup` | - |  |
 | format | 格式化倒计时展示，参考 [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
 | prefix | 设置数值的前缀 | ReactNode | - |  |
 | suffix | 设置数值的后缀 | ReactNode | - |  |
 | title | 数值的标题 | ReactNode | - |  |
-| value | 数值内容 | number | - |  |
+| value | `countdown` 模式下为目标时间，`countup` 模式下为起始时间（毫秒时间戳） | number | - |  |
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
-| onFinish | 倒计时完成时触发, 指定为 `countup` 此属性不生效 | () => void | - |  |
+| onFinish | 倒计时完成时触发，指定为 `countup` 时此属性不生效 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
 ## Semantic DOM
