@@ -37,6 +37,16 @@ export interface ComponentToken {
    */
   labelHeight: number | string;
   /**
+   * @desc 小号表单项控件高度
+   * @descEN Small form item control height
+   */
+  controlHeightSM: number;
+  /**
+   * @desc 大号表单项控件高度
+   * @descEN Large form item control height
+   */
+  controlHeightLG: number;
+  /**
    * @desc 标签冒号前间距
    * @descEN Label colon margin-inline-start
    */
@@ -595,6 +605,8 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
   labelColor: token.colorTextHeading,
   labelFontSize: token.fontSize,
   labelHeight: token.controlHeight,
+  controlHeightSM: token.controlHeightSM,
+  controlHeightLG: token.controlHeightLG,
   labelColonMarginInlineStart: token.marginXXS / 2,
   labelColonMarginInlineEnd: token.marginXS,
   itemMarginBottom: token.marginLG,
