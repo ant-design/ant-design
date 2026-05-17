@@ -194,12 +194,20 @@ const Overview: React.FC = () => {
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
                     let url = component.link;
+                    let src = component.cover;
+
                     /** 是否是外链 */
                     const isExternalLink = url.startsWith('http');
+
+                    /** BorderBeam 组件需要特殊处理 */
                     const isBorderBeam = component.title === 'BorderBeam';
 
                     if (!isExternalLink) {
                       url += urlSearch;
+                    }
+
+                    if (isDark && component.coverDark) {
+                      src = component.coverDark;
                     }
 
                     const cardContent = (
@@ -210,7 +218,9 @@ const Overview: React.FC = () => {
                           body: {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'bottom right',
+                            backgroundSize: '32px 32px',
                             backgroundImage: component.tag ? `url(${component.tag})` : undefined,
+                            backgroundColor: 'transparent',
                           },
                         }}
                         size="small"
@@ -222,25 +232,12 @@ const Overview: React.FC = () => {
                         }
                       >
                         <div className={styles.componentsOverviewImg}>
-                          {isBorderBeam ? (
+                          {src && (
                             <img
-                              draggable={false}
-                              src={
-                                isDark
-                                  ? 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original'
-                                  : 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original'
-                              }
-                              alt={'border-beam'}
-                            />
-                          ) : (
-                            <img
-                              draggable={false}
-                              src={
-                                isDark && component.coverDark
-                                  ? component.coverDark
-                                  : component.cover
-                              }
+                              src={src}
                               alt={component.title}
+                              title={component.title}
+                              draggable={false}
                             />
                           )}
                         </div>
