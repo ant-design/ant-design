@@ -13,7 +13,7 @@ interface Frontmatter {
 
 function loadFrontmatter(): Frontmatter {
   const raw = fs.readFileSync(path.join(process.cwd(), 'public/design.md'), 'utf-8');
-  const match = raw.match(/^---\n([\s\S]+?)\n---/);
+  const match = raw.match(/^---\r?\n([\s\S]+?)\r?\n---/);
   if (!match) {
     throw new Error('public/design.md is missing YAML front-matter');
   }

@@ -53,6 +53,11 @@ typography:
     fontSize: 16px
     fontWeight: '600'
     lineHeight: 24px
+  title-md:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
+    fontSize: 14px
+    fontWeight: '600'
+    lineHeight: 22px
   body-lg:
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
     fontSize: 16px
@@ -146,7 +151,7 @@ components:
   table-header:
     backgroundColor: '{colors.surface-container}'
     textColor: '{colors.on-surface}'
-    typography: '{typography.body-md}'
+    typography: '{typography.title-md}'
     padding: 16px
   tag:
     backgroundColor: '{colors.surface-container}'
@@ -184,7 +189,7 @@ The palette is built from six functional seeds: a single **primary** brand color
 
 `#1677FF` was chosen as the primary because blue reads as trustworthy and focused without the corporate flatness of a darker navy or the playfulness of a saturated cyan. It also remains legible against both white and pale-grey surfaces — the two surfaces enterprise consoles use most.
 
-Neutral text and overlays in the runtime token system are expressed as `rgba(0, 0, 0, α)` rather than flat grey hex values. The reason is overlay: when text sits above a tinted card or a colored cell highlight, an opaque grey breaks the tint, while a transparent black blends naturally. The four standard alpha steps are `0.88` (primary text, exported here as `#1F1F1F`), `0.65` (secondary text, `#595959`), `0.45` (placeholder / disabled label), and `0.25` (disabled control text, `#BFBFBF`). The hex values listed in this document are the equivalent composited result on a white surface, suitable for static export targets that require hex; downstream consumers that support alpha should prefer the `rgba()` form from `@ant-design/cssinjs`.
+Neutral text and overlays in the runtime token system are expressed as `rgba(0, 0, 0, α)` rather than flat grey hex values. The reason is overlay: when text sits above a tinted card or a colored cell highlight, an opaque grey breaks the tint, while a transparent black blends naturally. The four standard alpha steps are `0.88` (primary text, exported here as `#1F1F1F`), `0.65` (secondary text, `#595959`), `0.45` (tertiary / description text), and `0.25` (placeholder / disabled, `#BFBFBF`). The hex values listed in this document are the equivalent composited result on a white surface, suitable for static export targets that require hex; downstream consumers that support alpha should prefer the `rgba()` form from `@ant-design/cssinjs`.
 
 The thirteen preset colors (`blue`, `purple`, `cyan`, `green`, `magenta`, `red`, `orange`, `yellow`, `volcano`, `geekblue`, `gold`, `lime`, plus the same brand `blue`) are reserved for tagging, charts, and categorical visualization — never for primary UI affordances. Use functional colors (`success`/`warning`/`error`/`info`) for status, and reserve `primary` for the single most important action on each screen.
 
@@ -194,7 +199,7 @@ The base font size is **14 px**, not 16. Enterprise consoles trade legibility he
 
 The font stack prioritizes the OS UI font in order: Apple's `-apple-system`, then `BlinkMacSystemFont`, then Windows' `Segoe UI`, then Android/ChromeOS' `Roboto`, then `Helvetica Neue`, then `Arial`, with `Noto Sans` covering Linux. Emoji fallbacks are kept short. The code font uses `SFMono-Regular`, `Consolas`, `Liberation Mono`, `Menlo`, and `Courier` in the same order.
 
-No more than **three font weights** are used in product UI: 400 (body), 500 (emphasized labels and selected tabs), and 600 (headings). Thin (100–300), bold (700+), and italics are not used in interface chrome — they fight the calm, certain tone the system targets. Italics are acceptable only inside long-form documentation prose.
+Only **two font weights** appear in product UI: 400 (body, controls, menu items, tab labels) and 600 (`fontWeightStrong` — headings, table headers, and any title-grade typography). Thin (100–300), bold (700+), and italics are not used in interface chrome — they fight the calm, certain tone the system targets. Italics are acceptable only inside long-form documentation prose. Visual emphasis on selected/active states comes from color and stroke (border, underline), not weight.
 
 ## Layout
 
@@ -252,7 +257,7 @@ Twelve component archetypes capture most of the system's surface area. Each entr
 - **Modal** — same surface and radius as Card, but uses the secondary shadow tier and is centered on a `rgba(0, 0, 0, 0.45)` mask. Body padding is 20 px top/bottom × 24 px left/right.
 - **Menu (selected item)** — `#E6F4FF` background, `primary` text. This is the single visual cue for "you are here" in navigation.
 - **Tabs (active tab)** — `primary` text and a 2 px `primary` underline. Inactive tabs are `on-surface-variant`. No background fill on tabs at any state.
-- **Table (header row)** — `surface-container` background, semibold body-md typography. Body rows alternate on hover only, not by default — the system trusts users to read dense data without zebra striping.
+- **Table (header row)** — `surface-container` background, `title-md` typography (14 px / 600). Body rows alternate on hover only, not by default — the system trusts users to read dense data without zebra striping.
 - **Tag** — small categorical label. 4 px radius, 12 px font, low-saturation pastel fills from the preset palette. Never use a tag for a critical state — use Alert or Badge.
 - **Tooltip** — high-contrast inverse surface: `rgba(0,0,0,0.85)` background, white text. Always positioned by the framework, never manually pinned.
 - **Dropdown menu (item hover)** — `surface-container` fill on hover, no text-color change. The hover affordance is enough.

@@ -325,7 +325,8 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "5.106.2",
     "webpack-bundle-analyzer": "^5.3.0",
-    "xhr-mock": "^2.5.1"
+    "xhr-mock": "^2.5.1",
+    "yaml": "^2.9.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
