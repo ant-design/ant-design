@@ -40,19 +40,19 @@ export function getRangePlaceholder(
     return customizePlaceholder;
   }
 
-  if (picker === 'year' && locale.lang.yearPlaceholder) {
+  if (picker === 'year' && locale.lang.rangeYearPlaceholder) {
     return locale.lang.rangeYearPlaceholder;
   }
-  if (picker === 'quarter' && locale.lang.quarterPlaceholder) {
+  if (picker === 'quarter' && locale.lang.rangeQuarterPlaceholder) {
     return locale.lang.rangeQuarterPlaceholder;
   }
-  if (picker === 'month' && locale.lang.monthPlaceholder) {
+  if (picker === 'month' && locale.lang.rangeMonthPlaceholder) {
     return locale.lang.rangeMonthPlaceholder;
   }
-  if (picker === 'week' && locale.lang.weekPlaceholder) {
+  if (picker === 'week' && locale.lang.rangeWeekPlaceholder) {
     return locale.lang.rangeWeekPlaceholder;
   }
-  if (picker === 'time' && locale.timePickerLocale.placeholder) {
+  if (picker === 'time' && locale.timePickerLocale.rangePlaceholder) {
     return locale!.timePickerLocale.rangePlaceholder;
   }
   return locale.lang.rangePlaceholder;
