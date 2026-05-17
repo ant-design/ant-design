@@ -552,4 +552,15 @@ describe('Dropdown', () => {
     expect(itemContent).toHaveStyle(objectStyles.itemContent);
     expect(itemTitle).toHaveStyle(objectStyles.itemTitle);
   });
+
+  // https://github.com/ant-design/ant-design/issues/45549
+  it('should apply dark theme class when menu.theme is dark', () => {
+    const { container } = render(
+      <Dropdown menu={{ items, theme: 'dark' }} open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    const menu = container.querySelector('.ant-dropdown-menu');
+    expect(menu).toHaveClass('ant-dropdown-menu-dark');
+  });
 });
