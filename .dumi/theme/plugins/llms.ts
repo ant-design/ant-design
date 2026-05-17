@@ -277,6 +277,8 @@ async function generateLLms(api: IApi) {
   const designMdSource = path.join(api.cwd, 'DESIGN.md');
   if (fs.existsSync(designMdSource)) {
     fs.copyFileSync(designMdSource, path.join(siteDir, 'design.md'));
+  } else {
+    api.logger.warn('DESIGN.md not found at repo root; https://ant.design/design.md will 404.');
   }
 
   api.logger.event(
