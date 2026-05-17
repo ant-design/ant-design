@@ -172,6 +172,8 @@ components:
 
 ## Overview
 
+This document describes the default light theme of **Ant Design v6**. The system follows semantic versioning: major releases (v5 → v6) signal an overhaul of the design language, while minor and patch releases keep this document stable. Refer to [CHANGELOG.en-US.md](https://github.com/ant-design/ant-design/blob/master/CHANGELOG.en-US.md) for the per-release token drift inside a major.
+
 Ant Design is the open-source design system Ant Group uses to ship enterprise software — primarily mid- and back-office consoles, dashboards, and operational tools. The system was created in 2015 to give large product teams a shared, opinionated foundation so they could ship dense, data-rich interfaces without re-deciding the basics on every screen.
 
 Four values guide every decision in the system:
