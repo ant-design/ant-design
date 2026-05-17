@@ -225,9 +225,11 @@ const Result: ResultType = (props) => {
   return (
     <div {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
-      <div className={titleClassNames} style={mergedStyles.title}>
-        {title}
-      </div>
+      {title && (
+        <div className={titleClassNames} style={mergedStyles.title}>
+          {title}
+        </div>
+      )}
       {subTitle && (
         <div className={subTitleClassNames} style={mergedStyles.subTitle}>
           {subTitle}
