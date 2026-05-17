@@ -12,10 +12,10 @@ interface Frontmatter {
 }
 
 function loadFrontmatter(): Frontmatter {
-  const raw = fs.readFileSync(path.join(process.cwd(), 'public/design.md'), 'utf-8');
+  const raw = fs.readFileSync(path.join(process.cwd(), 'DESIGN.md'), 'utf-8');
   const match = raw.match(/^---\r?\n([\s\S]+?)\r?\n---/);
   if (!match) {
-    throw new Error('public/design.md is missing YAML front-matter');
+    throw new Error('DESIGN.md is missing YAML front-matter');
   }
   return parse(match[1]) as Frontmatter;
 }
@@ -24,7 +24,7 @@ function stripPx(value: string): number {
   return Number(value.replace(/px$/, ''));
 }
 
-describe('public/design.md stays in sync with seed tokens', () => {
+describe('DESIGN.md stays in sync with seed tokens', () => {
   const fm = loadFrontmatter();
 
   it('primary color matches seed.colorPrimary', () => {
