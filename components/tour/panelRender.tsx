@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isNonNullable } from '../_util/is';
