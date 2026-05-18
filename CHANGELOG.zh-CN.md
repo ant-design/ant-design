@@ -26,7 +26,7 @@ tag: vVERSION
 - 🐞 修复 Transfer 在 `filterOption` 或 `direction` 变化时 `filteredItems` 不更新的问题。[#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
 - ⚡️ 优化 Table 和 Mentions 性能，减少冗余的数组迭代操作。[#58006](https://github.com/ant-design/ant-design/pull/58006) [@ug-hero](https://github.com/ug-hero)
 - Table
-  - 🤖 Table 过滤类型将 `FilterRestProps` 更正为 `FilterResetProps`，并保留 deprecated 别名以兼容存量引用。[#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
+  - 🛠 Table 过滤类型将 `FilterRestProps` 更正为 `FilterResetProps`，并保留 deprecated 别名以兼容存量引用。[#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
   - ⚡️ 优化 Table 行选择性能，使用 Set 查找替代 O(n*m) 的 `.includes()` 判断。[#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
 
 ## 6.4.2

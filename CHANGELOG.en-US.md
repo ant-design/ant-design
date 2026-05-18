@@ -26,7 +26,7 @@ tag: vVERSION
 - 🐞 Fix Transfer `filteredItems` not updating when `filterOption` or `direction` changes. [#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
 - ⚡️ Improve Table and Mentions performance by reducing redundant array iterations. [#58006](https://github.com/ant-design/ant-design/pull/58006) [@ug-hero](https://github.com/ug-hero)
 - Table
-  - 🤖 Rename Table filter types `FilterRestProps` to `FilterResetProps`, with a deprecated alias kept for compatibility. [#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
+  - 🛠 Rename Table filter types `FilterRestProps` to `FilterResetProps`, with a deprecated alias kept for compatibility. [#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
   - ⚡️ Improve Table row selection performance by using Set-based lookup instead of O(n*m) `.includes()` checks. [#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
 
 ## 6.4.2
