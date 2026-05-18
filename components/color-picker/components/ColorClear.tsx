@@ -24,6 +24,14 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
       onChange(genColor);
     }
   };
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div
       role="button"
@@ -32,6 +40,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
       className={clsx(`${prefixCls}-clear`, className)}
       style={style}
       onClick={onClick}
+      onKeyDown={onKeyDown}
     />
   );
 };
