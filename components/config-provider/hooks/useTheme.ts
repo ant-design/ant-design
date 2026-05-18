@@ -1,6 +1,5 @@
 import { useId } from 'react';
-import useMemo from '@rc-component/util/lib/hooks/useMemo';
-import isEqual from '@rc-component/util/lib/isEqual';
+import { isEqual, useMemo } from '@rc-component/util';
 
 import { isPlainObject } from '../../_util/is';
 import { devUseWarning } from '../../_util/warning';

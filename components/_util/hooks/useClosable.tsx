@@ -2,8 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from '@rc-component/dialog';
-import { mergeProps } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { mergeProps, pickAttrs } from '@rc-component/util';
 
 import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';

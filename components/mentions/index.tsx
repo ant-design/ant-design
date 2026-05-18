@@ -5,7 +5,7 @@ import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';
@@ -318,29 +318,29 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value
-    .split(split)
-    .map((str = ''): MentionsEntity | null => {
-      let hitPrefix: string | null = null;
+  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+    let hitPrefix: string | null = null;
 
-      prefixList.some((prefixStr) => {
-        const startStr = str.slice(0, prefixStr.length);
-        if (startStr === prefixStr) {
-          hitPrefix = prefixStr;
-          return true;
-        }
-        return false;
-      });
-
-      if (hitPrefix !== null) {
-        return {
-          prefix: hitPrefix,
-          value: str.slice((hitPrefix as string).length),
-        };
+    prefixList.some((prefixStr) => {
+      const startStr = str.slice(0, prefixStr.length);
+      if (startStr === prefixStr) {
+        hitPrefix = prefixStr;
+        return true;
       }
-      return null;
-    })
-    .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
+      return false;
+    });
+
+    if (hitPrefix !== null) {
+      const entity = {
+        prefix: hitPrefix,
+        value: str.slice((hitPrefix as string).length),
+      };
+      if (entity.value) {
+        list.push(entity);
+      }
+    }
+    return list;
+  }, []);
 };
 
 export default Mentions;

@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
-import type { FullToken, GetDefaultToken } from 'antd/es/theme/internal';
+
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
 
 export interface MultipleSelectorToken {
   /**

@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import { warning } from '@rc-component/util';
-import KeyCode from '@rc-component/util/lib/KeyCode';
+import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 
 import copy from '../../_util/copy';

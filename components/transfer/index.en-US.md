@@ -9,12 +9,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 ## When To Use
 
-- It is a select control essentially which can be use for selecting multiple items.
+- It is a select control essentially which can be used for selecting multiple items.
 - Transfer can display more information for items and take up more space.
 
 Transfer the elements between two columns in an intuitive and efficient way.
 
-One or more elements can be selected from either column, one click on the proper `direction` button, and the transfer is done. The left column is considered the `source` and the right column is considered the `target`. As you can see in the API description, these names are reflected in.
+One or more elements can be selected from either column, one click on the proper `direction` button, and the transfer is done. The left column is considered the `source` and the right column is considered the `target`. As you can see, these names are reflected in the API.
 
 > notice: Transfer is a controlled component, uncontrolled mode is not supported.
 
@@ -89,9 +89,9 @@ Transfer accept `children` to customize render list, using follow props:
 
 ## Warning
 
-According the [standard](https://react.dev/learn/rendering-lists#why-does-react-need-keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.
+According to the [standard](https://react.dev/learn/rendering-lists#why-does-react-need-keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as a unique identifier.
 
-If there's no `key` in your data, you should use `rowKey` to specify the key that will be used for uniquely identify each element.
+If there's no `key` in your data, you should use `rowKey` to specify the key that will be used to uniquely identify each element.
 
 ```jsx
 // eg. your primary key is `uid`
