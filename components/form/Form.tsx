@@ -1,8 +1,7 @@
 import * as React from 'react';
 import FieldForm, { List, useWatch } from '@rc-component/form';
-import type { FormProps as RcFormProps } from '@rc-component/form/lib/Form';
+import type { FormRef, FormProps as RcFormProps } from '@rc-component/form';
 import type {
-  FormRef,
   InternalNamePath,
   ValidateErrorEntity,
 } from '@rc-component/form/lib/interface';

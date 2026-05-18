@@ -1,10 +1,8 @@
 import * as React from 'react';
 import RcTooltip from '@rc-component/tooltip';
+import type { TooltipRef as RcTooltipRef } from '@rc-component/tooltip';
 import type { placements as Placements } from '@rc-component/tooltip/lib/placements';
-import type {
-  TooltipProps as RcTooltipProps,
-  TooltipRef as RcTooltipRef,
-} from '@rc-component/tooltip/lib/Tooltip';
+import type { TooltipProps as RcTooltipProps } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';

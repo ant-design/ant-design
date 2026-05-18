@@ -1,9 +1,9 @@
 import type * as React from 'react';
+import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import type {
   AcceptConfig,
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
-  UploadProps as RcUploadProps,
 } from '@rc-component/upload/lib/interface';
 
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
-import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';

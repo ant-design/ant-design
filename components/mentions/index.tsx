@@ -1,8 +1,8 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
+import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
-  MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
 import { composeRef } from '@rc-component/util';
