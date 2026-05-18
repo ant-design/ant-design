@@ -168,6 +168,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     layout,
     colon: mergedColon,
     requiredMark: mergedRequiredMark,
+    labelAlign: mergedLabelAlign,
+    labelWrap: mergedLabelWrap,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
