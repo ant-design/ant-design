@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: millionco/react-doctor@main
         with:
+          node-version: 24
           fail-on: error
           diff: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          annotations: true

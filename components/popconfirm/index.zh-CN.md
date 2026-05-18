@@ -40,7 +40,7 @@ demo:
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | string | `取消` |  |
 | disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false |  |
-| icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircle /> |  |
+| icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
