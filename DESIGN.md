@@ -183,7 +183,17 @@ Four values guide every decision in the system:
 - **Meaningful.** Visual emphasis is reserved for action. Decoration that does not communicate is removed.
 - **Growing.** The system scales from small forms to dense tables to multi-tenant admin consoles without losing coherence.
 
-Themes are customized through the `ConfigProvider` component and a `theme` prop. The `theme.token` field overrides any seed token; the `theme.algorithm` field switches between `defaultAlgorithm` (light, the subject of this file), `darkAlgorithm` (dark mode), and `compactAlgorithm` (denser sizing). To produce a dark-mode UI, do not invert these tokens by hand — apply `theme.darkAlgorithm` and the system will derive the dark palette from the same seeds.
+## Customization
+
+Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. The system is designed to be re-skinned without editing this file or overriding individual tokens by hand.
+
+Three layers of customization exist:
+
+1. **Seed token overrides.** Pass `theme.token` to `ConfigProvider` to replace any seed. The six color seeds (`colorPrimary`, `colorSuccess`, `colorWarning`, `colorError`, `colorInfo`, plus the neutral base) each expand automatically through `@ant-design/colors` into a ten-step gradient covering background tint, hover, active, and outline variants — change the seed, and the entire derived palette moves with it. Spacing, radius, and font-size seeds work the same way.
+
+2. **Algorithm switching.** Set `theme.algorithm` to swap the entire derivation logic. `darkAlgorithm` derives a dark surface ladder, inverted text alphas, and adjusted shadow values from the same seeds — do not invert colors manually; the algorithm accounts for non-linear gradient stops that flat inversion cannot reproduce. `compactAlgorithm` reduces control heights and spacing while preserving the same palette.
+
+3. **Component-level overrides.** `theme.components.Button` (or any component's token namespace) can override a single component's derived tokens without affecting others — for example, changing the Button border radius without touching Input or Select.
 
 ## Colors
 
@@ -268,8 +278,6 @@ Twelve component archetypes capture most of the system's surface area. Each entr
 
 - **Do** use the four design values as a tie-breaker. When two approaches conflict, the one that produces a more certain, more legible state for the user wins.
 - **Don't** stack two `primary`-colored buttons on the same surface. Pick one. Demote the rest to `default`.
-- **Do** derive dark mode by setting `theme.algorithm` to `darkAlgorithm`. The full token graph regenerates from the same seeds.
-- **Don't** hand-invert colors. The algorithm accounts for non-linear gradient stops that flat inversion cannot reproduce.
 - **Do** read surfaces from `colors.surface`, `colors.surface-container`, and `colors.surface-layout`. They reflect the three-layer model.
 - **Don't** hard-code `#FFFFFF` or `#FAFAFA`. The hex is incidental; the role is what matters.
 - **Do** use `motionDurationMid` (0.2 s) for any component-level transition you cannot find a more specific token for.
