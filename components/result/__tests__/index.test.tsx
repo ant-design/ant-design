@@ -71,6 +71,11 @@ describe('Result', () => {
     expect(container.querySelectorAll('.ant-result-extra')).toHaveLength(0);
   });
 
+  it('🙂  When title is undefined, the title dom is not rendered', () => {
+    const { container } = render(<Result status="404" />);
+    expect(container.querySelectorAll('.ant-result-title')).toHaveLength(0);
+  });
+
   it('🙂  result should support className', () => {
     const { container } = render(<Result status="404" title="404" className="my-result" />);
     expect(container.querySelectorAll('.ant-result.my-result')).toHaveLength(1);

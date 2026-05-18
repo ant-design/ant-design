@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { useLayoutEffect } from '@rc-component/util';
 
 import { useForceUpdate } from '../../_util/hooks';
 import type { ScreenMap } from '../../_util/responsiveObserver';

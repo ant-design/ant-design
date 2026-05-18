@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 export interface ProgressProps {

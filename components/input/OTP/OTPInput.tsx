@@ -1,5 +1,5 @@
 import * as React from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider';
