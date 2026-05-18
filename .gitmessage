@@ -1,0 +1,20 @@
+<type>: <描述>
+
+# 类型（英文）：
+#   feat     - 新增功能
+#   fix      - 修复 Bug
+#   docs     - 文档更新
+#   style    - 样式/交互修改
+#   refactor - 代码重构
+#   perf     - 性能优化
+#   test     - 测试相关
+#   build    - 构建/工具链
+#   ci       - 持续集成
+#   chore    - 杂项
+#
+# 示例：
+#   feat: Button 新增 loading 属性支持
+#   fix: 修复 Button 暗色主题下 color 颜色异常问题
+#   docs: 更新 Modal 组件 API 文档
+#
+# 注意：类型后用英文冒号+空格，描述使用中文；属性名、API 等用反引号包裹

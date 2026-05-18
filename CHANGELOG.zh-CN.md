@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 6.4.3
+
+`2026-05-18`
+
+- 🐞 修复 DatePicker RangePicker 在语言包仅定义单数形式 `*Placeholder` 时占位符为空的问题。[#58020](https://github.com/ant-design/ant-design/pull/58020) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 修复 Result 未传入 `title` 属性时仍会渲染空的标题元素的问题。[#58028](https://github.com/ant-design/ant-design/pull/58028) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 修复 Select 搜索输入框在 Safari 下字号和行高渲染异常的问题。[#57990](https://github.com/ant-design/ant-design/pull/57990) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Form、Input、Button 等组件在严格 ESM 构建链路下因 `@rc-component/util` 运行时深层导入导致的构建报错。[#57993](https://github.com/ant-design/ant-design/pull/57993) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Transfer 在 `filterOption` 或 `direction` 变化时 `filteredItems` 不更新的问题。[#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
+- ⚡️ 优化 Table 和 Mentions 性能，减少冗余的数组迭代操作。[#58006](https://github.com/ant-design/ant-design/pull/58006) [@ug-hero](https://github.com/ug-hero)
+- Table
+  - 🤖 Table 过滤类型将 `FilterRestProps` 更正为 `FilterResetProps`，并保留 deprecated 别名以兼容存量引用。[#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
+  - ⚡️ 优化 Table 行选择性能，使用 Set 查找替代 O(n*m) 的 `.includes()` 判断。[#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
+
 ## 6.4.2
 
 `2026-05-14`

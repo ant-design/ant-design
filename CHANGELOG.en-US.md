@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 6.4.3
+
+`2026-05-18`
+
+- 🐞 Fix DatePicker RangePicker empty placeholder when locale only defines singular `*Placeholder` fields. [#58020](https://github.com/ant-design/ant-design/pull/58020) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 Fix Result rendering an empty `title` element when the `title` prop is not provided. [#58028](https://github.com/ant-design/ant-design/pull/58028) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 Fix Select search input font size and line-height rendering issue in Safari. [#57990](https://github.com/ant-design/ant-design/pull/57990) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix strict ESM build errors caused by deep `@rc-component/util` runtime imports in Form, Input, Button and other components. [#57993](https://github.com/ant-design/ant-design/pull/57993) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Transfer `filteredItems` not updating when `filterOption` or `direction` changes. [#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
+- ⚡️ Improve Table and Mentions performance by reducing redundant array iterations. [#58006](https://github.com/ant-design/ant-design/pull/58006) [@ug-hero](https://github.com/ug-hero)
+- Table
+  - 🤖 Table filter typing renames `FilterRestProps` to `FilterResetProps`, with a deprecated alias kept for compatibility. [#57985](https://github.com/ant-design/ant-design/pull/57985) [@ZQDesigned](https://github.com/ZQDesigned)
+  - ⚡️ Improve Table row selection performance by using Set-based lookup instead of O(n*m) `.includes()` checks. [#58004](https://github.com/ant-design/ant-design/pull/58004) [@afc163](https://github.com/afc163)
+
 ## 6.4.2
 
 `2026-05-14`
