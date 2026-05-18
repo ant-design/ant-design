@@ -24,7 +24,16 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
       onChange(genColor);
     }
   };
-  return <div className={clsx(`${prefixCls}-clear`, className)} style={style} onClick={onClick} />;
+  return (
+    <div
+      role="button"
+      aria-label="Clear color"
+      tabIndex={0}
+      className={clsx(`${prefixCls}-clear`, className)}
+      style={style}
+      onClick={onClick}
+    />
+  );
 };
 
 export default ColorClear;
