@@ -1,8 +1,7 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import type { FieldDataNode } from '@rc-component/tree';
-import { mergeProps } from '@rc-component/util';
-import isEqual from '@rc-component/util/lib/isEqual';
+import { isEqual, mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
@@ -39,7 +38,7 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
-interface FilterRestProps {
+interface FilterResetProps {
   confirm?: boolean;
   closeDropdown?: boolean;
 }
@@ -297,7 +296,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
 
   const onReset = (
-    { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
+    { confirm, closeDropdown }: FilterResetProps = { confirm: false, closeDropdown: false },
   ) => {
     if (confirm) {
       internalTriggerFilter([]);
