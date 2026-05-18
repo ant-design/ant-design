@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
         },
 
         '&:hover, &:active, &:focus': {
-          '&::before': {
+          [`&:not(${componentCls}-handle-disabled)::before`]: {
             insetInlineStart: calc(handleSizeHover)
               .sub(handleSize)
               .div(2)
