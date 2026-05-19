@@ -153,7 +153,7 @@ jobs:
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@0bff3c7c0b1ab0fe95273f6b65194f748a798adb # v3
+        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
         if: ${{ steps.report.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -165,7 +165,7 @@ jobs:
 
       - name: failed comment
         if: ${{ steps.download_report.outcome == 'failure' || steps.report.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@0bff3c7c0b1ab0fe95273f6b65194f748a798adb # v3
+        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
