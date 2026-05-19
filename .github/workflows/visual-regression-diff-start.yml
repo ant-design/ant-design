@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment@0bff3c7c0b1ab0fe95273f6b65194f748a798adb # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
