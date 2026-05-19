@@ -12,7 +12,7 @@ jobs:
     if: ${{ github.event.ref_type == 'tag' && !contains(github.event.ref, 'alpha') }}
     steps:
       - name: Tweet
-        uses: nearform-actions/github-action-notify-twitter@3b69a63f7ddc9a54289eca2e66dd6f5828a13b0f # master
+        uses: nearform-actions/github-action-notify-twitter@814d7eab51fc7388dc75a8c59b64f33037480f5e # master
         with:
           message: |
             🤖 Ant Design just released antd@${{ github.event.ref }} ✨🎊✨ Check out the full release note: https://github.com/ant-design/ant-design/releases/tag/${{ github.event.ref }}
