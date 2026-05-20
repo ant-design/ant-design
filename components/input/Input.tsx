@@ -221,7 +221,43 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+    if (!onChange) return;
+
+    // Libraries such as react-number-format fire synthetic change events
+    // whose `target` is a transiently-created clone rather than the real
+    // mounted input element. Normalise the target so that callers always
+    // receive a reference to the live input node.
+    // See: https://github.com/ant-design/ant-design/issues/46999
+    const liveInput: HTMLInputElement | null | undefined = inputRef.current?.input;
+
+    if (liveInput && e.target !== liveInput) {
+      // Use String() coercion for safe comparison regardless of whether
+      // the incoming value is a number, string, or other primitive type.
+      const eventValue: string = String(e.target.value);
+      const prevValue: string = liveInput.value;
+      const needsPatch: boolean = prevValue !== eventValue;
+
+      if (needsPatch) {
+        liveInput.value = eventValue;
+      }
+
+      try {
+        const normalizedEvent = Object.create(e, {
+          target: { value: liveInput, writable: false, enumerable: true },
+          currentTarget: { value: liveInput, writable: false, enumerable: true },
+        }) as React.ChangeEvent<HTMLInputElement>;
+
+        onChange(normalizedEvent);
+      } finally {
+        if (needsPatch) {
+          // Restore DOM value so React/the consuming library remains
+          // responsible for controlled reconciliation.
+          liveInput.value = prevValue;
+        }
+      }
+    } else {
+      onChange(e);
+    }
   };
 
   const suffixNode = (hasFeedback || suffix) && (
