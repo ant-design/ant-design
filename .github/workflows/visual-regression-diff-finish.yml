@@ -47,7 +47,7 @@ jobs:
       build-status: ${{ steps.visual_diff_build_job_status.outputs.build-status }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: visual_diff_build_job_status
         with:
           script: |
@@ -98,7 +98,7 @@ jobs:
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -120,7 +120,7 @@ jobs:
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -182,7 +182,7 @@ jobs:
 
       # Resync commit status. This will be also reset by `visual-regression-diff-approver`
       - name: Reset Commit Status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         if: ${{ steps.report.outcome == 'success' }}
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
