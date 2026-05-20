@@ -284,6 +284,7 @@ Properties for row selection.
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4.0 |
 | renderCell | Renderer of the table cell. Same as `render` in column | (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode | - | 4.1.0 |
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
+| defaultSelectedRowKeys | Default selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
