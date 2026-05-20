@@ -166,12 +166,12 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     // ===================== Closable =====================
-    const handleCloseClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    const triggerClose = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => {
       if (mergedDisabled) {
         return;
       }
       e.stopPropagation();
-      onClose?.(e);
+      onClose?.(e as React.MouseEvent<HTMLElement>);
 
       if (e.defaultPrevented) {
         return;
@@ -179,13 +179,24 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       setVisible(false);
     };
 
+    const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        triggerClose(e);
+      }
+    };
+
     const [, mergedCloseIcon] = useClosable(pickClosable(props), pickClosable(tagContext), {
       closable: false,
       closeIconRender: (iconNode: React.ReactNode) => {
         const replacement = (
           <span
+            role="button"
+            tabIndex={mergedDisabled ? -1 : 0}
+            aria-disabled={mergedDisabled || undefined}
             className={clsx(`${prefixCls}-close-icon`, mergedClassNames.close)}
-            onClick={handleCloseClick}
+            onClick={triggerClose}
+            onKeyDown={handleCloseKeyDown}
             style={mergedStyles.close}
           >
             {iconNode}
@@ -194,8 +205,18 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
         return replaceElement(iconNode, replacement, (originProps) => ({
           onClick: (e: React.MouseEvent<HTMLElement>) => {
             originProps?.onClick?.(e);
-            handleCloseClick(e);
+            triggerClose(e);
           },
+          onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
+            originProps?.onKeyDown?.(e);
+
+            if (!e.defaultPrevented) {
+              handleCloseKeyDown(e);
+            }
+          },
+          role: 'button',
+          tabIndex: mergedDisabled ? -1 : 0,
+          'aria-disabled': mergedDisabled || undefined,
           className: clsx(
             originProps?.className,
             `${prefixCls}-close-icon`,
