@@ -194,6 +194,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       expandAction={expandAction}
       prefixCls={prefixCls}
       className={connectClassName}
+      defaultExpandParent={defaultExpandParent ?? true}
       expandedKeys={expandedKeys}
       selectedKeys={selectedKeys}
       onSelect={onSelect}
