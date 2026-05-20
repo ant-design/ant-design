@@ -163,6 +163,12 @@ jobs:
       - name: compile
         run: ut compile
 
+      - name: cache dist
+        uses: actions/cache@v5
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
+
       - name: dist
         run: ut dist
         env:
