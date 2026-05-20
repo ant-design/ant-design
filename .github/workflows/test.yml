@@ -96,11 +96,11 @@ jobs:
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
       - run: ut
 
-      - name: restore cache from dist
-        uses: actions/cache@v5
+      - name: download dist artifact
+        uses: actions/download-artifact@v4
         with:
+          name: dist-artifact
           path: dist
-          key: dist-${{ github.sha }}
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
@@ -163,12 +163,6 @@ jobs:
       - name: compile
         run: ut compile
 
-      - name: cache dist
-        uses: actions/cache@v5
-        with:
-          path: dist
-          key: dist-${{ github.sha }}
-
       - name: dist
         run: ut dist
         env:
@@ -178,6 +172,14 @@ jobs:
 
       - name: check build files
         run: ut test:dekko
+
+      # Upload dist as artifact for use by test-react-latest-dist job
+      - uses: actions/upload-artifact@v4
+        name: upload dist artifact
+        with:
+          name: dist-artifact
+          path: dist
+          retention-days: 1
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
