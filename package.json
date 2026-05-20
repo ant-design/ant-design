@@ -59,8 +59,9 @@
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@16",
     "ut-install-react-18": "ut i react@18 react-dom@18 @testing-library/react@16 --save-dev",
     "prelint": "dumi setup",
-    "lint": "npm run version && npm run tsc && npm run lint:script && npm run lint:biome && npm run lint:md && npm run lint:changelog",
+    "lint": "npm run version && npm run tsc && npm run lint:script && npm run lint:biome && npm run lint:md && npm run lint:changelog && npm run lint:design-md",
     "lint:changelog": "tsx scripts/generate-component-changelog.ts",
+    "lint:design-md": "npx --no-install @google/design.md lint DESIGN.md",
     "lint:md": "remark . -f -q",
     "lint:script": "eslint . --cache",
     "lint:biome": "biome lint",
@@ -174,6 +175,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@eslint-react/eslint-plugin": "5.8.1",
+    "@google/design.md": "^0.1.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@inquirer/prompts": "^8.4.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -323,7 +325,8 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "5.106.2",
     "webpack-bundle-analyzer": "^5.3.0",
-    "xhr-mock": "^2.5.1"
+    "xhr-mock": "^2.5.1",
+    "yaml": "^2.9.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
