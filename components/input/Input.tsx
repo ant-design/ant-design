@@ -233,7 +233,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     if (liveInput && e.target !== liveInput) {
       // Use String() coercion for safe comparison regardless of whether
       // the incoming value is a number, string, or other primitive type.
-      const eventValue: string = String(e.target.value);
+      const eventValue: string = String(e.target.value ?? '');
       const prevValue: string = liveInput.value;
       const needsPatch: boolean = prevValue !== eventValue;
 
