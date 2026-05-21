@@ -306,8 +306,13 @@ describe('Tag', () => {
     const onClose = jest.fn();
     const { container } = render(<Tag closable onClose={onClose} />);
     expect(container.querySelector('.ant-tag-close-icon')).toHaveAttribute('role', 'button');
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+
     fireEvent.keyDown(container.querySelector('.ant-tag-close-icon')!, { key });
+
     expect(onClose).toHaveBeenCalled();
+    expect(onClose.mock.calls[0][0].type).toBe('click');
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
   it('should not close when closeIcon key event is prevented', () => {
     const onClose = jest.fn();

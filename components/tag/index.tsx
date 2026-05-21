@@ -166,12 +166,12 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     // ===================== Closable =====================
-    const triggerClose = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => {
+    const triggerClose: React.MouseEventHandler<HTMLElement> = (e) => {
       if (mergedDisabled) {
         return;
       }
       e.stopPropagation();
-      onClose?.(e as React.MouseEvent<HTMLElement>);
+      onClose?.(e);
 
       if (e.defaultPrevented) {
         return;
@@ -182,7 +182,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        triggerClose(e);
+        e.currentTarget.click();
       }
     };
 
