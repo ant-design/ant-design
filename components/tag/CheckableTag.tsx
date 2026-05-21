@@ -1,14 +1,20 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
+import { useComponentConfig } from '../config-provider/context';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import useColor from './hooks/useColor';
 import useStyle from './style';
 
 export interface CheckableTagProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  /** Preset color support for CheckableTag (e.g. 'red', 'green-inverse'). */
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   /**
    * It is an absolute controlled component and has no uncontrolled mode.
    *
@@ -30,6 +36,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     prefixCls: customizePrefixCls,
     style,
     className,
+    color,
     checked,
     children,
     icon,
@@ -39,6 +46,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     ...restProps
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
+  const { variant: contextVariant, style: contextStyle } = useComponentConfig('tag');
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -56,10 +64,19 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  // ====================== Colors ======================
+  const [, mergedColor, isPreset, isStatus, customTagStyle] = useColor(
+    // useColor expects TagProps-like shape; we only care about color + context variant
+    { ...props, color, variant: contextVariant } as any,
+    contextVariant,
+  );
+  const isInternalColor = isPreset || isStatus;
+
   const cls = clsx(
     prefixCls,
     `${prefixCls}-checkable`,
     {
+      [`${prefixCls}-${mergedColor}`]: isInternalColor,
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-checkable-disabled`]: mergedDisabled,
     },
@@ -69,11 +86,19 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     cssVarCls,
   );
 
+  const mergedStyle = React.useMemo(() => {
+    let next: React.CSSProperties = { ...contextStyle, ...style, ...tag?.style };
+    if (!mergedDisabled) {
+      next = { ...customTagStyle, ...next };
+    }
+    return next;
+  }, [contextStyle, style, tag?.style, customTagStyle, mergedDisabled]);
+
   return (
     <span
       {...restProps}
       ref={ref}
-      style={{ ...style, ...tag?.style }}
+      style={mergedStyle}
       className={cls}
       onClick={handleClick}
     >
