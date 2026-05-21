@@ -198,7 +198,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
           background: 'transparent',
         },
 
-        '&:hover, &:active': {
+        '&:hover, &:active, &:focus-within': {
           [`${splitBarCls}-collapse-bar-hover-only`]: {
             opacity: 1,
           },
