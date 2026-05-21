@@ -160,10 +160,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const rawWidth = collapsed ? collapsedWidth : width;
   // use "px" as fallback unit for width
   const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
+  const triggerLabel = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
   // special trigger when collapsedWidth == 0
   const zeroWidthTrigger =
     Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
+        aria-expanded={!collapsed}
+        aria-label={triggerLabel}
         onClick={toggle}
         onKeyDown={handleTriggerKeyDown}
         role="button"
@@ -191,6 +194,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     trigger !== null
       ? zeroWidthTrigger || (
           <div
+            aria-expanded={!collapsed}
+            aria-label={triggerLabel}
             className={`${prefixCls}-trigger`}
             onClick={toggle}
             onKeyDown={handleTriggerKeyDown}

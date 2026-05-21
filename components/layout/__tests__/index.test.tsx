@@ -353,6 +353,8 @@ describe('Sider', () => {
     );
 
     const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-zero-width-trigger')!;
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    expect(trigger).toHaveAttribute('aria-label', 'Collapse sidebar');
     expect(trigger).toHaveAttribute('role', 'button');
     expect(trigger).toHaveAttribute('tabindex', '0');
 
@@ -361,6 +363,8 @@ describe('Sider', () => {
 
     fireEvent.keyDown(trigger, { key: 'Enter' });
     expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger).toHaveAttribute('aria-label', 'Expand sidebar');
 
     fireEvent.keyDown(trigger, { key: ' ' });
     expect(onCollapse).toHaveBeenCalledWith(false, 'clickTrigger');
@@ -376,6 +380,8 @@ describe('Sider', () => {
     );
 
     const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    expect(trigger).toHaveAttribute('aria-label', 'Collapse sidebar');
     expect(trigger).toHaveAttribute('role', 'button');
     expect(trigger).toHaveAttribute('tabindex', '0');
 
@@ -384,6 +390,8 @@ describe('Sider', () => {
 
     fireEvent.keyDown(trigger, { key: 'Enter' });
     expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger).toHaveAttribute('aria-label', 'Expand sidebar');
 
     fireEvent.keyDown(trigger, { key: ' ' });
     expect(onCollapse).toHaveBeenCalledWith(false, 'clickTrigger');

@@ -2312,6 +2312,8 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       />
     </div>
     <span
+      aria-expanded="false"
+      aria-label="Expand sidebar"
       class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
       role="button"
       tabindex="0"
@@ -2817,6 +2819,8 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       />
     </div>
     <div
+      aria-expanded="true"
+      aria-label="Collapse sidebar"
       class="ant-layout-sider-trigger"
       role="button"
       style="width: 200px;"
