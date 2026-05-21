@@ -2313,6 +2313,8 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
     </div>
     <span
       class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
+      role="button"
+      tabindex="0"
     >
       <span
         aria-label="bars"
@@ -2816,7 +2818,9 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-layout-sider-trigger"
+      role="button"
       style="width: 200px;"
+      tabindex="0"
     >
       <span
         aria-label="left"
