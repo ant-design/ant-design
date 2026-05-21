@@ -11,7 +11,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - uses: millionco/react-doctor@19afa9ba3ba673e3df682ee919423a21cdf14313
+      - uses: millionco/react-doctor@a6f16d429679c1641b2d358f03438cdca9d670ba
         with:
           node-version: 24
           fail-on: error
