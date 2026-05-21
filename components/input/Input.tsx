@@ -249,9 +249,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
         onChange(normalizedEvent);
       } finally {
-        if (needsPatch) {
-          // Restore DOM value so React/the consuming library remains
-          // responsible for controlled reconciliation.
+        if (needsPatch && 'value' in props) {
+          // For controlled inputs, restore the DOM value so React remains
+          // responsible for reconciliation. Uncontrolled inputs keep the
+          // patched value since the DOM is the source of truth there.
           liveInput.value = prevValue;
         }
       }
