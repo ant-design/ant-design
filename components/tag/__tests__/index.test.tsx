@@ -302,6 +302,7 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag-close-icon')).toHaveAttribute('role', 'button');
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
+
   it.each(['Enter', ' '])('should close by %s key', (key) => {
     const onClose = jest.fn();
     const { container } = render(<Tag closable onClose={onClose} />);
