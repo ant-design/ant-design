@@ -167,6 +167,25 @@ describe('Masonry.virtual', () => {
     );
   });
 
+  it('onLayoutChange only reports measured items in virtual mode', async () => {
+    const onLayoutChange = jest.fn();
+    const { getByTestId } = render(<DemoWithoutDeclaredHeight onLayoutChange={onLayoutChange} />);
+    await resizeMasonry();
+
+    expect(onLayoutChange).toHaveBeenCalled();
+    const firstCallItems = onLayoutChange.mock.calls[0][0];
+    expect(firstCallItems.length).toBeGreaterThan(0);
+    expect(firstCallItems.length).toBeLessThan(heights.length);
+
+    const firstCount = firstCallItems.length;
+    fireEvent.scroll(getByTestId('virtual-list'), { target: { scrollTop: 1200 } });
+    await waitFakeTimer();
+
+    const lastCallItems = onLayoutChange.mock.calls[onLayoutChange.mock.calls.length - 1][0];
+    expect(lastCallItems.length).toBeGreaterThan(firstCount);
+    expect(lastCallItems.length).toBeLessThan(heights.length);
+  });
+
   it('updates layout when item height changes and on window resize', async () => {
     const onLayoutChange = jest.fn();
     const { rerender } = render(<Demo onLayoutChange={onLayoutChange} />);

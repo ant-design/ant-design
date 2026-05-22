@@ -244,6 +244,16 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     verticalGutter as number,
   );
 
+  const measuredItemKeys = React.useMemo(() => {
+    const keys = new Set<React.Key>();
+    itemHeights.forEach(([key, height]) => {
+      if (height > 0) {
+        keys.add(key);
+      }
+    });
+    return keys;
+  }, [itemHeights]);
+
   const itemWithPositions = React.useMemo<MasonryRenderItem[]>(
     () =>
       mergedItems.map((item, index) => {
@@ -269,22 +279,42 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
-      setItemColumns((prevItemColumns) => {
-        const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
-          item,
-          position!.column,
-        ]);
-        return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
-      });
+    if (!onLayoutChange) {
+      return;
     }
-  }, [itemWithPositions]);
+
+    const layoutItems = virtual
+      ? itemWithPositions.filter(({ key, position }) => measuredItemKeys.has(key) && position)
+      : itemWithPositions;
+
+    if (virtual) {
+      if (layoutItems.length === 0) {
+        return;
+      }
+    } else if (!itemWithPositions.every(({ position }) => position)) {
+      return;
+    }
+
+    setItemColumns((prevItemColumns) => {
+      const nextItemColumns = layoutItems.map<ItemColumnsType>(({ item, position }) => [
+        item,
+        position!.column,
+      ]);
+      return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
+    });
+  }, [itemWithPositions, measuredItemKeys, onLayoutChange, virtual]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && items && items.length === itemColumns.length) {
-      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    if (!onLayoutChange || !items?.length || itemColumns.length === 0) {
+      return;
     }
-  }, [itemColumns]);
+
+    if (!virtual && items.length !== itemColumns.length) {
+      return;
+    }
+
+    onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+  }, [itemColumns, items, onLayoutChange, virtual]);
 
   // ====================== Render ======================
   return (
