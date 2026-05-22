@@ -28014,6 +28014,8 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   </span>
   <span
     class="config-tag config-tag-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
@@ -28030,7 +28032,10 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
     Bamboo
   </span>
   <span
+    aria-disabled="true"
     class="config-tag config-tag-checkable config-tag-checkable-disabled css-var-root"
+    role="checkbox"
+    tabindex="-1"
   >
     <span>
       Light
@@ -28048,6 +28053,8 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   </span>
   <span
     class="config-tag config-tag-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
@@ -28065,6 +28072,8 @@ exports[`ConfigProvider components Tags configProvider componentSize medium 1`] 
   </span>
   <span
     class="config-tag config-tag-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
@@ -28082,6 +28091,8 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   </span>
   <span
     class="config-tag config-tag-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
@@ -28099,6 +28110,8 @@ exports[`ConfigProvider components Tags normal 1`] = `
   </span>
   <span
     class="ant-tag ant-tag-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
@@ -28116,6 +28129,8 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   </span>
   <span
     class="prefix-Tags prefix-Tags-checkable css-var-root"
+    role="checkbox"
+    tabindex="0"
   >
     <span>
       Light
