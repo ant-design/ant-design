@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import type { SpaceSemanticAllType } from '.';
-import { isNonNullable } from '../_util/is';
+import { isReactRenderable } from '../_util/is';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 
@@ -22,7 +22,7 @@ const Item: React.FC<ItemProps> = (props) => {
 
   const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
-  if (!isNonNullable(children)) {
+  if (!isReactRenderable(children)) {
     return null;
   }
 

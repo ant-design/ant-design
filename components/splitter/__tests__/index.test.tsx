@@ -1010,6 +1010,30 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
 
+    it('should trigger onCollapse when collapse button keydown', async () => {
+      const onCollapse = jest.fn();
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          onCollapse={onCollapse}
+        />,
+      );
+
+      await resizeSplitter();
+
+      fireEvent.keyDown(container.querySelector('.ant-splitter-bar-collapse-start')!, {
+        key: 'Enter',
+      });
+      expect(onCollapse).toHaveBeenCalledTimes(1);
+      expect(onCollapse).toHaveBeenCalledWith([true, false], [0, 100]);
+
+      fireEvent.keyDown(container.querySelector('.ant-splitter-bar-collapse-end')!, {
+        key: ' ',
+      });
+      expect(onCollapse).toHaveBeenCalledTimes(2);
+      expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
+    });
+
     it('should apply transition when motion is true', async () => {
       const { container } = render(
         <SplitterDemo
