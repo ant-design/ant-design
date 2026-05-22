@@ -22,7 +22,7 @@ import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
-import { getMasonryItemStyle } from './utils';
+import { getEstimatedItemHeight, getMasonryItemStyle } from './utils';
 import VirtualMasonry from './VirtualMasonry';
 import useStyle from './style';
 
@@ -212,16 +212,15 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     });
   });
 
+  const estimatedItemHeight = React.useMemo(
+    () => getEstimatedItemHeight(itemHeights),
+    [itemHeights],
+  );
+
   const layoutItemHeights = React.useMemo<ItemHeightData[]>(() => {
     if (!virtual) {
       return itemHeights;
     }
-
-    const knownHeights = itemHeights.map(([, height]) => height).filter((height) => height > 0);
-    const estimatedHeight =
-      knownHeights.length > 0
-        ? knownHeights.reduce((total, current) => total + current, 0) / knownHeights.length
-        : 100;
 
     const declaredHeightMap = new Map<React.Key, number>();
     mergedItems.forEach((item, index) => {
@@ -233,10 +232,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
     return itemHeights.map(([key, height, column]) => [
       key,
-      height > 0 ? height : (declaredHeightMap.get(key) ?? estimatedHeight),
+      height > 0 ? height : (declaredHeightMap.get(key) ?? estimatedItemHeight),
       column,
     ]);
-  }, [itemHeights, mergedItems, virtual]);
+  }, [estimatedItemHeight, itemHeights, mergedItems, virtual]);
 
   const [itemPositions, totalHeight] = usePositions(
     layoutItemHeights,
@@ -371,6 +370,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             columnCount={columnCount}
             totalHeight={totalHeight}
             itemHeights={itemHeights}
+            estimatedItemHeight={estimatedItemHeight}
             onScrollStateChange={(scrolling) => {
               scrollingRef.current = scrolling;
               if (!scrolling && pendingCollectRef.current) {

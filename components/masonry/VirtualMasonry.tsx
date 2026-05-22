@@ -23,6 +23,7 @@ interface VirtualMasonryProps<ItemDataType = any> {
   columnCount: number;
   totalHeight: number;
   itemHeights: ItemHeightData[];
+  estimatedItemHeight: number;
   onScrollStateChange?: (scrolling: boolean) => void;
   varName: (unit: string, fallbackVar?: string) => string;
   varRef: (unit: string, fallbackVar?: string) => string;
@@ -42,6 +43,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     columnCount,
     totalHeight,
     itemHeights,
+    estimatedItemHeight,
     onScrollStateChange,
     varName,
     varRef,
@@ -77,14 +79,6 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     },
     [],
   );
-
-  const estimatedItemHeight = React.useMemo(() => {
-    const measured = itemHeights.map(([, height]) => height).filter((height) => height > 0);
-    if (measured.length) {
-      return measured.reduce((total, current) => total + current, 0) / measured.length;
-    }
-    return 120;
-  }, [itemHeights]);
 
   const itemBounds = React.useMemo(() => {
     const bounds = itemWithPositions
