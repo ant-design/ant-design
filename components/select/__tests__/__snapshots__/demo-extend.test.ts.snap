@@ -1583,8 +1583,8 @@ Array [
             <span
               aria-label="Close"
               class="anticon anticon-close ant-tag-close-icon"
-              role="img"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
             >
               <svg
                 aria-hidden="true"
@@ -1617,8 +1617,8 @@ Array [
             <span
               aria-label="Close"
               class="anticon anticon-close ant-tag-close-icon"
-              role="img"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
             >
               <svg
                 aria-hidden="true"

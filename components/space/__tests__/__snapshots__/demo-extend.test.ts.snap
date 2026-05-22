@@ -8780,7 +8780,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
       >
         <div
+          aria-label="Clear color"
           class="ant-color-picker-clear"
+          role="button"
+          tabindex="0"
         />
       </div>
       <div

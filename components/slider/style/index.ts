@@ -143,6 +143,9 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
       padding: 0,
       cursor: 'pointer',
       touchAction: 'none',
+      // https://github.com/ant-design/ant-design/issues/55686
+      // Prevent text selection on adjacent content when dragging the handle in Safari.
+      userSelect: 'none',
 
       '&-vertical': {
         margin: `${unit(marginFull)} ${unit(marginPart)}`,
