@@ -2,7 +2,7 @@ import * as React from 'react';
 import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isPlainObject } from '../_util/is';
+import { isPlainObject, isReactRenderable } from '../_util/is';
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
 type AddParameters<TFunction extends (...args: any) => any, TParameters extends [...args: any]> = (
@@ -13,7 +13,7 @@ type ItemRender = NonNullable<BreadcrumbProps['itemRender']>;
 type InternalItemRenderParams = AddParameters<ItemRender, [href?: string]>;
 
 function getBreadcrumbName(route: InternalRouteType, params: any) {
-  if (!isNonNullable(route.title)) {
+  if (!isReactRenderable(route.title)) {
     return null;
   }
   const paramsKeys = Object.keys(params).join('|');
@@ -31,7 +31,7 @@ export function renderItem(
   children: React.ReactNode,
   href?: string,
 ) {
-  if (!isNonNullable(children)) {
+  if (!isReactRenderable(children)) {
     return null;
   }
 
