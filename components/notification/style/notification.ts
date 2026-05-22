@@ -201,12 +201,13 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
       fontSize,
     },
 
-    [`${noticeCls}-closable ${noticeCls}-description, ${noticeCls}-closable ${noticeCls}-title`]: {
-      paddingInlineEnd: paddingLG,
-    },
-
-    [`${noticeCls}-closable ${noticeCls}-title + ${noticeCls}-description`]: {
-      paddingInlineEnd: 0,
+    [`${noticeCls}-closable`]: {
+      [`${noticeCls}-title, ${noticeCls}-description`]: {
+        paddingInlineEnd: paddingLG,
+      },
+      [`${noticeCls}-title + ${noticeCls}-description`]: {
+        paddingInlineEnd: 0,
+      },
     },
 
     // ============================ Close =============================
