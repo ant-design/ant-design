@@ -5,7 +5,7 @@ import isVisible from '@rc-component/util/lib/Dom/isVisible';
 import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';
-import { isNonNullable } from '../../_util/is';
+import { isReactRenderable } from '../../_util/is';
 import { Row } from '../../grid';
 import type { ReportMetaChange } from '../context';
 import { FormContext, NoStyleItemContext } from '../context';
@@ -62,7 +62,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
-  const hasHelp = isNonNullable(help);
+  const hasHelp = isReactRenderable(help);
   const hasError = !!(hasHelp || errors.length || warnings.length);
   const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
