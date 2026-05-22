@@ -80,7 +80,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     [],
   );
 
-  const itemBounds = React.useMemo(() => {
+  const [itemBounds, maxSpanHeight] = React.useMemo(() => {
     const bounds = itemWithPositions
       .filter(
         (
@@ -105,7 +105,15 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       });
 
     bounds.sort((a, b) => a.top - b.top);
-    return bounds;
+
+    let maxHeight = 0;
+    for (let i = 0; i < bounds.length; i += 1) {
+      if (bounds[i].height > maxHeight) {
+        maxHeight = bounds[i].height;
+      }
+    }
+
+    return [bounds, maxHeight] as const;
   }, [estimatedItemHeight, heightMap, itemWithPositions, verticalGutter]);
 
   const visibleItems = React.useMemo(() => {
@@ -132,12 +140,6 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     // Item bounds are sorted by `top`, not by `bottom`.
     // Expand the start lookup by max span height to avoid skipping tall items
     // that start above viewport but still intersect current window.
-    let maxSpanHeight = 0;
-    for (let i = 0; i < itemBounds.length; i += 1) {
-      if (itemBounds[i].height > maxSpanHeight) {
-        maxSpanHeight = itemBounds[i].height;
-      }
-    }
     const startIndex = lowerBoundByTop(start - maxSpanHeight - 1);
     const result: MasonryRenderItem<ItemDataType>[] = [];
     for (let index = startIndex; index < itemBounds.length; index += 1) {
@@ -150,7 +152,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       }
     }
     return result;
-  }, [estimatedItemHeight, itemBounds, scrollDirection, scrollTop, viewportHeight]);
+  }, [estimatedItemHeight, itemBounds, maxSpanHeight, scrollDirection, scrollTop, viewportHeight]);
 
   return (
     <ResizeObserver onResize={onHolderResize}>
