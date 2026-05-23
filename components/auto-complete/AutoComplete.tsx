@@ -16,6 +16,7 @@ import type {
   RefSelectProps,
   SelectProps,
   SelectSemanticAllType,
+  SearchConfig
 } from '../select';
 import Select from '../select';
 
@@ -57,7 +58,7 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames' | 'optionFilterProp' | 'filterSort'
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames' | 'showSearch'
   > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
@@ -79,6 +80,7 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
   onOpenChange?: (visible: boolean) => void;
+  showSearch?: boolean | Pick<SearchConfig<OptionType> & { searchIcon?: React.ReactNode }, 'filterOption' | 'onSearch' | 'searchIcon'>;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
