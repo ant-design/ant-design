@@ -5,11 +5,11 @@ author: zombieJ
 juejin_url: https://juejin.cn/post/7322352551088341019
 ---
 
-In the maintenance of antd-mobile, We meet an annoying ghost. It rarely appears when building locally, but it almost always appears in the github workflow. After a lot of tossing, We finally found its trace.
+In the maintenance of antd-mobile, we met an annoying ghost. It rarely appears when building locally, but it almost always appears in the github workflow. After a lot of tossing, we finally found its trace.
 
 ### CI Failed...again
 
-For antd-mobile's CI, there is a task to check the build artifacts, which will prompt the file size changes. But in recent months, this task often fails to build, as shown in the following figure:
+For antd-mobile's CI, there is a task to check the build artifacts, which reports the file size changes. But in recent months, this task often fails to build, as shown in the following figure:
 
 ![CI failed](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XSAESJ3_HWgAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -59,7 +59,7 @@ Check the uncompressed content, we will find that these contents already exist i
 
 ![Duplicated Content](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wShGRJ16U1AAAAAAAAAAAAAADrJ8AQ/original)
 
-It is speculated that the uncompressed content was generated first during the build, and then the compressed operation was performed. But there is an asynchronous problem, the second task started to execute before the first task was completed, resulting in the duplication of content. What's even more bizarre is that if it is an asynchronous problem, the error file content generated on CI is surprisingly consistent. No matter how many times it is built, as long as it fails, it must be the same content.
+It is speculated that the uncompressed content was generated first during the build, and then the compression operation was performed. But there is an asynchronous problem, the second task started to execute before the first task was completed, resulting in the duplication of content. What's even more bizarre is that if it is an asynchronous problem, the error file content generated on CI is surprisingly consistent. No matter how many times it is built, as long as it fails, it would always be the same content.
 
 ### Concurrent problem
 
@@ -91,7 +91,7 @@ Check the `gulpfile.js` file, we found that `buildStyle` uses vite to build. Con
   }
 ```
 
-Though closing the `logLevel: 'silent'` configuration, we can see more log content after rebuilding:
+By disabling the `logLevel: 'silent'` configuration, we can see more log content after rebuilding:
 
 ![Bundle Result](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*efjVR4DG_ysAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -113,7 +113,7 @@ async function buildBundles(cb) {
 }
 ```
 
-That's it. `Promise.all` is used to build concurrently, and vite's build is asynchronous. This causes a competition problem for `style.css`. The rollup called by vite will clean up the files and then perform write operations. Since the compressed style needs to be uglified, it is always slower than the uncompressed version. When rollup has finished cleaning and starts writing files, although the first part of the uncompressed version is deleted due to cleaning, the subsequent content is still written, while the compressed version starts writing from the beginning. When both are written, an error will occur and the content will be consistent under each CI build. The fix is also very simple, just change it to sequential execution:
+That's it. `Promise.all` is used to build concurrently, and vite's build is asynchronous. This causes a race condition for `style.css`. The rollup called by vite will clean up the files and then perform write operations. Since the compressed style needs to be uglified, it is always slower than the uncompressed version. When rollup has finished cleaning and starts writing files, although the first part of the uncompressed version is deleted due to cleaning, the subsequent content is still written, while the compressed version starts writing from the beginning. When both are written, an error will occur and the content will be consistent under each CI build. The fix is also very simple, just change it to sequential execution:
 
 ```tsx
 for (const config of configs) {
