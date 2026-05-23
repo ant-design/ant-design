@@ -57,7 +57,7 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames' | 'optionFilterProp' | 'filterSort'
   > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
