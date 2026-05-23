@@ -5,7 +5,7 @@ author: zombieJ
 juejin_url: https://juejin.cn/post/7322352551088341019
 ---
 
-In the maintenance of antd-mobile, we met an annoying ghost. It rarely appears when building locally, but it almost always appears in the github workflow. After a lot of tossing, we finally found its trace.
+While maintaining antd-mobile, we encountered an annoying ghost. It rarely appears when building locally, but it almost always appears in the GitHub workflow. After a lot of tossing, we finally found its trace.
 
 ### CI Failed...again
 
