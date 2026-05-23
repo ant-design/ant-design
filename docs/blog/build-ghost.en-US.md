@@ -1,5 +1,5 @@
 ---
-title: A build ghost
+title: A Build Ghost
 date: 2023-12-20
 author: zombieJ
 juejin_url: https://juejin.cn/post/7322352551088341019
