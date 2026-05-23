@@ -41,7 +41,7 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
+export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps, SearchConfig };
 
 export interface LabeledValue {
   key?: string;
