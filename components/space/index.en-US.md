@@ -40,6 +40,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 Common props ref：[Common props](/docs/react/common-props)
 
+### Space
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
