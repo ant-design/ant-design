@@ -14,9 +14,9 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SearchConfig,
   SelectProps,
   SelectSemanticAllType,
-  SearchConfig
 } from '../select';
 import Select from '../select';
 
