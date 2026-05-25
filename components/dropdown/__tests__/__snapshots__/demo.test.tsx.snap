@@ -94,6 +94,96 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            left
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            right
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -186,6 +276,96 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         >
           <span>
             topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            left
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            right
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightBottom
           </span>
         </button>
       </div>
@@ -1242,6 +1422,96 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         >
           <span>
             topRight
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            left
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            right
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightBottom
           </span>
         </button>
       </div>

@@ -8,6 +8,10 @@ import {
   initZoomMotion,
   slideDownIn,
   slideDownOut,
+  slideLeftIn,
+  slideLeftOut,
+  slideRightIn,
+  slideRightOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
@@ -74,6 +78,34 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     colorBgElevated,
   } = token;
 
+  // Generates enter/appear + leave motion selectors for a slide direction.
+  // When there is not enough space, the placement reverts, so motion names are swapped.
+  const genSlideMotion = (
+    slideMotion: string,
+    placements: string[],
+    enterAnimation: typeof slideUpIn,
+    leaveAnimation: typeof slideUpIn,
+  ) => {
+    const enterSelectors = placements
+      .flatMap((p) => [
+        `&${antCls}-${slideMotion}-enter${antCls}-${slideMotion}-enter-active${componentCls}-placement-${p}`,
+        `&${antCls}-${slideMotion}-appear${antCls}-${slideMotion}-appear-active${componentCls}-placement-${p}`,
+      ])
+      .join(', ');
+
+    const leaveSelectors = placements
+      .map(
+        (p) =>
+          `&${antCls}-${slideMotion}-leave${antCls}-${slideMotion}-leave-active${componentCls}-placement-${p}`,
+      )
+      .join(', ');
+
+    return {
+      [enterSelectors]: { animationName: enterAnimation },
+      [leaveSelectors]: { animationName: leaveAnimation },
+    };
+  };
+
   return [
     {
       [componentCls]: {
@@ -135,39 +167,25 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         // =============================================================
         // When position is not enough for dropdown, the placement will revert.
         // We will handle this with revert motion name.
-        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomLeft,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomLeft,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottom,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottom,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomRight,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomRight`]:
-          {
-            animationName: slideUpIn,
-          },
-
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-top,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-top,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topRight`]:
-          {
-            animationName: slideDownIn,
-          },
-
-        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomLeft,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottom,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomRight`]:
-          {
-            animationName: slideUpOut,
-          },
-
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-top,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topRight`]:
-          {
-            animationName: slideDownOut,
-          },
+        ...genSlideMotion(
+          'slide-down',
+          ['bottomLeft', 'bottom', 'bottomRight'],
+          slideUpIn,
+          slideUpOut,
+        ),
+        ...genSlideMotion('slide-up', ['topLeft', 'top', 'topRight'], slideDownIn, slideDownOut),
+        ...genSlideMotion(
+          'slide-right',
+          ['right', 'rightTop', 'rightBottom'],
+          slideLeftIn,
+          slideLeftOut,
+        ),
+        ...genSlideMotion(
+          'slide-left',
+          ['left', 'leftTop', 'leftBottom'],
+          slideRightIn,
+          slideRightOut,
+        ),
       },
     },
 
@@ -175,7 +193,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     // ==                        Arrow style                      ==
     // =============================================================
     getArrowStyle<DropdownToken>(token, colorBgElevated, {
-      arrowPlacement: { top: true, bottom: true },
+      arrowPlacement: { top: true, bottom: true, left: true, right: true },
     }),
 
     {
@@ -366,6 +384,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     [
       initSlideMotion(token, 'slide-up'),
       initSlideMotion(token, 'slide-down'),
+      initSlideMotion(token, 'slide-left'),
+      initSlideMotion(token, 'slide-right'),
       initMoveMotion(token, 'move-up'),
       initMoveMotion(token, 'move-down'),
       initZoomMotion(token, 'zoom-big'),

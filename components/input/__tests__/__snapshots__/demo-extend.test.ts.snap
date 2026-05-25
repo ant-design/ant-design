@@ -6132,6 +6132,7 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 2`] = `
 [
   "Warning: [antd: Input] \`addonAfter\` is deprecated. Please use \`Space.Compact\` instead.",
+  "Warning: [antd: Input] \`addonBefore\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 
