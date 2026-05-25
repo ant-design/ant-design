@@ -51,8 +51,6 @@ jobs:
           });
 
           console.log('Comments:', comments.length);
-          console.log('comments source:', comments);
-
 
           let hasDiffSuccess = false;
           let hasDiffFailed = false;
@@ -79,6 +77,7 @@ jobs:
           console.log('hasDiffSuccess:', hasDiffSuccess);
           console.log('hasDiffFailed:', hasDiffFailed);
           console.log('hasMemberApprove:', hasMemberApprove);
+          console.log('commentBody:', comments.map(comment => comment.body));
 
           const diffPassed = hasDiffSuccess || (hasDiffFailed && hasMemberApprove);
           const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';
