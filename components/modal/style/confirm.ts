@@ -99,6 +99,10 @@ const genModalConfirmStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
         textAlign: 'end',
         marginTop: token.confirmBtnsMarginTop,
 
+        [`> ${token.antCls}-btn`]: {
+          verticalAlign: 'middle',
+        },
+
         [`${token.antCls}-btn + ${token.antCls}-btn`]: {
           marginBottom: 0,
           marginInlineStart: token.marginXS,

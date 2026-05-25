@@ -347,6 +347,10 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           borderTop: token.footerBorderTop,
           borderRadius: token.footerBorderRadius,
 
+          [`> ${token.antCls}-btn`]: {
+            verticalAlign: 'middle',
+          },
+
           [`> ${token.antCls}-btn + ${token.antCls}-btn`]: {
             marginInlineStart: token.marginXS,
           },
