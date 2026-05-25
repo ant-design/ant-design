@@ -78,6 +78,7 @@ Common props ref：[Common props](/docs/react/common-props)
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| value | Value inserted when selected | string | - |
 | label | Title of the option | React.ReactNode | - |
 | key | The key value of the option | string | - |
 | disabled | Optional | boolean | - |
