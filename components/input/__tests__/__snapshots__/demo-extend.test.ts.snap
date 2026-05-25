@@ -5341,7 +5341,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5381,7 +5380,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5483,7 +5481,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5523,7 +5520,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5600,7 +5596,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5734,7 +5729,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -6441,7 +6435,6 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -6928,7 +6921,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <button
             class="ant-input-clear-icon"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -7000,7 +6992,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <button
             class="ant-input-clear-icon"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -11204,7 +11195,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -11288,7 +11278,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -11407,7 +11396,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -12205,7 +12193,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
