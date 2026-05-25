@@ -207,7 +207,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
           [hoverMediaQuery]: {
             // https://github.com/ant-design/ant-design/issues/50074
-            '&:hover': {
+            [`&:not(${checkboxCls}-disabled):hover`]: {
               backgroundColor: token.colorBgContainer,
               borderColor: token.colorPrimary,
             },
