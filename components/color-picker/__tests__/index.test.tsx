@@ -154,6 +154,25 @@ describe('ColorPicker', () => {
     ).toEqual('100%');
   });
 
+  it('Should allowClear work with keyboard', async () => {
+    const triggerClear = async (key: string) => {
+      const onClear = jest.fn();
+      const { container, unmount } = render(
+        <ColorPicker defaultValue="#1677ff" allowClear onClear={onClear} />,
+      );
+
+      fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+      await waitFakeTimer();
+      fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key });
+      expect(onClear).toHaveBeenCalledTimes(1);
+
+      unmount();
+    };
+
+    await triggerClear('Enter');
+    await triggerClear(' ');
+  });
+
   it('Should render trigger work', async () => {
     const { container } = render(
       <ColorPicker>

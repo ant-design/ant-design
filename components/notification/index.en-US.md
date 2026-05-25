@@ -55,6 +55,7 @@ The properties of config are as follows:
 | ~~btn~~ | Customized close button group, please use `actions` instead | ReactNode | - | - |
 | className | Customized CSS class | string | - | - |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| closable | Whether to show the close button | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | description | The content of notification box (required) | ReactNode | - | - |
 | duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - |

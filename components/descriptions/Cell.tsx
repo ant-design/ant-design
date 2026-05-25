@@ -2,7 +2,7 @@ import React from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isNonNullable } from '../_util/is';
+import { isReactRenderable } from '../_util/is';
 import type { CellSemanticType } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
 
@@ -70,8 +70,8 @@ const Cell: React.FC<CellProps> = (props) => {
           [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
-        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
-        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
+        {isReactRenderable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isReactRenderable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
@@ -79,7 +79,7 @@ const Cell: React.FC<CellProps> = (props) => {
   return (
     <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
-        {isNonNullable(label) && (
+        {isReactRenderable(label) && (
           <span
             style={mergedLabelStyle}
             className={clsx(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
@@ -89,7 +89,7 @@ const Cell: React.FC<CellProps> = (props) => {
             {label}
           </span>
         )}
-        {isNonNullable(content) && (
+        {isReactRenderable(content) && (
           <span
             style={mergedContentStyle}
             className={clsx(`${itemPrefixCls}-item-content`, mergedClassNames.content)}

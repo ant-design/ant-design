@@ -1,15 +1,16 @@
 import * as React from 'react';
 import type { PickerMode } from '@rc-component/picker/interface';
 
+import { isNonNullable } from '../_util/is';
 import useSelectIcons from '../select/useIcons';
 import type { PickerLocale, PickerProps } from './generatePicker';
 
-export function getPlaceholder(
+export const getPlaceholder = (
   locale: PickerLocale,
   picker?: PickerMode,
   customizePlaceholder?: string,
-): string {
-  if (customizePlaceholder !== undefined) {
+) => {
+  if (isNonNullable(customizePlaceholder)) {
     return customizePlaceholder;
   }
 
@@ -26,17 +27,17 @@ export function getPlaceholder(
     return locale.lang.weekPlaceholder;
   }
   if (picker === 'time' && locale.timePickerLocale.placeholder) {
-    return locale!.timePickerLocale.placeholder;
+    return locale.timePickerLocale.placeholder;
   }
   return locale.lang.placeholder;
-}
+};
 
-export function getRangePlaceholder(
+export const getRangePlaceholder = (
   locale: PickerLocale,
   picker?: PickerMode,
   customizePlaceholder?: [string, string],
-) {
-  if (customizePlaceholder !== undefined) {
+) => {
+  if (isNonNullable(customizePlaceholder)) {
     return customizePlaceholder;
   }
 
@@ -53,12 +54,15 @@ export function getRangePlaceholder(
     return locale.lang.rangeWeekPlaceholder;
   }
   if (picker === 'time' && locale.timePickerLocale.rangePlaceholder) {
-    return locale!.timePickerLocale.rangePlaceholder;
+    return locale.timePickerLocale.rangePlaceholder;
   }
   return locale.lang.rangePlaceholder;
-}
+};
 
-export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, prefixCls: string) {
+export const useIcons = (
+  props: Pick<PickerProps, 'allowClear' | 'removeIcon'>,
+  prefixCls: string,
+) => {
   const { allowClear = true } = props;
 
   const { clearIcon, removeIcon } = useSelectIcons({
@@ -81,4 +85,4 @@ export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, 
   }, [allowClear, clearIcon]);
 
   return [mergedAllowClear, removeIcon] as const;
-}
+};

@@ -29,7 +29,7 @@ jobs:
     # Return type: `success` or `failed` or `waiting`
     - name: Statistic Visual Diff Approval
       id: check_approval
-      uses: actions/github-script@v9
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
@@ -66,9 +66,12 @@ jobs:
 
             // https://regex101.com/r/kLjudz/1
             const RE = /(?<=\>\s\[!IMPORTANT\].*?- \[ \])/s;
+            const trustedRoles = ['MEMBER', 'OWNER', 'COLLABORATOR'];
+            const isTrustedAuthor = trustedRoles.includes(comment.author_association);
             if (
               comment.body.includes('- [x] Visual diff is acceptable') &&
-              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */
+              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */ &&
+              isTrustedAuthor
             ) {
               hasMemberApprove = true;
             }
