@@ -340,7 +340,9 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         },
 
         [`${componentCls}-footer`]: {
-          textAlign: 'end',
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
           background: token.footerBg,
           marginTop: token.footerMarginTop,
           padding: token.footerPadding,
