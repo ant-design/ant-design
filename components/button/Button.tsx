@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -442,7 +442,7 @@ const InternalCompoundedButton = React.forwardRef<
     iconNode = defaultLoadingIconElement;
   }
 
-  const contentNode = isNonNullable(children)
+  const contentNode = isReactRenderable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,
