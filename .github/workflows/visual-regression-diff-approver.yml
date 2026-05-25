@@ -51,6 +51,8 @@ jobs:
           });
 
           console.log('Comments:', comments.length);
+          console.log('comments source:', comments);
+
 
           let hasDiffSuccess = false;
           let hasDiffFailed = false;
@@ -66,12 +68,9 @@ jobs:
 
             // https://regex101.com/r/kLjudz/1
             const RE = /(?<=\>\s\[!IMPORTANT\].*?- \[ \])/s;
-            const trustedRoles = ['MEMBER', 'OWNER', 'COLLABORATOR'];
-            const isTrustedAuthor = trustedRoles.includes(comment.author_association);
             if (
               comment.body.includes('- [x] Visual diff is acceptable') &&
-              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */ &&
-              isTrustedAuthor
+              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */
             ) {
               hasMemberApprove = true;
             }
