@@ -135,3 +135,7 @@ If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvi
   background: rgb(190, 200, 200);
 }
 </style>
+
+## Design Guide {#design-guide}
+
+- [Where should I put my buttons!? | Ant Design 4.0 Series](https://zhuanlan.zhihu.com/p/109644406)

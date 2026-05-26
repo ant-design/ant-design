@@ -47,7 +47,7 @@ jobs:
       build-failure: ${{ steps.prep-summary.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: prep-summary
         with:
           script: |
@@ -89,7 +89,7 @@ jobs:
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -109,7 +109,7 @@ jobs:
       # Download site artifact
       - name: download site artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -126,7 +126,7 @@ jobs:
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c # v3
         if: ${{ steps.deploy.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -138,7 +138,7 @@ jobs:
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

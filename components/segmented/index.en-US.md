@@ -42,6 +42,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@4.20.0`
 
+### Segmented
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent\'s width | boolean | false |  |

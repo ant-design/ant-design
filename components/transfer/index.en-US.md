@@ -39,6 +39,8 @@ One or more elements can be selected from either column, one click on the proper
 
 Common props ref：[Common props](/docs/react/common-props)
 
+### Transfer
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of ReactNode is provided, custom elements will be used | ReactNode\[] | \[`>`, `<`] | 6.0.0 |

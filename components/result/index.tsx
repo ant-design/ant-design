@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -225,18 +226,18 @@ const Result: ResultType = (props) => {
   return (
     <div {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
-      {title && (
+      {isReactRenderable(title) && (
         <div className={titleClassNames} style={mergedStyles.title}>
           {title}
         </div>
       )}
-      {subTitle && (
+      {isReactRenderable(subTitle) && (
         <div className={subTitleClassNames} style={mergedStyles.subTitle}>
           {subTitle}
         </div>
       )}
       <Extra className={extraClassNames} extra={extra} style={mergedStyles.extra} />
-      {children && (
+      {isReactRenderable(children) && (
         <div className={bodyClassNames} style={mergedStyles.body}>
           {children}
         </div>
