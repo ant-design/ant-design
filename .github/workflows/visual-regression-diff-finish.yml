@@ -93,7 +93,7 @@ jobs:
     needs: [check-trust, upstream-workflow-summary]
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       # We need get persist-index first
@@ -153,7 +153,7 @@ jobs:
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c # v3
         if: ${{ steps.report.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -165,7 +165,7 @@ jobs:
 
       - name: failed comment
         if: ${{ steps.download_report.outcome == 'failure' || steps.report.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

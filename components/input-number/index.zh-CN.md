@@ -93,6 +93,10 @@ demo:
 
 <ComponentTokenTable component="InputNumber"></ComponentTokenTable>
 
+## 注意事项 {#notes}
+
+根据相关问题 [#21158](https://github.com/ant-design/ant-design/issues/21158)、[#17344](https://github.com/ant-design/ant-design/issues/17344)、[#9421](https://github.com/ant-design/ant-design/issues/9421) 以及 [关于 number 输入框的文档](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input/number)，社区似乎不支持在 `<Input />` 属性中原生包含 `type="number"`，因此请根据需要自行添加，并注意强烈建议使用服务端验证，因为客户端验证可能被高级用户修改。
+
 ## FAQ
 
 ### 为何受控模式下，`value` 可以超出 `min` 和 `max` 范围？ {#faq-controlled-range}

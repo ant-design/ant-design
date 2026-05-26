@@ -1,6 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { composeRef, getNodeRef, supportRef } from '@rc-component/util';
-import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import { composeRef, getNodeRef, isVisible, supportRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../../config-provider';
