@@ -58,6 +58,10 @@ demo:
 | vertical | 值为 true 时，Slider 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false |  |
 | onChangeComplete | 与 `mouseup` 和 `keyup` 触发时机一致，把当前值作为参数传入 | (value) => void | - |  |
 | onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入 | (value) => void | - |  |
+| ~~handleStyle~~ | 滑块手柄样式，请使用 `styles.handle` 替代 | CSSProperties | - | - |
+| ~~onAfterChange~~ | 与 `mouseup` 和 `keyup` 触发时机一致，请使用 `onChangeComplete` 替代 | (value) => void | - | - |
+| ~~railStyle~~ | 滑轨样式，请使用 `styles.rail` 替代 | CSSProperties | - | - |
+| ~~trackStyle~~ | 已选轨道样式，请使用 `styles.track` 替代 | CSSProperties | - | - |
 
 ### range
 

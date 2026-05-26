@@ -22,6 +22,7 @@ tag: New
 | 文件 | 说明 |
 | --- | --- |
 | [llms.txt](https://ant.design/llms.txt) | 导航文件，包含所有文档和组件的链接 |
+| [design.md](https://ant.design/design.md) | 默认 Light 主题的设计语言描述文件，面向 AI 设计工具（Figma Make、Stitch 等），遵循 [google-labs-code/design.md](https://github.com/google-labs-code/design.md) 规范 |
 | [llms-full.txt](https://ant.design/llms-full.txt) | 完整的组件文档（英文），包含实现细节和示例 |
 | [llms-full-cn.txt](https://ant.design/llms-full-cn.txt) | 完整的组件文档（中文） |
 | [llms-semantic.md](https://ant.design/llms-semantic.md) | 组件语义描述（英文），包含 DOM 结构和使用模式 |

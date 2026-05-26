@@ -2046,7 +2046,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               >
                 <button
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -5186,7 +5185,10 @@ Array [
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
               >
                 <div
+                  aria-label="Clear color"
                   class="ant-color-picker-clear"
+                  role="button"
+                  tabindex="0"
                 />
               </div>
               <div
@@ -24358,7 +24360,10 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               id="validate_other_color-picker"
             >
               <div
+                aria-label="Clear color"
                 class="ant-color-picker-clear"
+                role="button"
+                tabindex="0"
               />
             </div>
             <div
@@ -31126,7 +31131,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -31317,7 +31321,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -31827,7 +31830,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span

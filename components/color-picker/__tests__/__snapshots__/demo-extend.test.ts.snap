@@ -45,7 +45,10 @@ Array [
               class="ant-color-picker-operation"
             >
               <div
+                aria-label="Clear color"
                 class="ant-color-picker-clear"
+                role="button"
+                tabindex="0"
               />
             </div>
             <div
@@ -3834,7 +3837,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   </div>
                 </div>
                 <div
+                  aria-label="Clear color"
                   class="ant-color-picker-clear"
+                  role="button"
+                  tabindex="0"
                 />
               </div>
               <div
@@ -4257,7 +4263,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 class="ant-color-picker-operation"
               >
                 <div
+                  aria-label="Clear color"
                   class="ant-color-picker-clear"
+                  role="button"
+                  tabindex="0"
                 />
               </div>
               <div
@@ -10205,7 +10214,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 class="ant-color-picker-operation"
               >
                 <div
+                  aria-label="Clear color"
                   class="ant-color-picker-clear"
+                  role="button"
+                  tabindex="0"
                 />
               </div>
               <div

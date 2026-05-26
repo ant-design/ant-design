@@ -741,3 +741,9 @@ Form label use [HTML label](https://developer.mozilla.org/en-US/docs/Web/HTML/El
     <Switch />
   </Form.Item>
 ```
+
+### Is there more reference documentation? {#faq-more-docs}
+
+- You can read [《antd v4 Form Best Practices》](https://zhuanlan.zhihu.com/p/375753910) for some usage tips and suggestions (Chinese).
+- Want to use before and after in DatePicker and Switch? You can refer to [《How to elegantly add before and after to Form.Item children》](https://zhuanlan.zhihu.com/p/422752055) (Chinese).
+- Elegant Form + Modal combination solution [《How to elegantly use Form + Modal》](https://zhuanlan.zhihu.com/p/388222294) (Chinese).
