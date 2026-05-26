@@ -7,6 +7,7 @@
       "!.dumi/tmp*",
       "!report.html",
       "!.dumi/scripts/clarity.js",
+      "!coverage/**/*",
       "!dist/*",
       "!es/**/*",
       "!lib/**/*",
@@ -17,6 +18,7 @@
       "!**/*.tmp",
       "!package.json",
       "!components/style/antd.css",
+      "!components/style/~antd.layer.css",
       "!scripts/visual-regression/report-template.html",
       "!.claude/skills",
       "!.agents/skills",
@@ -87,6 +89,14 @@
     }
   },
   "overrides": [
+    {
+      "includes": ["renovate.json"],
+      "json": {
+        "parser": {
+          "allowComments": true
+        }
+      }
+    },
     {
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {

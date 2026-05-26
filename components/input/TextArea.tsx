@@ -7,9 +7,10 @@ import type {
 import { TextArea as RcTextArea } from '@rc-component/input';
 import { clsx } from 'clsx';
 
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -178,9 +179,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     onResize?.(size);
 
     // Change to dirty since this maybe from the `resize: both` style
-    if (isMouseDown && typeof getComputedStyle === 'function') {
+    if (isMouseDown && isFunction(getComputedStyle)) {
       const ele = innerRef.current?.nativeElement?.querySelector('textarea');
-
       if (ele && getComputedStyle(ele).resize === 'both') {
         setResizeDirty(true);
       }

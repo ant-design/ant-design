@@ -112,6 +112,7 @@ export default function imageTest(
 
   afterEach(() => {
     page.removeAllListeners('request'); // 保证没有历史残留
+    MockDate.reset();
   });
 
   afterAll(async () => {
@@ -150,7 +151,9 @@ export default function imageTest(
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
 
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.goto(`file://${process.cwd()}/tests/index.html`, {
+        waitUntil: 'domcontentloaded',
+      });
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
 

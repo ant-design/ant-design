@@ -133,10 +133,14 @@ const App: React.FC = () => {
         <Row>
           <Col span={24}>
             <DescriptionItem
-              title="Github"
+              title="GitHub"
               content={
-                <a href="http://github.com/ant-design/ant-design/" target="_blank" rel="noreferrer">
-                  github.com/ant-design/ant-design/
+                <a
+                  href="https://github.com/ant-design/ant-design"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/ant-design/ant-design
                 </a>
               }
             />

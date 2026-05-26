@@ -9,7 +9,7 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
+    style="z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
   />
 </div>
 `;
@@ -1172,6 +1172,399 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 
 exports[`renders components/watermark/demo/custom.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/watermark/demo/debug.tsx extend context correctly 1`] = `
+<div
+  class=""
+  style="position: relative; overflow: hidden;"
+>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+              style="overflow-x: auto; overflow-y: hidden;"
+            >
+              <table
+                style="width: max-content; min-width: 100%; table-layout: auto;"
+              >
+                <colgroup>
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 100px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 120px;"
+                  />
+                  <col
+                    style="width: 100px;"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                      scope="col"
+                      style="inset-inline-start: 0; --z-offset: 22; --z-offset-reverse: 11;"
+                    >
+                      Full Name
+                    </th>
+                    <th
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      scope="col"
+                      style="inset-inline-start: 0; --z-offset: 21; --z-offset-reverse: 12;"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 1
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 2
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 3
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 4
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 5
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 6
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 7
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 8
+                    </th>
+                    <th
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                      scope="col"
+                      style="inset-inline-end: 0; --z-offset: 10; --z-offset-reverse: 1;"
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    aria-hidden="true"
+                    class="ant-table-measure-row"
+                    style="height: 0px;"
+                  >
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Full Name
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Age
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 1
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 2
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 3
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 4
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 5
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 6
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 7
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Column 8
+                      </div>
+                    </td>
+                    <td
+                      style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    >
+                      <div
+                        style="height: 0px; overflow: hidden; font-weight: bold;"
+                      >
+                        Action
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 22; --z-offset-reverse: 11;"
+                    >
+                      Olivia
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start: 0; --z-offset: 21; --z-offset-reverse: 12;"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                      style="inset-inline-end: 0; --z-offset: 10; --z-offset-reverse: 1;"
+                    >
+                      <a>
+                        action
+                      </a>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                      style="inset-inline-start: 0; --z-offset: 22; --z-offset-reverse: 11;"
+                    >
+                      Ethan
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                      style="inset-inline-start: 0; --z-offset: 21; --z-offset-reverse: 12;"
+                    >
+                      40
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                      style="inset-inline-end: 0; --z-offset: 10; --z-offset-reverse: 1;"
+                    >
+                      <a>
+                        action
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
+  />
+</div>
+`;
+
+exports[`renders components/watermark/demo/debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
   class=""
@@ -1194,7 +1587,7 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px; visibility: visible !important;"
+    style="z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px; visibility: visible !important;"
   />
 </div>
 `;
@@ -1236,7 +1629,7 @@ Array [
     style="position: relative; overflow: hidden;"
   >
     <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
+      style="z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>,
   <div
@@ -1244,7 +1637,7 @@ Array [
     style="position: relative; overflow: hidden;"
   >
     <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
+      style="z-index: 999; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>,
 ]

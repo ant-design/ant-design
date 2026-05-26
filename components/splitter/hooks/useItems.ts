@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { toArray } from '@rc-component/util';
 
+import { isPlainObject } from '../../_util/is';
 import type { PanelProps } from '../interface';
 
 export type ItemType = Omit<PanelProps, 'collapsible'> & {
@@ -12,7 +13,7 @@ export type ItemType = Omit<PanelProps, 'collapsible'> & {
 };
 
 function getCollapsible(collapsible?: PanelProps['collapsible']): ItemType['collapsible'] {
-  if (collapsible && typeof collapsible === 'object') {
+  if (isPlainObject(collapsible)) {
     return {
       ...collapsible,
       showCollapsibleIcon:

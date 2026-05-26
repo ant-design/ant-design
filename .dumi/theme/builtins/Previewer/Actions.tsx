@@ -227,7 +227,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codesandbox.io/api/v1/sandboxes/define"
         method="POST"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         ref={codeSandboxIconRef}
         onClick={() => {
           track({ type: 'codesandbox', demo: assetId });
@@ -271,7 +271,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codepen.io/pen/define"
         method="POST"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         ref={codepenIconRef}
         onClick={() => {
           track({ type: 'codepen', demo: assetId });
@@ -291,7 +291,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           className="code-box-code-action"
           aria-label="open in new tab"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           href={demoUrlWithTheme}
         >
           <ExternalLinkIcon className="code-box-separate" />

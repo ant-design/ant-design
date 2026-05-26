@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -92,7 +91,7 @@ type LoadingConfigType = {
 };
 
 function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  if (typeof loading === 'object' && loading) {
+  if (isPlainObject(loading)) {
     let delay = loading?.delay;
     delay = isNumber(delay) ? delay : 0;
     return {
@@ -427,10 +426,9 @@ const InternalCompoundedButton = React.forwardRef<
     />
   );
 
-  const mergedLoadingIcon =
-    loading && typeof loading === 'object'
-      ? loading.icon || contextLoadingIcon
-      : contextLoadingIcon;
+  const mergedLoadingIcon = isPlainObject(loading)
+    ? loading.icon || contextLoadingIcon
+    : contextLoadingIcon;
 
   /**
    * Using if-else statements can improve code readability without affecting future expansion.
@@ -444,7 +442,7 @@ const InternalCompoundedButton = React.forwardRef<
     iconNode = defaultLoadingIconElement;
   }
 
-  const contentNode = isNonNullable(children)
+  const contentNode = isReactRenderable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,

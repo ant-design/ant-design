@@ -2,7 +2,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 
 export function getMotion(prefixCls: string, transitionName?: string): CSSMotionProps {
   return {
-    motionName: transitionName ?? `${prefixCls}-move-up`,
+    motionName: transitionName ?? `${prefixCls}-fade`,
   };
 }
 

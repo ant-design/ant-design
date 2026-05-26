@@ -729,7 +729,6 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -985,7 +984,6 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -2720,7 +2718,6 @@ Array [
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2956,7 +2953,6 @@ Array [
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -6015,7 +6011,6 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -6251,7 +6246,6 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -6715,7 +6709,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -6951,7 +6944,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -8363,7 +8355,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -9131,7 +9122,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                tabindex="-1"
                 type="button"
               >
                 <span

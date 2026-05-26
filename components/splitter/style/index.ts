@@ -198,7 +198,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
           background: 'transparent',
         },
 
-        '&:hover, &:active': {
+        '&:hover, &:active, &:focus-within': {
           [`${splitBarCls}-collapse-bar-hover-only`]: {
             opacity: 1,
           },
@@ -363,12 +363,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
       // ========================= Panels =========================
       [splitPanelCls]: {
         overflow: 'auto',
-        padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
 
         '&-hidden': {
-          padding: 0,
           overflow: 'hidden',
         },
 

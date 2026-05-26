@@ -7,7 +7,7 @@ import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -134,7 +134,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   const isHidden = useMemo(() => {
     const isEmpty =
-      (!isNonNullable(mergedCount) || mergedCount === '') && (!isNonNullable(text) || text === '');
+      (!isReactRenderable(mergedCount) || mergedCount === '') &&
+      (!isReactRenderable(text) || text === '');
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot, text]);
 
@@ -186,12 +187,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   );
 
   // >>> Display Component
-  const displayNode =
-    !livingCount || typeof livingCount !== 'object'
-      ? undefined
-      : cloneElement(livingCount, (oriProps) => ({
-          style: { ...mergedStyle, ...oriProps.style },
-        }));
+  const displayNode = isPlainObject(livingCount)
+    ? cloneElement(livingCount, (oriProps) => ({
+        style: { ...mergedStyle, ...oriProps.style },
+      }))
+    : undefined;
 
   // InternalColor
   const isInternalColor = isPresetColor(color, false);

@@ -2,9 +2,10 @@
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isFunction } from '../../_util/is';
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import type { ColorFormatType, ColorPickerProps, ColorPickerSemanticAllType } from '../interface';
@@ -56,7 +57,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       return '';
     }
 
-    if (typeof showText === 'function') {
+    if (isFunction(showText)) {
       return showText(color);
     }
 

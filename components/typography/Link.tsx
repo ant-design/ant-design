@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import type { BlockProps } from './Base';
 import Base from './Base';
@@ -22,7 +23,7 @@ const Link = React.forwardRef<HTMLElement, LinkProps>((props, ref) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Typography.Link');
-    warning(typeof ellipsis !== 'object', 'usage', '`ellipsis` only supports boolean value.');
+    warning(!isPlainObject(ellipsis), 'usage', '`ellipsis` only supports boolean value.');
   }
 
   const mergedProps: LinkProps = {

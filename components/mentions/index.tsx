@@ -5,10 +5,10 @@ import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
 } from '@rc-component/mentions/lib/Mentions';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
@@ -123,7 +123,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Mentions');
-
     warning.deprecated(!children, 'Mentions.Option', 'options');
   }
 
@@ -223,6 +222,9 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
+  // ====================== zIndex =========================
+  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.zIndex as number);
+
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = clsx(
@@ -257,7 +259,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       suffix={suffixNode}
       styles={{
         textarea: mergedStyles.textarea,
-        popup: mergedStyles.popup,
+        popup: { ...mergedStyles.popup, zIndex },
         suffix: mergedStyles.suffix,
       }}
       classNames={{
@@ -316,29 +318,29 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value
-    .split(split)
-    .map((str = ''): MentionsEntity | null => {
-      let hitPrefix: string | null = null;
+  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+    let hitPrefix: string | null = null;
 
-      prefixList.some((prefixStr) => {
-        const startStr = str.slice(0, prefixStr.length);
-        if (startStr === prefixStr) {
-          hitPrefix = prefixStr;
-          return true;
-        }
-        return false;
-      });
-
-      if (hitPrefix !== null) {
-        return {
-          prefix: hitPrefix,
-          value: str.slice((hitPrefix as string).length),
-        };
+    prefixList.some((prefixStr) => {
+      const startStr = str.slice(0, prefixStr.length);
+      if (startStr === prefixStr) {
+        hitPrefix = prefixStr;
+        return true;
       }
-      return null;
-    })
-    .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
+      return false;
+    });
+
+    if (hitPrefix !== null) {
+      const entity = {
+        prefix: hitPrefix,
+        value: str.slice((hitPrefix as string).length),
+      };
+      if (entity.value) {
+        list.push(entity);
+      }
+    }
+    return list;
+  }, []);
 };
 
 export default Mentions;

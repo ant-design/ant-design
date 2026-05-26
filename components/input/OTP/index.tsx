@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { useEvent } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -40,8 +40,10 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
+export interface OTPProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onInput'
+> {
   prefixCls?: string;
   length?: number;
 
@@ -89,7 +91,7 @@ interface SeparatorProps {
 
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
   const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
-  const separatorNode = typeof separator === 'function' ? separator(index) : separator;
+  const separatorNode = isFunction(separator) ? separator(index) : separator;
   if (!separatorNode) {
     return null;
   }
