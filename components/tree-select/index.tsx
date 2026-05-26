@@ -7,7 +7,6 @@ import RcTreeSelect, {
   SHOW_PARENT,
   TreeNode,
 } from '@rc-component/tree-select';
-import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -41,6 +40,8 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+
+type DataNode = NonNullable<RcTreeSelectProps['treeData']>[number];
 
 type RawValue = string | number;
 
