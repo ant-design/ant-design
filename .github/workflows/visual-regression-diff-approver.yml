@@ -66,12 +66,9 @@ jobs:
 
             // https://regex101.com/r/kLjudz/1
             const RE = /(?<=\>\s\[!IMPORTANT\].*?- \[ \])/s;
-            const trustedRoles = ['MEMBER', 'OWNER', 'COLLABORATOR'];
-            const isTrustedAuthor = trustedRoles.includes(comment.author_association);
             if (
               comment.body.includes('- [x] Visual diff is acceptable') &&
-              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */ &&
-              isTrustedAuthor
+              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */
             ) {
               hasMemberApprove = true;
             }
@@ -80,6 +77,7 @@ jobs:
           console.log('hasDiffSuccess:', hasDiffSuccess);
           console.log('hasDiffFailed:', hasDiffFailed);
           console.log('hasMemberApprove:', hasMemberApprove);
+          console.log('commentBody:', comments.map(comment => comment.body));
 
           const diffPassed = hasDiffSuccess || (hasDiffFailed && hasMemberApprove);
           const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';

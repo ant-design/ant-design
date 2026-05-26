@@ -40,6 +40,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 Common props ref：[Common props](/docs/react/common-props)
 
+### Space
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
@@ -77,7 +79,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | ~~direction~~ | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |  |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
-| size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | Set child component size | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 
 ### Space.Addon
 
