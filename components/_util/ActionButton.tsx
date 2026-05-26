@@ -1,9 +1,10 @@
 import * as React from 'react';
-import useState from '@rc-component/util/lib/hooks/useState';
+import { useState } from '@rc-component/util';
 
 import Button from '../button/Button';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { convertLegacyProps } from '../button/buttonHelpers';
+import { isThenable } from './is';
 
 export interface ActionButtonProps {
   type?: LegacyButtonType;
@@ -21,10 +22,6 @@ export interface ActionButtonProps {
    */
   isSilent?: () => boolean;
 }
-
-const isThenable = <T,>(thing?: PromiseLike<T>): thing is PromiseLike<T> => {
-  return typeof thing?.then === 'function';
-};
 
 const ActionButton: React.FC<ActionButtonProps> = (props) => {
   const {

@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | The text of the Cancel button | string | `Cancel` |  |
 | disabled | Whether show popconfirm when click its childrenNode | boolean | false |  |
-| icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircle /> |  |
+| icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | The text of the Confirm button | string | `OK` |  |
 | okType | Button `type` of the Confirm button | string | `primary` |  |

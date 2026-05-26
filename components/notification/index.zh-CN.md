@@ -28,7 +28,6 @@ demo:
 <code src="./demo/with-btn.tsx">自定义按钮</code>
 <code src="./demo/custom-icon.tsx">自定义图标</code>
 <code src="./demo/placement.tsx">位置</code>
-<code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/stack.tsx" version="5.10.0">堆叠</code>
 <code src="./demo/show-with-progress.tsx" version="5.18.0">显示进度条</code>
@@ -36,7 +35,7 @@ demo:
 <code src="./demo/progress-color.tsx">自定义进度条颜色</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构样式</code>
 
 ## API
 

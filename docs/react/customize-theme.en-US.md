@@ -254,7 +254,7 @@ const theme = {
 | components | Modify Component Token and Alias Token applied to components | `ComponentsConfig` | - |  |
 | cssVar | CSS Variables Configuration | [cssVar](#css-var) | - |  |
 | hashed | Style patch on the hash className | boolean | true |  |
-| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | true | 6.0.0 |
+| zeroRuntime | Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file | boolean | false | 6.0.0 |
 
 ### ComponentsConfig
 

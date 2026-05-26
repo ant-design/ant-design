@@ -193,6 +193,28 @@ describe('prefix and suffix', () => {
       expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
     });
   });
+
+  it('should support colorWarningAffix token for warning status affix', async () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorWarningAffix: '#12abcd',
+          },
+        }}
+      >
+        <Input status="warning" prefix="prefix" suffix="suffix" />
+      </ConfigProvider>,
+    );
+
+    const prefix = container.querySelector('.ant-input-prefix') as HTMLSpanElement;
+    const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
+
+    await waitFor(() => {
+      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-warning-affix)');
+      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+    });
+  });
 });
 
 describe('Input setting hidden', () => {

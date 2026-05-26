@@ -32,6 +32,7 @@ demo:
 <code src="./demo/search-box.tsx">Search Box</code>
 <code src="./demo/label-in-value.tsx">Get value of selected item</code>
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
+<code src="./demo/custom-tokenization.tsx" version="6.5.0">Custom tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
@@ -106,10 +107,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
+| suffixIcon | The custom suffix icon. Custom icons will not respond to clicks to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
-| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
+| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` or `mode="multiple"` | string[] \| ((input: string) => string[]) | - | function: 6.5.0 |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
@@ -218,7 +219,7 @@ Select only create a11y auxiliary node when operating on. Please open Select and
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
 
-### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close {#faq-tagrender-dropdown}
+### Why does clicking close on a custom `tagRender` tag open the dropdown? {#faq-tagrender-dropdown}
 
 If you don't want a drop-down menu to appear automatically after clicking on an element (such as a close icon), you can prevent the `MouseDown` event from propagating on it.
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 import { Alert, Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { clsx } from 'clsx';
@@ -161,13 +161,11 @@ const RecommendItem: React.FC<RecommendItemProps> = (props) => {
       href={extra.href}
       target="_blank"
       className={clsx(styles.itemBase, className)}
-      style={
-        {
-          '--mouse-x': `${transMousePosition[0]}px`,
-          '--mouse-y': `${transMousePosition[1]}px`,
-        } as React.CSSProperties
-      }
-      rel="noreferrer"
+      style={{
+        '--mouse-x': `${transMousePosition[0]}px`,
+        '--mouse-y': `${transMousePosition[1]}px`,
+      }}
+      rel="noopener noreferrer"
       onMouseMove={onMouseMove}
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>

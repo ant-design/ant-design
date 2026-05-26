@@ -1,10 +1,11 @@
 import * as React from 'react';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -16,7 +17,7 @@ export type StatisticSemanticType = {
   classNames?: {
     root?: string;
     content?: string;
-    value?: string; /* 👈 6.4.0+ */
+    value?: string /* 👈 6.4.0+ */;
     title?: string;
     header?: string;
     prefix?: string;
@@ -25,7 +26,7 @@ export type StatisticSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     content?: React.CSSProperties;
-    value?: React.CSSProperties; /* 👈 6.4.0+ */
+    value?: React.CSSProperties /* 👈 6.4.0+ */;
     title?: React.CSSProperties;
     header?: React.CSSProperties;
     prefix?: React.CSSProperties;
@@ -192,7 +193,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
               {prefix}
             </span>
           )}
-          {typeof valueRender === 'function' ? valueRender(valueNode) : valueNode}
+          {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
           {suffix && (
             <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}

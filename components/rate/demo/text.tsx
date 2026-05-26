@@ -12,7 +12,7 @@ const desc: RateProps['tooltips'] = [
 
 function getDescTitle(value: number, desc: RateProps['tooltips']) {
   const item = desc?.[value - 1];
-  return typeof item === 'object' ? item.title : item;
+  return item && typeof item === 'object' ? item.title : item;
 }
 
 const App: React.FC = () => {

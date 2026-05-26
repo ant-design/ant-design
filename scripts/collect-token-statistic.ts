@@ -25,7 +25,7 @@ bar.start(styleFiles.length, 0);
     beforeRender(componentName: string) {
       bar.increment({ component: componentName });
     },
-    render(Component: any) {
+    render(Component: React.ComponentType<any>) {
       ReactDOMServer.renderToString(React.createElement(Component));
       // Render wireframe
       const wireframeToken = { ...seedToken, wireframe: true };

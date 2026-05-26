@@ -3,6 +3,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import type { BaseInputProps } from '@rc-component/input/lib/interface';
 
 import fallbackProp from '../fallbackProp';
+import { isPlainObject } from '../is';
 import { devUseWarning } from '../warning';
 
 export type AllowClear = BaseInputProps['allowClear'];
@@ -16,7 +17,7 @@ interface UseAllowClearOptions {
   componentName: string;
 }
 
-const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
+export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
   const {
     allowClear,
     clearIcon,
@@ -38,15 +39,13 @@ const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
     }
     return {
       clearIcon: fallbackProp(
-        typeof allowClear === 'object' ? allowClear?.clearIcon : clearIcon,
-        typeof contextAllowClear === 'object' ? contextAllowClear?.clearIcon : contextClearIcon,
+        isPlainObject(allowClear) ? allowClear?.clearIcon : clearIcon,
+        isPlainObject(contextAllowClear) ? contextAllowClear?.clearIcon : contextClearIcon,
         <CloseCircleFilled />,
       ),
       disabled:
-        (typeof allowClear === 'object' ? allowClear?.disabled : undefined) ??
-        (typeof contextAllowClear === 'object' ? contextAllowClear?.disabled : undefined),
+        (isPlainObject(allowClear) ? allowClear?.disabled : undefined) ??
+        (isPlainObject(contextAllowClear) ? contextAllowClear?.disabled : undefined),
     };
   }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
 };
-
-export default useAllowClear;

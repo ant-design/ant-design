@@ -6,6 +6,7 @@ import type { GetProp, UploadFile, UploadProps } from 'antd';
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [uploading, setUploading] = useState(false);
 
@@ -23,10 +24,10 @@ const App: React.FC = () => {
       .then((res) => res.json())
       .then(() => {
         setFileList([]);
-        message.success('upload successfully.');
+        messageApi.success('upload successfully.');
       })
       .catch(() => {
-        message.error('upload failed.');
+        messageApi.error('upload failed.');
       })
       .finally(() => {
         setUploading(false);
@@ -50,6 +51,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      {contextHolder}
       <Upload {...props}>
         <Button icon={<UploadOutlined />}>Select File</Button>
       </Upload>

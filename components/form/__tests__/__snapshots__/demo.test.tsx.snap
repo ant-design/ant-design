@@ -753,7 +753,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459
@@ -1066,7 +1066,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459
@@ -1543,7 +1543,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
               >
                 <button
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -2213,6 +2212,7 @@ Array [
                     class="ant-picker-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="calendar"
                       class="anticon anticon-calendar"
                       role="img"
@@ -2329,6 +2329,7 @@ Array [
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -2689,7 +2690,10 @@ Array [
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
               >
                 <div
+                  aria-label="Clear color"
                   class="ant-color-picker-clear"
+                  role="button"
+                  tabindex="0"
                 />
               </div>
             </div>
@@ -5365,7 +5369,7 @@ exports[`renders components/form/demo/form-dependencies.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-alert ant-alert-info css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -5688,6 +5692,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx correctly 1`] 
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -8930,6 +8935,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -9475,6 +9481,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -9546,6 +9553,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -9617,6 +9625,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -9735,6 +9744,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -9852,6 +9862,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -9922,6 +9933,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="clock-circle"
                     class="anticon anticon-clock-circle"
                     role="img"
@@ -11687,7 +11699,10 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
               id="validate_other_color-picker"
             >
               <div
+                aria-label="Clear color"
                 class="ant-color-picker-clear"
+                role="button"
+                tabindex="0"
               />
             </div>
           </div>
@@ -12433,6 +12448,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12525,6 +12541,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="clock-circle"
                     class="anticon anticon-clock-circle"
                     role="img"
@@ -12666,6 +12683,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -13102,6 +13120,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                             class="ant-picker-suffix"
                           >
                             <span
+                              aria-hidden="true"
                               aria-label="calendar"
                               class="anticon anticon-calendar"
                               role="img"
@@ -13166,6 +13185,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                             class="ant-picker-suffix"
                           >
                             <span
+                              aria-hidden="true"
                               aria-label="calendar"
                               class="anticon anticon-calendar"
                               role="img"
@@ -13363,7 +13383,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -13554,7 +13573,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -14064,7 +14082,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -14139,7 +14156,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -14901,6 +14918,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -15019,6 +15037,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"

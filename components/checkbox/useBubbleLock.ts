@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 
 /**
  * When click on the label,

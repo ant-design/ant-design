@@ -1,3 +1,4 @@
+export * from './useAllowClear';
 export * from './useClosable';
 export * from './useForceUpdate';
 export * from './useMergedMask';

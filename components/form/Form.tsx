@@ -10,6 +10,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
@@ -127,12 +128,10 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
-  /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
     // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useFormWarning(props);
   }
-  /* eslint-enable */
 
   const mergedRequiredMark = React.useMemo(() => {
     if (requiredMark !== undefined) {
@@ -240,7 +239,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const scrollToField = (options: ScrollFocusOptions | boolean, fieldName: InternalNamePath) => {
     if (options) {
       let defaultScrollToFirstError: ScrollFocusOptions = { block: 'nearest' };
-      if (typeof options === 'object') {
+      if (isPlainObject(options)) {
         defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
       wrapForm.scrollToField(fieldName, defaultScrollToFirstError);

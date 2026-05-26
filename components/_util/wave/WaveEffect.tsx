@@ -1,13 +1,13 @@
 import * as React from 'react';
 import CSSMotion from '@rc-component/motion';
-import raf from '@rc-component/util/lib/raf';
+import { composeRef, raf } from '@rc-component/util';
 import { render, unmount } from '@rc-component/util/lib/React/render';
-import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import { isTransitionEvent } from '../is';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -126,7 +126,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       motionName="wave-motion"
       motionDeadline={5000}
       onAppearEnd={(_, event) => {
-        if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
+        if (event.deadline || (isTransitionEvent(event) && event.propertyName === 'opacity')) {
           const holder = divRef.current?.parentElement!;
           unmount(holder).then(() => {
             holder?.remove();

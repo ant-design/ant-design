@@ -27,7 +27,7 @@ demo:
 <code src="./demo/addon.tsx">附加内容</code>
 <code src="./demo/12hours.tsx">12 小时制</code>
 <code src="./demo/change-on-scroll.tsx" version="5.14.0">滚动即改变</code>
-<code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
+<code src="./demo/colored-popup.tsx" debug>彩色弹出层</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>

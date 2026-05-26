@@ -15,6 +15,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -282,7 +283,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const memoOverlayWrapper = (
     <ContextIsolator space form>
-      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+      {isFunction(memoOverlay) ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
 
