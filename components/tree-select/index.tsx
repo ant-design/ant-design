@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
-import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from '@rc-component/tree-select';
 import RcTreeSelect, {
   SHOW_ALL,
@@ -369,7 +368,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   const selectProps = omit(restProps, ['suffixIcon', 'removeIcon', 'clearIcon']);
 
   // ===================== Placement =====================
-  const memoizedPlacement = React.useMemo<Placement>(() => {
+  const memoizedPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }

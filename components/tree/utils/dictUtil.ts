@@ -1,5 +1,6 @@
-import type { DataNode, Key } from '@rc-component/tree/lib/interface';
-import { fillFieldNames } from '@rc-component/tree/lib/utils/treeUtil';
+import { fillFieldNames } from '@rc-component/tree';
+import type { DataNode } from '@rc-component/tree';
+import type React from 'react';
 
 import type { TreeProps } from '../Tree';
 
@@ -13,7 +14,7 @@ type FieldNames = TreeProps['fieldNames'];
 
 function traverseNodesKey(
   treeData: DataNode[],
-  callback: (key: Key | number | null, node: DataNode) => boolean,
+  callback: (key: React.Key | number | null, node: DataNode) => boolean,
   fieldNames: Required<NonNullable<FieldNames>>,
 ) {
   const { key: fieldKey, children: fieldChildren } = fieldNames;
@@ -38,12 +39,12 @@ export function calcRangeKeys({
   fieldNames,
 }: {
   treeData: DataNode[];
-  expandedKeys: Key[];
-  startKey?: Key;
-  endKey?: Key;
+  expandedKeys: React.Key[];
+  startKey?: React.Key;
+  endKey?: React.Key;
   fieldNames?: FieldNames;
-}): Key[] {
-  const keys: Key[] = [];
+}): React.Key[] {
+  const keys: React.Key[] = [];
   let record: Record = RECORD_NONE;
 
   if (startKey && startKey === endKey) {
@@ -53,7 +54,7 @@ export function calcRangeKeys({
     return [];
   }
 
-  function matchKey(key: Key) {
+  function matchKey(key: React.Key) {
     return key === startKey || key === endKey;
   }
 
@@ -88,10 +89,10 @@ export function calcRangeKeys({
 
 export function convertDirectoryKeysToNodes(
   treeData: DataNode[],
-  keys: Key[],
+  keys: React.Key[],
   fieldNames?: FieldNames,
 ) {
-  const restKeys: Key[] = [...keys];
+  const restKeys: React.Key[] = [...keys];
   const nodes: DataNode[] = [];
   traverseNodesKey(
     treeData,
