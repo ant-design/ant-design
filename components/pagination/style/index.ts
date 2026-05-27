@@ -112,16 +112,6 @@ export interface PaginationToken
    */
   paginationItemPaddingInline: number | string;
   /**
-   * @desc 省略号字母间距
-   * @descEN Letter spacing of ellipsis
-   */
-  paginationEllipsisLetterSpacing: number | string;
-  /**
-   * @desc 省略号文本缩进
-   * @descEN Text indent of ellipsis
-   */
-  paginationEllipsisTextIndent: string;
-  /**
    * @desc 斜杠横向外边距
    * @descEN Horizontal margin of slash
    */
@@ -375,11 +365,13 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           display: 'block',
           margin: 'auto',
           color: token.colorTextDisabled,
-          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
+          svg: {
+            transform: 'scale(2)',
+            transformOrigin: 'center',
+          },
         },
       },
 
@@ -718,10 +710,8 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
       paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
       paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
       paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
-      paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
       paginationSlashMarginInlineStart: token.marginSM,
       paginationSlashMarginInlineEnd: token.marginSM,
-      paginationEllipsisTextIndent: '0.13em', // magic for ui experience
     },
     initInputToken(token),
   );
