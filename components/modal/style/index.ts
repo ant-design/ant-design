@@ -340,16 +340,15 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         },
 
         [`${componentCls}-footer`]: {
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
           textAlign: 'end',
           background: token.footerBg,
           marginTop: token.footerMarginTop,
           padding: token.footerPadding,
           borderTop: token.footerBorderTop,
           borderRadius: token.footerBorderRadius,
-
-          [`> ${token.antCls}-btn`]: {
-            verticalAlign: 'middle',
-          },
 
           [`> ${token.antCls}-btn + ${token.antCls}-btn`]: {
             marginInlineStart: token.marginXS,
