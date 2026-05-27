@@ -114,7 +114,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const gutters = useGutter(gutter, screens);
 
   const isGrid = !!grid;
-  const gridConfig = typeof grid === 'object' ? grid : undefined;
+  const gridConfig = isPlainObject(grid) ? grid : undefined;
 
   const classes = clsx(
     prefixCls,
@@ -137,8 +137,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   if (isGrid) {
     const gridStyles = {
-      columnGap: gutterH !== undefined && (isNumber(gutterH) ? `${gutterH}px` : gutterH),
-      rowGap: gutterV !== undefined && (isNumber(gutterV) ? `${gutterV}px` : gutterV),
+      columnGap: gutterH !== undefined ? (isNumber(gutterH) ? `${gutterH}px` : gutterH) : undefined,
+      rowGap: gutterV !== undefined ? (isNumber(gutterV) ? `${gutterV}px` : gutterV) : undefined,
       gridTemplateColumns: gridConfig?.gridTemplateColumns,
       gridTemplateRows: gridConfig?.gridTemplateRows,
       gridTemplateAreas: gridConfig?.gridTemplateAreas,

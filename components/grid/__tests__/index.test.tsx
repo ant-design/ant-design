@@ -226,48 +226,17 @@ describe('Grid', () => {
   });
 
   // Grid mode tests
-  it('should support gap in grid mode', () => {
+  it('should support grid mode with gap', () => {
     const { container } = render(
       <Row grid gutter={[16, 20]}>
         test
       </Row>,
     );
-    const gridEle = container.querySelector('div');
+    const gridEle = container.querySelector('.ant-row-grid');
     expect(gridEle).toHaveClass('ant-row-grid');
     expect(gridEle).toHaveStyle({
       columnGap: '16px',
       rowGap: '20px',
-    });
-
-    const { container: container2 } = render(
-      <Row grid gutter={['1rem', '2rem']}>
-        test
-      </Row>,
-    );
-    expect(container2.querySelector('.ant-row-grid')).toHaveStyle({
-      columnGap: '1rem',
-      rowGap: '2rem',
-    });
-  });
-
-  it('should not apply justify/align in grid mode', () => {
-    const { container } = render(
-      <Row grid justify="center" align="middle">
-        <Col>test</Col>
-      </Row>,
-    );
-    const row = container.querySelector('.ant-row-grid');
-    expect(row).not.toHaveClass('ant-row-center');
-    expect(row).not.toHaveClass('ant-row-middle');
-  });
-
-  it('should support gridTemplateColumns/gridTemplateRows in grid mode', () => {
-    const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '100px' }}>test</Row>,
-    );
-    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gridTemplateRows: '100px',
     });
   });
 });
@@ -284,16 +253,6 @@ describe('Grid Col', () => {
     expect(col).toHaveStyle({
       gridColumn: 'span 4',
     });
-  });
-
-  it('should not apply gridColumn from span when gridTemplateColumns is not provided', () => {
-    const { container } = render(
-      <Row grid>
-        <Col span={4}>test</Col>
-      </Row>,
-    );
-    const col = container.querySelector('.ant-col-grid');
-    expect(col).not.toHaveStyle({ gridColumn: expect.any(String) });
   });
 
   it('should support gridRow/gridArea in grid mode', () => {

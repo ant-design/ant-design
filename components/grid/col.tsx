@@ -158,12 +158,12 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     const gridStyles: Record<string, string | number> = {};
 
     if (span !== undefined && !gridItemConfig?.gridColumn) {
-      const spanNum = isNumber(span) ? span : Number.parseInt(String(span), 10);
+      const spanNum = Number(span);
 
-      if (spanNum <= 0) {
-        gridStyles.display = 'none';
-      } else {
+      if (spanNum > 0) {
         gridStyles.gridColumn = `span ${spanNum}`;
+      } else {
+        gridStyles.display = 'none';
       }
     }
 
