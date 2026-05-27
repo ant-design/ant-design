@@ -110,6 +110,7 @@ export interface PaginationToken
    * @desc 页码横向内边距
    * @descEN Horizontal padding of Pagination item
    */
+  paginationItemPaddingInline: number | string;
   /**
    * @desc 省略号字母间距
    * @descEN Letter spacing of ellipsis
@@ -122,7 +123,6 @@ export interface PaginationToken
    * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisTextIndent: string;
-  paginationItemPaddingInline: number | string;
   /**
    * @desc 斜杠横向外边距
    * @descEN Horizontal margin of slash
