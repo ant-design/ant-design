@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { INTERNAL_HOOKS } from '@rc-component/table';
+import { convertChildrenToColumns, INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
-import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColumns';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
