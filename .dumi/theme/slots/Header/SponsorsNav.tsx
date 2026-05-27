@@ -10,8 +10,8 @@ const useStyle = createStyles(({ cssVar, css }) => ({
   wrap: css`
     display: flex;
     align-items: center;
-    margin-inline-start: 8px;
-    margin-inline-end: 12px;
+    padding-inline-start: 8px;
+    padding-inline-end: 12px;
   `,
   avatarLink: css`
     display: block;
