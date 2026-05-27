@@ -33,7 +33,7 @@ describe('Empty', () => {
   });
 
   it('dark mode compatible', () => {
-    const { container } = render(
+    const { asFragment } = render(
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
@@ -43,9 +43,8 @@ describe('Empty', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('svg')).toHaveStyle({
-      opacity: 0.65,
-    });
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment().firstChild).not.toHaveStyle({ opacity: 0.65 });
   });
 
   it('should apply custom styles to Empty', () => {
