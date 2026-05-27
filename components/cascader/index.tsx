@@ -7,7 +7,6 @@ import type {
   SearchConfig,
 } from '@rc-component/cascader';
 import RcCascader from '@rc-component/cascader';
-import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -390,7 +389,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   });
 
   // ===================== Placement =====================
-  const memoPlacement = React.useMemo<Placement>(() => {
+  const memoPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }

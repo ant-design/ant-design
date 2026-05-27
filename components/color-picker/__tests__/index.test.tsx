@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 
 import { resetWarned } from '../../_util/warning';

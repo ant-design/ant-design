@@ -2,11 +2,9 @@ import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from '@rc-component/table';
-import type { FixedType } from '@rc-component/table/lib/interface';
-import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
-import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
-import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
-import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
+import type { FixedType } from '@rc-component/table';
+import { arrAdd, arrDel, conductCheck, convertDataToEntities } from '@rc-component/tree';
+import type { DataNode } from '@rc-component/tree';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -198,8 +196,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     return map;
   }, [flattedData, getRowKey, getCheckboxProps]);
 
-  const isCheckboxDisabled: GetCheckDisabled<RecordType> = useCallback(
-    (r: RecordType) => {
+  const isCheckboxDisabled = useCallback(
+    (r: RecordType): boolean => {
       const rowKey = getRowKey(r);
       let checkboxProps: Partial<CheckboxProps> | undefined;
       if (checkboxPropsMap.has(rowKey)) {

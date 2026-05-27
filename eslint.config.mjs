@@ -6,6 +6,17 @@ import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 
+const restrictedRcPackageDirectoryImports = [
+  '@rc-component/*/es',
+  '@rc-component/*/es/**',
+  '@rc-component/*/lib',
+  '@rc-component/*/lib/**',
+  'rc-*/es',
+  'rc-*/es/**',
+  'rc-*/lib',
+  'rc-*/lib/**',
+];
+
 export default antfu(
   {
     plugins: {
@@ -99,6 +110,23 @@ export default antfu(
       'react/static-components': 'off',
       'react/use-memo': 'off',
       'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
+    },
+  },
+  {
+    files: ['components/**/*.{ts,tsx}'],
+    ignores: ['components/*/demo/**/*', 'components/**/__tests__/**/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: restrictedRcPackageDirectoryImports,
+              message: 'Do not import package internals from es/lib. Import from the package root.',
+            },
+          ],
+        },
+      ],
     },
   },
   {
