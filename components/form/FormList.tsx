@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { List } from '@rc-component/form';
-import type { StoreValue, ValidatorRule } from '@rc-component/form/lib/interface';
+import type { StoreValue, ValidatorRule } from '@rc-component/form';
 
 import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';

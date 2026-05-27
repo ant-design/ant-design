@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NotificationList } from '@rc-component/notification';
-import type { NotificationListConfig } from '@rc-component/notification/es/NotificationList';
+import type { NotificationListConfig } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
