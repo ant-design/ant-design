@@ -2,10 +2,14 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
+import type {
+  EditableConfig,
+  GetIndicatorSize,
+  MoreProps,
+  TabsProps as RcTabsProps,
+  Tab,
+} from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
-import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';

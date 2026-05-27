@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import type { UploadRequestOption } from '@rc-component/upload/lib/interface';
+import type { UploadRequestOption } from '@rc-component/upload';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
 

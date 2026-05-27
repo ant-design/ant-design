@@ -1,7 +1,6 @@
 import * as React from 'react';
-import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
+import type { Placement, DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
-import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
 import { composeRef, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
