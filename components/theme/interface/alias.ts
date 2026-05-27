@@ -626,8 +626,9 @@ export interface AliasToken extends MapToken {
   // FIXME: component box-shadow, should be removed
   /** @internal */
   boxShadowPopoverArrow: string;
-  /** @internal */
-  tooltipFilter: string;
+  /** @desc Overlay filter for drop-shadow (used by Tooltip, Popover, etc.) */
+  /** @descEN Overlay filter for drop-shadow */
+  overlayFilter: string;
   /** @internal */
   boxShadowCard: string;
   /** @internal */
