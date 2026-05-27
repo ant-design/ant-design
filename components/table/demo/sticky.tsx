@@ -85,34 +85,50 @@ const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
 
 const App: React.FC = () => {
   const [fixedTop, setFixedTop] = useState(false);
+  const [paginationFixedTop, setPaginationFixedTop] = useState(false);
   return (
-    <Table<DataType>
-      columns={columns}
-      dataSource={dataSource}
-      scroll={{ x: 1500 }}
-      summary={() => (
-        <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
-          <Table.Summary.Row>
-            <Table.Summary.Cell index={0} colSpan={2}>
-              <Switch
-                checkedChildren="Fixed Top"
-                unCheckedChildren="Fixed Top"
-                checked={fixedTop}
-                onChange={() => {
-                  setFixedTop(!fixedTop);
-                }}
-              />
-            </Table.Summary.Cell>
-            <Table.Summary.Cell index={2} colSpan={8}>
-              Scroll Context
-            </Table.Summary.Cell>
-            <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
-          </Table.Summary.Row>
-        </Table.Summary>
-      )}
-      // antd site header height
-      sticky={{ offsetHeader: 64 }}
-    />
+    <>
+      <Switch
+        checkedChildren="Pagination Fixed Top"
+        unCheckedChildren="Pagination Fixed Top"
+        checked={paginationFixedTop}
+        onChange={() => {
+          setPaginationFixedTop(!paginationFixedTop);
+        }}
+      />
+      <Table<DataType>
+        style={{ marginTop: 16 }}
+        columns={columns}
+        dataSource={dataSource}
+        scroll={{ x: 1500 }}
+        pagination={{
+          fixed: { offset: paginationFixedTop ? 64 : 0 },
+          placement: [paginationFixedTop ? 'topEnd' : 'bottomEnd'],
+        }}
+        summary={() => (
+          <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
+            <Table.Summary.Row>
+              <Table.Summary.Cell index={0} colSpan={2}>
+                <Switch
+                  checkedChildren="Fixed Top"
+                  unCheckedChildren="Fixed Top"
+                  checked={fixedTop}
+                  onChange={() => {
+                    setFixedTop(!fixedTop);
+                  }}
+                />
+              </Table.Summary.Cell>
+              <Table.Summary.Cell index={2} colSpan={8}>
+                Scroll Context
+              </Table.Summary.Cell>
+              <Table.Summary.Cell index={10}>Fix Right</Table.Summary.Cell>
+            </Table.Summary.Row>
+          </Table.Summary>
+        )}
+        // antd site header height
+        sticky={{ offsetHeader: paginationFixedTop ? 128 : 64, offsetSummary: 64 }}
+      />
+    </>
   );
 };
 
