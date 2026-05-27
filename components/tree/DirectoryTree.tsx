@@ -41,7 +41,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 }
 
 const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, ref) => {
-  const { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props } = oriProps;
+  const { defaultExpandAll, defaultExpandParent = true, defaultExpandedKeys, ...props } = oriProps;
 
   // Shift click usage
   const lastSelectedKeyRef = React.useRef<React.Key>(null);
@@ -192,6 +192,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       expandAction={expandAction}
       prefixCls={prefixCls}
       className={connectClassName}
+      defaultExpandParent={defaultExpandParent}
       expandedKeys={expandedKeys}
       selectedKeys={selectedKeys}
       onSelect={onSelect}
