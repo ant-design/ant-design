@@ -179,6 +179,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXXLMin: screenXXXL,
 
     boxShadowPopoverArrow: `2px 2px 5px ${getShadowColor(0.05)}`,
+    tooltipFilter: `drop-shadow(0 6px 16px ${getShadowColor(0.08)}) drop-shadow(0 3px 6px ${getShadowColor(0.12)}) drop-shadow(0 9px 28px ${getShadowColor(0.05)})`,
     boxShadowCard: `
       0 1px 2px -2px ${getShadowColor(0.16)},
       0 3px 6px 0 ${getShadowColor(0.12)},
