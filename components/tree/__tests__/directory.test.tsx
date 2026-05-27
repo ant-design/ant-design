@@ -175,6 +175,11 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('defaultExpandParent with false', () => {
+    const { asFragment } = render(createTree({ defaultExpandParent: false }));
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
   it('expandedKeys update', async () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));

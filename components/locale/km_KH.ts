@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
   },
+  Tour: {
+    Next: 'បន្ទាប់',
+    Previous: 'មុន',
+    Finish: 'បញ្ចប់',
+  },
   Modal: {
     okText: 'យល់ព្រម',
     cancelText: 'បោះបង់',

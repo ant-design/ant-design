@@ -1,10 +1,10 @@
 import type * as React from 'react';
-import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import type {
   AcceptConfig,
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
-} from '@rc-component/upload/lib/interface';
+  UploadProps as RcUploadProps,
+} from '@rc-component/upload';
 
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { ProgressAriaProps, ProgressProps } from '../progress';

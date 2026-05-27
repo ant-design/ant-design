@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Meta } from '@rc-component/form/lib/interface';
+import type { Meta } from '@rc-component/form';
 import { isVisible, omit, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 

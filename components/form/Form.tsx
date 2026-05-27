@@ -1,10 +1,11 @@
 import * as React from 'react';
 import FieldForm, { List, useWatch } from '@rc-component/form';
-import type { FormRef, FormProps as RcFormProps } from '@rc-component/form';
 import type {
+  FormRef,
   InternalNamePath,
+  FormProps as RcFormProps,
   ValidateErrorEntity,
-} from '@rc-component/form/lib/interface';
+} from '@rc-component/form';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
