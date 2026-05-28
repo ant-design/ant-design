@@ -8,8 +8,8 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genInlineStyle from './inline';
-import genLabelDisplayStyle from './label-display';
 import genLabelPlacementStyle from './label-placement';
+import genMaxCountStyle from './max-count';
 import genLegacyNavStyle from './nav';
 import genPanelStyle from './panel';
 import genStepsProgressStyle from './progress';
@@ -223,7 +223,7 @@ export default genStyleHooks(
       genLegacyNavStyle(stepsToken),
       genPanelStyle(stepsToken),
       genInlineStyle(stepsToken),
-      genLabelDisplayStyle(stepsToken),
+      genMaxCountStyle(stepsToken),
       genStepsProgressStyle(stepsToken),
       genRTLStyle(stepsToken),
     ];

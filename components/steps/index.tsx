@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -107,17 +107,15 @@ export interface BaseStepsProps {
   /** @deprecated Please use `titlePlacement` instead. */
   labelPlacement?: 'horizontal' | 'vertical';
   titlePlacement?: 'horizontal' | 'vertical';
-  /**
-   * Control label display mode in horizontal `default` and `dot` steps.
-   * - `auto`: Default behavior.
-   * - `wrap`: Allow title/content to wrap.
-   * - `scroll`: Keep single line and enable horizontal scrolling.
-   */
-  labelDisplay?: 'auto' | 'wrap' | 'scroll';
   /** @deprecated Please use `type` and `iconRender` instead. */
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
   ellipsis?: boolean;
+  /**
+   * Maximum number of step items to display (`>= 3`).
+   * Hidden step ranges are collapsed into disabled ellipsis steps.
+   */
+  maxCount?: number;
   /**
    * Set offset cell, only work when `type` is `inline`.
    */
@@ -146,6 +144,103 @@ const waveEffectClassNames: StepsProps['classNames'] = {
   itemIcon: TARGET_CLS,
 };
 
+const ELLIPSIS_TEXT = '...';
+
+type DisplayStep = {
+  item: StepItem;
+  originIndex: number;
+};
+
+function getRange(start: number, end: number): number[] {
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
+function getTokenCount(total: number, start: number, end: number): number {
+  if (total <= 1) {
+    return total;
+  }
+
+  const middleLen = start <= end ? end - start + 1 : 0;
+  const hasLeftGap = middleLen > 0 ? start > 1 : total > 2;
+  const hasRightGap = middleLen > 0 ? end < total - 2 : false;
+
+  return 2 + middleLen + Number(hasLeftGap) + Number(hasRightGap);
+}
+
+function getCollapsedIndexes(
+  total: number,
+  currentIndex: number,
+  maxCount: number,
+): Array<number | null> {
+  if (total <= maxCount) {
+    return getRange(0, total - 1);
+  }
+
+  const safeCurrent = Math.min(Math.max(currentIndex, 0), total - 1);
+
+  if (maxCount <= 2) {
+    return Array.from(new Set([0, safeCurrent, total - 1])).slice(0, maxCount);
+  }
+
+  const pivot = Math.min(Math.max(safeCurrent, 1), total - 2);
+  let start = pivot;
+  let end = pivot;
+
+  while (true) {
+    const candidates: Array<{ start: number; end: number; distance: number }> = [];
+
+    if (start > 1) {
+      const nextStart = start - 1;
+      if (getTokenCount(total, nextStart, end) <= maxCount) {
+        candidates.push({
+          start: nextStart,
+          end,
+          distance: Math.abs(safeCurrent - nextStart),
+        });
+      }
+    }
+
+    if (end < total - 2) {
+      const nextEnd = end + 1;
+      if (getTokenCount(total, start, nextEnd) <= maxCount) {
+        candidates.push({
+          start,
+          end: nextEnd,
+          distance: Math.abs(nextEnd - safeCurrent),
+        });
+      }
+    }
+
+    if (!candidates.length) {
+      break;
+    }
+
+    candidates.sort((a, b) => a.distance - b.distance);
+    start = candidates[0].start;
+    end = candidates[0].end;
+  }
+
+  if (getTokenCount(total, start, end) > maxCount) {
+    const indexes = Array.from(new Set([0, safeCurrent, total - 1])).sort((a, b) => a - b);
+    if (indexes.length < Math.min(maxCount, total) && indexes.length === 2 && total > 2) {
+      return [indexes[0], null, indexes[1]];
+    }
+    return indexes;
+  }
+
+  const indexes: Array<number | null> = [0];
+  if (start > 1) {
+    indexes.push(null);
+  }
+  indexes.push(...getRange(start, end));
+  if (end < total - 2) {
+    indexes.push(null);
+  }
+  indexes.push(total - 1);
+
+  return indexes;
+}
+
 const Steps = (props: StepsProps) => {
   const {
     // Style
@@ -165,14 +260,15 @@ const Steps = (props: StepsProps) => {
     progressDot,
     labelPlacement,
     titlePlacement,
-    labelDisplay = 'auto',
     ellipsis,
+    maxCount,
     offset = 0,
 
     // Data
     items,
     percent,
     current = 0,
+    initial = 0,
     onChange,
 
     // Render
@@ -268,25 +364,51 @@ const Steps = (props: StepsProps) => {
     return titlePlacement || labelPlacement || 'horizontal';
   }, [isDot, labelPlacement, mergedOrientation, titlePlacement, type]);
 
-  const supportLabelDisplayType =
-    mergedType === undefined || mergedType === 'default' || mergedType === 'dot';
-
-  const mergedLabelDisplay = React.useMemo<NonNullable<StepsProps['labelDisplay']>>(() => {
-    if (labelDisplay === 'auto') {
-      return 'auto';
-    }
-
-    if (supportLabelDisplayType && mergedOrientation === 'horizontal') {
-      return labelDisplay;
-    }
-
-    return 'auto';
-  }, [labelDisplay, mergedOrientation, supportLabelDisplayType]);
-
-  const mergedEllipsis = mergedLabelDisplay === 'auto' ? ellipsis : false;
-
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
+
+  const mergedMaxCount = isNumber(maxCount) ? Math.floor(maxCount) : undefined;
+  const canApplyMaxCount =
+    isNumber(mergedMaxCount) && mergedMaxCount >= 3 && mergedItems.length > mergedMaxCount;
+
+  const mappedCurrent = current - initial;
+
+  const displaySteps = React.useMemo<DisplayStep[]>(() => {
+    if (!canApplyMaxCount || !mergedMaxCount) {
+      return mergedItems.map((item, index) => ({ item, originIndex: index }));
+    }
+
+    return getCollapsedIndexes(mergedItems.length, mappedCurrent, mergedMaxCount).map((index) => {
+      if (index === null) {
+        return {
+          item: {
+            title: ELLIPSIS_TEXT,
+            icon: ELLIPSIS_TEXT,
+            status: 'wait',
+            disabled: true,
+            className: `${prefixCls}-item-ellipsis`,
+          },
+          originIndex: -1,
+        };
+      }
+
+      return {
+        item: {
+          ...mergedItems[index],
+        },
+        originIndex: index,
+      };
+    });
+  }, [canApplyMaxCount, mappedCurrent, mergedItems, mergedMaxCount, prefixCls]);
+
+  const mappedDisplayCurrent = React.useMemo(() => {
+    const displayCurrent = displaySteps.findIndex((step) => step.originIndex === mappedCurrent);
+    if (displayCurrent >= 0) {
+      return displayCurrent;
+    }
+
+    return Math.min(Math.max(mappedCurrent, 0), Math.max(displaySteps.length - 1, 0));
+  }, [displaySteps, mappedCurrent]);
 
   // =========== Merged Props for Semantic ===========
   const mergedProps: StepsProps = {
@@ -297,11 +419,12 @@ const Steps = (props: StepsProps) => {
     orientation: mergedOrientation,
     titlePlacement: mergedTitlePlacement,
     current,
+    initial,
     percent: mergedPercent,
     responsive,
     offset,
-    labelDisplay: mergedLabelDisplay,
-    ellipsis: mergedEllipsis,
+    ellipsis,
+    maxCount: mergedMaxCount,
   };
 
   // ============================ Styles ============================
@@ -321,6 +444,9 @@ const Steps = (props: StepsProps) => {
       active,
       components: { Icon: StepIcon },
     } = info;
+    const originIndex = displaySteps[index]?.originIndex;
+    const mappedIndex =
+      originIndex !== undefined && originIndex >= 0 ? initial + originIndex : index;
 
     const { status, icon } = item;
 
@@ -337,7 +463,7 @@ const Steps = (props: StepsProps) => {
           iconContent = <CloseOutlined className={`${itemIconCls}-error`} />;
           break;
         default: {
-          let numNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+          let numNode = <span className={`${itemIconCls}-number`}>{mappedIndex + 1}</span>;
 
           if (status === 'process' && mergedPercent !== undefined) {
             numNode = (
@@ -361,14 +487,14 @@ const Steps = (props: StepsProps) => {
     // Custom Render Props
     if (iconRender) {
       iconNode = iconRender(iconNode, {
-        index,
+        index: mappedIndex,
         active,
         item,
         components: { Icon: StepIcon },
       });
     } else if (isFunction(legacyProgressDotRender)) {
       iconNode = legacyProgressDotRender(iconNode, {
-        index,
+        index: mappedIndex,
         ...(item as Required<typeof item>),
       });
     }
@@ -425,8 +551,8 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-${mergedType}`]: mergedType !== 'dot' ? mergedType : false,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: isDot,
-      [`${prefixCls}-ellipsis`]: mergedEllipsis,
-      [`${prefixCls}-label-${mergedLabelDisplay}`]: mergedLabelDisplay !== 'auto',
+      [`${prefixCls}-ellipsis`]: ellipsis,
+      [`${prefixCls}-max-count`]: canApplyMaxCount,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-small`]: mergedSize === 'small',
     },
@@ -439,7 +565,6 @@ const Steps = (props: StepsProps) => {
   // =========================== Warning ============================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Steps');
-    const isExplicitVertical = (orientation || direction) === 'vertical';
 
     warning.deprecated(!labelPlacement, 'labelPlacement', 'titlePlacement');
     warning.deprecated(!progressDot, 'progressDot', 'type="dot"');
@@ -450,16 +575,19 @@ const Steps = (props: StepsProps) => {
       'items.content',
     );
     warning(
-      labelDisplay === 'auto' || (supportLabelDisplayType && !isExplicitVertical),
+      !isNumber(mergedMaxCount) || mergedMaxCount >= 3,
       'usage',
-      '`labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
-    );
-    warning(
-      !(mergedLabelDisplay !== 'auto' && ellipsis),
-      'usage',
-      '`ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
+      '`maxCount` should be greater than or equal to 3.',
     );
   }
+
+  const handleDisplayChange = (displayCurrent: number) => {
+    const target = displaySteps[displayCurrent];
+    if (!onChange || !target || target.originIndex < 0) {
+      return;
+    }
+    onChange(initial + target.originIndex);
+  };
 
   // ============================ Render ============================
   return (
@@ -476,9 +604,10 @@ const Steps = (props: StepsProps) => {
       titlePlacement={mergedTitlePlacement}
       components={components}
       // Data
-      current={current}
-      items={mergedItems}
-      onChange={onChange}
+      initial={0}
+      current={mappedDisplayCurrent}
+      items={displaySteps.map((step) => step.item)}
+      onChange={onChange ? handleDisplayChange : undefined}
       // Render
       iconRender={internalIconRender}
       itemRender={itemRender}
