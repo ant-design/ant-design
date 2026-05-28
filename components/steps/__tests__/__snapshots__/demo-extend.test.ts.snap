@@ -3177,7 +3177,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
 
 exports[`renders components/steps/demo/inline-variant.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/steps/demo/label-display.tsx extend context correctly 1`] = `
+exports[`renders components/steps/demo/max-count.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
   style="display: flex;"
@@ -3190,15 +3190,15 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
         class="ant-typography css-var-test-id"
       >
         <strong>
-          auto
+          Current: 0
         </strong>
       </span>
       <div
-        class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
+        class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-max-count css-var-test-id"
         style="--ant-cmp-steps-items-offset: 0;"
       >
         <div
-          class="ant-steps-item ant-steps-item-finish"
+          class="ant-steps-item ant-steps-item-process ant-steps-item-active"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3207,23 +3207,9 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
               class="ant-steps-item-icon ant-wave-target"
             >
               <span
-                aria-label="check"
-                class="anticon anticon-check ant-steps-item-icon-finish"
-                role="img"
+                class="ant-steps-item-icon-number"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="check"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                  />
-                </svg>
+                1
               </span>
             </div>
             <div
@@ -3235,22 +3221,17 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Prepare and verify all required deployment configuration files
+                  Step 1
                 </div>
                 <div
-                  class="ant-steps-item-rail ant-steps-item-rail-process"
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
                 />
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Check all environment values and make sure dependencies are ready.
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+          class="ant-steps-item ant-steps-item-wait"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3273,16 +3254,11 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Run migration and data validation before service cutover
+                  Step 2
                 </div>
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-wait"
                 />
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Migration and verification should be completed before release.
               </div>
             </div>
           </div>
@@ -3311,13 +3287,70 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Monitor the release and handle rollback if any issue appears
+                  Step 3
                 </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                />
               </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              ...
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
               <div
-                class="ant-steps-item-content"
+                class="ant-steps-item-header"
               >
-                Observe metrics and logs after the release.
+                <div
+                  class="ant-steps-item-title"
+                >
+                  ...
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-wait"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              <span
+                class="ant-steps-item-icon-number"
+              >
+                7
+              </span>
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
+              <div
+                class="ant-steps-item-header"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  Step 7
+                </div>
               </div>
             </div>
           </div>
@@ -3333,11 +3366,11 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
         class="ant-typography css-var-test-id"
       >
         <strong>
-          wrap
+          Current: 3
         </strong>
       </span>
       <div
-        class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-label-wrap css-var-test-id"
+        class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-max-count css-var-test-id"
         style="--ant-cmp-steps-items-offset: 0;"
       >
         <div
@@ -3378,16 +3411,40 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Prepare and verify all required deployment configuration files
+                  Step 1
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              ...
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
+              <div
+                class="ant-steps-item-header"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  ...
                 </div>
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-process"
                 />
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Check all environment values and make sure dependencies are ready.
               </div>
             </div>
           </div>
@@ -3404,7 +3461,7 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
               <span
                 class="ant-steps-item-icon-number"
               >
-                2
+                4
               </span>
             </div>
             <div
@@ -3416,16 +3473,40 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Run migration and data validation before service cutover
+                  Step 4
                 </div>
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-wait"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              ...
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
               <div
-                class="ant-steps-item-content"
+                class="ant-steps-item-header"
               >
-                Migration and verification should be completed before release.
+                <div
+                  class="ant-steps-item-title"
+                >
+                  ...
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                />
               </div>
             </div>
           </div>
@@ -3442,7 +3523,7 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
               <span
                 class="ant-steps-item-icon-number"
               >
-                3
+                7
               </span>
             </div>
             <div
@@ -3454,13 +3535,8 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Monitor the release and handle rollback if any issue appears
+                  Step 7
                 </div>
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Observe metrics and logs after the release.
               </div>
             </div>
           </div>
@@ -3476,11 +3552,11 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
         class="ant-typography css-var-test-id"
       >
         <strong>
-          scroll
+          Current: 6
         </strong>
       </span>
       <div
-        class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-label-scroll css-var-test-id"
+        class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-max-count css-var-test-id"
         style="--ant-cmp-steps-items-offset: 0;"
       >
         <div
@@ -3521,16 +3597,134 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Prepare and verify all required deployment configuration files
+                  Step 1
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              ...
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
+              <div
+                class="ant-steps-item-header"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  ...
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-finish"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-finish"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              <span
+                aria-label="check"
+                class="anticon anticon-check ant-steps-item-icon-finish"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="check"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
+              <div
+                class="ant-steps-item-header"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  Step 5
+                </div>
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-finish"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-steps-item ant-steps-item-finish"
+        >
+          <div
+            class="ant-steps-item-wrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target"
+            >
+              <span
+                aria-label="check"
+                class="anticon anticon-check ant-steps-item-icon-finish"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="check"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="ant-steps-item-section"
+            >
+              <div
+                class="ant-steps-item-header"
+              >
+                <div
+                  class="ant-steps-item-title"
+                >
+                  Step 6
                 </div>
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-process"
                 />
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Check all environment values and make sure dependencies are ready.
               </div>
             </div>
           </div>
@@ -3547,7 +3741,7 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
               <span
                 class="ant-steps-item-icon-number"
               >
-                2
+                7
               </span>
             </div>
             <div
@@ -3559,51 +3753,8 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
                 <div
                   class="ant-steps-item-title"
                 >
-                  Run migration and data validation before service cutover
+                  Step 7
                 </div>
-                <div
-                  class="ant-steps-item-rail ant-steps-item-rail-wait"
-                />
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Migration and verification should be completed before release.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-steps-item ant-steps-item-wait"
-        >
-          <div
-            class="ant-steps-item-wrapper"
-          >
-            <div
-              class="ant-steps-item-icon ant-wave-target"
-            >
-              <span
-                class="ant-steps-item-icon-number"
-              >
-                3
-              </span>
-            </div>
-            <div
-              class="ant-steps-item-section"
-            >
-              <div
-                class="ant-steps-item-header"
-              >
-                <div
-                  class="ant-steps-item-title"
-                >
-                  Monitor the release and handle rollback if any issue appears
-                </div>
-              </div>
-              <div
-                class="ant-steps-item-content"
-              >
-                Observe metrics and logs after the release.
               </div>
             </div>
           </div>
@@ -3614,7 +3765,7 @@ exports[`renders components/steps/demo/label-display.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/steps/demo/label-display.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/steps/demo/max-count.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/nav.tsx extend context correctly 1`] = `
 <div

@@ -185,84 +185,99 @@ describe('Steps', () => {
     });
   });
 
-  it('supports wrap and scroll labelDisplay in horizontal steps', () => {
-    const { container: wrapContainer } = render(
+  it('collapses hidden ranges into ellipsis steps when maxCount is set', () => {
+    const { container } = render(
       <Steps
-        responsive={false}
-        labelDisplay="wrap"
-        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+        current={3}
+        maxCount={5}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
       />,
     );
-    expect(wrapContainer.querySelector('.ant-steps-label-wrap')).toBeTruthy();
 
-    const { container: scrollContainer } = render(
-      <Steps
-        responsive={false}
-        labelDisplay="scroll"
-        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
-      />,
-    );
-    expect(scrollContainer.querySelector('.ant-steps-label-scroll')).toBeTruthy();
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(5);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(2);
+    expect(
+      container.querySelector('.ant-steps-item-active .ant-steps-item-title')?.textContent,
+    ).toBe('Step 4');
   });
 
-  it('ignores ellipsis when labelDisplay is wrap or scroll', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('maps onChange to original item index when maxCount is set', () => {
+    const onChange = jest.fn();
 
     const { container } = render(
       <Steps
-        responsive={false}
-        labelDisplay="wrap"
-        ellipsis
-        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+        current={3}
+        maxCount={5}
+        onChange={onChange}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
       />,
     );
 
-    expect(container.querySelector('.ant-steps-ellipsis')).toBeFalsy();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Steps] `ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
+    const target = Array.from(container.querySelectorAll('.ant-steps-item-title')).find(
+      (node) => node.textContent === 'Step 7',
     );
-
-    errorSpy.mockRestore();
+    expect(target).toBeTruthy();
+    fireEvent.click(target!);
+    expect(onChange).toHaveBeenCalledWith(6);
   });
 
-  it('falls back to auto labelDisplay for unsupported type', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('keeps initial offset when maxCount is set', () => {
+    const onChange = jest.fn();
 
     const { container } = render(
       <Steps
-        responsive={false}
-        type="navigation"
-        labelDisplay="scroll"
-        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+        initial={2}
+        current={5}
+        maxCount={5}
+        onChange={onChange}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
       />,
     );
 
-    expect(container.querySelector('.ant-steps-label-scroll')).toBeFalsy();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Steps] `labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
+    const target = Array.from(container.querySelectorAll('.ant-steps-item-title')).find(
+      (node) => node.textContent === 'Step 7',
     );
-
-    errorSpy.mockRestore();
+    expect(target).toBeTruthy();
+    fireEvent.click(target!);
+    expect(onChange).toHaveBeenCalledWith(8);
   });
 
-  it('should not warn ellipsis ignored when labelDisplay falls back to auto', () => {
+  it('warns when maxCount is less than 3', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Steps
-        responsive={false}
-        type="navigation"
-        labelDisplay="scroll"
-        ellipsis
+        maxCount={2}
         items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
       />,
     );
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Steps] `labelDisplay` only works in horizontal `type="default"` or `type="dot"` Steps.',
-    );
-    expect(errorSpy).not.toHaveBeenCalledWith(
-      'Warning: [antd: Steps] `ellipsis` will be ignored when `labelDisplay` is `wrap` or `scroll`.',
+      'Warning: [antd: Steps] `maxCount` should be greater than or equal to 3.',
     );
 
     errorSpy.mockRestore();
