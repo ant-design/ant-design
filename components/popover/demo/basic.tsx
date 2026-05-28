@@ -9,7 +9,7 @@ const content = (
 );
 
 const App: React.FC = () => (
-  <Popover content={content} open title="Title" color="rgba(0, 0, 0, 0.56)">
+  <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
   </Popover>
 );
