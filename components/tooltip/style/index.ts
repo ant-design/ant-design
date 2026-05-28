@@ -48,7 +48,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     tooltipBorderRadius,
     zIndexPopup,
     controlHeight,
-    overlayFilter,
+    dropShadowPopup,
     paddingSM,
     paddingXS,
     arrowOffsetHorizontal,
@@ -99,7 +99,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        filter: overlayFilter,
+        filter: dropShadowPopup,
 
         ...sharedTransformOrigin,
 
@@ -185,7 +185,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         ...sharedTransformOrigin,
         position: 'absolute',
         zIndex: calc(zIndexPopup).sub(1).equal(),
-        filter: overlayFilter,
+        filter: dropShadowPopup,
 
         '&-hidden': {
           display: 'none',
