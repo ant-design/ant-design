@@ -157,7 +157,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color')),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
 
     // Pure Render
     {

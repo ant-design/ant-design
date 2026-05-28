@@ -167,7 +167,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color')),
+    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
 
     // Pure Render
     {
