@@ -1,5 +1,4 @@
 import type * as React from 'react';
-import type { Reference } from '@rc-component/table';
 import type {
   ExpandableConfig,
   FixedType,
@@ -7,7 +6,8 @@ import type {
   GetRowKey,
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
-} from '@rc-component/table/lib/interface';
+  Reference,
+} from '@rc-component/table';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';

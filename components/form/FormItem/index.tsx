@@ -1,8 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { InternalNamePath, Meta, RuleObject } from '@rc-component/form/lib/interface';
+import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
 import { supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -77,7 +76,9 @@ const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
 );
 
 export interface FormItemProps<Values = any>
-  extends Omit<FormItemLabelProps, 'requiredMark'>, FormItemInputProps, RcFieldProps<Values> {
+  extends Omit<FormItemLabelProps, 'requiredMark'>,
+    FormItemInputProps,
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
