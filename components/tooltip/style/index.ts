@@ -196,11 +196,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         },
       },
     },
-    {
-      [`${componentCls}>${componentCls}-arrow::after`]: {
-        boxShadow: 'none',
-      },
-    },
   ];
 };
 

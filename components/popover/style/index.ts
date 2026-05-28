@@ -168,11 +168,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         display: 'inline-block',
       },
     },
-    {
-      [`${componentCls}>${componentCls}-arrow::after`]: {
-        boxShadow: 'none',
-      },
-    },
   ];
 };
 
