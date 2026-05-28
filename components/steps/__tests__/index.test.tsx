@@ -225,6 +225,29 @@ describe('Steps', () => {
     ).toBe('Step 4');
   });
 
+  it('preserves hidden error status in collapsed ellipsis step', () => {
+    const { container } = render(
+      <Steps
+        current={6}
+        maxCount={5}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3', status: 'error' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-error'),
+    ).toHaveLength(1);
+  });
+
   it('maps onChange to original item index when maxCount is set', () => {
     const onChange = jest.fn();
 

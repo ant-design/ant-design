@@ -377,13 +377,14 @@ const Steps = (props: StepsProps) => {
         if (isNumber(prevIndex) && isNumber(nextIndex)) {
           const hiddenStart = prevIndex + 1;
           const hiddenEnd = nextIndex - 1;
+          const hiddenSteps = mergedItems.slice(hiddenStart, hiddenEnd + 1);
 
-          if (hiddenEnd < mappedCurrent) {
+          if (hiddenSteps.some((step) => step.status === 'error')) {
+            ellipsisStatus = 'error';
+          } else if (hiddenEnd < mappedCurrent) {
             ellipsisStatus = 'finish';
-          } else if (hiddenStart > mappedCurrent) {
-            ellipsisStatus = 'wait';
           } else {
-            ellipsisStatus = 'process';
+            ellipsisStatus = 'wait';
           }
         }
 
