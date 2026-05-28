@@ -266,6 +266,58 @@ describe('Steps', () => {
     expect(onChange).toHaveBeenCalledWith(8);
   });
 
+  it('shows first/current/last when maxCount is 3', () => {
+    const { container } = render(
+      <Steps
+        current={3}
+        maxCount={3}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item-title')).toHaveLength(3);
+    expect(
+      Array.from(container.querySelectorAll('.ant-steps-item-title')).map(
+        (node) => node.textContent,
+      ),
+    ).toEqual(['Step 1', 'Step 4', 'Step 7']);
+  });
+
+  it('shows boundary ellipsis when maxCount is 3 and current is at start', () => {
+    const { container } = render(
+      <Steps
+        current={0}
+        maxCount={3}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll('.ant-steps-item-title')).map(
+        (node) => node.textContent,
+      ),
+    ).toEqual(['Step 1', '...', 'Step 7']);
+  });
+
   it('warns when maxCount is less than 3', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

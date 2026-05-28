@@ -156,10 +156,6 @@ function getRange(start: number, end: number): number[] {
 }
 
 function getTokenCount(total: number, start: number, end: number): number {
-  if (total <= 1) {
-    return total;
-  }
-
   const middleLen = start <= end ? end - start + 1 : 0;
   const hasLeftGap = middleLen > 0 ? start > 1 : total > 2;
   const hasRightGap = middleLen > 0 ? end < total - 2 : false;
@@ -172,15 +168,7 @@ function getCollapsedIndexes(
   currentIndex: number,
   maxCount: number,
 ): Array<number | null> {
-  if (total <= maxCount) {
-    return getRange(0, total - 1);
-  }
-
   const safeCurrent = Math.min(Math.max(currentIndex, 0), total - 1);
-
-  if (maxCount <= 2) {
-    return Array.from(new Set([0, safeCurrent, total - 1])).slice(0, maxCount);
-  }
 
   const pivot = Math.min(Math.max(safeCurrent, 1), total - 2);
   let start = pivot;
@@ -583,10 +571,9 @@ const Steps = (props: StepsProps) => {
 
   const handleDisplayChange = (displayCurrent: number) => {
     const target = displaySteps[displayCurrent];
-    if (!onChange || !target || target.originIndex < 0) {
-      return;
+    if (onChange && target && target.originIndex >= 0) {
+      onChange(initial + target.originIndex);
     }
-    onChange(initial + target.originIndex);
   };
 
   // ============================ Render ============================
