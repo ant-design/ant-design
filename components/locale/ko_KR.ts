@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ko_KR';
+import Pagination from '@rc-component/pagination/locale/ko_KR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ko_KR';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '선택하세요',
     close: '닫기',
+    show: '표시',
+    hide: '숨기기',
   },
   Table: {
     filterTitle: '필터 메뉴',

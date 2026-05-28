@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/et_EE';
+import Pagination from '@rc-component/pagination/locale/et_EE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/et_EE';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Palun vali',
     close: 'Sulge',
+    show: 'Näita',
+    hide: 'Peida',
   },
   Table: {
     filterTitle: 'Filtri menüü',

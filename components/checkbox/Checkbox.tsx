@@ -1,13 +1,12 @@
 import * as React from 'react';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
-import { useControlledState, useEvent } from '@rc-component/util';
-import { useComposeRef } from '@rc-component/util/lib/ref';
+import { useComposeRef, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable } from '../_util/is';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -57,32 +56,25 @@ export interface CheckboxChangeEvent {
   preventDefault: () => void;
   nativeEvent: MouseEvent;
 }
-
-export type CheckboxSemanticName = keyof CheckboxSemanticClassNames & keyof CheckboxSemanticStyles;
-
-export type CheckboxSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  label?: string;
+export type CheckboxSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    label?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    label?: React.CSSProperties;
+  };
 };
 
-export type CheckboxSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  label?: React.CSSProperties;
-};
-
-export type CheckboxClassNamesType = SemanticClassNamesType<
-  CheckboxProps,
-  CheckboxSemanticClassNames
->;
-
-export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSemanticStyles>;
+export type CheckboxSemanticAllType = GenerateSemantic<CheckboxSemanticType, CheckboxProps>;
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
-  classNames?: CheckboxClassNamesType;
-  styles?: CheckboxStylesType;
+  classNames?: CheckboxSemanticAllType['classNamesAndFn'];
+  styles?: CheckboxSemanticAllType['stylesAndFn'];
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
@@ -197,13 +189,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checked: mergedChecked,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CheckboxClassNamesType,
-    CheckboxStylesType,
-    CheckboxProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const classString = clsx(
     `${prefixCls}-wrapper`,
@@ -254,7 +246,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           ref={mergedRef}
           value={value}
         />
-        {isNonNullable(children) && (
+        {isReactRenderable(children) && (
           <span
             className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}

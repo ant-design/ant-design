@@ -1,10 +1,8 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { InternalNamePath, Meta, RuleObject } from '@rc-component/form/lib/interface';
-import { supportRef } from '@rc-component/util';
-import useState from '@rc-component/util/lib/hooks/useState';
+import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
+import { supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isNonNullable, isPlainObject } from '../../_util/is';

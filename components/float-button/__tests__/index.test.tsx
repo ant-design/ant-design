@@ -39,6 +39,17 @@ describe('FloatButton', () => {
     rerender(<FloatButton shape={squareShape} />);
     expect(container.querySelector(`.ant-float-btn-${squareShape}`)).toBeTruthy();
   });
+  it('support disabled', () => {
+    const { container, rerender } = render(<FloatButton />);
+    const button = container.querySelector('button')!;
+    expect(button.disabled).toBe(false);
+
+    rerender(<FloatButton disabled />);
+    expect(button.disabled).toBe(true);
+
+    rerender(<FloatButton disabled={false} />);
+    expect(button.disabled).toBe(false);
+  });
   it('support onClick & onMouseEnter & onMouseLeave', () => {
     const onClick = jest.fn();
     const onMouseEnter = jest.fn();

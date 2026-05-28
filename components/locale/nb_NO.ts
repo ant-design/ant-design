@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/nb_NO';
+import Pagination from '@rc-component/pagination/locale/nb_NO';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/nb_NO';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vennligst velg',
     close: 'Lukk',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermeny',

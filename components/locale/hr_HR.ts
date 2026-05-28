@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/hr_HR';
+import Pagination from '@rc-component/pagination/locale/hr_HR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/hr_HR';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Molimo označite',
     close: 'Zatvori',
+    show: 'Prikaži',
+    hide: 'Sakrij',
   },
   Table: {
     filterTitle: 'Filter meni',

@@ -1,15 +1,14 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import type { InputFocusOptions } from '@rc-component/util/lib/Dom/focus';
-import { triggerFocus } from '@rc-component/util/lib/Dom/focus';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, triggerFocus } from '@rc-component/util';
+import type { InputFocusOptions } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useAllowClear } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -30,39 +29,37 @@ export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
 
-export type InputSemanticName = keyof InputSemanticClassNames & keyof InputSemanticStyles;
-
-export type InputSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  count?: string;
+export type InputSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    clear?: string;
+    input?: string;
+    count?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    input?: React.CSSProperties;
+    count?: React.CSSProperties;
+  };
 };
 
-export type InputSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  count?: React.CSSProperties;
-};
+export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export type InputClassNamesType = SemanticClassNamesType<InputProps, InputSemanticClassNames>;
-
-export type InputStylesType = SemanticStylesType<InputProps, InputSemanticStyles>;
-
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    | 'wrapperClassName'
-    | 'groupClassName'
-    | 'inputClassName'
-    | 'affixWrapperClassName'
-    | 'classes'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  | 'wrapperClassName'
+  | 'groupClassName'
+  | 'inputClassName'
+  | 'affixWrapperClassName'
+  | 'classes'
+  | 'classNames'
+  | 'styles'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
@@ -102,8 +99,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: InputClassNamesType;
-  styles?: InputStylesType;
+  classNames?: InputSemanticAllType['classNamesAndFn'];
+  styles?: InputSemanticAllType['stylesAndFn'];
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -177,13 +174,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputClassNamesType,
-    InputStylesType,
-    InputProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -193,7 +190,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
   const prevHasPrefixSuffixRef = useRef<boolean>(inputHasPrefixSuffix);
 
-  /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
@@ -209,7 +205,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prevHasPrefixSuffixRef.current = inputHasPrefixSuffix;
     }, [inputHasPrefixSuffix]);
   }
-  /* eslint-enable */
 
   // ===================== Remove Password value =====================
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
@@ -236,7 +231,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const mergedAllowClear = useAllowClear({ allowClear, contextAllowClear, componentName: 'Input' });
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 

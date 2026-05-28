@@ -5,12 +5,12 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { ClosableType, SemanticType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -20,8 +20,10 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
+export type AlertVariant = 'outlined' | 'filled';
+
 export type AlertSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     section?: string;
@@ -30,7 +32,7 @@ export type AlertSemanticType = {
     actions?: string;
     close?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     section?: React.CSSProperties;
@@ -40,12 +42,16 @@ export type AlertSemanticType = {
     close?: React.CSSProperties;
   };
 };
-export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classNames']>;
-export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>;
+export type AlertSemanticAllType = GenerateSemantic<AlertSemanticType, AlertProps>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
+  /**
+   * Variant of Alert style
+   * @since 6.4.0
+   */
+  variant?: AlertVariant;
   /** Whether Alert can be closed */
   closable?:
     | boolean
@@ -82,8 +88,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: AlertClassNamesType;
-  styles?: AlertStylesType;
+  classNames?: AlertSemanticAllType['classNamesAndFn'];
+  styles?: AlertSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
@@ -203,6 +209,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const {
     getPrefixCls,
     direction,
+    variant: contextVariant,
     closable: contextClosable,
     closeIcon: contextCloseIcon,
     className: contextClassName,
@@ -236,6 +243,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     return banner ? 'warning' : 'info';
   }, [props.type, banner]);
 
+  const mergedVariant = props.variant ?? contextVariant ?? 'outlined';
+
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
     if (isPlainObject(closable) && closable.closeIcon) {
@@ -262,22 +271,24 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const mergedProps: AlertProps = {
     ...props,
     prefixCls,
+    variant: mergedVariant,
     type,
     showIcon: isShowIcon,
     closable: isClosable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AlertClassNamesType,
-    AlertStylesType,
-    AlertProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const alertCls = clsx(
     prefixCls,
     `${prefixCls}-${type}`,
+    `${prefixCls}-${mergedVariant}`,
     {
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,

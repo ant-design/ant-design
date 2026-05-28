@@ -16,8 +16,7 @@ import type {
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-  TransferSemanticClassNames,
-  TransferSemanticStyles,
+  TransferSemanticAllType,
 } from './';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -66,8 +65,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: TransferSemanticClassNames;
-  styles: TransferSemanticStyles;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -232,7 +231,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       filterRenderItems.push(renderedItem);
     });
     return [filterItems, filterRenderItems] as const;
-  }, [dataSource, filterValue]);
+  }, [dataSource, filterValue, filterOption, direction]);
 
   const checkedActiveItems = useMemo<RecordType[]>(() => {
     return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
@@ -300,7 +299,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
+      disabled={!dataSource.some((d) => !d.disabled) || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${listPrefixCls}-checkbox`}

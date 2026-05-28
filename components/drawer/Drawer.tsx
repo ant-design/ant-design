@@ -1,15 +1,14 @@
 import * as React from 'react';
-import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
+import type { Placement, DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
-import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
-import useId from '@rc-component/util/lib/hooks/useId';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergedMask, useMergeSemantic, useZIndex } from '../_util/hooks';
+import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -17,7 +16,7 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
+import type { DrawerPanelProps } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 import type { FocusableConfig, OmitFocusType } from './useFocusable';
@@ -39,7 +38,8 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<
+  extends
+    Omit<
       RcDrawerProps,
       | 'maskStyle'
       | 'destroyOnClose'
@@ -125,6 +125,7 @@ const Drawer: React.FC<DrawerProps> & {
     classNames: contextClassNames,
     styles: contextStyles,
     mask: contextMask,
+    focusable: contextFocusable,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -192,7 +193,10 @@ const Drawer: React.FC<DrawerProps> & {
   );
 
   // ========================== Focusable =========================
-  const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
+  const mergedFocusable = useFocusable(
+    { ...contextFocusable, ...focusable },
+    getContainer !== false && mergedMask,
+  );
 
   // =========================== Render ===========================
   const { classNames, styles, rootStyle } = rest;
@@ -207,13 +211,13 @@ const Drawer: React.FC<DrawerProps> & {
     focusable: mergedFocusable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DrawerClassNamesType,
-    DrawerStylesType,
-    DrawerProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const drawerClassName = clsx(
     {

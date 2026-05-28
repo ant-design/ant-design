@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/el_GR';
+import Pagination from '@rc-component/pagination/locale/el_GR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/el_GR';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Παρακαλώ επιλέξτε',
     close: 'Κλείσιμο',
+    show: 'Εμφάνιση',
+    hide: 'Απόκρυψη',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',

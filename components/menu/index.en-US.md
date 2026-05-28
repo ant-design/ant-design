@@ -36,6 +36,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
+<code src="./demo/extra-collapsed-debug.tsx" debug>Extra collapsed debug</code>
 <code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
 <code src="./demo/collapsed-icon-debug.tsx" debug>Collapsed menu icon alignment</code>
 
@@ -104,7 +105,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
+| theme | Color theme of the SubMenu (inherits from Menu by default) | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 | popupRender | Custom popup renderer for current sub-menu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
 

@@ -17,7 +17,7 @@
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
 | ~~overlayClassName~~ | Class name of the tooltip card, please use `classNames.root` instead | string | - |  |
 | ~~overlayStyle~~ | Style of the tooltip card, please use `styles.root` | React.CSSProperties | - |  |
-| ~~overlayInnerStyle~~ | Style of the tooltip inner content, please use `styles.body` | React.CSSProperties | - |  |
+| ~~overlayInnerStyle~~ | Style of the tooltip inner content, please use `styles.container` instead | React.CSSProperties | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |

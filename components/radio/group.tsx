@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { useControlledState } from '@rc-component/util';
-import useId from '@rc-component/util/lib/hooks/useId';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';

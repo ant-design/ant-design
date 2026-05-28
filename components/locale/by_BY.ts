@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/by_BY';
+import Pagination from '@rc-component/pagination/locale/by_BY';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/by_BY';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Калі ласка, выберыце',
     close: 'Закрыць',
+    show: 'Паказаць',
+    hide: 'Схаваць',
   },
   Table: {
     filterTitle: 'Фільтр',

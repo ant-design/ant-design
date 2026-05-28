@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/pt_BR';
+import Pagination from '@rc-component/pagination/locale/pt_BR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/pt_BR';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Por favor escolha',
     close: 'Fechar',
+    show: 'Mostrar',
+    hide: 'Ocultar',
   },
   Table: {
     filterTitle: 'Menu de Filtro',

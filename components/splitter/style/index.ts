@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -197,7 +198,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
           background: 'transparent',
         },
 
-        '&:hover, &:active': {
+        '&:hover, &:active, &:focus-within': {
           [`${splitBarCls}-collapse-bar-hover-only`]: {
             opacity: 1,
           },
@@ -371,6 +372,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
 
         [`&:has(${componentCls}:only-child)`]: {
           overflow: 'hidden',
+        },
+
+        '&-transition': {
+          transition: `flex-basis ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ...genNoMotionStyle(),
         },
       },
     },

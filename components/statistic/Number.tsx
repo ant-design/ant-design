@@ -6,10 +6,21 @@ import type { FormatConfig, valueType } from './utils';
 interface NumberProps extends FormatConfig {
   value: valueType;
   prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const StatisticNumber: React.FC<NumberProps> = (props) => {
-  const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props;
+  const {
+    value,
+    formatter,
+    precision,
+    decimalSeparator,
+    groupSeparator = '',
+    prefixCls,
+    className,
+    style,
+  } = props;
 
   let valueNode: React.ReactNode;
 
@@ -53,7 +64,15 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
     }
   }
 
-  return <span className={`${prefixCls}-content-value`}>{valueNode}</span>;
+  return (
+    <span className={className} style={style}>
+      {valueNode}
+    </span>
+  );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  StatisticNumber.displayName = 'StatisticNumber';
+}
 
 export default StatisticNumber;

@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/zh_CN';
+import Pagination from '@rc-component/pagination/locale/zh_CN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_CN';
@@ -18,6 +18,8 @@ const localeValues: Locale = {
     placeholder: '请选择',
     close: '关闭',
     sortable: '可排序',
+    show: '显示',
+    hide: '隐藏',
   },
   Table: {
     filterTitle: '筛选',

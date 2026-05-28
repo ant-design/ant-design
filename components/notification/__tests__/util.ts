@@ -22,8 +22,7 @@ export async function triggerMotionEnd(runAllTimers = true) {
   //   fireEvent.animationEnd(ele);
   // });
   document.querySelectorAll('[role="alert"]').forEach((ele) => {
-    // close > notice > notice-wrapper
-    fireEvent.animationEnd(ele.parentNode?.parentNode?.parentNode!);
+    fireEvent.animationEnd(ele.closest('.ant-notification-notice') || ele);
   });
 
   await awaitPromise();

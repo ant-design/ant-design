@@ -55,7 +55,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - |  |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - |  |
-| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode, disabled?: boolean } | - | disabled: 6.4.0 |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | 4.5.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
@@ -116,6 +116,7 @@ interface CountConfig {
 | loading | 搜索 loading | boolean | false |  |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-search) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search) , CSSProperties> | - |  |
+| searchIcon | 自定义搜索图标 | ReactNode | - | 6.4.0 |
 
 其余属性和 Input 一致。
 
@@ -208,4 +209,4 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 ### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？ {#faq-textarea-exceed-max}
 
-受控时，组件应该按照受控内容展示。以防止在表单组件内使用时显示值和提交值不同的问题。
+受控时，组件应该按照受控内容展示，这是为了防止在表单组件内使用时显示值和提交值不一致的问题。

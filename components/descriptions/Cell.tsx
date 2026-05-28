@@ -1,11 +1,10 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
-import { useMergeSemantic } from '../_util/hooks';
-import { isNonNullable } from '../_util/is';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isReactRenderable } from '../_util/is';
+import type { CellSemanticType } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
-import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -17,8 +16,8 @@ export interface CellProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  classNames?: CellSemanticClassNames;
-  styles?: CellSemanticStyles;
+  classNames?: CellSemanticType['classNames'];
+  styles?: CellSemanticType['styles'];
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -49,13 +48,13 @@ const Cell: React.FC<CellProps> = (props) => {
   const { classNames: contextClassNames, styles: contextStyles } =
     React.useContext(DescriptionsContext);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DescriptionsClassNamesType,
-    DescriptionsStylesType,
-    CellProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...mergedStyles.label };
   const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
@@ -71,8 +70,8 @@ const Cell: React.FC<CellProps> = (props) => {
           [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
-        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
-        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
+        {isReactRenderable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isReactRenderable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
@@ -80,7 +79,7 @@ const Cell: React.FC<CellProps> = (props) => {
   return (
     <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
-        {isNonNullable(label) && (
+        {isReactRenderable(label) && (
           <span
             style={mergedLabelStyle}
             className={clsx(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
@@ -90,7 +89,7 @@ const Cell: React.FC<CellProps> = (props) => {
             {label}
           </span>
         )}
-        {isNonNullable(content) && (
+        {isReactRenderable(content) && (
           <span
             style={mergedContentStyle}
             className={clsx(`${itemPrefixCls}-item-content`, mergedClassNames.content)}

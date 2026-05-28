@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ValidateMessages } from '@rc-component/form/lib/interface';
+import type { ValidateMessages } from '@rc-component/form';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import ConfigProvider from '..';
@@ -226,6 +226,34 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-form-item-no-colon')).toBeFalsy();
+    });
+  });
+
+  describe('form labelAlign', () => {
+    it('set labelAlign left', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeTruthy();
+    });
+
+    it('form labelAlign should override ConfigProvider labelAlign', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form labelAlign="right">
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeFalsy();
     });
   });
 

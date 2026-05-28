@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import Divider from '..';
+import type { TitlePlacement } from '..';
 import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { TitlePlacement } from '../index';
 
 describe('Divider', () => {
   mountTest(Divider);

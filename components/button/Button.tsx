@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -29,26 +28,20 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles;
-
-export type ButtonSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type ButtonSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type ButtonSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ButtonClassNamesType = SemanticClassNamesType<
-  BaseButtonProps,
-  ButtonSemanticClassNames
->;
-
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
+export type ButtonSemanticAllType = GenerateSemantic<ButtonSemanticType, BaseButtonProps>;
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -70,8 +63,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonClassNamesType;
-  styles?: ButtonStylesType;
+  classNames?: ButtonSemanticAllType['classNamesAndFn'];
+  styles?: ButtonSemanticAllType['stylesAndFn'];
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
@@ -194,9 +187,17 @@ const InternalCompoundedButton = React.forwardRef<
       return colorVariantPair;
     }
 
+    if (variant === 'solid') {
+      return ['primary', variant];
+    }
+
     // >>> Context fallback
     if (contextColor && contextVariant) {
       return [contextColor, contextVariant];
+    }
+
+    if (contextVariant === 'solid') {
+      return ['primary', contextVariant];
     }
 
     return ['default', 'outlined'];
@@ -357,11 +358,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ButtonClassNamesType,
-    ButtonStylesType,
-    ButtonProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     { props: mergedProps },
@@ -445,7 +442,7 @@ const InternalCompoundedButton = React.forwardRef<
     iconNode = defaultLoadingIconElement;
   }
 
-  const contentNode = isNonNullable(children)
+  const contentNode = isReactRenderable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,

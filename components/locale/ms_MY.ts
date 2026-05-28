@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ms_MY';
+import Pagination from '@rc-component/pagination/locale/ms_MY';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ms_MY';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Sila pilih',
     close: 'Tutup',
+    show: 'Tunjukkan',
+    hide: 'Sembunyikan',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',

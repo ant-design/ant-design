@@ -1,0 +1,11 @@
+{
+  "serverInfo": {
+    "name": "Ant Design Documentation",
+    "version": "1.0.0"
+  },
+  "description": "Ant Design is a React UI library providing 80+ enterprise-class components. Access component documentation, design tokens, theme customization, and migration guides.",
+  "url": "https://ant.design",
+  "capabilities": {
+    "tools": false
+  }
+}

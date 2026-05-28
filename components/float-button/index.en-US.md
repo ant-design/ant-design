@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | target | Specifies where to display the linked URL | string | - |  |
 | htmlType | Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type) | `submit` \| `reset` \| `button` | `button` | 5.21.0 |
 | badge | Attach Badge to FloatButton. `status` and other props related are not supported. | [BadgeProps](/components/badge#api) | - | 5.4.0 |
+| disabled | Whether the button is disabled | boolean | - | 6.4.0 |
 
 ### FloatButton.Group
 

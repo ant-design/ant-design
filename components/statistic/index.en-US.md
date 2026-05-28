@@ -66,17 +66,19 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| type | time counter down or up | `countdown` `countup` | - |  |
+| type | Timer direction, count down or count up | `countdown` \| `countup` | - |  |
 | format | Format as [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
 | prefix | The prefix node of value | ReactNode | - |  |
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
-| value | Set target countdown time | number | - |  |
+| value | Target time for `countdown`, or start time for `countup` (timestamp in ms) | number | - |  |
 | valueStyle | Set value section style | CSSProperties | - |  |
-| onFinish | Trigger when time's up, only to be called when type is `countdown` | () => void | - |  |
+| onFinish | Trigger when time's up, only called when type is `countdown` | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
 
 ## Semantic DOM
+
+Statistic supports `root`, `header`, `title`, `content`, `value`, `prefix`, and `suffix` semantic DOM nodes.
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { get, set } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { get, set, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPlainObject } from '../_util/is';
@@ -146,7 +145,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`} ref={extraRef}>
+    <div
+      {...extraProps}
+      className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}
+      style={contextStyles?.extra}
+      ref={extraRef}
+    >
       {extra}
     </div>
   ) : null;

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
+import type { SpaceSemanticAllType } from '.';
+import { isReactRenderable } from '../_util/is';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 
@@ -12,12 +13,8 @@ export interface ItemProps {
   index: number;
   separator?: React.ReactNode;
   style?: React.CSSProperties;
-  classNames?: {
-    separator?: string;
-  };
-  styles?: {
-    separator?: React.CSSProperties;
-  };
+  classNames?: SpaceSemanticAllType['classNames'];
+  styles?: SpaceSemanticAllType['styles'];
 }
 
 const Item: React.FC<ItemProps> = (props) => {
@@ -25,7 +22,7 @@ const Item: React.FC<ItemProps> = (props) => {
 
   const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
-  if (!isNonNullable(children)) {
+  if (!isReactRenderable(children)) {
     return null;
   }
 

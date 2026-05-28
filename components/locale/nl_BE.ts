@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/nl_BE';
+import Pagination from '@rc-component/pagination/locale/nl_BE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/nl_BE';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Maak een selectie',
     close: 'Sluiten',
+    show: 'Weergeven',
+    hide: 'Verbergen',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',

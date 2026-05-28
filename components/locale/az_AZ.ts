@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/az_AZ';
+import Pagination from '@rc-component/pagination/locale/az_AZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/az_AZ';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Zəhmət olmasa seçin',
     close: 'Bağla',
+    show: 'Göstər',
+    hide: 'Gizlət',
   },
   Table: {
     filterTitle: 'Filter menyu',

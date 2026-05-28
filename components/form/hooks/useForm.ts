@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { FormInstance as RcFormInstance } from '@rc-component/form';
 import { useForm as useRcForm } from '@rc-component/form';
-import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
+import { getDOM } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isFunction } from '../../_util/is';

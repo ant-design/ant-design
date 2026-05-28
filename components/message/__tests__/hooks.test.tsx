@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import message from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { triggerMotionEnd } from './util';
 
@@ -165,7 +165,7 @@ describe('message.hooks', () => {
     act(() => {
       hide!();
     });
-    await triggerMotionEnd('.my-test-message-move-up-leave');
+    await triggerMotionEnd('.my-test-message-fade-leave');
 
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
@@ -298,6 +298,7 @@ describe('message.hooks', () => {
       '--ant-font-size': '20px',
     });
   });
+
   it('classNames and styles should work', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
@@ -308,12 +309,12 @@ describe('message.hooks', () => {
           classNames: {
             root: 'custom-root',
             icon: 'custom-icon',
-            content: 'custom-content',
+            wrapper: 'custom-wrapper',
           },
           styles: {
             root: { color: 'rgb(255, 0, 0)' },
             icon: { fontSize: 20 },
-            content: { backgroundColor: 'rgb(0, 255, 0)' },
+            wrapper: { backgroundColor: 'rgb(0, 255, 0)' },
           },
         });
       }, []);
@@ -325,14 +326,14 @@ describe('message.hooks', () => {
 
     const root = document.querySelector('.custom-root');
     const icon = document.querySelector('.custom-icon');
-    const content = document.querySelector('.custom-content');
+    const wrapper = document.querySelector('.custom-wrapper');
 
     expect(root).toBeTruthy();
     expect(icon).toBeTruthy();
-    expect(content).toBeTruthy();
+    expect(wrapper).toBeTruthy();
     expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(icon).toHaveStyle({ fontSize: '20px' });
-    expect(content).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+    expect(wrapper).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
   });
 
   describe('Message component with pauseOnHover', () => {
@@ -365,30 +366,30 @@ describe('message.hooks', () => {
         </div>
       );
     };
-    it('should not pause the timer when pauseOnHover is true', async () => {
+
+    it('should pause the timer when pauseOnHover is true', async () => {
       render(<Demo pauseOnHover />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
-      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
-      await act(() => {
-        jest.runAllTimers();
-      });
-      // component is destroyed and hovers the component,clearTimeout calls exceeding 1
-      expect(clearTimeout).toHaveBeenCalledTimes(3);
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 188);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 187);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      await waitFakeTimer(16, 1);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
 
     it('should not pause the timer when pauseOnHover is false', async () => {
       render(<Demo pauseOnHover={false} />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
-      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
-      await act(() => {
-        jest.runAllTimers();
-      });
-      // when component is destroyed, clearTimeout calls only 1
-      expect(clearTimeout).toHaveBeenCalledTimes(1);
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 187);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      await waitFakeTimer(16, 1);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
   });
 });

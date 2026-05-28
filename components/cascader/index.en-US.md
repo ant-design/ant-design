@@ -116,6 +116,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
 | searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
+| searchIcon | Customize the search icon | ReactNode | - | 6.3.0 |
 
 ### Option
 

@@ -29,6 +29,9 @@ const App: React.FC = () => (
     >
       Request copy text.
     </Paragraph>
+    <Paragraph copyable actions={{ placement: 'start' }}>
+      Copy action at the start.
+    </Paragraph>
     <Text copyable={{ text: 'text to be copied' }} />
   </>
 );

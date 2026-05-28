@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
@@ -36,35 +36,28 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
   key?: React.Key;
 }
 
-export type DescriptionsSemanticName = keyof DescriptionsSemanticClassNames &
-  keyof DescriptionsSemanticStyles;
-
-export type DescriptionsSemanticClassNames = {
-  root?: string;
-  header?: string;
-  title?: string;
-  extra?: string;
-  label?: string;
-  content?: string;
+export type DescriptionsSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    title?: string;
+    extra?: string;
+    label?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type DescriptionsSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  title?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  label?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type DescriptionsClassNamesType = SemanticClassNamesType<
-  DescriptionsProps,
-  DescriptionsSemanticClassNames
->;
-
-export type DescriptionsStylesType = SemanticStylesType<
-  DescriptionsProps,
-  DescriptionsSemanticStyles
+export type DescriptionsSemanticAllType = GenerateSemantic<
+  DescriptionsSemanticType,
+  DescriptionsProps
 >;
 
 export interface DescriptionsProps {
@@ -94,8 +87,8 @@ export interface DescriptionsProps {
    * @deprecated use `styles.content` instead
    */
   contentStyle?: React.CSSProperties;
-  styles?: DescriptionsStylesType;
-  classNames?: DescriptionsClassNamesType;
+  classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
+  styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
   id?: string;
 }
@@ -146,12 +139,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     });
   }
   // Column count
+  // Mobile-first cascade: try the user-supplied map first (scanning large→small
+  // over cumulative min-width screens, so a lower breakpoint like `md` is still
+  // "active" on an `lg` viewport).  Only fall back to DEFAULT_COLUMN_MAP when
+  // no user-supplied breakpoint is active at all.
   const mergedColumn = React.useMemo(() => {
     if (isNumber(column)) {
       return column;
     }
 
-    return matchScreen(screens, { ...DEFAULT_COLUMN_MAP, ...column }) ?? 3;
+    return matchScreen(screens, column) ?? matchScreen(screens, DEFAULT_COLUMN_MAP) ?? 3;
   }, [screens, column]);
 
   // Items with responsive
@@ -170,13 +167,13 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DescriptionsClassNamesType,
-    DescriptionsStylesType,
-    DescriptionsProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ======================== Render ========================
   const memoizedValue = React.useMemo<DescriptionsContextProps>(
