@@ -1,6 +1,5 @@
 import React from 'react';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
-import { warning } from '@rc-component/util';
+import { spyElementPrototype, warning } from '@rc-component/util';
 
 import Popconfirm from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';

@@ -17,6 +17,7 @@ const steps = [
 ];
 
 const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      {contextHolder}
       <Steps current={current} items={items} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div style={{ marginTop: 24 }}>
@@ -51,7 +53,7 @@ const App: React.FC = () => {
           </Button>
         )}
         {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
+          <Button type="primary" onClick={() => messageApi.success('Processing complete!')}>
             Done
           </Button>
         )}

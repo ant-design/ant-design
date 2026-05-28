@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 import { pickClosable, useClosable } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isPlainObject } from '../_util/is';
+import { isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -106,7 +106,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     });
   }
   const mergedTitle = title ?? message;
-  const hasTitle = isNonNullable(mergedTitle) && mergedTitle !== false && mergedTitle !== '';
+  const hasTitle = isReactRenderable(mergedTitle) && mergedTitle !== '';
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
   const iconNode = icon || (type ? TypeIcon[type] : null);

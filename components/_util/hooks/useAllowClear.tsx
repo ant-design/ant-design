@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import type { BaseInputProps } from '@rc-component/input/lib/interface';
+import type { BaseInputProps } from '@rc-component/input';
 
 import fallbackProp from '../fallbackProp';
 import { isPlainObject } from '../is';
@@ -17,7 +17,7 @@ interface UseAllowClearOptions {
   componentName: string;
 }
 
-const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
+export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
   const {
     allowClear,
     clearIcon,
@@ -49,5 +49,3 @@ const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
     };
   }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
 };
-
-export default useAllowClear;
