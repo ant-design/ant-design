@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { FastColor } from '@ant-design/fast-color';
 
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
+import { getAsSolidColor } from './utils';
 
 const Simple: React.FC = () => {
   const [, token] = useToken();
@@ -11,20 +11,14 @@ const Simple: React.FC = () => {
 
   const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
 
-  const { borderColor, shadowColor, contentColor } = useMemo(() => {
-    const getAsSolidColor = (color: string, background: string) => {
-      if (color?.startsWith('var(') || background?.startsWith('var(')) {
-        return color;
-      }
-      return new FastColor(color).onBackground(background).toHexString();
-    };
-
-    return {
+  const { borderColor, shadowColor, contentColor } = useMemo(
+    () => ({
       borderColor: getAsSolidColor(colorFill, colorBgContainer),
       shadowColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
       contentColor: getAsSolidColor(colorFillQuaternary, colorBgContainer),
-    };
-  }, [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer]);
+    }),
+    [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
+  );
 
   return (
     <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">

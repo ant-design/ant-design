@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { FastColor } from '@ant-design/fast-color';
 
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
+import { getAsSolidColor } from './utils';
 
 const Empty: React.FC = () => {
   const [, token] = useToken();
@@ -17,22 +17,16 @@ const Empty: React.FC = () => {
     colorTextQuaternary,
   } = token;
 
-  const { panelBgColor, borderColor, detailColor, shadowColor, iconColor } = useMemo(() => {
-    const getAsSolidColor = (color: string, background: string) => {
-      if (color?.startsWith('var(') || background?.startsWith('var(')) {
-        return color;
-      }
-      return new FastColor(color).onBackground(background).toHexString();
-    };
-
-    return {
+  const { panelBgColor, borderColor, detailColor, shadowColor, iconColor } = useMemo(
+    () => ({
       panelBgColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
       borderColor: getAsSolidColor(colorTextQuaternary, colorBgContainer),
       detailColor: getAsSolidColor(colorFill, colorBgContainer),
       shadowColor: getAsSolidColor(colorFillSecondary, colorBgContainer),
       iconColor: colorBgContainer,
-    };
-  }, [colorBgContainer, colorFill, colorFillSecondary, colorFillTertiary, colorTextQuaternary]);
+    }),
+    [colorBgContainer, colorFill, colorFillSecondary, colorFillTertiary, colorTextQuaternary],
+  );
 
   return (
     <svg width="184" height="152" viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">
