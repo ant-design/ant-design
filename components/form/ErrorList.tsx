@@ -3,7 +3,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import { clsx } from 'clsx';
 
-import { isReactRenderable } from '../_util/is';
+import { isNonNullable } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -68,9 +68,10 @@ const ErrorList: React.FC<ErrorListProps> = ({
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
+  const hasHelp = isNonNullable(help) && help !== false;
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
-    if (isReactRenderable(help)) {
+    if (hasHelp) {
       return [toErrorEntity(help, 'help', helpStatus)];
     }
     return [
@@ -79,7 +80,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
         toErrorEntity(warning, 'warning', 'warning', index),
       ),
     ];
-  }, [help, helpStatus, debounceErrors, debounceWarnings]);
+  }, [help, helpStatus, hasHelp, debounceErrors, debounceWarnings]);
 
   const filledKeyFullKeyList = React.useMemo<ErrorEntity[]>(() => {
     const keysCount: Record<string, number> = {};
