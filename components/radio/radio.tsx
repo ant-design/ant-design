@@ -53,6 +53,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     title,
     classNames,
     styles,
+    checked,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -70,7 +71,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const disabled = React.useContext(DisabledContext);
 
   // ====================== Checked ======================
-  let mergedChecked = radioProps.checked;
+  const hasChecked = 'checked' in props;
+  let mergedChecked = checked;
   if (groupContext) {
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
@@ -78,6 +80,9 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
   }
 
+  if (hasChecked || groupContext) {
+    radioProps.checked = mergedChecked;
+  }
   radioProps.disabled = radioProps.disabled ?? disabled;
 
   // =========== Merged Props for Semantic ===========
@@ -130,7 +135,6 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
-          checked={mergedChecked}
           className={clsx(mergedClassNames.icon, { [TARGET_CLS]: !isButtonType })}
           style={mergedStyles.icon}
           type="radio"
