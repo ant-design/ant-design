@@ -205,6 +205,22 @@ describe('Steps', () => {
     expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(5);
     expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(2);
     expect(
+      container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-finish'),
+    ).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-wait')).toHaveLength(
+      1,
+    );
+    expect(
+      Array.from(container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-icon')).map(
+        (node) => (node.textContent ?? '').trim(),
+      ),
+    ).toEqual(['...', '...']);
+    expect(
+      Array.from(
+        container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-title'),
+      ).every((node) => (node.textContent ?? '').trim() === ''),
+    ).toBeTruthy();
+    expect(
       container.querySelector('.ant-steps-item-active .ant-steps-item-title')?.textContent,
     ).toBe('Step 4');
   });
@@ -312,10 +328,16 @@ describe('Steps', () => {
     expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
     expect(
+      (
+        container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-icon')[0]
+          ?.textContent ?? ''
+      ).trim(),
+    ).toBe('...');
+    expect(
       Array.from(container.querySelectorAll('.ant-steps-item-title')).map(
         (node) => node.textContent,
       ),
-    ).toEqual(['Step 1', '...', 'Step 7']);
+    ).toEqual(['Step 1', '', 'Step 7']);
   });
 
   it('warns when maxCount is less than 3', () => {
@@ -375,12 +397,11 @@ describe('Steps', () => {
     );
 
     expect(container.querySelectorAll('.ant-steps-item-process')).toHaveLength(0);
-    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(4);
-    expect(container.querySelectorAll('.ant-steps-item-wait')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(5);
+    expect(container.querySelectorAll('.ant-steps-item-wait')).toHaveLength(0);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
     expect(
-      Array.from(container.querySelectorAll('.ant-steps-item-title')).filter(
-        (node) => node.textContent === '...',
-      ),
+      container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-finish'),
     ).toHaveLength(1);
   });
 });

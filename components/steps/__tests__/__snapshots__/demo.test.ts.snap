@@ -2660,9 +2660,7 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-title"
-                >
-                  ...
-                </div>
+                />
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-wait"
                 />
@@ -2759,14 +2757,14 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
                   Step 1
                 </div>
                 <div
-                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  class="ant-steps-item-rail ant-steps-item-rail-finish"
                 />
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+          class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -2784,9 +2782,7 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-title"
-                >
-                  ...
-                </div>
+                />
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-process"
                 />
@@ -2846,9 +2842,7 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-title"
-                >
-                  ...
-                </div>
+                />
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-wait"
                 />
@@ -2945,14 +2939,14 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
                   Step 1
                 </div>
                 <div
-                  class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  class="ant-steps-item-rail ant-steps-item-rail-finish"
                 />
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-steps-item ant-steps-item-wait ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
+          class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-disabled ant-steps-item-ellipsis"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -2970,9 +2964,7 @@ exports[`renders components/steps/demo/max-count.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-title"
-                >
-                  ...
-                </div>
+                />
                 <div
                   class="ant-steps-item-rail ant-steps-item-rail-finish"
                 />

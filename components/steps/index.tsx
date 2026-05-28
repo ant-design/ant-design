@@ -366,13 +366,32 @@ const Steps = (props: StepsProps) => {
       return mergedItems.map((item, index) => ({ item, originIndex: index }));
     }
 
-    return getCollapsedIndexes(mergedItems.length, mappedCurrent, mergedMaxCount).map((index) => {
+    const collapsedIndexes = getCollapsedIndexes(mergedItems.length, mappedCurrent, mergedMaxCount);
+
+    return collapsedIndexes.map((index, collapsedIndex) => {
       if (index === null) {
+        const prevIndex = collapsedIndexes[collapsedIndex - 1];
+        const nextIndex = collapsedIndexes[collapsedIndex + 1];
+
+        let ellipsisStatus: StepItem['status'] = 'wait';
+        if (isNumber(prevIndex) && isNumber(nextIndex)) {
+          const hiddenStart = prevIndex + 1;
+          const hiddenEnd = nextIndex - 1;
+
+          if (hiddenEnd < mappedCurrent) {
+            ellipsisStatus = 'finish';
+          } else if (hiddenStart > mappedCurrent) {
+            ellipsisStatus = 'wait';
+          } else {
+            ellipsisStatus = 'process';
+          }
+        }
+
         return {
           item: {
-            title: ELLIPSIS_TEXT,
+            title: '',
             icon: ELLIPSIS_TEXT,
-            status: 'wait',
+            status: ellipsisStatus,
             disabled: true,
             className: `${prefixCls}-item-ellipsis`,
           },
