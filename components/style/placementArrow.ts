@@ -78,7 +78,7 @@ const getArrowStyle = <
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
 
-          ...genRoundedArrow(token, colorBg, arrowShadow ? boxShadowPopoverArrow : 'none'),
+          ...genRoundedArrow(token, colorBg, arrowShadow ? boxShadowPopoverArrow : false),
 
           '&:before': {
             background: colorBg,
