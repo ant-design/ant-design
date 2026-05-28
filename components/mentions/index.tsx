@@ -1,10 +1,6 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
-import type {
-  DataDrivenOptionProps as MentionsOptionProps,
-  MentionsProps as RcMentionsProps,
-  MentionsRef as RcMentionsRef,
-} from '@rc-component/mentions/lib/Mentions';
+import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -37,7 +33,8 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type { DataDrivenOptionProps as MentionsOptionProps } from '@rc-component/mentions/lib/Mentions';
+export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number];
+type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
 export interface OptionProps {
   value: string;

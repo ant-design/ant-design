@@ -1,6 +1,5 @@
 import React from 'react';
-import { warning } from '@rc-component/util';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes, warning } from '@rc-component/util';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 
 import Splitter from '..';

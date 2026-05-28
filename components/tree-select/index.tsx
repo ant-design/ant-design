@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
-import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from '@rc-component/tree-select';
 import RcTreeSelect, {
   SHOW_ALL,
@@ -8,7 +7,6 @@ import RcTreeSelect, {
   SHOW_PARENT,
   TreeNode,
 } from '@rc-component/tree-select';
-import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -42,6 +40,8 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+
+type DataNode = NonNullable<RcTreeSelectProps['treeData']>[number];
 
 type RawValue = string | number;
 
@@ -369,7 +369,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   const selectProps = omit(restProps, ['suffixIcon', 'removeIcon', 'clearIcon']);
 
   // ===================== Placement =====================
-  const memoizedPlacement = React.useMemo<Placement>(() => {
+  const memoizedPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }
