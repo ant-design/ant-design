@@ -334,4 +334,53 @@ describe('Steps', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('renders all items as finished when current is larger than item range', () => {
+    const { container } = render(
+      <Steps current={3} items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]} />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item-process')).toHaveLength(0);
+  });
+
+  it('renders all items as waiting when current is smaller than initial', () => {
+    const { container } = render(
+      <Steps
+        current={1}
+        initial={2}
+        items={[{ title: 'Step 1' }, { title: 'Step 2' }, { title: 'Step 3' }]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item-wait')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item-process')).toHaveLength(0);
+  });
+
+  it('keeps out-of-range current behavior when maxCount is enabled', () => {
+    const { container } = render(
+      <Steps
+        current={7}
+        maxCount={5}
+        items={[
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+          { title: 'Step 3' },
+          { title: 'Step 4' },
+          { title: 'Step 5' },
+          { title: 'Step 6' },
+          { title: 'Step 7' },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item-process')).toHaveLength(0);
+    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(4);
+    expect(container.querySelectorAll('.ant-steps-item-wait')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll('.ant-steps-item-title')).filter(
+        (node) => node.textContent === '...',
+      ),
+    ).toHaveLength(1);
+  });
 });

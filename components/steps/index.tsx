@@ -395,7 +395,7 @@ const Steps = (props: StepsProps) => {
       return displayCurrent;
     }
 
-    return Math.min(Math.max(mappedCurrent, 0), Math.max(displaySteps.length - 1, 0));
+    return mappedCurrent;
   }, [displaySteps, mappedCurrent]);
 
   // =========== Merged Props for Semantic ===========
