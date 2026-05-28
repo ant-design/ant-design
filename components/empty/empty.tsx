@@ -17,16 +17,22 @@ const Empty: React.FC = () => {
     colorTextQuaternary,
   } = token;
 
-  const { panelBgColor, borderColor, detailColor, shadowColor, iconColor } = useMemo(
-    () => ({
-      panelBgColor: new FastColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
-      borderColor: new FastColor(colorTextQuaternary).onBackground(colorBgContainer).toHexString(),
-      detailColor: new FastColor(colorFill).onBackground(colorBgContainer).toHexString(),
-      shadowColor: new FastColor(colorFillSecondary).onBackground(colorBgContainer).toHexString(),
+  const { panelBgColor, borderColor, detailColor, shadowColor, iconColor } = useMemo(() => {
+    const getAsSolidColor = (color: string, background: string) => {
+      if (color?.startsWith('var(') || background?.startsWith('var(')) {
+        return color;
+      }
+      return new FastColor(color).onBackground(background).toHexString();
+    };
+
+    return {
+      panelBgColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
+      borderColor: getAsSolidColor(colorTextQuaternary, colorBgContainer),
+      detailColor: getAsSolidColor(colorFill, colorBgContainer),
+      shadowColor: getAsSolidColor(colorFillSecondary, colorBgContainer),
       iconColor: colorBgContainer,
-    }),
-    [colorBgContainer, colorFill, colorFillSecondary, colorFillTertiary, colorTextQuaternary],
-  );
+    };
+  }, [colorBgContainer, colorFill, colorFillSecondary, colorFillTertiary, colorTextQuaternary]);
 
   return (
     <svg width="184" height="152" viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">

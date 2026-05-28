@@ -11,14 +11,20 @@ const Simple: React.FC = () => {
 
   const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
 
-  const { borderColor, shadowColor, contentColor } = useMemo(
-    () => ({
-      borderColor: new FastColor(colorFill).onBackground(colorBgContainer).toHexString(),
-      shadowColor: new FastColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
-      contentColor: new FastColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
-    }),
-    [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
-  );
+  const { borderColor, shadowColor, contentColor } = useMemo(() => {
+    const getAsSolidColor = (color: string, background: string) => {
+      if (color?.startsWith('var(') || background?.startsWith('var(')) {
+        return color;
+      }
+      return new FastColor(color).onBackground(background).toHexString();
+    };
+
+    return {
+      borderColor: getAsSolidColor(colorFill, colorBgContainer),
+      shadowColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
+      contentColor: getAsSolidColor(colorFillQuaternary, colorBgContainer),
+    };
+  }, [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer]);
 
   return (
     <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
