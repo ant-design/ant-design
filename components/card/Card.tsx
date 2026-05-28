@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
+import type { Tab, TabBarExtraContent } from '@rc-component/tabs';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 

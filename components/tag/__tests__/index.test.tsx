@@ -11,9 +11,12 @@ import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => (global as any).isVisible,
+  };
 });
 
 function waitRaf() {
