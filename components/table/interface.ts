@@ -1,5 +1,4 @@
 import type * as React from 'react';
-import type { Reference } from '@rc-component/table';
 import type {
   ExpandableConfig,
   FixedType,
@@ -7,7 +6,8 @@ import type {
   GetRowKey,
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
-} from '@rc-component/table/lib/interface';
+  Reference,
+} from '@rc-component/table';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
@@ -111,10 +111,13 @@ export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
 
-export interface FilterRestProps {
+export interface FilterResetProps {
   confirm?: boolean;
   closeDropdown?: boolean;
 }
+
+/** @deprecated Please use `FilterResetProps` instead. */
+export interface FilterRestProps extends FilterResetProps {}
 
 export interface FilterDropdownProps {
   prefixCls: string;
@@ -125,7 +128,7 @@ export interface FilterDropdownProps {
    * {closeDropdown: true}
    */
   confirm: (param?: FilterConfirmProps) => void;
-  clearFilters?: (param?: FilterRestProps) => void;
+  clearFilters?: (param?: FilterResetProps) => void;
   filters?: ColumnFilterItem[];
   /** Only close filterDropdown */
   close: () => void;

@@ -1,6 +1,0 @@
-{
-  "resource": "https://ant.design",
-  "authorization_servers": ["https://ant.design"],
-  "scopes_supported": ["read"],
-  "resource_documentation": "https://ant.design/docs/react/introduce"
-}

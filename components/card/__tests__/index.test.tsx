@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
-import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
+import type { TabBarExtraContent } from '@rc-component/tabs';
 import userEvent from '@testing-library/user-event';
 
 import type { CardMetaProps, CardProps } from '..';
