@@ -209,4 +209,4 @@ const suffix = condition ? <Icon type="smile" /> : <span />;
 
 ### 为何 TextArea 受控时，`value` 可以超过 `maxLength`？ {#faq-textarea-exceed-max}
 
-受控时，组件应该按照受控内容展示。以防止在表单组件内使用时显示值和提交值不同的问题。
+受控时，组件应该按照受控内容展示，这是为了防止在表单组件内使用时显示值和提交值不一致的问题。

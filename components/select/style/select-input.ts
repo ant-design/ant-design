@@ -270,6 +270,8 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             margin: 0,
             padding: 0,
             color: varRef('color'),
+            fontFamily: 'inherit',
+            fontSize: 'inherit',
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -287,7 +289,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-input`]: {
             position: 'absolute',
             inset: 0,
-            lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
+            lineHeight: 'inherit',
           },
 
           // Content center align
@@ -305,6 +307,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
             '&-has-search-value': {
               color: 'transparent',
+
+              [`> :not(${componentCls}-input)`]: {
+                opacity: 0,
+              },
             },
 
             // >>> Value

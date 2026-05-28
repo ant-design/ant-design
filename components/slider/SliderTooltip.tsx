@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useRef } from 'react';
-import raf from '@rc-component/util/lib/raf';
-import { composeRef } from '@rc-component/util/lib/ref';
-import type { SliderRef } from '@rc-component/slider/lib/Slider';
+import type { SliderRef } from '@rc-component/slider';
+import { composeRef, raf } from '@rc-component/util';
 
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';

@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -443,7 +442,7 @@ const InternalCompoundedButton = React.forwardRef<
     iconNode = defaultLoadingIconElement;
   }
 
-  const contentNode = isNonNullable(children)
+  const contentNode = isReactRenderable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,

@@ -2,7 +2,7 @@
 category: Components
 group: Layout
 title: Splitter
-description: Split panels to isolate
+description: Resizable split panel layout
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*f0SISaETY0wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*y92yRYhObU8AAAAAAAAAAAAADrJ8AQ/original
 demo:

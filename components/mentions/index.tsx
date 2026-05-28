@@ -1,15 +1,10 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
-import type {
-  DataDrivenOptionProps as MentionsOptionProps,
-  MentionsProps as RcMentionsProps,
-  MentionsRef as RcMentionsRef,
-} from '@rc-component/mentions/lib/Mentions';
-import { composeRef } from '@rc-component/util/lib/ref';
+import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
@@ -38,7 +33,8 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type { DataDrivenOptionProps as MentionsOptionProps } from '@rc-component/mentions/lib/Mentions';
+export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number];
+type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
 export interface OptionProps {
   value: string;
@@ -319,29 +315,29 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value
-    .split(split)
-    .map((str = ''): MentionsEntity | null => {
-      let hitPrefix: string | null = null;
+  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+    let hitPrefix: string | null = null;
 
-      prefixList.some((prefixStr) => {
-        const startStr = str.slice(0, prefixStr.length);
-        if (startStr === prefixStr) {
-          hitPrefix = prefixStr;
-          return true;
-        }
-        return false;
-      });
-
-      if (hitPrefix !== null) {
-        return {
-          prefix: hitPrefix,
-          value: str.slice((hitPrefix as string).length),
-        };
+    prefixList.some((prefixStr) => {
+      const startStr = str.slice(0, prefixStr.length);
+      if (startStr === prefixStr) {
+        hitPrefix = prefixStr;
+        return true;
       }
-      return null;
-    })
-    .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
+      return false;
+    });
+
+    if (hitPrefix !== null) {
+      const entity = {
+        prefix: hitPrefix,
+        value: str.slice((hitPrefix as string).length),
+      };
+      if (entity.value) {
+        list.push(entity);
+      }
+    }
+    return list;
+  }, []);
 };
 
 export default Mentions;

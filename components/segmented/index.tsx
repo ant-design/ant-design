@@ -6,7 +6,7 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
-import useId from '@rc-component/util/lib/hooks/useId';
+import { useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';

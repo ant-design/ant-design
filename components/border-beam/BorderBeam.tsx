@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { clsx } from 'clsx';
 
+import { isNonNullable, isString } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
@@ -11,6 +12,10 @@ import { getBorderBeamGradient } from './util';
 import type { BorderBeamColor } from './util';
 
 export type { BorderBeamColor, BorderBeamGradient } from './util';
+
+const getInset = (width: number | string) => {
+  return isString(width) ? `calc(-1 * ${width})` : `-${width}px`;
+};
 
 export interface BorderBeamProps {
   prefixCls?: string;
@@ -39,15 +44,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   // ============================= Host =============================
   const [childNode, childDomNode] = useChildDom(children);
   const { borderWidth, borderRadius } = useBorderSize(childDomNode);
-  const beamGradient = getBorderBeamGradient(color);
+  const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
 
   // ============================ Border ============================
-  const getInsetOffset = () => {
-    const getInset = (width: number | string) =>
-      typeof width === 'string' ? `calc(-1 * ${width})` : `-${width}px`;
-
-    return outset === undefined ? borderWidth.map(getInset).join(' ') : getInset(outset);
-  };
+  const insetOffset = useMemo<string>(() => {
+    return isNonNullable(outset) ? getInset(outset) : borderWidth.map<string>(getInset).join(' ');
+  }, [borderWidth, outset]);
 
   // ============================ Render ============================
   return (
@@ -61,7 +63,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          [varName('inset-offset')]: getInsetOffset(),
+          [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
       />

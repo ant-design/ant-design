@@ -83,7 +83,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedDisabled = customDisabled ?? disabled;
 
   const customRequest = props.customRequest || config.customRequest;
-  const mergedProgress = { ...config.progress, ...customProgress };
+  const mergedProgress =
+    config.progress || customProgress ? { ...config.progress, ...customProgress } : undefined;
   const mergedAccept = fallbackProp(customAccept, config.accept, '');
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
@@ -104,7 +105,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   }
 
   // Control mode will auto fill file uid if not provided
-  // eslint-disable-next-line react/use-memo
   React.useMemo(() => {
     const timestamp = Date.now();
     (fileList || []).forEach((file, index) => {

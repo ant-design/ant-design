@@ -1,6 +1,5 @@
 import React from 'react';
-import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
-import { getNodeRef, supportRef, useComposeRef } from '@rc-component/util/lib/ref';
+import { getDOM, getNodeRef, supportRef, useComposeRef } from '@rc-component/util';
 
 import { cloneElement } from '../../_util/reactNode';
 
@@ -28,12 +27,7 @@ const useChildDom = (
     return [children, domNode];
   }
 
-  return [
-    cloneElement(childNode, {
-      ref: mergedRef,
-    }),
-    domNode,
-  ];
+  return [cloneElement(childNode, { ref: mergedRef }), domNode];
 };
 
 export default useChildDom;

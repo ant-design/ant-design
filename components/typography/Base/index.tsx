@@ -3,13 +3,11 @@ import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import type { AutoSizeType } from '@rc-component/input';
 import ResizeObserver from '@rc-component/resize-observer';
-import { omit, toArray, useControlledState } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, omit, toArray, useControlledState, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNonNullable } from '../../_util/is';
+import { isFunction, isReactRenderable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -478,7 +476,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         locale={textLocale}
         onCopy={onCopyClick}
         loading={copyLoading}
-        iconOnly={!isNonNullable(children)}
+        iconOnly={!isReactRenderable(children)}
         className={mergedClassNames.action}
         style={mergedStyles.action}
       />

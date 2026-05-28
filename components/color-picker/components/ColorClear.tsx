@@ -36,8 +36,19 @@ const ColorClear: FC<ColorClearProps> = ({
       onChange(genColor);
     }
   };
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div
+      role="button"
+      aria-label="Clear color"
+      tabIndex={0}
       className={clsx(
         `${prefixCls}-clear`,
         { [`${prefixCls}-clear-disabled`]: disabled },
@@ -45,6 +56,7 @@ const ColorClear: FC<ColorClearProps> = ({
       )}
       style={style}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       aria-disabled={disabled || undefined}
     />
   );

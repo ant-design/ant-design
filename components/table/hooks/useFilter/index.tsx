@@ -290,19 +290,21 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
       const keyList = (mergedColumns || []).map((column, index) =>
         getColumnKey(column, getColumnPos(index)),
       );
-      return filterStates
-        .filter(({ key }) => keyList.includes(key))
-        .map((item) => {
-          const col = mergedColumns[keyList.indexOf(item.key)];
-          return {
+      return filterStates.reduce<FilterState<RecordType>[]>((list, item) => {
+        const keyIndex = keyList.indexOf(item.key);
+        if (keyIndex !== -1) {
+          const col = mergedColumns[keyIndex];
+          list.push({
             ...item,
             column: {
               ...item.column,
               ...col,
             },
             forceFiltered: col.filtered,
-          };
-        });
+          });
+        }
+        return list;
+      }, []);
     }
 
     warning(
