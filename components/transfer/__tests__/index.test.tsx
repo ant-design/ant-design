@@ -107,18 +107,21 @@ describe('Transfer', () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
-  it('should forward html attributes to root element', () => {
+  it('should only forward data and aria attributes to root element', () => {
     const { container } = render(
-      <Transfer {...listCommonProps} data-testid="transfer-testid" aria-label="transfer-label" />,
+      <Transfer
+        {...listCommonProps}
+        data-testid="transfer-testid"
+        aria-label="transfer-label"
+        id="transfer-id"
+        title="transfer-title"
+      />,
     );
-    expect(container.querySelector('.ant-transfer')).toHaveAttribute(
-      'data-testid',
-      'transfer-testid',
-    );
-    expect(container.querySelector('.ant-transfer')).toHaveAttribute(
-      'aria-label',
-      'transfer-label',
-    );
+    const rootNode = container.querySelector('.ant-transfer');
+    expect(rootNode).toHaveAttribute('data-testid', 'transfer-testid');
+    expect(rootNode).toHaveAttribute('aria-label', 'transfer-label');
+    expect(rootNode).not.toHaveAttribute('id');
+    expect(rootNode).not.toHaveAttribute('title');
   });
 
   it('should move selected keys to corresponding list', () => {
