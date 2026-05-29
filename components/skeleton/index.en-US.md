@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false |  |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |  |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatar](#skeletonavatar) | false |  |
 | loading | Display the skeleton when true | boolean | - |  |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |  |
 | round | Show paragraph and title radius when true | boolean | false |  |
