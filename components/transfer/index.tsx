@@ -140,7 +140,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -226,6 +227,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
+    ...restProps
   } = props;
 
   const {
@@ -598,7 +600,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...restProps} className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}

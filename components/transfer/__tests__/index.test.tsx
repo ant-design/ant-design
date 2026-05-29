@@ -107,6 +107,20 @@ describe('Transfer', () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
+  it('should forward html attributes to root element', () => {
+    const { container } = render(
+      <Transfer {...listCommonProps} data-testid="transfer-testid" aria-label="transfer-label" />,
+    );
+    expect(container.querySelector('.ant-transfer')).toHaveAttribute(
+      'data-testid',
+      'transfer-testid',
+    );
+    expect(container.querySelector('.ant-transfer')).toHaveAttribute(
+      'aria-label',
+      'transfer-label',
+    );
+  });
+
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
     const { container } = render(<Transfer {...listCommonProps} onChange={handleChange} />);
