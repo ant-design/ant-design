@@ -29,7 +29,7 @@ function splitCNCharsBySpace(
   style?: React.CSSProperties,
   className?: string,
 ) {
-  if (!isReactRenderable(child) || child === '') {
+  if (!isReactRenderable(child)) {
     return;
   }
 

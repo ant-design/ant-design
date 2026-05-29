@@ -133,9 +133,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
   const isHidden = useMemo(() => {
-    const isEmpty =
-      (!isReactRenderable(mergedCount) || mergedCount === '') &&
-      (!isReactRenderable(text) || text === '');
+    const isEmpty = !isReactRenderable(mergedCount) && !isReactRenderable(text);
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot, text]);
 
