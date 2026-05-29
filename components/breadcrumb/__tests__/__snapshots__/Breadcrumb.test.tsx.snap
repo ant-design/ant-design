@@ -183,14 +183,6 @@ exports[`Breadcrumb should render a menu 1`] = `
     >
       /
     </li>
-    <li
-      class="ant-breadcrumb-item"
-    >
-      <a
-        class="ant-breadcrumb-link"
-        href="#/index/first/second/third"
-      />
-    </li>
   </ol>
 </nav>
 `;
