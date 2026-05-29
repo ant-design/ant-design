@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from '@rc-component/table';
-import type { FixedType } from '@rc-component/table/lib/interface';
+import type { FixedType } from '@rc-component/table';
 import { arrAdd, arrDel, conductCheck, convertDataToEntities } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
 import { useControlledState } from '@rc-component/util';
