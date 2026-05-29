@@ -142,7 +142,7 @@ export interface TransferSearchOption {
 }
 
 export interface TransferProps<RecordType = any>
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children' | 'dir'> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
