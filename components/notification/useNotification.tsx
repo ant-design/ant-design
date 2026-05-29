@@ -191,7 +191,7 @@ export function useInternalNotification(
         });
       }
       const mergedTitle = title ?? message;
-      const hasTitle = isReactRenderable(mergedTitle) && mergedTitle !== '';
+      const hasTitle = isReactRenderable(mergedTitle);
       const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(

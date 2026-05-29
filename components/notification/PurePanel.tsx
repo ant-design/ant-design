@@ -106,7 +106,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     });
   }
   const mergedTitle = title ?? message;
-  const hasTitle = isReactRenderable(mergedTitle) && mergedTitle !== '';
+  const hasTitle = isReactRenderable(mergedTitle);
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
   const iconNode = icon || (type ? TypeIcon[type] : null);
