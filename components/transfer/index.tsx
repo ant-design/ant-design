@@ -583,7 +583,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const targetSectionClassNames = getMergedSectionClassNames('target');
   const sourceSectionStyles = getMergedSectionStyles('source');
   const targetSectionStyles = getMergedSectionStyles('target');
-  const divProps = omit(restProps, ['dir']);
+
+  const legacyOmittedProps = restProps as typeof restProps & {
+    body?: unknown;
+    onSearchChange?: unknown;
+  };
+  const divProps = omit(legacyOmittedProps, ['dir', 'body', 'onSearchChange']);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
