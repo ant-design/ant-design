@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { BgColorsOutlined, CopyOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import {
+  BgColorsOutlined,
+  CopyOutlined,
+  GithubOutlined,
+  PlusCircleOutlined,
+} from '@ant-design/icons';
 import { App, ConfigProvider, Dropdown, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
@@ -19,21 +24,25 @@ const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
     themeDesc: '开放样式算法与语义化结构，让你与 AI 一起轻松定制主题',
-    aiGenerate: 'AI 生成',
+    aiGenerate: 'AI 主题生成',
     aiGenerateDesc: '用一句话描述你想要的风格',
     copyTheme: '复制主题代码',
     copySuccess: '已复制',
     exploreThemes: '探索主题',
+    editTheme: '主题编辑',
+    contribution: '贡献',
   },
   en: {
     themeTitle: 'Flexible theme customization',
     themeDesc:
       'Open style algorithms and semantic structures make it easy for you and AI to customize themes',
-    aiGenerate: 'AI Generate',
+    aiGenerate: 'AI Theme Generator',
     aiGenerateDesc: 'Describe your desired style',
     copyTheme: 'Copy theme code',
     copySuccess: 'Copied',
     exploreThemes: 'Explore Themes',
+    editTheme: 'Theme Editor',
+    contribution: 'Contribution',
   },
 };
 const useStyles = createStyles(({ css, cssVar }) => ({
@@ -64,6 +73,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   themeBlock: css({
     height: 22,
     width: 22,
+    fontSize: 20,
     borderRadius: '50%',
     cursor: 'pointer',
     backgroundSize: '100%',
@@ -198,30 +208,50 @@ function ThemePreviewContent(props: ThemePreviewProps) {
               <Dropdown
                 menu={{
                   selectedKeys: [activeName!],
-                  items: previewThemes?.slice(6)?.map((previewTheme: any) => ({
-                    key: previewTheme.name,
-                    onClick: () => handleThemeClick(previewTheme.name),
-                    label: (
-                      <Flex gap={6} onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}>
-                        <div
-                          className={`${styles.themeBlock}`}
-                          role="tab"
-                          tabIndex={activeName === previewTheme.name ? 0 : -1}
-                          aria-selected={activeName === previewTheme.name}
-                          style={{
-                            backgroundImage: previewTheme.icon
-                              ? `url(${previewTheme.icon})`
-                              : undefined,
-                            backgroundColor: previewTheme.icon
-                              ? 'transparent'
-                              : previewTheme.colors[0],
-                            opacity: 1,
-                          }}
-                        />
-                        <span> {previewTheme.name}</span>
-                      </Flex>
-                    ),
-                  })),
+                  items: [
+                    ...previewThemes.slice(6).map((previewTheme: any) => ({
+                      key: previewTheme.name,
+                      onClick: () => handleThemeClick(previewTheme.name),
+                      label: (
+                        <Flex
+                          gap={6}
+                          onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
+                        >
+                          <div
+                            className={`${styles.themeBlock}`}
+                            role="tab"
+                            tabIndex={activeName === previewTheme.name ? 0 : -1}
+                            aria-selected={activeName === previewTheme.name}
+                            style={{
+                              backgroundImage: previewTheme.icon
+                                ? `url(${previewTheme.icon})`
+                                : undefined,
+                              backgroundColor: previewTheme.icon
+                                ? 'transparent'
+                                : previewTheme.colors[0],
+                              opacity: 1,
+                            }}
+                          />
+                          <span> {previewTheme.name}</span>
+                        </Flex>
+                      ),
+                    })),
+                    {
+                      type: 'divider',
+                    },
+                    {
+                      key: 'github',
+                      onClick: () => {
+                        window.open('https://github.com/ant-design/ant-design/issues/56936');
+                      },
+                      label: (
+                        <Flex gap={6}>
+                          <GithubOutlined className={styles.themeBlock} />
+                          <span> {locale.contribution} </span>
+                        </Flex>
+                      ),
+                    },
+                  ],
                 }}
                 placement="bottomLeft"
               >
@@ -229,17 +259,23 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                   <PlusCircleOutlined />
                 </div>
               </Dropdown>
-              <div className={styles.buttonBlock} onClick={handleCopyTheme}>
-                <CopyOutlined />
-              </div>
-              <Link to={editPath}>
-                <div className={styles.buttonBlock}>
-                  <BgColorsOutlined />
+              <Tooltip placement="top" title={locale.copyTheme}>
+                <div className={styles.buttonBlock} onClick={handleCopyTheme}>
+                  <CopyOutlined />
                 </div>
-              </Link>
-              <div className={styles.buttonBlock} onClick={onOpenPromptDrawer}>
-                <ThemeIcon />
-              </div>
+              </Tooltip>
+              <Tooltip placement="top" title={locale.editTheme}>
+                <Link to={editPath}>
+                  <div className={styles.buttonBlock}>
+                    <BgColorsOutlined />
+                  </div>
+                </Link>
+              </Tooltip>
+              <Tooltip placement="top" title={locale.aiGenerate}>
+                <div className={styles.buttonBlock} onClick={onOpenPromptDrawer}>
+                  <ThemeIcon />
+                </div>
+              </Tooltip>
             </Flex>
           </Flex>
           {/* ===== 组件预览区域 ===== */}
