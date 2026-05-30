@@ -109,6 +109,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |  |
 | collapsible | 是否可收起 | boolean | false |  |
 | defaultCollapsed | 是否默认收起 | boolean | false |  |
+| bodyStyle | 指定内部内容容器的样式 | CSSProperties | - |  |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |  |
 | style | 指定样式 | CSSProperties | - |  |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |  |

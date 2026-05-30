@@ -108,6 +108,7 @@ The sidebar.
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  |
 | collapsible | Whether can be collapsed | boolean | false |  |
 | defaultCollapsed | To set the initial status | boolean | false |  |
+| bodyStyle | To customize the styles of the inner content wrapper | CSSProperties | - |  |
 | reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
 | style | To customize the styles | CSSProperties | - |  |
 | theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |

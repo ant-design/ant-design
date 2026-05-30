@@ -343,6 +343,32 @@ describe('Sider', () => {
     ).toEqual('rgb(255, 153, 102)');
   });
 
+  it('bodyStyle should work', () => {
+    const { container } = render(
+      <Sider
+        bodyStyle={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          justifyContent: 'space-evenly',
+        }}
+      >
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <UserOutlined />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider-children')).toHaveStyle({
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      justifyContent: 'space-evenly',
+    });
+  });
+
   it('should be able to customize zero width trigger by trigger prop', () => {
     const { container } = render(
       <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>

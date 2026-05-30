@@ -40,6 +40,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   collapsible?: boolean;
   collapsed?: boolean;
   defaultCollapsed?: boolean;
+  bodyStyle?: React.CSSProperties;
   reverseArrow?: boolean;
   onCollapse?: (collapsed: boolean, type: CollapseType) => void;
   zeroWidthTriggerStyle?: React.CSSProperties;
@@ -70,6 +71,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     className,
     trigger,
     children,
+    bodyStyle = {},
     defaultCollapsed = false,
     theme = 'dark',
     style = {},
@@ -216,7 +218,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   return (
     <SiderContext.Provider value={contextValue}>
       <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
-        <div className={`${prefixCls}-children`}>{children}</div>
+        <div className={`${prefixCls}-children`} style={bodyStyle}>
+          {children}
+        </div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
     </SiderContext.Provider>
