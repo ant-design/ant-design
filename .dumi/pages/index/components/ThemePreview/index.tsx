@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
-import { App, ConfigProvider, Flex, theme } from 'antd';
+import { BgColorsOutlined, CopyOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { App, ConfigProvider, Dropdown, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
-import * as utils from '../../../../theme/utils';
-import Link from '../../../../theme/common/Link';
 import { useLocation } from 'dumi';
 
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
+import Link from '../../../../theme/common/Link';
 import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
+import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import ComponentsBlock from '../PreviewPane/Components';
 import usePreviewThemes from './previewThemes';
@@ -36,7 +36,7 @@ const locales = {
     exploreThemes: 'Explore Themes',
   },
 };
-const useStyles = createStyles(({ css }) => ({
+const useStyles = createStyles(({ css, cssVar }) => ({
   container: css({
     width: '100%',
     flexDirection: 'column',
@@ -62,11 +62,23 @@ const useStyles = createStyles(({ css }) => ({
     margin: '0 auto',
   }),
   themeBlock: css({
-    height: 20,
-    width: 20,
+    height: 22,
+    width: 22,
     borderRadius: '50%',
     cursor: 'pointer',
+    backgroundSize: '100%',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     outline: '1px solid #f5f5f5',
+    border: `2px solid ${cssVar.colorBgLayout}`,
+    opacity: 0.5,
+    transition: `transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow}`,
+    '&:hover, &:focus-within': {
+      opacity: 1,
+    },
+  }),
+  active: css({
+    opacity: 1,
   }),
   buttonBlock: css({
     height: 32,
@@ -99,7 +111,9 @@ function ThemePreviewContent(props: ThemePreviewProps) {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
+  const [activeName, setActiveName] = React.useState(
+    () => previewThemes?.find((theme) => theme.key === 'light')?.name,
+  );
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
@@ -165,20 +179,56 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           <Flex justify="space-between">
             <div></div>
             <Flex align="center" gap={6}>
-              {previewThemes.map((previewTheme: any) => (
-                <div
-                  key={previewTheme.name}
-                  className={styles.themeBlock}
-                  role="tab"
-                  tabIndex={activeName === previewTheme.name ? 0 : -1}
-                  aria-selected={activeName === previewTheme.name}
-                  onClick={() => handleThemeClick(previewTheme.name)}
-                  onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
-                  style={{
-                    backgroundColor: previewTheme.colors[0],
-                  }}
-                />
+              {previewThemes?.slice(0, 6).map((previewTheme: any) => (
+                <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
+                  <div
+                    className={`${styles.themeBlock} ${activeName === previewTheme.name ? styles.active : ''}`}
+                    role="tab"
+                    tabIndex={activeName === previewTheme.name ? 0 : -1}
+                    aria-selected={activeName === previewTheme.name}
+                    onClick={() => handleThemeClick(previewTheme.name)}
+                    onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
+                    style={{
+                      backgroundImage: previewTheme.icon ? `url(${previewTheme.icon})` : undefined,
+                      backgroundColor: previewTheme.icon ? 'transparent' : previewTheme.colors[0],
+                    }}
+                  />
+                </Tooltip>
               ))}
+              <Dropdown
+                menu={{
+                  selectedKeys: [activeName!],
+                  items: previewThemes?.slice(6)?.map((previewTheme: any) => ({
+                    key: previewTheme.name,
+                    onClick: () => handleThemeClick(previewTheme.name),
+                    label: (
+                      <Flex gap={6} onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}>
+                        <div
+                          className={`${styles.themeBlock}`}
+                          role="tab"
+                          tabIndex={activeName === previewTheme.name ? 0 : -1}
+                          aria-selected={activeName === previewTheme.name}
+                          style={{
+                            backgroundImage: previewTheme.icon
+                              ? `url(${previewTheme.icon})`
+                              : undefined,
+                            backgroundColor: previewTheme.icon
+                              ? 'transparent'
+                              : previewTheme.colors[0],
+                            opacity: 1,
+                          }}
+                        />
+                        <span> {previewTheme.name}</span>
+                      </Flex>
+                    ),
+                  })),
+                }}
+                placement="bottomLeft"
+              >
+                <div className={styles.buttonBlock}>
+                  <PlusCircleOutlined />
+                </div>
+              </Dropdown>
               <div className={styles.buttonBlock} onClick={handleCopyTheme}>
                 <CopyOutlined />
               </div>

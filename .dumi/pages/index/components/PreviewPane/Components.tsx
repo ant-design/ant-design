@@ -147,6 +147,13 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       flexDirection: 'column',
       gap: token.paddingLG,
     }),
+    mainCard: css({
+      justifyContent: 'center',
+      padding: 32,
+      borderRadius: 16,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }),
     blockCard: css({
       background: cssVar.colorBgContainer,
       borderRadius: token.borderRadiusLG,
@@ -155,24 +162,118 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       padding: token.paddingLG,
     }),
     avatarGroup: css({
-      marginBottom: 16,
+      marginBlockEnd: 16,
     }),
-    formLabel: css({
+    // ---- Migrated inline styles ----
+    selectInput: css({
+      flex: '0 0 300px',
+    }),
+    colorPickerFixed: css({
+      flex: 'none',
+    }),
+    datePickerGrow: css({
+      flex: 1,
+    }),
+    controlsRow: css({
+      marginBlockStart: 16,
+      paddingInline: 4,
+    }),
+    stepsWrapper: css({
+      marginBlockStart: 16,
+    }),
+    progressWrapper: css({
+      marginBlockStart: 8,
+    }),
+    flexRow12: css({
+      padding: 0,
+      display: 'flex',
+      gap: 12,
+    }),
+    blockCardQr: css({
+      padding: 6,
+      flex: '0 0 auto',
+    }),
+    blockCardExtraPad: css({
+      padding: 6,
+      justifyContent: 'center',
+      marginBlockEnd: 8,
+    }),
+    flexCol1: css({
+      flex: 1,
+    }),
+    rateStyle: css({
+      marginBlockEnd: 20,
+    }),
+    popconfirmFull: css({
+      width: '100%',
+      margin: 0,
+    }),
+    blockCardSegmented: css({
+      padding: 8,
+    }),
+    avatarSection: css({
+      textAlign: 'center',
+      position: 'relative',
+    }),
+    avatarExtra: css({
+      backgroundColor: '#fff',
+      color: '#666',
+    }),
+    otpWrapper: css({
+      marginBlock: 16,
+    }),
+    dangerBtn: css({
+      '.ant-btn': {
+        background: '#fff2f0',
+        border: 'none',
+      },
+    }),
+    profileInfo: css({
+      flex: 1,
+    }),
+    profileTitle: css({
+      margin: 0,
+    }),
+    profileHandle: css({
+      fontSize: 13,
+    }),
+    profileDesc: css({
+      marginBlock: 8,
+      fontSize: 14,
+    }),
+    profileStats: css({
+      fontSize: 13,
+    }),
+    signupCard: css({
+      textAlign: 'center',
+      padding: '32px 24px',
+    }),
+    signupAvatar: css({
+      marginBlockEnd: 16,
+    }),
+    signupText: css({
       display: 'block',
-      fontWeight: 600,
-      marginBottom: token.marginXXS,
+      marginBlockEnd: 24,
+      fontSize: 14,
     }),
-    listIcon: css({
-      fontSize: 16,
+    signupBtn: css({
+      marginBlockEnd: 16,
+    }),
+    signupDivider: css({
       color: token.colorTextSecondary,
+      fontSize: 12,
+    }),
+    modalContent: css({
+      height: 60,
     }),
   };
 });
+
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { config, className, containerClassName, inherit = false, bgImg, isDark = false } = props;
 
-  const { styles, theme: currentToken } = useStyle();
+  const { styles } = useStyle();
 
   const { data } = useAntdRepos();
 
@@ -232,12 +333,12 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   ];
 
   const buttonList: ButtonProps[] = [
-    { type: 'primary', children: 'Click me' },
-    { color: 'primary', variant: 'filled', children: 'Click me' },
-    { danger: true, style: { background: '#fff2f0', border: 'none' }, children: 'Click me' },
-    { type: 'dashed', variant: 'outlined', shape: 'round', children: 'Click me' },
-    { color: 'primary', variant: 'dashed', shape: 'round', children: 'Click me' },
-    { danger: true, shape: 'round', children: 'Click me' },
+    { type: 'primary', children: 'Primary button' },
+    { color: 'primary', variant: 'filled', children: 'Filled button' },
+    { danger: true, children: 'Danger button' },
+    { type: 'dashed', variant: 'outlined', shape: 'round', children: 'Outlined button' },
+    { color: 'primary', variant: 'dashed', shape: 'round', children: 'Dashed button' },
+    { danger: true, shape: 'round', children: 'Round button' },
   ];
 
   const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
@@ -250,19 +351,14 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             <Card
               styles={{
                 root: {
-                  justifyContent: 'center',
-                  padding: 32,
-                  borderRadius: 16,
-                  backgroundColor: isDark ? 'lab(14% 0 0)' : 'lab(96.5432% -.0000596046 0)', // matching the light gray background
+                  backgroundColor: isDark ? 'lab(14% 0 0)' : 'lab(96.5432% -.0000596046 0)',
                   backgroundImage: bgImg ? `url(${bgImg})` : undefined,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
                 },
                 body: {
                   padding: 0,
                 },
               }}
-              className={clsx(className)}
+              className={clsx(className, styles.mainCard)}
             >
               <div className={styles.layoutRow}>
                 {/* ================= LEFT COLUMN ================= */}
@@ -273,7 +369,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         <Input placeholder="antd@email.com" />
                         <Select
                           placeholder="Select one"
-                          style={{ width: 300 }}
+                          className={styles.selectInput}
                           mode="multiple"
                           maxTagCount="responsive"
                           defaultValue={['apple', 'banana']}
@@ -281,33 +377,33 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         />
                       </Flex>
                       <Flex gap="middle">
-                        <ColorPicker showText defaultValue="#1677ff" style={{ flex: 'none' }} />
+                        <ColorPicker
+                          showText
+                          defaultValue="#1677ff"
+                          className={styles.colorPickerFixed}
+                        />
                         <Space.Compact>
                           <Button>{locale.dropdown}</Button>
                           <Dropdown menu={{ items: dropdownMenuItems }}>
                             <Button icon={<DownOutlined />} />
                           </Dropdown>
                         </Space.Compact>
-                        <DatePicker style={{ flex: 1 }} placeholder="Select DatePicker" />
+                        <DatePicker className={styles.datePickerGrow} placeholder="Select Date" />
                       </Flex>
-                      <Flex
-                        align="center"
-                        justify="space-between"
-                        style={{ marginTop: 16, padding: '0 4px' }}
-                      >
+                      <Flex align="center" justify="space-between" className={styles.controlsRow}>
                         <Checkbox.Group options={checkboxOptions} defaultValue={['Apple']} />
                         <Radio.Group block options={radioOptions} defaultValue="Apple" />
                         <Switch defaultChecked />
                         <Progress type="circle" percent={25} size={20} showInfo={false} />
                       </Flex>
 
-                      <div style={{ marginTop: 16 }}>
+                      <div className={styles.stepsWrapper}>
                         <Steps current={1} status="error" items={stepsItems} />
                       </div>
                     </Flex>
                   </div>
 
-                  <div style={{ marginTop: '8px' }}>
+                  <div className={styles.progressWrapper}>
                     <Flex gap="middle" vertical>
                       <Progress percent={50} status="active" />
                       <Progress percent={70} status="exception" />
@@ -322,24 +418,21 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Flex>
                   </div>
 
-                  <div style={{ padding: 0, display: 'flex', gap: '12px' }}>
-                    <div className={styles.blockCard} style={{ padding: '6px' }}>
+                  <div className={styles.flexRow12}>
+                    <div className={clsx(styles.blockCard, styles.blockCardQr)}>
                       <QRCode
                         errorLevel="H"
                         value="https://ant.design/"
                         icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                       />
                     </div>
-                    <div style={{ flex: 1 }}>
+                    <div className={styles.flexCol1}>
                       <Flex justify="space-around">
                         <Spin indicator={<LoadingOutlined spin />} size="middle" />
                         <Spin size="middle" />
-                        <Rate size="middle" value={3} style={{ marginBottom: 20 }} />
+                        <Rate size="middle" value={3} className={styles.rateStyle} />
                       </Flex>
-                      <div
-                        className={styles.blockCard}
-                        style={{ padding: '6px', justifyContent: 'center', marginBottom: '8px' }}
-                      >
+                      <div className={clsx(styles.blockCard, styles.blockCardExtraPad)}>
                         <Flex gap="small" align="center">
                           {tagList.map((tag) => (
                             <Tag key={tag.label} icon={tag.icon} color={tag.color}>
@@ -351,17 +444,17 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       <InternalPopconfirm
                         title="Are you OK?"
                         placement="topRight"
-                        style={{ width: '100%', margin: 0 }}
+                        className={styles.popconfirmFull}
                       />
                     </div>
                   </div>
 
-                  <div className={styles.blockCard} style={{ padding: '8px' }}>
+                  <div className={clsx(styles.blockCard, styles.blockCardSegmented)}>
                     <Segmented block options={['1D', '7D', '1M', '1Y', 'All']} />
                     <Segmented
                       styles={{
                         root: {
-                          marginTop: 8,
+                          marginBlockStart: 8,
                         },
                       }}
                       block
@@ -375,19 +468,19 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
                 {/* ================= CENTER COLUMN ================= */}
                 <div className={styles.colCenter}>
-                  <div style={{ textAlign: 'center', position: 'relative' }}>
+                  <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
                       {avatarGroupList.map((src) => (
                         <Avatar key={src} size={46} src={src} />
                       ))}
-                      <Avatar size={46} style={{ backgroundColor: '#fff', color: '#666' }}>
+                      <Avatar size={46} className={styles.avatarExtra}>
                         +5
                       </Avatar>
                     </Avatar.Group>
                     <Title level={5}>Verify account</Title>
                     <Text type="secondary">We've sent a code to a****@gmail.com</Text>
 
-                    <div style={{ margin: '16px 0' }}>
+                    <div className={styles.otpWrapper}>
                       <Input.OTP size="large" length={6} defaultValue="4320" />
                     </div>
                     <Text type="secondary">
@@ -415,17 +508,17 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         size={60}
                         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                       />
-                      <div style={{ flex: 1 }}>
-                        <Title level={5} style={{ margin: 0 }}>
+                      <div className={styles.profileInfo}>
+                        <Title level={5} className={styles.profileTitle}>
                           Ant Design
                         </Title>
-                        <Text type="secondary" style={{ fontSize: 13 }}>
+                        <Text type="secondary" className={styles.profileHandle}>
                           @ant-design
                         </Text>
-                        <p style={{ margin: '8px 0', fontSize: 14 }}>
+                        <p className={styles.profileDesc}>
                           Building the future of UI for web & mobile.
                         </p>
-                        <Space size="large" style={{ fontSize: 13 }}>
+                        <Space size="large" className={styles.profileStats}>
                           <span>
                             <Text strong>{data.stars} </Text>
                             <Text type="secondary">Star</Text>
@@ -449,28 +542,20 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
                 {/* ================= RIGHT COLUMN ================= */}
                 <div className={styles.colRight}>
-                  <div
-                    className={styles.blockCard}
-                    style={{ textAlign: 'center', padding: '32px 24px' }}
-                  >
+                  <div className={clsx(styles.blockCard, styles.signupCard)}>
                     <Avatar
                       size={50}
                       src="https://avatars.githubusercontent.com/u/27722486?v=4"
-                      style={{ marginBottom: 16 }}
+                      className={styles.signupAvatar}
                     />
                     <Title level={4}>Create an account</Title>
-                    <Text
-                      type="secondary"
-                      style={{ display: 'block', marginBottom: 24, fontSize: 14 }}
-                    >
+                    <Text type="secondary" className={styles.signupText}>
                       Start your free 7-day trial. No credit card required.
                     </Text>
-                    <Button type="primary" block size="large" style={{ marginBottom: 16 }}>
+                    <Button type="primary" block size="large" className={styles.signupBtn}>
                       Get Started
                     </Button>
-                    <Divider style={{ color: currentToken.colorTextSecondary, fontSize: 12 }}>
-                      OR
-                    </Divider>
+                    <Divider className={styles.signupDivider}>OR</Divider>
                     <Flex vertical gap="small">
                       <Button block size="large" icon={<GoogleOutlined />}>
                         Continue with Google
@@ -482,8 +567,8 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   </div>
 
                   <ModalInternalPanel title="Ant Design">
-                    <div style={{ height: 60 }}>
-                      Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。
+                    <div className={styles.modalContent}>
+                      Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability.
                     </div>
                   </ModalInternalPanel>
                 </div>
