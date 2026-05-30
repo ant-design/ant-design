@@ -25,6 +25,7 @@ export type PreviewThemeConfig = {
   bgImg?: string;
   bgImgDark?: true;
   copyCode?: string;
+  colors?: string[];
 };
 
 const locales = {
@@ -77,6 +78,7 @@ export default function usePreviewThemes() {
             algorithm: theme.defaultAlgorithm,
           },
         },
+        colors: ['#1677ff', '#52c41a'],
       },
       {
         name: locale.dark,
@@ -89,6 +91,7 @@ export default function usePreviewThemes() {
             algorithm: theme.darkAlgorithm,
           },
         },
+        colors: ['#141414', '#1f1f1f'],
       },
       {
         name: locale.mui,
@@ -96,6 +99,7 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
         props: muiTheme,
         copyCode: muiThemeSource,
+        colors: ['#1976d2', '#2e7d32'],
       },
       {
         name: locale.shadcn,
@@ -103,6 +107,7 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
         props: shadcnTheme,
         copyCode: shadcnThemeSource,
+        colors: ['#262626', '#22c55e', '#ef4444'],
       },
       {
         name: locale.cartoon,
@@ -110,6 +115,7 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
         props: cartoonTheme,
         copyCode: cartoonThemeSource,
+        colors: ['#51463B', '#DA8787'],
       },
       {
         name: locale.illustration,
@@ -117,6 +123,7 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
         props: illustrationTheme,
         copyCode: illustrationThemeSource,
+        colors: ['#52C41A', '#FA5252'],
       },
       {
         name: locale.bootstrap,
@@ -124,6 +131,7 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
         props: bootstrapTheme,
         copyCode: bootstrapThemeSource,
+        colors: ['#1677ff', '#52c41a'],
       },
       {
         name: locale.glass,
@@ -132,6 +140,7 @@ export default function usePreviewThemes() {
         bgImgDark: true,
         props: glassTheme,
         copyCode: glassThemeSource,
+        colors: ['#1677ff', '#52c41a'],
       },
       {
         name: locale.geek,
@@ -140,6 +149,7 @@ export default function usePreviewThemes() {
         bgImgDark: true,
         props: geekTheme,
         copyCode: geekThemeSource,
+        colors: ['#39ff14', '#39ff14'],
       },
     ];
   }, [locale]);
