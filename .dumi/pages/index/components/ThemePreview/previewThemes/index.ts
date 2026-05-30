@@ -89,8 +89,8 @@ export default function usePreviewThemes() {
       {
         icon: 'https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg',
         name: locale.bootstrap,
-        bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
+        // bgImg:
+        //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
         props: bootstrapTheme,
         copyCode: bootstrapThemeSource,
         colors: ['#1677ff', '#52c41a'],
@@ -113,8 +113,8 @@ export default function usePreviewThemes() {
       },
       {
         name: locale.glass,
-        bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
+        // bgImg:
+        //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
         bgImgDark: true,
         props: glassTheme,
         copyCode: glassThemeSource,
