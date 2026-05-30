@@ -334,10 +334,8 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const buttonList: ButtonProps[] = [
     { type: 'primary', children: 'Primary button' },
-    { color: 'primary', variant: 'filled', children: 'Filled button' },
     { danger: true, children: 'Danger button' },
     { type: 'dashed', variant: 'outlined', shape: 'round', children: 'Outlined button' },
-    { color: 'primary', variant: 'dashed', shape: 'round', children: 'Dashed button' },
     { danger: true, shape: 'round', children: 'Round button' },
   ];
 
@@ -490,12 +488,12 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
                   <Flex gap="large" vertical>
                     <Flex gap="middle" justify="center">
-                      {buttonList.slice(0, 3).map((btn: ButtonProps, idx) => (
+                      {buttonList.slice(0, 2).map((btn: ButtonProps, idx) => (
                         <Button key={idx} {...btn} />
                       ))}
                     </Flex>
                     <Flex gap="middle" justify="center">
-                      {buttonList.slice(-3).map((btn: ButtonProps, idx) => (
+                      {buttonList.slice(-2).map((btn: ButtonProps, idx) => (
                         <Button key={idx} {...btn} />
                       ))}
                     </Flex>
