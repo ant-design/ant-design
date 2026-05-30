@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | activeTabKey | Current TabPane's key | string | - |  |
 | ~~bordered~~ | Toggles rendering of the border around the card, please use `variant` instead | boolean | true |  |
 | ~~bodyStyle~~ | Style of card body, please use `styles.body` instead | CSSProperties | - | - |
-| variant | Variants of Card | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
+| variant | Variants of Card | `outlined` \| `borderless` | `outlined` | 5.24.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
