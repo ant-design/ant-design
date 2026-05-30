@@ -233,6 +233,7 @@ async function generateLLms(api: IApi) {
     '',
     '## Navigation',
     '',
+    '- [Design Language (DESIGN.md)](./design.md)',
     '- [Full Documentation (EN)](./llms-full.txt)',
     '- [Full Documentation (CN)](./llms-full-cn.txt)',
     '- [Semantic Documentation (EN)](./llms-semantic.md)',
@@ -270,6 +271,15 @@ async function generateLLms(api: IApi) {
   fs.writeFileSync(path.join(siteDir, 'llms-full.txt'), fullContent);
   fs.writeFileSync(path.join(siteDir, 'llms-full-cn.txt'), fullContentCn);
   fs.writeFileSync(path.join(siteDir, 'llms.txt'), llmsNavContent);
+
+  // Publish DESIGN.md to site root as lowercase design.md so https://ant.design/design.md works
+  // on case-sensitive filesystems regardless of how the file is named in the repo.
+  const designMdSource = path.join(api.cwd, 'DESIGN.md');
+  if (fs.existsSync(designMdSource)) {
+    fs.copyFileSync(designMdSource, path.join(siteDir, 'design.md'));
+  } else {
+    api.logger.warn('DESIGN.md not found at repo root; https://ant.design/design.md will 404.');
+  }
 
   api.logger.event(
     `Generated llms.txt (navigation), llms-full.txt (${components.length} components), llms-full-cn.txt (${componentsCn.length} components), llms-semantic.md (${semantics.length} semantics), llms-semantic-cn.md (${semanticsCn.length} semantics)`,

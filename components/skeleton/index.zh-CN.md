@@ -61,11 +61,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 ### Skeleton.Avatar
 
-| 属性   | 说明                                       | 类型                                     | 默认值   |
-| ------ | ------------------------------------------ | ---------------------------------------- | -------- |
-| active | 是否展示动画效果，只在独立使用头像时有效   | boolean                                  | false    |
-| shape  | 指定头像的形状                             | `circle` \| `square`                     | `circle` |
-| size   | 设置头像占位图的大小                       | number \| `large` \| `medium` \| `small` | `medium` |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| active | 是否展示动画效果，只在独立使用头像时有效 | boolean | false |
+| shape | 指定头像的形状 | `circle` \| `square` | `circle` |
+| size | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` |
 
 ### Skeleton.Button
 

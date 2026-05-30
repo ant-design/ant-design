@@ -96,6 +96,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     classNames: contextClassNames,
     tooltip: contextTooltip,
     labelAlign: contextLabelAlign,
+    labelWrap: contextLabelWrap,
   } = useComponentConfig('form');
 
   const {
@@ -149,6 +150,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const mergedLabelAlign = labelAlign ?? contextLabelAlign;
 
+  const mergedLabelWrap = labelWrap ?? contextLabelWrap;
+
   const mergedTooltip = { ...contextTooltip, ...tooltip };
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
@@ -165,6 +168,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     layout,
     colon: mergedColon,
     requiredMark: mergedRequiredMark,
+    labelAlign: mergedLabelAlign,
+    labelWrap: mergedLabelWrap,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
@@ -202,7 +207,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       name,
       labelAlign: mergedLabelAlign,
       labelCol,
-      labelWrap,
+      labelWrap: mergedLabelWrap,
       wrapperCol,
       layout,
       colon: mergedColon,
@@ -217,6 +222,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     [
       name,
       mergedLabelAlign,
+      mergedLabelWrap,
       labelCol,
       wrapperCol,
       layout,

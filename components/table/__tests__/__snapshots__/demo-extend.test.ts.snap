@@ -2196,6 +2196,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -3589,6 +3590,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -3998,6 +4000,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4134,6 +4137,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4349,6 +4353,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -6727,6 +6732,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -10735,6 +10741,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11293,6 +11300,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11714,6 +11722,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -12070,6 +12079,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -13876,6 +13886,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -15347,6 +15358,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -15748,6 +15760,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -16933,6 +16946,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -17069,6 +17083,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -17363,6 +17378,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -23300,6 +23316,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -23636,6 +23653,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
