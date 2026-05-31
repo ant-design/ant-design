@@ -71,7 +71,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     className,
     trigger,
     children,
-    bodyStyle = {},
+    bodyStyle,
     defaultCollapsed = false,
     theme = 'dark',
     style = {},
