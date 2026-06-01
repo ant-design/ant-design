@@ -228,7 +228,6 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           <ComponentsBlock
             isDark={isDark}
             key={activeName}
-            bgImg={activeTheme?.bgImg}
             config={activeTheme?.props}
             className={styles.componentsBlock}
             containerClassName={styles.componentsBlockContainer}
