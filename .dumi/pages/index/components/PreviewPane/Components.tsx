@@ -327,6 +327,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const avatarGroupList = [
     'https://avatars.githubusercontent.com/u/507615?v=4',
     'https://avatars.githubusercontent.com/u/5378891?v=4',
+    'https://avatars.githubusercontent.com/u/49217418?v=4',
     'https://avatars.githubusercontent.com/u/117748716?v=4',
     'https://avatars.githubusercontent.com/u/59312002?v=4',
     'https://avatars.githubusercontent.com/u/82765353?v=4',
