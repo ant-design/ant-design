@@ -263,9 +263,6 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       color: token.colorTextSecondary,
       fontSize: 12,
     }),
-    modalContent: css({
-      height: 60,
-    }),
   };
 });
 
@@ -566,7 +563,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   </div>
 
                   <ModalInternalPanel title="Ant Design">
-                    <div className={styles.modalContent}>
+                    <div>
                       Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability.
                     </div>
                   </ModalInternalPanel>
