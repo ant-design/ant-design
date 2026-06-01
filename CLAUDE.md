@@ -208,3 +208,76 @@ ant-design/
 - [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) - API 命名规范
 - [轮值规则和版本发布流程](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B) - 版本发布流程
 - [Unique Panel Component](https://github.com/ant-design/ant-design/wiki/Unique-Panel-Component) - 独立面板组件规范
+
+---
+
+## 编码行为准则
+
+Behavioral guidelines aimed at reducing common LLM coding mistakes. Intended to be merged with project-specific instructions.
+
+**Tradeoff:** These guidelines "bias toward caution over speed." For trivial tasks, use judgment.
+
+### 1. Think Before Coding
+
+**"Don't assume. Don't hide confusion. Surface tradeoffs."**
+
+Before implementing:
+
+- State assumptions explicitly; if uncertain, ask.
+- When multiple interpretations exist, present them rather than choosing silently.
+- If a simpler approach exists, say so and push back when warranted.
+- If something is unclear, stop and name what's confusing, then ask.
+
+### 2. Simplicity First
+
+**"Minimum code that solves the problem. Nothing speculative."**
+
+- No features beyond what was requested.
+- No abstractions for single-use code.
+- No unrequested "flexibility" or "configurability."
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+### 3. Surgical Changes
+
+**"Touch only what you must. Clean up only your own mess."**
+
+When editing existing code:
+
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style even if you'd do it differently.
+- If you notice unrelated dead code, mention it rather than deleting it.
+
+When your changes create orphans:
+
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: "Every changed line should trace directly to the user's request."
+
+### 4. Goal-Driven Execution
+
+**"Define success criteria. Loop until verified."**
+
+Transform tasks into verifiable goals:
+
+- "Add validation" → write tests for invalid inputs, then make them pass
+- "Fix the bug" → write a reproducing test, then make it pass
+- "Refactor X" → ensure tests pass before and after
+
+For multi-step tasks, state a brief plan:
+
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+
+"Strong success criteria let you loop independently." Weak criteria like "make it work" require constant clarification.
+
+---
+
+**"These guidelines are working if:"** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
