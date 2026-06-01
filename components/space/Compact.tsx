@@ -16,6 +16,9 @@ export interface SpaceCompactItemContextType {
   compactDirection?: 'horizontal' | 'vertical';
   isFirstItem?: boolean;
   isLastItem?: boolean;
+  compactItemKey?: React.Key;
+  registerItem?: (key: React.Key) => void;
+  deregisterItem?: (key: React.Key) => void;
 }
 
 export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType | null>(
@@ -25,11 +28,33 @@ export const SpaceCompactItemContext = React.createContext<SpaceCompactItemConte
 export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
+  const {
+    compactDirection,
+    compactItemKey,
+    compactSize,
+    deregisterItem,
+    isFirstItem,
+    isLastItem,
+    registerItem,
+  } = compactItemContext || {};
+
+  React.useEffect(() => {
+    if (compactItemKey === undefined || !registerItem || !deregisterItem) {
+      return;
+    }
+
+    registerItem(compactItemKey);
+
+    return () => {
+      deregisterItem(compactItemKey);
+    };
+  }, [compactItemKey, deregisterItem, registerItem]);
+
   const compactItemClassnames = React.useMemo<string>(() => {
     if (!compactItemContext) {
       return '';
     }
-    const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
+
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
     return clsx(`${prefixCls}-compact${separator}item`, {
@@ -37,11 +62,11 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
     });
-  }, [prefixCls, direction, compactItemContext]);
+  }, [compactDirection, compactItemContext, direction, isFirstItem, isLastItem, prefixCls]);
 
   return {
-    compactSize: compactItemContext?.compactSize,
-    compactDirection: compactItemContext?.compactDirection,
+    compactSize,
+    compactDirection,
     compactItemClassnames,
   };
 };
@@ -116,27 +141,59 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
-  const childNodes = toArray(children);
+  const childNodes = toArray(children).filter(React.isValidElement);
+  const [registeredItemKeys, setRegisteredItemKeys] = React.useState<React.Key[]>([]);
+
+  const registerItem = React.useCallback((itemKey: React.Key) => {
+    setRegisteredItemKeys((prevKeys) => {
+      if (prevKeys.includes(itemKey)) {
+        return prevKeys;
+      }
+      return [...prevKeys, itemKey];
+    });
+  }, []);
+
+  const deregisterItem = React.useCallback((itemKey: React.Key) => {
+    setRegisteredItemKeys((prevKeys) => prevKeys.filter((key) => key !== itemKey));
+  }, []);
+
+  const firstItemKey = registeredItemKeys[0];
+  const lastItemKey = registeredItemKeys[registeredItemKeys.length - 1];
 
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
-        const key = child?.key || `${prefixCls}-item-${i}`;
+        const key = child?.key ?? `${prefixCls}-item-${i}`;
+        const isFirstItem = firstItemKey !== undefined ? key === firstItemKey : i === 0;
+        const isLastItem =
+          lastItemKey !== undefined ? key === lastItemKey : i === childNodes.length - 1;
+
         return (
           <CompactItem
             key={key}
             compactSize={mergedSize}
             compactDirection={mergedOrientation}
-            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
-            isLastItem={
-              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
-            }
+            isFirstItem={isFirstItem && (!compactItemContext || compactItemContext?.isFirstItem)}
+            isLastItem={isLastItem && (!compactItemContext || compactItemContext?.isLastItem)}
+            compactItemKey={key}
+            registerItem={registerItem}
+            deregisterItem={deregisterItem}
           >
             {child}
           </CompactItem>
         );
       }),
-    [childNodes, compactItemContext, mergedOrientation, mergedSize, prefixCls],
+    [
+      childNodes,
+      compactItemContext,
+      deregisterItem,
+      firstItemKey,
+      lastItemKey,
+      mergedOrientation,
+      mergedSize,
+      prefixCls,
+      registerItem,
+    ],
   );
 
   // =========================== Render ===========================

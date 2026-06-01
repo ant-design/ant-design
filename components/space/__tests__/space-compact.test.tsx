@@ -66,6 +66,23 @@ describe('Space.Compact', () => {
     expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
+  it('should keep first and last class when only one child is actually rendered', () => {
+    const ConditionalButton = ({ visible }: { visible: boolean }) =>
+      visible ? <Button>Conditional</Button> : null;
+
+    const { container } = render(
+      <Space.Compact>
+        <Button className="test-single-button">Always visible</Button>
+        <ConditionalButton visible={false} />
+      </Space.Compact>,
+    );
+
+    expect(container.querySelector('.test-single-button')).toHaveClass(
+      'ant-btn-compact-first-item',
+    );
+    expect(container.querySelector('.test-single-button')).toHaveClass('ant-btn-compact-last-item');
+  });
+
   [
     {
       name: 'Button',
