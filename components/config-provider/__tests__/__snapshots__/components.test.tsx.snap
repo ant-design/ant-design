@@ -25367,6 +25367,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       >
                         <div
                           class="config-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light css-var-root config-dropdown-css-var css-var-root config-dropdown-menu-css-var"
@@ -25673,6 +25674,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       >
                         <div
                           class="config-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light css-var-root config-dropdown-css-var css-var-root config-dropdown-menu-css-var"
@@ -25981,6 +25983,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       >
                         <div
                           class="config-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light css-var-root config-dropdown-css-var css-var-root config-dropdown-menu-css-var"
@@ -26287,6 +26290,7 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                       >
                         <div
                           class="config-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light css-var-root config-dropdown-css-var css-var-root config-dropdown-menu-css-var"
@@ -26593,6 +26597,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                       >
                         <div
                           class="config-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light css-var-root config-dropdown-css-var css-var-root config-dropdown-menu-css-var"
@@ -26899,6 +26904,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
@@ -27205,6 +27211,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       >
                         <div
                           class="prefix-Table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"

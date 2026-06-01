@@ -1,5 +1,6 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
@@ -140,7 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -226,6 +228,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
+    ...restProps
   } = props;
 
   const {
@@ -580,6 +583,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const targetSectionClassNames = getMergedSectionClassNames('target');
   const sourceSectionStyles = getMergedSectionStyles('source');
   const targetSectionStyles = getMergedSectionStyles('target');
+  const rootProps = pickAttrs(restProps, {
+    aria: true,
+    data: true,
+  });
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -598,7 +605,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...rootProps} className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
