@@ -343,14 +343,17 @@ describe('Sider', () => {
     ).toEqual('rgb(255, 153, 102)');
   });
 
-  it('bodyStyle should work', () => {
+  it('semantic classNames and styles should work', () => {
     const { container } = render(
       <Sider
-        bodyStyle={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          justifyContent: 'space-evenly',
+        classNames={{ body: 'custom-body' }}
+        styles={{
+          body: {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            justifyContent: 'space-evenly',
+          },
         }}
       >
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
@@ -361,7 +364,9 @@ describe('Sider', () => {
         </Menu>
       </Sider>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider-children')).toHaveStyle({
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children');
+    expect(body).toHaveClass('custom-body');
+    expect(body).toHaveStyle({
       display: 'flex',
       flexDirection: 'column',
       height: '100%',

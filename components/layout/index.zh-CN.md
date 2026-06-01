@@ -105,13 +105,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | --- | --- | --- | --- | --- |
 | breakpoint | 触发响应式布局的[断点](/components/grid-cn#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 6.3.0 |
 | className | 容器 className | string | - |  |
+| classNames | 语义化结构 className | [`Record<body, string>`](#semantic-dom) | - | 6.5.0 |
 | collapsed | 当前收起状态 | boolean | - |  |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |  |
 | collapsible | 是否可收起 | boolean | false |  |
 | defaultCollapsed | 是否默认收起 | boolean | false |  |
-| bodyStyle | 指定内部内容容器的样式 | CSSProperties | - |  |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |  |
 | style | 指定样式 | CSSProperties | - |  |
+| styles | 语义化结构 style | [`Record<body, CSSProperties>`](#semantic-dom) | - | 6.5.0 |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |  |
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | ReactNode | - |  |
 | width | 宽度 | number \| string | 200 |  |
@@ -132,6 +133,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
   xxxl: '1920px',
 }
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 

@@ -100,23 +100,24 @@ The wrapper.
 
 The sidebar.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 6.3.0 |
-| className | Container className | string | - |  |
-| collapsed | To set the current status | boolean | - |  |
-| collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  |
-| collapsible | Whether can be collapsed | boolean | false |  |
-| defaultCollapsed | To set the initial status | boolean | false |  |
-| bodyStyle | To customize the styles of the inner content wrapper | CSSProperties | - |  |
-| reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
-| style | To customize the styles | CSSProperties | - |  |
-| theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |
-| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  |
-| width | Width of the sidebar | number \| string | 200 |  |
-| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |  |
-| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |  |
-| onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 6.3.0 | × |
+| className | Container className | string | - |  | × |
+| classNames | Semantic DOM className | [`Record<body, string>`](#semantic-dom) | - | 6.5.0 | × |
+| collapsed | To set the current status | boolean | - |  | × |
+| collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  | × |
+| collapsible | Whether can be collapsed | boolean | false |  | × |
+| defaultCollapsed | To set the initial status | boolean | false |  | × |
+| reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  | × |
+| style | To customize the styles | CSSProperties | - |  | × |
+| styles | Semantic DOM style | [`Record<body, CSSProperties>`](#semantic-dom) | - | 6.5.0 | × |
+| theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  | × |
+| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  | × |
+| width | Width of the sidebar | number \| string | 200 |  | × |
+| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |  | × |
+| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |  | × |
+| onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |  | × |
 
 #### breakpoint width
 
@@ -131,6 +132,10 @@ The sidebar.
   xxxl: '1920px',
 }
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
