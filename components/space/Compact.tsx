@@ -141,8 +141,22 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
-  const childNodes = toArray(children).filter(React.isValidElement);
+  const childNodes = toArray(children);
   const [registeredItemKeys, setRegisteredItemKeys] = React.useState<React.Key[]>([]);
+  const registeredItemKeySet = React.useMemo(
+    () => new Set(registeredItemKeys),
+    [registeredItemKeys],
+  );
+
+  const childKeys = React.useMemo(
+    () => childNodes.map((child, index) => child?.key ?? `${prefixCls}-item-${index}`),
+    [childNodes, prefixCls],
+  );
+
+  const activeKeys = React.useMemo(
+    () => childKeys.filter((key) => registeredItemKeySet.has(key)),
+    [childKeys, registeredItemKeySet],
+  );
 
   const registerItem = React.useCallback((itemKey: React.Key) => {
     setRegisteredItemKeys((prevKeys) => {
@@ -157,13 +171,13 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     setRegisteredItemKeys((prevKeys) => prevKeys.filter((key) => key !== itemKey));
   }, []);
 
-  const firstItemKey = registeredItemKeys[0];
-  const lastItemKey = registeredItemKeys[registeredItemKeys.length - 1];
+  const firstItemKey = activeKeys[0];
+  const lastItemKey = activeKeys[activeKeys.length - 1];
 
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
-        const key = child?.key ?? `${prefixCls}-item-${i}`;
+        const key = childKeys[i];
         const isFirstItem = firstItemKey !== undefined ? key === firstItemKey : i === 0;
         const isLastItem =
           lastItemKey !== undefined ? key === lastItemKey : i === childNodes.length - 1;
@@ -185,6 +199,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
       }),
     [
       childNodes,
+      childKeys,
       compactItemContext,
       deregisterItem,
       firstItemKey,
