@@ -13989,7 +13989,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
@@ -14225,7 +14225,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
       </div>
     </div>
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -14295,7 +14295,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
           value="mysite"
         />
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
           type="button"
         >
           <span
@@ -14332,7 +14332,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item css-var-test-id ant-picker-css-var"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item css-var-test-id ant-picker-css-var"
       >
         <div
           class="ant-picker-input"
@@ -15899,7 +15899,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
       </button>
     </div>
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -15907,7 +15907,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
       </span>
     </button>
     <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -16055,7 +16055,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
         </div>
       </div>
       <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
         type="button"
       >
         <span>
