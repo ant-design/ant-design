@@ -1,11 +1,6 @@
 import * as React from 'react';
-import {
-  BgColorsOutlined,
-  CopyOutlined,
-  GithubOutlined,
-  PlusCircleOutlined,
-} from '@ant-design/icons';
-import { App, ConfigProvider, Dropdown, Flex, theme, Tooltip } from 'antd';
+import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
+import { App, ConfigProvider, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
 import { useLocation } from 'dumi';
@@ -91,10 +86,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     opacity: 1,
   }),
   buttonBlock: css({
-    height: 32,
-    width: 32,
+    height: 30,
+    width: 30,
     borderRadius: '50%',
     fontSize: 16,
+    color: cssVar.colorPrimaryBorder,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -176,12 +172,16 @@ function ThemePreviewContent(props: ThemePreviewProps) {
 
   const editPath = utils.getLocalizedPathname('/theme-editor-cn', isZhCN, search);
 
+  const background = activeTheme?.bgImg
+    ? activeTheme.bgImg
+    : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)';
+
   return (
     <Group
       title={locale.themeTitle}
       description={locale.themeDesc}
       collapse
-      background={isDark ? '#393F4A' : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)'}
+      background={isDark ? '#393F4A' : background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
       <Flex className={styles.container} gap={token.paddingLG}>
@@ -189,7 +189,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           <Flex justify="space-between">
             <div></div>
             <Flex align="center" gap={6}>
-              {previewThemes?.slice(0, 6).map((previewTheme: any) => (
+              {previewThemes.map((previewTheme: any) => (
                 <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
                   <div
                     className={`${styles.themeBlock} ${activeName === previewTheme.name ? styles.active : ''}`}
@@ -205,60 +205,6 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                   />
                 </Tooltip>
               ))}
-              <Dropdown
-                menu={{
-                  selectedKeys: [activeName!],
-                  items: [
-                    ...previewThemes.slice(6).map((previewTheme: any) => ({
-                      key: previewTheme.name,
-                      onClick: () => handleThemeClick(previewTheme.name),
-                      label: (
-                        <Flex
-                          gap={6}
-                          onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
-                        >
-                          <div
-                            className={`${styles.themeBlock}`}
-                            role="tab"
-                            tabIndex={activeName === previewTheme.name ? 0 : -1}
-                            aria-selected={activeName === previewTheme.name}
-                            style={{
-                              backgroundImage: previewTheme.icon
-                                ? `url(${previewTheme.icon})`
-                                : undefined,
-                              backgroundColor: previewTheme.icon
-                                ? 'transparent'
-                                : previewTheme.colors[0],
-                              opacity: 1,
-                            }}
-                          />
-                          <span> {previewTheme.name}</span>
-                        </Flex>
-                      ),
-                    })),
-                    {
-                      type: 'divider',
-                    },
-                    {
-                      key: 'github',
-                      onClick: () => {
-                        window.open('https://github.com/ant-design/ant-design/issues/56936');
-                      },
-                      label: (
-                        <Flex gap={6}>
-                          <GithubOutlined className={styles.themeBlock} />
-                          <span> {locale.contribution} </span>
-                        </Flex>
-                      ),
-                    },
-                  ],
-                }}
-                placement="bottomLeft"
-              >
-                <div className={styles.buttonBlock}>
-                  <PlusCircleOutlined />
-                </div>
-              </Dropdown>
               <Tooltip placement="top" title={locale.copyTheme}>
                 <div className={styles.buttonBlock} onClick={handleCopyTheme}>
                   <CopyOutlined />

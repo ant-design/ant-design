@@ -59,7 +59,6 @@ interface ComponentsBlockProps {
   containerClassName?: string;
   inherit?: boolean;
   isDark?: boolean;
-  bgImg?: string;
 }
 
 const locales = {
@@ -268,7 +267,7 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
-  const { config, className, containerClassName, inherit = false, bgImg, isDark = false } = props;
+  const { config, className, containerClassName, inherit = false, isDark = false } = props;
 
   const { styles } = useStyle();
 
@@ -347,8 +346,9 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             <Card
               styles={{
                 root: {
-                  backgroundColor: isDark ? 'lab(14% 0 0)' : 'lab(96.5432% -.0000596046 0)',
-                  backgroundImage: bgImg ? `url(${bgImg})` : undefined,
+                  backgroundColor: isDark ? 'lab(14% 0 0)' : 'transparent',
+                  backdropFilter: 'blur(12px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08)',
                 },
                 body: {
                   padding: 0,

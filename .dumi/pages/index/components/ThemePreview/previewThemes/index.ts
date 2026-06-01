@@ -30,7 +30,7 @@ export type PreviewThemeConfig = {
 
 const locales = {
   cn: {
-    default: '默认',
+    default: 'Ant Design',
     dark: '暗黑',
     geek: '极客',
     glass: '玻璃',
@@ -41,7 +41,7 @@ const locales = {
     illustration: '插画',
   },
   en: {
-    default: 'Default',
+    default: 'Ant Design',
     dark: 'Dark',
     geek: 'Geek',
     glass: 'Glass',
@@ -68,6 +68,19 @@ export default function usePreviewThemes() {
 
   return React.useMemo<PreviewThemeConfig[]>(() => {
     return [
+      {
+        icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+        name: locale.default,
+        key: 'light',
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
+        props: {
+          theme: {
+            algorithm: theme.defaultAlgorithm,
+          },
+        },
+        colors: ['#1677ff', '#52c41a'],
+      },
       {
         icon: 'https://mui.com/static/favicon.svg',
         name: locale.mui,
@@ -104,6 +117,19 @@ export default function usePreviewThemes() {
         colors: ['#51463B', '#DA8787'],
       },
       {
+        name: locale.dark,
+        key: 'dark',
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
+        bgImgDark: true,
+        props: {
+          theme: {
+            algorithm: theme.darkAlgorithm,
+          },
+        },
+        colors: ['#141414', '#1f1f1f'],
+      },
+      {
         name: locale.illustration,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
@@ -128,31 +154,6 @@ export default function usePreviewThemes() {
         props: geekTheme,
         copyCode: geekThemeSource,
         colors: ['#39ff14', '#39ff14'],
-      },
-      {
-        name: locale.default,
-        key: 'light',
-        bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
-        props: {
-          theme: {
-            algorithm: theme.defaultAlgorithm,
-          },
-        },
-        colors: ['#1677ff', '#52c41a'],
-      },
-      {
-        name: locale.dark,
-        key: 'dark',
-        bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
-        bgImgDark: true,
-        props: {
-          theme: {
-            algorithm: theme.darkAlgorithm,
-          },
-        },
-        colors: ['#141414', '#1f1f1f'],
       },
     ];
   }, [locale]);
