@@ -133,6 +133,9 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       display: 'flex',
       flexDirection: 'column',
       gap: token.paddingLG,
+      '@media (max-width: 768px)': {
+        display: 'none',
+      },
     }),
     colCenter: css({
       flex: 1,
@@ -145,6 +148,9 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       display: 'flex',
       flexDirection: 'column',
       gap: token.paddingLG,
+      '@media (max-width: 1200px)': {
+        display: 'none',
+      },
     }),
     mainCard: css({
       justifyContent: 'center',

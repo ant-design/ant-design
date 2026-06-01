@@ -48,7 +48,8 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 
   wrapper: css({
-    width: 1320,
+    width: '100%',
+    maxWidth: 1320,
     flexDirection: 'column',
     alignItems: 'stretch',
   }),
@@ -62,7 +63,8 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 
   componentsBlock: css({
-    width: 1320,
+    width: '100%',
+    maxWidth: 1320,
     margin: '0 auto',
   }),
   themeBlock: css({
@@ -85,6 +87,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   active: css({
     opacity: 1,
   }),
+  switch: css({
+    '@media (max-width: 1200px)': {
+      justifyContent: 'center',
+    },
+  }),
   buttonBlock: css({
     height: 30,
     width: 30,
@@ -97,6 +104,9 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     cursor: 'pointer',
     '&:hover': {
       backgroundColor: '#f5f5f5',
+    },
+    '@media (max-width: 1200px)': {
+      display: 'none',
     },
   }),
 }));
@@ -186,7 +196,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
     >
       <Flex className={styles.container} gap={token.paddingLG}>
         <Flex className={styles.wrapper} gap={8}>
-          <Flex justify="space-between">
+          <Flex className={styles.switch} justify="space-between">
             <div></div>
             <Flex align="center" gap={6}>
               {previewThemes.map((previewTheme: any) => (
