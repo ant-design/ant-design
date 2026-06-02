@@ -13,14 +13,6 @@ const genMaxCountStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
           color: token.colorTextDescription,
         },
-
-        [`${itemCls}-icon`]: {
-          borderStyle: 'dashed',
-        },
-
-        [`${itemCls}-icon-number`]: {
-          fontWeight: 'normal',
-        },
       },
     },
   };
