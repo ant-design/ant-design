@@ -306,9 +306,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             },
 
             '&-has-search-value': {
+              // Keep display content fully hidden while typing, including plain text nodes.
               color: 'transparent',
 
-              [`> :not(${componentCls}-input)`]: {
+              [`> *:not(${componentCls}-input)`]: {
                 opacity: 0,
               },
             },
@@ -317,6 +318,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             '&-value': {
               transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
               zIndex: 1,
+              opacity: 1,
             },
           },
 
@@ -327,6 +329,21 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
               color: 'transparent',
             },
           },
+
+          [`&:not(${antCls}-cascader):not(${antCls}-tree-select)${componentCls}-open ${componentCls}-content`]:
+            {
+              '&-has-value': {
+                [`> *:not(${componentCls}-input)`]: {
+                  opacity: 0.25,
+                },
+              },
+
+              '&-has-search-value': {
+                [`> *:not(${componentCls}-input)`]: {
+                  opacity: 0,
+                },
+              },
+            },
         },
       },
 
