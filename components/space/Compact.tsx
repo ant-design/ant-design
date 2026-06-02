@@ -140,6 +140,23 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   );
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
+  const {
+    compactItemKey,
+    deregisterItem: deregisterCompactItem,
+    registerItem: registerCompactItem,
+  } = compactItemContext || {};
+
+  React.useEffect(() => {
+    if (compactItemKey === undefined || !registerCompactItem || !deregisterCompactItem) {
+      return;
+    }
+
+    registerCompactItem(compactItemKey);
+
+    return () => {
+      deregisterCompactItem(compactItemKey);
+    };
+  }, [compactItemKey, deregisterCompactItem, registerCompactItem]);
 
   const childNodes = toArray(children);
   const [registeredItemKeys, setRegisteredItemKeys] = React.useState<React.Key[]>([]);
