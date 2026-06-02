@@ -87,7 +87,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | minScale | 最小缩放倍数 | number | 1 |  |
 | movable | 是否可移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
-| rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
 | src | 自定义预览 src | string | - |  |
 | styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
