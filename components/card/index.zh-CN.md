@@ -62,21 +62,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型          | 默认值 | 版本 |
-| --------- | ---------------------- | ------------- | ------ | ---- |
-| className | 网格容器类名           | string        | -      |      |
-| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
-| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
+| 参数      | 说明             | 类型    | 默认值 | 版本 |
+| --------- | ---------------- | ------- | ------ | ---- |
+| hoverable | 鼠标移过时可浮起 | boolean | true   |      |
 
 ### Card.Meta
 
-| 参数        | 说明               | 类型          | 默认值 | 版本 |
-| ----------- | ------------------ | ------------- | ------ | ---- |
-| avatar      | 头像/图标          | ReactNode     | -      |      |
-| className   | 容器类名           | string        | -      |      |
-| description | 描述内容           | ReactNode     | -      |      |
-| style       | 定义容器类名的样式 | CSSProperties | -      |      |
-| title       | 标题内容           | ReactNode     | -      |      |
+| 参数        | 说明      | 类型      | 默认值 | 版本 |
+| ----------- | --------- | --------- | ------ | ---- |
+| avatar      | 头像/图标 | ReactNode | -      |      |
+| description | 描述内容  | ReactNode | -      |      |
+| title       | 标题内容  | ReactNode | -      |      |
 
 ## Semantic DOM
 

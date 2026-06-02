@@ -51,7 +51,6 @@ demo:
 | checkable | 节点前添加 Checkbox 复选框 | boolean | false |  |
 | checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |
 | checkStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联） | boolean | false |  |
-| className | 添加在 Tree 上的额外 class | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
 | defaultCheckedKeys | 默认选中复选框的树节点 | string\[] | \[] |  |
 | defaultExpandAll | 默认展开所有树节点 | boolean | false |  |
@@ -74,7 +73,6 @@ demo:
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  |
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  |
 | showLine | 是否展示连接线 | boolean \| { showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode) } | false |  |
-| style | Tree 组件的样式 | CSSProperties | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | switcherIcon | 自定义树节点的展开/折叠图标（`showLine` 下不会自动 rotate） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | switcherLoadingIcon | 自定义树节点的加载图标 | ReactNode | - | 5.20.0 |
