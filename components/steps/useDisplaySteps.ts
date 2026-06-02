@@ -10,6 +10,13 @@ type DisplayStep = {
   originIndex: number;
 };
 
+type UseDisplayStepsResult = {
+  canApplyMaxCount: boolean;
+  displaySteps: DisplayStep[];
+  mappedDisplayCurrent: number;
+  displayItems: StepItem[];
+};
+
 /**
  * Normalize a real item into the collapsed display list.
  * The original item key is preserved when provided, otherwise the original index keeps
@@ -108,7 +115,7 @@ export default function useDisplaySteps(
   initial: number,
   maxCount: number | undefined,
   prefixCls: string,
-) {
+): UseDisplayStepsResult {
   const canApplyMaxCount = maxCount !== undefined && maxCount >= 3 && mergedItems.length > maxCount;
 
   const mappedCurrent = current - initial;

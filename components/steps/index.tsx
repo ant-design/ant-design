@@ -451,7 +451,7 @@ const Steps = (props: StepsProps) => {
     );
   }
 
-  const handleDisplayChange = (displayCurrent: number) => {
+  const onDisplayChange = (displayCurrent: number) => {
     const target = displaySteps[displayCurrent];
     if (onChange && target && target.originIndex >= 0) {
       onChange(initial + target.originIndex);
@@ -476,7 +476,7 @@ const Steps = (props: StepsProps) => {
       initial={0}
       current={mappedDisplayCurrent}
       items={displayItems}
-      onChange={onChange ? handleDisplayChange : undefined}
+      onChange={onChange ? onDisplayChange : undefined}
       // Render
       iconRender={internalIconRender}
       itemRender={itemRender}

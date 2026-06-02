@@ -41,6 +41,7 @@ const App: React.FC = () => {
       <Flex gap="small" align="center" style={{ alignSelf: 'center' }}>
         <Button icon={<LeftOutlined />} onClick={handlePrev} disabled={current <= 0} />
         <InputNumber
+          aria-label="Number of Steps"
           mode="spinner"
           min={3}
           max={7}
