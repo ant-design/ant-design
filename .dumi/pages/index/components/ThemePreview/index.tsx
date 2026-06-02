@@ -68,16 +68,16 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     margin: '0 auto',
   }),
   themeBlock: css({
-    height: 22,
-    width: 22,
+    height: 20,
+    width: 20,
     fontSize: 20,
     borderRadius: '50%',
     cursor: 'pointer',
-    backgroundSize: '100%',
+    backgroundSize: '80%',
+    boxShadow: '0 3px 8px rgba(0,0,0,0.15)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    outline: '1px solid #f5f5f5',
-    border: `2px solid ${cssVar.colorBgLayout}`,
+    outline: `2px solid ${cssVar.colorBgLayout}`,
     opacity: 0.5,
     transition: `transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow}`,
     '&:hover, &:focus-within': {
@@ -93,10 +93,10 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     },
   }),
   buttonBlock: css({
-    height: 30,
-    width: 30,
+    height: 28,
+    width: 28,
     borderRadius: '50%',
-    fontSize: 16,
+    fontSize: 14,
     color: cssVar.colorPrimaryBorder,
     display: 'flex',
     alignItems: 'center',
@@ -123,7 +123,6 @@ function ThemePreviewContent(props: ThemePreviewProps) {
   const { styles } = useStyles();
   const isDark = React.use(DarkContext);
   const { message } = App.useApp();
-  const { token } = theme.useToken();
 
   const previewThemes = usePreviewThemes();
 
@@ -194,11 +193,11 @@ function ThemePreviewContent(props: ThemePreviewProps) {
       background={isDark ? '#393F4A' : background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
-      <Flex className={styles.container} gap={token.paddingLG}>
-        <Flex className={styles.wrapper} gap={8}>
+      <Flex className={styles.container}>
+        <Flex className={styles.wrapper} gap={16}>
           <Flex className={styles.switch} justify="space-between">
             <div></div>
-            <Flex align="center" gap={6}>
+            <Flex align="center" gap={8}>
               {previewThemes.map((previewTheme: any) => (
                 <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
                   <div

@@ -79,7 +79,6 @@ export default function usePreviewThemes() {
             algorithm: theme.defaultAlgorithm,
           },
         },
-        colors: ['#1677ff', '#52c41a'],
       },
       {
         icon: 'https://mui.com/static/favicon.svg',
@@ -88,7 +87,6 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
         props: muiTheme,
         copyCode: muiThemeSource,
-        colors: ['#1976d2', '#2e7d32'],
       },
       {
         icon: 'https://ui.shadcn.com/favicon.ico',
@@ -97,26 +95,23 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
         props: shadcnTheme,
         copyCode: shadcnThemeSource,
-        colors: ['#262626', '#22c55e', '#ef4444'],
       },
       {
         icon: 'https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg',
         name: locale.bootstrap,
-        // bgImg:
-        //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
         props: bootstrapTheme,
         copyCode: bootstrapThemeSource,
-        colors: ['#1677ff', '#52c41a'],
       },
       {
         name: locale.cartoon,
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fLjhR5tqNIwAAAAAN9AAAAgAegCCAQ/original',
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
         props: cartoonTheme,
         copyCode: cartoonThemeSource,
-        colors: ['#51463B', '#DA8787'],
       },
       {
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*rjPZR5DHPO0AAAAAQBAAAAgAegCCAQ/original',
         name: locale.dark,
         key: 'dark',
         bgImg:
@@ -127,33 +122,32 @@ export default function usePreviewThemes() {
             algorithm: theme.darkAlgorithm,
           },
         },
-        colors: ['#141414', '#1f1f1f'],
       },
       {
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*Tm6ESY5h6ZgAAAAAQBAAAAgAegCCAQ/original',
         name: locale.illustration,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
         props: illustrationTheme,
         copyCode: illustrationThemeSource,
-        colors: ['#52C41A', '#FA5252'],
       },
       {
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*RmHiT6giiM0AAAAAQCAAAAgAegCCAQ/original',
         name: locale.glass,
         // bgImg:
         //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
         bgImgDark: true,
         props: glassTheme,
         copyCode: glassThemeSource,
-        colors: ['#1677ff', '#52c41a'],
       },
       {
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*MsjGSYbZ6xkAAAAAQCAAAAgAegCCAQ/original',
         name: locale.geek,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fzA2T4ms154AAAAARtAAAAgAegCCAQ/original',
         bgImgDark: true,
         props: geekTheme,
         copyCode: geekThemeSource,
-        colors: ['#39ff14', '#39ff14'],
       },
     ];
   }, [locale]);

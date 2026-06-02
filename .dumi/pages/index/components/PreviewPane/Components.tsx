@@ -347,7 +347,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   return (
     <ConfigProvider {...restConfig} theme={mergedTheme}>
       <div className={clsx(containerClassName, styles.container)}>
-        <App>
+        <App style={{ width: '100%' }}>
           <BorderBeam>
             <Card
               styles={{
