@@ -1,7 +1,6 @@
 import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 
-import { isNumber } from '../_util/is';
 import type { StepsProps } from './index';
 
 type StepItem = NonNullable<StepsProps['items']>[number];
@@ -34,20 +33,14 @@ function getDisplayStep(item: StepItem, index: number): DisplayStep {
 function getEllipsisStep(
   items: StepItem[],
   currentIndex: number,
-  prevIndex: number | null | undefined,
-  nextIndex: number | null | undefined,
+  prevIndex: number,
+  nextIndex: number,
   prefixCls: string,
 ): DisplayStep {
-  const hasRange = isNumber(prevIndex) && isNumber(nextIndex);
-  const prevKey = hasRange ? (items[prevIndex].key ?? prevIndex) : 'start';
-  const nextKey = hasRange ? (items[nextIndex].key ?? nextIndex) : 'end';
-  const hasError =
-    hasRange && items.slice(prevIndex + 1, nextIndex).some((step) => step.status === 'error');
-  const ellipsisStatus = hasError
-    ? 'error'
-    : hasRange && nextIndex - 1 < currentIndex
-      ? 'finish'
-      : 'wait';
+  const prevKey = items[prevIndex].key ?? prevIndex;
+  const nextKey = items[nextIndex].key ?? nextIndex;
+  const hasError = items.slice(prevIndex + 1, nextIndex).some((step) => step.status === 'error');
+  const ellipsisStatus = hasError ? 'error' : nextIndex - 1 < currentIndex ? 'finish' : 'wait';
 
   return {
     item: {
@@ -132,8 +125,8 @@ export default function useDisplaySteps(
         ? getEllipsisStep(
             mergedItems,
             mappedCurrent,
-            collapsedIndexes[collapsedIndex - 1],
-            collapsedIndexes[collapsedIndex + 1],
+            collapsedIndexes[collapsedIndex - 1] as number,
+            collapsedIndexes[collapsedIndex + 1] as number,
             prefixCls,
           )
         : getDisplayStep(mergedItems[index], index),
