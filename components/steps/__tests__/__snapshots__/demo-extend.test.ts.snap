@@ -3536,6 +3536,7 @@ exports[`renders components/steps/demo/max-count.tsx extend context correctly 1`
         </span>
       </span>
       <input
+        aria-label="Number of Steps"
         aria-valuemax="7"
         aria-valuemin="3"
         aria-valuenow="7"
