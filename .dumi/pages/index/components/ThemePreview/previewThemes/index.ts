@@ -132,7 +132,7 @@ export default function usePreviewThemes() {
         copyCode: illustrationThemeSource,
       },
       {
-        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*RmHiT6giiM0AAAAAQCAAAAgAegCCAQ/original',
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*GF9US7qG8tAAAAAAQCAAAAgAegCCAQ/original',
         name: locale.glass,
         // bgImg:
         //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',

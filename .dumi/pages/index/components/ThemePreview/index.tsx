@@ -73,19 +73,19 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     fontSize: 20,
     borderRadius: '50%',
     cursor: 'pointer',
-    backgroundSize: '80%',
+    backgroundSize: '75%',
     boxShadow: '0 3px 8px rgba(0,0,0,0.15)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     outline: `2px solid ${cssVar.colorBgLayout}`,
-    opacity: 0.5,
     transition: `transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow}`,
     '&:hover, &:focus-within': {
-      opacity: 1,
+      outline: `2px solid ${cssVar.colorPrimaryBorder}`,
+      transform: 'scale(1.1)',
     },
   }),
   active: css({
-    opacity: 1,
+    outline: `2px solid ${cssVar.colorPrimaryBorder}`,
   }),
   switch: css({
     '@media (max-width: 1200px)': {
@@ -96,14 +96,14 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     height: 28,
     width: 28,
     borderRadius: '50%',
-    fontSize: 14,
+    fontSize: 15,
     color: cssVar.colorPrimaryBorder,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
     '&:hover': {
-      backgroundColor: '#f5f5f5',
+      backgroundColor: cssVar.colorBgLayout,
     },
     '@media (max-width: 1200px)': {
       display: 'none',
@@ -198,7 +198,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
         <Flex className={styles.wrapper} gap={16}>
           <Flex className={styles.switch} justify="space-between">
             <div></div>
-            <Flex align="center" gap={8}>
+            <Flex align="center" gap={12}>
               {previewThemes.map((previewTheme: any) => (
                 <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
                   <div
@@ -210,7 +210,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                     onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
                     style={{
                       backgroundImage: previewTheme.icon ? `url(${previewTheme.icon})` : undefined,
-                      backgroundColor: previewTheme.icon ? 'transparent' : previewTheme.colors[0],
+                      backgroundColor: 'rgba(229, 229, 229, 0.7)',
                     }}
                   />
                 </Tooltip>
