@@ -177,6 +177,7 @@ describe('Steps', () => {
       item: {
         ...item,
         content: 'light',
+        key: 0,
         status: 'process',
       },
       components: {
@@ -202,7 +203,7 @@ describe('Steps', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(5);
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(7);
     expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(2);
     expect(
       container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-finish'),
@@ -210,11 +211,9 @@ describe('Steps', () => {
     expect(container.querySelectorAll('.ant-steps-item-ellipsis.ant-steps-item-wait')).toHaveLength(
       1,
     );
-    expect(
-      Array.from(container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-icon')).map(
-        (node) => (node.textContent ?? '').trim(),
-      ),
-    ).toEqual(['...', '...']);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis .anticon-ellipsis')).toHaveLength(
+      2,
+    );
     expect(
       Array.from(
         container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-title'),
@@ -223,6 +222,34 @@ describe('Steps', () => {
     expect(
       container.querySelector('.ant-steps-item-active .ant-steps-item-title')?.textContent,
     ).toBe('Step 4');
+  });
+
+  it('keeps item keys in collapsed display items', () => {
+    const iconRender: StepsProps['iconRender'] = jest.fn((node) => node);
+
+    render(
+      <Steps
+        current={3}
+        maxCount={5}
+        iconRender={iconRender}
+        items={Array.from({ length: 7 }, (_, index) => ({
+          key: `step-${index}`,
+          title: `Step ${index + 1}`,
+        }))}
+      />,
+    );
+
+    expect(
+      Array.from(new Set((iconRender as jest.Mock).mock.calls.map(([, info]) => info.item.key))),
+    ).toEqual([
+      'step-0',
+      'ellipsis-step-0-step-2',
+      'step-2',
+      'step-3',
+      'step-4',
+      'ellipsis-step-4-step-6',
+      'step-6',
+    ]);
   });
 
   it('preserves hidden error status in collapsed ellipsis step', () => {
@@ -322,13 +349,13 @@ describe('Steps', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
-    expect(container.querySelectorAll('.ant-steps-item-title')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(5);
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(2);
     expect(
       Array.from(container.querySelectorAll('.ant-steps-item-title')).map(
         (node) => node.textContent,
       ),
-    ).toEqual(['Step 1', 'Step 4', 'Step 7']);
+    ).toEqual(['Step 1', '', 'Step 4', '', 'Step 7']);
   });
 
   it('shows boundary ellipsis when maxCount is 3 and current is at start', () => {
@@ -348,19 +375,16 @@ describe('Steps', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(4);
     expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
-    expect(
-      (
-        container.querySelectorAll('.ant-steps-item-ellipsis .ant-steps-item-icon')[0]
-          ?.textContent ?? ''
-      ).trim(),
-    ).toBe('...');
+    expect(container.querySelectorAll('.ant-steps-item-ellipsis .anticon-ellipsis')).toHaveLength(
+      1,
+    );
     expect(
       Array.from(container.querySelectorAll('.ant-steps-item-title')).map(
         (node) => node.textContent,
       ),
-    ).toEqual(['Step 1', '', 'Step 7']);
+    ).toEqual(['Step 1', 'Step 2', '', 'Step 7']);
   });
 
   it('warns when maxCount is less than 3', () => {
@@ -420,7 +444,7 @@ describe('Steps', () => {
     );
 
     expect(container.querySelectorAll('.ant-steps-item-process')).toHaveLength(0);
-    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(5);
+    expect(container.querySelectorAll('.ant-steps-item-finish')).toHaveLength(6);
     expect(container.querySelectorAll('.ant-steps-item-wait')).toHaveLength(0);
     expect(container.querySelectorAll('.ant-steps-item-ellipsis')).toHaveLength(1);
     expect(

@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNumber } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -22,6 +22,7 @@ import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
+import useDisplaySteps from './useDisplaySteps';
 
 type RcIconRenderTypeInfo = Parameters<NonNullable<RcStepsProps['iconRender']>>[1];
 
@@ -60,6 +61,7 @@ export type StepsSemanticType = {
 export type StepsSemanticAllType = GenerateSemantic<StepsSemanticType, StepsProps>;
 
 interface StepItem {
+  key?: React.Key;
   className?: string;
   style?: React.CSSProperties;
   classNames?: GetProp<RcStepsProps, 'items'>[number]['classNames'];
@@ -143,91 +145,6 @@ export interface StepsProps extends BaseStepsProps {
 const waveEffectClassNames: StepsProps['classNames'] = {
   itemIcon: TARGET_CLS,
 };
-
-const ELLIPSIS_TEXT = '...';
-
-type DisplayStep = {
-  item: StepItem;
-  originIndex: number;
-};
-
-function getRange(start: number, end: number): number[] {
-  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
-}
-
-function getTokenCount(total: number, start: number, end: number): number {
-  const middleLen = start <= end ? end - start + 1 : 0;
-  const hasLeftGap = middleLen > 0 ? start > 1 : total > 2;
-  const hasRightGap = middleLen > 0 ? end < total - 2 : false;
-
-  return 2 + middleLen + Number(hasLeftGap) + Number(hasRightGap);
-}
-
-function getCollapsedIndexes(
-  total: number,
-  currentIndex: number,
-  maxCount: number,
-): Array<number | null> {
-  const safeCurrent = Math.min(Math.max(currentIndex, 0), total - 1);
-
-  const pivot = Math.min(Math.max(safeCurrent, 1), total - 2);
-  let start = pivot;
-  let end = pivot;
-
-  while (true) {
-    const candidates: Array<{ start: number; end: number; distance: number }> = [];
-
-    if (start > 1) {
-      const nextStart = start - 1;
-      if (getTokenCount(total, nextStart, end) <= maxCount) {
-        candidates.push({
-          start: nextStart,
-          end,
-          distance: Math.abs(safeCurrent - nextStart),
-        });
-      }
-    }
-
-    if (end < total - 2) {
-      const nextEnd = end + 1;
-      if (getTokenCount(total, start, nextEnd) <= maxCount) {
-        candidates.push({
-          start,
-          end: nextEnd,
-          distance: Math.abs(nextEnd - safeCurrent),
-        });
-      }
-    }
-
-    if (!candidates.length) {
-      break;
-    }
-
-    candidates.sort((a, b) => a.distance - b.distance);
-    start = candidates[0].start;
-    end = candidates[0].end;
-  }
-
-  if (getTokenCount(total, start, end) > maxCount) {
-    const indexes = Array.from(new Set([0, safeCurrent, total - 1])).sort((a, b) => a - b);
-    if (indexes.length < Math.min(maxCount, total) && indexes.length === 2 && total > 2) {
-      return [indexes[0], null, indexes[1]];
-    }
-    return indexes;
-  }
-
-  const indexes: Array<number | null> = [0];
-  if (start > 1) {
-    indexes.push(null);
-  }
-  indexes.push(...getRange(start, end));
-  if (end < total - 2) {
-    indexes.push(null);
-  }
-  indexes.push(total - 1);
-
-  return indexes;
-}
 
 const Steps = (props: StepsProps) => {
   const {
@@ -355,68 +272,13 @@ const Steps = (props: StepsProps) => {
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
 
-  const mergedMaxCount = isNumber(maxCount) ? Math.floor(maxCount) : undefined;
-  const canApplyMaxCount =
-    isNumber(mergedMaxCount) && mergedMaxCount >= 3 && mergedItems.length > mergedMaxCount;
-
-  const mappedCurrent = current - initial;
-
-  const displaySteps = React.useMemo<DisplayStep[]>(() => {
-    if (!canApplyMaxCount || !mergedMaxCount) {
-      return mergedItems.map((item, index) => ({ item, originIndex: index }));
-    }
-
-    const collapsedIndexes = getCollapsedIndexes(mergedItems.length, mappedCurrent, mergedMaxCount);
-
-    return collapsedIndexes.map((index, collapsedIndex) => {
-      if (index === null) {
-        const prevIndex = collapsedIndexes[collapsedIndex - 1];
-        const nextIndex = collapsedIndexes[collapsedIndex + 1];
-
-        let ellipsisStatus: StepItem['status'] = 'wait';
-        if (isNumber(prevIndex) && isNumber(nextIndex)) {
-          const hiddenStart = prevIndex + 1;
-          const hiddenEnd = nextIndex - 1;
-          const hiddenSteps = mergedItems.slice(hiddenStart, hiddenEnd + 1);
-
-          if (hiddenSteps.some((step) => step.status === 'error')) {
-            ellipsisStatus = 'error';
-          } else if (hiddenEnd < mappedCurrent) {
-            ellipsisStatus = 'finish';
-          } else {
-            ellipsisStatus = 'wait';
-          }
-        }
-
-        return {
-          item: {
-            title: '',
-            icon: ELLIPSIS_TEXT,
-            status: ellipsisStatus,
-            disabled: true,
-            className: `${prefixCls}-item-ellipsis`,
-          },
-          originIndex: -1,
-        };
-      }
-
-      return {
-        item: {
-          ...mergedItems[index],
-        },
-        originIndex: index,
-      };
-    });
-  }, [canApplyMaxCount, mappedCurrent, mergedItems, mergedMaxCount, prefixCls]);
-
-  const mappedDisplayCurrent = React.useMemo(() => {
-    const displayCurrent = displaySteps.findIndex((step) => step.originIndex === mappedCurrent);
-    if (displayCurrent >= 0) {
-      return displayCurrent;
-    }
-
-    return mappedCurrent;
-  }, [displaySteps, mappedCurrent]);
+  const { canApplyMaxCount, displaySteps, mappedDisplayCurrent, displayItems } = useDisplaySteps(
+    mergedItems,
+    current,
+    initial,
+    maxCount,
+    prefixCls,
+  );
 
   // =========== Merged Props for Semantic ===========
   const mergedProps: StepsProps = {
@@ -432,7 +294,7 @@ const Steps = (props: StepsProps) => {
     responsive,
     offset,
     ellipsis,
-    maxCount: mergedMaxCount,
+    maxCount,
   };
 
   // ============================ Styles ============================
@@ -583,7 +445,7 @@ const Steps = (props: StepsProps) => {
       'items.content',
     );
     warning(
-      !isNumber(mergedMaxCount) || mergedMaxCount >= 3,
+      maxCount === undefined || maxCount >= 3,
       'usage',
       '`maxCount` should be greater than or equal to 3.',
     );
@@ -613,7 +475,7 @@ const Steps = (props: StepsProps) => {
       // Data
       initial={0}
       current={mappedDisplayCurrent}
-      items={displaySteps.map((step) => step.item)}
+      items={displayItems}
       onChange={onChange ? handleDisplayChange : undefined}
       // Render
       iconRender={internalIconRender}

@@ -1,31 +1,59 @@
 import React from 'react';
-import { Space, Steps, Typography } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import type { InputNumberProps } from 'antd';
+import { Button, Flex, InputNumber, Steps, Typography } from 'antd';
 
-const items = [
-  { title: 'Step 1' },
-  { title: 'Step 2' },
-  { title: 'Step 3' },
-  { title: 'Step 4' },
-  { title: 'Step 5' },
-  { title: 'Step 6' },
-  { title: 'Step 7' },
-];
+const genItems = (count: number) =>
+  Array.from({ length: count }, (_, index) => ({ title: `Step ${index + 1}` }));
 
-const App: React.FC = () => (
-  <Space orientation="vertical" style={{ display: 'flex' }} size="middle">
-    <div>
-      <Typography.Text strong>Current: 0</Typography.Text>
-      <Steps current={0} maxCount={5} items={items} />
-    </div>
-    <div>
-      <Typography.Text strong>Current: 3</Typography.Text>
-      <Steps current={3} maxCount={5} items={items} />
-    </div>
-    <div>
-      <Typography.Text strong>Current: 6</Typography.Text>
-      <Steps current={6} maxCount={5} items={items} />
-    </div>
-  </Space>
-);
+const getMiddleCurrent = (count: number) => Math.floor((count - 1) / 2);
+
+const App: React.FC = () => {
+  const [count, setCount] = React.useState(7);
+  const [current, setCurrent] = React.useState(() => getMiddleCurrent(7));
+  const items = React.useMemo(() => genItems(count), [count]);
+
+  const handleCountChange: InputNumberProps<number>['onChange'] = (value) => {
+    if (value === null) {
+      return;
+    }
+
+    setCount(value);
+    setCurrent(getMiddleCurrent(value));
+  };
+
+  const handlePrev = () => {
+    setCurrent((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setCurrent((prev) => Math.min(prev + 1, count - 1));
+  };
+
+  return (
+    <Flex vertical gap="middle">
+      <Typography.Title level={5} style={{ margin: 0 }}>
+        Number of Steps
+      </Typography.Title>
+
+      <Steps current={current} maxCount={5} items={items} />
+
+      <Flex gap="small" align="center" style={{ alignSelf: 'center' }}>
+        <Button icon={<LeftOutlined />} onClick={handlePrev} disabled={current <= 0} />
+        <InputNumber
+          mode="spinner"
+          min={3}
+          max={7}
+          value={count}
+          onChange={handleCountChange}
+          style={{
+            width: 120,
+          }}
+        />
+        <Button icon={<RightOutlined />} onClick={handleNext} disabled={current >= count - 1} />
+      </Flex>
+    </Flex>
+  );
+};
 
 export default App;
