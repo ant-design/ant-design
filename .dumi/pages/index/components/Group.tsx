@@ -121,7 +121,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
             style={{
               color: titleColor,
               marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
-              marginTop: 6,
+              marginTop: token.marginSM,
             }}
           >
             {description}

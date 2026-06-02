@@ -44,8 +44,6 @@ import {
 import type { ButtonProps, ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
-import useLocale from '../../../../hooks/useLocale';
-import { useAntdRepos } from '../util';
 
 const { Title, Text } = Typography;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
@@ -60,57 +58,6 @@ interface ComponentsBlockProps {
   inherit?: boolean;
   isDark?: boolean;
 }
-
-const locales = {
-  cn: {
-    range: '设置范围',
-    text: 'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。',
-    infoText: '信息内容展示',
-    dropdown: '下拉菜单',
-    finished: '已完成',
-    inProgress: '进行中',
-    waiting: '等待中',
-    option: '选项',
-    apple: '苹果',
-    banana: '香蕉',
-    orange: '橘子',
-    watermelon: '西瓜',
-    primary: '主要按钮',
-    danger: '危险按钮',
-    default: '默认按钮',
-    dashed: '虚线按钮',
-    icon: '图标按钮',
-    hello: '你好，Ant Design!',
-    release: 'Ant Design 6.0 正式发布！',
-    segmentedDaily: '每日',
-    segmentedWeekly: '每周',
-    segmentedMonthly: '每月',
-  },
-  en: {
-    range: 'Set Range',
-    text: 'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.',
-    infoText: 'Info Text',
-    dropdown: 'Dropdown',
-    finished: 'Finished',
-    inProgress: 'In Progress',
-    waiting: 'Waiting',
-    option: 'Option',
-    apple: 'Apple',
-    banana: 'Banana',
-    orange: 'Orange',
-    watermelon: 'Watermelon',
-    primary: 'Primary',
-    danger: 'Danger',
-    default: 'Default',
-    dashed: 'Dashed',
-    icon: 'Icon',
-    hello: 'Hello, Ant Design!',
-    release: 'Ant Design 6.0 is released!',
-    segmentedDaily: 'Daily',
-    segmentedWeekly: 'Weekly',
-    segmentedMonthly: 'Monthly',
-  },
-};
 
 const useStyle = createStyles(({ css, token, cssVar }) => {
   return {
@@ -271,13 +218,64 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
   };
 });
 
+const selectOptions = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+  { value: 'watermelon', label: 'Watermelon' },
+];
+
+const dropdownMenuItems = Array.from({ length: 5 }).map((_, index) => ({
+  key: `opt${index}`,
+  label: `Option ${index}`,
+}));
+
+const checkboxOptions = [
+  { label: 'Apple', value: 'Apple' },
+  { label: 'Pear', value: 'Pear' },
+];
+
+const radioOptions = [
+  { label: 'Apple', value: 'Apple' },
+  { label: 'Pear', value: 'Pear' },
+];
+
+const badgeList = [
+  { status: 'success', text: 'Success' },
+  { status: 'error', text: 'Error' },
+  { status: 'default', text: 'Default' },
+  { status: 'processing', text: 'Processing' },
+  { status: 'warning', text: 'Warning' },
+];
+
+const tagList = [
+  { icon: <TwitterOutlined />, color: '#55acee', label: 'Twitter' },
+  { icon: <YoutubeOutlined />, color: '#cd201f', label: 'Youtube' },
+  { icon: <FacebookOutlined />, color: '#3b5999', label: 'Facebook' },
+];
+
+const avatarGroupList = [
+  'https://avatars.githubusercontent.com/u/507615?v=4',
+  'https://avatars.githubusercontent.com/u/5378891?v=4',
+  'https://avatars.githubusercontent.com/u/49217418?v=4',
+  'https://avatars.githubusercontent.com/u/117748716?v=4',
+  'https://avatars.githubusercontent.com/u/59312002?v=4',
+  'https://avatars.githubusercontent.com/u/82765353?v=4',
+];
+
+const buttonList: ButtonProps[] = [
+  { type: 'primary', children: 'Primary button' },
+  { danger: true, children: 'Danger button' },
+  { type: 'dashed', variant: 'outlined', shape: 'round', children: 'Outlined button' },
+  { danger: true, shape: 'round', children: 'Round button' },
+];
+
+const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
+
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
-  const [locale] = useLocale(locales);
   const { config, className, containerClassName, inherit = false, isDark = false } = props;
 
   const { styles } = useStyle();
-
-  const { data } = useAntdRepos();
 
   const { theme, ...restConfig } = config || {};
 
@@ -288,61 +286,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     }),
     [theme, inherit],
   );
-
-  // 可 map 的数据
-  const selectOptions = [
-    { value: 'apple', label: locale.apple },
-    { value: 'banana', label: locale.banana },
-    { value: 'orange', label: locale.orange },
-    { value: 'watermelon', label: locale.watermelon },
-  ];
-
-  const dropdownMenuItems = Array.from({ length: 5 }).map((_, index) => ({
-    key: `opt${index}`,
-    label: `${locale.option} ${index}`,
-  }));
-
-  const checkboxOptions = [
-    { label: 'Apple', value: 'Apple' },
-    { label: 'Pear', value: 'Pear' },
-  ];
-
-  const radioOptions = [
-    { label: 'Apple', value: 'Apple' },
-    { label: 'Pear', value: 'Pear' },
-  ];
-
-  const badgeList = [
-    { status: 'success', text: 'Success' },
-    { status: 'error', text: 'Error' },
-    { status: 'default', text: 'Default' },
-    { status: 'processing', text: 'Processing' },
-    { status: 'warning', text: 'Warning' },
-  ];
-
-  const tagList = [
-    { icon: <TwitterOutlined />, color: '#55acee', label: 'Twitter' },
-    { icon: <YoutubeOutlined />, color: '#cd201f', label: 'Youtube' },
-    { icon: <FacebookOutlined />, color: '#3b5999', label: 'Facebook' },
-  ];
-
-  const avatarGroupList = [
-    'https://avatars.githubusercontent.com/u/507615?v=4',
-    'https://avatars.githubusercontent.com/u/5378891?v=4',
-    'https://avatars.githubusercontent.com/u/49217418?v=4',
-    'https://avatars.githubusercontent.com/u/117748716?v=4',
-    'https://avatars.githubusercontent.com/u/59312002?v=4',
-    'https://avatars.githubusercontent.com/u/82765353?v=4',
-  ];
-
-  const buttonList: ButtonProps[] = [
-    { type: 'primary', children: 'Primary button' },
-    { danger: true, children: 'Danger button' },
-    { type: 'dashed', variant: 'outlined', shape: 'round', children: 'Outlined button' },
-    { danger: true, shape: 'round', children: 'Round button' },
-  ];
-
-  const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
 
   return (
     <ConfigProvider {...restConfig} theme={mergedTheme}>
@@ -385,7 +328,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                           className={styles.colorPickerFixed}
                         />
                         <Space.Compact>
-                          <Button>{locale.dropdown}</Button>
+                          <Button>Dropdown</Button>
                           <Dropdown menu={{ items: dropdownMenuItems }}>
                             <Button icon={<DownOutlined />} />
                           </Dropdown>
@@ -520,24 +463,14 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         <p className={styles.profileDesc}>
                           Building the future of UI for web & mobile.
                         </p>
-                        <Space size="large" className={styles.profileStats}>
-                          <span>
-                            <Text strong>{data.stars} </Text>
-                            <Text type="secondary">Star</Text>
-                          </span>
-                          <span>
-                            <Text strong>{data.forks} </Text>
-                            <Text type="secondary">Fork</Text>
-                          </span>
-                        </Space>
                       </div>
                     </Flex>
                   </div>
 
                   <InternalPanel
                     styles={{ root: { width: '100%' } }}
-                    title="Hello Ant!"
-                    description="Hello World?"
+                    title="Ant Design"
+                    description="An enterprise-class design system for building modern, intelligent, and delightful user experiences."
                     type="success"
                   />
                 </div>

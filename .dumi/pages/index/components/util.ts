@@ -118,40 +118,6 @@ export const useAntdSiteConfig = () => {
   return { data, error, isLoading };
 };
 
-const GITHUB_ORG_DEFAULT = { stars: 54600, forks: 98100 };
-
-function formatCount(num: number): string {
-  if (num >= 1000) {
-    return `${(num / 1000).toFixed(1)}K`;
-  }
-  return String(num);
-}
-
-export const useAntdRepos = () => {
-  const { data, error, isLoading } = useSWR<Partial<any>, Error>(
-    `https://repos.ecosyste.ms/api/v1/hosts/GitHub/repositories/ant-design%2Fant-design`,
-    (url: string) => fetch(url).then((res) => res.json()),
-    {
-      suspense: false,
-      // revalidateOnMount: false,
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-    },
-  );
-  const stars = data?.stargazers_count ?? GITHUB_ORG_DEFAULT.stars;
-  const forks = data?.forks_count ?? GITHUB_ORG_DEFAULT.forks;
-
-  return {
-    data: {
-      ...data,
-      stars: formatCount(stars),
-      forks: formatCount(forks),
-    },
-    error,
-    isLoading,
-  };
-};
-
 export const getCarouselStyle = () => ({
   carousel: css`
     .slick-dots.slick-dots-bottom {
