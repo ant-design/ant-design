@@ -1317,4 +1317,54 @@ describe('Menu', () => {
     const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
     expect(popup).toHaveStyle(testStyles.popup.root);
   });
+
+  it('should pass itemData in onClick with items config', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Menu
+        onClick={onClick}
+        items={[
+          { key: '1', label: 'Menu 1', icon: 'icon', extra: 'extra' },
+          { key: '2', label: 'Menu 2' },
+        ]}
+      />,
+    );
+
+    fireEvent.click(container.querySelectorAll('.ant-menu-item')[0]);
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({
+        key: '1',
+        itemData: expect.objectContaining({
+          label: expect.anything(),
+          itemIcon: 'icon',
+          extra: 'extra',
+          key: '1',
+        }),
+      }),
+    );
+  });
+
+  it('should pass itemData in onClick with children', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Menu onClick={onClick}>
+        <Menu.Item key="1" icon="icon" extra="extra">
+          Menu 1
+        </Menu.Item>
+      </Menu>,
+    );
+
+    fireEvent.click(container.querySelector('.ant-menu-item')!);
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({
+        key: '1',
+        itemData: expect.objectContaining({
+          key: '1',
+          label: 'Menu 1',
+          itemIcon: 'icon',
+          extra: 'extra',
+        }),
+      }),
+    );
+  });
 });
