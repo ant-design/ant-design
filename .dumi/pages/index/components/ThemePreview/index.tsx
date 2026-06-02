@@ -190,6 +190,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
       title={locale.themeTitle}
       description={locale.themeDesc}
       collapse
+      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
       background={isDark ? '#393F4A' : background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
