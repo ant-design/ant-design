@@ -12,7 +12,7 @@ type DisplayStep = {
 };
 
 /**
- * Normalize a real item into the display list.
+ * Normalize a real item into the collapsed display list.
  * The original item key is preserved when provided, otherwise the original index keeps
  * React reconciliation stable while visible steps move around the collapsed list.
  */
@@ -122,7 +122,7 @@ export default function useDisplaySteps(
 
   const displaySteps = React.useMemo<DisplayStep[]>(() => {
     if (!canApplyMaxCount) {
-      return mergedItems.map(getDisplayStep);
+      return mergedItems.map((item, originIndex) => ({ item, originIndex }));
     }
 
     const collapsedIndexes = getCollapsedIndexes(mergedItems.length, mappedCurrent, maxCount);
