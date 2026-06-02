@@ -75,7 +75,6 @@ A single step in the step bar.
 | ~~description~~ | Description of the step, optional property | ReactNode | - |  |
 | disabled | Disable click | boolean | false |  |
 | icon | Icon of the step, optional property | ReactNode | - |  |
-| key | Unique key of the step | string \| number | - |  |
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | Subtitle of the step | ReactNode | - |  |
 | title | Title of the step | ReactNode | - |  |

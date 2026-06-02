@@ -76,7 +76,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | ~~description~~ | 步骤的详情描述，可选 | ReactNode | - |  |
 | disabled | 禁用点击 | boolean | false |  |
 | icon | 步骤图标的类型，可选 | ReactNode | - |  |
-| key | 步骤的唯一标识 | string \| number | - |  |
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | 子标题 | ReactNode | - |  |
 | title | 标题 | ReactNode | - |  |
