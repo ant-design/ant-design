@@ -136,7 +136,6 @@ export default function usePreviewThemes() {
         name: locale.glass,
         // bgImg:
         //   'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
-        bgImgDark: true,
         props: glassTheme,
         copyCode: glassThemeSource,
       },
