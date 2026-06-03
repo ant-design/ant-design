@@ -54,7 +54,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorFill,
     indicatorHeight,
     indicatorWidth,
-    boxShadowTertiary,
+    boxShadowTertiaryCard,
     zIndexPopup,
     colorBgElevated,
     fontWeightStrong,
@@ -102,7 +102,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           textAlign: 'start',
           textDecoration: 'none',
           borderRadius: tourBorderRadius,
-          boxShadow: boxShadowTertiary,
+          boxShadow: boxShadowTertiaryCard,
           position: 'relative',
           backgroundColor: colorBgElevated,
           border: 'none',
@@ -205,7 +205,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             textDecoration: 'none',
             backgroundColor: colorPrimary,
             borderRadius,
-            boxShadow: boxShadowTertiary,
+            boxShadow: boxShadowTertiaryCard,
 
             [`${componentCls}-close`]: {
               color: colorTextLightSolid,

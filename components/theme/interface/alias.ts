@@ -435,6 +435,13 @@ export interface AliasToken extends MapToken {
    * @descEN Control the tertiary box shadow style of an element.
    */
   boxShadowTertiary: string;
+  /**
+   * @nameZH 卡片阴影
+   * @nameEN Card box shadow
+   * @desc 控制无边框卡片的盒子阴影样式。
+   * @descEN Control the box shadow style of borderless card.
+   */
+  boxShadowTertiaryCard: string;
 
   /**
    * @nameZH 链接文本装饰
