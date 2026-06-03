@@ -145,15 +145,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   componentsBlockContainer: css({
     flex: 'auto',
     display: 'flex',
-    padding: cssVar.paddingXL,
     justifyContent: 'center',
-    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
-    borderRadius: cssVar.borderRadius,
-    boxShadow: cssVar.boxShadow,
   }),
   componentsBlock: css({
-    flex: 'none',
-    maxWidth: `calc(420px + ${cssVar.paddingXL} * 2)`,
+    width: '100%',
+    maxWidth: 780,
   }),
 }));
 
