@@ -71,6 +71,11 @@ export interface ComponentToken {
    * @descEN Text color of extra area
    */
   extraColor: string;
+  /**
+   * @desc 无边框卡片的阴影
+   * @descEN Shadow of borderless card
+   */
+  shadowTertiary: string;
 }
 
 interface CardToken extends FullToken<'Card'> {
@@ -79,6 +84,11 @@ interface CardToken extends FullToken<'Card'> {
    * @descEN Shadow of card
    */
   cardShadow: string;
+  /**
+   * @desc 无边框卡片的阴影
+   * @descEN Shadow of borderless card
+   */
+  shadowTertiary: string;
   /**
    * @desc 卡片头部内边距
    * @descEN Padding of card header
@@ -312,7 +322,7 @@ const genCardStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
     cardShadow,
     cardHeadPadding,
     colorBorderSecondary,
-    boxShadowTertiary,
+    shadowTertiary,
     bodyPadding,
     extraColor,
     motionDurationMid,
@@ -327,7 +337,7 @@ const genCardStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
       borderRadius: token.borderRadiusLG,
 
       [`&:not(${componentCls}-bordered)`]: {
-        boxShadow: boxShadowTertiary,
+        boxShadow: shadowTertiary,
       },
 
       [`${componentCls}-head`]: genCardHeadStyle(token),
@@ -477,6 +487,11 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
   headerPaddingSM: 12,
   bodyPadding: token.bodyPadding ?? token.paddingLG,
   headerPadding: token.headerPadding ?? token.paddingLG,
+  shadowTertiary: `
+    0 1px 2px 0 rgba(0, 0, 0, 0.06),
+    0 1px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 10px 0 rgba(0, 0, 0, 0.04)
+  `,
 });
 
 // ============================== Export ==============================
@@ -485,6 +500,7 @@ export default genStyleHooks(
   (token) => {
     const cardToken = mergeToken<CardToken>(token, {
       cardShadow: token.boxShadowCard,
+      shadowTertiary: token.shadowTertiary,
       cardHeadPadding: token.padding,
       cardPaddingBase: token.paddingLG,
       cardActionsIconSize: token.fontSize,
