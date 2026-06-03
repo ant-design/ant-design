@@ -153,8 +153,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     `,
     boxShadowTertiary: `
       0 1px 2px 0 ${getShadowColor(0.03)},
-      0 1px 6px -1px ${getShadowColor(0.02)},
-      0 2px 4px 0 ${getShadowColor(0.02)}
+      0 2px 6px -1px ${getShadowColor(0.03)},
+      0 6px 12px -4px ${getShadowColor(0.04)}
     `,
 
     screenXS,
