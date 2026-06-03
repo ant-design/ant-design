@@ -2,6 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
+import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -273,7 +274,7 @@ const genCardStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
 };
 
 const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
-  const { componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
+  const { antCls, componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
   return {
     [`${componentCls}-dropdown`]: {
       ...resetComponent(token),
@@ -290,6 +291,42 @@ const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
       '&-hidden': {
         display: 'none',
       },
+
+      // When position is not enough for tabs dropdown, the placement will revert.
+      // We will handle this with revert motion name.
+      [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottomRight,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottomRight`]:
+        {
+          animationName: slideUpIn,
+        },
+
+      [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topRight`]:
+        {
+          animationName: slideDownIn,
+        },
+
+      [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottomRight`]:
+        {
+          animationName: slideUpOut,
+        },
+
+      [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
+        {
+          animationName: slideDownOut,
+        },
 
       [`${componentCls}-dropdown-menu`]: {
         maxHeight: token.tabsDropdownHeight,
