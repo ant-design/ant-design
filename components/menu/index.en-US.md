@@ -62,7 +62,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
-| style | Style of the root node | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |

@@ -212,7 +212,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.6",
     "@types/progress": "^2.0.7",
-    "@types/react": "19.2.15",
+    "@types/react": "19.2.16",
     "@types/react-dom": "^19.2.3",
     "@types/react-highlight-words": "^0.20.1",
     "@types/semver": "^7.7.1",
@@ -258,11 +258,11 @@
     "immer": "^11.1.4",
     "is-ci": "^4.1.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "30.3.0",
+    "jest": "^30.4.2",
     "jest-axe": "^10.0.0",
     "jest-canvas-mock": "^2.5.2",
-    "jest-environment-jsdom": "30.3.0",
-    "jest-environment-node": "30.3.0",
+    "jest-environment-jsdom": "^30.4.1",
+    "jest-environment-node": "^30.4.1",
     "jest-image-snapshot": "^6.5.2",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
@@ -343,6 +343,9 @@
       "gzip": true
     }
   ],
+  "overrides": {
+    "jest-environment-node": "^30.4.1"
+  },
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
