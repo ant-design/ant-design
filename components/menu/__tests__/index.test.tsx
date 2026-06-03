@@ -1320,37 +1320,27 @@ describe('Menu', () => {
 
   it('should pass itemData in onClick with items config', () => {
     const onClick = jest.fn();
-    const { container } = render(
-      <Menu
-        onClick={onClick}
-        items={[
-          { key: '1', label: 'Menu 1', icon: 'icon', extra: 'extra' },
-          { key: '2', label: 'Menu 2' },
-        ]}
-      />,
-    );
+    const items = [
+      { key: '1', label: 'Menu 1', icon: 'icon', extra: 'extra', other: 'other' },
+      { key: '2', label: 'Menu 2' },
+    ];
+    const { container } = render(<Menu onClick={onClick} items={items} />);
 
     fireEvent.click(container.querySelectorAll('.ant-menu-item')[0]);
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         key: '1',
-        itemData: expect.objectContaining({
-          label: expect.anything(),
-          itemIcon: 'icon',
-          extra: 'extra',
-          key: '1',
-        }),
+        itemData: expect.objectContaining(items[0]),
       }),
     );
   });
 
   it('should pass itemData in onClick with children', () => {
     const onClick = jest.fn();
+    const itemInfo = { icon: 'icon', extra: 'extra', children: 'Menu 1', other: 'other' };
     const { container } = render(
       <Menu onClick={onClick}>
-        <Menu.Item key="1" icon="icon" extra="extra">
-          Menu 1
-        </Menu.Item>
+        <Menu.Item {...itemInfo} key="1" />
       </Menu>,
     );
 
@@ -1358,12 +1348,7 @@ describe('Menu', () => {
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         key: '1',
-        itemData: expect.objectContaining({
-          key: '1',
-          label: 'Menu 1',
-          itemIcon: 'icon',
-          extra: 'extra',
-        }),
+        itemData: expect.objectContaining({ ...itemInfo, eventKey: '1' }),
       }),
     );
   });
