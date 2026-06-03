@@ -1337,10 +1337,10 @@ describe('Menu', () => {
 
   it('should pass itemData in onClick with children', () => {
     const onClick = jest.fn();
-    const itemInfo = { icon: 'icon', extra: 'extra', children: 'Menu 1', other: 'other' };
+    const itemInfo = { key: '1', icon: 'icon', extra: 'extra', children: 'Menu 1', other: 'other' };
     const { container } = render(
       <Menu onClick={onClick}>
-        <Menu.Item {...itemInfo} key="1" />
+        <Menu.Item {...itemInfo} />
       </Menu>,
     );
 
