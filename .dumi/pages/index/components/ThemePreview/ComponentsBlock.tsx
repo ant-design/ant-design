@@ -3,6 +3,8 @@ import { CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import {
   Alert,
   App,
+  Avatar,
+  Badge,
   Button,
   Checkbox,
   ColorPicker,
@@ -10,15 +12,17 @@ import {
   DatePicker,
   Dropdown,
   Flex,
-  Modal,
+  Input,
   Progress,
   Radio,
+  Rate,
   Segmented,
   Select,
   Slider,
   Space,
-  Steps,
   Switch,
+  Tag,
+  Typography,
 } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
@@ -26,12 +30,10 @@ import clsx from 'clsx';
 
 import useLocale from '../../../../hooks/useLocale';
 
-const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
-const { Group: RadioButtonGroup, Button: RadioButton } = Radio;
+const { Search } = Input;
 
 const locales = {
   cn: {
-    range: '设置范围',
     text: 'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。',
     infoText: '信息内容展示',
     dropdown: '下拉菜单',
@@ -50,12 +52,18 @@ const locales = {
     icon: '图标按钮',
     hello: '你好，Ant Design!',
     release: 'Ant Design 6.0 正式发布！',
+    releaseDesc: '开启全新设计体验',
     segmentedDaily: '每日',
     segmentedWeekly: '每周',
     segmentedMonthly: '每月',
+    searchPlaceholder: '搜索组件',
+    tagSuccess: '已上线',
+    tagProcessing: '审核中',
+    tagError: '已关闭',
+    tagWarning: '警告',
+    teamTitle: '团队',
   },
   en: {
-    range: 'Set Range',
     text: 'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.',
     infoText: 'Info Text',
     dropdown: 'Dropdown',
@@ -74,9 +82,16 @@ const locales = {
     icon: 'Icon',
     hello: 'Hello, Ant Design!',
     release: 'Ant Design 6.0 is released!',
+    releaseDesc: 'Start a new design experience',
     segmentedDaily: 'Daily',
     segmentedWeekly: 'Weekly',
     segmentedMonthly: 'Monthly',
+    searchPlaceholder: 'Search',
+    tagSuccess: 'Live',
+    tagProcessing: 'Review',
+    tagError: 'Closed',
+    tagWarning: 'Warning',
+    teamTitle: 'Team',
   },
 };
 
@@ -86,6 +101,9 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     gridTemplateColumns: 'repeat(3, 1fr)',
     gap: cssVar.paddingSM,
     width: '100%',
+    '@media (max-width: 576px)': {
+      gridTemplateColumns: '1fr',
+    },
   }),
   card: css({
     backgroundColor: `color-mix(in srgb, ${cssVar.colorBgContainer} 70%, transparent)`,
@@ -106,9 +124,15 @@ const useStyle = createStyles(({ css, cssVar }) => ({
   }),
   span2: css({
     gridColumn: 'span 2',
+    '@media (max-width: 576px)': {
+      gridColumn: 'span 1',
+    },
   }),
   span3: css({
     gridColumn: 'span 3',
+    '@media (max-width: 576px)': {
+      gridColumn: 'span 1',
+    },
   }),
   flexAuto: css({ flex: 'auto' }),
 }));
@@ -153,97 +177,104 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
       <App>
         <div className={containerClassName}>
           <div className={clsx(styles.grid, className)} style={style}>
-            {/* Row 1: Modal + Alert (2 cols) | DatePicker + Select (1 col) */}
+            {/* Row 1: Notification (span2) | Team (span1) */}
             <div className={clsx(styles.card, styles.span2)}>
-              <ModalPanel title="Ant Design" width="100%">
-                {locale.text}
-              </ModalPanel>
-              <Alert title={locale.infoText} type="info" />
+              <Alert
+                message={locale.release}
+                description={locale.releaseDesc}
+                type="success"
+                showIcon
+              />
+              <Flex gap="small" wrap>
+                <Tag color="success">{locale.tagSuccess}</Tag>
+                <Tag color="processing">{locale.tagProcessing}</Tag>
+                <Tag color="error">{locale.tagError}</Tag>
+                <Tag color="warning">{locale.tagWarning}</Tag>
+              </Flex>
             </div>
             <div className={styles.card}>
-              <DatePicker />
-              <Select
-                style={{ width: '100%' }}
-                mode="multiple"
-                maxTagCount="responsive"
-                defaultValue={['apple', 'banana']}
-                options={fruitOptions}
-              />
+              <Typography.Text type="secondary">{locale.teamTitle}</Typography.Text>
+              <Avatar.Group maxCount={3}>
+                <Badge dot status="success" offset={[-2, 24]}>
+                  <Avatar>A</Avatar>
+                </Badge>
+                <Avatar>B</Avatar>
+                <Avatar>C</Avatar>
+                <Avatar>D</Avatar>
+                <Avatar>E</Avatar>
+              </Avatar.Group>
             </div>
 
-            {/* Row 2: Buttons (1 col) | ColorPicker + Dropdown + Select (2 cols) */}
+            {/* Row 2: Actions (span1) | Colors & Search (span2) */}
             <div className={styles.card}>
               <Flex gap="small" wrap>
                 <Button type="primary" className={styles.flexAuto}>
                   {locale.primary}
                 </Button>
-                <Button type="primary" className={styles.flexAuto} danger>
+                <Button danger className={styles.flexAuto}>
                   {locale.danger}
                 </Button>
                 <Button className={styles.flexAuto}>{locale.default}</Button>
-                <Button className={styles.flexAuto} type="dashed">
-                  {locale.dashed}
-                </Button>
               </Flex>
-              <Progress style={{ margin: 0 }} percent={60} />
-            </div>
-            <div className={clsx(styles.card, styles.span2)}>
-              <Flex gap="middle" align="center">
-                <ColorPicker showText defaultValue="#1677ff" style={{ flex: 'none' }} />
-                <Space.Compact>
-                  <Button>{locale.dropdown}</Button>
-                  <Dropdown menu={{ items: dropdownItems }}>
-                    <Button icon={<DownOutlined />} />
-                  </Dropdown>
-                </Space.Compact>
-              </Flex>
-              <Select
-                style={{ width: '100%' }}
-                mode="multiple"
-                maxTagCount="responsive"
-                defaultValue={['apple', 'banana']}
-                options={fruitOptions}
-              />
-            </div>
-
-            {/* Row 3: Switch + Checkbox + Radio (1 col) | Steps (2 cols) */}
-            <div className={styles.card}>
+              <Space.Compact>
+                <Button>{locale.dropdown}</Button>
+                <Dropdown menu={{ items: dropdownItems }}>
+                  <Button icon={<DownOutlined />} />
+                </Dropdown>
+              </Space.Compact>
               <Switch
                 defaultChecked
                 checkedChildren={<CheckOutlined />}
                 unCheckedChildren={<CloseOutlined />}
                 style={{ width: 48 }}
               />
-              <Checkbox.Group
-                options={[locale.apple, locale.banana, locale.orange]}
-                defaultValue={[locale.apple]}
-              />
-              <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
             </div>
             <div className={clsx(styles.card, styles.span2)}>
-              <Steps
-                current={1}
-                items={[
-                  { title: locale.finished },
-                  { title: locale.inProgress },
-                  { title: locale.waiting },
-                ]}
+              <Flex gap="small" align="center">
+                <ColorPicker showText defaultValue="#1677ff" style={{ flex: 'none' }} />
+                <Rate defaultValue={4} />
+              </Flex>
+              <Search placeholder={locale.searchPlaceholder} allowClear />
+              <Select
+                style={{ width: '100%' }}
+                mode="multiple"
+                maxTagCount="responsive"
+                defaultValue={['apple', 'banana']}
+                options={fruitOptions}
               />
+            </div>
+
+            {/* Row 3: DatePicker & Select (span2) | Progress (span1) */}
+            <div className={clsx(styles.card, styles.span2)}>
+              <DatePicker style={{ width: '100%' }} />
+              <Select
+                style={{ width: '100%' }}
+                mode="multiple"
+                maxTagCount="responsive"
+                defaultValue={['apple', 'banana']}
+                options={fruitOptions}
+              />
+            </div>
+            <div className={styles.card}>
+              <Flex justify="space-around">
+                <Progress type="circle" percent={75} size={72} />
+                <Progress type="circle" percent={100} size={72} />
+              </Flex>
               <Slider defaultValue={50} />
             </div>
 
-            {/* Row 4: Segmented + RadioButtonGroup (3 cols) */}
+            {/* Row 4: Segmented + Checkbox + Radio (span3) */}
             <div className={clsx(styles.card, styles.span3)}>
-              <Flex gap="middle" align="center" justify="center">
+              <Flex gap="middle" align="center" justify="center" wrap>
                 <Segmented
                   defaultValue={locale.segmentedDaily}
                   options={[locale.segmentedDaily, locale.segmentedWeekly, locale.segmentedMonthly]}
                 />
-                <RadioButtonGroup defaultValue="a">
-                  <RadioButton value="a">A</RadioButton>
-                  <RadioButton value="b">B</RadioButton>
-                  <RadioButton value="c">C</RadioButton>
-                </RadioButtonGroup>
+                <Checkbox.Group
+                  options={[locale.apple, locale.banana, locale.orange]}
+                  defaultValue={[locale.apple]}
+                />
+                <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
               </Flex>
             </div>
           </div>
