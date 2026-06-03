@@ -626,7 +626,7 @@ Array [
         aria-label="basic image"
         class="ant-image css-var-test-id ant-image-css-var"
         role="button"
-        style="width:200px;height:200px"
+        style="width:200px;height:200px;border-radius:8px"
         tabindex="0"
       >
         <img
@@ -647,6 +647,7 @@ Array [
         </div>
         <div
           class="ant-image-cover ant-image-cover-center"
+          style="border-radius:8px"
         />
       </div>
     </div>

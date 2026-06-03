@@ -1,8 +1,8 @@
 import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
-import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -22,6 +22,7 @@ import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
+import useDisplaySteps from './useDisplaySteps';
 
 type RcIconRenderTypeInfo = Parameters<NonNullable<RcStepsProps['iconRender']>>[1];
 
@@ -60,6 +61,7 @@ export type StepsSemanticType = {
 export type StepsSemanticAllType = GenerateSemantic<StepsSemanticType, StepsProps>;
 
 interface StepItem {
+  key?: React.Key;
   className?: string;
   style?: React.CSSProperties;
   classNames?: GetProp<RcStepsProps, 'items'>[number]['classNames'];
@@ -112,6 +114,11 @@ export interface BaseStepsProps {
   responsive?: boolean;
   ellipsis?: boolean;
   /**
+   * Maximum number of step items to display (`>= 3`).
+   * Hidden step ranges are collapsed into disabled ellipsis steps.
+   */
+  maxCount?: number;
+  /**
    * Set offset cell, only work when `type` is `inline`.
    */
   offset?: number;
@@ -159,12 +166,14 @@ const Steps = (props: StepsProps) => {
     labelPlacement,
     titlePlacement,
     ellipsis,
+    maxCount,
     offset = 0,
 
     // Data
     items,
     percent,
     current = 0,
+    initial = 0,
     onChange,
 
     // Render
@@ -263,6 +272,14 @@ const Steps = (props: StepsProps) => {
   // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
 
+  const { canApplyMaxCount, displaySteps, mappedDisplayCurrent, displayItems } = useDisplaySteps(
+    mergedItems,
+    current,
+    initial,
+    maxCount,
+    prefixCls,
+  );
+
   // =========== Merged Props for Semantic ===========
   const mergedProps: StepsProps = {
     ...props,
@@ -272,9 +289,12 @@ const Steps = (props: StepsProps) => {
     orientation: mergedOrientation,
     titlePlacement: mergedTitlePlacement,
     current,
+    initial,
     percent: mergedPercent,
     responsive,
     offset,
+    ellipsis,
+    maxCount,
   };
 
   // ============================ Styles ============================
@@ -294,6 +314,9 @@ const Steps = (props: StepsProps) => {
       active,
       components: { Icon: StepIcon },
     } = info;
+    const originIndex = displaySteps[index]?.originIndex;
+    const mappedIndex =
+      originIndex !== undefined && originIndex >= 0 ? initial + originIndex : index;
 
     const { status, icon } = item;
 
@@ -310,7 +333,7 @@ const Steps = (props: StepsProps) => {
           iconContent = <CloseOutlined className={`${itemIconCls}-error`} />;
           break;
         default: {
-          let numNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+          let numNode = <span className={`${itemIconCls}-number`}>{mappedIndex + 1}</span>;
 
           if (status === 'process' && mergedPercent !== undefined) {
             numNode = (
@@ -334,14 +357,14 @@ const Steps = (props: StepsProps) => {
     // Custom Render Props
     if (iconRender) {
       iconNode = iconRender(iconNode, {
-        index,
+        index: mappedIndex,
         active,
         item,
         components: { Icon: StepIcon },
       });
     } else if (isFunction(legacyProgressDotRender)) {
       iconNode = legacyProgressDotRender(iconNode, {
-        index,
+        index: mappedIndex,
         ...(item as Required<typeof item>),
       });
     }
@@ -399,6 +422,7 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
+      [`${prefixCls}-max-count`]: canApplyMaxCount,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-small`]: mergedSize === 'small',
     },
@@ -420,7 +444,19 @@ const Steps = (props: StepsProps) => {
       'items.description',
       'items.content',
     );
+    warning(
+      maxCount === undefined || maxCount >= 3,
+      'usage',
+      '`maxCount` should be greater than or equal to 3.',
+    );
   }
+
+  const onDisplayChange = (displayCurrent: number) => {
+    const target = displaySteps[displayCurrent];
+    if (onChange && target && target.originIndex >= 0) {
+      onChange(initial + target.originIndex);
+    }
+  };
 
   // ============================ Render ============================
   return (
@@ -437,9 +473,10 @@ const Steps = (props: StepsProps) => {
       titlePlacement={mergedTitlePlacement}
       components={components}
       // Data
-      current={current}
-      items={mergedItems}
-      onChange={onChange}
+      initial={0}
+      current={mappedDisplayCurrent}
+      items={displayItems}
+      onChange={onChange ? onDisplayChange : undefined}
       // Render
       iconRender={internalIconRender}
       itemRender={itemRender}

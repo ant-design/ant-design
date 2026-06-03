@@ -1,5 +1,4 @@
 import React from 'react';
-import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -15,6 +14,8 @@ import Input from '../../input';
 import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
+
+type SingleValueType = (string | number)[];
 
 function toggleOpen(container: ReturnType<typeof render>['container']) {
   fireEvent.mouseDown(container.querySelector('.ant-select')!);

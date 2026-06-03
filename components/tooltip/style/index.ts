@@ -48,7 +48,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     tooltipBorderRadius,
     zIndexPopup,
     controlHeight,
-    boxShadowSecondary,
+    dropShadowPopover,
     paddingSM,
     paddingXS,
     arrowOffsetHorizontal,
@@ -77,7 +77,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     wordWrap: 'break-word',
     backgroundColor: tooltipBg,
     borderRadius: tooltipBorderRadius,
-    boxShadow: boxShadowSecondary,
     boxSizing: 'border-box',
   };
 
@@ -100,6 +99,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
+        filter: dropShadowPopover,
 
         ...sharedTransformOrigin,
 
@@ -116,7 +116,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           [`${componentCls}-container`]: {
             border: 'none',
             background: 'transparent',
-            boxShadow: 'none',
           },
         },
 
@@ -168,7 +167,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color')),
+    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
 
     // Pure Render
     {
@@ -186,6 +185,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         ...sharedTransformOrigin,
         position: 'absolute',
         zIndex: calc(zIndexPopup).sub(1).equal(),
+        filter: dropShadowPopover,
 
         '&-hidden': {
           display: 'none',
