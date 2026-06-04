@@ -71,6 +71,13 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     }
     composedValueRef.current = nextValue;
     onChange(index, nextValue);
+    // The trailing `input` (if any) arrives synchronously right after
+    // `compositionend`. Clear the ref in the next tick so a browser that
+    // never fires that trailing `input` can not leave a stale value behind
+    // and block typing the same character again later.
+    raf(() => {
+      composedValueRef.current = null;
+    });
   };
 
   // ========================= Focus ==========================
