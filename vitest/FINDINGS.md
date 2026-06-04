@@ -70,7 +70,20 @@
 | ------------------------------------------------------ | -------------------------------- |
 | `jest.fn` / `spyOn` / 各类 timer API / `setSystemTime` | ✅ 映射到 `vi`                   |
 | `jest.requireActual`（同步动态路径）                   | ✅ 自定义实现（glob + 同步缓存） |
-| `jest.mock(path, factory)`（工厂提升）                 | ❌ 需手动改写为 `vi.mock`        |
+| `jest.mock(path, factory)`（工厂提升）                 | ❌ 见下方说明，垫片无法支持      |
+
+> **`jest.mock` 为何无法用垫片支持**：测试里写 `jest.mock(...)`，运行时是经 `globalThis.jest.mock(...)` 这种属性访问间接调用 `vi.mock`。而 Vitest 的提升（hoisting）转换只识别**字面量** `vi.mock(...)` 的调用节点，间接调用不会被提升到 import 之前——mock 注册时目标模块已加载。结果是测试**假成功**：照常 pass，但跑的是真实模块而非 mock（已实证 `isMockFn: false`）。
+
+### 垫片的定位：临时层，全量迁移时删除
+
+`jestShim` 是 **POC 期的临时兼容层**，唯一目的是让现存测试文件**零改动**跑通以验证可行性，**不是长期设计**。全量切换到 Vitest 时应整体移除：
+
+- `vitest.setup.ts` 中 `jestShim` 与 `globalThis.jest = jestShim` 整段删除；
+- `jest.fn` / `spyOn` / timer 等别名类 API → codemod 批量替换为 `vi.*`；
+- `jest.mock(path, factory)`（约 56 文件）→ 逐个手改为字面量 `vi.mock(path, async () => { const actual = await vi.importActual(path); ... })`；
+- `jest.requireActual` 同步动态加载（垫片中最重的 `import.meta.glob` + 预加载缓存）→ 随 `demoTest.tsx` 改为异步 `await vi.importActual` 或用 `import.meta.glob` 重写 demo 加载后一并删除。
+
+换言之，垫片为「不改测试文件」而生，而**迁移的终点恰是改测试文件**——终点到达时垫片使命即结束。它的附带价值是**枚举出哪些 API 可无痛替换、哪些必须手改**（即上表 ❌ 项与第五节阻塞清单）。
 
 ## 七、新增文件（零修改现有测试文件）
 
