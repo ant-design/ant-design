@@ -75,12 +75,14 @@
 ## 七、新增文件（零修改现有测试文件）
 
 ```text
-vitest.config.ts     # jsdom + alias(含 LIB_DIR) + 独立 snapshot 路径 + 内联依赖
+vitest.config.ts     # jsdom + alias(含 LIB_DIR) + 根级 snapshot 路径 + 内联依赖
 vitest.setup.ts      # 合并两份 setup + jest→vi 垫片 + demo glob 预加载 + serializer
 vitest/FINDINGS.md   # 本报告
-package.json         # 追加 test:vitest / test:vitest:watch（不改现有 script）
+vitest/__snapshots__/ # Vitest 快照基线（随 PR 提交，保证可复现；Jest 扫描范围之外）
+package.json         # 追加 test:vitest / test:vitest:watch；pin jest-canvas-mock=2.5.2
 eslint.config.mjs    # 将两个 vitest 文件纳入 tests override
-**/__snapshots__/vitest/*.snap  # Vitest 快照基线（随 PR 提交，保证可复现）
+.jest.js / .jest.node.js / .jest.image.js / .jest.site.js
+                     # 仅加 modulePathIgnorePatterns 忽略 Vitest 快照（不改测试行为）
 ```
 
 ## 八、全量迁移工作量估算
