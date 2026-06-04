@@ -411,7 +411,6 @@ function generateReport(
       `> **📊 概览:** ${summaryLineCN}`,
       '\n',
       tableHeaderCN,
-      '\n',
       commentTableRows,
       hasMore &&
         [
