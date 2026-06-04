@@ -72,6 +72,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     fontSizeIcon,
     controlPaddingHorizontal,
     colorBgElevated,
+    controlHeightLG,
   } = token;
 
   return [
@@ -97,8 +98,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         },
 
         // Makes vertical dropdowns have a scrollbar once they become taller than the viewport.
+        // Leave some viewport spacing so the menu stays on-screen when the trigger is centered.
+        // https://github.com/ant-design/ant-design/issues/56044
         '&-menu-vertical': {
-          maxHeight: '100vh',
+          maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
           overflowY: 'auto',
         },
 
