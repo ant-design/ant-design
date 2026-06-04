@@ -74,7 +74,7 @@
 
 ## 七、新增文件（零修改现有测试文件）
 
-```
+```text
 vitest.config.ts     # jsdom + alias(含 LIB_DIR) + 独立 snapshot 路径 + 内联依赖
 vitest.setup.ts      # 合并两份 setup + jest→vi 垫片 + demo glob 预加载 + serializer
 vitest/FINDINGS.md   # 本报告
