@@ -33,7 +33,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | checked | Determine whether the Switch is checked | boolean | false |  |
 | checkedChildren | The content to be shown when the state is checked | ReactNode | - |  |
-| className | The additional class to Switch | string | - |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultChecked | Whether to set the initial state | boolean | false |  |
 | defaultValue | Alias for `defaultChecked` | boolean | - | 5.12.0 |

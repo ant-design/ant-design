@@ -34,7 +34,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | checked | 指定当前是否选中 | boolean | false |  |
 | checkedChildren | 选中时的内容 | ReactNode | - |  |
-| className | Switch 器类名 | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultChecked | 初始是否选中 | boolean | false |  |
 | defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 |
