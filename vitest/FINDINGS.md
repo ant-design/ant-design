@@ -34,8 +34,8 @@
 
 - **HTML 内容字节级一致**：Button demo 整份快照（44 个 demo）`diff` 结果为 **0 行差异**。自定义 serializer（HTML 格式化 + demo SSR serializer）在 Vitest 下原样复用、输出完全相同。
 - **唯一差异是 snapshot key 格式**：Jest 用 `A B`，Vitest 用 `A > B`（`>` 分隔）。
-- **并存方案**：Vitest 基线写入仓库根 `vitest/__snapshots__/`（Jest 测试树之外），**Jest 既有 `.snap` 零改动**。基线随 PR 提交，保证 `npm run test:vitest` 在干净 CI checkout 上可复现为绿色门禁。
-  - 注：Jest 会全仓扫描 `.snap` 并在 `--ci` 下把无对应测试的快照判为 obsolete 而报错。故在 4 份 `.jest.*` 配置统一加入 `modulePathIgnorePatterns: '/vitest/__snapshots__/'`，让 Jest 忽略 Vitest 基线——这是本 POC 对现有 Jest 配置的**唯一改动**，不影响 Jest 测试行为。
+- **并存方案**：Vitest 基线写入测试同目录的 `components/**/__tests__/__snapshots__/vitest/`（与组件就近存放），**Jest 既有 `.snap` 零改动**。基线随 PR 提交，保证 `npm run test:vitest` 在干净 CI checkout 上可复现为绿色门禁。
+  - 注：Jest 会全仓扫描 `.snap` 并在 `--ci` 下把无对应测试的快照判为 obsolete 而报错。故在 4 份 `.jest.*` 配置统一加入 `modulePathIgnorePatterns: '/__snapshots__/vitest/'`，让 Jest 忽略 Vitest 基线——这是本 POC 对现有 Jest 配置的**唯一改动**，不影响 Jest 测试行为。
 
 ## 五、阻塞点清单（全量迁移待解项）
 
@@ -88,10 +88,10 @@
 ## 七、新增文件（零修改现有测试文件）
 
 ```text
-vitest.config.ts     # jsdom + alias(含 LIB_DIR) + 根级 snapshot 路径 + 内联依赖
+vitest.config.ts     # jsdom + alias(含 LIB_DIR) + snapshot 路径(就近 __snapshots__/vitest/) + 内联依赖
 vitest.setup.ts      # 合并两份 setup + jest→vi 垫片 + demo glob 预加载 + serializer
 vitest/FINDINGS.md   # 本报告
-vitest/__snapshots__/ # Vitest 快照基线（随 PR 提交，保证可复现；Jest 扫描范围之外）
+components/**/__tests__/__snapshots__/vitest/  # Vitest 快照基线（随 PR 提交，与组件就近存放）
 package.json         # 追加 test:vitest / test:vitest:watch；pin jest-canvas-mock=2.5.2
 eslint.config.mjs    # 将两个 vitest 文件纳入 tests override
 .jest.js / .jest.node.js / .jest.image.js / .jest.site.js
