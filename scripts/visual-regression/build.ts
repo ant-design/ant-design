@@ -104,6 +104,16 @@ async function getBranchLatestRef(branchName: string) {
   return ref;
 }
 
+async function ossSnapshotExists(ref: string) {
+  const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
+  try {
+    const res = await fetch(imageSnapshotsUrl, { method: 'HEAD' });
+    return res.ok && res.status === 200;
+  } catch {
+    return false;
+  }
+}
+
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
   const tar = await import('tar');
   // download imageSnapshotsUrl
@@ -150,12 +160,17 @@ export interface IBadCase {
 const git = simpleGit();
 
 async function parseArgs() {
-  // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
+  // parse args from -- --pr-id=123 --base_ref=feature --base-sha=abc123 --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  // The exact base commit the PR is merged onto. Used to align the baseline
+  // snapshot with the PR's current side, avoiding stale-pointer false diffs.
+  // Optional: falls back to the branch pointer when not provided or missing on OSS.
+  const baseSha = argv['base-sha'] || '';
 
   const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
 
@@ -164,6 +179,7 @@ async function parseArgs() {
   return {
     prId,
     baseRef,
+    baseSha,
     currentRef: latest?.hash.slice(0, 8) || '',
     maxWorkers,
   };
@@ -244,14 +260,19 @@ function generateReport(
   currentRef: string,
   prId: string,
   publicPath = '.',
+  baselineStale = false,
 ): [string, string] {
   const passed = badCases.length === 0;
+
+  const staleWarning = baselineStale
+    ? `\n> ⚠️ **Baseline may be stale:** no snapshot for the PR's base commit was found, so an older branch snapshot was used. Some diffs below may come from changes already merged into \`${targetBranch}\` rather than this PR.`
+    : '';
 
   const commonHeader = `
 <!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
 
 ## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **🎯 Target branch:** ${targetBranch} (${targetRef})
+> **🎯 Target branch:** ${targetBranch} (${targetRef})${staleWarning}
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
@@ -357,7 +378,7 @@ async function boot() {
   const args = await parseArgs();
   console.log(`Args: ${JSON.stringify(args)}`);
 
-  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
+  const { prId, baseRef: targetBranch = 'master', baseSha, currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
@@ -371,7 +392,41 @@ async function boot() {
   );
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetCommitSha = await getBranchLatestRef(targetBranch);
+  // Resolve the baseline snapshot ref.
+  //
+  // The PR's `current` side is rendered on the live merge ref (PR head merged
+  // onto the branch HEAD), so its base parent is `baseSha`. To avoid false diffs
+  // we want the `base` side to use the snapshot of that very commit.
+  //
+  // Snapshots are persisted per-commit on OSS, but the branch pointer
+  // (`<branch>/visual-regression-ref.txt`) can lag behind the branch HEAD when a
+  // persist run is delayed, failed, or skipped (e.g. right after an auto-merge of
+  // master into feature). Falling back to that lagging pointer is what makes
+  // unrelated changes show up as diffs. So:
+  //   1. prefer `baseSha` when its snapshot exists on OSS (perfectly aligned);
+  //   2. otherwise fall back to the branch pointer and flag the baseline as stale
+  //      so the report can warn that diffs may be noise.
+  const branchPointerSha = await getBranchLatestRef(targetBranch);
+  let targetCommitSha = branchPointerSha;
+  let baselineStale = false;
+
+  if (!isLocalEnv && baseSha) {
+    if (await ossSnapshotExists(baseSha)) {
+      targetCommitSha = baseSha;
+    } else {
+      // Snapshot for the PR's real base is missing; the branch pointer is the
+      // best we have, but it predates the PR's base when they differ.
+      baselineStale = branchPointerSha !== baseSha;
+      console.log(
+        chalk.yellow(
+          `⚠️ No baseline snapshot for base commit ${baseSha}, falling back to branch pointer ${branchPointerSha}.${
+            baselineStale ? ' Baseline is stale; diffs may include noise.' : ''
+          }\n`,
+        ),
+      );
+    }
+  }
+
   assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
 
   if (!isLocalEnv) {
@@ -513,6 +568,7 @@ async function boot() {
     currentRef,
     prId,
     publicPath,
+    baselineStale,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
