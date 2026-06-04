@@ -38,13 +38,14 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: [r('vitest.setup.ts')],
-    // POC：vitest 的 snapshot key 格式与 jest 不同（`A > B` vs `A B`），
-    // 故写入独立目录 __snapshots__/vitest/，避免覆盖 jest 既有 .snap，保证完全并存。
+    // POC：Vitest 的 snapshot key 格式与 Jest 不同（`A > B` vs `A B`），且 Jest 在 --ci
+    // 下会把任何位于 __snapshots__ 内的陌生 .snap 当作 obsolete 而报错。故把 Vitest 基线
+    // 完全放到仓库根的 vitest/__snapshots__/ 下（Jest 扫描范围之外），保证两者互不干扰。
     resolveSnapshotPath: (testPath, snapExtension) => {
-      const dir = resolve(testPath, '..', '__snapshots__', 'vitest');
-      // Windows 路径用反斜杠，先归一化再取文件名，保证跨平台。
-      const file = testPath.replace(/\\/g, '/').split('/').pop();
-      return resolve(dir, `${file}${snapExtension}`);
+      // 归一化 Windows 反斜杠，取相对 components 之后的路径作为子目录，避免同名碰撞。
+      const normalized = testPath.replace(/\\/g, '/');
+      const rel = normalized.slice(normalized.indexOf('/components/') + '/components/'.length);
+      return r(`vitest/__snapshots__/${rel}${snapExtension}`);
     },
     // POC：include 选定三个组件，exclude 分两类——
     // (A) 非 jsdom / 非本 POC 范围的用例；
