@@ -268,11 +268,21 @@ function generateReport(
     ? `\n> ⚠️ **Baseline may be stale:** no snapshot for the PR's base commit was found, so an older branch snapshot was used. Some diffs below may come from changes already merged into \`${targetBranch}\` rather than this PR.`
     : '';
 
+  const staleWarningCN = baselineStale
+    ? `\n> ⚠️ **基线可能已过期:** 未找到该 PR 基准提交对应的快照,因此回退使用了较旧的分支快照。下方部分差异可能来自已合并到 \`${targetBranch}\` 的改动,而非本 PR。`
+    : '';
+
   const commonHeader = `
 <!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
 
 ## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **🎯 Target branch:** ${targetBranch} (${targetRef})${staleWarning}
+> **🎯 Target branch:** ${targetBranch} (${targetRef.slice(0, 8)})${staleWarning}
+  `.trim();
+
+  // 中文报告头部,折叠展示用,不含 CI 解析的 checkbox 结构
+  const commonHeaderCN = `
+## 👁 PR #${prId} 视觉回归报告 ${passed ? '通过 ✅' : '失败 ❌'}
+> **🎯 目标分支:** ${targetBranch} (${targetRef.slice(0, 8)})${staleWarningCN}
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
@@ -289,6 +299,13 @@ function generateReport(
       fullReport,
       '\n🎊 Congrats! No visual-regression diff found.\n',
       '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
+      [
+        '\n<details>',
+        '<summary>📖 中文报告</summary>\n',
+        commonHeaderCN,
+        '\n🎊 恭喜!未发现视觉回归差异。\n',
+        '</details>',
+      ].join('\n'),
     ].join('\n');
 
     return [mdStr, markdown2Html(mdStr)];
@@ -324,15 +341,20 @@ function generateReport(
   const removedCount = filter(badCases, { type: 'removed' }).length;
   const addedCount = filter(badCases, { type: 'added' }).length;
 
+  // 收集评论版表格行,中英文报告复用
+  let commentTableRows = '';
+
   for (const badCase of badCases) {
     diffCount += 1;
     if (diffCount <= commentReportLimit) {
       // 将图片下方增加文件名
-      reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
+      commentTableRows += generateLineReport(badCase, publicPath, currentRef, true);
     }
 
     fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
+
+  reportMdStr += commentTableRows;
 
   const hasMore = badCount > commentReportLimit;
 
@@ -368,6 +390,49 @@ function generateReport(
 
     reportMdStr = reportMdStr.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
     fullVersionMd = fullVersionMd.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
+
+    // 中文报告,折叠展示。不包含 CI 解析所需的 checkbox,避免干扰审批状态判断
+    const summaryLineCN = [
+      changedCount > 0 && `🔄 \`${changedCount}\` 变更`,
+      removedCount > 0 && `🛑 \`${removedCount}\` 删除`,
+      addedCount > 0 && `🆕 \`${addedCount}\` 新增`,
+    ]
+      .filter(Boolean)
+      .join(', ');
+
+    const tableHeaderCN = `
+| 期望 (分支 ${targetBranch}) | 实际 (当前 PR) | 差异 |
+| --- | --- | --- |
+    `.trim();
+
+    const reportCNStr = [
+      commonHeaderCN,
+      isLocalEnv ? false : fullReport,
+      `> **📊 概览:** ${summaryLineCN}`,
+      '\n',
+      tableHeaderCN,
+      '\n',
+      commentTableRows,
+      hasMore &&
+        [
+          '\r',
+          '> [!WARNING]',
+          `> 还有更多差异未在表格中展示,请查看 <a href="${htmlReportLink}" target="_blank">完整报告</a> 了解详情。`,
+          '\r',
+        ].join('\n'),
+      '\n---\n',
+      '> [!NOTE]',
+      `> 本 PR 共发现 **${badCount}** 处差异:${summaryLineCN}。请在上方英文报告中勾选确认项以通过 CI 校验。`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    reportMdStr += [
+      '\n\n<details>',
+      '<summary>📖 中文报告</summary>\n',
+      reportCNStr,
+      '\n</details>',
+    ].join('\n');
   }
 
   // convert fullVersionMd to html
@@ -416,7 +481,7 @@ async function boot() {
     } else {
       // Snapshot for the PR's real base is missing; the branch pointer is the
       // best we have, but it predates the PR's base when they differ.
-      baselineStale = branchPointerSha !== baseSha;
+      baselineStale = branchPointerSha.slice(0, 8) !== baseSha.slice(0, 8);
       console.log(
         chalk.yellow(
           `⚠️ No baseline snapshot for base commit ${baseSha}, falling back to branch pointer ${branchPointerSha}.${
