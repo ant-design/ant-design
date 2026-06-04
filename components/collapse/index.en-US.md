@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
 | destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
-| expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
+| expandIcon | Customize the collapse expand icon | (panelProps) => ReactNode | - |  |
 | expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - |
 | ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |

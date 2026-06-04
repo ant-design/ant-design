@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | activeTabKey | Current TabPane's key | string | - |  |
 | ~~bordered~~ | Toggles rendering of the border around the card, please use `variant` instead | boolean | true |  |
 | ~~bodyStyle~~ | Style of card body, please use `styles.body` instead | CSSProperties | - | - |
-| variant | Variants of Card | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
+| variant | Variants of Card | `outlined` \| `borderless` | `outlined` | 5.24.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
@@ -61,21 +61,17 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Card.Grid
 
-| Property  | Description                     | Type          | Default | Version |
-| --------- | ------------------------------- | ------------- | ------- | ------- |
-| className | The className of container      | string        | -       |         |
-| hoverable | Lift up when hovering card grid | boolean       | true    |         |
-| style     | The style object of container   | CSSProperties | -       |         |
+| Property  | Description                     | Type    | Default | Version |
+| --------- | ------------------------------- | ------- | ------- | ------- |
+| hoverable | Lift up when hovering card grid | boolean | true    |         |
 
 ### Card.Meta
 
-| Property    | Description                   | Type          | Default | Version |
-| ----------- | ----------------------------- | ------------- | ------- | ------- |
-| avatar      | Avatar or icon                | ReactNode     | -       |         |
-| className   | The className of container    | string        | -       |         |
-| description | Description content           | ReactNode     | -       |         |
-| style       | The style object of container | CSSProperties | -       |         |
-| title       | Title content                 | ReactNode     | -       |         |
+| Property    | Description         | Type      | Default | Version |
+| ----------- | ------------------- | --------- | ------- | ------- |
+| avatar      | Avatar or icon      | ReactNode | -       |         |
+| description | Description content | ReactNode | -       |         |
+| title       | Title content       | ReactNode | -       |         |
 
 ## Semantic DOM
 

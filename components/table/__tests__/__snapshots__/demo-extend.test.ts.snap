@@ -2196,6 +2196,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -3589,6 +3590,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -3998,6 +4000,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4134,6 +4137,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4349,6 +4353,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -6727,6 +6732,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -10717,6 +10723,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11275,6 +11282,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11696,6 +11704,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -12052,6 +12061,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -13858,6 +13868,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -15311,6 +15322,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -15712,6 +15724,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -16897,6 +16910,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -17033,6 +17047,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -17327,6 +17342,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -23228,6 +23244,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -23564,6 +23581,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -29284,7 +29302,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-small css-var-test-id ant-table-css-var"
+          class="ant-table ant-table-small css-var-test-id ant-table-css-var ant-table-virtual ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fix-end-shadow-show ant-table-fixed-header ant-table-scroll-horizontal"
         >
           <div
             class="ant-table-title"
@@ -29295,11 +29313,26 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
             class="ant-table-container"
           >
             <div
-              class="ant-table-content"
+              class="ant-table-header"
+              style="overflow: hidden;"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout: fixed; min-width: 100%; width: 4px;"
               >
+                <colgroup>
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -29330,86 +29363,114 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
                     </th>
                   </tr>
                 </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Jim Green
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sydney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
-                    </td>
-                  </tr>
-                </tbody>
               </table>
+            </div>
+            <div
+              class="ant-table-tbody-virtual ant-table-tbody"
+              style="position: relative;"
+            >
+              <div
+                class="ant-table-tbody-virtual-holder"
+                style="max-height: 300px; overflow-y: auto; overflow-anchor: none;"
+              >
+                <div>
+                  <div
+                    class="ant-table-tbody-virtual-holder-inner"
+                    style="display: flex; flex-direction: column;"
+                  >
+                    <div
+                      class="ant-table-row"
+                      data-row-key="1"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        John Brown
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        New York No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="2"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Jim Green
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        42
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        London No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="3"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Joe Black
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Sydney No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div

@@ -8,7 +8,7 @@ import type {
   PaginationProps as RcPaginationProps,
 } from '@rc-component/pagination';
 import RcPagination from '@rc-component/pagination';
-import enUS from '@rc-component/pagination/lib/locale/en_US';
+import enUS from '@rc-component/pagination/locale/en_US';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';

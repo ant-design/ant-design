@@ -1,5 +1,5 @@
 import type React from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import type { TourProps } from '../.';
 import { semanticDemoTest } from '../../../tests/shared/demoTest';
