@@ -86,3 +86,6 @@ docs/superpowers/
 
 # generated css
 components/style/antd.css
+
+# vitest POC snapshots (jest 与 vitest snapshot key 格式不同,各自独立存放)
+**/__snapshots__/vitest/
