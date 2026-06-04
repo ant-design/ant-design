@@ -825,6 +825,10 @@ describe('Typography.Ellipsis', () => {
       expect(probe.style.display).toBe('inline-block');
       expect(probe.style.width).toBe('0px');
       expect(probe.style.height).toBe('0px');
+      // Reset box model so global styles targeting `em` can not add size back.
+      expect(probe.style.margin).toBe('0px');
+      expect(probe.style.padding).toBe('0px');
+      expect(probe.style.borderWidth).toBe('0px');
 
       appendSpy.mockRestore();
       document.body.removeChild(ele);

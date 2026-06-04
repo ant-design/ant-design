@@ -33,9 +33,15 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
   // overflow even though the text is not clamped. Collapsing it to a zero
   // sized inline-block keeps the horizontal detection (see #50143 / #50414)
   // while avoiding the vertical false positive (see #56347).
+  // `margin`, `padding` and `border-width` are also reset so that global
+  // stylesheets targeting `em` (resets or custom styles) can not re-introduce
+  // any size and bring back the false positive.
   childDiv.style.display = 'inline-block';
   childDiv.style.width = '0';
   childDiv.style.height = '0';
+  childDiv.style.margin = '0';
+  childDiv.style.padding = '0';
+  childDiv.style.borderWidth = '0';
   ele.appendChild(childDiv);
 
   // For test case
