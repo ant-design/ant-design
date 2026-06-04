@@ -175,10 +175,9 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   // =============================== Render ===============================
   // >>> Title
-  const titleNode =
-    title === null || title === false
-      ? undefined
-      : (title ?? (isString(livingCount) || isNumber(livingCount) ? livingCount : undefined));
+  const fallbackTitleNode =
+    isString(livingCount) || isNumber(livingCount) ? livingCount : undefined;
+  const titleNode = title === null || title === false ? undefined : (title ?? fallbackTitleNode);
 
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
