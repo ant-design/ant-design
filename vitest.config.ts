@@ -40,7 +40,8 @@ export default defineConfig({
     // 故写入独立目录 __snapshots__/vitest/，避免覆盖 jest 既有 .snap，保证完全并存。
     resolveSnapshotPath: (testPath, snapExtension) => {
       const dir = resolve(testPath, '..', '__snapshots__', 'vitest');
-      const file = testPath.split('/').pop();
+      // Windows 路径用反斜杠，先归一化再取文件名，保证跨平台。
+      const file = testPath.replace(/\\/g, '/').split('/').pop();
       return resolve(dir, `${file}${snapExtension}`);
     },
     // POC：include 选定三个组件，exclude 分两类——

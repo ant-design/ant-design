@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module';
 import util from 'node:util';
 import { ReadableStream } from 'node:stream/web';
 import { MessagePort } from 'node:worker_threads';
@@ -12,6 +13,9 @@ import type { DOMWindow } from 'jsdom';
 import { defaultConfig } from './components/theme/internal';
 
 defaultConfig.hashed = false;
+
+// Vitest 默认以 ESM 运行，全局 require 可能不存在；用 createRequire 构造稳定 require。
+const nodeRequire = createRequire(import.meta.url);
 
 /* -------------------------------------------------------------------------- */
 /* jest → vi 垫片                                                              */
@@ -48,8 +52,7 @@ function normalize(p: string): string {
 function requireActual(request: string): any {
   // 'react' / 'react-dom' 等裸模块：交给真实模块（同步 require 兜底）
   if (!request.startsWith('.') && !request.startsWith('/')) {
-    // eslint-disable-next-line ts/no-require-imports
-    return require(request);
+    return nodeRequire(request);
   }
   const target = normalize(request);
   const hitKey = Object.keys(lazyMap).find((key) => normalize(key) === target);
@@ -209,15 +212,19 @@ if (typeof MessageChannel === 'undefined') {
     port1: any;
     port2: any;
     constructor() {
-      const createPort = (): any => ({
-        onmessage: null,
-        postMessage(message: any) {
-          setTimeout(() => {
-            this._target?.onmessage?.({ data: message });
-          }, 0);
-        },
-        _target: null,
-      });
+      // 用闭包引用 port，避免 postMessage 作为回调被解构/unbound 调用时 this 丢失。
+      const createPort = (): any => {
+        const port: any = {
+          onmessage: null,
+          postMessage: (message: any) => {
+            setTimeout(() => {
+              port._target?.onmessage?.({ data: message });
+            }, 0);
+          },
+          _target: null,
+        };
+        return port;
+      };
       const port1 = createPort();
       const port2 = createPort();
       port1._target = port2;
