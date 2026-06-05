@@ -43,7 +43,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | activeTabKey | 当前激活页签的 key | string | - |  |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  |
 | ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.24.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | 卡片封面 | ReactNode | - |  |
 | defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  |
@@ -62,21 +62,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型          | 默认值 | 版本 |
-| --------- | ---------------------- | ------------- | ------ | ---- |
-| className | 网格容器类名           | string        | -      |      |
-| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
-| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
+| 参数      | 说明             | 类型    | 默认值 | 版本 |
+| --------- | ---------------- | ------- | ------ | ---- |
+| hoverable | 鼠标移过时可浮起 | boolean | true   |      |
 
 ### Card.Meta
 
-| 参数        | 说明               | 类型          | 默认值 | 版本 |
-| ----------- | ------------------ | ------------- | ------ | ---- |
-| avatar      | 头像/图标          | ReactNode     | -      |      |
-| className   | 容器类名           | string        | -      |      |
-| description | 描述内容           | ReactNode     | -      |      |
-| style       | 定义容器类名的样式 | CSSProperties | -      |      |
-| title       | 标题内容           | ReactNode     | -      |      |
+| 参数        | 说明      | 类型      | 默认值 | 版本 |
+| ----------- | --------- | --------- | ------ | ---- |
+| avatar      | 头像/图标 | ReactNode | -      |      |
+| description | 描述内容  | ReactNode | -      |      |
+| title       | 标题内容  | ReactNode | -      |      |
 
 ## Semantic DOM
 

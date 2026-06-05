@@ -42,7 +42,7 @@ jobs:
           echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
       - name: Comment on PR
         if: steps.get_commit_count.outputs.COUNT < 3
-        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
