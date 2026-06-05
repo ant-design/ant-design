@@ -23,11 +23,20 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
+  duration?: number;
   outset?: number | string;
 }
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
-  const { prefixCls: customizePrefixCls, className, style, children, color, outset } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    style,
+    children,
+    color,
+    duration,
+    outset,
+  } = props;
 
   const {
     className: contextClassName,
@@ -63,6 +72,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
+          ...(isNonNullable(duration) && { [varName('duration')]: `${duration}s` }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
