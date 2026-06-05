@@ -1,7 +1,7 @@
 import React from 'react';
 
-import type { WatermarkProps } from '.';
-import toList from '../_util/toList';
+import type { WatermarkContentLine } from './utils';
+import { getCanvasFont, getFontSize } from './utils';
 
 export const FontGap = 3;
 
@@ -39,12 +39,11 @@ const getRotatePos = (x: number, y: number, angle: number) => {
 const useClips = () => {
   // Get single clips
   const getClips = (
-    content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
+    content: WatermarkContentLine[] | HTMLImageElement,
     rotate: number,
     ratio: number,
     width: number,
     height: number,
-    font: Required<NonNullable<WatermarkProps['font']>>,
     gapX: number,
     gapY: number,
   ): [dataURL: string, finalWidth: number, finalHeight: number] => {
@@ -56,16 +55,16 @@ const useClips = () => {
       ctx.drawImage(content, 0, 0, contentWidth, contentHeight);
     } else {
       // Text
-      const { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign } = font;
-      const mergedFontSize = Number(fontSize) * ratio;
-
-      ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
-      ctx.fillStyle = color;
-      ctx.textAlign = textAlign;
       ctx.textBaseline = 'top';
-      const contents = toList(content);
-      contents?.forEach((item, index) => {
-        ctx.fillText(item ?? '', contentWidth / 2, index * (mergedFontSize + FontGap * ratio));
+      let top = 0;
+
+      content.forEach(({ text, font }) => {
+        ctx.font = getCanvasFont(font, ratio, height);
+        ctx.fillStyle = font.color;
+        ctx.textAlign = font.textAlign;
+        ctx.fillText(text, contentWidth / 2, top);
+
+        top += getFontSize(font, ratio) + FontGap * ratio;
       });
     }
 
