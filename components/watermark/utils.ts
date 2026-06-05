@@ -1,3 +1,5 @@
+import { mergeProps } from '@rc-component/util';
+
 import type { WatermarkContent, WatermarkFont, WatermarkText } from '.';
 import { isPlainObject } from '../_util/is';
 import toList from '../_util/toList';
@@ -39,18 +41,6 @@ export const getCanvasFont = (font: Required<WatermarkFont>, ratio = 1, lineHeig
   )}px${mergedLineHeight} ${font.fontFamily}`;
 };
 
-const mergeFont = (
-  font: Required<WatermarkFont>,
-  overrideFont?: WatermarkFont,
-): Required<WatermarkFont> => ({
-  color: overrideFont?.color ?? font.color,
-  fontSize: overrideFont?.fontSize ?? font.fontSize,
-  fontWeight: overrideFont?.fontWeight ?? font.fontWeight,
-  fontStyle: overrideFont?.fontStyle ?? font.fontStyle,
-  fontFamily: overrideFont?.fontFamily ?? font.fontFamily,
-  textAlign: overrideFont?.textAlign ?? font.textAlign,
-});
-
 export const getContentLines = (
   content: WatermarkContent | WatermarkContent[] | undefined,
   font: Required<WatermarkFont>,
@@ -59,7 +49,7 @@ export const getContentLines = (
     if (isWatermarkText(item)) {
       return {
         text: item.text ?? '',
-        font: mergeFont(font, item.font),
+        font: mergeProps(font, item.font ?? {}),
       };
     }
 
