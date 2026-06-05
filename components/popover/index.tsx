@@ -6,7 +6,6 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isString } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -160,7 +159,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
         motionName: getTransitionName(
           rootPrefixCls,
           'zoom-big',
-          isString(motion?.motionName) ? motion?.motionName : undefined,
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
         ),
       }}
       data-popover-inject

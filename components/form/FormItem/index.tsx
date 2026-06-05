@@ -5,7 +5,7 @@ import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-compone
 import { supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNonNullable, isPlainObject, isString } from '../../_util/is';
+import { isFunction, isNonNullable, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -282,7 +282,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   let variables: Record<string, string> = {};
-  if (isString(label)) {
+  if (typeof label === 'string') {
     variables.label = label;
   } else if (name) {
     variables.label = String(name);

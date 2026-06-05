@@ -10,7 +10,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isString } from '../_util/is';
+import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -318,7 +318,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
   const childProps = child.props;
   const childCls =
-    !childProps.className || isString(childProps.className)
+    !childProps.className || typeof childProps.className === 'string'
       ? clsx(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
@@ -388,7 +388,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         motionName: getTransitionName(
           rootPrefixCls,
           'zoom-big-fast',
-          isString(motion?.motionName) ? motion?.motionName : undefined,
+          typeof motion?.motionName === 'string' ? motion?.motionName : undefined,
         ),
         motionDeadline: 1000,
       }}

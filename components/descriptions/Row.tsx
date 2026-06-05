@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { isString } from '../_util/is';
 import type { InternalDescriptionsItemType } from '.';
 import Cell from './Cell';
 import type { DescriptionsContextProps } from './DescriptionsContext';
@@ -43,7 +42,7 @@ function renderCells(
       },
       index,
     ) => {
-      if (isString(component)) {
+      if (typeof component === 'string') {
         return (
           <Cell
             key={`${type}-${key || index}`}

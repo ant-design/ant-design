@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import { clsx } from 'clsx';
 
-import { isString } from '../_util/is';
 import type { InternalPanelProps, PanelProps } from './interface';
 
 export const InternalPanel = forwardRef<
@@ -18,7 +17,7 @@ export const InternalPanel = forwardRef<
     supportMotion,
   } = props;
 
-  const isCollapsed = size === 0 || (isString(size) && Number.parseFloat(size) === 0);
+  const isCollapsed = size === 0 || (typeof size === 'string' && Number.parseFloat(size) === 0);
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,

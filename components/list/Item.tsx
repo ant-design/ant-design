@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -99,7 +98,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const isItemContainsTextNodeAndNotSingular = () => {
     const childNodes: React.ReactNode[] = toArray(children);
-    const hasTextNode = childNodes.some(isString);
+    const hasTextNode = childNodes.some((node) => typeof node === 'string');
     return hasTextNode && childNodes.length > 1;
   };
 

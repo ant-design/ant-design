@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { isString } from '../../_util/is';
 import type { ItemType } from './useItems';
 import type { ResizableInfo } from './useResizable';
 import { getPtg } from './useSizes';
@@ -23,7 +22,7 @@ export default function useResize(
 
   // ======================== Resize ========================
   function getLimitSize(str: string | number | undefined, defaultLimit: number) {
-    if (isString(str)) {
+    if (typeof str === 'string') {
       return ptg2px(getPtg(str));
     }
     return str ?? defaultLimit;

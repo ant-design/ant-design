@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
 import { useSyncState } from '../../../_util/hooks';
-import { isFunction, isNumber, isString } from '../../../_util/is';
+import { isFunction, isNumber } from '../../../_util/is';
 import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
@@ -59,7 +59,7 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
 }
 
 const searchValueMatched = (normalizedSearchValue: string, text: React.ReactNode) => {
-  if (isString(text) || isNumber(text)) {
+  if (typeof text === 'string' || isNumber(text)) {
     return text.toString().toLowerCase().includes(normalizedSearchValue);
   }
   return false;

@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isFunction, isPlainObject, isString } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -242,7 +242,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
-      if (isString(response)) {
+      if (typeof response === 'string') {
         response = JSON.parse(response);
       }
     } catch {

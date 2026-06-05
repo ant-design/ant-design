@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { AntAnchor } from './Anchor';
@@ -109,7 +108,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
         className={titleClassName}
         style={mergedStyles?.itemTitle}
         href={href}
-        title={isString(title) ? title : undefined}
+        title={typeof title === 'string' ? title : undefined}
         target={target}
         onClick={handleClick}
       >

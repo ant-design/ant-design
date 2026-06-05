@@ -2,7 +2,6 @@ import * as React from 'react';
 import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isString } from '../../_util/is';
 import { ConfigContext } from '../../config-provider';
 import Input from '../Input';
 import type { InputProps, InputRef } from '../Input';
@@ -20,7 +19,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
-  const maskValue = isString(mask) ? mask : value;
+  const maskValue = typeof mask === 'string' ? mask : value;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);

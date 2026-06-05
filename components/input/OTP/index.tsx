@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isString } from '../../_util/is';
+import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -132,7 +132,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input.OTP');
     warning(
-      !(isString(mask) && mask.length > 1),
+      !(typeof mask === 'string' && mask.length > 1),
       'usage',
       '`mask` prop should be a single character.',
     );

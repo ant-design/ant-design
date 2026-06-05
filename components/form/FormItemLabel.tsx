@@ -3,7 +3,7 @@ import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import { isFunction, isString } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -84,7 +84,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const haveColon = computedColon && !vertical;
 
   // Remove duplicated user input colon
-  if (haveColon && isString(label) && label.trim()) {
+  if (haveColon && typeof label === 'string' && label.trim()) {
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
@@ -150,7 +150,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         htmlFor={htmlFor}
         className={labelClassName}
         style={contextStyles?.label}
-        title={isString(label) ? label : undefined}
+        title={typeof label === 'string' ? label : undefined}
       >
         {labelChildren}
       </label>

@@ -4,7 +4,7 @@ import { Item } from '@rc-component/menu';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isString } from '../_util/is';
+import { isFunction } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
@@ -66,7 +66,7 @@ const MenuItem: GenericComponent = (props) => {
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (React.isValidElement(children) && children.type === 'span')) {
-      if (children && inlineCollapsed && firstLevel && isString(label)) {
+      if (children && inlineCollapsed && firstLevel && typeof label === 'string') {
         return <div className={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>;
       }
     }
@@ -116,7 +116,7 @@ const MenuItem: GenericComponent = (props) => {
         ...(firstLevel ? styles?.item : styles?.subMenu?.item),
         ...props.style,
       }}
-      title={isString(title) ? title : undefined}
+      title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({
         className: clsx(

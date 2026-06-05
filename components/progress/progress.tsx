@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isString } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -121,12 +121,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const { align: infoAlign = 'end', type: infoPosition = 'outer' } = percentPosition;
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
-    isString(strokeColor) || Array.isArray(strokeColor) ? strokeColor : undefined;
+    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
   const strokeColorIsBright = React.useMemo(() => {
     if (strokeColorNotArray) {
-      const color = isString(strokeColorNotArray)
-        ? strokeColorNotArray
-        : Object.values(strokeColorNotArray)[0];
+      const color =
+        typeof strokeColorNotArray === 'string'
+          ? strokeColorNotArray
+          : Object.values(strokeColorNotArray)[0];
       return new FastColor(color).isLight();
     }
     return false;
@@ -213,7 +214,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           mergedClassNames.indicator,
         )}
         style={mergedStyles.indicator}
-        title={isString(text) ? text : undefined}
+        title={typeof text === 'string' ? text : undefined}
       >
         {text}
       </span>
