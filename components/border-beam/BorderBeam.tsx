@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isString } from '../_util/is';
+import { isNonNullable, isNumber, isString } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
@@ -72,7 +72,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(typeof duration === 'number' && duration > 0 && { [varName('duration')]: `${duration}s` }),
+          ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
