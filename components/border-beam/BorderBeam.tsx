@@ -72,7 +72,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(isNonNullable(duration) && { [varName('duration')]: `${duration}s` }),
+          ...(typeof duration === 'number' && duration > 0 && { [varName('duration')]: `${duration}s` }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
