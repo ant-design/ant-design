@@ -11992,6 +11992,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   <div
     class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
+    style="border-width: 0px;"
   >
     <span
       class="ant-otp-input-wrapper"
@@ -12099,7 +12100,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   </div>
   <div
     class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
-    style="color: rgb(77, 168, 218);"
+    style="color: rgb(77, 168, 218); border-width: 0px;"
   >
     <input
       class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"

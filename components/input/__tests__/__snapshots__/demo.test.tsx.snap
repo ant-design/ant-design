@@ -5223,6 +5223,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
   <div
     class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
+    style="border-width:0"
   >
     <span
       class="ant-otp-input-wrapper"
@@ -5330,7 +5331,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
-    style="color:#4DA8DA"
+    style="color:#4DA8DA;border-width:0"
   >
     <input
       class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
