@@ -106,6 +106,15 @@ const GradientColorBar = (props: GradientColorBarProps) => {
   };
 
   // ============================= Change =============================
+  const onInternalChange = (nextValues: number[]) => {
+    const nextColors = colorList.map((info, index) => ({
+      ...info,
+      percent: nextValues[index],
+    }));
+
+    onChange(new AggregationColor(sortColors(nextColors)));
+  };
+
   const onInternalChangeComplete = (nextValues: number[]) => {
     onChangeComplete(new AggregationColor(colorList));
 
@@ -132,6 +141,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
       color={null!}
       value={values}
       range
+      onChange={onInternalChange}
       onChangeComplete={onInternalChangeComplete}
       disabled={false}
       type="gradient"

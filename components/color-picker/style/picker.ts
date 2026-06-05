@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { ColorPickerToken } from './index';
 
@@ -44,6 +45,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       borderRadius: '50%',
       cursor: 'pointer',
       boxShadow: `${colorPickerInsetShadow}, 0 0 0 1px ${colorFillSecondary}`,
+      '&:focus-within': genFocusOutline(token),
     },
   };
 };

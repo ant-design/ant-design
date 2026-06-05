@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import { useControlledState } from '@rc-component/util';
 
+import { useLocale } from '../../locale';
 import Select from '../../select';
 import type { DefaultOptionType } from '../../select';
 import type { AggregationColor } from '../color';
@@ -31,6 +32,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
   const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
     props;
   const [colorFormat, setColorFormat] = useControlledState<ColorFormatType>(FORMAT_HEX, format);
+  const [locale] = useLocale('ColorPicker');
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
@@ -65,6 +67,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
           className={`${prefixCls}-format-select`}
           size="small"
           options={selectOptions}
+          aria-label={locale.formatSelect}
         />
       )}
       <div className={colorInputPrefixCls}>{steppersNode}</div>

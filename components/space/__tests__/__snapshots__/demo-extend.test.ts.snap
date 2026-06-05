@@ -8776,13 +8776,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       />
       <div
         aria-describedby="test-id"
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="#00000000"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
+        role="button"
+        tabindex="0"
       >
         <div
-          aria-label="Clear color"
           class="ant-color-picker-clear"
-          role="button"
-          tabindex="0"
         />
       </div>
       <div
@@ -8853,10 +8856,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Hue"
                           aria-orientation="horizontal"
                           aria-valuemax="359"
                           aria-valuemin="0"
                           aria-valuenow="0"
+                          aria-valuetext="0°"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
@@ -8875,10 +8880,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Alpha"
                           aria-orientation="horizontal"
                           aria-valuemax="100"
                           aria-valuemin="0"
                           aria-valuenow="0"
+                          aria-valuetext="0%"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
@@ -8911,6 +8918,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Color format"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -9053,6 +9061,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         #
                       </span>
                       <input
+                        aria-label="Hex"
                         class="ant-input ant-input-sm"
                         type="text"
                         value="000000"
@@ -9063,8 +9072,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                   >
                     <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
+                      aria-label="Alpha"
                       aria-valuenow="0"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -9103,9 +9111,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </span>
                       <span
-                        aria-disabled="true"
+                        aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >

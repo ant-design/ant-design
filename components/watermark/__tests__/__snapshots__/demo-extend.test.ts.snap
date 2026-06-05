@@ -123,8 +123,14 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 aria-describedby="test-id"
+                aria-disabled="false"
+                aria-expanded="false"
+                aria-haspopup="dialog"
+                aria-label="#00000026"
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
                 id="color"
+                role="button"
+                tabindex="0"
               >
                 <div
                   class="ant-color-picker-color-block"
@@ -203,10 +209,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 />
                                 <div
                                   aria-disabled="false"
+                                  aria-label="Hue"
                                   aria-orientation="horizontal"
                                   aria-valuemax="359"
                                   aria-valuemin="0"
                                   aria-valuenow="0"
+                                  aria-valuetext="0°"
                                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                   role="slider"
                                   style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
@@ -225,10 +233,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 />
                                 <div
                                   aria-disabled="false"
+                                  aria-label="Alpha"
                                   aria-orientation="horizontal"
                                   aria-valuemax="100"
                                   aria-valuemin="0"
                                   aria-valuenow="15"
+                                  aria-valuetext="15%"
                                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                   role="slider"
                                   style="left: 15%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.15);"
@@ -261,6 +271,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 aria-autocomplete="list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Color format"
                                 autocomplete="off"
                                 class="ant-select-input"
                                 id="test-id"
@@ -403,6 +414,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 #
                               </span>
                               <input
+                                aria-label="Hex"
                                 class="ant-input ant-input-sm"
                                 type="text"
                                 value="000000"
@@ -413,8 +425,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                           >
                             <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
+                              aria-label="Alpha"
                               aria-valuenow="15"
                               autocomplete="off"
                               class="ant-input-number-input"

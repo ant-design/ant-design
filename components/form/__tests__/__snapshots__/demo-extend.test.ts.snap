@@ -5182,13 +5182,16 @@ Array [
             >
               <div
                 aria-describedby="test-id"
+                aria-disabled="true"
+                aria-expanded="false"
+                aria-haspopup="dialog"
+                aria-label="#00000000"
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
+                role="button"
+                tabindex="-1"
               >
                 <div
-                  aria-label="Clear color"
                   class="ant-color-picker-clear"
-                  role="button"
-                  tabindex="0"
                 />
               </div>
               <div
@@ -5259,10 +5262,12 @@ Array [
                                 />
                                 <div
                                   aria-disabled="false"
+                                  aria-label="Hue"
                                   aria-orientation="horizontal"
                                   aria-valuemax="359"
                                   aria-valuemin="0"
                                   aria-valuenow="0"
+                                  aria-valuetext="0°"
                                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                   role="slider"
                                   style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
@@ -5281,10 +5286,12 @@ Array [
                                 />
                                 <div
                                   aria-disabled="false"
+                                  aria-label="Alpha"
                                   aria-orientation="horizontal"
                                   aria-valuemax="100"
                                   aria-valuemin="0"
                                   aria-valuenow="0"
+                                  aria-valuetext="0%"
                                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                   role="slider"
                                   style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
@@ -5317,6 +5324,7 @@ Array [
                                 aria-autocomplete="list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Color format"
                                 autocomplete="off"
                                 class="ant-select-input"
                                 disabled=""
@@ -5460,6 +5468,7 @@ Array [
                                 #
                               </span>
                               <input
+                                aria-label="Hex"
                                 class="ant-input ant-input-disabled ant-input-sm"
                                 disabled=""
                                 type="text"
@@ -5471,8 +5480,7 @@ Array [
                             class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm ant-input-number-without-controls ant-input-number-disabled"
                           >
                             <input
-                              aria-valuemax="100"
-                              aria-valuemin="0"
+                              aria-label="Alpha"
                               aria-valuenow="0"
                               autocomplete="off"
                               class="ant-input-number-input"
@@ -24355,15 +24363,18 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <div
               aria-describedby="test-id"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="dialog"
+              aria-label="#00000000"
               aria-required="true"
               class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
               id="validate_other_color-picker"
+              role="button"
+              tabindex="0"
             >
               <div
-                aria-label="Clear color"
                 class="ant-color-picker-clear"
-                role="button"
-                tabindex="0"
               />
             </div>
             <div
@@ -24434,10 +24445,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               />
                               <div
                                 aria-disabled="false"
+                                aria-label="Hue"
                                 aria-orientation="horizontal"
                                 aria-valuemax="359"
                                 aria-valuemin="0"
                                 aria-valuenow="0"
+                                aria-valuetext="0°"
                                 class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                 role="slider"
                                 style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
@@ -24456,10 +24469,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               />
                               <div
                                 aria-disabled="false"
+                                aria-label="Alpha"
                                 aria-orientation="horizontal"
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="0"
+                                aria-valuetext="0%"
                                 class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                                 role="slider"
                                 style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
@@ -24492,6 +24507,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               aria-autocomplete="list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
+                              aria-label="Color format"
                               autocomplete="off"
                               class="ant-select-input"
                               id="test-id"
@@ -24634,6 +24650,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               #
                             </span>
                             <input
+                              aria-label="Hex"
                               class="ant-input ant-input-sm"
                               type="text"
                               value="000000"
@@ -24644,8 +24661,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
-                            aria-valuemax="100"
-                            aria-valuemin="0"
+                            aria-label="Alpha"
                             aria-valuenow="0"
                             autocomplete="off"
                             class="ant-input-number-input"
@@ -24684,9 +24700,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               </span>
                             </span>
                             <span
-                              aria-disabled="true"
+                              aria-disabled="false"
                               aria-label="Decrease Value"
-                              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
+                              class="ant-input-number-action ant-input-number-action-down"
                               role="button"
                               unselectable="on"
                             >
