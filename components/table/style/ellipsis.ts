@@ -10,6 +10,7 @@ const genEllipsisStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-cell-ellipsis`]: {
         ...textEllipsis,
+        overflow: 'clip',
         wordBreak: 'keep-all',
 
         // Fixed first or last should special process
@@ -20,6 +21,7 @@ const genEllipsisStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           overflow: 'visible',
           [`${componentCls}-cell-content`]: {
             ...textEllipsis,
+            overflow: 'clip',
             display: 'block',
           },
         },
