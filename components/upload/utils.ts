@@ -1,3 +1,4 @@
+import { isString } from '../_util/is';
 import type { InternalUploadFile, RcFile, UploadFile } from './interface';
 
 export function file2Obj(file: RcFile): InternalUploadFile {
@@ -129,7 +130,7 @@ export function previewImage(file: File | Blob): Promise<string> {
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader();
       reader.onload = () => {
-        if (reader.result && typeof reader.result === 'string') {
+        if (reader.result && isString(reader.result)) {
           img.src = reader.result;
         }
       };

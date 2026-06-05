@@ -3,7 +3,7 @@ import { pickAttrs, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
-import { isNumber } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -78,7 +78,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   // 如果存在 options, 优先使用
   if (options && options.length > 0) {
     childrenToRender = options.map((option) => {
-      if (typeof option === 'string' || isNumber(option)) {
+      if (isString(option) || isNumber(option)) {
         // 此处类型自动推导为 string
         return (
           <Radio

@@ -1,5 +1,7 @@
+import { isString } from './is';
+
 export default function capitalize<T extends string>(str: T): Capitalize<T> {
-  if (typeof str !== 'string') {
+  if (!isString(str)) {
     return str;
   }
 

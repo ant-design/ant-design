@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable, isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -318,7 +318,7 @@ const InternalCompoundedButton = React.forwardRef<
     const warning = devUseWarning('Button');
 
     warning(
-      !(typeof icon === 'string' && icon.length > 2),
+      !(isString(icon) && icon.length > 2),
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );

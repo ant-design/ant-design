@@ -5,7 +5,7 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
 import { clsx } from 'clsx';
 
-import { isFunction } from '../../_util/is';
+import { isFunction, isString } from '../../_util/is';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -142,8 +142,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       `${prefixCls}-list-item-${mergedStatus}`,
       itemClassNames?.item,
     );
-    const linkProps =
-      typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
+    const linkProps = isString(file.linkProps) ? JSON.parse(file.linkProps) : file.linkProps;
 
     const removeIcon = (isFunction(showRemoveIcon) ? showRemoveIcon(file) : showRemoveIcon)
       ? actionIconRender(
@@ -278,7 +277,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const message =
-      file.response && typeof file.response === 'string'
+      file.response && isString(file.response)
         ? file.response
         : file.error?.statusText || file.error?.message || locale.uploadError;
     const item =

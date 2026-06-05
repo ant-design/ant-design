@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isNonNullable } from '../../_util/is';
+import { isNonNullable, isString } from '../../_util/is';
 import type { PanelProps } from '../interface';
 import { autoPtgSizes } from './sizeUtil';
 
@@ -9,7 +9,7 @@ export function getPtg(str: string) {
 }
 
 function isPtg(itemSize: string | number | undefined): itemSize is string {
-  return typeof itemSize === 'string' && itemSize.endsWith('%');
+  return isString(itemSize) && itemSize.endsWith('%');
 }
 
 /**

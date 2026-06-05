@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
+import { isReactRenderable, isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -91,7 +91,7 @@ const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Result');
     warning(
-      !(typeof icon === 'string' && icon.length > 2),
+      !(isString(icon) && icon.length > 2),
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import { clsx } from 'clsx';
 
+import { isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
@@ -123,7 +124,7 @@ const Line: React.FC<LineProps> = (props) => {
   const trackCls = `${prefixCls}-track`;
 
   const backgroundProps =
-    strokeColor && typeof strokeColor !== 'string'
+    strokeColor && !isString(strokeColor)
       ? handleGradient(strokeColor, directionConfig)
       : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
 

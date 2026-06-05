@@ -7,7 +7,7 @@ import { composeRef, omit, toArray, useControlledState, useLayoutEffect } from '
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isReactRenderable } from '../../_util/is';
+import { isFunction, isReactRenderable, isString } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -394,7 +394,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   if (editing) {
     return (
       <Editable
-        value={editConfig.text ?? (typeof children === 'string' ? children : '')}
+        value={editConfig.text ?? (isString(children) ? children : '')}
         onSave={onEditChange}
         onCancel={onEditCancel}
         onEnd={editConfig.onEnd}
@@ -442,7 +442,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const { icon, tooltip, tabIndex } = editConfig;
 
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
-    const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
+    const ariaLabel = isString(editTitle) ? editTitle : '';
 
     return triggerType.includes('icon') ? (
       <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>

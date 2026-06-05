@@ -9,7 +9,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isNumber } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -152,7 +152,7 @@ const Drawer: React.FC<DrawerProps> & {
       return DEFAULT_SIZE;
     }
 
-    if (typeof size === 'string') {
+    if (isString(size)) {
       if (/^\d+(\.\d+)?$/.test(size)) {
         return Number(size);
       }

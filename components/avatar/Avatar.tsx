@@ -3,7 +3,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -140,7 +140,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     const warning = devUseWarning('Avatar');
 
     warning(
-      !(typeof icon === 'string' && icon.length > 2),
+      !(isString(icon) && icon.length > 2),
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
@@ -184,7 +184,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     : {};
 
   let childrenToRender: React.ReactNode;
-  if (typeof src === 'string' && isImgExist) {
+  if (isString(src) && isImgExist) {
     childrenToRender = (
       <img
         src={src}

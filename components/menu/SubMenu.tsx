@@ -4,6 +4,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
+import { isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { SubMenuType } from './interface';
 import type { MenuContextProps } from './MenuContext';
@@ -25,7 +26,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 
   if (!icon) {
     titleNode =
-      inlineCollapsed && !parentPath.length && title && typeof title === 'string' ? (
+      inlineCollapsed && !parentPath.length && title && isString(title) ? (
         <div className={`${prefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
       ) : (
         <span className={`${prefixCls}-title-content`}>{title}</span>

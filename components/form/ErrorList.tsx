@@ -3,7 +3,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isString } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -26,7 +26,7 @@ function toErrorEntity(
   index = 0,
 ): ErrorEntity {
   return {
-    key: typeof error === 'string' ? error : `${prefix}-${index}`,
+    key: isString(error) ? error : `${prefix}-${index}`,
     error,
     errorStatus,
   };

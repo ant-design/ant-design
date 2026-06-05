@@ -1,6 +1,6 @@
 import { presetPrimaryColors } from '@ant-design/colors';
 
-import { isNumber } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
 
@@ -45,7 +45,7 @@ export const getSize = (
   if (type === 'step') {
     const steps = extra!.steps!;
     const strokeWidth = extra!.strokeWidth!;
-    if (typeof size === 'string' || typeof size === 'undefined') {
+    if (isString(size) || typeof size === 'undefined') {
       width = size === 'small' ? 2 : 14;
       height = strokeWidth ?? 8;
     } else if (isNumber(size)) {
@@ -60,7 +60,7 @@ export const getSize = (
     width *= steps;
   } else if (type === 'line') {
     const strokeWidth = extra?.strokeWidth;
-    if (typeof size === 'string' || typeof size === 'undefined') {
+    if (isString(size) || typeof size === 'undefined') {
       height = strokeWidth || (size === 'small' ? 6 : 8);
     } else if (isNumber(size)) {
       [width, height] = [size, size];
@@ -71,7 +71,7 @@ export const getSize = (
       ];
     }
   } else if (type === 'circle' || type === 'dashboard') {
-    if (typeof size === 'string' || typeof size === 'undefined') {
+    if (isString(size) || typeof size === 'undefined') {
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (isNumber(size)) {
       [width, height] = [size, size];

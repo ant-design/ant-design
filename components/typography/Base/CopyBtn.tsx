@@ -5,6 +5,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { clsx } from 'clsx';
 
 import type { CopyConfig } from '.';
+import { isString } from '../../_util/is';
 import type { Locale } from '../../locale';
 import Tooltip from '../../tooltip';
 import { getNode, toCopyConfigList } from './util';
@@ -40,7 +41,7 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
   const { copied: copiedText, copy: copyText } = locale ?? {};
   const systemStr = copied ? copiedText : copyText;
   const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);
-  const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
+  const ariaLabel = isString(copyTitle) ? copyTitle : systemStr;
 
   return (
     <Tooltip title={copyTitle}>

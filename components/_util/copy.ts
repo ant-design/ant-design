@@ -1,3 +1,4 @@
+import { isString } from './is';
 import warning from './warning';
 
 const execCopy = (text: string, isHtmlFormat: boolean) => {
@@ -44,7 +45,7 @@ const asyncCopy = async (text: string, isHtmlFormat: boolean) => {
 };
 
 async function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
-  if (typeof text !== 'string') {
+  if (!isString(text)) {
     warning(false, 'The clipboard content must be of string type', '');
     return false;
   }

@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -92,13 +93,13 @@ const Empty: CompoundedComponent = (props) => {
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
 
-  const alt = typeof des === 'string' ? des : 'empty';
+  const alt = isString(des) ? des : 'empty';
 
   const mergedImage = image ?? contextImage ?? defaultEmptyImg;
 
   let imageNode: React.ReactNode = null;
 
-  if (typeof mergedImage === 'string') {
+  if (isString(mergedImage)) {
     imageNode = <img draggable={false} alt={alt} src={mergedImage} />;
   } else {
     imageNode = mergedImage;
