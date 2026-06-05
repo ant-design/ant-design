@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 999 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - |  |
-| content | Watermark text content | string \| [WatermarkText](#watermarktext) \| (string \| [WatermarkText](#watermarktext))[] | - | WatermarkText: 6.4.0 |
+| content | Watermark text content | string \| [WatermarkText](#watermarktext) \| (string \| [WatermarkText](#watermarktext))[] | - | WatermarkText: 6.5.0 |
 | font | Text style | [Font](#font) | [Font](#font) |  |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
@@ -51,8 +51,8 @@ Common props ref：[Common props](/docs/react/common-props)
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| font | Custom line text style | [Font](#font) | - | 6.4.0 |
-| text | Line text | string | - | 6.4.0 |
+| font | Custom line text style | [Font](#font) | - | 6.5.0 |
+| text | Line text | string | - | 6.5.0 |
 
 ### Font
 
