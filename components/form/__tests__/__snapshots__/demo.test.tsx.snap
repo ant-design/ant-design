@@ -749,7 +749,6 @@ Array [
           <label
             class=""
             for="col-24-debug_select"
-            title=""
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
@@ -1062,7 +1061,6 @@ Array [
           <label
             class=""
             for="select"
-            title=""
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
@@ -6005,7 +6003,6 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
         <label
           class=""
           for="label-ellipsis_username"
-          title=""
         >
           <span
             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
@@ -6046,7 +6043,6 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
         <label
           class=""
           for="label-ellipsis_password"
-          title=""
         >
           <span
             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
@@ -8261,7 +8257,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
           Required Mark
           <span
             class="ant-form-item-optional"
-            title=""
           >
             (optional)
           </span>
@@ -8470,7 +8465,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
           </span>
           <span
             class="ant-form-item-optional"
-            title=""
           >
             (optional)
           </span>
