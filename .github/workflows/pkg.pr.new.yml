@@ -25,6 +25,8 @@ jobs:
 
       - name: Build
         run: ut build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       # ========== Prepare examples ==========
       - name: Clear examples
