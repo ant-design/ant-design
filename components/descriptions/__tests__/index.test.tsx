@@ -551,5 +551,40 @@ describe('Descriptions', () => {
       expect(labelCell.style.background).toBe('red');
       expect(contentCell.style.background).toBe('green');
     });
+
+    it('horizontal bordered: item-level labelStyle wins over root-level ConfigProvider styles', () => {
+      // Regression guard: the bordered branch must not re-apply the
+      // root-context label / content style in a way that overrides the
+      // item-level override that Row.tsx already merged into the cell
+      // `style` prop in the horizontal-bordered path.
+      const { container } = render(
+        <ConfigProvider
+          descriptions={{
+            styles: {
+              label: { color: 'red' },
+              content: { color: 'red' },
+            },
+          }}
+        >
+          <Descriptions
+            bordered
+            items={[
+              {
+                key: '1',
+                label: 'Product',
+                children: 'Cloud Database',
+                labelStyle: { color: 'blue' },
+                contentStyle: { color: 'blue' },
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.style.color).toBe('blue');
+      expect(contentCell.style.color).toBe('blue');
+    });
   });
 });

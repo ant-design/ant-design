@@ -61,20 +61,28 @@ const Cell: React.FC<CellProps> = (props) => {
 
   if (bordered) {
     // The cell element (<th>/<td>) carries the `ant-descriptions-item-label`
-    // or `ant-descriptions-item-content` class, so the user-facing
-    // `labelStyle` / `contentStyle` (and the semantic `styles.label` /
-    // `styles.content`) must be applied to that cell rather than to the
-    // inner <span> wrapper. The non-bordered branch already applies the
-    // styles to the element carrying the class.
+    // or `ant-descriptions-item-content` class, so `labelStyle` /
+    // `contentStyle` (and the semantic `styles.label` / `styles.content`)
+    // must be applied to that cell rather than to the inner <span> wrapper.
+    //
+    // Two paths land in this branch:
+    //   - vertical bordered: Row.tsx renders one cell per <th>/<td> with
+    //     `component` as a string and forwards `styles` (the merged label /
+    //     content style chain) plus the raw item `style`. Here we need to
+    //     merge `typeStyle` onto the cell so labelStyle/contentStyle reach
+    //     the element with the matching class.
+    //   - horizontal bordered: Row.tsx renders the label and content cells
+    //     directly via `[component[0], component[1]]` and passes the fully
+    //     merged style chain as `style` (without forwarding `styles`). In
+    //     that case `style` already carries the item-level overrides, and
+    //     `typeStyle` only contains the root-level fallback from context,
+    //     so re-merging would let the root override the item.
+    //
+    // The presence of the `styles` prop disambiguates the two paths.
     const typeStyle =
       type === 'label' ? mergedLabelStyle : type === 'content' ? mergedContentStyle : undefined;
-    // typeStyle (merged label/content style) wins over the caller-provided
-    // item `style` so that the merge order matches the horizontal-bordered
-    // path established in Row.tsx, where styles.label / labelStyle override
-    // a generic item.style on conflict.
-    const mergedCellStyle: React.CSSProperties | undefined = typeStyle
-      ? { ...style, ...typeStyle }
-      : style;
+    const mergedCellStyle: React.CSSProperties | undefined =
+      styles && typeStyle ? { ...style, ...typeStyle } : style;
 
     return (
       <Component
