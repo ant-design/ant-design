@@ -60,18 +60,34 @@ const Cell: React.FC<CellProps> = (props) => {
   const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
 
   if (bordered) {
+    // The cell element (<th>/<td>) carries the `ant-descriptions-item-label`
+    // or `ant-descriptions-item-content` class, so the user-facing
+    // `labelStyle` / `contentStyle` (and the semantic `styles.label` /
+    // `styles.content`) must be applied to that cell rather than to the
+    // inner <span> wrapper. The non-bordered branch already applies the
+    // styles to the element carrying the class.
+    const typeStyle =
+      type === 'label' ? mergedLabelStyle : type === 'content' ? mergedContentStyle : undefined;
+    // typeStyle (merged label/content style) wins over the caller-provided
+    // item `style` so that the merge order matches the horizontal-bordered
+    // path established in Row.tsx, where styles.label / labelStyle override
+    // a generic item.style on conflict.
+    const mergedCellStyle: React.CSSProperties | undefined = typeStyle
+      ? { ...style, ...typeStyle }
+      : style;
+
     return (
       <Component
         colSpan={span}
-        style={style}
+        style={mergedCellStyle}
         className={clsx(className, {
           [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
           [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
           [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
-        {isReactRenderable(label) && <span style={mergedLabelStyle}>{label}</span>}
-        {isReactRenderable(content) && <span style={mergedContentStyle}>{content}</span>}
+        {isReactRenderable(label) && <span>{label}</span>}
+        {isReactRenderable(content) && <span>{content}</span>}
       </Component>
     );
   }

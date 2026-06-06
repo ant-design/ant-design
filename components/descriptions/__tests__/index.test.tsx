@@ -2,11 +2,11 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import Descriptions from '..';
+import { matchScreen } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { matchScreen } from '../../_util/responsiveObserver';
 import DEFAULT_COLUMN_MAP from '../constant';
 
 describe('Descriptions', () => {
@@ -464,5 +464,92 @@ describe('Descriptions', () => {
     );
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/50364
+  describe('bordered: labelStyle / contentStyle land on the cell with the matching class', () => {
+    it('horizontal bordered: applies labelStyle / contentStyle to <th>/<td>, not the inner <span>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              labelStyle: { background: 'red' },
+              contentStyle: { background: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.tagName).toBe('TH');
+      expect(contentCell.tagName).toBe('TD');
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+
+      // Inner <span> wrappers must not carry the inline style anymore.
+      const labelSpan = labelCell.querySelector<HTMLElement>('span')!;
+      const contentSpan = contentCell.querySelector<HTMLElement>('span')!;
+      expect(labelSpan.getAttribute('style')).toBeNull();
+      expect(contentSpan.getAttribute('style')).toBeNull();
+    });
+
+    it('vertical bordered: applies labelStyle / contentStyle to <th>/<td>, not the inner <span>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          layout="vertical"
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              labelStyle: { background: 'red' },
+              contentStyle: { background: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.tagName).toBe('TH');
+      expect(contentCell.tagName).toBe('TD');
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+
+      const labelSpan = labelCell.querySelector<HTMLElement>('span')!;
+      const contentSpan = contentCell.querySelector<HTMLElement>('span')!;
+      expect(labelSpan.getAttribute('style')).toBeNull();
+      expect(contentSpan.getAttribute('style')).toBeNull();
+    });
+
+    it('bordered: semantic styles.label / styles.content also land on <th>/<td>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              styles: {
+                label: { background: 'red' },
+                content: { background: 'green' },
+              },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+    });
   });
 });
