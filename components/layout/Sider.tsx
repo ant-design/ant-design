@@ -6,8 +6,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -37,17 +37,16 @@ export type CollapseType = 'clickTrigger' | 'responsive';
 
 export type SiderTheme = 'light' | 'dark';
 
-export type SiderSemanticClassNames = {
-  children?: string;
+export type SiderSemanticType = {
+  classNames?: {
+    children?: string;
+  };
+  styles?: {
+    children?: React.CSSProperties;
+  };
 };
 
-export type SiderSemanticStyles = {
-  children?: React.CSSProperties;
-};
-
-export type SiderClassNamesType = SemanticClassNamesType<SiderProps, SiderSemanticClassNames>;
-
-export type SiderStylesType = SemanticStylesType<SiderProps, SiderSemanticStyles>;
+export type SiderSemanticAllType = GenerateSemantic<SiderSemanticType, SiderProps>;
 
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -63,8 +62,8 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: Breakpoint;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
-  classNames?: SiderClassNamesType;
-  styles?: SiderStylesType;
+  classNames?: SiderSemanticAllType['classNamesAndFn'];
+  styles?: SiderSemanticAllType['stylesAndFn'];
 }
 
 export interface SiderState {
@@ -137,11 +136,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     onBreakpoint,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SiderSemanticClassNames,
-    SiderSemanticStyles,
-    SiderProps
-  >([classNames], [styles], {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
     props: semanticProps,
   });
 
