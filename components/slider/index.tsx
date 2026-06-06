@@ -350,7 +350,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             value={info.value}
             open={open}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
@@ -380,7 +380,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
             key="tooltip"

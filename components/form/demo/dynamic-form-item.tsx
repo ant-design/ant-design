@@ -49,7 +49,7 @@ const App: React.FC = () => {
             {fields.map((field, index) => (
               <Form.Item
                 {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                label={index === 0 ? 'Passengers' : ''}
+                label={index === 0 ? 'Passengers' : undefined}
                 required={false}
                 key={field.key}
               >
