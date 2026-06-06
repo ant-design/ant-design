@@ -3,7 +3,6 @@ import { useMutateObserver } from '@rc-component/mutate-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import toList from '../_util/toList';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
@@ -12,7 +11,23 @@ import useClips, { FontGap } from './useClips';
 import useRafDebounce from './useRafDebounce';
 import useSingletonCache from './useSingletonCache';
 import useWatermark from './useWatermark';
-import { getPixelRatio, reRendering } from './utils';
+import { getCanvasFont, getContentLines, getPixelRatio, reRendering } from './utils';
+
+export interface WatermarkFont {
+  color?: CanvasFillStrokeStyles['fillStyle'];
+  fontSize?: number | string;
+  fontWeight?: 'normal' | 'lighter' | 'bold' | 'bolder' | number;
+  fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
+  fontFamily?: string;
+  textAlign?: CanvasTextAlign;
+}
+
+export interface WatermarkText {
+  text: string;
+  font?: WatermarkFont;
+}
+
+export type WatermarkContent = string | WatermarkText;
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -20,15 +35,8 @@ export interface WatermarkProps {
   width?: number;
   height?: number;
   image?: string;
-  content?: string | string[];
-  font?: {
-    color?: CanvasFillStrokeStyles['fillStyle'];
-    fontSize?: number | string;
-    fontWeight?: 'normal' | 'lighter' | 'bold' | 'bolder' | number;
-    fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
-    fontFamily?: string;
-    textAlign?: CanvasTextAlign;
-  };
+  content?: WatermarkContent | WatermarkContent[];
+  font?: WatermarkFont;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -98,6 +106,23 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     textAlign = 'center',
   } = font;
 
+  const mergedFont = React.useMemo<Required<WatermarkFont>>(
+    () => ({
+      color,
+      fontSize,
+      fontWeight,
+      fontStyle,
+      fontFamily,
+      textAlign,
+    }),
+    [color, fontSize, fontWeight, fontStyle, fontFamily, textAlign],
+  );
+
+  const contentLines = React.useMemo(
+    () => getContentLines(content, mergedFont),
+    [content, mergedFont],
+  );
+
   const [gapX = DEFAULT_GAP_X, gapY = DEFAULT_GAP_Y] = gap;
   const gapXCenter = gapX / 2;
   const gapYCenter = gapY / 2;
@@ -154,17 +179,21 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let defaultWidth = 120;
     let defaultHeight = 64;
     if (!image && ctx.measureText) {
-      ctx.font = `${Number(fontSize)}px ${fontFamily}`;
-      const contents = toList(content);
-      const sizes = contents.map((item) => {
-        const metrics = ctx.measureText(item!);
+      if (contentLines.length) {
+        const sizes = contentLines.map(({ text, font: lineFont }) => {
+          ctx.font = getCanvasFont(lineFont);
+          const metrics = ctx.measureText(text);
 
-        return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
-      });
-      defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
-      defaultHeight =
-        Math.ceil(Math.max(...sizes.map((size) => size[1]))) * contents.length +
-        (contents.length - 1) * FontGap;
+          return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
+        });
+        defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
+        defaultHeight =
+          Math.ceil(sizes.reduce((total, size) => total + size[1], 0)) +
+          (contentLines.length - 1) * FontGap;
+      } else {
+        defaultWidth = 0;
+        defaultHeight = 0;
+      }
     }
     return [width ?? defaultWidth, height ?? defaultHeight] as const;
   };
@@ -187,16 +216,13 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const ratio = getPixelRatio();
       const [markWidth, markHeight] = getMarkSize(ctx);
 
-      const drawCanvas = (
-        drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
-      ) => {
+      const drawCanvas = (drawContent?: typeof contentLines | HTMLImageElement) => {
         const params: ClipParams = [
-          drawContent || '',
+          drawContent || [],
           rotate,
           ratio,
           markWidth,
           markHeight,
-          { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign },
           gapX,
           gapY,
         ] as const;
@@ -212,13 +238,13 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           drawCanvas(img);
         };
         img.onerror = () => {
-          drawCanvas(content);
+          drawCanvas(contentLines);
         };
         img.crossOrigin = 'anonymous';
         img.referrerPolicy = 'no-referrer';
         img.src = image;
       } else {
-        drawCanvas(content);
+        drawCanvas(contentLines);
       }
     }
   };
@@ -268,13 +294,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     width,
     height,
     image,
-    content,
-    color,
-    fontSize,
-    fontWeight,
-    fontStyle,
-    fontFamily,
-    textAlign,
+    contentLines,
     gapX,
     gapY,
     offsetLeft,

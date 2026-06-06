@@ -66,8 +66,9 @@ jobs:
         env:
           EVENT_NUMBER: ${{ github.event.number }}
           BASE_REF: ${{ github.base_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --base-sha=$BASE_SHA --max-workers=2
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
