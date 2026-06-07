@@ -290,7 +290,7 @@
     "rc-tween-one": "^3.0.6",
     "react": "^19.2.5",
     "react-countup": "^6.5.3",
-    "react-doctor": "^0.3.0",
+    "react-doctor": "^0.4.0",
     "react-dom": "^19.2.5",
     "react-draggable": "^4.5.0",
     "react-fast-marquee": "^1.6.5",
