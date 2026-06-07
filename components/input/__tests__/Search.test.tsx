@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { fireEvent, render } from '@testing-library/react';
 
@@ -191,6 +192,48 @@ describe('Input.Search', () => {
   it('should support invalid addonAfter', () => {
     const { asFragment } = render(<Search addonAfter={[]} enterButton />);
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55494
+  it('should use Input controlHeight token for enter button in cssVar mode', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider
+          theme={{
+            cssVar: {},
+            components: {
+              Input: {
+                controlHeight: 40,
+                controlHeightLG: 48,
+                controlHeightSM: 28,
+              },
+            },
+          }}
+        >
+          <Search enterButton="Search" />
+          <Search enterButton="Search" size="large" />
+          <Search enterButton="Search" size="small" />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    // Search button height should follow Input's control height tokens.
+    // In cssVar mode, the Input scope overrides `--ant-control-height` to 40px,
+    // so the search button picks up the customized Input control height.
+    expect(styleText).toContain('--ant-control-height:40px;');
+    expect(styleText).toContain(
+      '.ant-input-search .ant-input-search-btn{height:var(--ant-control-height);',
+    );
+    expect(styleText).toContain(
+      '.ant-input-search-large .ant-input-search-btn{height:var(--ant-control-height-lg);',
+    );
+    expect(styleText).toContain(
+      '.ant-input-search-small .ant-input-search-btn{height:var(--ant-control-height-sm);',
+    );
   });
 
   it('should prevent search button mousedown event', () => {

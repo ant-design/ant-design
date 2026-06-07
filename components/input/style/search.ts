@@ -14,6 +14,8 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => 
 
       // =========================== Button ===========================
       [btnCls]: {
+        height: token.controlHeight,
+
         '&-filled': {
           background: token.colorFillTertiary,
 
@@ -27,6 +29,14 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => 
             },
           },
         },
+      },
+
+      [`&-large ${btnCls}`]: {
+        height: token.controlHeightLG,
+      },
+
+      [`&-small ${btnCls}`]: {
+        height: token.controlHeightSM,
       },
     },
   };
