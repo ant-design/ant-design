@@ -586,8 +586,8 @@ describe('Modal', () => {
     unmount();
   });
 
-  it('should lock body scroll when scrollLock is true (default)', () => {
-    const { unmount } = render(<Modal open scrollLock={true} />);
+  it('should lock body scroll by default', () => {
+    const { unmount } = render(<Modal open />);
     expect(document.body).toHaveStyle({
       overflowY: 'hidden',
     });
