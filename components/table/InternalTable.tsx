@@ -204,6 +204,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale,
     showSorterTooltip = { target: 'full-header' },
     virtual,
+    showHeader,
   } = props;
 
   const warning = devUseWarning('Table');
@@ -721,6 +722,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
               [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
+              [`${prefixCls}-no-header`]: showHeader === false,
             },
             cssVarCls,
             rootCls,
