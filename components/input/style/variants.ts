@@ -22,7 +22,7 @@ export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) =>
     cursor: 'not-allowed',
   },
 
-  '&:hover:not([disabled])': {
+  '&:hover': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
         hoverBorderColor: token.colorBorderDisabled,
@@ -356,15 +356,15 @@ export const genFilledGroupStyle: GenerateStyle<InputToken, CSSObject> = (token)
         },
 
         '&-addon:first-child': {
-          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
         },
 
         '&-addon:last-child': {
-          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
         },
       },
     },
@@ -434,10 +434,11 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
     // >>>>> Disabled
     [`&${token.componentCls}-disabled, &[disabled]`]: {
       color: token.colorTextDisabled,
+      borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       boxShadow: 'none',
       cursor: 'not-allowed',
       '&:hover': {
-        borderColor: `transparent transparent ${token.colorBorder} transparent`,
+        borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       },
     },
 
