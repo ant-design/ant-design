@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | `The key of first tab` |  | × |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  | × |
-| indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.7.0 |
+| indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 | × |
 | more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | 5.17.0 |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |

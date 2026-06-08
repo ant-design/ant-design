@@ -2,6 +2,6 @@
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| active | Show animation effect | boolean | false |  | × |
+| active | Show animation effect | boolean | false | - | × |
 | classNames | Customize class for each semantic structure inside the Skeleton component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
 | styles | Customize inline style for each semantic structure inside the Skeleton component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |

@@ -56,7 +56,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` |  | × |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  | × |
-| indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.7.0 |
+| indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 | × |
 | more | 自定义折叠菜单属性 | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | 5.17.0 |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
