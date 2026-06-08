@@ -881,6 +881,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
       style="padding: 0px 24px 24px;"
     >
       <nav
+        aria-label="Breadcrumb"
         class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >
@@ -1345,6 +1346,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
     style="padding: 0px 48px;"
   >
     <nav
+      aria-label="Breadcrumb"
       class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
@@ -2851,6 +2853,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       style="margin: 0px 16px;"
     >
       <nav
+        aria-label="Breadcrumb"
         class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >
@@ -3444,6 +3447,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
     style="padding: 0px 48px;"
   >
     <nav
+      aria-label="Breadcrumb"
       class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
@@ -3678,6 +3682,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
     style="padding: 0px 48px;"
   >
     <nav
+      aria-label="Breadcrumb"
       class="ant-breadcrumb css-var-test-id"
       style="margin: 16px 0px;"
     >
@@ -5332,6 +5337,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
       style="padding: 0px 24px 24px;"
     >
       <nav
+        aria-label="Breadcrumb"
         class="ant-breadcrumb css-var-test-id"
         style="margin: 16px 0px;"
       >

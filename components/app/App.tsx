@@ -29,6 +29,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
     rootClassName,
     message,
     notification,
+    breadcrumb,
     style,
     component = 'div',
   } = props;
@@ -53,8 +54,21 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
     () => ({
       message: { ...appConfig.message, ...message },
       notification: { ...appConfig.notification, ...notification },
+      breadcrumb: {
+        items: breadcrumb?.root
+          ? breadcrumb?.items || []
+          : [...(appConfig.breadcrumb?.items || []), ...(breadcrumb?.items || [])],
+      },
     }),
-    [message, notification, appConfig.message, appConfig.notification],
+    [
+      message,
+      notification,
+      breadcrumb?.items,
+      breadcrumb?.root,
+      appConfig.message,
+      appConfig.notification,
+      appConfig.breadcrumb?.items,
+    ],
   );
 
   const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
@@ -68,8 +82,9 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
       message: messageApi,
       notification: notificationApi,
       modal: ModalApi,
+      breadcrumb: { items: mergedAppConfig.breadcrumb?.items || [] },
     }),
-    [messageApi, notificationApi, ModalApi],
+    [messageApi, notificationApi, ModalApi, mergedAppConfig.breadcrumb],
   );
 
   // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526

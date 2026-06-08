@@ -3,6 +3,7 @@
 exports[`Breadcrumb.ItemRender render as expect 1`] = `
 <div>
   <nav
+    aria-label="Breadcrumb"
     class="ant-breadcrumb css-var-root"
   >
     <ol>
