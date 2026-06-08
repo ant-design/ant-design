@@ -59,7 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  | 5.7.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 | × |
 | defaultValue | The initial input content | string | - |  | × |
-| disabled | Whether the input is disabled | boolean | false |  | 5.7.0 |
+| disabled | Whether the input is disabled | boolean | false |  | × |
 | id | The ID for input | string | - |  | × |
 | maxLength | The maximum number of characters in Input | number | - |  | × |
 | prefix | The prefix icon for the Input | ReactNode | - |  | × |

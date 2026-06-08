@@ -60,7 +60,7 @@ demo:
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  | 5.7.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 | × |
 | defaultValue | 输入框默认内容 | string | - |  | × |
-| disabled | 是否禁用状态，默认为 false | boolean | false |  | 5.7.0 |
+| disabled | 是否禁用状态，默认为 false | boolean | false |  | × |
 | id | 输入框的 id | string | - |  | × |
 | maxLength | 最大长度 | number | - |  | × |
 | prefix | 带有前缀图标的 input | ReactNode | - |  | × |
