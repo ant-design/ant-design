@@ -216,6 +216,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    showIcon: contextShowIcon,
     successIcon,
     infoIcon,
     warningIcon,
@@ -265,7 +266,15 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   }, [closeText, closeIcon, closable, contextClosable]);
 
   // banner mode defaults to Icon
-  const isShowIcon = banner && showIcon === undefined ? true : showIcon;
+  const isShowIcon = React.useMemo<boolean | undefined>(() => {
+    if (showIcon !== undefined) {
+      return showIcon;
+    }
+    if (banner) {
+      return true;
+    }
+    return contextShowIcon;
+  }, [showIcon, banner, contextShowIcon]);
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: AlertProps = {
