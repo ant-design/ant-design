@@ -129,7 +129,7 @@ const columns = [
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  | × |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  | × |
 | dataSource | 数据数组 | object\[] | - |  | × |
-| expandable | 配置展开属性 | [expandable](#expandable) | - |  | ✔ |
+| expandable | 配置展开属性 | [expandable](#expandable) | - |  | `expandable.expandIcon`: ✔ |
 | footer | 表格尾部 | function(currentPageData) | - |  | × |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  | × |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin-cn#api) | false |  | × |

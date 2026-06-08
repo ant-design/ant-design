@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | fallback | Fallback URL when load fails | string | - |  | 5.7.0 |
 | height | Image height | string \| number | - |  | × |
 | placeholder | Loading placeholder, supports ReactNode or config object | [PlaceholderType](#placeholdertype) | - |  | × |
-| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  | 5.7.0 |
+| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0, `preview.mask`: 6.0.0, `preview.mask.closable`: 6.4.0 |
 | src | Image URL | string | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | width | Image width | string \| number | - |  | × |

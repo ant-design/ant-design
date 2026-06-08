@@ -127,7 +127,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  | × |
 | components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  | × |
 | dataSource | Data record array to be displayed | object\[] | - |  | × |
-| expandable | Config expandable content | [expandable](#expandable) | - |  | ✔ |
+| expandable | Config expandable content | [expandable](#expandable) | - |  | `expandable.expandIcon`: ✔ |
 | footer | Table footer renderer | function(currentPageData) | - |  | × |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  | × |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin/#api) | false |  | × |
