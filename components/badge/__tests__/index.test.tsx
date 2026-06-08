@@ -83,6 +83,19 @@ describe('Badge', () => {
     expect(container.querySelector<HTMLElement>('.ant-scroll-number')?.title).toBe('Custom title');
   });
 
+  it('should not render title attribute when title is null or false', () => {
+    const { container } = render(
+      <>
+        <Badge count={10} title={null} />
+        <Badge count={11} title={false} />
+      </>,
+    );
+
+    const badgeNodes = container.querySelectorAll<HTMLElement>('.ant-scroll-number');
+    expect(badgeNodes[0]).not.toHaveAttribute('title');
+    expect(badgeNodes[1]).not.toHaveAttribute('title');
+  });
+
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
     const ref = React.createRef<GetRef<typeof Tooltip>>();

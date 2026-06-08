@@ -415,7 +415,7 @@ exports[`renders components/card/demo/component-token.tsx extend context correct
 
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable css-var-test-id"
+  class="ant-card ant-card-hoverable css-var-test-id"
   style="width: 240px;"
 >
   <div
