@@ -1,6 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
@@ -193,6 +194,10 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
 
       '&:focus, &:focus-within': {
         outline: 'none',
+      },
+
+      '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)': {
+        ...genFocusOutline(token),
       },
 
       // >>>>> Disabled

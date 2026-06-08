@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import genSelectInputCustomizeStyle from './select-input-customize';
@@ -403,14 +403,25 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       ),
 
       // >>> Borderless
-      genSelectInputVariantStyle(token, 'borderless', {
-        border: 'transparent',
-        borderHover: 'transparent',
-        borderActive: 'transparent',
-        borderOutline: 'transparent',
+      genSelectInputVariantStyle(
+        token,
+        'borderless',
+        {
+          border: 'transparent',
+          borderHover: 'transparent',
+          borderActive: 'transparent',
+          borderOutline: 'transparent',
 
-        background: 'transparent',
-      }),
+          background: 'transparent',
+        },
+        {},
+        {},
+        {
+          [`&:not(${componentCls}-disabled):has(input:focus-visible)`]: {
+            ...genFocusOutline(token),
+          },
+        },
+      ),
 
       // Underlined
       genSelectInputVariantStyle(
