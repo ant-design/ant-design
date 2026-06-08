@@ -84,7 +84,7 @@ demo:
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | ~~showArrow~~ | 是否显示箭头图标，请使用 `suffixIcon={null}` 替代 | boolean | true | - | × |
-| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  | × |
+| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
 | size | 输入框大小 | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |

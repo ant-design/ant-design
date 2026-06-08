@@ -43,7 +43,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| icon | 自定义图标 | ReactNode | - |  | × |
+| icon | 自定义图标 | ReactNode | - |  | FloatButton: ×，BackTop: 5.27.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
 | content | 文字及其它内容 | ReactNode | - |  | × |
 | ~~description~~ | 请使用 `content` 代替 | ReactNode | - |  | × |

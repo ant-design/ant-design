@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| icon | Set the icon component of button | ReactNode | - |  | × |
+| icon | Set the icon component of button | ReactNode | - |  | FloatButton: ×, BackTop: 5.27.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
 | content | Text and other | ReactNode | - |  | × |
 | ~~description~~ | Please use `content` instead | ReactNode | - |  | × |
