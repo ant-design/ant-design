@@ -174,6 +174,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             [`> ${componentCls}-inline-collapsed-noicon`]: {
               fontSize: fontSizeLG,
               textAlign: 'center',
+              width: '100%',
             },
           },
         },
