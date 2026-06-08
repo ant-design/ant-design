@@ -17,6 +17,7 @@ const localeValues: Locale = {
     close: 'Sulje',
     show: 'Näytä',
     hide: 'Piilota',
+    clear: 'Tyhjennä',
   },
   Table: {
     filterTitle: 'Suodatus valikko',

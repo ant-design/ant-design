@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Itxi',
     show: 'Erakutsi',
     hide: 'Ezkutatu',
+    clear: 'Garbitu',
   },
   Table: {
     filterTitle: 'Iragazi menua',

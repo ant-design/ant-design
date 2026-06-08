@@ -17,6 +17,7 @@ const localeValues: Locale = {
     close: 'Betal ke',
     show: 'Nîşan bide',
     hide: 'Veşêre',
+    clear: 'Paqij bike',
   },
   Table: {
     filterTitle: 'Menuê peldanka',

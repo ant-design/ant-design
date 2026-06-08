@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Хаах',
     show: 'Харуулах',
     hide: 'Нуух',
+    clear: 'Цэвэрлэх',
   },
   Table: {
     filterTitle: 'Хайх цэс',

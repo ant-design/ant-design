@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Dún',
     show: 'Taispeáin',
     hide: 'Folaigh',
+    clear: 'Glan',
   },
   Table: {
     filterTitle: 'Filter menu',

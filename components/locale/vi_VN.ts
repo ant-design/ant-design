@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Đóng',
     show: 'Hiển thị',
     hide: 'Ẩn',
+    clear: 'Xóa',
   },
   Table: {
     filterTitle: 'Bộ lọc',
