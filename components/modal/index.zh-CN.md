@@ -74,6 +74,7 @@ demo:
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | loading | 显示骨架屏 | boolean |  | 5.18.0 |
+| scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 |
 | title | 标题 | ReactNode | - |  |
 | open | 对话框是否可见 | boolean | - |  |
 | width | 宽度 | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 |
@@ -119,6 +120,7 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | false | - |
+| scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
