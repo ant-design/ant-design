@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
@@ -196,7 +197,7 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
       },
 
       '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)': {
-        boxShadow: token.activeShadow,
+        ...genFocusOutline(token),
       },
 
       // >>>>> Disabled
@@ -211,7 +212,7 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
           color: token.colorError,
         },
         '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)': {
-          boxShadow: token.errorActiveShadow,
+          outlineColor: token.colorError,
         },
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
           color: token.colorErrorAffix,
@@ -223,7 +224,7 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
           color: token.colorWarning,
         },
         '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)': {
-          boxShadow: token.warningActiveShadow,
+          outlineColor: token.colorWarning,
         },
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
           color: token.colorWarningAffix,
