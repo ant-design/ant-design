@@ -155,7 +155,11 @@ export default function imageTest(
         waitUntil: 'domcontentloaded',
       });
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-      await page.addStyleTag({ content: '*{animation: none!important;}' });
+      // Disable animation & transition to avoid capturing intermediate frames,
+      // which makes the rendered width/content flaky across runs.
+      await page.addStyleTag({
+        content: '*{animation: none!important; transition: none!important;}',
+      });
 
       const cache = createCache();
 
@@ -232,6 +236,29 @@ export default function imageTest(
         openTriggerClassName || '',
       );
 
+      // Wait for fonts to be ready and the layout to settle BEFORE measuring
+      // the page size. Otherwise the rendered width/height may shift after the
+      // screenshot is taken, making the visual diff flaky.
+      await page.waitForFunction(
+        () =>
+          Promise.race([
+            // timeout 1000ms as a safety net
+            new Promise((resolve) => setTimeout(() => resolve(true), 1000)),
+            // wait fonts ready then raf * 2 to settle the layout
+            (document.fonts?.ready ?? Promise.resolve()).then(
+              () =>
+                new Promise((resolve) => {
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      resolve(true);
+                    });
+                  });
+                }),
+            ),
+          ]),
+        { timeout: 5000 },
+      );
+
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
@@ -243,21 +270,6 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
-
-      await page.waitForFunction(() =>
-        Promise.race([
-          // timeout 100ms
-          new Promise((resolve) => setTimeout(() => resolve(true), 100)),
-          // raf * 2
-          new Promise((resolve) => {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                resolve(true);
-              });
-            });
-          }),
-        ]),
-      );
 
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
