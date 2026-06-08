@@ -71,7 +71,7 @@ demo:
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 | × |
 | mode | 展示输入框或拨轮 | `'input' \| 'spinner'` | `'input'` |  | × |
 | value | 当前值 | number | - | - | × |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - | × |
 | onPressEnter | 按下回车的回调 | function(e) | - | - | × |
 | onStep | 点击上下箭头、键盘、滚轮的回调 | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - | 4.7.0 | × |

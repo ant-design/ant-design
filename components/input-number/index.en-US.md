@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false |  | × |
 | mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  | × |
 | value | The current value of the component | number | - | - | × |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - | × |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - | × |
 | onStep | The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - |  | × |
