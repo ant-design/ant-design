@@ -340,7 +340,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, sizeLG, antCls } = token;
+  const { componentCls, iconCls, sizeLG, antCls } = token;
 
   const [, varRef] = genCssVar(antCls, 'pagination');
 
@@ -377,7 +377,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           textAlign: 'center',
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
-          svg: {
+          [`${iconCls}-ellipsis > svg`]: {
             width: sizeLG,
             height: sizeLG,
           },
