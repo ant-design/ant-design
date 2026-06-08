@@ -114,11 +114,13 @@ export interface PaginationToken
   /**
    * @desc 省略号字母间距
    * @descEN Letter spacing of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisLetterSpacing: number | string;
   /**
    * @desc 省略号文本缩进
    * @descEN Text indent of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisTextIndent: string;
   /**
@@ -375,11 +377,13 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           display: 'block',
           margin: 'auto',
           color: token.colorTextDisabled,
-          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
+          svg: {
+            transform: 'scale(2)',
+            transformOrigin: 'center',
+          },
         },
       },
 
