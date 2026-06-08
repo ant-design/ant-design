@@ -701,6 +701,10 @@ Form can not get real DOM node when customize component not support `ref`. It wi
 
 It's by design. Only user interaction can trigger the change event. This design aims to avoid calling `setFieldsValue` in change events, which may cause infinite loops.
 
+### Why can't `dependencies` respond to `setFieldsValue` updates? {#faq-dependencies-set-fields}
+
+`dependencies` is mainly used for validation linkage between fields. When an upstream field is updated by user interaction, the dependent field will be updated and validated again. If you need to render additional content or switch field options based on values updated by `setFieldsValue`, use `shouldUpdate` or `useWatch` instead.
+
 ### Why Form.Item not update value when children is nest? {#faq-item-nested-update}
 
 Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:

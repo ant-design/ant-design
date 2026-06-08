@@ -123,7 +123,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = (
       <>
         {labelChildren}
-        <span className={`${prefixCls}-item-optional`} title="">
+        <span className={`${prefixCls}-item-optional`}>
           {formLocale?.optional || defaultLocale.Form?.optional}
         </span>
       </>
@@ -150,7 +150,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         htmlFor={htmlFor}
         className={labelClassName}
         style={contextStyles?.label}
-        title={typeof label === 'string' ? label : ''}
+        title={typeof label === 'string' ? label : undefined}
       >
         {labelChildren}
       </label>

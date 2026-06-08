@@ -135,7 +135,7 @@ jobs:
           utx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
         with:
           # use own token to upload coverage reports
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -162,6 +162,8 @@ jobs:
 
       - name: compile
         run: ut compile
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: cache dist
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
@@ -225,6 +227,8 @@ jobs:
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         run: ut compile
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: test
         # lib only run in master branch not in pull request
