@@ -11,11 +11,8 @@ const baseDir = ['es', 'lib'].includes(LIB_DIR) ? LIB_DIR : 'components';
 const r = (p: string) => resolve(__dirname, p);
 
 export default defineConfig({
-  // 走 esbuild 处理 JSX（方案 A：丢弃 babel）。test 文件多为 classic React import，
-  // automatic runtime 下多余的 React import 无害。
-  esbuild: {
-    jsx: 'automatic',
-  },
+  // JSX 走 automatic runtime（方案 A：丢弃 babel）。Vitest 4 默认转换器为 oxc，
+  // 其 jsx.runtime 默认即 'automatic'，无需再像 esbuild 时代那样显式声明。
   resolve: {
     alias: [
       // 对标 jest moduleNameMapper，并接入 LIB_DIR 切换
