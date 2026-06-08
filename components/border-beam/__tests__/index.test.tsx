@@ -141,6 +141,30 @@ describe('BorderBeam', () => {
     );
   });
 
+  it('should support customizing the beam loop duration', async () => {
+    const { container, rerender } = render(
+      <BorderBeam duration={12}>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('12s');
+    });
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
+  });
+
   it('should infer child border radius from computed style', async () => {
     const { container } = render(
       <BorderBeam>
