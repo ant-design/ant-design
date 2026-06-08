@@ -83,9 +83,7 @@ export interface ComponentToken {
  * @descEN Token for Pagination component
  */
 export interface PaginationToken
-  extends FullToken<'Pagination'>,
-    SharedComponentToken,
-    SharedInputToken {
+  extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   /**
    * @desc 输入框轮廓偏移量
    * @descEN Outline offset of input
@@ -342,7 +340,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, sizeLG, antCls } = token;
 
   const [, varRef] = genCssVar(antCls, 'pagination');
 
@@ -370,19 +368,18 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
         [`${componentCls}-item-ellipsis`]: {
           position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          display: 'block',
+          inset: 0,
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           margin: 'auto',
           color: token.colorTextDisabled,
           textAlign: 'center',
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
-          svg: {
-            transform: 'scale(2)',
-            transformOrigin: 'center',
+          '& svg': {
+            width: sizeLG,
+            height: sizeLG,
           },
         },
       },
