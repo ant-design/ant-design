@@ -62,16 +62,16 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | ~~popupClassName~~ | 更多菜单的 `className`, 请使用 `classNames.popup` 替换 | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
-| size | 大小，提供 `large` `medium` 和 `small` 三种大小 | string | `medium` |  |
+| size | 大小，提供 `large` `medium` 和 `small` 三种大小 | `large` \| `medium` \| `small` | `medium` |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
-| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | string | `top` |  |
-| ~~tabPosition~~ | 页签位置，可选值有 `top` `right` `bottom` `left`，请使用 `tabPlacement` 替换 | string | `top` |  |
+| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | `top` \| `end` \| `bottom` \| `start` | `top` |  |
+| ~~tabPosition~~ | 页签位置，可选值有 `top` `right` `bottom` `left`，请使用 `tabPlacement` 替换 | `top` \| `right` \| `bottom` \| `left` | `top` |  |
 | ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false |  |
 | destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
-| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
+| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | 切换面板的回调 | (activeKey: string) => void | - |  |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action) => void | - |  |
 | onTabClick | tab 被点击的回调 | (key: string, event: MouseEvent) => void | - |  |
