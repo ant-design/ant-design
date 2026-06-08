@@ -42,18 +42,18 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Space
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  |
-| size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
-| ~~split~~ | Set split, please use `separator` instead | ReactNode | - | 4.7.0 |
-| separator | Set separator | ReactNode | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
-| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.6.0 |
+| ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 | × |
+| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  | × |
+| size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 | 5.6.0 |
+| ~~split~~ | Set split, please use `separator` instead | ReactNode | - | 4.7.0 | × |
+| separator | Set separator | ReactNode | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.6.0 |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - | × |
+| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 | × |
 
 ### Size
 
