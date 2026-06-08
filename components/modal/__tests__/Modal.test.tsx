@@ -575,4 +575,22 @@ describe('Modal', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('should not lock body scroll when scrollLock is false', () => {
+    const { unmount } = render(<Modal open scrollLock={false} />);
+
+    expect(document.body).not.toHaveStyle({
+      overflowY: 'hidden',
+    });
+
+    unmount();
+  });
+
+  it('should lock body scroll when scrollLock is true (default)', () => {
+    const { unmount } = render(<Modal open scrollLock={true} />);
+    expect(document.body).toHaveStyle({
+      overflowY: 'hidden',
+    });
+    unmount();
+  });
 });
