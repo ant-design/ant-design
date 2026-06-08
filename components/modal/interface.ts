@@ -117,6 +117,8 @@ export interface ModalProps extends ModalCommonProps {
   maskStyle?: React.CSSProperties;
   mask?: MaskType;
   keyboard?: boolean;
+  /** Control whether to lock body scroll when modal opens. Default is true. */
+  scrollLock?: boolean;
   wrapProps?: any;
   prefixCls?: string;
   closeIcon?: React.ReactNode;
@@ -166,6 +168,8 @@ export interface ModalFuncProps extends ModalCommonProps {
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
+  /** Control whether to lock body scroll when modal opens. Default is true. */
+  scrollLock?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
 
   transitionName?: string;
