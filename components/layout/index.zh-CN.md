@@ -118,7 +118,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 #### Semantic DOM
 
-- `children`：Sider 的内容包裹容器
+- `body`：Sider 的内容包裹容器
 
 #### breakpoint width
 

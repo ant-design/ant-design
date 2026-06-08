@@ -117,7 +117,7 @@ The sidebar.
 
 #### Semantic DOM
 
-- `children`: Content wrapper of the Sider
+- `body`: Content wrapper of the Sider
 
 #### breakpoint width
 

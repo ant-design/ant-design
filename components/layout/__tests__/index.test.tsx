@@ -205,21 +205,21 @@ describe('Layout', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should customize the children container with semantic classNames and styles', () => {
+  it('should customize the body container with semantic classNames and styles', () => {
     const { container } = render(
       <Sider
-        classNames={{ children: 'custom-sider-children' }}
-        styles={{ children: { display: 'flex', flexDirection: 'column' } }}
+        classNames={{ body: 'custom-sider-body' }}
+        styles={{ body: { display: 'flex', flexDirection: 'column' } }}
       >
         Sider
       </Sider>,
     );
     const sider = container.querySelector<HTMLElement>('.ant-layout-sider')!;
-    const children = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
 
-    expect(sider).not.toHaveClass('custom-sider-children');
-    expect(children).toHaveClass('custom-sider-children');
-    expect(children).toHaveStyle({
+    expect(sider).not.toHaveClass('custom-sider-body');
+    expect(body).toHaveClass('custom-sider-body');
+    expect(body).toHaveStyle({
       display: 'flex',
       flexDirection: 'column',
     });
@@ -230,25 +230,25 @@ describe('Layout', () => {
       <Sider
         collapsible
         classNames={({ props }) => ({
-          children: props.collapsed ? 'children-collapsed' : 'children-expanded',
+          body: props.collapsed ? 'body-collapsed' : 'body-expanded',
         })}
         styles={({ props }) => ({
-          children: { opacity: props.collapsed ? 0.5 : 1 },
+          body: { opacity: props.collapsed ? 0.5 : 1 },
         })}
       >
         Sider
       </Sider>,
     );
-    const children = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
     const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
 
-    expect(children).toHaveClass('children-expanded');
-    expect(children).toHaveStyle({ opacity: '1' });
+    expect(body).toHaveClass('body-expanded');
+    expect(body).toHaveStyle({ opacity: '1' });
 
     fireEvent.click(trigger);
 
-    expect(children).toHaveClass('children-collapsed');
-    expect(children).toHaveStyle({ opacity: '0.5' });
+    expect(body).toHaveClass('body-collapsed');
+    expect(body).toHaveStyle({ opacity: '0.5' });
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
