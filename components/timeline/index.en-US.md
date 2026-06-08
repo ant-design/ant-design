@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| items | Each node of timeline | [Items](#Items)[] | - |  |
+| items | Each node of timeline | [Items](#items)[] | - |  |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `start` \| `alternate` \| `end` | `start` |  |
 | orientation | Set the direction of the timeline | `vertical` \| `horizontal` | `vertical` |  |
 | ~~pending~~ | Set the last ghost node's existence or its content. Use `item.loading` instead | ReactNode | false |  |
@@ -65,7 +65,7 @@ Node of timeline.
 | ~~label~~ | Set the label. Please use `title` instead | ReactNode | - |
 | loading | Set loading state | boolean | false |
 | placement | Customize node placement | `start` \| `end` | - |
-| ~~position~~ | Customize node position，Please use `placement` instead | `start` \| `end` | - |
+| ~~position~~ | Customize node position. Please use `placement` instead | `start` \| `end` | - |
 | title | Set the title | ReactNode | - |
 
 ## Semantic DOM

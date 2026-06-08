@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import copy from '../../../../components/_util/copy';
+import copy from 'antd/lib/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';

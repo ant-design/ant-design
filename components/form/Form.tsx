@@ -1,15 +1,16 @@
 import * as React from 'react';
 import FieldForm, { List, useWatch } from '@rc-component/form';
-import type { FormProps as RcFormProps } from '@rc-component/form/lib/Form';
 import type {
   FormRef,
   InternalNamePath,
+  FormProps as RcFormProps,
   ValidateErrorEntity,
-} from '@rc-component/form/lib/interface';
+} from '@rc-component/form';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
@@ -38,27 +39,30 @@ export type FormItemLayout = 'horizontal' | 'vertical';
 
 export type { ScrollFocusOptions };
 
-export type FormSemanticName = keyof FormSemanticClassNames & keyof FormSemanticStyles;
-
-export type FormSemanticClassNames = {
-  root?: string;
-  label?: string;
-  content?: string;
+export type FormSemanticType = {
+  classNames?: {
+    root?: string;
+    label?: string;
+    content?: string;
+    help?: string;
+    helpItem?: string;
+    extra?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+    help?: React.CSSProperties;
+    helpItem?: React.CSSProperties;
+    extra?: React.CSSProperties;
+  };
 };
 
-export type FormSemanticStyles = {
-  root?: React.CSSProperties;
-  label?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticClassNames>;
-
-export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>;
+export type FormSemanticAllType = GenerateSemantic<FormSemanticType, FormProps>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
-  classNames?: FormClassNamesType;
-  styles?: FormStylesType;
+  classNames?: FormSemanticAllType['classNamesAndFn'];
+  styles?: FormSemanticAllType['stylesAndFn'];
   prefixCls?: string;
   colon?: boolean;
   name?: string;
@@ -91,6 +95,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     styles: contextStyles,
     classNames: contextClassNames,
     tooltip: contextTooltip,
+    labelAlign: contextLabelAlign,
   } = useComponentConfig('form');
 
   const {
@@ -123,12 +128,10 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
-  /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
     // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useFormWarning(props);
   }
-  /* eslint-enable */
 
   const mergedRequiredMark = React.useMemo(() => {
     if (requiredMark !== undefined) {
@@ -143,6 +146,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   }, [requiredMark, contextRequiredMark]);
 
   const mergedColon = colon ?? contextColon;
+
+  const mergedLabelAlign = labelAlign ?? contextLabelAlign;
 
   const mergedTooltip = { ...contextTooltip, ...tooltip };
 
@@ -162,13 +167,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     requiredMark: mergedRequiredMark,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    FormClassNamesType,
-    FormStylesType,
-    FormProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const formClassName = clsx(
     prefixCls,
@@ -195,7 +200,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
-      labelAlign,
+      labelAlign: mergedLabelAlign,
       labelCol,
       labelWrap,
       wrapperCol,
@@ -211,7 +216,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     }),
     [
       name,
-      labelAlign,
+      mergedLabelAlign,
       labelCol,
       wrapperCol,
       layout,
@@ -234,7 +239,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const scrollToField = (options: ScrollFocusOptions | boolean, fieldName: InternalNamePath) => {
     if (options) {
       let defaultScrollToFirstError: ScrollFocusOptions = { block: 'nearest' };
-      if (typeof options === 'object') {
+      if (isPlainObject(options)) {
         defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
       wrapForm.scrollToField(fieldName, defaultScrollToFirstError);

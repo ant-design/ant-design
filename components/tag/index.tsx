@@ -3,8 +3,11 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { pickClosable, useClosable } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -22,23 +25,22 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-export type TagSemanticName = keyof TagSemanticClassNames & keyof TagSemanticStyles;
-
-export type TagSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type TagSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+    close?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+    close?: React.CSSProperties;
+  };
 };
 
-export type TagSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticClassNames>;
-
-export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>;
+export type TagSemanticAllType = GenerateSemantic<TagSemanticType, TagProps>;
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
@@ -57,8 +59,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: TagClassNamesType;
-  styles?: TagStylesType;
+  classNames?: TagSemanticAllType['classNamesAndFn'];
+  styles?: TagSemanticAllType['stylesAndFn'];
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
@@ -122,19 +124,16 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       color: mergedColor,
       variant: mergedVariant,
       disabled: mergedDisabled,
-      href,
-      target,
-      icon,
     };
 
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      TagClassNamesType,
-      TagStylesType,
-      TagProps
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     const tagStyle = React.useMemo(() => {
       let nextTagStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
@@ -167,7 +166,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     // ===================== Closable =====================
-    const handleCloseClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    const triggerClose: React.MouseEventHandler<HTMLElement> = (e) => {
       if (mergedDisabled) {
         return;
       }
@@ -180,27 +179,57 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       setVisible(false);
     };
 
+    const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.currentTarget.click();
+      }
+    };
+
     const [, mergedCloseIcon] = useClosable(pickClosable(props), pickClosable(tagContext), {
       closable: false,
       closeIconRender: (iconNode: React.ReactNode) => {
         const replacement = (
-          <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+          <span
+            role="button"
+            tabIndex={mergedDisabled ? -1 : 0}
+            aria-disabled={mergedDisabled || undefined}
+            className={clsx(`${prefixCls}-close-icon`, mergedClassNames.close)}
+            onClick={triggerClose}
+            onKeyDown={handleCloseKeyDown}
+            style={mergedStyles.close}
+          >
             {iconNode}
           </span>
         );
         return replaceElement(iconNode, replacement, (originProps) => ({
           onClick: (e: React.MouseEvent<HTMLElement>) => {
             originProps?.onClick?.(e);
-            handleCloseClick(e);
+            triggerClose(e);
           },
-          className: clsx(originProps?.className, `${prefixCls}-close-icon`),
+          onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
+            originProps?.onKeyDown?.(e);
+
+            if (!e.defaultPrevented) {
+              handleCloseKeyDown(e);
+            }
+          },
+          role: 'button',
+          tabIndex: mergedDisabled ? -1 : 0,
+          'aria-disabled': mergedDisabled || undefined,
+          className: clsx(
+            originProps?.className,
+            `${prefixCls}-close-icon`,
+            mergedClassNames.close,
+          ),
+          style: { ...mergedStyles.close, ...originProps?.style },
         }));
       },
     });
 
     // ====================== Render ======================
     const isNeedWave =
-      typeof restProps.onClick === 'function' ||
+      isFunction(restProps.onClick) ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
@@ -229,8 +258,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const tagNode: React.ReactNode = (
       <TagWrapper
         {...domProps}
-        // @ts-expect-error
-        ref={ref}
+        ref={ref as React.Ref<HTMLAnchorElement & HTMLSpanElement>}
         className={tagClassName}
         style={tagStyle}
         href={mergedDisabled ? undefined : href}

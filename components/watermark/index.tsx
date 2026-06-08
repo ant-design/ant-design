@@ -52,6 +52,7 @@ function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
 
 const DEFAULT_GAP_X = 100;
 const DEFAULT_GAP_Y = 100;
+const WATERMARK_Z_INDEX_OFFSET = 1;
 
 const fixedStyle: React.CSSProperties = {
   position: 'relative',
@@ -60,11 +61,7 @@ const fixedStyle: React.CSSProperties = {
 
 const Watermark: React.FC<WatermarkProps> = (props) => {
   const {
-    /**
-     * The antd content layer zIndex is basically below 10
-     * https://github.com/ant-design/ant-design/blob/6192403b2ce517c017f9e58a32d58774921c10cd/components/style/themes/default.less#L335
-     */
-    zIndex = 9,
+    zIndex,
     rotate = -22,
     width,
     height,
@@ -90,6 +87,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   };
 
   const [, token] = useToken();
+  // Keep Watermark above content layers while staying below popup base.
+  const mergedZIndex = zIndex ?? token.zIndexPopupBase - WATERMARK_Z_INDEX_OFFSET;
   const {
     color = token.colorFill,
     fontSize = token.fontSizeLG,
@@ -107,7 +106,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const markStyle = React.useMemo(() => {
     const mergedMarkStyle: React.CSSProperties = {
-      zIndex,
+      zIndex: mergedZIndex,
       position: 'absolute',
       left: 0,
       top: 0,
@@ -133,7 +132,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     mergedMarkStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`;
 
     return mergedMarkStyle;
-  }, [zIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
+  }, [mergedZIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
   const [container, setContainer] = React.useState<HTMLDivElement | null>();
 
@@ -265,7 +264,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   useEffect(syncWatermark, [
     rotate,
-    zIndex,
+    mergedZIndex,
     width,
     height,
     image,

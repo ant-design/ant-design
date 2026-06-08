@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import type { PaginationProps } from '.';
+import { isPlainObject } from '../_util/is';
 import type { SelectProps } from '../select';
 
 export default function useShowSizeChanger(showSizeChanger?: PaginationProps['showSizeChanger']) {
@@ -9,7 +10,7 @@ export default function useShowSizeChanger(showSizeChanger?: PaginationProps['sh
       return [showSizeChanger, {}];
     }
 
-    if (showSizeChanger && typeof showSizeChanger === 'object') {
+    if (isPlainObject(showSizeChanger)) {
       return [true, showSizeChanger];
     }
 

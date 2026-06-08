@@ -33,7 +33,7 @@ const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemPr
       ref={setNodeRef}
       style={style}
       // prevent preview event when drag end
-      className={isDragging ? 'is-dragging' : ''}
+      className={isDragging ? 'is-dragging' : undefined}
       {...attributes}
       {...listeners}
     >

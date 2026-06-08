@@ -34,13 +34,13 @@ const Block: React.FC<InputNumberProps> = (props) => {
         suffix="RMB"
         defaultValue={100}
         style={{ width: 200 }}
-        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginRight: 28 } }}
+        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginInlineEnd: 28 } }}
         {...props}
       />
       <InputNumber
         defaultValue={100}
         style={{ width: 200 }}
-        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginRight: 28 } }}
+        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginInlineEnd: 28 } }}
         mode="spinner"
         {...props}
       />

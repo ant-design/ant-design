@@ -44,12 +44,15 @@ describe('Theme', () => {
   });
 
   it('ConfigProvider with seed', () => {
-    const Demo = React.forwardRef((_, ref: any) => {
+    const Demo = React.forwardRef<ReturnType<typeof useToken>, any>((_, ref) => {
       const themeObj = useToken();
-      ref.current = themeObj;
+      if (typeof ref === 'function') {
+        ref(themeObj);
+      } else if (ref) {
+        ref.current = themeObj;
+      }
       return null;
     });
-
     const themeRef = React.createRef<ReturnType<typeof useToken>>();
     render(
       <ConfigProvider
@@ -310,6 +313,23 @@ describe('Theme', () => {
       expect(token.colorLinkHover).toBe('#69c8ff');
       expect(token.colorLinkActive).toBe('#0978d9');
     });
+  });
+
+  it('shadow tokens should adapt to dark theme', () => {
+    const { token } = getHookToken();
+    const { token: darkToken } = getHookToken({
+      algorithm: [theme.darkAlgorithm],
+    });
+    const { token: darkCustomTextBaseToken } = getHookToken({
+      algorithm: [theme.darkAlgorithm],
+      token: { colorTextBase: '#ff0000' },
+    });
+
+    expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
+    expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
+    expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.016\)/);
+    expect(darkToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
+    expect(darkCustomTextBaseToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
   });
 
   it('component token should support algorithm', () => {

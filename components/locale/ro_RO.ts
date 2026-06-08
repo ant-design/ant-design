@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ro_RO';
+import Pagination from '@rc-component/pagination/locale/ro_RO';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ro_RO';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selectează',
     close: 'Închide',
+    show: 'Arată',
+    hide: 'Ascunde',
   },
   Table: {
     filterTitle: 'Filtrează',

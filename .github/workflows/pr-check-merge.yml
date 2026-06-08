@@ -15,7 +15,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     if: (github.event.pull_request.head.ref == 'next' || github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master') && github.event.pull_request.head.user.login == 'ant-design'
     steps:
-      - uses: actions-cool/issues-helper@e361abf610221f09495ad510cb1e69328d839e1c
+      - uses: actions-cool/issues-helper-backup@d65454423c6fbbd20026b9b499d403f79422ac69
         with:
           actions: create-comment
           issue-number: ${{ github.event.number }}

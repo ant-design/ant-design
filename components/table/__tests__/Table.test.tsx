@@ -1,11 +1,12 @@
-import React, { useRef } from 'react';
-import { ConfigProvider } from 'antd';
+import React, { useRef, useState } from 'react';
 
 import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Popover from '../../popover';
 
 const { Column, ColumnGroup } = Table;
 
@@ -232,6 +233,43 @@ describe('Table', () => {
       });
   });
 
+  it('supports column align with per-column override and special columns', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Name', dataIndex: 'name' },
+          Table.EXPAND_COLUMN,
+          {
+            title: 'Info',
+            children: [{ title: 'Age', dataIndex: 'age', align: 'right' }],
+          },
+          Table.SELECTION_COLUMN,
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Jack',
+            age: 20,
+          },
+        ]}
+        column={{ align: 'center' }}
+        expandable={{ expandedRowRender: () => null }}
+        rowSelection={{}}
+        pagination={false}
+      />,
+    );
+
+    const cells = container.querySelectorAll('tbody tr')[0].querySelectorAll('td');
+
+    expect(cells).toHaveLength(4);
+    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
+    expect(cells[0].textContent).toEqual('Jack');
+    expect(cells[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+    expect(cells[2]).toHaveStyle({ textAlign: 'right' });
+    expect(cells[2].textContent).toEqual('20');
+    expect(cells[3].querySelector('.ant-checkbox-input')).toBeTruthy();
+  });
+
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
     const columns: TableProps<any>['columns'] = [
@@ -430,6 +468,55 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('should not render duplicated controlled Popover in column title when scroll is enabled', async () => {
+    jest.useFakeTimers();
+
+    try {
+      const Demo = () => {
+        const [open, setOpen] = useState(false);
+
+        return (
+          <Table
+            pagination={false}
+            scroll={{ y: 200 }}
+            columns={[
+              {
+                key: 'name',
+                dataIndex: 'name',
+                title: (
+                  <Popover
+                    open={open}
+                    onOpenChange={setOpen}
+                    trigger="click"
+                    content={<button type="button">Popover Content</button>}
+                  >
+                    <button type="button">Name</button>
+                  </Popover>
+                ),
+              },
+            ]}
+            dataSource={[{ key: '1', name: 'Bamboo' }]}
+          />
+        );
+      };
+
+      const { container } = render(<Demo />);
+
+      fireEvent.click(container.querySelector('thead button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+
+      fireEvent.click(document.body.querySelector('.ant-popover button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+    } finally {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+    }
   });
 
   it('support reference', () => {

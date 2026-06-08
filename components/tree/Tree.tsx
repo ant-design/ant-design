@@ -2,13 +2,12 @@ import type { Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import type { CSSMotionProps } from '@rc-component/motion';
-import type { BasicDataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
+import type { BasicDataNode, DataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
-import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -48,8 +47,8 @@ export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: React.ReactNode | ((data: DataNode) => React.ReactNode);
-  key?: Key;
-  eventKey?: Key;
+  key?: React.Key;
+  eventKey?: React.Key;
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
@@ -90,13 +89,13 @@ export interface AntTreeNodeMouseEvent {
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
-  expandedKeys: Key[];
+  expandedKeys: React.Key[];
 }
 
 export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
-  dragNodesKeys: Key[];
+  dragNodesKeys: React.Key[];
   dropPosition: number;
   dropToGap?: boolean;
   event: React.MouseEvent<HTMLElement>;
@@ -112,25 +111,24 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles;
-
-export type TreeSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemIcon?: string;
-  itemTitle?: string;
+export type TreeSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemIcon?: string;
+    itemTitle?: string;
+    itemSwitcher?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemSwitcher?: React.CSSProperties;
+  };
 };
 
-export type TreeSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-};
-
-export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>;
-
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticStyles>;
+export type TreeSemanticAllType = GenerateSemantic<TreeSemanticType, TreeProps>;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
@@ -146,8 +144,8 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
-  classNames?: TreeClassNamesType;
-  styles?: TreeStylesType;
+  classNames?: TreeSemanticAllType['classNamesAndFn'];
+  styles?: TreeSemanticAllType['stylesAndFn'];
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */
@@ -163,21 +161,21 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   /** Expand the corresponding tree node by default */
   defaultExpandParent?: boolean;
   /** Expand the specified tree node by default */
-  defaultExpandedKeys?: Key[];
+  defaultExpandedKeys?: React.Key[];
   /** (Controlled) Expand the specified tree node */
-  expandedKeys?: Key[];
+  expandedKeys?: React.Key[];
   /** (Controlled) Tree node with checked checkbox */
-  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
+  checkedKeys?: React.Key[] | { checked: React.Key[]; halfChecked: React.Key[] };
   /** Tree node with checkbox checked by default */
-  defaultCheckedKeys?: Key[];
+  defaultCheckedKeys?: React.Key[];
   /** (Controlled) Set the selected tree node */
-  selectedKeys?: Key[];
+  selectedKeys?: React.Key[];
   /** Tree node selected by default */
-  defaultSelectedKeys?: Key[];
+  defaultSelectedKeys?: React.Key[];
   selectable?: boolean;
   /** Click on the tree node to trigger */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  loadedKeys?: Key[];
+  loadedKeys?: React.Key[];
   /** Set the node to be draggable (IE>8) */
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;
@@ -218,6 +216,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     rootClassName,
     classNames,
     styles,
+    icon,
   } = props;
 
   const contextDisabled = React.useContext(DisabledContext);
@@ -242,18 +241,19 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeClassNamesType,
-    TreeStylesType,
-    TreeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const newProps = {
     ...mergedProps,
     showLine: Boolean(showLine),
-    dropIndicatorRender,
+    icon: icon as RcTreeProps<DataNode>['icon'],
+    dropIndicatorRender: dropIndicatorRender as RcTreeProps<DataNode>['dropIndicatorRender'],
   };
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -296,7 +296,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
   return (
-    // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
       ref={ref}
@@ -318,8 +317,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={clsx(mergedClassNames?.root, rootClassName)}
-      rootStyle={mergedStyles?.root}
+      rootClassName={clsx(mergedClassNames.root, rootClassName)}
+      rootStyle={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
       direction={direction}

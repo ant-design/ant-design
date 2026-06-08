@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 export interface ProgressProps {
@@ -64,7 +64,9 @@ const Progress: React.FC<Readonly<ProgressProps>> = ({ percent, prefixCls }) => 
 
   return (
     <span
-      className={clsx(holderClassName, `${dotClassName}-progress`, safePtg <= 0 && hideClassName)}
+      className={clsx(holderClassName, `${dotClassName}-progress`, {
+        [hideClassName]: safePtg <= 0,
+      })}
     >
       <svg
         viewBox={`0 0 ${viewSize} ${viewSize}`}

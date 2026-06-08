@@ -32,6 +32,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     paddingBlockLG,
     paddingInlineLG,
     colorIcon,
+    colorTextDisabled,
     motionDurationMid,
     handleHoverColor,
     handleOpacity,
@@ -102,6 +103,20 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         }),
         ...genBorderlessStyle(token),
 
+        // InputNumber 两层结构：borderless 补偿只加在内层 input 的 CSS 变量上，避免外层+内层双重 padding 导致高度异常
+        [`&${componentCls}-borderless`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlock).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-sm`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockSM).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-lg`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockLG).add(lineWidth).equal()),
+        },
+
         // ========================= RTL ==========================
         '&-rtl': {
           direction: 'rtl',
@@ -126,7 +141,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           textAlign: 'start',
           backgroundColor: 'transparent',
           border: 0,
-          borderRadius,
+          borderRadius: 0,
           outline: 0,
           transition: `all ${motionDurationMid} linear`,
           appearance: 'textfield',
@@ -159,13 +174,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     {
       [componentCls]: {
         // ======================= Shared =======================
-        [`
-          ${componentCls}-action-up-disabled,
-          ${componentCls}-action-down-disabled
-        `]: {
-          cursor: 'not-allowed',
-        },
-
         [`${componentCls}-action`]: {
           ...resetIcon(),
 
@@ -177,12 +185,21 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           cursor: 'pointer',
           transition: `all ${motionDurationMid} linear`,
 
-          '&:active': {
-            background: handleActiveBg,
-          },
-          // Hover
-          '&:hover': {
-            color: handleHoverColor,
+          // Active: change background not disabled only;
+          [`&:active:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              background: handleActiveBg,
+            },
+
+          // Hover: change color not disabled only;
+          [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              color: handleHoverColor,
+            },
+
+          [`&${componentCls}-action-up-disabled, &${componentCls}-action-down-disabled`]: {
+            cursor: 'not-allowed',
+            color: colorTextDisabled,
           },
         },
 
@@ -228,10 +245,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             height: '50%',
             borderInlineStart: borderStyle,
 
-            // Hover
-            '&:hover': {
-              height: `60%`,
-            },
+            // Hover: change height not disabled only;
+            [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+              {
+                height: `60%`,
+              },
           },
 
           [`&${componentCls}-disabled, &${componentCls}-readonly`]: {

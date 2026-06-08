@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/kk_KZ';
+import Pagination from '@rc-component/pagination/locale/kk_KZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/kk_KZ';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Таңдаңыз',
     close: 'Жабу',
+    show: 'Көрсету',
+    hide: 'Жасыру',
   },
   Table: {
     filterTitle: 'Фильтр',

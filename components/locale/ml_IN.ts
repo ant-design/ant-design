@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ml_IN';
+import Pagination from '@rc-component/pagination/locale/ml_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ml_IN';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ദയവായി തിരഞ്ഞെടുക്കുക',
     close: 'മുടക്കുക',
+    show: 'കാണിക്കുക',
+    hide: 'മറയ്ക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',

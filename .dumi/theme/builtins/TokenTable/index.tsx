@@ -4,14 +4,15 @@ import type { TableProps } from 'antd';
 import { Table } from 'antd';
 import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
-import tokenMeta from 'antd/es/version/token-meta.json';
 
 import useLocale from '../../../hooks/useLocale';
 import BezierVisualizer from '../../common/BezierVisualizer';
 import ColorChunk from '../ColorChunk';
+import { tokenMeta } from '../versionToken';
+import type { GlobalTokenSource } from '../versionToken';
 
 type TokenTableProps = {
-  type: 'seed' | 'map' | 'alias';
+  type: GlobalTokenSource;
   lang: 'zh' | 'en';
 };
 

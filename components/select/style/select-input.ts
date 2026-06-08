@@ -21,6 +21,7 @@ interface VariableColors {
   backgroundDisabled?: string;
 
   color?: string;
+  affixColor?: string;
 }
 
 /** Set CSS variables and hover/focus styles for a Select input based on provided colors. */
@@ -36,7 +37,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   return {
     [varName('border-color')]: border,
     [varName('background-color')]: baseBG,
-    [varName('color')]: colors.color || token.colorText,
+    [varName('affix-color')]: colors.affixColor,
 
     [`&:not(${componentCls}-disabled)`]: {
       '&:hover': {
@@ -59,7 +60,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   };
 };
 
-/** Generate variant-scoped variable styles and status overrides for a Select input. */
+/** Generate variant-scoped variable styles and status overrides for a Select input */
 const genSelectInputVariantStyle = (
   token: SelectToken,
   variant: string,
@@ -75,12 +76,10 @@ const genSelectInputVariantStyle = (
       {
         [`&${componentCls}-status-error`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: errorColors.color || token.colorError,
           ...errorColors,
         }),
         [`&${componentCls}-status-warning`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: warningColors.color || token.colorWarning,
           ...warningColors,
         }),
       },
@@ -90,8 +89,22 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
+  const {
+    componentCls,
+    fontHeight,
+    controlHeight,
+    fontSizeIcon,
+    showArrowPaddingInlineEnd,
+    iconCls,
+    antCls,
+    max,
+    calc,
+  } = token;
+
   const [varName, varRef] = genCssVar(antCls, 'select');
+
+  const contentMarginInlineEnd = max(calc(showArrowPaddingInlineEnd).sub(fontSizeIcon).equal(), 0);
+
   return {
     [componentCls]: [
       {
@@ -106,6 +119,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         [varName('line-height')]: token.lineHeight,
         [varName('font-height')]: fontHeight,
         [varName('color')]: token.colorText,
+        [varName('affix-color')]: token.colorText,
         // Size
         [varName('height')]: controlHeight,
 
@@ -116,7 +130,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // ==========================================================
         // ==                         Base                         ==
         // ==========================================================
-        ...resetComponent(token, true),
+        ...resetComponent(token),
 
         display: 'inline-flex',
         // gap: calc(token.paddingXXS).mul(1.5).equal(),
@@ -147,6 +161,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         paddingBlock: varRef('padding-vertical'),
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
+          color: varRef('affix-color'),
           flex: 'none',
           lineHeight: 1,
         },
@@ -165,7 +180,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           minWidth: 0,
           position: 'relative',
           display: 'flex',
-          marginInlineEnd: calc(token.paddingXXS).mul(1.5).equal(),
+          marginInlineEnd: contentMarginInlineEnd,
 
           '&:before': {
             content: '"\\a0"',
@@ -255,6 +270,8 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             margin: 0,
             padding: 0,
             color: varRef('color'),
+            fontFamily: 'inherit',
+            fontSize: 'inherit',
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -272,7 +289,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-input`]: {
             position: 'absolute',
             inset: 0,
-            lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
+            lineHeight: 'inherit',
           },
 
           // Content center align
@@ -290,6 +307,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
             '&-has-search-value': {
               color: 'transparent',
+
+              [`> :not(${componentCls}-input)`]: {
+                opacity: 0,
+              },
             },
 
             // >>> Value
@@ -336,9 +357,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
           borderOutline: token.colorErrorOutline,
+          affixColor: token.colorErrorAffix,
         },
         // Warning
         {
@@ -346,6 +368,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderHover: token.colorWarningHover,
           borderActive: token.colorWarning,
           borderOutline: token.colorWarningOutline,
+          affixColor: token.colorWarningAffix,
         },
       ),
 
@@ -366,6 +389,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         },
         // Error
         {
+          color: token.colorErrorText,
           background: token.colorErrorBg,
           backgroundHover: token.colorErrorBgHover,
           borderActive: token.colorError,
@@ -401,7 +425,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
         },
         // Warning
@@ -413,8 +437,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {
           borderRadius: 0,
           borderTopColor: 'transparent',
-          borderRightColor: 'transparent',
-          borderLeftColor: 'transparent',
+          borderInlineColor: 'transparent',
         },
       ),
 

@@ -1,0 +1,33 @@
+{
+  "ignore": {
+    "rules": ["react-doctor/effect-needs-cleanup"],
+    "files": [
+      ".dumi/**",
+      "docs/**",
+      "tests/**",
+      "scripts/**",
+      "**/demo/**",
+      "**/__tests__/**",
+      "**/*.md"
+    ],
+    "overrides": [
+      {
+        "files": [".dumi/theme/utils/renderReactToHTML.tsx", "components/upload/Upload.tsx"],
+        "rules": ["react/dom-no-flush-sync", "react-dom/no-flush-sync"]
+      },
+      {
+        "files": ["components/splitter/SplitBar.tsx"],
+        "rules": [
+          "react/web-api-no-leaked-event-listener",
+          "react-web-api/no-leaked-event-listener"
+        ]
+      },
+      {
+        "files": ["components/form/Form.tsx", "components/input/Input.tsx"],
+        "rules": ["react-hooks/rules-of-hooks"]
+      }
+    ]
+  },
+  "failOn": "none",
+  "adoptExistingLintConfig": true
+}

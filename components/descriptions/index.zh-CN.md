@@ -92,7 +92,7 @@ const items: DescriptionsProps['items'] = [
 | items | 描述列表项内容 | [DescriptionsItem](#descriptionitem)[] | - | 5.8.0 |
 | ~~labelStyle~~ | 自定义标签样式，请使用 `styles.label` 替换 | CSSProperties | - | 4.10.0 |
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |  |
-| size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |  |
+| size | 设置列表的大小。可以设置为 `medium` 、`small`, 或不填 | `large` \| `medium` \| `small` | `large` |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | title | 描述列表的标题，显示在最顶部 | ReactNode | - |  |
 

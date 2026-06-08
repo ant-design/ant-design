@@ -27,7 +27,7 @@ return (
   />
 );
 
-// No recommended 🙅🏻‍♀️
+// Not recommended 🙅🏼‍♀️
 return (
   <Radio.Group value={value}>
     <Radio value={1}>A</Radio>
@@ -52,6 +52,7 @@ return (
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
+<code src="./demo/debug-group-width.tsx" debug>Group same width</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/debug-upload.tsx" debug>Upload Debug</code>

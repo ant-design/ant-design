@@ -27,7 +27,6 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/with-btn.tsx">Custom close button</code>
 <code src="./demo/custom-icon.tsx">Customized Icon</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/stack.tsx" version="5.10.0">Stack</code>
 <code src="./demo/show-with-progress.tsx" version="5.18.0">Show with progress</code>
@@ -35,7 +34,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/progress-color.tsx">Customize progress bar color</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic styles</code>
 
 ## API
 
@@ -56,6 +55,7 @@ The properties of config are as follows:
 | ~~btn~~ | Customized close button group, please use `actions` instead | ReactNode | - | - |
 | className | Customized CSS class | string | - | - |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| closable | Whether to show the close button | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | description | The content of notification box (required) | ReactNode | - | - |
 | duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - |
@@ -144,7 +144,7 @@ notification.config({
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification? {#faq-context-redux}
 
-antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
+When you call notification methods, antd dynamically creates a React instance using `ReactDOM.render`, which runs in a different execution context than your original code.
 
 When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
 
@@ -164,7 +164,7 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
-> [App Package Component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
+> [App wrapper component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
 
 ### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 

@@ -3,7 +3,7 @@ import { Avatar, Badge, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space size="medium">
-    <Badge size="default" count={5}>
+    <Badge size="medium" count={5}>
       <Avatar shape="square" size="large" />
     </Badge>
     <Badge size="small" count={5}>

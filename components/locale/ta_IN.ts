@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ta_IN';
+import Pagination from '@rc-component/pagination/locale/ta_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ta_IN';
@@ -17,6 +17,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'தேதியைத் தேர்ந்தெடுக்கவும்',
     close: 'மூடு',
+    show: 'காட்டு',
+    hide: 'மறை',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',

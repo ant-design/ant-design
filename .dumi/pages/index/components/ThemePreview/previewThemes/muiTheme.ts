@@ -1,11 +1,9 @@
 import { useMemo } from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 import { theme } from 'antd';
 import type { ConfigProviderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
-
-import type { UseTheme } from '.';
 
 type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
@@ -30,7 +28,7 @@ const createHolder = (node: HTMLElement) => {
 const createDot = (holder: HTMLElement, color: string, left: number, top: number, size = 0) => {
   const dot = document.createElement('div');
   dot.style.position = 'absolute';
-  dot.style.left = `${left}px`;
+  dot.style.insetInlineStart = `${left}px`;
   dot.style.top = `${top}px`;
   dot.style.width = `${size}px`;
   dot.style.height = `${size}px`;
@@ -124,7 +122,7 @@ const useStyles = createStyles(({ css }) => {
   };
 });
 
-const useMuiTheme: UseTheme = () => {
+const useMuiTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(

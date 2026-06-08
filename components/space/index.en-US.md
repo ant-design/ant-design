@@ -34,10 +34,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/debug.tsx" debug>Diverse Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/component-token.tsx" debug>Customize Addon with theme</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
+
+### Space
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -76,7 +79,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | ~~direction~~ | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |  |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
-| size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | Set child component size | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 
 ### Space.Addon
 

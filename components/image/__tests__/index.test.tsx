@@ -1,5 +1,4 @@
 import React from 'react';
-import { Modal } from 'antd';
 
 import Image from '..';
 import type { MaskType } from '../../_util/hooks';
@@ -7,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Modal from '../../modal';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 const alt = 'test image';
@@ -266,6 +266,149 @@ describe('Image', () => {
           expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
         }
       });
+    });
+  });
+
+  describe('Image mask closable', () => {
+    it('should not trigger onOpenChange when Image preview.mask.closable is false', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <Image
+          alt={alt}
+          src={src}
+          preview={{ open: true, mask: { closable: false }, onOpenChange }}
+        />,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should not trigger onOpenChange when Image.PreviewGroup preview.mask.closable is false', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <Image.PreviewGroup preview={{ open: true, mask: { closable: false }, onOpenChange }}>
+          <Image alt={alt} src={src} />
+        </Image.PreviewGroup>,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
+          <Image alt={alt} src={src} preview={{ open: true, onOpenChange }} />
+        </ConfigProvider>,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image.PreviewGroup', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
+          <Image.PreviewGroup preview={{ open: true, onOpenChange }}>
+            <Image alt={alt} src={src} />
+          </Image.PreviewGroup>
+        </ConfigProvider>,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should use Image preview.mask.closable over ConfigProvider image.preview.mask.closable', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
+          <Image
+            alt={alt}
+            src={src}
+            preview={{ open: true, mask: { closable: true }, onOpenChange }}
+          />
+        </ConfigProvider>,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should use Image.PreviewGroup preview.mask.closable over ConfigProvider image.preview.mask.closable', () => {
+      const onOpenChange = jest.fn();
+      const { unmount } = render(
+        <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
+          <Image.PreviewGroup preview={{ open: true, mask: { closable: true }, onOpenChange }}>
+            <Image alt={alt} src={src} />
+          </Image.PreviewGroup>
+        </ConfigProvider>,
+      );
+
+      fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
+      expect(onOpenChange).toHaveBeenCalled();
+
+      unmount();
+    });
+  });
+
+  describe('placeholder', () => {
+    it('should show ReactNode placeholder when src is not provided', () => {
+      const placeholderContent = 'Loading...';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should show ReactNode placeholder when src is empty string', () => {
+      const placeholderContent = 'No Image';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src=""
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should still render with src and placeholder', () => {
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src={src}
+          placeholder={<div className="custom-placeholder">Loading...</div>}
+        />,
+      );
+
+      // Should render the image element
+      expect(container.querySelector('.ant-image-img')).toBeInTheDocument();
     });
   });
 });

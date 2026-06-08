@@ -13,8 +13,7 @@ concurrency:
 
 jobs:
   send-to-dingtalk:
-    # Only run for PRs from the same repo (not from forks) to prevent potential injection
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository == 'ant-design/ant-design'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 10
     steps:
@@ -26,7 +25,7 @@ jobs:
             ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notify_title: '🔥 @${{ github.event.pull_request.user.login }} 创建了 PR：${{ github.event.pull_request.title }} ${{ github.event.pull_request.html_url }}'
           notify_body: |
-            ### 🔥 ![](${{ github.event.pull_request.user.avatar_url }}&s=36) [@${{ github.event.pull_request.user.login }}](https://github.com/${{ github.event.pull_request.user.login }}) 创建了 PR：
+            ### ![](${{ github.event.pull_request.user.avatar_url }}) 🔥 [@${{ github.event.pull_request.user.login }}](https://github.com/${{ github.event.pull_request.user.login }}) 创建了 PR：
             [${{ github.event.pull_request.title }} · PR #${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }})
             <hr />
           notify_footer: '> 🫵🏻 快去 Review 吧，社区需要你的帮助！'

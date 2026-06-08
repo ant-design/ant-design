@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
+import type { ConfigComponentProps } from 'antd/es/config-provider/context';
 
-import type { ConfigComponentProps } from '../../../components/config-provider/context';
 import { getBannerData } from '../../pages/index/components/util';
 import type { ThemeName } from '../common/ThemeSwitch';
 

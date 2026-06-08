@@ -3,6 +3,7 @@ import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useIntl } from 'dumi';
+import { SWRConfig } from 'swr';
 
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
@@ -57,17 +58,26 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   return (
     <div className={clsx({ [styles.listMobile]: isMobile })}>
       <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
-      <ContributorsList
-        cache
-        repo="ant-design"
-        owner="ant-design"
-        fileName={filename}
-        className={styles.list}
-        filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
-        renderItem={(item, loading) => (
-          <ContributorAvatar item={item} loading={loading} key={item?.url} />
-        )}
-      />
+      <SWRConfig
+        value={{
+          revalidateOnFocus: false,
+          revalidateOnReconnect: false,
+          revalidateOnMount: false,
+          revalidateIfStale: false,
+        }}
+      >
+        <ContributorsList
+          cache
+          repo="ant-design"
+          owner="ant-design"
+          fileName={filename}
+          className={styles.list}
+          filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
+          renderItem={(item, loading) => (
+            <ContributorAvatar item={item} loading={loading} key={item?.url} />
+          )}
+        />
+      </SWRConfig>
     </div>
   );
 };

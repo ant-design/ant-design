@@ -52,9 +52,9 @@ dayjs.extend(customParseFormat)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
+| ~~addon~~ | Called from time picker panel to render an addon to its bottom, please use `renderExtraFooter` instead | () => ReactNode | - | - |
 | cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 |
-| className | The className of picker | string | - |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | To set default time | [dayjs](https://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |

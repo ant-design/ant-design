@@ -55,7 +55,7 @@ const columns: ColumnsType<DataType> = [
       <Flex gap="small" align="center" wrap>
         {tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
+          if (tag === 'kawaii') {
             color = 'volcano';
           }
           return (
@@ -92,7 +92,7 @@ const data: DataType[] = [
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    tags: ['kawaii'],
   },
   {
     key: '3',

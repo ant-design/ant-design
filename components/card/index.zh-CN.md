@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 <code src="./demo/tabs.tsx">带页签的卡片</code>
 <code src="./demo/meta.tsx">支持更多内容配置</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/no-body-debug.tsx" debug>封面和操作区不渲染 body</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -41,14 +42,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
 | activeTabKey | 当前激活页签的 key | string | - |  |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
+| ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.24.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | 卡片封面 | ReactNode | - |  |
 | defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  |
 | extra | 卡片右上角的操作区域 | ReactNode | - |  |
 | hoverable | 鼠标移过时可浮起 | boolean | false |  |
+| ~~headStyle~~ | 卡片头部样式，请使用 `styles.header` 替代 | CSSProperties | - | - |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| size | card 的尺寸 | `default` \| `small` | `default` |  |
+| size | card 的尺寸 | `medium` \| `small` | `medium` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
@@ -59,21 +62,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型          | 默认值 | 版本 |
-| --------- | ---------------------- | ------------- | ------ | ---- |
-| className | 网格容器类名           | string        | -      |      |
-| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
-| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
+| 参数      | 说明             | 类型    | 默认值 | 版本 |
+| --------- | ---------------- | ------- | ------ | ---- |
+| hoverable | 鼠标移过时可浮起 | boolean | true   |      |
 
 ### Card.Meta
 
-| 参数        | 说明               | 类型          | 默认值 | 版本 |
-| ----------- | ------------------ | ------------- | ------ | ---- |
-| avatar      | 头像/图标          | ReactNode     | -      |      |
-| className   | 容器类名           | string        | -      |      |
-| description | 描述内容           | ReactNode     | -      |      |
-| style       | 定义容器类名的样式 | CSSProperties | -      |      |
-| title       | 标题内容           | ReactNode     | -      |      |
+| 参数        | 说明      | 类型      | 默认值 | 版本 |
+| ----------- | --------- | --------- | ------ | ---- |
+| avatar      | 头像/图标 | ReactNode | -      |      |
+| description | 描述内容  | ReactNode | -      |      |
+| title       | 标题内容  | ReactNode | -      |      |
 
 ## Semantic DOM
 

@@ -5356,18 +5356,18 @@ Array [
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="default"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        Default
+        Medium
       </span>
     </label>
   </div>,
   <div
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-default css-var-test-id"
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id"
     style="--ant-cmp-steps-items-offset:0"
   >
     <div
@@ -5410,7 +5410,7 @@ Array [
                 class="ant-card-body"
               >
                 <div
-                  class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-default css-var-test-id"
+                  class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
                   style="--ant-cmp-steps-items-offset:0"
                 >
                   <div

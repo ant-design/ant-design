@@ -1,9 +1,9 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
-import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
+import { updateCSS } from '@rc-component/util';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const CommonStyles: React.FC = () => {
   const { anchorTop } = useTheme();
 
   React.useInsertionEffect(() => {
@@ -84,3 +84,5 @@ export default () => {
     />
   );
 };
+
+export default CommonStyles;

@@ -112,6 +112,7 @@ export default function imageTest(
 
   afterEach(() => {
     page.removeAllListeners('request'); // 保证没有历史残留
+    MockDate.reset();
   });
 
   afterAll(async () => {
@@ -150,7 +151,9 @@ export default function imageTest(
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
 
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.goto(`file://${process.cwd()}/tests/index.html`, {
+        waitUntil: 'domcontentloaded',
+      });
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
 
@@ -240,6 +243,22 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
+
+      await page.waitForFunction(() =>
+        Promise.race([
+          // timeout 100ms
+          new Promise((resolve) => setTimeout(() => resolve(true), 100)),
+          // raf * 2
+          new Promise((resolve) => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                resolve(true);
+              });
+            });
+          }),
+        ]),
+      );
+
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
@@ -309,7 +328,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     describeMethod(`Test ${file} image`, () => {
       // Only require the demo file if it's not skipped to avoid dependency issues
       if (!shouldSkip) {
-        let Demo = require(`../../${file}`).default;
+        let Demo = jest.requireActual(`../../${file}`).default;
         if (typeof Demo === 'function') {
           Demo = <Demo />;
         }

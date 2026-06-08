@@ -32,7 +32,7 @@ export interface ComponentToken {
    * @desc 标题字体大小
    * @descEN Font size of title
    */
-  titleFontSize: number;
+  titleFontSize: number | string;
   /**
    * @desc 标题字体颜色
    * @descEN Font color of title
@@ -340,6 +340,9 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         },
 
         [`${componentCls}-footer`]: {
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
           textAlign: 'end',
           background: token.footerBg,
           marginTop: token.footerMarginTop,

@@ -3,27 +3,27 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
-import { useEvent } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { useEvent, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { genCssVar } from '../theme/util/genStyleUtils';
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import type { SplitterProps, SplitterSemanticAllType } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: React.CSSProperties;
-  draggerClassName?: SplitterSemanticDraggerClassNames;
+  draggerStyle?: NonNullable<SplitterSemanticAllType['styles']>['dragger'];
+  draggerClassName?: NonNullable<SplitterSemanticAllType['classNamesNoString']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
-  collapsibleIcon?: SplitterProps['collapsibleIcon'];
+  collapsibleIcon?: NonNullable<SplitterProps['collapsible']>['icon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onDraggerDoubleClick?: (index: number) => void;
@@ -39,11 +39,9 @@ export interface SplitBarProps {
   containerSize: number;
 }
 
-function getValidNumber(num?: number): number {
-  return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num)
-    ? Math.round(num)
-    : 0;
-}
+const getValidNumber = (num?: number) => {
+  return isNumber(num) && Number.isFinite(num) ? Math.round(num) : 0;
+};
 
 const DOUBLE_CLICK_TIME_GAP = 300;
 
@@ -139,6 +137,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetEnd(true);
   });
 
+  const onCollapseKeyDown = (e: React.KeyboardEvent<HTMLDivElement>, type: 'start' | 'end') => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onCollapse(index, type);
+    }
+  };
+
   const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
     switch (mode) {
       case true:
@@ -205,7 +210,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     };
 
     for (const [event, handler] of Object.entries(eventHandlerMap)) {
-      // eslint-disable-next-line react-web-api/no-leaked-event-listener
+      // eslint-disable-next-line react/web-api-no-leaked-event-listener
       window.addEventListener(event, handler);
     }
 
@@ -239,13 +244,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [collapsibleIcon, vertical]);
 
   return (
-    <div
-      className={splitBarPrefixCls}
-      role="separator"
-      aria-valuenow={getValidNumber(ariaNow)}
-      aria-valuemin={getValidNumber(ariaMin)}
-      aria-valuemax={getValidNumber(ariaMax)}
-    >
+    <div className={splitBarPrefixCls}>
       {lazy && (
         <div
           className={clsx(`${splitBarPrefixCls}-preview`, {
@@ -256,7 +255,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        style={draggerStyle}
+        style={draggerStyle?.default}
         className={clsx(
           `${splitBarPrefixCls}-dragger`,
           {
@@ -270,6 +269,12 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
         onDoubleClick={() => onDraggerDoubleClick?.(index)}
+        role="separator"
+        aria-disabled={!resizable}
+        aria-orientation={vertical ? 'horizontal' : 'vertical'}
+        aria-valuenow={getValidNumber(ariaNow)}
+        aria-valuemin={getValidNumber(ariaMin)}
+        aria-valuemax={getValidNumber(ariaMax)}
       >
         {draggerIcon !== undefined ? (
           <div className={clsx(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>
@@ -287,7 +292,11 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             },
             getVisibilityClass(showStartCollapsibleIcon),
           )}
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle start panel"
           onClick={() => onCollapse(index, 'start')}
+          onKeyDown={(e) => onCollapseKeyDown(e, 'start')}
         >
           <span
             className={clsx(
@@ -311,7 +320,11 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             },
             getVisibilityClass(showEndCollapsibleIcon),
           )}
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle end panel"
           onClick={() => onCollapse(index, 'end')}
+          onKeyDown={(e) => onCollapseKeyDown(e, 'end')}
         >
           <span
             className={clsx(

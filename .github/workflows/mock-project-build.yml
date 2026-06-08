@@ -21,11 +21,11 @@ jobs:
     name: Build Project
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
-      - uses: actions/cache@v5
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -43,7 +43,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -57,7 +57,7 @@ jobs:
         if: ${{ failure() }}
         run: utx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
-      - uses: actions-cool/ci-notice@v1
+      - uses: actions-cool/ci-notice@89af4a933717226a062cbf65c439beda5eb8aa5d # v1
         if: ${{ failure() }}
         with:
           notice-types: dingding

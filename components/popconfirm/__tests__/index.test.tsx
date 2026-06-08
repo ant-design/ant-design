@@ -1,6 +1,5 @@
 import React from 'react';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
-import { warning } from '@rc-component/util';
+import { spyElementPrototype, warning } from '@rc-component/util';
 
 import Popconfirm from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
@@ -434,5 +433,30 @@ describe('Popconfirm', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  // Test `styles` (useMergeSemantic path) and `className` (direct injection path)
+  // to cover both ConfigProvider tooltip injection mechanisms
+  it('ConfigProvider tooltip config should not leak into Popconfirm', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          className: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        }}
+      >
+        <Popconfirm title="Are you sure?" open>
+          <span>Delete</span>
+        </Popconfirm>
+      </ConfigProvider>,
+    );
+
+    const popconfirm = container.querySelector('.ant-popover');
+    expect(popconfirm).not.toHaveClass('custom-tooltip-root');
+
+    const arrow = container.querySelector('.ant-popover-arrow');
+    expect(arrow).not.toHaveStyle({ background: 'red' });
   });
 });

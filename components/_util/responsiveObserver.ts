@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
+import { isFunction } from './is';
 
 export const responsiveArray = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
 export const responsiveArrayReversed = [...responsiveArray].reverse();
@@ -105,7 +106,9 @@ const useResponsiveObserver = () => {
       matchHandlers: {},
       dispatch(pointMap: ScreenMap) {
         screens = pointMap;
-        subscribers.forEach((func) => func(screens));
+        subscribers.forEach((func) => {
+          func(screens);
+        });
         return subscribers.size >= 1;
       },
       subscribe(func: SubscribeFunc): number {
@@ -129,7 +132,7 @@ const useResponsiveObserver = () => {
             this.dispatch({ ...screens, [screen]: matches });
           };
           const mql = window.matchMedia(mediaQuery);
-          if (typeof mql?.addEventListener === 'function') {
+          if (isFunction(mql.addEventListener)) {
             mql.addEventListener('change', listener);
           }
           this.matchHandlers[mediaQuery] = { mql, listener };
@@ -139,7 +142,7 @@ const useResponsiveObserver = () => {
       unregister() {
         Object.values(responsiveMap).forEach((mediaQuery) => {
           const handler = this.matchHandlers[mediaQuery];
-          if (typeof handler?.mql?.removeEventListener === 'function') {
+          if (isFunction(handler?.mql.removeEventListener)) {
             handler.mql.removeEventListener('change', handler?.listener);
           }
         });

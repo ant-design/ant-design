@@ -10,38 +10,28 @@ import type {
 } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
-import {
-  computeClosable,
-  mergeClassNames,
-  mergeStyles,
-  pickClosable,
-  resolveStyleOrClass,
-  useMergeSemantic,
-} from '../_util/hooks';
+import { computeClosable, pickClosable } from '../_util/hooks';
+import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useToken } from '../theme/internal';
+import useStackConfig from './hooks/useStackConfig';
 import type {
   ArgsProps,
-  NotificationClassNamesType,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemanticClassNames,
-  NotificationSemanticStyles,
-  NotificationStylesType,
 } from './interface';
-import { getCloseIcon, PureContent } from './PurePanel';
-import type { PureContentProps } from './PurePanel';
+import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
-import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
+import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
 
-const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
+const DEFAULT_STACK_CONFIG = { offset: 8 };
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -53,8 +43,6 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
-  classNames?: NotificationSemanticClassNames;
-  styles?: NotificationSemanticStyles;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -92,22 +80,32 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   } = props;
   const { getPrefixCls, getPopupContainer, direction } = useComponentConfig('notification');
   const { notification } = useContext(ConfigContext);
-  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
+
   const mergedDuration = useMemo(
-    () => (typeof duration === 'number' && duration > 0 ? duration : false),
+    () => (isNumber(duration) && duration > 0 ? duration : false),
     [duration],
   );
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [notification?.classNames, props?.classNames],
+    [notification?.styles, props?.styles],
+    {
+      props,
+    },
+  );
+
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
-    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+  const getStyle = () => getPlacementOffsetStyle(top, bottom);
 
   const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
+
+  // =============================== Stack ===============================
+  const stackConfig = useStackConfig(stack, DEFAULT_STACK_CONFIG);
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
@@ -121,24 +119,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     pauseOnHover,
     showProgress,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
     onAllRemoved,
     renderNotifications,
-    stack:
-      stack === false
-        ? false
-        : {
-            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
-            offset: 8,
-            gap: token.margin,
-          },
-  });
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    NotificationClassNamesType,
-    NotificationStylesType,
-    HolderProps
-  >([notification?.classNames, props?.classNames], [notification?.styles, props?.styles], {
-    props,
+    stack: stackConfig,
   });
 
   // ================================ Ref ================================
@@ -146,8 +131,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     notification,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
   }));
 
   return holder;
@@ -177,13 +160,7 @@ export function useInternalNotification(
         return;
       }
 
-      const {
-        open: originOpen,
-        prefixCls,
-        notification,
-        classNames: originClassNames,
-        styles: originStyles,
-      } = holderRef.current;
+      const { open: originOpen, prefixCls, notification } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
 
@@ -214,6 +191,7 @@ export function useInternalNotification(
         });
       }
       const mergedTitle = title ?? message;
+      const hasTitle = isReactRenderable(mergedTitle);
       const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(
@@ -231,7 +209,7 @@ export function useInternalNotification(
 
       const mergedClosable = rawClosable
         ? {
-            onClose: closable && typeof closable === 'object' ? closable.onClose : undefined,
+            onClose: isPlainObject(closable) ? closable.onClose : undefined,
             closeIcon: mergedCloseIcon,
             ...ariaProps,
           }
@@ -239,39 +217,31 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
-
-      const mergedClassNames: NotificationSemanticClassNames = mergeClassNames(
-        undefined,
-        originClassNames,
-        semanticClassNames,
-      );
-
-      const mergedStyles: NotificationSemanticStyles = mergeStyles(originStyles, semanticStyles);
+      const iconNode = icon || (type ? TypeIcon[type] : null);
+      const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        content: (
-          <PureContent
-            prefixCls={noticePrefixCls}
-            icon={icon}
-            type={type}
-            title={mergedTitle}
-            description={description}
-            actions={mergedActions}
-            role={role}
-            classNames={mergedClassNames as PureContentProps['classNames']}
-            styles={mergedStyles as PureContentProps['styles']}
-          />
-        ),
-        className: clsx(
-          { [`${noticePrefixCls}-${type}`]: type },
-          className,
-          contextClassName,
-          mergedClassNames.root,
-        ),
-        style: { ...contextStyle, ...mergedStyles.root, ...style },
+        title: hasTitle ? mergedTitle : null,
+        description,
+        icon: iconNode,
+        actions: mergedActions,
+        role,
+        classNames: {
+          ...semanticClassNames,
+          icon: clsx(typeIconCls, semanticClassNames.icon),
+        },
+        styles: {
+          ...semanticStyles,
+          root: {
+            ...contextStyle,
+            ...semanticStyles.root,
+          },
+        },
+        className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
+        style,
         closable: mergedClosable,
       });
     };

@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/bg_BG';
+import Pagination from '@rc-component/pagination/locale/bg_BG';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/bg_BG';
@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Затвори',
+    show: 'Покажи',
+    hide: 'Скрий',
   },
   Table: {
     filterTitle: 'Филтриране',

@@ -6,6 +6,27 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
+import type { AliasToken } from '../../theme/internal';
+import type { ComponentToken } from '../style';
+import { prepareComponentToken } from '../style';
+
+type PrepareTokenFn = (token: Partial<AliasToken>) => ComponentToken;
+
+describe('Result.prepareComponentToken', () => {
+  const fn = prepareComponentToken as unknown as PrepareTokenFn;
+
+  it('should calculate iconFontSize as number * 3 when fontSizeHeading3 is a number', () => {
+    expect(fn({ fontSizeHeading3: 20, fontSize: 14, paddingLG: 24 }).iconFontSize).toBe(60);
+  });
+
+  it('should generate calc expression when fontSizeHeading3 is a CSS variable string', () => {
+    expect(
+      fn({ fontSizeHeading3: 'var(--ant-font-size-heading-3)', fontSize: 14, paddingLG: 24 })
+        .iconFontSize,
+    ).toBe('calc(var(--ant-font-size-heading-3) * 3)');
+  });
+});
+
 describe('Result', () => {
   mountTest(Result);
   rtlTest(Result);
@@ -48,6 +69,11 @@ describe('Result', () => {
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
     const { container } = render(<Result status="404" />);
     expect(container.querySelectorAll('.ant-result-extra')).toHaveLength(0);
+  });
+
+  it('🙂  When title is undefined, the title dom is not rendered', () => {
+    const { container } = render(<Result status="404" />);
+    expect(container.querySelectorAll('.ant-result-title')).toHaveLength(0);
   });
 
   it('🙂  result should support className', () => {

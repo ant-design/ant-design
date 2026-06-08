@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/bn_BD';
+import Pagination from '@rc-component/pagination/locale/bn_BD';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/bn_BD';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'অনুগ্রহ করে নির্বাচন করুন',
     close: 'বন্ধ',
+    show: 'দেখান',
+    hide: 'লুকান',
   },
   Table: {
     filterTitle: 'ফিল্টার মেনু',

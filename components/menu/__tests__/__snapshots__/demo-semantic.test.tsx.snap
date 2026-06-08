@@ -77,7 +77,6 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
           <ul
             class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var semantic-mark-root"
             data-menu-list="true"
-            item="[object Object],[object Object],[object Object]"
             role="menu"
             style="width: 230px;"
             tabindex="0"
@@ -281,7 +280,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"

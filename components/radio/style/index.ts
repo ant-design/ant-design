@@ -223,6 +223,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
         transition: `all ${motionDurationMid}`,
+        flex: 'none',
 
         // Dot
         '&:after': {
@@ -255,7 +256,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
       },
 
       // ===================== Hover =====================
-      [`&:hover ${componentCls}`]: {
+      [`&:hover:not(${componentCls}-wrapper-disabled) ${componentCls}`]: {
         borderColor: colorPrimary,
       },
 

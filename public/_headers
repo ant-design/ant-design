@@ -1,0 +1,24 @@
+/
+  Link: </.well-known/api-catalog.json>; rel="https://ant.design/rel/api-catalog"; type="application/linkset+json"
+  Link: </.well-known/agent-skills/index.json>; rel="https://ant.design/rel/agent-skills"; type="application/json"
+  Link: </.well-known/mcp/server-card.json>; rel="https://ant.design/rel/mcp-server"; type="application/json"
+  Link: </llms.txt>; rel="service-doc"; type="text/plain"
+  Link: </.well-known/agent-card.json>; rel="describedby"; type="application/json"
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/.well-known/api-catalog.json
+  Content-Type: application/linkset+json
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json
+
+/.well-known/agent-skills/*/SKILL.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/mcp/server-card.json
+  Content-Type: application/json
+
+/.well-known/agent-card.json
+  Content-Type: application/json

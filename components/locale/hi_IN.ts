@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/hi_IN';
+import Pagination from '@rc-component/pagination/locale/hi_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/hi_IN';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'कृपया चुनें',
     close: 'बंद',
+    show: 'दिखाएं',
+    hide: 'छुपाएं',
   },
   Table: {
     filterTitle: 'सूची बंद करें',

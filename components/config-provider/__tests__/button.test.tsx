@@ -1,9 +1,9 @@
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import Button from 'antd/es/button';
 
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('ConfigProvider.button', () => {
   beforeEach(() => {

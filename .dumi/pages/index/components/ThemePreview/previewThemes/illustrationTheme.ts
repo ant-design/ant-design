@@ -3,8 +3,6 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-import type { UseTheme } from '.';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const illustrationBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
@@ -48,7 +46,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 });
 
-const useIllustrationTheme: UseTheme = () => {
+const useIllustrationTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(

@@ -116,7 +116,7 @@ describe('Drawer', () => {
     const onClose = jest.fn();
     const { container } = render(
       <ConfigProvider drawer={{ mask: { closable: false } }}>
-        <DrawerTest onClose={onClose} maskClosable={true} />
+        <DrawerTest onClose={onClose} maskClosable />
       </ConfigProvider>,
     );
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);

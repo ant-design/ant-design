@@ -120,4 +120,31 @@ describe('Transfer.List', () => {
     fireEvent.click(container.querySelector('.custom-list-body')!);
     expect(onItemSelect).toHaveBeenCalledWith('a', false);
   });
+
+  it('should fallback to number key as text when render result is non-text', () => {
+    const { container } = render(<Section {...listCommonProps} dataSource={[{ key: 100 }]} />);
+    const element = container.querySelector<HTMLElement>('.ant-transfer-list-content-item');
+    expect(element).toHaveAttribute('title', '100');
+  });
+
+  it('should fallback to empty string text when render result is non-text', () => {
+    const handleFilter = jest.fn();
+    const { container } = render(
+      <Section
+        {...listCommonProps}
+        dataSource={[{ key: {} as unknown as React.Key } as KeyWiseTransferItem]}
+        showSearch
+        handleFilter={handleFilter}
+        handleClear={jest.fn()}
+        render={() => null}
+      />,
+    );
+
+    fireEvent.change(container.querySelector('.ant-transfer-list-search input')!, {
+      target: { value: 'x' },
+    });
+
+    expect(handleFilter).toHaveBeenCalled();
+    expect(container.querySelector('.ant-transfer-list-body-not-found')).toBeTruthy();
+  });
 });

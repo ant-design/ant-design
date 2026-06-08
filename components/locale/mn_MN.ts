@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/mn_MN';
+import Pagination from '@rc-component/pagination/locale/mn_MN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/mn_MN';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Сонгоно уу',
     close: 'Хаах',
+    show: 'Харуулах',
+    hide: 'Нуух',
   },
   Table: {
     filterTitle: 'Хайх цэс',

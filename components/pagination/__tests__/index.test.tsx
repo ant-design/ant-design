@@ -1,5 +1,4 @@
 import React from 'react';
-import type { OptionFC } from '@rc-component/select/lib/Option';
 
 import type { PaginationProps } from '..';
 import Pagination from '..';
@@ -58,7 +57,7 @@ describe('Pagination', () => {
   it('should support custom selectComponentClass', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
+    const CustomSelect: React.FC<{ className?: string }> & { Option: typeof Select.Option } = ({
       className,
       ...props
     }) => <Select className={`${className} custom-select`} {...props} />;

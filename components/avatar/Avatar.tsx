@@ -1,8 +1,9 @@
 import * as React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -113,12 +114,12 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
 
-  const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
+  const needResponsive = Object.keys(isPlainObject(size) ? size || {} : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
   );
   const screens = useBreakpoint(needResponsive);
   const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
-    if (typeof size !== 'object') {
+    if (!isPlainObject(size)) {
       return {};
     }
 
@@ -174,14 +175,13 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     hashId,
   );
 
-  const sizeStyle: React.CSSProperties =
-    typeof size === 'number'
-      ? {
-          width: size,
-          height: size,
-          fontSize: icon ? size / 2 : 18,
-        }
-      : {};
+  const sizeStyle: React.CSSProperties = isNumber(size)
+    ? {
+        width: size,
+        height: size,
+        fontSize: icon ? size / 2 : 18,
+      }
+    : {};
 
   let childrenToRender: React.ReactNode;
   if (typeof src === 'string' && isImgExist) {
