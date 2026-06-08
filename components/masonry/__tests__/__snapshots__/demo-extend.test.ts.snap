@@ -664,6 +664,26 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
 
 exports[`renders components/masonry/demo/image.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/masonry/demo/masonry-virtual.tsx extend context correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height: 600px; display: block; overflow: hidden;"
+>
+  <div
+    class="ant-masonry-virtual-holder"
+    data-testid="virtual-list"
+    style="height: 100%; overflow-y: auto; overflow-x: hidden;"
+  >
+    <div
+      class="ant-masonry-virtual-inner"
+      style="height: 0px; position: relative;"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/masonry/demo/masonry-virtual.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/masonry/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-masonry css-var-test-id"

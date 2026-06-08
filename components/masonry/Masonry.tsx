@@ -22,6 +22,8 @@ import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
+import { getEstimatedItemHeight, getMasonryItemStyle } from './utils';
+import VirtualMasonry from './VirtualMasonry';
 import useStyle from './style';
 
 export type Gap = number | undefined;
@@ -66,6 +68,9 @@ export interface MasonryProps<ItemDataType = any> {
   onLayoutChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
 
   fresh?: boolean;
+
+  /** Enable virtualized rendering for large data sets */
+  virtual?: boolean;
 }
 
 export interface MasonryRef {
@@ -73,6 +78,16 @@ export interface MasonryRef {
 }
 
 type ItemColumnsType = [item: MasonryItemType, column: number];
+export interface MasonryRenderItem<ItemDataType = unknown> {
+  item: MasonryItemType<ItemDataType>;
+  itemIndex: number;
+  itemKey: React.Key;
+  key: React.Key;
+  position?: {
+    column: number;
+    top: number;
+  };
+}
 
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
@@ -88,6 +103,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     itemRender,
     onLayoutChange,
     fresh,
+    virtual,
   } = props;
 
   // ======================= MISC =======================
@@ -166,27 +182,78 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
+  const scrollingRef = React.useRef(false);
+  const pendingCollectRef = React.useRef(false);
 
   const collectItemSize = useDelay(() => {
-    const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
-      const itemKey = item.key ?? index;
-      const itemEle = getItemRef(itemKey);
-      const rect = itemEle?.getBoundingClientRect();
-      return [itemKey, rect ? rect.height : 0, item.column];
-    });
+    if (virtual && scrollingRef.current) {
+      pendingCollectRef.current = true;
+      return;
+    }
 
-    setItemHeights((prevItemsHeight) =>
-      isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
-    );
+    setItemHeights((prevItemsHeight) => {
+      const prevHeightMap = new Map<React.Key, number>();
+      prevItemsHeight.forEach(([key, height]) => {
+        prevHeightMap.set(key, height);
+      });
+      const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
+        const itemKey = item.key ?? index;
+        const itemEle = getItemRef(itemKey);
+        const rect = itemEle?.getBoundingClientRect();
+
+        // In virtual mode, invisible items are unmounted.
+        // Keep the previous measured height to avoid layout jump.
+        const measuredHeight = rect?.height ?? item.height ?? prevHeightMap.get(itemKey) ?? 0;
+
+        return [itemKey, measuredHeight, item.column];
+      });
+
+      return isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight;
+    });
   });
 
+  const estimatedItemHeight = React.useMemo(
+    () => getEstimatedItemHeight(itemHeights),
+    [itemHeights],
+  );
+
+  const layoutItemHeights = React.useMemo<ItemHeightData[]>(() => {
+    if (!virtual) {
+      return itemHeights;
+    }
+
+    const declaredHeightMap = new Map<React.Key, number>();
+    mergedItems.forEach((item, index) => {
+      const key = item.key ?? index;
+      if (item.height && item.height > 0) {
+        declaredHeightMap.set(key, item.height);
+      }
+    });
+
+    return itemHeights.map(([key, height, column]) => [
+      key,
+      height > 0 ? height : (declaredHeightMap.get(key) ?? estimatedItemHeight),
+      column,
+    ]);
+  }, [estimatedItemHeight, itemHeights, mergedItems, virtual]);
+
   const [itemPositions, totalHeight] = usePositions(
-    itemHeights,
+    layoutItemHeights,
     columnCount,
     verticalGutter as number,
   );
 
-  const itemWithPositions = React.useMemo(
+  const measuredItemKeys = React.useMemo(() => {
+    const keys = new Set<React.Key>();
+    itemHeights.forEach(([key, height]) => {
+      if (height > 0) {
+        keys.add(key);
+      }
+    });
+    return keys;
+  }, [itemHeights]);
+
+  const itemWithPositions = React.useMemo<MasonryRenderItem[]>(
     () =>
       mergedItems.map((item, index) => {
         const key = item.key ?? index;
@@ -211,22 +278,42 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
-      setItemColumns((prevItemColumns) => {
-        const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
-          item,
-          position!.column,
-        ]);
-        return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
-      });
+    if (!onLayoutChange) {
+      return;
     }
-  }, [itemWithPositions]);
+
+    const layoutItems = virtual
+      ? itemWithPositions.filter(({ key, position }) => measuredItemKeys.has(key) && position)
+      : itemWithPositions;
+
+    if (virtual) {
+      if (layoutItems.length === 0) {
+        return;
+      }
+    } else if (!itemWithPositions.every(({ position }) => position)) {
+      return;
+    }
+
+    setItemColumns((prevItemColumns) => {
+      const nextItemColumns = layoutItems.map<ItemColumnsType>(({ item, position }) => [
+        item,
+        position!.column,
+      ]);
+      return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
+    });
+  }, [itemWithPositions, measuredItemKeys, onLayoutChange, virtual]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && items && items.length === itemColumns.length) {
-      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    if (!onLayoutChange || !items?.length || itemColumns.length === 0) {
+      return;
     }
-  }, [itemColumns]);
+
+    if (!virtual && items.length !== itemColumns.length) {
+      return;
+    }
+
+    onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+  }, [itemColumns, items, onLayoutChange, virtual]);
 
   // ====================== Render ======================
   return (
@@ -243,56 +330,105 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{ height: totalHeight, ...mergedStyles.root, ...contextStyle, ...style }}
+        style={
+          virtual
+            ? {
+                ...mergedStyles.root,
+                ...contextStyle,
+                ...style,
+                display:
+                  style?.display ?? contextStyle?.display ?? mergedStyles.root?.display ?? 'block',
+                overflow:
+                  style?.overflow ??
+                  contextStyle?.overflow ??
+                  mergedStyles.root?.overflow ??
+                  'hidden',
+                ...(style?.height !== undefined ? { height: style.height } : null),
+              }
+            : {
+                height: totalHeight,
+                ...mergedStyles.root,
+                ...contextStyle,
+                ...style,
+              }
+        }
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}
       >
-        <CSSMotionList
-          keys={itemWithPositions}
-          component={false}
-          // Motion config
-          motionAppear
-          motionLeave
-          motionName={`${prefixCls}-item-fade`}
-        >
-          {(motionInfo, motionRef) => {
-            const {
-              item,
-              itemKey,
-              position = {},
-              itemIndex,
+        {virtual ? (
+          <VirtualMasonry
+            prefixCls={prefixCls}
+            itemWithPositions={itemWithPositions}
+            setItemRef={setItemRef}
+            itemRender={itemRender}
+            mergedClassName={mergedClassNames.item}
+            mergedStyle={mergedStyles.item}
+            collectItemSize={collectItemSize}
+            horizontalGutter={horizontalGutter as number}
+            verticalGutter={verticalGutter as number}
+            columnCount={columnCount}
+            totalHeight={totalHeight}
+            itemHeights={itemHeights}
+            estimatedItemHeight={estimatedItemHeight}
+            onScrollStateChange={(scrolling) => {
+              scrollingRef.current = scrolling;
+              if (!scrolling && pendingCollectRef.current) {
+                pendingCollectRef.current = false;
+                collectItemSize();
+              }
+            }}
+            varName={varName}
+            varRef={varRef}
+          />
+        ) : (
+          <CSSMotionList
+            keys={itemWithPositions}
+            component={false}
+            // Motion config
+            motionAppear
+            motionLeave
+            motionName={`${prefixCls}-item-fade`}
+          >
+            {(motionInfo, motionRef) => {
+              const {
+                item,
+                itemKey,
+                position = {},
+                itemIndex,
 
-              key,
-              className: motionClassName,
-              style: motionStyle,
-            } = motionInfo;
-            const { column: columnIndex = 0 } = position;
+                key,
+                className: motionClassName,
+                style: motionStyle,
+              } = motionInfo;
+              const { column: columnIndex = 0 } = position;
 
-            const itemStyle: CSSProperties = {
-              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
-              top: position.top,
-              position: 'absolute',
-            };
+              const itemStyle = getMasonryItemStyle({
+                varName,
+                varRef,
+                horizontalGutter: horizontalGutter as number,
+                columnCount,
+                columnIndex,
+                top: position.top,
+              });
 
-            return (
-              <MasonryItem
-                prefixCls={prefixCls}
-                key={key}
-                item={item}
-                style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
-                className={clsx(mergedClassNames.item, motionClassName)}
-                ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
-                index={itemIndex}
-                itemRender={itemRender}
-                column={columnIndex}
-                onResize={fresh ? collectItemSize : null}
-              />
-            );
-          }}
-        </CSSMotionList>
+              return (
+                <MasonryItem
+                  prefixCls={prefixCls}
+                  key={key}
+                  item={item}
+                  style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
+                  className={clsx(mergedClassNames.item, motionClassName)}
+                  ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
+                  index={itemIndex}
+                  itemRender={itemRender}
+                  column={columnIndex}
+                  onResize={fresh ? collectItemSize : null}
+                />
+              );
+            }}
+          </CSSMotionList>
+        )}
       </div>
     </ResizeObserver>
   );

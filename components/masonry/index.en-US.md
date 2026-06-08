@@ -24,6 +24,7 @@ A masonry layout component for displaying content with different heights.
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/image.tsx">Image</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
+<code src="./demo/masonry-virtual.tsx">Virtual</code>
 <code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/fresh.tsx" debug>Fresh</code>
 
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |  |
+| virtual | Enable virtualized rendering for large datasets | `boolean` | `false` | 6.0.0 |
 
 ### MasonryItem
 
