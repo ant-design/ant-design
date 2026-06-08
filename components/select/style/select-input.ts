@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import genSelectInputCustomizeStyle from './select-input-customize';
@@ -418,8 +418,16 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {},
         {
           [`&:not(${componentCls}-disabled):has(input:focus-visible)`]: {
-            ...genFocusOutline(token),
+            boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.activeOutlineColor}`,
           },
+          [`&${componentCls}-status-error:not(${componentCls}-disabled):has(input:focus-visible)`]:
+            {
+              boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.colorErrorOutline}`,
+            },
+          [`&${componentCls}-status-warning:not(${componentCls}-disabled):has(input:focus-visible)`]:
+            {
+              boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.colorWarningOutline}`,
+            },
         },
       ),
 
