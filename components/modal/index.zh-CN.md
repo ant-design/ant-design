@@ -50,11 +50,11 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  | × |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | × |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  | × |
-| centered | 垂直居中展示 Modal | boolean | false |  | × |
+| centered | 垂直居中展示 Modal | boolean | false |  | 5.24.0 |
 | classNames | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
-| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - | × |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - | 5.16.0 |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  | 5.14.0 |
 | confirmLoading | 确定按钮 loading | boolean | false |  | × |
 | ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  | × |
@@ -65,10 +65,10 @@ demo:
 | focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 | 6.4.0 |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  | × |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  | × |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | × |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | 6.0.0，mask.closable: 6.3.0 |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - | × |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 | × |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | × |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
 | okText | 确认按钮文字 | ReactNode | `确定` |  | × |
 | okType | 确认按钮类型 | string | `primary` |  | × |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  | 5.7.0 |

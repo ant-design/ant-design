@@ -46,7 +46,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.21.0 |
 | collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 | × |
-| ~collapsibleIcon~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
+| ~~collapsibleIcon~~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
 | destroyOnHidden | 折叠时（size 为 0）销毁面板内容，应用于所有面板，可在单个面板上覆盖 | `boolean` | `false` | 6.4.0 | × |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 | × |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - | × |

@@ -45,7 +45,7 @@ group:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | :-- | :-- | :-- | :-- | :-- | --- |
 | allowClear | 允许清除选择的颜色 | boolean | false |  | × |
-| arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true |  | × |
+| arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true |  | 6.3.0 |
 | children | 颜色选择器的触发器 | React.ReactNode | - |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.7.0 |
 | defaultValue | 颜色默认的值 | [ColorType](#colortype) | - |  | × |

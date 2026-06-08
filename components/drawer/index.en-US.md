@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog, please use `size` instead | string \| number | 378 |  | × |
 | keyboard | Whether support press esc to close | boolean | true |  | × |
 | loading | Show the Skeleton | boolean | false | 5.17.0 | × |
-| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.3.0 | × |
+| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.3.0 | 6.0.0, mask.closable: 6.3.0 |
 | ~~maskClosable~~ | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  | × |
 | ~~maskStyle~~ | Style of the drawer mask, please use `styles.mask` instead | CSSProperties | - | - | × |
 | maxSize | Maximum size (width or height depending on `placement`) when resizable | number | - | 6.0.0 | × |

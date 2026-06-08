@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | :-- | :-- | :-- | :-- | :-- | --- |
 | allowClear | 	Allow clearing color selected | boolean | false |  | × |
-| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true |  | × |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true |  | 6.3.0 |
 | children | Trigger of ColorPicker | React.ReactNode | - |  | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.7.0 |
 | defaultValue | Default value of color | [ColorType](#colortype) | - |  | × |

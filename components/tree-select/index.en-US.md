@@ -94,7 +94,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeNodeLabelProp | Will render as content of select | string | `title` |  | × |
 | treeTitleRender | Customize tree node title render | (nodeData) => ReactNode | - | 5.12.0 | × |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  | × |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | × |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 | × |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  | × |
 | ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | function(open) | - |  | × |

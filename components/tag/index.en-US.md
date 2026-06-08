@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClose | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | target | Same as target attribute of a, works when href is specified | string | - | 6.0.0 | × |
-| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 | × |
+| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 | 6.0.0 |
 | ~~bordered~~ | Whether has border style, please use `variant="filled"` instead | boolean | true | - | × |
 
 ### Tag.CheckableTag
