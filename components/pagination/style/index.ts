@@ -377,7 +377,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           textAlign: 'center',
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
-          '& svg': {
+          svg: {
             width: sizeLG,
             height: sizeLG,
           },
