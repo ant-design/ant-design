@@ -281,7 +281,7 @@ export type NotificationConfig = ComponentStyleConfig &
   Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type TagConfig = ComponentStyleConfig &
-  Pick<TagProps, 'variant' | 'closeIcon' | 'closable' | 'classNames' | 'styles'>;
+  Pick<TagProps, 'variant' | 'closeIcon' | 'closable' | 'classNames' | 'styles' | 'autoContrast'>;
 
 export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;

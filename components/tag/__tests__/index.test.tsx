@@ -409,6 +409,94 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-solid');
   });
 
+  it('supports autoContrast for custom solid color', () => {
+    const { container } = render(
+      <Tag color="#777777" variant="solid" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      backgroundColor: 'rgb(119, 119, 119)',
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('keeps original custom color when autoContrast is disabled', () => {
+    const { container } = render(
+      <Tag color="#f59e0b" variant="filled">
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      color: 'rgb(245, 158, 11)',
+    });
+  });
+
+  it('supports autoContrast for custom filled color', () => {
+    const { container } = render(
+      <Tag color="#f59e0b" variant="filled" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('supports autoContrast for custom outlined color', () => {
+    const { container } = render(
+      <Tag color="#7c3aed" variant="outlined" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      borderColor: 'rgb(124, 58, 237)',
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('keeps solid custom text color unset when autoContrast is disabled', () => {
+    const { container } = render(
+      <Tag color="#7c3aed" variant="solid">
+        tag
+      </Tag>,
+    );
+    const tagNode = container.querySelector('.ant-tag');
+    expect(tagNode).toHaveStyle({
+      backgroundColor: 'rgb(124, 58, 237)',
+    });
+    expect(tagNode).not.toHaveStyle({ color: 'rgb(0, 0, 0)' });
+  });
+
+  it('respects ConfigProvider tag autoContrast', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ autoContrast: true }}>
+        <Tag color="#777777" variant="solid">
+          tag
+        </Tag>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      backgroundColor: 'rgb(119, 119, 119)',
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('Tag autoContrast overrides ConfigProvider tag autoContrast', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ autoContrast: true }}>
+        <Tag color="#7c3aed" variant="solid" autoContrast={false}>
+          tag
+        </Tag>
+      </ConfigProvider>,
+    );
+    const tagNode = container.querySelector('.ant-tag');
+    expect(tagNode).toHaveStyle({
+      backgroundColor: 'rgb(124, 58, 237)',
+    });
+    expect(tagNode).not.toHaveStyle({ color: 'rgb(0, 0, 0)' });
+  });
+
   describe('CheckableTagGroup', () => {
     it('should check single tag in group', async () => {
       const onChange = jest.fn();

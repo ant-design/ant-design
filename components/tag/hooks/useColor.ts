@@ -9,12 +9,52 @@ import { isPresetColor, isPresetStatusColor } from '../../_util/colors';
  * which is used to flatten the compatibility requirements.
  */
 export default function useColor(
-  props: Pick<TagProps, 'color' | 'variant' | 'bordered'>,
+  props: Pick<TagProps, 'color' | 'variant' | 'bordered' | 'autoContrast'>,
   contextVariant?: TagProps['variant'],
 ) {
-  const { color, variant, bordered } = props;
+  const { color, variant, bordered, autoContrast } = props;
 
   return React.useMemo(() => {
+    const toLinear = (value: number) => {
+      const channel = value / 255;
+      return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    };
+
+    const getRelativeLuminance = (inputColor: string) => {
+      const { r, g, b } = new FastColor(inputColor).toRgb();
+      return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+    };
+
+    const getContrastRatio = (leftColor: string, rightColor: string) => {
+      const left = getRelativeLuminance(leftColor);
+      const right = getRelativeLuminance(rightColor);
+      const [lighter, darker] = left >= right ? [left, right] : [right, left];
+
+      return (lighter + 0.05) / (darker + 0.05);
+    };
+
+    const getReadableColor = (bgColor: string, baseColor: string) => {
+      const hsl = new FastColor(baseColor).toHsl();
+      const candidates = [
+        baseColor,
+        new FastColor({ ...hsl, l: Math.max(0, hsl.l * 0.35) }).toHexString(),
+        new FastColor({ ...hsl, l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35) }).toHexString(),
+        '#000000',
+        '#ffffff',
+      ];
+      let bestColor = '#000000';
+      let bestContrast = getContrastRatio(bgColor, bestColor);
+      for (let index = 0; index < candidates.length; index += 1) {
+        const current = candidates[index];
+        const contrast = getContrastRatio(bgColor, current);
+        if (contrast > bestContrast) {
+          bestColor = current;
+          bestContrast = contrast;
+        }
+      }
+      return bestColor;
+    };
+
     const isInverseColor = color?.endsWith('-inverse');
 
     // =================== Variant ===================
@@ -53,11 +93,23 @@ export default function useColor(
     if (!nextIsPreset && !nextIsStatus && nextColor) {
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
+        if (autoContrast) {
+          if (getContrastRatio(nextColor, '#ffffff') >= 4.5) {
+            tagStyle.color = '#ffffff';
+          } else if (getContrastRatio(nextColor, '#222222') >= 4.5) {
+            tagStyle.color = '#222222';
+          } else if (getContrastRatio(nextColor, '#111111') >= 4.5) {
+            tagStyle.color = '#111111';
+          } else {
+            tagStyle.color = '#000000';
+          }
+        }
       } else {
         const hsl = new FastColor(nextColor).toHsl();
         hsl.l = 0.95;
-        tagStyle.backgroundColor = new FastColor(hsl).toHexString();
-        tagStyle.color = color;
+        const backgroundColor = new FastColor(hsl).toHexString();
+        tagStyle.backgroundColor = backgroundColor;
+        tagStyle.color = autoContrast ? getReadableColor(backgroundColor, nextColor) : color;
 
         if (nextVariant === 'outlined') {
           tagStyle.borderColor = color;
@@ -66,5 +118,5 @@ export default function useColor(
     }
 
     return [nextVariant, nextColor, nextIsPreset, nextIsStatus, tagStyle] as const;
-  }, [color, variant, bordered, contextVariant]);
+  }, [color, variant, bordered, autoContrast, contextVariant]);
 }

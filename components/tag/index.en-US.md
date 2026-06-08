@@ -39,6 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoContrast | Auto adjust text color for custom color Tag to improve WCAG contrast. Can be set globally with `ConfigProvider` `tag={{ autoContrast: true }}` | boolean | false | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
 | color | Color of the Tag | string | `default` when `variant="solid"` | `solid` default color: 6.4.0 |
