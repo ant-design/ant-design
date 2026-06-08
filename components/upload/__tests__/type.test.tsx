@@ -162,11 +162,12 @@ describe('Upload.typescript', () => {
   it('itemRender', () => {
     const upload = (
       <Upload
-        itemRender={(node, file, list, actions) => (
+        itemRender={(node, file, list, actions, info) => (
           <div>
             {node}
             {file.name}
             {list.length}
+            {info.error}
             <span onClick={actions.remove}>remove</span>
             <span onClick={actions.download}>download</span>
             <span onClick={actions.preview}>preview</span>

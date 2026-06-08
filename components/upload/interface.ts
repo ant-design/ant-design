@@ -73,6 +73,10 @@ export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card' | 'picture-circle';
 export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 
+export interface ItemRenderInfo {
+  error: React.ReactNode;
+}
+
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
   file: UploadFile<T>,
@@ -82,6 +86,7 @@ export type ItemRender<T = any> = (
     preview: () => void;
     remove: () => void;
   },
+  info: ItemRenderInfo,
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
