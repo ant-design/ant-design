@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isReactRenderable } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -19,18 +20,18 @@ interface OverlayProps {
 export const Overlay: React.FC<OverlayProps> = (props) => {
   const { title, content, prefixCls, classNames, styles } = props;
 
-  if (!title && !content) {
+  if (!isReactRenderable(title) && !isReactRenderable(content)) {
     return null;
   }
 
   return (
     <>
-      {title && (
+      {isReactRenderable(title) && (
         <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
           {title}
         </div>
       )}
-      {content && (
+      {isReactRenderable(content) && (
         <div className={clsx(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
           {content}
         </div>
