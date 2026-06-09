@@ -40,8 +40,8 @@ group:
 | alt | 图像无法显示时的替代文本 | string | - |  | × |
 | gap | 字符类型距离左右两侧边界单位像素 | number | 4 | 4.3.0 | × |
 | icon | 设置头像的自定义图标 | ReactNode | - |  | × |
-| shape | 指定头像的形状 | `circle` \| `square` | `circle` |  | × |
-| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | 4.7.0 | × |
+| shape | 指定头像的形状 | `circle` \| `square` | `circle` |  | 5.8.0 |
+| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | 4.7.0 | 5.8.0 |
 | src | 图片类头像的资源地址或者图片元素 | string \| ReactNode | - | ReactNode: 4.8.0 | × |
 | srcSet | 设置图片类头像响应式资源地址 | string | - |  | × |
 | draggable | 图片是否允许拖动 | boolean \| `'true'` \| `'false'` | true |  | × |
