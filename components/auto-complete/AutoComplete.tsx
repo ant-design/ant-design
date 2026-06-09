@@ -19,6 +19,8 @@ import type {
   SelectSemanticAllType,
 } from '../select';
 import Select from '../select';
+import { getInputPropsInput } from '../select/inputProps';
+import type { SelectInputComponent } from '../select/inputProps';
 
 export type AutoCompleteSemanticType = {
   classNames?: {
@@ -58,7 +60,15 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames' | 'showSearch' | 'optionFilterProp' | 'filterSort'
+    | 'loading'
+    | 'mode'
+    | 'optionLabelProp'
+    | 'labelInValue'
+    | 'styles'
+    | 'classNames'
+    | 'showSearch'
+    | 'optionFilterProp'
+    | 'filterSort'
   > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
@@ -80,7 +90,12 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
   onOpenChange?: (visible: boolean) => void;
-  showSearch?: boolean | Pick<SearchConfig<OptionType> & { searchIcon?: React.ReactNode }, 'filterOption' | 'onSearch' | 'searchIcon'>;
+  showSearch?:
+    | boolean
+    | Pick<
+        SearchConfig<OptionType> & { searchIcon?: React.ReactNode },
+        'filterOption' | 'onSearch' | 'searchIcon'
+      >;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -109,6 +124,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     classNames,
     popupMatchSelectWidth,
     dropdownMatchSelectWidth,
+    inputProps,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
@@ -127,7 +143,21 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const inputPropsRef = React.useRef(inputProps);
+  inputPropsRef.current = inputProps;
+
+  const inputComponentRef = React.useRef<SelectInputComponent>(customizeInput);
+  inputComponentRef.current = customizeInput;
+
+  const InputPropsInput = React.useMemo(
+    () => getInputPropsInput(inputComponentRef, inputPropsRef),
+    [],
+  );
+  const hasInputProps = Object.prototype.hasOwnProperty.call(props, 'inputProps');
+
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => (hasInputProps ? <InputPropsInput /> : customizeInput!)
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;

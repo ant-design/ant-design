@@ -96,6 +96,183 @@ describe('Select', () => {
     expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
+  it('should pass inputProps to inner input', () => {
+    const { container } = render(
+      <Select inputProps={{ autoComplete: 'new-password' }} showSearch />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(container.querySelector('.ant-select')).not.toHaveAttribute('autocomplete');
+    expect(input).toHaveAttribute('autocomplete', 'new-password');
+  });
+
+  it('should merge inputProps className with inner input className', () => {
+    const { container } = render(
+      <Select
+        components={{
+          input: <input className="origin-input" />,
+        }}
+        inputProps={{
+          className: 'custom-input-props',
+        }}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(input).toHaveClass('ant-select-input');
+    expect(input).toHaveClass('origin-input');
+    expect(input).toHaveClass('custom-input-props');
+  });
+
+  it('should compose inputProps event handlers with inner input handlers', () => {
+    const handlerCalls: string[] = [];
+    const originOnChange = jest.fn(() => {
+      handlerCalls.push('origin');
+    });
+    const inputPropsOnChange = jest.fn(() => {
+      handlerCalls.push('inputProps');
+    });
+    const onSearch = jest.fn((searchValue: string) => {
+      handlerCalls.push(`internal:${searchValue}`);
+    });
+    const { container } = render(
+      <Select
+        components={{
+          input: <input className="origin-input" onChange={originOnChange} />,
+        }}
+        inputProps={{
+          onChange: inputPropsOnChange,
+        }}
+        onSearch={onSearch}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    fireEvent.change(input, { target: { value: '1' } });
+
+    expect(originOnChange).toHaveBeenCalledTimes(1);
+    expect(inputPropsOnChange).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch.mock.calls[0][0]).toBe('1');
+    expect(handlerCalls).toEqual(['internal:1', 'origin', 'inputProps']);
+  });
+
+  it('should ignore empty inputProps event handlers', () => {
+    const inputPropsOnChange = jest.fn();
+    const { container } = render(
+      <Select
+        inputProps={{ onFocus: undefined, onChange: inputPropsOnChange }}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    fireEvent.focus(input);
+    fireEvent.change(input, { target: { value: '1' } });
+
+    expect(input).toHaveClass('ant-select-input');
+    expect(inputPropsOnChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('should keep generated input accessibility props authoritative', () => {
+    const { container } = render(
+      <Select
+        inputProps={{ role: 'textbox', inputMode: 'numeric' }}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(input).toHaveAttribute('role', 'combobox');
+    expect(input).toHaveAttribute('inputmode', 'numeric');
+  });
+
+  it('should keep input element stable when inputProps toggles', () => {
+    const { container, rerender } = render(
+      <Select inputProps={undefined} options={[{ label: '1', value: '1' }]} showSearch />,
+    );
+    const input = container.querySelector('input')!;
+
+    input.focus();
+
+    rerender(
+      <Select
+        inputProps={{ autoComplete: 'new-password' }}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+
+    expect(container.querySelector('input')).toBe(input);
+    expect(input).toHaveFocus();
+    expect(input).toHaveAttribute('autocomplete', 'new-password');
+  });
+
+  it('should preserve disabled state when inputProps disabled is false', () => {
+    const { container } = render(
+      <Select
+        disabled
+        inputProps={{ disabled: false }}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(container.querySelector('.ant-select-disabled')).toBeTruthy();
+    expect(input).toBeDisabled();
+  });
+
+  it('should preserve disabled state when inputProps disabled is true', () => {
+    const { container } = render(
+      <Select inputProps={{ disabled: true }} options={[{ label: '1', value: '1' }]} showSearch />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(input).toBeDisabled();
+  });
+
+  it('should preserve readOnly state when merging inputProps', () => {
+    const { container, rerender } = render(
+      <Select inputProps={{ readOnly: false }} options={[{ label: '1', value: '1' }]} />,
+    );
+    let input = container.querySelector('input')!;
+
+    expect(input).toHaveAttribute('readonly');
+
+    rerender(
+      <Select inputProps={{ readOnly: true }} options={[{ label: '1', value: '1' }]} showSearch />,
+    );
+    input = container.querySelector('input')!;
+
+    expect(input).toHaveAttribute('readonly');
+  });
+
+  it('should preserve control props from custom input element', () => {
+    const originOnChange = jest.fn();
+    const { container } = render(
+      <Select
+        components={{
+          input: <input disabled={false} value="origin" onChange={originOnChange} />,
+        }}
+        disabled
+        inputProps={{ autoComplete: 'new-password' }}
+        options={[{ label: '1', value: '1' }]}
+        showSearch
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    expect(input).toBeDisabled();
+    expect(input).not.toHaveValue('origin');
+    expect(input).toHaveAttribute('autocomplete', 'new-password');
+  });
+
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const { rerender, asFragment } = render(

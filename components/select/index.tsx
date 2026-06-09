@@ -34,6 +34,8 @@ import { FormItemInputContext } from '../form/context';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
+import { getInputPropsInput } from './inputProps';
+import type { SelectInputComponent } from './inputProps';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
@@ -42,7 +44,13 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps, SearchConfig };
+export type {
+  BaseOptionType,
+  DefaultOptionType,
+  OptionProps,
+  BaseSelectRef as RefSelectProps,
+  SearchConfig,
+};
 
 export interface LabeledValue {
   key?: string;
@@ -117,6 +125,8 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  /** Pass native props to the internal search input. */
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 export interface SelectProps<
@@ -199,6 +209,8 @@ const InternalSelect = <
     classNames,
     clearIcon,
     showSearch,
+    inputProps,
+    components,
     ...rest
   } = props;
 
@@ -315,6 +327,27 @@ const InternalSelect = <
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const inputPropsRef = React.useRef(inputProps);
+  inputPropsRef.current = inputProps;
+
+  const inputComponentRef = React.useRef<SelectInputComponent>(components?.input);
+  inputComponentRef.current = components?.input;
+
+  const inputPropsInput = React.useMemo(
+    () => getInputPropsInput(inputComponentRef, inputPropsRef),
+    [],
+  );
+  const hasInputProps = Object.prototype.hasOwnProperty.call(props, 'inputProps');
+  const mergedComponents = React.useMemo(
+    () =>
+      !hasInputProps
+        ? components
+        : {
+            ...components,
+            input: inputPropsInput,
+          },
+    [hasInputProps, components, inputPropsInput],
+  );
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -435,6 +468,7 @@ const InternalSelect = <
       styles={mergedStyles}
       showSearch={mergedShowSearch}
       {...selectProps}
+      components={mergedComponents}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}

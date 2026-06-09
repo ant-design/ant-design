@@ -5,7 +5,7 @@ import AutoComplete from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
@@ -96,6 +96,91 @@ describe('AutoComplete', () => {
       </AutoComplete>,
     );
     expect(screen.getByRole('combobox')).toHaveClass('custom');
+  });
+
+  it('should pass inputProps to custom input', () => {
+    render(
+      <AutoComplete
+        inputProps={{
+          autoComplete: 'new-password',
+          className: 'custom-input-props',
+        }}
+      >
+        <Input className="custom" />
+      </AutoComplete>,
+    );
+    const input = screen.getByRole('combobox');
+
+    expect(input).toHaveAttribute('autocomplete', 'new-password');
+    expect(input).toHaveClass('custom');
+    expect(input).toHaveClass('custom-input-props');
+  });
+
+  it('should preserve disabled custom input with inputProps', () => {
+    render(
+      <AutoComplete inputProps={{ autoComplete: 'off' }}>
+        <Input disabled />
+      </AutoComplete>,
+    );
+    const input = screen.getByRole('combobox');
+
+    expect(input).toBeDisabled();
+    expect(input).toHaveAttribute('autocomplete', 'off');
+  });
+
+  it('should keep custom input element stable when inputProps toggles', () => {
+    const { rerender } = render(
+      <AutoComplete inputProps={undefined} options={[{ label: '1', value: '1' }]}>
+        <Input />
+      </AutoComplete>,
+    );
+    const input = screen.getByRole('combobox');
+
+    input.focus();
+
+    rerender(
+      <AutoComplete
+        inputProps={{ autoComplete: 'new-password' }}
+        options={[{ label: '1', value: '1' }]}
+      >
+        <Input />
+      </AutoComplete>,
+    );
+
+    expect(screen.getByRole('combobox')).toBe(input);
+    expect(input).toHaveFocus();
+    expect(input).toHaveAttribute('autocomplete', 'new-password');
+  });
+
+  it('should compose custom inputProps event handlers after internal handlers', () => {
+    const handlerCalls: string[] = [];
+    const originOnChange = jest.fn(() => {
+      handlerCalls.push('origin');
+    });
+    const inputPropsOnChange = jest.fn(() => {
+      handlerCalls.push('inputProps');
+    });
+    const onSearch = jest.fn((searchValue: string) => {
+      handlerCalls.push(`internal:${searchValue}`);
+    });
+    render(
+      <AutoComplete
+        inputProps={{ onChange: inputPropsOnChange }}
+        onSearch={onSearch}
+        options={[{ label: '1', value: '1' }]}
+      >
+        <input onChange={originOnChange} />
+      </AutoComplete>,
+    );
+    const input = screen.getByRole('combobox');
+
+    fireEvent.change(input, { target: { value: '1' } });
+
+    expect(originOnChange).toHaveBeenCalledTimes(1);
+    expect(inputPropsOnChange).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch.mock.calls[0][0]).toBe('1');
+    expect(handlerCalls).toEqual(['internal:1', 'origin', 'inputProps']);
   });
 
   it('deprecated popupClassName', () => {
