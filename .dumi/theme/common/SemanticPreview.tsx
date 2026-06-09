@@ -31,17 +31,17 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     padding: 0;
   `,
   listCol: css`
-    display: flex;
+    position: relative;
     min-height: 0;
   `,
   listWrap: css`
+    position: absolute;
+    inset: 0;
     display: flex;
-    flex: 1;
     flex-direction: column;
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 100%;
     overflow: auto;
   `,
   listItem: css`
@@ -193,7 +193,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
         >
           <ConfigProvider theme={{ token: { motion } }}>{cloneNode}</ConfigProvider>
         </Col>
-        <Col span={8} className={clsx(styles.listCol)}>
+        <Col span={8} className={styles.listCol}>
           <ul className={clsx(styles.listWrap)}>
             {semantics.map<React.ReactNode>((semantic) => (
               <li
