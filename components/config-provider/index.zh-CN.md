@@ -187,7 +187,15 @@ const {
 | typography | 设置 Typography 组件的通用属性 | 参见 [Typography](/components/typography-cn#api) | 6.4.0 |
 | upload | 设置 Upload 组件的通用属性 | 参见 [Upload](/components/upload-cn#api) | 5.27.0 |
 | watermark | 设置 Watermark 组件的通用属性 | 参见 [Watermark](/components/watermark-cn#api) | 6.0.0 |
-| wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void, triggerType?: `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` } | 5.8.0 |
+| wave | 设置水波纹特效 | 参见 [WaveConfig](#waveconfig) | 5.8.0 |
+
+### WaveConfig
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| disabled | 是否禁用水波纹效果 | boolean | false |  |
+| showEffect | 自定义水波纹效果 | (node: HTMLElement, info: { className, token, component }) => void | - |  |
+| triggerType | 触发水波纹效果的事件 | `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` | `click` | 6.4.0 |
 
 ## FAQ
 

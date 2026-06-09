@@ -185,7 +185,15 @@ const {
 | typography | Set Typography common props | See [Typography](/components/typography#api) | 6.4.0 |
 | upload | Set Upload common props | See [Upload](/components/upload#api) | 5.27.0 |
 | watermark | Set Watermark common props | See [Watermark](/components/watermark#api) | 6.0.0 |
-| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void, triggerType?: `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` } | 5.8.0 |
+| wave | Config wave effect | See [WaveConfig](#waveconfig) | 5.8.0 |
+
+### WaveConfig
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| disabled | Whether to disable wave effect | boolean | false |  |
+| showEffect | Customized wave effect | (node: HTMLElement, info: { className, token, component }) => void | - |  |
+| triggerType | The event that triggers wave effect | `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` | `click` | 6.4.0 |
 
 ## FAQ
 
