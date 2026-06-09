@@ -95,10 +95,10 @@ dayjs.locale('zh-cn');
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | DatePicker: 6.4.0，RangePicker: × |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | className | 选择器 className | string | - |  | DatePicker: 5.7.0，RangePicker: 5.11.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 6.0.0，RangePicker: × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0，RangePicker: 5.25.0 |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | components | 自定义面板 | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 | × |
@@ -131,12 +131,12 @@ dayjs.locale('zh-cn');
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | 自定义输入框样式 | CSSProperties | {} |  | DatePicker: 5.7.0，RangePicker: 5.11.0 |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 6.0.0，RangePicker: × |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | DatePicker: 6.3.0，RangePicker: × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0，RangePicker: 5.25.0 |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | DatePicker: 6.3.0，RangePicker: 6.4.0 |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 | × |
-| clearIcon | （仅支持全局配置）自定义清除图标 | ReactNode | - | × | DatePicker: 6.4.0，RangePicker: × |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.13.0，RangePicker: 5.13.0 |
+| clearIcon | （仅支持全局配置）自定义清除图标 | ReactNode | - | × | 6.4.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.19.0，RangePicker: 5.19.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  | × |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |

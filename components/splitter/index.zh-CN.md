@@ -44,7 +44,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.21.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 | × |
 | ~~collapsibleIcon~~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
 | destroyOnHidden | 折叠时（size 为 0）销毁面板内容，应用于所有面板，可在单个面板上覆盖 | `boolean` | `false` | 6.4.0 | × |
@@ -53,7 +53,7 @@ demo:
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 | × |
 | onCollapse | 展开-收起时回调 | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 | × |
 | orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.21.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  | × |
 | onDraggerDoubleClick | 双击拖拽条回调 | `(index: number) => void` | - | 6.3.0 | × |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - | × |

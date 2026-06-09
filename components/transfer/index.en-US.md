@@ -44,10 +44,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of ReactNode is provided, custom elements will be used | ReactNode\[] | \[`>`, `<`] | 6.0.0 | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  | × |
 | disabled | Whether disabled transfer | boolean | false |  | × |
-| selectionsIcon | custom dropdown icon | React.ReactNode |  | 5.8.0 | ✔ |
+| selectionsIcon | custom dropdown icon | React.ReactNode |  | 5.8.0 | 5.14.0 |
 | filterOption | A function to determine whether an item should show in search result list, only works when searching, (add `direction` support since 5.9.0+) | (inputValue, option, direction: `left` \| `right`): boolean | - |  | × |
 | footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 | × |
 | ~~listStyle~~ | A custom CSS style used for rendering the transfer columns. Use `styles.section` instead | object \| ({direction: `left` \| `right`}) => object | - |  | × |
@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSearch | If included, a search box is shown on each column | boolean \| { placeholder:string,defaultValue:string } | false |  | × |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] \| number\[] | \[] |  | × |
 | titles | A set of titles that are sorted from left to right | ReactNode\[] | - |  | × |
 | onChange | A callback function that is executed when the transfer between columns is complete | (targetKeys, direction, moveKeys): void | - |  | × |

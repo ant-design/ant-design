@@ -49,7 +49,7 @@ demo:
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 | × |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 | × |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✔ |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | 6.0.0 |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - |  | × |
 | decimalSeparator | 小数点 | string | - | - | × |
 | placeholder | 占位符 | string | - |  | × |
@@ -63,7 +63,7 @@ demo:
 | precision | 数值精度，配置 `formatter` 时会以 `formatter` 为准 | number | - | - | × |
 | readOnly | 只读 | boolean | false | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✔ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | 6.0.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - |  | × |
 | suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 | × |
 | size | 输入框大小 | `large` \| `medium` \| `small` | - | - | × |

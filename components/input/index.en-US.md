@@ -70,7 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  | × |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  | × |
 | value | The input content value | string | - |  | × |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | Callback when user input | function(e) | - |  | × |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  | × |
 | onClear | Callback when click the clear button | () => void | - | 5.20.0 | × |
@@ -110,11 +110,11 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), string> | - |  | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), string> | - |  | 6.0.0 |
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |  | × |
 | loading | Search box with loading | boolean | false |  | × |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |  | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - |  | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - |  | 6.0.0 |
 | searchIcon | Customize the search icon | ReactNode | - | 6.4.0 | 6.4.0 |
 
 Supports all props of `Input`.
@@ -139,12 +139,12 @@ Added in `5.16.0`.
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoComplete | The autocomplete attribute for input elements, e.g. `one-time-code` for OTP autofill | string | - | 6.3.0 | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), string> | - |  | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), string> | - |  | 6.0.0 |
 | defaultValue | Default value | string | - |  | × |
 | disabled | Whether the input is disabled | boolean | false |  | × |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  | × |
 | separator | render the separator after the input box of the specified index | ReactNode \|((i: number) => ReactNode) | - | 5.24.0 | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), CSSProperties> | - |  | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), CSSProperties> | - |  | 6.0.0 |
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` | × |
 | length | The number of input elements | number | 6 |  | × |
 | status | Set validation status | 'error' \| 'warning' | - |  | × |

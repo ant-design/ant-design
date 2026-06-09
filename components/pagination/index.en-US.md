@@ -53,14 +53,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  | × |
 | showLessItems | Show less page items | boolean | false |  | × |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  | × |
-| showSizeChanger | Determine whether to show `pageSize` select | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 | 5.7.0 |
+| showSizeChanger | Determine whether to show `pageSize` select | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 | 4.21.0, SelectProps: 5.21.0 |
 | showTitle | Show page item's title | boolean | true |  | × |
 | showTotal | To display the total number and range | function(total, range) | - |  | × |
 | simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  | × |
 | size | Component size | `large` \| `medium` \| `small` | `medium` |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | Total number of data items | number | 0 |  | × |
-| totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 5.7.0 |
+| totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 6.2.0 |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  | × |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  | × |
 
