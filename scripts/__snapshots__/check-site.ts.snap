@@ -68,9 +68,9 @@ exports[`site test Component components/color-picker en Page 1`] = `2`;
 
 exports[`site test Component components/color-picker zh Page 1`] = `2`;
 
-exports[`site test Component components/config-provider en Page 1`] = `3`;
+exports[`site test Component components/config-provider en Page 1`] = `4`;
 
-exports[`site test Component components/config-provider zh Page 1`] = `3`;
+exports[`site test Component components/config-provider zh Page 1`] = `4`;
 
 exports[`site test Component components/date-picker en Page 1`] = `8`;
 
