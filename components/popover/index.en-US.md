@@ -35,12 +35,12 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| content | Content of the card | ReactNode \| () => ReactNode | - |  |
-| title | Title of the card | ReactNode \| () => ReactNode | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| Property | Description | Type | Default value | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
+| content | Content of the card | ReactNode \| () => ReactNode | - |  | × |
+| title | Title of the card | ReactNode \| () => ReactNode | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |
 
 <!-- Common API -->
 

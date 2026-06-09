@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
       - name: size-limit
         uses: ant-design/size-limit-action@1cd308b2fb976363849b02434e706bbca8727aa1 # master
