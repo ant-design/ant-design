@@ -143,6 +143,29 @@ describe('Table.rowSelection', () => {
     expect(getIndeterminateSelection(container)).toEqual([2]);
   });
 
+  it('should have default aria-label', () => {
+    const { container } = render(createTable({ rowSelection: {} }));
+    // Skip the header checkbox, start from body checkboxes
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
+
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row 1');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row 2');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
+  });
+
+  it('should support custom aria-label from getCheckboxProps', () => {
+    const rowSelection = {
+      getCheckboxProps: (record: any) => ({
+        'aria-label': `Select ${record.name}`,
+      }),
+    };
+    const { container } = render(createTable({ rowSelection }));
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
+
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select Jack');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select Lucy');
+  });
+
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
     const rowSelection: TableProps<any>['rowSelection'] = {
       getCheckboxProps: (record) => ({
