@@ -41,18 +41,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 ### Image
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| alt | 图像描述 | string | - |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| fallback | 加载失败容错地址 | string | - |  |
-| height | 图像高度 | string \| number | - |  |
-| placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  |
-| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
-| src | 图片地址 | string | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| width | 图像宽度 | string \| number | - |  |
-| onError | 加载错误回调 | (event: Event) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| alt | 图像描述 | string | - |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| fallback | 加载失败容错地址 | string | - |  | 5.7.0 |
+| height | 图像高度 | string \| number | - |  | × |
+| placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  | × |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0，`preview.mask`: 6.0.0，`preview.mask.closable`: 6.4.0 |
+| src | 图片地址 | string | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| width | 图像宽度 | string \| number | - |  | × |
+| onError | 加载错误回调 | (event: Event) => void | - |  | × |
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
