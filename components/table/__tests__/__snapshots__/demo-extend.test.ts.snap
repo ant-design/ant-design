@@ -18719,18 +18719,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             </a>
           </li>
           <li
-            class="ant-pagination-item ant-pagination-item-11 ant-pagination-item-after-jump-prev"
-            tabindex="0"
-            title="11"
-          >
-            <a
-              rel="nofollow"
-            >
-              11
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-12"
+            class="ant-pagination-item ant-pagination-item-12 ant-pagination-item-after-jump-prev"
             tabindex="0"
             title="12"
           >
@@ -18752,7 +18741,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             </a>
           </li>
           <li
-            class="ant-pagination-item ant-pagination-item-14"
+            class="ant-pagination-item ant-pagination-item-14 ant-pagination-item-before-jump-next"
             tabindex="0"
             title="14"
           >
@@ -18760,17 +18749,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               rel="nofollow"
             >
               14
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-15 ant-pagination-item-before-jump-next"
-            tabindex="0"
-            title="15"
-          >
-            <a
-              rel="nofollow"
-            >
-              15
             </a>
           </li>
           <li
