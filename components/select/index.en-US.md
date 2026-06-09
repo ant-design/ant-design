@@ -102,7 +102,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | removeIcon | The custom remove icon | ReactNode | `<CloseOutlined />` |  | 6.4.0 |
 | ~~searchValue~~ | The current input "search" text | string | - |  | × |
 | ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
-| showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true | Object: 6.0.0 | 5.1.0, Object: 6.0.0, searchIcon: 6.4.0 |
+| showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true | Object: 6.0.0 | 6.4.0 |
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |

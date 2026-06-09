@@ -103,7 +103,7 @@ demo:
 | removeIcon | 自定义的多选框清除图标 | ReactNode | `<CloseOutlined />` |  | 6.4.0 |
 | ~~searchValue~~ | 控制搜索文本 | string | - |  | × |
 | ~~showArrow~~ | 是否显示箭头图标，请使用 `suffixIcon={null}` 替代 | boolean | true | - | × |
-| showSearch | 配置是否可搜索 | boolean \| [Object](#showsearch) | 单选为 false，多选为 true | Object: 6.0.0 | 5.1.0，Object: 6.0.0，searchIcon: 6.4.0 |
+| showSearch | 配置是否可搜索 | boolean \| [Object](#showsearch) | 单选为 false，多选为 true | Object: 6.0.0 | 6.4.0 |
 | size | 选择框大小 | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | 用于自定义 Select 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
