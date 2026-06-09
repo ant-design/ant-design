@@ -75,8 +75,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
           // Right-aligned placement anchors the popup's right edge to the trigger.
           // Reverse the column order so newly expanded child columns grow leftwards
           // and the parent column stays fixed, avoiding the parent shifting/jittering.
-          [`&${antCls}-select-dropdown-placement-bottomRight,
-            &${antCls}-select-dropdown-placement-topRight`]: {
+          // Only apply in LTR: in RTL `direction: rtl` already lays columns out
+          // right-to-left, so reversing again would flip the layout incorrectly.
+          [`&${antCls}-select-dropdown-placement-bottomRight:not(${componentCls}-dropdown-rtl),
+            &${antCls}-select-dropdown-placement-topRight:not(${componentCls}-dropdown-rtl)`]: {
             [`${componentCls}-menus`]: {
               flexDirection: 'row-reverse',
             },
