@@ -581,7 +581,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           return {
             node: (
               <Checkbox
-                aria-label={checkboxProps?.['aria-label'] || defaultAriaLabel}
+                aria-label={defaultAriaLabel}
                 {...checkboxProps}
                 indeterminate={mergedIndeterminate}
                 checked={checked}
