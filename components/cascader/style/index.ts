@@ -1,3 +1,4 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -81,6 +82,12 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
             &${antCls}-select-dropdown-placement-topRight:not(${componentCls}-dropdown-rtl)`]: {
             [`${componentCls}-menus`]: {
               flexDirection: 'row-reverse',
+            },
+            // The visual order is reversed, so move the column divider to the
+            // inline-start side and keep it off the visually-leftmost column.
+            [`${componentCls}-menu:not(:last-child)`]: {
+              borderInlineEnd: 'none',
+              borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
             },
           },
         },
