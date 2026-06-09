@@ -72,6 +72,15 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
           [`&${antCls}-select-dropdown`]: {
             padding: 0,
           },
+          // Right-aligned placement anchors the popup's right edge to the trigger.
+          // Reverse the column order so newly expanded child columns grow leftwards
+          // and the parent column stays fixed, avoiding the parent shifting/jittering.
+          [`&${antCls}-select-dropdown-placement-bottomRight,
+            &${antCls}-select-dropdown-placement-topRight`]: {
+            [`${componentCls}-menus`]: {
+              flexDirection: 'row-reverse',
+            },
+          },
         },
         getColumnsStyle(token),
       ],
