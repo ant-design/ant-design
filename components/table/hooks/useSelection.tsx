@@ -535,7 +535,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
-          const defaultAriaLabel = `Select row ${key}`;
+          const defaultAriaLabel = `Select row ${index + 1}`;
           return {
             node: (
               <Radio
@@ -574,7 +574,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           } else {
             mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
           }
-          const defaultAriaLabel = checked ? `Row ${key} selected` : `Select row ${key}`;
+          const defaultAriaLabel = checked
+            ? `Row ${index + 1} selected`
+            : `Select row ${index + 1}`;
           // Record checked
           return {
             node: (

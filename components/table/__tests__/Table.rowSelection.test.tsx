@@ -148,9 +148,9 @@ describe('Table.rowSelection', () => {
     // Skip the header checkbox, start from body checkboxes
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row 0');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row 1');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 2');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row 1');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row 2');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
   });
 
   it('should support custom aria-label from getCheckboxProps', () => {
@@ -170,18 +170,18 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection: { type: 'radio' } }));
     const radios = container.querySelectorAll<HTMLInputElement>('tbody input[type="radio"]');
 
-    expect(radios[0].getAttribute('aria-label')).toBe('Select row 0');
-    expect(radios[1].getAttribute('aria-label')).toBe('Select row 1');
-    expect(radios[2].getAttribute('aria-label')).toBe('Select row 2');
+    expect(radios[0].getAttribute('aria-label')).toBe('Select row 1');
+    expect(radios[1].getAttribute('aria-label')).toBe('Select row 2');
+    expect(radios[2].getAttribute('aria-label')).toBe('Select row 3');
   });
 
   it('should have selected aria-label when row is selected', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0, 1] } }));
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row 0 selected');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row 1 selected');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 2');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row 1 selected');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row 2 selected');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
   });
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
