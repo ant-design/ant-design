@@ -15,7 +15,7 @@ tag: New
 
 ## 官方 MCP Server {#official-mcp-server}
 
-从 [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) v6.3.5 起，你可以通过 `antd mcp` 命令启动官方 MCP 服务器，提供 7 个工具和 2 个提示词，支持 IDE 集成。
+从 [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) v6.3.5 起，你可以通过 `antd mcp` 命令启动官方 MCP 服务器，提供 8 个工具和 2 个提示词，支持 IDE 集成。
 
 ### 工具 {#tools}
 
@@ -26,6 +26,7 @@ tag: New
 | `antd_doc`       | 获取完整文档            |
 | `antd_demo`      | 获取可运行的代码示例    |
 | `antd_token`     | 查询 Design Token 值    |
+| `antd_design_md` | 获取设计语言文档        |
 | `antd_semantic`  | 查看 DOM 结构和样式钩子 |
 | `antd_changelog` | 分析跨版本 API 变更     |
 
