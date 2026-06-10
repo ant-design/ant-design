@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, RadioGroupProps } from 'antd';
 import { Flex, Input, Radio } from 'antd';
-import type { CheckboxGroupProps } from 'antd/es/checkbox';
 
 const labelStyle: React.CSSProperties = {
   height: 32,
   lineHeight: '32px',
 };
 
-const buttonOptions: CheckboxGroupProps<string>['options'] = [
+const buttonOptions: RadioGroupProps['options'] = [
   { label: 'Apple', value: 'Apple', className: 'label-1' },
   { label: 'Pear', value: 'Pear', className: 'label-2' },
   { label: 'Orange', value: 'Orange', title: 'Orange', className: 'label-3' },
