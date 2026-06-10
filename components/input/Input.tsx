@@ -50,17 +50,16 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    | 'wrapperClassName'
-    | 'groupClassName'
-    | 'inputClassName'
-    | 'affixWrapperClassName'
-    | 'classes'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  | 'wrapperClassName'
+  | 'groupClassName'
+  | 'inputClassName'
+  | 'affixWrapperClassName'
+  | 'classes'
+  | 'classNames'
+  | 'styles'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;

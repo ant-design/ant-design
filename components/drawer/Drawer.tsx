@@ -38,7 +38,8 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<
+  extends
+    Omit<
       RcDrawerProps,
       | 'maskStyle'
       | 'destroyOnClose'
