@@ -114,6 +114,14 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
   const badgeCls = `${antCls}-badge`;
 
   const genVerticalBadgeButtonStyle = (radius: number): CSSObject => ({
+    [`> ${badgeCls}`]: {
+      width: 'auto',
+    },
+
+    [`> ${badgeCls} > ${buttonWrapperCls}`]: {
+      width: '100%',
+    },
+
     [`> ${badgeCls}:not(:last-child)`]: {
       marginBlockEnd: calc(lineWidth).mul(-1).equal(),
     },
@@ -173,7 +181,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         flexDirection: 'column',
         rowGap: token.marginXS,
 
-        [`&:has(${buttonWrapperCls})`]: {
+        [`&:has(> ${buttonWrapperCls}, > ${badgeCls} > ${buttonWrapperCls})`]: {
           rowGap: 0,
         },
 
@@ -477,7 +485,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         },
       },
 
-      [`${componentCls}-group-vertical &`]: {
+      [`${componentCls}-group-vertical > &`]: {
         marginInlineEnd: 0,
         borderRadius: 0,
 
@@ -504,7 +512,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         },
       },
 
-      [`${componentCls}-group-vertical${componentCls}-group-large &`]: {
+      [`${componentCls}-group-vertical${componentCls}-group-large > &`]: {
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
           borderStartEndRadius: borderRadiusLG,
@@ -520,7 +528,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         },
       },
 
-      [`${componentCls}-group-vertical${componentCls}-group-small &`]: {
+      [`${componentCls}-group-vertical${componentCls}-group-small > &`]: {
         '&:first-child': {
           borderStartStartRadius: borderRadiusSM,
           borderStartEndRadius: borderRadiusSM,
