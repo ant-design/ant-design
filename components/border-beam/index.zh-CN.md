@@ -23,6 +23,7 @@ tag: 6.4.0
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx">动画时长</code>
+<code src="./demo/beam-length.tsx">流光长度</code>
 <code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
 <code src="./demo/component-token.tsx" debug>线宽</code>
 
@@ -34,6 +35,7 @@ tag: 6.4.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| beamLength | 流光可见段的长度，数字类型按像素处理 | `number \| string` | 100 | 6.5.0 | × |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |

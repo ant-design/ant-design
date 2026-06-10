@@ -17,12 +17,17 @@ const getInset = (width: number | string) => {
   return isString(width) ? `calc(-1 * ${width})` : `-${width}px`;
 };
 
+const getBeamLength = (length: number | string) => {
+  return isString(length) ? length : `${length}px`;
+};
+
 export interface BorderBeamProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
+  beamLength?: number | string;
   duration?: number;
   outset?: number | string;
 }
@@ -34,6 +39,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     color,
+    beamLength,
     duration,
     outset,
   } = props;
@@ -72,6 +78,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
+          ...(isNonNullable(beamLength) && { [varName('beam-length')]: getBeamLength(beamLength) }),
           ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,

@@ -36,6 +36,146 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
 
 exports[`renders components/border-beam/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/beam-length.tsx extend context correctly 1`] = `
+<div
+  style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 960px;"
+>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              100px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 112px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Uses the default 100px visible beam segment.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Compact
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              56px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 112px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Keeps the highlight shorter for dense card groups.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-beam-length: 56px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div
+    style="grid-column: 1 / -1;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Extended
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              160px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 192px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Creates a longer highlight for wider feature panels.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-beam-length: 160px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/beam-length.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-wrap-wrap"
