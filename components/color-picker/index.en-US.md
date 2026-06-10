@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | 	Allow clearing color selected | boolean | false |  | × |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true |  | 6.3.0 |
 | children | Trigger of ColorPicker | React.ReactNode | - |  | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.7.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | Default value of color | [ColorType](#colortype) | - |  | × |
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 | × |
 | disabled | Disable ColorPicker | boolean | - |  | × |
@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 | × |
 | showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 | × |
 | size | Setting the trigger size | `large` \| `medium` \| `small` | `medium` | 5.7.0 | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.7.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |  | × |
 | value | Value of color | [ColorType](#colortype) | - |  | × |
 | onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - |  | × |

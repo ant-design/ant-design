@@ -110,84 +110,84 @@ const {
 
 ### 组件配置 {#component-config}
 
-| 参数 | 说明 | 类型 | 版本 |
-| --- | --- | --- | --- |
-| affix | 设置 Affix 组件的通用属性 | 参见 [Affix](/components/affix-cn#api) | 6.0.0 |
-| alert | 设置 Alert 组件的通用属性 | 参见 [Alert](/components/alert-cn#api) | 5.7.0 |
-| anchor | 设置 Anchor 组件的通用属性 | 参见 [Anchor](/components/anchor-cn#api) | 6.0.0 |
-| app | 设置 App 组件的通用属性 | 参见 [App](/components/app-cn#api) | 6.3.0 |
-| avatar | 设置 Avatar 组件的通用属性 | 参见 [Avatar](/components/avatar-cn#api) | 5.7.0 |
-| badge | 设置 Badge 组件的通用属性 | 参见 [Badge](/components/badge-cn#api) | 5.7.0 |
-| borderBeam | 设置 BorderBeam 组件的通用属性 | 参见 [BorderBeam](/components/border-beam-cn#api) | 6.4.0 |
-| breadcrumb | 设置 Breadcrumb 组件的通用属性 | 参见 [Breadcrumb](/components/breadcrumb-cn#api) | 5.7.0 |
-| button | 设置 Button 组件的通用属性 | 参见 [Button](/components/button-cn#api) | 5.6.0 |
-| calendar | 设置 Calendar 组件的通用属性 | 参见 [Calendar](/components/calendar-cn#api) | 6.0.0 |
-| card | 设置 Card 组件的通用属性 | 参见 [Card](/components/card-cn#api) | 5.14.0 |
-| cardMeta | 设置 Card.Meta 组件的通用属性 | 参见 [Card.Meta](/components/card-cn#cardmeta) | 6.0.0 |
-| carousel | 设置 Carousel 组件的通用属性 | 参见 [Carousel](/components/carousel-cn#api) | 5.7.0 |
-| cascader | 设置 Cascader 组件的通用属性 | 参见 [Cascader](/components/cascader-cn#api) | 5.13.0 |
-| checkbox | 设置 Checkbox 组件的通用属性 | 参见 [Checkbox](/components/checkbox-cn#api) | 6.0.0 |
-| collapse | 设置 Collapse 组件的通用属性 | 参见 [Collapse](/components/collapse-cn#api) | 5.15.0 |
-| colorPicker | 设置 ColorPicker 组件的通用属性 | 参见 [ColorPicker](/components/color-picker-cn#api) | 6.3.0 |
-| datePicker | 设置 DatePicker 组件的通用属性 | 参见 [DatePicker](/components/date-picker-cn#api) | 5.7.0 |
-| rangePicker | 设置 RangePicker 组件的通用属性 | 参见 [RangePicker](/components/date-picker-cn#rangepicker) | 5.11.0 |
-| descriptions | 设置 Descriptions 组件的通用属性 | 参见 [Descriptions](/components/descriptions-cn#api) | 5.23.0 |
-| divider | 设置 Divider 组件的通用属性 | 参见 [Divider](/components/divider-cn#api) | 5.10.0 |
-| drawer | 设置 Drawer 组件的通用属性 | 参见 [Drawer](/components/drawer-cn#api) | 5.10.0 |
-| dropdown | 设置 Dropdown 组件的通用属性 | 参见 [Dropdown](/components/dropdown-cn#api) | 5.11.0 |
-| empty | 设置 Empty 组件的通用属性 | 参见 [Empty](/components/empty-cn#api) | 5.23.0 |
-| flex | 设置 Flex 组件的通用属性 | 参见 [Flex](/components/flex-cn#api) | 5.10.0 |
-| floatButton | 设置 FloatButton 组件的通用属性 | 参见 [FloatButton](/components/float-button-cn#api) | 6.0.0 |
-| floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | 参见 [FloatButton.Group](/components/float-button-cn#floatbuttongroup) | 5.16.0 |
-| form | 设置 Form 组件的通用属性 | 参见 [Form](/components/form-cn#api) | 4.8.0 |
-| image | 设置 Image 组件的通用属性 | 参见 [Image](/components/image-cn#api) | 5.14.0 |
-| input | 设置 Input 组件的通用属性 | 参见 [Input](/components/input-cn#input) | 4.2.0 |
-| inputNumber | 设置 InputNumber 组件的通用属性 | 参见 [InputNumber](/components/input-number-cn#api) | 5.19.0 |
-| otp | 设置 OTP 组件的通用属性 | 参见 [Input.OTP](/components/input-cn#inputotp) | 6.0.0 |
-| inputPassword | 设置 Password 组件的通用属性 | 参见 [Input.Password](/components/input-cn#inputpassword) | 6.4.0 |
-| inputSearch | 设置 Search 组件的通用属性 | 参见 [Input.Search](/components/input-cn#inputsearch) | 6.4.0 |
-| textArea | 设置 TextArea 组件的通用属性 | 参见 [Input.TextArea](/components/input-cn#inputtextarea) | 5.15.0 |
-| layout | 设置 Layout 组件的通用属性 | 参见 [Layout](/components/layout-cn#api) | 5.7.0 |
-| list | 设置 List 组件的通用属性 | 参见 [List](/components/list-cn#api) | 5.7.0 |
-| masonry | 设置 Masonry 组件的通用属性 | 参见 [Masonry](/components/masonry-cn#api) | 6.0.0 |
-| menu | 设置 Menu 组件的通用属性 | 参见 [Menu](/components/menu-cn#api) | 5.15.0 |
-| mentions | 设置 Mentions 组件的通用属性 | 参见 [Mentions](/components/mentions-cn#api) | 5.13.0 |
-| message | 设置 Message 组件的通用属性 | 参见 [Message](/components/message-cn#api) | 5.7.0 |
-| modal | 设置 Modal 组件的通用属性 | 参见 [Modal](/components/modal-cn#api) | 5.10.0 |
-| notification | 设置 Notification 组件的通用属性 | 参见 [Notification](/components/notification-cn#api) | 5.14.0 |
-| pagination | 设置 Pagination 组件的通用属性 | 参见 [Pagination](/components/pagination-cn#api) | 6.0.0 |
-| progress | 设置 Progress 组件的通用属性 | 参见 [Progress](/components/progress-cn#api) | 5.7.0 |
-| radio | 设置 Radio 组件的通用属性 | 参见 [Radio](/components/radio-cn#api) | 6.0.0 |
-| rate | 设置 Rate 组件的通用属性 | 参见 [Rate](/components/rate-cn#api) | 5.7.0 |
-| result | 设置 Result 组件的通用属性 | 参见 [Result](/components/result-cn#api) | 6.0.0 |
-| ribbon | 设置 Ribbon 组件的通用属性 | 参见 [Badge.Ribbon](/components/badge-cn#badgeribbon) | 6.0.0 |
-| skeleton | 设置 Skeleton 组件的通用属性 | 参见 [Skeleton](/components/skeleton-cn#api) | 6.0.0 |
-| segmented | 设置 Segmented 组件的通用属性 | 参见 [Segmented](/components/segmented-cn#api) | 6.0.0 |
-| select | 设置 Select 组件的通用属性 | 参见 [Select](/components/select-cn#api) | 5.13.0 |
-| slider | 设置 Slider 组件的通用属性 | 参见 [Slider](/components/slider-cn#api) | 5.23.0 |
-| switch | 设置 Switch 组件的通用属性 | 参见 [Switch](/components/switch-cn#api) | 6.0.0 |
-| space | 设置 Space 组件的通用属性 | 参见 [Space](/components/space-cn#api) | 5.6.0 |
-| splitter | 设置 Splitter 组件的通用属性 | 参见 [Splitter](/components/splitter-cn#api) | 5.21.0 |
-| spin | 设置 Spin 组件的通用属性 | 参见 [Spin](/components/spin-cn#api) | 5.20.0 |
-| statistic | 设置 Statistic 组件的通用属性 | 参见 [Statistic](/components/statistic-cn#api) | 6.0.0 |
-| steps | 设置 Steps 组件的通用属性 | 参见 [Steps](/components/steps-cn#api) | 5.10.0 |
-| table | 设置 Table 组件的通用属性 | 参见 [Table](/components/table-cn#api) | 6.2.0 |
-| tabs | 设置 Tabs 组件的通用属性 | 参见 [Tabs](/components/tabs-cn#api) | 5.14.0 |
-| tag | 设置 Tag 组件的通用属性 | 参见 [Tag](/components/tag-cn#api) | 5.14.0 |
-| timeline | 设置 Timeline 组件的通用属性 | 参见 [Timeline](/components/timeline-cn#api) | 6.0.0 |
-| timePicker | 设置 TimePicker 组件的通用属性 | 参见 [TimePicker](/components/time-picker-cn#api) | 5.13.0 |
-| tour | 设置 Tour 组件的通用属性 | 参见 [Tour](/components/tour-cn#api) | 5.14.0 |
-| tooltip | 设置 Tooltip 组件的通用属性 | 参见 [Tooltip](/components/tooltip-cn#api) | 6.1.0 |
-| popover | 设置 Popover 组件的通用属性 | 参见 [Popover](/components/popover-cn#api) | 5.23.0 |
-| popconfirm | 设置 Popconfirm 组件的通用属性 | 参见 [Popconfirm](/components/popconfirm-cn#api) | 5.23.0 |
-| qrcode | 设置 QRCode 组件的通用属性 | 参见 [QRCode](/components/qr-code-cn#api) | 6.0.0 |
-| transfer | 设置 Transfer 组件的通用属性 | 参见 [Transfer](/components/transfer-cn#api) | 5.7.0 |
-| tree | 设置 Tree 组件的通用属性 | 参见 [Tree](/components/tree-cn#api) | 6.0.0 |
-| treeSelect | 设置 TreeSelect 组件的通用属性 | 参见 [TreeSelect](/components/tree-select-cn#api) | 5.19.0 |
-| typography | 设置 Typography 组件的通用属性 | 参见 [Typography](/components/typography-cn#api) | 6.4.0 |
-| upload | 设置 Upload 组件的通用属性 | 参见 [Upload](/components/upload-cn#api) | 5.27.0 |
-| watermark | 设置 Watermark 组件的通用属性 | 参见 [Watermark](/components/watermark-cn#api) | 6.0.0 |
-| wave | 设置水波纹特效 | 参见 [WaveConfig](#waveconfig) | 5.8.0 |
+以下配置项用于设置对应组件的通用属性或全局效果配置，具体 API 见链接：
+
+- `affix`：[Affix](/components/affix-cn#api)（自 6.0.0 起支持）
+- `alert`：[Alert](/components/alert-cn#api)（自 5.7.0 起支持）
+- `anchor`：[Anchor](/components/anchor-cn#api)（自 6.0.0 起支持）
+- `app`：[App](/components/app-cn#api)（自 6.3.0 起支持）
+- `avatar`：[Avatar](/components/avatar-cn#api)（自 5.7.0 起支持）
+- `badge`：[Badge](/components/badge-cn#api)（自 5.7.0 起支持）
+- `borderBeam`：[BorderBeam](/components/border-beam-cn#api)（自 6.4.0 起支持）
+- `breadcrumb`：[Breadcrumb](/components/breadcrumb-cn#api)（自 5.7.0 起支持）
+- `button`：[Button](/components/button-cn#api)（自 5.6.0 起支持）
+- `calendar`：[Calendar](/components/calendar-cn#api)（自 6.0.0 起支持）
+- `card`：[Card](/components/card-cn#api)（自 5.14.0 起支持）
+- `cardMeta`：[Card.Meta](/components/card-cn#cardmeta)（自 6.0.0 起支持）
+- `carousel`：[Carousel](/components/carousel-cn#api)（自 5.7.0 起支持）
+- `cascader`：[Cascader](/components/cascader-cn#api)（自 5.13.0 起支持）
+- `checkbox`：[Checkbox](/components/checkbox-cn#api)（自 6.0.0 起支持）
+- `collapse`：[Collapse](/components/collapse-cn#api)（自 5.15.0 起支持）
+- `colorPicker`：[ColorPicker](/components/color-picker-cn#api)（自 6.3.0 起支持）
+- `datePicker`：[DatePicker](/components/date-picker-cn#api)（自 5.7.0 起支持）
+- `rangePicker`：[RangePicker](/components/date-picker-cn#rangepicker)（自 5.11.0 起支持）
+- `descriptions`：[Descriptions](/components/descriptions-cn#api)（自 5.23.0 起支持）
+- `divider`：[Divider](/components/divider-cn#api)（自 5.10.0 起支持）
+- `drawer`：[Drawer](/components/drawer-cn#api)（自 5.10.0 起支持）
+- `dropdown`：[Dropdown](/components/dropdown-cn#api)（自 5.11.0 起支持）
+- `empty`：[Empty](/components/empty-cn#api)（自 5.23.0 起支持）
+- `flex`：[Flex](/components/flex-cn#api)（自 5.10.0 起支持）
+- `floatButton`：[FloatButton](/components/float-button-cn#api)（自 6.0.0 起支持）
+- `floatButtonGroup`：[FloatButton.Group](/components/float-button-cn#floatbuttongroup)（自 5.16.0 起支持）
+- `form`：[Form](/components/form-cn#api)（自 4.8.0 起支持）
+- `image`：[Image](/components/image-cn#api)（自 5.14.0 起支持）
+- `input`：[Input](/components/input-cn#input)（自 4.2.0 起支持）
+- `inputNumber`：[InputNumber](/components/input-number-cn#api)（自 5.19.0 起支持）
+- `otp`：[Input.OTP](/components/input-cn#inputotp)（自 6.0.0 起支持）
+- `inputPassword`：[Input.Password](/components/input-cn#inputpassword)（自 6.4.0 起支持）
+- `inputSearch`：[Input.Search](/components/input-cn#inputsearch)（自 6.4.0 起支持）
+- `textArea`：[Input.TextArea](/components/input-cn#inputtextarea)（自 5.15.0 起支持）
+- `layout`：[Layout](/components/layout-cn#api)（自 5.7.0 起支持）
+- `list`：[List](/components/list-cn#api)（自 5.7.0 起支持）
+- `masonry`：[Masonry](/components/masonry-cn#api)（自 6.0.0 起支持）
+- `menu`：[Menu](/components/menu-cn#api)（自 5.15.0 起支持）
+- `mentions`：[Mentions](/components/mentions-cn#api)（自 5.13.0 起支持）
+- `message`：[Message](/components/message-cn#api)（自 5.7.0 起支持）
+- `modal`：[Modal](/components/modal-cn#api)（自 5.10.0 起支持）
+- `notification`：[Notification](/components/notification-cn#api)（自 5.14.0 起支持）
+- `pagination`：[Pagination](/components/pagination-cn#api)（自 6.0.0 起支持）
+- `progress`：[Progress](/components/progress-cn#api)（自 5.7.0 起支持）
+- `radio`：[Radio](/components/radio-cn#api)（自 6.0.0 起支持）
+- `rate`：[Rate](/components/rate-cn#api)（自 5.7.0 起支持）
+- `result`：[Result](/components/result-cn#api)（自 6.0.0 起支持）
+- `ribbon`：[Badge.Ribbon](/components/badge-cn#badgeribbon)（自 6.0.0 起支持）
+- `skeleton`：[Skeleton](/components/skeleton-cn#api)（自 6.0.0 起支持）
+- `segmented`：[Segmented](/components/segmented-cn#api)（自 6.0.0 起支持）
+- `select`：[Select](/components/select-cn#api)（自 5.13.0 起支持）
+- `slider`：[Slider](/components/slider-cn#api)（自 5.23.0 起支持）
+- `switch`：[Switch](/components/switch-cn#api)（自 6.0.0 起支持）
+- `space`：[Space](/components/space-cn#api)（自 5.6.0 起支持）
+- `splitter`：[Splitter](/components/splitter-cn#api)（自 5.21.0 起支持）
+- `spin`：[Spin](/components/spin-cn#api)（自 5.20.0 起支持）
+- `statistic`：[Statistic](/components/statistic-cn#api)（自 6.0.0 起支持）
+- `steps`：[Steps](/components/steps-cn#api)（自 5.10.0 起支持）
+- `table`：[Table](/components/table-cn#api)（自 6.2.0 起支持）
+- `tabs`：[Tabs](/components/tabs-cn#api)（自 5.14.0 起支持）
+- `tag`：[Tag](/components/tag-cn#api)（自 5.14.0 起支持）
+- `timeline`：[Timeline](/components/timeline-cn#api)（自 6.0.0 起支持）
+- `timePicker`：[TimePicker](/components/time-picker-cn#api)（自 5.13.0 起支持）
+- `tour`：[Tour](/components/tour-cn#api)（自 5.14.0 起支持）
+- `tooltip`：[Tooltip](/components/tooltip-cn#api)（自 6.1.0 起支持）
+- `popover`：[Popover](/components/popover-cn#api)（自 5.23.0 起支持）
+- `popconfirm`：[Popconfirm](/components/popconfirm-cn#api)（自 5.23.0 起支持）
+- `qrcode`：[QRCode](/components/qr-code-cn#api)（自 6.0.0 起支持）
+- `transfer`：[Transfer](/components/transfer-cn#api)（自 5.7.0 起支持）
+- `tree`：[Tree](/components/tree-cn#api)（自 6.0.0 起支持）
+- `treeSelect`：[TreeSelect](/components/tree-select-cn#api)（自 5.19.0 起支持）
+- `typography`：[Typography](/components/typography-cn#api)（自 6.4.0 起支持）
+- `upload`：[Upload](/components/upload-cn#api)（自 5.27.0 起支持）
+- `watermark`：[Watermark](/components/watermark-cn#api)（自 6.0.0 起支持）
+- `wave`：[WaveConfig](#waveconfig)（自 5.8.0 起支持）
 
 ### WaveConfig
 
