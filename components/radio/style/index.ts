@@ -138,6 +138,10 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         flexDirection: 'column',
         rowGap: token.marginXS,
 
+        [`&:has(${componentCls}-button-wrapper)`]: {
+          rowGap: 0,
+        },
+
         [`${componentCls}-wrapper`]: {
           marginInlineEnd: 0,
         },
@@ -425,6 +429,65 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         '&:last-child': {
           borderStartEndRadius: borderRadiusSM,
           borderEndEndRadius: borderRadiusSM,
+        },
+      },
+
+      [`${componentCls}-group-vertical &`]: {
+        marginInlineEnd: 0,
+        borderRadius: 0,
+
+        '&:not(:last-child)': {
+          marginBlockEnd: calc(lineWidth).mul(-1).equal(),
+        },
+
+        '&:first-child': {
+          borderStartStartRadius: borderRadius,
+          borderStartEndRadius: borderRadius,
+          borderEndStartRadius: 0,
+          borderEndEndRadius: 0,
+        },
+
+        '&:last-child': {
+          borderStartStartRadius: 0,
+          borderStartEndRadius: 0,
+          borderEndStartRadius: borderRadius,
+          borderEndEndRadius: borderRadius,
+        },
+
+        '&:first-child:last-child': {
+          borderRadius,
+        },
+      },
+
+      [`${componentCls}-group-vertical${componentCls}-group-large &`]: {
+        '&:first-child': {
+          borderStartStartRadius: borderRadiusLG,
+          borderStartEndRadius: borderRadiusLG,
+        },
+
+        '&:last-child': {
+          borderEndStartRadius: borderRadiusLG,
+          borderEndEndRadius: borderRadiusLG,
+        },
+
+        '&:first-child:last-child': {
+          borderRadius: borderRadiusLG,
+        },
+      },
+
+      [`${componentCls}-group-vertical${componentCls}-group-small &`]: {
+        '&:first-child': {
+          borderStartStartRadius: borderRadiusSM,
+          borderStartEndRadius: borderRadiusSM,
+        },
+
+        '&:last-child': {
+          borderEndStartRadius: borderRadiusSM,
+          borderEndEndRadius: borderRadiusSM,
+        },
+
+        '&:first-child:last-child': {
+          borderRadius: borderRadiusSM,
         },
       },
 
