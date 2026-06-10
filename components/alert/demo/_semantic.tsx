@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Space } from 'antd';
+import { Alert, Button, Flex } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
@@ -48,14 +48,14 @@ const App: React.FC = () => {
         description="Info Description Info Description Info Description Info Description"
         type="info"
         action={
-          <Space vertical>
-            <Button size="small" type="primary">
+          <Flex vertical gap="small" style={{ minWidth: 80 }}>
+            <Button size="small" type="primary" block>
               Accept
             </Button>
-            <Button size="small" danger ghost>
+            <Button size="small" danger ghost block>
               Decline
             </Button>
-          </Space>
+          </Flex>
         }
       />
     </SemanticPreview>
