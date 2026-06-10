@@ -2,11 +2,11 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import Descriptions from '..';
-import { matchScreen } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { matchScreen } from '../../_util/responsiveObserver';
 import DEFAULT_COLUMN_MAP from '../constant';
 
 describe('Descriptions', () => {
@@ -585,6 +585,38 @@ describe('Descriptions', () => {
       const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
       expect(labelCell.style.color).toBe('blue');
       expect(contentCell.style.color).toBe('blue');
+    });
+
+    it('vertical bordered: item `style` + `labelStyle` both land on the same cell with labelStyle winning', () => {
+      // In the vertical-bordered layout the label and content are rendered
+      // into separate <th>/<td> cells, so the per-item `style` and the
+      // per-type `labelStyle` / `contentStyle` end up on the same element.
+      // labelStyle / contentStyle (more specific) must win over style.
+      const { container } = render(
+        <Descriptions
+          bordered
+          layout="vertical"
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              style: { color: 'red', background: 'yellow' },
+              labelStyle: { color: 'blue' },
+              contentStyle: { color: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      // `style` background flows through on both cells.
+      expect(labelCell.style.background).toBe('yellow');
+      expect(contentCell.style.background).toBe('yellow');
+      // labelStyle / contentStyle override `style.color` on the matching cell.
+      expect(labelCell.style.color).toBe('blue');
+      expect(contentCell.style.color).toBe('green');
     });
   });
 });

@@ -65,24 +65,15 @@ const Cell: React.FC<CellProps> = (props) => {
     // `contentStyle` (and the semantic `styles.label` / `styles.content`)
     // must be applied to that cell rather than to the inner <span> wrapper.
     //
-    // Two paths land in this branch:
-    //   - vertical bordered: Row.tsx renders one cell per <th>/<td> with
-    //     `component` as a string and forwards `styles` (the merged label /
-    //     content style chain) plus the raw item `style`. Here we need to
-    //     merge `typeStyle` onto the cell so labelStyle/contentStyle reach
-    //     the element with the matching class.
-    //   - horizontal bordered: Row.tsx renders the label and content cells
-    //     directly via `[component[0], component[1]]` and passes the fully
-    //     merged style chain as `style` (without forwarding `styles`). In
-    //     that case `style` already carries the item-level overrides, and
-    //     `typeStyle` only contains the root-level fallback from context,
-    //     so re-merging would let the root override the item.
-    //
-    // The presence of the `styles` prop disambiguates the two paths.
+    // Both bordered paths in `Row.tsx` (horizontal and vertical) forward
+    // the per-type merged style via `styles` and pass the raw item `style`
+    // separately, so `Cell` can unconditionally merge `typeStyle` onto the
+    // cell here without needing to know which branch produced it.
     const typeStyle =
       type === 'label' ? mergedLabelStyle : type === 'content' ? mergedContentStyle : undefined;
-    const mergedCellStyle: React.CSSProperties | undefined =
-      styles && typeStyle ? { ...style, ...typeStyle } : style;
+    const mergedCellStyle: React.CSSProperties | undefined = typeStyle
+      ? { ...style, ...typeStyle }
+      : style;
 
     return (
       <Component
