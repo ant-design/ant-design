@@ -45,7 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | --- | --- | --- | --- | --- | --- |
 | alt | 图像描述 | string | - |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| fallback | 加载失败容错地址 | string | - |  | 5.7.0 |
+| fallback | 加载失败容错地址 | string | - |  | 5.28.0 |
 | height | 图像高度 | string \| number | - |  | × |
 | placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  | × |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0，`preview.mask`: 6.0.0，`preview.mask.closable`: 6.4.0 |
