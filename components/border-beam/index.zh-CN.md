@@ -22,7 +22,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
-<code src="./demo/duration.tsx">动画时长</code>
+<code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
 <code src="./demo/beam-length.tsx" version="6.5.0">流光长度</code>
 <code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
 <code src="./demo/component-token.tsx" debug>线宽</code>

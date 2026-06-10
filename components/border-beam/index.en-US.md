@@ -21,7 +21,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
-<code src="./demo/duration.tsx">Duration</code>
+<code src="./demo/duration.tsx" version="6.5.0">Duration</code>
 <code src="./demo/beam-length.tsx" version="6.5.0">Beam length</code>
 <code src="./demo/non-uniform-radius.tsx" debug>Non-uniform radius</code>
 <code src="./demo/component-token.tsx" debug>Line width</code>
