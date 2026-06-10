@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { unit } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 
 import { isNonNullable, isNumber, isString } from '../_util/is';
@@ -15,10 +16,6 @@ export type { BorderBeamColor, BorderBeamGradient } from './util';
 
 const getInset = (width: number | string) => {
   return isString(width) ? `calc(-1 * ${width})` : `-${width}px`;
-};
-
-const getBeamLength = (length: number | string) => {
-  return isString(length) ? length : `${length}px`;
 };
 
 export interface BorderBeamProps {
@@ -78,7 +75,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(isNonNullable(beamLength) && { [varName('beam-length')]: getBeamLength(beamLength) }),
+          ...(isNonNullable(beamLength) && { [varName('beam-length')]: unit(beamLength) }),
           ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
