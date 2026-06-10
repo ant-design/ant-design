@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  | × |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 | × |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
 | controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - |  | × |
 | decimalSeparator | Decimal separator | string | - | - | × |
 | placeholder | Placeholder | string | - |  | × |
@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | precision | The precision of input value. Will use `formatter` when config of `formatter` | number | - | - | × |
 | readOnly | If the input is readonly | boolean | false | - | × |
 | status | Set validation status | 'error' \| 'warning' | - |  | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 | prefix | The prefix icon for the Input | ReactNode | - |  | × |
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 | × |
 | size | The height of input box | `large` \| `medium` \| `small` | - | - | × |
