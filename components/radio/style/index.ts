@@ -107,8 +107,43 @@ interface RadioToken extends FullToken<'Radio'> {
 // ============================== Styles ==============================
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, lineWidth, borderRadius, borderRadiusLG, borderRadiusSM, calc } =
+    token;
   const groupPrefixCls = `${componentCls}-group`;
+  const buttonWrapperCls = `${componentCls}-button-wrapper`;
+  const badgeCls = `${antCls}-badge`;
+
+  const genVerticalBadgeButtonStyle = (radius: number): CSSObject => ({
+    [`> ${badgeCls}:not(:last-child)`]: {
+      marginBlockEnd: calc(lineWidth).mul(-1).equal(),
+    },
+
+    [`> ${badgeCls} > ${buttonWrapperCls}:not(:last-child)`]: {
+      marginBlockEnd: 0,
+    },
+
+    [`> ${badgeCls}:first-child > ${buttonWrapperCls}`]: {
+      borderStartStartRadius: radius,
+      borderStartEndRadius: radius,
+      borderEndStartRadius: 0,
+      borderEndEndRadius: 0,
+    },
+
+    [`> ${badgeCls}:last-child > ${buttonWrapperCls}`]: {
+      borderStartStartRadius: 0,
+      borderStartEndRadius: 0,
+      borderEndStartRadius: radius,
+      borderEndEndRadius: radius,
+    },
+
+    [`> ${badgeCls}:not(:first-child):not(:last-child) > ${buttonWrapperCls}`]: {
+      borderRadius: 0,
+    },
+
+    [`> ${badgeCls}:first-child:last-child > ${buttonWrapperCls}`]: {
+      borderRadius: radius,
+    },
+  });
 
   return {
     [groupPrefixCls]: {
@@ -138,12 +173,22 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         flexDirection: 'column',
         rowGap: token.marginXS,
 
-        [`&:has(${componentCls}-button-wrapper)`]: {
+        [`&:has(${buttonWrapperCls})`]: {
           rowGap: 0,
         },
 
         [`${componentCls}-wrapper`]: {
           marginInlineEnd: 0,
+        },
+
+        ...genVerticalBadgeButtonStyle(borderRadius),
+
+        [`&${groupPrefixCls}-large`]: {
+          ...genVerticalBadgeButtonStyle(borderRadiusLG),
+        },
+
+        [`&${groupPrefixCls}-small`]: {
+          ...genVerticalBadgeButtonStyle(borderRadiusSM),
         },
       },
     },
