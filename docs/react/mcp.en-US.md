@@ -15,7 +15,7 @@ This guide explains how to use Ant Design with AI tools through Model Context Pr
 
 ## Official MCP Server
 
-Starting from [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) v6.3.5, you can launch an official MCP server with the `antd mcp` command, providing 7 tools and 2 prompts for IDE integration.
+Starting from [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) v6.3.5, you can launch an official MCP server with the `antd mcp` command, providing 8 tools and 2 prompts for IDE integration.
 
 ### Tools
 
@@ -26,6 +26,7 @@ Starting from [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) 
 | `antd_doc`       | Fetch complete documentation               |
 | `antd_demo`      | Access runnable code examples              |
 | `antd_token`     | Query design token values                  |
+| `antd_design_md` | Fetch the design-language document         |
 | `antd_semantic`  | Inspect DOM structure and styling hooks    |
 | `antd_changelog` | Analyze API changes across versions        |
 
