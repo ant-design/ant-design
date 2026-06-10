@@ -21,11 +21,11 @@ jobs:
     name: Build Project
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
-      - uses: actions/cache@v5
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -43,7 +43,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}

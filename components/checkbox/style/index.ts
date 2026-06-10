@@ -29,6 +29,7 @@ interface CheckboxToken extends FullToken<'Checkbox'> {
 export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
   const { checkboxCls, checkboxSize, lineWidth } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
+  const hoverMediaQuery = '@media (hover: hover) and (pointer: fine)';
 
   return [
     // ===================== Basic =====================
@@ -66,13 +67,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Checkbox near checkbox
         [`& + ${wrapperCls}`]: {
           marginInlineStart: 0,
-        },
-
-        [`&${wrapperCls}-in-form-item`]: {
-          'input[type="checkbox"]': {
-            width: 14, // FIXME: magic
-            height: 14, // FIXME: magic
-          },
         },
       },
 
@@ -148,20 +142,22 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
     // ===================== Hover =====================
     {
-      // Wrapper & Wrapper > Checkbox
-      [`
-        ${wrapperCls}:not(${wrapperCls}-disabled),
-        ${checkboxCls}:not(${checkboxCls}-disabled)
-      `]: {
-        [`&:hover ${checkboxCls}`]: {
-          borderColor: token.colorPrimary,
+      [hoverMediaQuery]: {
+        // Wrapper & Wrapper > Checkbox
+        [`
+          ${wrapperCls}:not(${wrapperCls}-disabled),
+          ${checkboxCls}:not(${checkboxCls}-disabled)
+        `]: {
+          [`&:hover ${checkboxCls}`]: {
+            borderColor: token.colorPrimary,
+          },
         },
-      },
 
-      [`${wrapperCls}:not(${wrapperCls}-disabled)`]: {
-        [`&:hover ${checkboxCls}-checked:not(${checkboxCls}-disabled)`]: {
-          backgroundColor: token.colorPrimaryHover,
-          borderColor: 'transparent',
+        [`${wrapperCls}:not(${wrapperCls}-disabled)`]: {
+          [`&:hover ${checkboxCls}-checked:not(${checkboxCls}-disabled)`]: {
+            backgroundColor: token.colorPrimaryHover,
+            borderColor: 'transparent',
+          },
         },
       },
     },
@@ -180,10 +176,12 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           ...genNoMotionStyle(),
         },
 
-        // Hover on checked checkbox directly
-        [`&:not(${checkboxCls}-disabled):hover`]: {
-          backgroundColor: token.colorPrimaryHover,
-          borderColor: 'transparent',
+        [hoverMediaQuery]: {
+          // Hover on checked checkbox directly
+          [`&:not(${checkboxCls}-disabled):hover`]: {
+            backgroundColor: token.colorPrimaryHover,
+            borderColor: 'transparent',
+          },
         },
       },
     },
@@ -207,10 +205,12 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             content: '""',
           },
 
-          // https://github.com/ant-design/ant-design/issues/50074
-          '&:hover': {
-            backgroundColor: token.colorBgContainer,
-            borderColor: token.colorPrimary,
+          [hoverMediaQuery]: {
+            // https://github.com/ant-design/ant-design/issues/50074
+            [`&:not(${checkboxCls}-disabled):hover`]: {
+              backgroundColor: token.colorBgContainer,
+              borderColor: token.colorPrimary,
+            },
           },
         },
       },

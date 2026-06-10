@@ -1,11 +1,11 @@
 import React, { useImperativeHandle, useMemo } from 'react';
 import type { ReactNode } from 'react';
-import { useControlledState } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -14,6 +14,8 @@ import useStyle from './style';
 export type CheckableTagOption<CheckableTagValue> = {
   value: CheckableTagValue;
   label: ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 interface CheckableTagGroupSingleProps<CheckableTagValue> {
@@ -30,17 +32,21 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
   onChange?: (value: CheckableTagValue[]) => void;
 }
 
-export type SemanticName = keyof TagGroupSemanticClassNames & keyof TagGroupSemanticStyles;
-
-export type TagGroupSemanticClassNames = {
-  root?: string;
-  item?: string;
+export type CheckableTagGroupSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
 };
 
-export type TagGroupSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
+export type CheckableTagGroupSemanticAllType = GenerateSemantic<
+  CheckableTagGroupSemanticType,
+  CheckableTagGroupBaseProps<any>
+>;
 
 type CheckableTagGroupBaseProps<CheckableTagValue> = {
   // style
@@ -57,20 +63,10 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
     [key: `aria-${string}`]: any;
   };
 
-export type CheckableTagGroupClassNamesType = SemanticClassNamesType<
-  CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticClassNames
->;
-
-export type CheckableTagGroupStylesType = SemanticStylesType<
-  CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticStyles
->;
-
-export type CheckableTagGroupProps<CheckableTagValue> =
+export type CheckableTagGroupProps<CheckableTagValue = any> =
   CheckableTagGroupBaseProps<CheckableTagValue> & {
-    classNames?: CheckableTagGroupClassNamesType;
-    styles?: CheckableTagGroupStylesType;
+    classNames?: CheckableTagGroupSemanticAllType['classNamesAndFn'];
+    styles?: CheckableTagGroupSemanticAllType['stylesAndFn'];
   };
 
 export interface CheckableTagGroupRef {
@@ -118,13 +114,13 @@ const CheckableTagGroup = React.forwardRef<
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CheckableTagGroupClassNamesType,
-    CheckableTagGroupStylesType,
-    typeof props
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames as CheckableTagGroupProps['classNames'], classNames],
+    [contextStyles as CheckableTagGroupProps['styles'], styles],
+    {
+      props,
+    },
+  );
 
   // =============================== Option ===============================
   const parsedOptions = useMemo(() => {
@@ -132,7 +128,7 @@ const CheckableTagGroup = React.forwardRef<
       return [];
     }
     return options.map((option) => {
-      if (option && typeof option === 'object') {
+      if (isPlainObject(option)) {
         return option;
       }
       return { value: option, label: option };
@@ -199,8 +195,8 @@ const CheckableTagGroup = React.forwardRef<
       {parsedOptions.map((option) => (
         <CheckableTag
           key={option.value}
-          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item)}
-          style={mergedStyles.item}
+          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item, option.className)}
+          style={{ ...mergedStyles.item, ...option.style }}
           checked={
             multiple
               ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)

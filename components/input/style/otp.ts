@@ -29,6 +29,9 @@ const genOTPStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
         [`${componentCls}-mask-input`]: {
           color: 'transparent',
           caretColor: token.colorText,
+          '&::selection': {
+            color: 'transparent',
+          },
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',

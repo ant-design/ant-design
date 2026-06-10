@@ -136,7 +136,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   };
 
   const handleCopyTheme = React.useCallback(async () => {
-    if (!dynamicTheme) return;
+    if (!dynamicTheme) {
+      return;
+    }
     const themeConfig: ThemeConfig = {
       token: dynamicTheme.token as ThemeConfig['token'],
       ...(dynamicTheme.algorithm === 'dark' ? { algorithm: antdTheme.darkAlgorithm } : {}),
@@ -431,7 +433,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       title={locale.title}
       open={open}
       onClose={onClose}
-      width="80vw"
+      size="80vw"
       placement="right"
       afterOpenChange={handleAfterOpenChange}
       extra={

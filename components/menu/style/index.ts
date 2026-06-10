@@ -4,7 +4,7 @@ import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 import type { CssUtil } from 'antd-style';
 
-import { clearFix, resetComponent, resetIcon } from '../../style';
+import { clearFix, resetComponent, resetIcon, textEllipsis } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -559,7 +559,13 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     lineType,
     groupTitleLineHeight,
     groupTitleFontSize,
+    iconSize,
+    iconMarginInlineEnd,
   } = token;
+  const titleContentTypographyEllipsisSelector = [
+    `> ${antCls}-typography-ellipsis-single-line`,
+    `> ${componentCls}-item-label > ${antCls}-typography-ellipsis-single-line`,
+  ].join(',');
 
   return [
     // Misc
@@ -647,18 +653,35 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             display: 'inline-flex',
             alignItems: 'center',
             width: '100%',
+            minWidth: 0,
+          },
+
+          [`${componentCls}-item-label`]: {
+            flex: 'auto',
+            minWidth: 0,
+            ...textEllipsis,
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
-          [`> ${antCls}-typography-ellipsis-single-line`]: {
+          [titleContentTypographyEllipsisSelector]: {
             display: 'inline',
             verticalAlign: 'unset',
           },
 
           [`${componentCls}-item-extra`]: {
+            flex: 'none',
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
           },
+        },
+
+        [`${componentCls}-item-icon + ${componentCls}-title-content-with-extra`]: {
+          width: `calc(100% - ${unit(
+            token
+              .calc(iconSize)
+              .add(iconMarginInlineEnd ?? 0)
+              .equal(),
+          )})`,
         },
 
         [`${componentCls}-item a`]: {
@@ -743,59 +766,35 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             },
           },
 
-          [`
-          &-placement-leftTop,
-          &-placement-bottomRight,
-          `]: {
+          '&-placement-leftTop, &-placement-bottomRight': {
             transformOrigin: '100% 0',
           },
 
-          [`
-          &-placement-leftBottom,
-          &-placement-topRight,
-          `]: {
+          '&-placement-leftBottom, &-placement-topRight': {
             transformOrigin: '100% 100%',
           },
 
-          [`
-          &-placement-rightBottom,
-          &-placement-topLeft,
-          `]: {
+          '&-placement-rightBottom, &-placement-topLeft': {
             transformOrigin: '0 100%',
           },
 
-          [`
-          &-placement-bottomLeft,
-          &-placement-rightTop,
-          `]: {
+          '&-placement-bottomLeft, &-placement-rightTop': {
             transformOrigin: '0 0',
           },
 
-          [`
-          &-placement-leftTop,
-          &-placement-leftBottom
-          `]: {
+          '&-placement-leftTop, &-placement-leftBottom': {
             paddingInlineEnd: token.paddingXS,
           },
 
-          [`
-          &-placement-rightTop,
-          &-placement-rightBottom
-          `]: {
+          '&-placement-rightTop, &-placement-rightBottom': {
             paddingInlineStart: token.paddingXS,
           },
 
-          [`
-          &-placement-topRight,
-          &-placement-topLeft
-          `]: {
+          '&-placement-topRight, &-placement-topLeft': {
             paddingBottom: token.paddingXS,
           },
 
-          [`
-          &-placement-bottomRight,
-          &-placement-bottomLeft
-          `]: {
+          '&-placement-bottomRight, &-placement-bottomLeft': {
             paddingTop: token.paddingXS,
           },
         },

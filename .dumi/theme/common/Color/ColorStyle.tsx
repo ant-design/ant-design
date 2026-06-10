@@ -142,7 +142,7 @@ ${makeGrayPalette(index + 1)}
           ${makePalette('geekblue')}
           ${makeGrayPalette()}
 
-  text-align: left;
+  text-align: start;
 
           &-item {
             position: relative;
@@ -170,14 +170,14 @@ ${makeGrayPalette(index + 1)}
           }
 
           &-item &-text {
-            float: left;
+            float: inline-start;
             transition: all ${token.motionDurationSlow};
           }
 
           &-item &-value {
             position: relative;
             inset-inline-start: ${token.marginXXS}px;
-            float: right;
+            float: inline-end;
             transform: scale(0.85);
             transform-origin: 100% 50%;
             opacity: 0;
@@ -223,7 +223,7 @@ ${makeGrayPalette(index + 1)}
 
             .color-palette-pick {
               color: rgba(255, 255, 255, 0.65);
-              text-align: left;
+              text-align: start;
 
               &-hex {
                 color: rgba(255, 255, 255, 0.65);
@@ -231,7 +231,6 @@ ${makeGrayPalette(index + 1)}
 
               .ant-row-rtl & {
                 direction: rtl;
-                text-align: right;
               }
             }
           }

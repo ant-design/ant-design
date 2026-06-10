@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { isFunction } from './is';
 import type { AnyObject } from './type';
 
 export function isFragment(child: any): boolean {
@@ -16,10 +17,7 @@ export const replaceElement = <P>(
   if (!React.isValidElement<P>(element)) {
     return replacement;
   }
-  return React.cloneElement<P>(
-    element,
-    typeof props === 'function' ? props(element.props || {}) : props,
-  );
+  return React.cloneElement<P>(element, isFunction(props) ? props(element.props || {}) : props);
 };
 
 export function cloneElement<P>(element: React.ReactNode, props?: RenderProps) {

@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/fr_CA';
+import Pagination from '@rc-component/pagination/locale/fr_CA';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fr_CA';
@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Fermer',
+    show: 'Afficher',
+    hide: 'Masquer',
   },
   Table: {
     filterTitle: 'Filtrer',

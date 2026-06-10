@@ -18,6 +18,7 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
@@ -63,6 +64,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1648,6 +1650,7 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
@@ -1692,6 +1695,7 @@ exports[`TimePicker should support bordered 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"

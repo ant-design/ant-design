@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/he_IL';
+import Pagination from '@rc-component/pagination/locale/he_IL';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/he_IL';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'אנא בחר',
     close: 'סגור',
+    show: 'הצג',
+    hide: 'הסתר',
   },
   Table: {
     filterTitle: 'תפריט סינון',

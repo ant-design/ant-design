@@ -218,7 +218,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   className={styles.code}
                   href={llmsPath || ''}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <FileTextOutlined className={styles.icon} />
                   <span>LLMs.md</span>

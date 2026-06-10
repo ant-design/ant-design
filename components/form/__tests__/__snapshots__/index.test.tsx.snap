@@ -539,6 +539,7 @@ exports[`Form form should support disabled 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -655,6 +656,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -982,7 +984,10 @@ exports[`Form form should support disabled 1`] = `
               class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
             >
               <div
+                aria-label="Clear color"
                 class="ant-color-picker-clear"
+                role="button"
+                tabindex="0"
               />
             </div>
           </div>

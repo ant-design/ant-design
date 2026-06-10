@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
-import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
+import { updateCSS } from '@rc-component/util';
 import { useTheme } from 'antd-style';
 
 const CommonStyles: React.FC = () => {

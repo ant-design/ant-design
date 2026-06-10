@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -34,10 +35,6 @@ export interface ColProps
   pull?: ColSpanType;
   prefixCls?: string;
 }
-
-const isNumber = (value: any): value is number => {
-  return typeof value === 'number' && !Number.isNaN(value);
-};
 
 function parseFlex(flex: FlexType): string {
   if (flex === 'auto') {
@@ -87,9 +84,9 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   responsiveArrayReversed.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
-    if (typeof propSize === 'number') {
+    if (isNumber(propSize)) {
       sizeProps.span = propSize;
-    } else if (typeof propSize === 'object') {
+    } else if (isPlainObject(propSize)) {
       sizeProps = propSize || {};
     }
 
@@ -97,7 +94,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     sizeClassObj = {
       ...sizeClassObj,
-      [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
+      [`${prefixCls}-${size}-${sizeProps.span}`]: isNonNullable(sizeProps.span),
       [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
       [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
         sizeProps.offset || sizeProps.offset === 0,
@@ -132,8 +129,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const mergedStyle: React.CSSProperties = {};
   // Horizontal gutter use padding
   if (gutter?.[0]) {
-    const horizontalGutter =
-      typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
+    const horizontalGutter = isNumber(gutter[0]) ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
     mergedStyle.paddingInline = horizontalGutter;
   }
 

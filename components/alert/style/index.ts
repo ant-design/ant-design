@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -22,22 +22,15 @@ export interface ComponentToken {
    * @desc 带有描述时的图标尺寸
    * @descEN Icon size with description
    */
-  withDescriptionIconSize: number;
+  withDescriptionIconSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
   // Custom token here
 };
 
-const genAlertTypeStyle = (
-  bgColor: string,
-  borderColor: string,
-  iconColor: string,
-  token: AlertToken,
-  alertCls: string,
-): CSSObject => ({
+const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string): CSSObject => ({
   background: bgColor,
-  border: `${unit(token.lineWidth)} ${token.lineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },
@@ -59,6 +52,13 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorTextHeading,
     withDescriptionPadding,
     defaultPadding,
+    lineWidth,
+    lineType,
+
+    colorSuccessBorder,
+    colorWarningBorder,
+    colorErrorBorder,
+    colorInfoBorder,
   } = token;
 
   return {
@@ -70,6 +70,28 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
+      borderWidth: unit(lineWidth),
+      borderStyle: lineType,
+
+      [`&${componentCls}-success`]: {
+        borderColor: colorSuccessBorder,
+      },
+
+      [`&${componentCls}-info`]: {
+        borderColor: colorInfoBorder,
+      },
+
+      [`&${componentCls}-warning`]: {
+        borderColor: colorWarningBorder,
+      },
+
+      [`&${componentCls}-error`]: {
+        borderColor: colorErrorBorder,
+      },
+
+      [`&${componentCls}-filled`]: {
+        borderColor: 'transparent',
+      },
 
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -147,41 +169,25 @@ export const genTypeStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     componentCls,
 
     colorSuccess,
-    colorSuccessBorder,
     colorSuccessBg,
 
     colorWarning,
-    colorWarningBorder,
     colorWarningBg,
 
     colorError,
-    colorErrorBorder,
     colorErrorBg,
 
     colorInfo,
-    colorInfoBorder,
     colorInfoBg,
   } = token;
 
   return {
     [componentCls]: {
-      '&-success': genAlertTypeStyle(
-        colorSuccessBg,
-        colorSuccessBorder,
-        colorSuccess,
-        token,
-        componentCls,
-      ),
-      '&-info': genAlertTypeStyle(colorInfoBg, colorInfoBorder, colorInfo, token, componentCls),
-      '&-warning': genAlertTypeStyle(
-        colorWarningBg,
-        colorWarningBorder,
-        colorWarning,
-        token,
-        componentCls,
-      ),
+      '&-success': genAlertTypeStyle(colorSuccessBg, colorSuccess, componentCls),
+      '&-info': genAlertTypeStyle(colorInfoBg, colorInfo, componentCls),
+      '&-warning': genAlertTypeStyle(colorWarningBg, colorWarning, componentCls),
       '&-error': {
-        ...genAlertTypeStyle(colorErrorBg, colorErrorBorder, colorError, token, componentCls),
+        ...genAlertTypeStyle(colorErrorBg, colorError, componentCls),
         [`${componentCls}-description > pre`]: {
           margin: 0,
           padding: 0,
@@ -216,8 +222,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
-        outline: 'none',
         cursor: 'pointer',
+        ...genFocusStyle(token),
 
         [`${iconCls}-close`]: {
           color: colorIcon,

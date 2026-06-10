@@ -2856,7 +2856,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
     class="infinite-scroll-component__outerdiv"
   >
     <div
-      class="infinite-scroll-component "
+      class="infinite-scroll-component"
       style="height: auto; overflow: auto; -webkit-overflow-scrolling: touch;"
     >
       <div
@@ -2949,6 +2949,9 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
           </ul>
         </div>
       </div>
+      <div
+        style="height: 1px;"
+      />
     </div>
   </div>
 </div>

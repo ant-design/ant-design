@@ -1,30 +1,44 @@
 import React from 'react';
 import { Button, message, Space } from 'antd';
-import type { MessageArgsProps } from 'antd';
-import { createStaticStyles } from 'antd-style';
+import type { GetProp, MessageArgsProps } from 'antd';
 
-const messageClassNames = createStaticStyles(({ css }) => ({
-  icon: css`
-    font-size: 14px;
-  `,
-}));
-
-const stylesObject: MessageArgsProps['styles'] = {
-  icon: { fontSize: 20 },
+const defaultStyles: GetProp<MessageArgsProps, 'styles', 'Return'> = {
+  root: {
+    backgroundColor: '#f6ffed',
+    border: '2px solid #95de64',
+    borderRadius: 16,
+    boxShadow: '4px 4px 0 #d9f7be',
+  },
+  icon: {
+    color: '#237804',
+  },
+  title: {
+    color: '#237804',
+    fontWeight: 600,
+  },
 };
 
-const stylesFn: MessageArgsProps['styles'] = ({ props }) => {
-  if (props.type === 'success') {
+const stylesFn: MessageArgsProps['styles'] = ({
+  props,
+}): GetProp<MessageArgsProps, 'styles', 'Return'> => {
+  if (props.type === 'error') {
     return {
       root: {
-        border: '1px solid #eee',
-        display: 'inline-flex',
-        borderRadius: 10,
-        overflow: 'hidden',
+        ...defaultStyles.root,
+        backgroundColor: '#fff2f0',
+        borderColor: '#ffccc7',
+        boxShadow: '4px 4px 0 #ffccc7',
       },
-    } satisfies MessageArgsProps['styles'];
+      icon: {
+        color: '#cf1322',
+      },
+      title: {
+        color: '#cf1322',
+        fontWeight: 600,
+      },
+    };
   }
-  return {};
+  return defaultStyles;
 };
 
 const App: React.FC = () => {
@@ -32,20 +46,17 @@ const App: React.FC = () => {
 
   const showObjectStyle = () => {
     messageApi.open({
-      type: 'info',
-      content: 'This is a message with object classNames and styles',
-      classNames: messageClassNames,
-      styles: stylesObject,
+      type: 'success',
+      content: 'This is a message with object styles',
+      styles: defaultStyles,
     });
   };
 
   const showFunctionStyle = () => {
     messageApi.open({
-      type: 'success',
-      content: 'This is a message with function classNames and styles',
-      classNames: messageClassNames,
+      type: 'error',
+      content: 'This is a message with function styles',
       styles: stylesFn,
-      duration: 60 * 1000,
     });
   };
 

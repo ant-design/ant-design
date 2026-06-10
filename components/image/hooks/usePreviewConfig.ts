@@ -2,6 +2,7 @@ import { isValidElement, useMemo } from 'react';
 
 import type { PreviewConfig } from '..';
 import type { MaskType } from '../../_util/hooks';
+import { isPlainObject } from '../../_util/is';
 import { devUseWarning } from '../../_util/warning';
 import type { GroupPreviewConfig } from '../PreviewGroup';
 
@@ -9,7 +10,7 @@ function normalizeMask(mask?: MaskType | React.ReactNode) {
   if (isValidElement(mask)) {
     return [mask, undefined];
   }
-  if (typeof mask === 'boolean' || (mask && typeof mask === 'object')) {
+  if (typeof mask === 'boolean' || isPlainObject(mask)) {
     return [undefined, mask];
   }
   return [undefined, undefined];
@@ -23,8 +24,7 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
     if (typeof preview === 'boolean') {
       return preview ? {} : null;
     }
-
-    return preview && typeof preview === 'object' ? preview : {};
+    return isPlainObject(preview) ? preview : {};
   }, [preview]) as T;
 
   const splittedPreviewConfig = useMemo(() => {

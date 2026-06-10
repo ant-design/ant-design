@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ga_IE';
+import Pagination from '@rc-component/pagination/locale/ga_IE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ga_IE';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Please select',
     close: 'Dún',
+    show: 'Taispeáin',
+    hide: 'Folaigh',
   },
   Table: {
     filterTitle: 'Filter menu',

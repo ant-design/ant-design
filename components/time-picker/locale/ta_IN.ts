@@ -1,4 +1,4 @@
-import type { TimePickerLocale } from '../index';
+import type { TimePickerLocale } from '..';
 
 const locale: TimePickerLocale = {
   placeholder: 'நேரத்தைத் தேர்ந்தெடுக்கவும்',

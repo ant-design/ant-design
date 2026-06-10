@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { isFunction, isString } from '../../_util/is';
 import type { SizeType } from '../SizeContext';
 import SizeContext from '../SizeContext';
 
@@ -11,10 +12,10 @@ const useSize = <T extends string | undefined | number | object>(
     if (!customSize) {
       return size as T;
     }
-    if (typeof customSize === 'string') {
+    if (isString(customSize)) {
       return customSize ?? size;
     }
-    if (typeof customSize === 'function') {
+    if (isFunction(customSize)) {
       return customSize(size);
     }
     return size as T;

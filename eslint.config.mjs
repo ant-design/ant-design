@@ -1,14 +1,36 @@
 // eslint.config.mjs
 import antfu from '@antfu/eslint-config';
+import eslintReact from '@eslint-react/eslint-plugin';
 import compat from 'eslint-plugin-compat';
 import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 
+const restrictedRcPackageDirectoryImports = [
+  '@rc-component/*/es',
+  '@rc-component/*/es/**',
+  '@rc-component/*/lib',
+  '@rc-component/*/lib/**',
+  'rc-*/es',
+  'rc-*/es/**',
+  'rc-*/lib',
+  'rc-*/lib/**',
+];
+
 export default antfu(
   {
     plugins: {
       'react-hooks': reactHooks,
+      'react-dom': {
+        rules: {
+          'no-flush-sync': eslintReact.rules['dom-no-flush-sync'],
+        },
+      },
+      'react-web-api': {
+        rules: {
+          'no-leaked-event-listener': eslintReact.rules['web-api-no-leaked-event-listener'],
+        },
+      },
     },
     ignores: [
       '**/node_modules/**',
@@ -44,7 +66,6 @@ export default antfu(
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
-      'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
@@ -58,12 +79,8 @@ export default antfu(
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
       'react/no-use-context': 'off',
-      'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
       /* turn off 升级 @antfu/eslint-config@6 带来的 warning */
       'react/no-unnecessary-use-prefix': 'off',
-      'react-hooks/globals': 'off',
-      'react-hooks/preserve-manual-memoization': 'off',
-      'react-hooks/refs': 'off',
       'react/no-implicit-key': 'off',
       /* e18e rules */
       'e18e/prefer-spread-syntax': 'off',
@@ -78,12 +95,38 @@ export default antfu(
       'e18e/prefer-date-now': 'off',
       'e18e/prefer-object-has-own': 'off',
       // 升级 @eslint-react/eslint-plugin@3 带来的 warning
+      'react/dom-no-dangerously-set-innerhtml': 'off',
+      'react/dom-no-flush-sync': 'off',
+      'react-dom/no-flush-sync': 'warn',
       'react/component-hook-factories': 'off',
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
-      'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
+      // 升级 @eslint-react/eslint-plugin@5 带来的 warning
+      'react/jsx-no-key-after-spread': 'off',
+      'react/jsx-no-children-prop': 'off',
+      'react/naming-convention-id-name': 'off',
+      'react/naming-convention-ref-name': 'off',
+      'react/static-components': 'off',
+      'react/use-memo': 'off',
       'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
+    },
+  },
+  {
+    files: ['components/**/*.{ts,tsx}'],
+    ignores: ['components/*/demo/**/*', 'components/**/__tests__/**/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: restrictedRcPackageDirectoryImports,
+              message: 'Do not import package internals from es/lib. Import from the package root.',
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -116,8 +159,8 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react/use-state': 'off',
       'react/error-boundaries': 'off',
-      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-component-definitions': 'off',
@@ -143,7 +186,9 @@ export default antfu(
     // demos
     files: ['components/*/demo/*.tsx'],
     rules: {
+      'react/purity': 'off',
       'react-naming-convention/ref-name': 'off',
+      'react/naming-convention-ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
       'unicorn/consistent-function-scoping': 'off',

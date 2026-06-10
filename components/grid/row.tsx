@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -38,17 +39,17 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
-function useMergedPropByScreen(
+const useMergedPropByScreen = (
   oriProp: RowProps['align'] | RowProps['justify'],
   screen: ScreenMap | null,
-) {
-  const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
+) => {
+  const [prop, setProp] = React.useState(() => (isString(oriProp) ? oriProp : ''));
 
   const calcMergedAlignOrJustify = () => {
-    if (typeof oriProp === 'string') {
+    if (isString(oriProp)) {
       setProp(oriProp);
     }
-    if (typeof oriProp !== 'object') {
+    if (!isPlainObject(oriProp)) {
       return;
     }
     for (let i = 0; i < responsiveArray.length; i++) {
@@ -70,7 +71,7 @@ function useMergedPropByScreen(
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
-}
+};
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const {
@@ -114,8 +115,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const rowStyle: React.CSSProperties = {};
 
   if (gutters?.[0]) {
-    const horizontalGutter =
-      typeof gutters[0] === 'number' ? `${gutters[0] / -2}px` : `calc(${gutters[0]} / -2)`;
+    const horizontalGutter = isNumber(gutters[0])
+      ? `${gutters[0] / -2}px`
+      : `calc(${gutters[0]} / -2)`;
     rowStyle.marginInline = horizontalGutter;
   }
 

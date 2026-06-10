@@ -1,5 +1,5 @@
 import * as React from 'react';
-import KeyCode from '@rc-component/util/lib/KeyCode';
+import { KeyCode } from '@rc-component/util';
 
 export interface FilterDropdownMenuWrapperProps {
   className?: string;
@@ -21,6 +21,7 @@ const FilterDropdownMenuWrapper = React.forwardRef<
     onClick={(e) => e.stopPropagation()}
     onKeyDown={onKeyDown}
     ref={ref}
+    role="presentation"
   >
     {props.children}
   </div>

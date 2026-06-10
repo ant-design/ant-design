@@ -17,8 +17,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
-<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/preview-group.tsx">Multiple image preview</code>
 <code src="./demo/preview-group-visible.tsx">Preview from one image</code>
 <code src="./demo/previewSrc.tsx">Custom preview image</code>
@@ -40,20 +40,33 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Image
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| alt | Image description | string | - |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| fallback | Fallback URL when load fails | string | - |  |
-| height | Image height | string \| number | - |  |
-| placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
-| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
-| src | Image URL | string | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| width | Image width | string \| number | - |  |
-| onError | Callback when loading error occurs | (event: Event) => void | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| alt | Image description | string | - |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| fallback | Fallback URL when load fails | string | - |  | 5.28.0 |
+| height | Image height | string \| number | - |  | × |
+| placeholder | Loading placeholder, supports ReactNode or config object | [PlaceholderType](#placeholdertype) | - |  | × |
+| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0, `preview.mask`: 6.0.0, `preview.mask.closable`: 6.4.0 |
+| src | Image URL | string | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| width | Image width | string \| number | - |  | × |
+| onError | Callback when loading error occurs | (event: Event) => void | - |  | × |
 
 Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+### PlaceholderType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| progress | Progress config, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `render` for custom rendering | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
+
+### ImageProgressConfig
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| percent | Progress value | number | - |  |
+| render | Custom rendering, receives default progress UI and percentage | (progress: React.ReactNode, percent: number) => React.ReactNode | - |  |
 
 ### PreviewType
 
@@ -62,11 +75,12 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | 6.4.0 |
 | ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | minScale | Minimum zoom scale | number | 1 |  |
@@ -98,11 +112,12 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | countRender | Custom preview count render | (current: number, total: number) => React.ReactNode | - |  |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | 6.4.0 |
 | current | Index of the current preview image | number | - |  |
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
