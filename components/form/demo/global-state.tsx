@@ -5,7 +5,7 @@ const { Paragraph } = Typography;
 
 interface FieldData {
   name: string | number | (string | number)[];
-  value?: any;
+  value?: unknown;
   touched?: boolean;
   validating?: boolean;
   errors?: string[];

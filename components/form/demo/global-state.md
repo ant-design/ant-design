@@ -10,6 +10,6 @@
 
 We can store form data into upper component or [Redux](https://github.com/reactjs/redux) or [dva](https://github.com/dvajs/dva) by using `onFieldsChange` and `fields`, see more at this [rc-field-form demo](https://rc-field-form.react-component.now.sh/?selectedKind=rc-field-form&selectedStory=StateForm-redux&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel).
 
-`onFieldsChange` returns a flat `FieldData[]`. When a field uses an array name path, `FieldData.name` keeps that path instead of converting it into a nested object, which makes every field entry easy to process in external state.
+`onFieldsChange` returns a flat `FieldData[]`. When a field uses an array name path, `FieldData.name` keeps that path instead of converting it into a nested object, making it easier to process each field entry in the external state.
 
-**Note:** Save Form data globally [is not a good practice](https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978). You should avoid this if not necessary.
+**Note:** Saving form data globally [is not a good practice](https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978). You should avoid this if not necessary.
