@@ -140,6 +140,17 @@ describe('Popconfirm', () => {
     jest.useRealTimers();
   });
 
+  it('should render title when it is the number 0', () => {
+    const { container } = render(
+      <Popconfirm title={0} open>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const titleNode = container.querySelector('.ant-popconfirm-title');
+    expect(titleNode).not.toBe(null);
+    expect(titleNode?.textContent).toContain('0');
+  });
+
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();

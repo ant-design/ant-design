@@ -2,91 +2,205 @@
 
 exports[`renders components/radio/demo/badge.tsx correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
-  role="radiogroup"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
 >
-  <span
-    class="ant-badge css-var-test-id"
+  <div
+    class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
-    <label
-      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+    <span
+      class="ant-badge css-var-test-id"
     >
-      <span
-        class="ant-radio-button"
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
-        <input
-          class="ant-radio-button-input"
-          name="test-id"
-          type="radio"
-          value="1"
-        />
-      </span>
-      <span
-        class="ant-radio-button-label"
-      >
-        Click Me
-      </span>
-    </label>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="1"
-    >
-      <bdi>
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-radio-button"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            1
-          </span>
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="1"
+          />
         </span>
-      </bdi>
-    </sup>
-  </span>
-  <span
-    class="ant-badge css-var-test-id"
+        <span
+          class="ant-radio-button-label"
+        >
+          Click Me
+        </span>
+      </label>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="1"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+    <span
+      class="ant-badge css-var-test-id"
+    >
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="2"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Not Me
+        </span>
+      </label>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="2"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              2
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var ant-radio-group-vertical"
+    role="radiogroup"
   >
-    <label
-      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+    <span
+      class="ant-badge css-var-test-id"
     >
-      <span
-        class="ant-radio-button"
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
-        <input
-          class="ant-radio-button-input"
-          name="test-id"
-          type="radio"
-          value="2"
-        />
-      </span>
-      <span
-        class="ant-radio-button-label"
-      >
-        Not Me
-      </span>
-    </label>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="2"
-    >
-      <bdi>
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-radio-button"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            2
-          </span>
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="vertical-1"
+          />
         </span>
-      </bdi>
-    </sup>
-  </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Click Me
+        </span>
+      </label>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="1"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+    <span
+      class="ant-badge css-var-test-id"
+    >
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="vertical-0"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Hidden Badge
+        </span>
+      </label>
+    </span>
+    <span
+      class="ant-badge css-var-test-id"
+    >
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="vertical-2"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Not Me
+        </span>
+      </label>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="2"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              2
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+  </div>
 </div>
 `;
 
@@ -1446,90 +1560,165 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
 
 exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
-  role="radiogroup"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-large"
 >
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
-    style="height:32px;line-height:32px"
+  <div
+    style="flex:1"
   >
-    <span
-      class="ant-radio ant-wave-target ant-radio-checked"
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
+      role="radiogroup"
     >
-      <input
-        checked=""
-        class="ant-radio-input"
-        name="test-id"
-        type="radio"
-        value="1"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-      Option A
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
-    style="height:32px;line-height:32px"
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+        style="height:32px;line-height:32px"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="1"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Option A
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        style="height:32px;line-height:32px"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="2"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Option B
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        style="height:32px;line-height:32px"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="3"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Option C
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        style="height:32px;line-height:32px"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="4"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          More...
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    style="flex:1"
   >
-    <span
-      class="ant-radio ant-wave-target"
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
+      role="radiogroup"
     >
-      <input
-        class="ant-radio-input"
-        name="test-id"
-        type="radio"
-        value="2"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-      Option B
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
-    style="height:32px;line-height:32px"
-  >
-    <span
-      class="ant-radio ant-wave-target"
-    >
-      <input
-        class="ant-radio-input"
-        name="test-id"
-        type="radio"
-        value="3"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-      Option C
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
-    style="height:32px;line-height:32px"
-  >
-    <span
-      class="ant-radio ant-wave-target"
-    >
-      <input
-        class="ant-radio-input"
-        name="test-id"
-        type="radio"
-        value="4"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-      More...
-    </span>
-  </label>
+      <label
+        class="ant-radio-button-wrapper label-1 css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="Apple"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Apple
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper label-2 css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="Pear"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Pear
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper label-3 css-var-test-id ant-radio-css-var"
+        title="Orange"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="Orange"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Orange
+        </span>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
