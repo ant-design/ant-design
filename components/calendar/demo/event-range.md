@@ -31,23 +31,22 @@ Render event ranges across days with `cellRender`. The example calculates whethe
 }
 
 .calendar-event-range-bar-start {
-  margin-right: -8px;
-  padding-left: 6px;
+  margin-inline-end: -8px;
+  padding-inline-start: 6px;
   border-radius: 9px 0 0 9px;
 }
 
 .calendar-event-range-bar-middle {
-  margin-right: -8px;
-  margin-left: -8px;
+  margin-inline: -8px;
 }
 
 .calendar-event-range-bar-end {
-  margin-left: -8px;
+  margin-inline-start: -8px;
   border-radius: 0 9px 9px 0;
 }
 
 .calendar-event-range-bar-single {
-  padding-left: 6px;
+  padding-inline-start: 6px;
   border-radius: 9px;
 }
 ```

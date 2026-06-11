@@ -1,38 +1,38 @@
 import React from 'react';
-import { Calendar } from 'antd';
+import { Calendar, theme } from 'antd';
 import type { CalendarProps } from 'antd';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
-type CalendarEvent = {
+export interface CalendarEvent {
   key: string;
   title: string;
   start: Dayjs;
   end: Dayjs;
   color: string;
-};
+}
 
-const events: CalendarEvent[] = [
+const getEvents = (token: ReturnType<typeof theme.useToken>['token']): CalendarEvent[] => [
   {
     key: 'release',
     title: 'Release window',
     start: dayjs('2026-01-08'),
     end: dayjs('2026-01-11'),
-    color: '#1677ff',
+    color: token.colorPrimary,
   },
   {
     key: 'design-review',
     title: 'Design review',
     start: dayjs('2026-01-14'),
     end: dayjs('2026-01-14'),
-    color: '#52c41a',
+    color: token.colorSuccess,
   },
   {
     key: 'maintenance',
     title: 'Maintenance',
     start: dayjs('2026-01-21'),
     end: dayjs('2026-01-24'),
-    color: '#fa8c16',
+    color: token.colorWarning,
   },
 ];
 
@@ -59,6 +59,9 @@ const getRangePosition = (current: Dayjs, event: CalendarEvent) => {
 };
 
 const App: React.FC = () => {
+  const { token } = theme.useToken();
+  const events = getEvents(token);
+
   const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
     if (info.type !== 'date') {
       return info.originNode;
