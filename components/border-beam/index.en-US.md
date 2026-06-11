@@ -21,6 +21,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
+<code src="./demo/duration.tsx">Duration</code>
 <code src="./demo/non-uniform-radius.tsx" debug>Non-uniform radius</code>
 <code src="./demo/component-token.tsx" debug>Line width</code>
 
@@ -34,6 +35,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
+| duration | Time in seconds for the beam to complete one loop | number | 6 | 6.5.0 | × |
 | outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | 6.4.0 | × |
 
 ## Design Token

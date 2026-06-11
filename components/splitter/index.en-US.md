@@ -41,23 +41,23 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Splitter
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 |
-| ~collapsibleIcon~ | custom collapsible icon | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
-| destroyOnHidden | Destroy panel content when collapsed (size is 0). Applies to all panels, can be overridden per panel | `boolean` | `false` | 6.4.0 |
-| draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
-| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
-| lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
-| onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 |
-| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
-| onDraggerDoubleClick | Callback triggered when the dragger is double-clicked | `(index: number) => void` | - | 6.3.0 |
-| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
-| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
-| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 | × |
+| ~~collapsibleIcon~~ | custom collapsible icon | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
+| destroyOnHidden | Destroy panel content when collapsed (size is 0). Applies to all panels, can be overridden per panel | `boolean` | `false` | 6.4.0 | × |
+| draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 | × |
+| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - | × |
+| lazy | Lazy mode | `boolean` | `false` | 5.23.0 | × |
+| onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 | × |
+| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  | × |
+| onDraggerDoubleClick | Callback triggered when the dragger is double-clicked | `(index: number) => void` | - | 6.3.0 | × |
+| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - | × |
+| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - | × |
+| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - | × |
 
 ### Panel
 

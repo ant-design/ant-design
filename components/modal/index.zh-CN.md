@@ -47,41 +47,42 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| afterClose | Modal 完全关闭后的回调 | function | - |  |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
-| cancelText | 取消按钮文字 | ReactNode | `取消` |  |
-| centered | 垂直居中展示 Modal | boolean | false |  |
-| classNames | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
-| confirmLoading | 确定按钮 loading | boolean | false |  |
-| ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
-| destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | 5.25.0 |
-| ~~focusTriggerAfterClose~~ | 对话框关闭后是否需要聚焦触发元素。请使用 `focusable.focusTriggerAfterClose` 替代 | boolean | true | 4.9.0 |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 |
-| forceRender | 强制渲染 Modal | boolean | false |  |
-| focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
-| getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 |
-| ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - |
-| modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
-| okText | 确认按钮文字 | ReactNode | `确定` |  |
-| okType | 确认按钮类型 | string | `primary` |  |
-| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
-| styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| loading | 显示骨架屏 | boolean |  | 5.18.0 |
-| title | 标题 | ReactNode | - |  |
-| open | 对话框是否可见 | boolean | - |  |
-| width | 宽度 | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 |
-| wrapClassName | 对话框外层容器的类名 | string | - |  |
-| zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
-| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
-| onOk | 点击确定回调 | function(e) | - |  |
-| afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | 5.4.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterClose | Modal 完全关闭后的回调 | function | - |  | × |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
+| cancelText | 取消按钮文字 | ReactNode | `取消` |  | × |
+| centered | 垂直居中展示 Modal | boolean | false |  | 5.24.0 |
+| classNames | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - | 5.16.0 |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  | 5.14.0 |
+| confirmLoading | 确定按钮 loading | boolean | false |  | × |
+| ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  | × |
+| destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | 5.25.0 | × |
+| ~~focusTriggerAfterClose~~ | 对话框关闭后是否需要聚焦触发元素。请使用 `focusable.focusTriggerAfterClose` 替代 | boolean | true | 4.9.0 | × |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 | × |
+| forceRender | 强制渲染 Modal | boolean | false |  | × |
+| focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 | 6.4.0 |
+| getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  | × |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true |  | × |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | 6.0.0，mask.closable: 6.3.0 |
+| ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - | × |
+| modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 | × |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
+| okText | 确认按钮文字 | ReactNode | `确定` |  | × |
+| okType | 确认按钮类型 | string | `primary` |  | × |
+| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  | 5.7.0 |
+| styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.10.0 |
+| loading | 显示骨架屏 | boolean |  | 5.18.0 | × |
+| scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 | × |
+| title | 标题 | ReactNode | - |  | × |
+| open | 对话框是否可见 | boolean | - |  | × |
+| width | 宽度 | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 | × |
+| wrapClassName | 对话框外层容器的类名 | string | - |  | × |
+| zIndex | 设置 Modal 的 `z-index` | number | 1000 |  | × |
+| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  | × |
+| onOk | 点击确定回调 | function(e) | - |  | × |
+| afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | 5.4.0 | × |
 
 #### 注意
 
@@ -119,6 +120,7 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | false | - |
+| scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |

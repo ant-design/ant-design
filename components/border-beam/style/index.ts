@@ -5,7 +5,7 @@ import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
-import { MAX_BEAM_COLOR_STOP_PERCENT } from '../util';
+import { DEFAULT_BORDER_BEAM_DURATION, MAX_BEAM_COLOR_STOP_PERCENT } from '../util';
 
 export type ComponentToken = object;
 
@@ -66,7 +66,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             offsetPath: 'rect(0 auto auto 0 round 100px)',
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
-            animationDuration: '6s',
+            animationDuration: varRef('duration', `${DEFAULT_BORDER_BEAM_DURATION}s`),
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
             willChange: 'offset-distance',

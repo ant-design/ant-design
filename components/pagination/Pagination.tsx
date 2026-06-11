@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type {
@@ -196,7 +197,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   // ============================= Render =============================
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
-    const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
+    const ellipsis = (
+      <span className={`${prefixCls}-item-ellipsis`}>
+        <EllipsisOutlined />
+      </span>
+    );
     const prevIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />}

@@ -42,21 +42,21 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Properties that shared by all types.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
-| percent | To set the completion percentage | number | 0 | - |
-| railColor | The color of unfilled part | string | - | - |
-| showInfo | Whether to display the progress value and the status icon | boolean | true | - |
-| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - | - |
-| strokeColor | The color of progress bar | string | - | - |
-| strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
-| ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - |
-| type | To set the type, options: `line` `circle` `dashboard` | string | `line` | - |
-| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "medium" | "medium" | 5.3.0, Object: 5.18.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - | × |
+| percent | To set the completion percentage | number | 0 | - | × |
+| railColor | The color of unfilled part | string | - | - | × |
+| showInfo | Whether to display the progress value and the status icon | boolean | true | - | × |
+| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - | - | × |
+| strokeColor | The color of progress bar | string | - | - | × |
+| strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - | × |
+| ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - | × |
+| type | To set the type, options: `line` `circle` `dashboard` | string | `line` | - | × |
+| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "medium" | "medium" | 5.3.0, Object: 5.18.0 | × |
 
 ### `type="line"`
 
