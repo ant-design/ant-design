@@ -47,7 +47,7 @@ group:
 | allowClear | 允许清除选择的颜色 | boolean | false |  | × |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true |  | 6.3.0 |
 | children | 颜色选择器的触发器 | React.ReactNode | - |  | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.7.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | 颜色默认的值 | [ColorType](#colortype) | - |  | × |
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 | × |
 | disabled | 禁用颜色选择器 | boolean | - |  | × |
@@ -63,7 +63,7 @@ group:
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 | × |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 | × |
 | size | 设置触发器大小 | `large` \| `medium` \| `small` | `medium` | 5.7.0 | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.7.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` |  | × |
 | value | 颜色的值 | [ColorType](#colortype) | - |  | × |
 | onChange | 颜色变化的回调 | `(value: Color, css: string) => void` | - |  | × |
