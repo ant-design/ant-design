@@ -148,6 +148,8 @@ interface InternalTooltipProps extends TooltipProps {
   'data-popover-inject'?: boolean;
 }
 
+const ANCESTOR_SCROLL_STYLES = new Set(['hidden', 'scroll', 'clip', 'auto']);
+
 const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -312,6 +314,53 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   if ((!('open' in props) && noTitle) || inTableMeasureRow) {
     tempOpen = false;
   }
+
+  // ============ Reposition when ancestor layout shifts ============
+  // When content is inserted above the trigger element (pushing it down
+  // without any scroll), the popup stays misaligned. We observe every
+  // scrollable ancestor with a ResizeObserver: when one grows due to a
+  // layout change, we force-realign the popup.
+  React.useEffect(() => {
+    if (!tempOpen || typeof ResizeObserver === 'undefined') {
+      return;
+    }
+
+    const nativeEl = tooltipRef.current?.nativeElement;
+    if (!nativeEl) {
+      return;
+    }
+
+    const scrollers: Element[] = [];
+    let cur = nativeEl.parentElement;
+    while (cur) {
+      const { overflowX, overflowY, overflow } = window.getComputedStyle(cur);
+      if ([overflowX, overflowY, overflow].some((v) => ANCESTOR_SCROLL_STYLES.has(v))) {
+        scrollers.push(cur);
+      }
+      cur = cur.parentElement;
+    }
+
+    // Fall back to the document root so there is always at least one target
+    if (scrollers.length === 0) {
+      scrollers.push(document.documentElement);
+    }
+
+    // Skip the immediate fire that ResizeObserver triggers on observe() for
+    // each element — only act on genuine subsequent resize events.
+    let initialized = false;
+    const observer = new ResizeObserver(() => {
+      if (!initialized) return;
+      tooltipRef.current?.forceAlign();
+    });
+    for (const el of scrollers) {
+      observer.observe(el);
+    }
+    initialized = true;
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [tempOpen]);
 
   // ============================= Render =============================
   const child =
