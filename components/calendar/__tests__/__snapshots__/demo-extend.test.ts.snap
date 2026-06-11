@@ -7840,6 +7840,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 exports[`renders components/calendar/demo/event-range.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full calendar-event-range-calendar css-var-test-id"
+  style="--calendar-event-range-date-padding: 8px; --calendar-event-range-date-margin: 4px;"
 >
   <div
     class="ant-picker-calendar-header"

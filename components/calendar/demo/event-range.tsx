@@ -61,6 +61,14 @@ const getRangePosition = (current: Dayjs, event: CalendarEvent) => {
 const App: React.FC = () => {
   const { token } = theme.useToken();
   const events = React.useMemo(() => getEvents(token), [token]);
+  const calendarStyle = React.useMemo(
+    () =>
+      ({
+        '--calendar-event-range-date-padding': `${token.paddingXS}px`,
+        '--calendar-event-range-date-margin': `${token.marginXS / 2}px`,
+      }) as React.CSSProperties,
+    [token],
+  );
 
   const cellRender = React.useCallback<NonNullable<CalendarProps<Dayjs>['cellRender']>>(
     (current, info) => {
@@ -99,6 +107,7 @@ const App: React.FC = () => {
   return (
     <Calendar
       className="calendar-event-range-calendar"
+      style={calendarStyle}
       defaultValue={dayjs('2026-01-01')}
       cellRender={cellRender}
     />

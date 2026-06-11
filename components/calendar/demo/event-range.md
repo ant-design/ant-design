@@ -8,6 +8,10 @@ Render event ranges across days with `cellRender`. The example calculates whethe
 
 ```css
 .calendar-event-range-cell {
+  --calendar-event-range-cell-offset: calc(
+    var(--calendar-event-range-date-padding) + var(--calendar-event-range-date-margin)
+  );
+
   min-height: 72px;
 }
 
@@ -35,18 +39,18 @@ Render event ranges across days with `cellRender`. The example calculates whethe
 }
 
 .calendar-event-range-bar-start {
-  margin-inline-end: -8px;
+  margin-inline-end: calc(0px - var(--calendar-event-range-cell-offset));
   padding-inline-start: 6px;
   border-start-start-radius: 9px;
   border-end-start-radius: 9px;
 }
 
 .calendar-event-range-bar-middle {
-  margin-inline: -8px;
+  margin-inline: calc(0px - var(--calendar-event-range-cell-offset));
 }
 
 .calendar-event-range-bar-end {
-  margin-inline-start: -8px;
+  margin-inline-start: calc(0px - var(--calendar-event-range-cell-offset));
   border-start-end-radius: 9px;
   border-end-end-radius: 9px;
 }
