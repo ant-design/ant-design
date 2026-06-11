@@ -32,11 +32,17 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
     >
       <Input />
     </Form.Item>
+    <Form.Item name={['profile', 'email']} label="Email">
+      <Input />
+    </Form.Item>
   </Form>
 );
 
 const App: React.FC = () => {
-  const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
+  const [fields, setFields] = useState<FieldData[]>([
+    { name: ['username'], value: 'Ant Design' },
+    { name: ['profile', 'email'], value: 'antd@example.com' },
+  ]);
 
   return (
     <>
