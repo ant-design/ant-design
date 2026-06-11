@@ -6,7 +6,7 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
   console.log(date, dateString);
 };
 
-const App: React.FC = () => (
+const Demo: React.FC = () => (
   <Flex gap="small" justify="flex-start" align="flex-start" vertical>
     <DatePicker onChange={onChange} />
     <DatePicker onChange={onChange} picker="week" />
@@ -16,4 +16,4 @@ const App: React.FC = () => (
   </Flex>
 );
 
-export default App;
+export default Demo;
