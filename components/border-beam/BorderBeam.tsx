@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { unit } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 
 import { isNonNullable, isNumber, isString } from '../_util/is';
@@ -24,6 +25,7 @@ export interface BorderBeamProps {
   children?: React.ReactNode;
   color?: BorderBeamColor;
   duration?: number;
+  lineWidth?: number | string;
   outset?: number | string;
 }
 
@@ -35,6 +37,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     children,
     color,
     duration,
+    lineWidth,
     outset,
   } = props;
 
@@ -73,6 +76,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
           ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
+          ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
