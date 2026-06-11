@@ -39,9 +39,11 @@ export type SiderTheme = 'light' | 'dark';
 
 export type SiderSemanticType = {
   classNames?: {
+    root?: string;
     body?: string;
   };
   styles?: {
+    root?: React.CSSProperties;
     body?: React.CSSProperties;
   };
 };
@@ -241,6 +243,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       [`${prefixCls}-zero-width`]: Number.parseFloat(siderWidth) === 0,
     },
     className,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
@@ -252,7 +255,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   return (
     <SiderContext.Provider value={contextValue}>
-      <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
+      <aside
+        className={siderCls}
+        {...divProps}
+        style={{ ...mergedStyles.root, ...divStyle }}
+        ref={ref}
+      >
         <div
           className={clsx(`${prefixCls}-children`, mergedClassNames.body)}
           style={mergedStyles.body}

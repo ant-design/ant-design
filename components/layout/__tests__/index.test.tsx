@@ -205,11 +205,14 @@ describe('Layout', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should customize the body container with semantic classNames and styles', () => {
+  it('should customize root and body with semantic classNames and styles', () => {
     const { container } = render(
       <Sider
-        classNames={{ body: 'custom-sider-body' }}
-        styles={{ body: { display: 'flex', flexDirection: 'column' } }}
+        classNames={{ root: 'custom-sider-root', body: 'custom-sider-body' }}
+        styles={{
+          root: { backgroundColor: 'rgb(1, 2, 3)' },
+          body: { display: 'flex', flexDirection: 'column' },
+        }}
       >
         Sider
       </Sider>,
@@ -217,6 +220,8 @@ describe('Layout', () => {
     const sider = container.querySelector<HTMLElement>('.ant-layout-sider')!;
     const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
 
+    expect(sider).toHaveClass('custom-sider-root');
+    expect(sider).toHaveStyle({ backgroundColor: 'rgb(1, 2, 3)' });
     expect(sider).not.toHaveClass('custom-sider-body');
     expect(body).toHaveClass('custom-sider-body');
     expect(body).toHaveStyle({
