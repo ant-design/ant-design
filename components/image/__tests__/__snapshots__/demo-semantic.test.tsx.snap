@@ -35,7 +35,7 @@ exports[`renders components/image/demo/_semantic.tsx correctly 1`] = `
           </div>
         </div>
         <div
-          style="flex: 1 1 0%; position: relative; min-height: 500px; width: 100%;"
+          style="flex: 1 1 0%; position: relative; min-height: 360px; width: 100%;"
         >
           <div
             aria-modal="true"
