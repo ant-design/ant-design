@@ -132,34 +132,34 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         paddingBottom: 0,
         opacity: 0,
       },
-    },
 
-    [`${componentCls}-with-description`]: {
-      alignItems: 'flex-start',
-      padding: withDescriptionPadding,
-      [`${componentCls}-icon`]: {
-        marginInlineEnd: marginSM,
-        fontSize: withDescriptionIconSize,
-        lineHeight: 0,
+      [`&${componentCls}-with-description`]: {
+        alignItems: 'flex-start',
+        padding: withDescriptionPadding,
+        [`${componentCls}-icon`]: {
+          marginInlineEnd: marginSM,
+          fontSize: withDescriptionIconSize,
+          lineHeight: 0,
+        },
+
+        [`${componentCls}-title`]: {
+          display: 'block',
+          marginBottom: marginXS,
+          color: colorTextHeading,
+          fontSize: fontSizeLG,
+        },
+
+        [`${componentCls}-description`]: {
+          display: 'block',
+          color: colorText,
+        },
       },
 
-      [`${componentCls}-title`]: {
-        display: 'block',
-        marginBottom: marginXS,
-        color: colorTextHeading,
-        fontSize: fontSizeLG,
+      [`&${componentCls}-banner`]: {
+        marginBottom: 0,
+        border: '0 !important',
+        borderRadius: 0,
       },
-
-      [`${componentCls}-description`]: {
-        display: 'block',
-        color: colorText,
-      },
-    },
-
-    [`${componentCls}-banner`]: {
-      marginBottom: 0,
-      border: '0 !important',
-      borderRadius: 0,
     },
   };
 };
