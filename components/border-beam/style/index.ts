@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
@@ -39,7 +39,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       pointerEvents: 'none',
 
       // Border Beam
-      padding: token.lineWidth,
+      padding: varRef('line-width', unit(token.lineWidth)),
 
       // Border Beam Effect
       '@supports ((mask-composite: exclude) or (-webkit-mask-composite: xor))': {
