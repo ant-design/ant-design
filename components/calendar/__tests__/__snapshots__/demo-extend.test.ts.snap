@@ -7839,7 +7839,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 
 exports[`renders components/calendar/demo/event-range.tsx extend context correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
+  class="ant-picker-calendar ant-picker-calendar-full calendar-event-range-calendar css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
@@ -8674,11 +8674,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        28
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8703,11 +8698,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        29
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -8734,11 +8724,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        30
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8763,11 +8748,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        31
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -8794,11 +8774,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        1
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8824,11 +8799,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        2
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8853,11 +8823,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        3
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -8886,11 +8851,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        4
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8915,11 +8875,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        5
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -8946,11 +8901,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        6
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -8976,11 +8926,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        7
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9005,11 +8950,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        8
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       >
@@ -9044,11 +8984,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        9
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       >
                         <span
@@ -9079,11 +9014,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        10
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       >
@@ -9118,11 +9048,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        11
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       >
                         <span
@@ -9154,11 +9079,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        12
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9184,11 +9104,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        13
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9213,11 +9128,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        14
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       >
@@ -9252,11 +9162,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        15
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9282,11 +9187,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        16
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9311,11 +9211,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        17
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9344,11 +9239,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        18
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9373,11 +9263,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        19
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9404,11 +9289,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        20
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9433,11 +9313,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        21
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       >
@@ -9472,11 +9347,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        22
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       >
                         <span
@@ -9508,11 +9378,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        23
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       >
                         <span
@@ -9543,11 +9408,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        24
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       >
@@ -9582,11 +9442,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        25
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9611,11 +9466,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        26
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9642,11 +9492,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        27
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9671,11 +9516,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        28
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9702,11 +9542,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        29
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9732,11 +9567,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        30
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9761,11 +9591,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        31
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9794,11 +9619,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        1
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9823,11 +9643,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        2
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9854,11 +9669,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        3
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9883,11 +9693,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        4
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />
@@ -9914,11 +9719,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        5
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9944,11 +9744,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                       class="calendar-event-range-cell"
                     >
                       <div
-                        class="ant-picker-cell-inner"
-                      >
-                        6
-                      </div>
-                      <div
                         class="calendar-event-range-list"
                       />
                     </div>
@@ -9973,11 +9768,6 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     <div
                       class="calendar-event-range-cell"
                     >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        7
-                      </div>
                       <div
                         class="calendar-event-range-list"
                       />

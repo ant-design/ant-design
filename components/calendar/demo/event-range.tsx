@@ -60,41 +60,49 @@ const getRangePosition = (current: Dayjs, event: CalendarEvent) => {
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
-  const events = getEvents(token);
+  const events = React.useMemo(() => getEvents(token), [token]);
 
-  const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
-    if (info.type !== 'date') {
-      return info.originNode;
-    }
+  const cellRender = React.useCallback<NonNullable<CalendarProps<Dayjs>['cellRender']>>(
+    (current, info) => {
+      if (info.type !== 'date') {
+        return null;
+      }
 
-    const currentEvents = events.filter((event) => isInRange(current, event));
+      const currentEvents = events.filter((event) => isInRange(current, event));
 
-    return (
-      <div className="calendar-event-range-cell">
-        {info.originNode}
-        <div className="calendar-event-range-list">
-          {currentEvents.map((event) => {
-            const position = getRangePosition(current, event);
+      return (
+        <div className="calendar-event-range-cell">
+          <div className="calendar-event-range-list">
+            {currentEvents.map((event) => {
+              const position = getRangePosition(current, event);
 
-            return (
-              <span
-                key={event.key}
-                className={`calendar-event-range-bar calendar-event-range-bar-${position}`}
-                style={{ '--event-color': event.color } as React.CSSProperties}
-                title={`${event.title}: ${event.start.format('YYYY-MM-DD')} - ${event.end.format(
-                  'YYYY-MM-DD',
-                )}`}
-              >
-                {position === 'start' || position === 'single' ? event.title : ''}
-              </span>
-            );
-          })}
+              return (
+                <span
+                  key={event.key}
+                  className={`calendar-event-range-bar calendar-event-range-bar-${position}`}
+                  style={{ '--event-color': event.color } as React.CSSProperties}
+                  title={`${event.title}: ${event.start.format('YYYY-MM-DD')} - ${event.end.format(
+                    'YYYY-MM-DD',
+                  )}`}
+                >
+                  {position === 'start' || position === 'single' ? event.title : ''}
+                </span>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    );
-  };
+      );
+    },
+    [events],
+  );
 
-  return <Calendar defaultValue={dayjs('2026-01-01')} cellRender={cellRender} />;
+  return (
+    <Calendar
+      className="calendar-event-range-calendar"
+      defaultValue={dayjs('2026-01-01')}
+      cellRender={cellRender}
+    />
+  );
 };
 
 export default App;

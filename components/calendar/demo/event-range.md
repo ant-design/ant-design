@@ -11,6 +11,10 @@ Render event ranges across days with `cellRender`. The example calculates whethe
   min-height: 72px;
 }
 
+.calendar-event-range-calendar .ant-picker-calendar-date-content {
+  overflow: visible;
+}
+
 .calendar-event-range-list {
   display: flex;
   flex-direction: column;
@@ -33,7 +37,8 @@ Render event ranges across days with `cellRender`. The example calculates whethe
 .calendar-event-range-bar-start {
   margin-inline-end: -8px;
   padding-inline-start: 6px;
-  border-radius: 9px 0 0 9px;
+  border-start-start-radius: 9px;
+  border-end-start-radius: 9px;
 }
 
 .calendar-event-range-bar-middle {
@@ -42,7 +47,8 @@ Render event ranges across days with `cellRender`. The example calculates whethe
 
 .calendar-event-range-bar-end {
   margin-inline-start: -8px;
-  border-radius: 0 9px 9px 0;
+  border-start-end-radius: 9px;
+  border-end-end-radius: 9px;
 }
 
 .calendar-event-range-bar-single {
