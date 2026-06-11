@@ -44,8 +44,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  | × |
-| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  | × |
+| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
+| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 | × |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 | × |
 | size | The height of input box | `large` \| `medium` \| `small` | - | - | × |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - | × |
-| stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false |  | × |
+| stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 | × |
 | mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  | × |
 | value | The current value of the component | number | - | - | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |

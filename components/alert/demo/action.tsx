@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Space } from 'antd';
+import { Alert, Button, Flex } from 'antd';
 
 const App: React.FC = () => (
   <>
@@ -31,11 +31,9 @@ const App: React.FC = () => (
       title="Warning Text"
       type="warning"
       action={
-        <Space>
-          <Button type="text" size="small">
-            Done
-          </Button>
-        </Space>
+        <Button type="text" size="small">
+          Done
+        </Button>
       }
       closable
     />
@@ -45,14 +43,14 @@ const App: React.FC = () => (
       description="Info Description Info Description Info Description Info Description"
       type="info"
       action={
-        <Space vertical>
-          <Button size="small" type="primary">
+        <Flex vertical gap="small" style={{ minWidth: 80 }}>
+          <Button size="small" type="primary" block>
             Accept
           </Button>
-          <Button size="small" danger ghost>
+          <Button size="small" danger ghost block>
             Decline
           </Button>
-        </Space>
+        </Flex>
       }
       closable
     />
