@@ -153,22 +153,14 @@ Array [
     <div
       class="ant-alert-actions"
     >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      <button
+        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
+        type="button"
       >
-        <div
-          class="ant-space-item"
-        >
-          <button
-            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
-            type="button"
-          >
-            <span>
-              Done
-            </span>
-          </button>
-        </div>
-      </div>
+        <span>
+          Done
+        </span>
+      </button>
     </div>
     <button
       class="ant-alert-close-icon"
@@ -221,32 +213,25 @@ Array [
       class="ant-alert-actions"
     >
       <div
-        class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+        style="min-width:80px"
       >
-        <div
-          class="ant-space-item"
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-block"
+          type="button"
         >
-          <button
-            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-            type="button"
-          >
-            <span>
-              Accept
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
+          <span>
+            Accept
+          </span>
+        </button>
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-btn-block"
+          type="button"
         >
-          <button
-            class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost"
-            type="button"
-          >
-            <span>
-              Decline
-            </span>
-          </button>
-        </div>
+          <span>
+            Decline
+          </span>
+        </button>
       </div>
     </div>
     <button
