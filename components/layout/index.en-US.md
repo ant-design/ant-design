@@ -115,9 +115,9 @@ The sidebar.
 | onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |  |
 | onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |  |
 
-#### Semantic DOM
+## Semantic DOM
 
-- `body`: Content wrapper of the Sider
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 #### breakpoint width
 

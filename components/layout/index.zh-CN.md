@@ -116,9 +116,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | onBreakpoint | 触发响应式布局[断点](/components/grid-cn#api)时的回调 | (broken) => {} | - |  |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |  |
 
-#### Semantic DOM
+## Semantic DOM
 
-- `body`：Sider 的内容包裹容器
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 #### breakpoint width
 
