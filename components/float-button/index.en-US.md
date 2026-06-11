@@ -43,13 +43,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | icon | Set the icon component of button | ReactNode | - |  | FloatButton: ×, BackTop: 5.27.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | content | Text and other | ReactNode | - |  | × |
 | ~~description~~ | Please use `content` instead | ReactNode | - |  | × |
 | tooltip | The text shown in the tooltip | ReactNode \| [TooltipProps](/components/tooltip#api) | - | TooltipProps: 5.25.0 | × |
 | type | Setting button type | `default` \| `primary` | `default` |  | × |
 | shape | Setting button shape | `circle` \| `square` | `circle` |  | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | onClick | Set the handler to handle `click` event | (event) => void | - |  | × |
 | href | The target of hyperlink | string | - |  | × |
 | target | Specifies where to display the linked URL | string | - |  | × |
@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  | × |
-| closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  | ✔ |
+| closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  | 5.16.0 |
 | placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 | × |
 | shape | Setting button shape of children | `circle` \| `square` | `circle` |  | × |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  | × |

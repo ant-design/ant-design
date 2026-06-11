@@ -44,13 +44,13 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | icon | 自定义图标 | ReactNode | - |  | FloatButton: ×，BackTop: 5.27.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | content | 文字及其它内容 | ReactNode | - |  | × |
 | ~~description~~ | 请使用 `content` 代替 | ReactNode | - |  | × |
 | tooltip | 气泡卡片的内容 | ReactNode \| [TooltipProps](/components/tooltip-cn#api) | - | TooltipProps: 5.25.0 | × |
 | type | 设置按钮类型 | `default` \| `primary` | `default` |  | × |
 | shape | 设置按钮形状 | `circle` \| `square` | `circle` |  | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✔ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | onClick | 点击按钮时的回调 | (event) => void | - |  | × |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  | × |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  | × |
@@ -65,7 +65,7 @@ demo:
 | shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  | × |
 | trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  | × |
 | open | 受控展开，需配合 trigger 一起使用 | boolean | - |  | × |
-| closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  | ✔ |
+| closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  | 5.16.0 |
 | placement | 自定义菜单弹出位置 | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 | × |
 | onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  | × |
 | onClick | 点击按钮时的回调（仅在菜单模式中有效） | (event) => void | - | 5.3.0 | × |

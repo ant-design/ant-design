@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |  | × |
 | value | Set value of mentions | string | - |  | × |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - |  | × |
 | onChange | Trigger when value changed | (text: string) => void | - |  | × |
 | onClear | Callback when click the clear button | () => void | - | 5.20.0 | × |
