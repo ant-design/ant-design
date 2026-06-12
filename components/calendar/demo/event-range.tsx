@@ -5,53 +5,47 @@ import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
-const useStyle = createStyles(({ token, css }) => {
-  const cellOffset = token.paddingXS + token.marginXS / 2;
-  const barHeight = token.controlHeightSM - token.marginXXS;
-  const barRadius = barHeight / 2;
+const useStyle = createStyles(({ token, cssVar, css }) => {
+  const barRadius = 999;
 
   return {
-    calendar: css`
-      .ant-picker-calendar-date-content {
-        overflow: visible;
-      }
+    itemContent: css`
+      overflow: visible;
     `,
     cell: css`
-      min-height: ${token.controlHeight * 2}px;
+      min-height: ${cssVar.controlHeight};
     `,
     list: css`
       display: flex;
       flex-direction: column;
-      gap: ${token.marginXXS / 2}px;
-      margin-top: ${token.marginXXS}px;
+      gap: ${cssVar.marginXXS};
+      margin-top: ${cssVar.marginXXS};
     `,
     bar: css`
       display: block;
-      height: ${barHeight}px;
+      height: calc(${cssVar.controlHeightSM} - ${cssVar.marginXXS});
       overflow: hidden;
-      color: ${token.colorTextLightSolid};
-      font-size: ${token.fontSizeSM}px;
-      line-height: ${barHeight}px;
+      color: ${cssVar.colorTextLightSolid};
+      font-size: ${cssVar.fontSizeSM};
       white-space: nowrap;
       text-overflow: ellipsis;
-      background: var(--event-color);
     `,
     barStart: css`
-      margin-inline-end: -${cellOffset}px;
-      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      margin-inline-end: -${token.paddingXS + token.marginXS / 2}px;
+      padding-inline-start: calc(${cssVar.paddingXXS} + ${cssVar.paddingXXS});
       border-start-start-radius: ${barRadius}px;
       border-end-start-radius: ${barRadius}px;
     `,
     barMiddle: css`
-      margin-inline: -${cellOffset}px;
+      margin-inline: -${token.paddingXS + token.marginXS / 2}px;
     `,
     barEnd: css`
-      margin-inline-start: -${cellOffset}px;
+      margin-inline-start: -${token.paddingXS + token.marginXS / 2}px;
       border-start-end-radius: ${barRadius}px;
       border-end-end-radius: ${barRadius}px;
     `,
     barSingle: css`
-      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      padding-inline-start: ${token.paddingXXS + token.paddingXXS}px;
       border-radius: ${barRadius}px;
     `,
   };
@@ -135,17 +129,13 @@ const App: React.FC = () => {
                 end: styles.barEnd,
                 single: styles.barSingle,
               }[position];
-
               return (
                 <span
                   key={event.key}
                   className={`${styles.bar} ${rangeClassName}`}
-                  style={{ '--event-color': event.color } as React.CSSProperties}
-                  title={`${event.title}: ${event.start.format('YYYY-MM-DD')} - ${event.end.format(
-                    'YYYY-MM-DD',
-                  )}`}
+                  style={{ backgroundColor: event.color }}
                 >
-                  {position === 'start' || position === 'single' ? event.title : ''}
+                  {position === 'start' || position === 'single' ? event.title : null}
                 </span>
               );
             })}
@@ -158,7 +148,7 @@ const App: React.FC = () => {
 
   return (
     <Calendar
-      className={styles.calendar}
+      classNames={{ itemContent: styles.itemContent }}
       defaultValue={dayjs('2026-01-01')}
       cellRender={cellRender}
     />
