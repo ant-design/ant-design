@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <>
     Text
     <Divider orientation="vertical" />
-    <a href="#" aria-label="Ant Design documentation">
+    <a href="#" aria-label="Ant Design component examples">
       Link
     </a>
     <Divider vertical />
