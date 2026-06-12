@@ -1,8 +1,61 @@
 import React from 'react';
 import { Calendar, theme } from 'antd';
 import type { CalendarProps } from 'antd';
+import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
+
+const useStyle = createStyles(({ token, css }) => {
+  const cellOffset = token.paddingXS + token.marginXS / 2;
+  const barHeight = token.controlHeightSM - token.marginXXS;
+  const barRadius = barHeight / 2;
+
+  return {
+    calendar: css`
+      .ant-picker-calendar-date-content {
+        overflow: visible;
+      }
+    `,
+    cell: css`
+      min-height: ${token.controlHeight * 2}px;
+    `,
+    list: css`
+      display: flex;
+      flex-direction: column;
+      gap: ${token.marginXXS / 2}px;
+      margin-top: ${token.marginXXS}px;
+    `,
+    bar: css`
+      display: block;
+      height: ${barHeight}px;
+      overflow: hidden;
+      color: ${token.colorTextLightSolid};
+      font-size: ${token.fontSizeSM}px;
+      line-height: ${barHeight}px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      background: var(--event-color);
+    `,
+    barStart: css`
+      margin-inline-end: -${cellOffset}px;
+      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      border-start-start-radius: ${barRadius}px;
+      border-end-start-radius: ${barRadius}px;
+    `,
+    barMiddle: css`
+      margin-inline: -${cellOffset}px;
+    `,
+    barEnd: css`
+      margin-inline-start: -${cellOffset}px;
+      border-start-end-radius: ${barRadius}px;
+      border-end-end-radius: ${barRadius}px;
+    `,
+    barSingle: css`
+      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      border-radius: ${barRadius}px;
+    `,
+  };
+});
 
 export interface CalendarEvent {
   key: string;
@@ -17,7 +70,7 @@ const getEvents = (token: ReturnType<typeof theme.useToken>['token']): CalendarE
     key: 'release',
     title: 'Release window',
     start: dayjs('2026-01-08'),
-    end: dayjs('2026-01-11'),
+    end: dayjs('2026-01-10'),
     color: token.colorPrimary,
   },
   {
@@ -60,15 +113,8 @@ const getRangePosition = (current: Dayjs, event: CalendarEvent) => {
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
+  const { styles } = useStyle();
   const events = React.useMemo(() => getEvents(token), [token]);
-  const calendarStyle = React.useMemo(
-    () =>
-      ({
-        '--calendar-event-range-date-padding': `${token.paddingXS}px`,
-        '--calendar-event-range-date-margin': `${token.marginXS / 2}px`,
-      }) as React.CSSProperties,
-    [token],
-  );
 
   const cellRender = React.useCallback<NonNullable<CalendarProps<Dayjs>['cellRender']>>(
     (current, info) => {
@@ -79,15 +125,21 @@ const App: React.FC = () => {
       const currentEvents = events.filter((event) => isInRange(current, event));
 
       return (
-        <div className="calendar-event-range-cell">
-          <div className="calendar-event-range-list">
+        <div className={styles.cell}>
+          <div className={styles.list}>
             {currentEvents.map((event) => {
               const position = getRangePosition(current, event);
+              const rangeClassName = {
+                start: styles.barStart,
+                middle: styles.barMiddle,
+                end: styles.barEnd,
+                single: styles.barSingle,
+              }[position];
 
               return (
                 <span
                   key={event.key}
-                  className={`calendar-event-range-bar calendar-event-range-bar-${position}`}
+                  className={`${styles.bar} ${rangeClassName}`}
                   style={{ '--event-color': event.color } as React.CSSProperties}
                   title={`${event.title}: ${event.start.format('YYYY-MM-DD')} - ${event.end.format(
                     'YYYY-MM-DD',
@@ -101,13 +153,12 @@ const App: React.FC = () => {
         </div>
       );
     },
-    [events],
+    [events, styles],
   );
 
   return (
     <Calendar
-      className="calendar-event-range-calendar"
-      style={calendarStyle}
+      className={styles.calendar}
       defaultValue={dayjs('2026-01-01')}
       cellRender={cellRender}
     />
