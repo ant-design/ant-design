@@ -5,11 +5,14 @@ import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { GetProp } from '../../_util/type';
+import type { Locale } from '../../locale';
+import { useLocale } from '../../locale';
 import Slider from '../../slider';
 import SliderInternalContext from '../../slider/Context';
 import type { SliderInternalContextProps } from '../../slider/Context';
 import { getGradientPercentColor } from '../util';
 
+type ColorSliderType = BaseSliderProps['type'] | 'gradient';
 export interface GradientColorSliderProps
   extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete' | 'type'> {
   value: number[];
@@ -19,7 +22,7 @@ export interface GradientColorSliderProps
   className?: string;
   activeIndex?: number;
   onActive?: (index: number) => void;
-  type: BaseSliderProps['type'] | 'gradient';
+  type: ColorSliderType;
 
   // Drag events
   onDragStart?: GetProp<typeof UnstableContext, 'onDragStart'>;
@@ -28,6 +31,18 @@ export interface GradientColorSliderProps
   // Key event
   onKeyDelete?: (index: number) => void;
 }
+
+const LABEL_TYPE_MAP: Record<ColorSliderType, keyof Required<Locale>['ColorPicker']> = {
+  hue: 'hue',
+  alpha: 'alpha',
+  gradient: 'gradientColor',
+};
+
+const VALUE_TEXT_TYPE_MAP: Record<ColorSliderType, (value: number) => string> = {
+  hue: (value) => `${value}°`,
+  alpha: (value) => `${value}%`,
+  gradient: (value) => `${value}%`,
+};
 
 export const GradientColorSlider = (props: GradientColorSliderProps) => {
   const {
@@ -51,6 +66,8 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
     ...restProps,
     track: false,
   };
+
+  const [locale] = useLocale('ColorPicker');
 
   // ========================== Background ==========================
   const linearCss = React.useMemo(() => {
@@ -132,6 +149,12 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
       <UnstableContext.Provider value={unstableContext}>
         <Slider
           {...sliderProps}
+          ariaLabelForHandle={
+            type === 'gradient'
+              ? colors.map((_, index) => `${locale[LABEL_TYPE_MAP[type]]} ${index + 1}`)
+              : locale[LABEL_TYPE_MAP[type]]
+          }
+          ariaValueTextFormatterForHandle={VALUE_TEXT_TYPE_MAP[type]}
           className={clsx(className, `${prefixCls}-slider`)}
           tooltip={{ open: false }}
           range={{

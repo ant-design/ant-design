@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React, { useState } from 'react';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import { generateColor, getColorAlpha } from '../util';
 import ColorSteppers from './ColorSteppers';
@@ -16,6 +17,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
   );
+  const [locale] = useLocale('ColorPicker');
 
   const alphaValue = value || internalValue;
 
@@ -35,6 +37,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
       prefixCls={prefixCls}
       formatter={(step) => `${step}%`}
       className={colorAlphaInputPrefixCls}
+      aria-label={locale.alpha}
       onChange={handleAlphaChange}
     />
   );

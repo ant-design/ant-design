@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useState } from 'react';
 import type { RGB } from '@rc-component/color-picker';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 import ColorSteppers from './ColorSteppers';
@@ -14,6 +15,7 @@ interface ColorRgbInputProps {
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
+  const [locale] = useLocale('ColorPicker');
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
   );
@@ -31,7 +33,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={colorRgbInputPrefixCls}>
+    <div className={colorRgbInputPrefixCls} role="group" aria-label={locale.rgbInput}>
       <ColorSteppers
         max={255}
         min={0}
@@ -39,6 +41,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'r')}
+        aria-label={locale.rgbRed}
       />
       <ColorSteppers
         max={255}
@@ -47,6 +50,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'g')}
+        aria-label={locale.rgbGreen}
       />
       <ColorSteppers
         max={255}
@@ -55,6 +59,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
         onChange={(step) => handleRgbChange(Number(step), 'b')}
+        aria-label={locale.rgbBlue}
       />
     </div>
   );

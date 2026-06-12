@@ -5,25 +5,16 @@ import { clsx } from 'clsx';
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
 
-interface ColorSteppersProps {
+interface ColorSteppersProps extends InputNumberProps<number> {
   prefixCls: string;
-  value?: number;
-  min?: number;
-  max?: number;
-  onChange?: (value: number | null) => void;
-  className?: string;
-  prefix?: (prefixCls: string) => React.ReactNode;
-  formatter?: InputNumberProps<number>['formatter'];
 }
 
 const ColorSteppers: FC<ColorSteppersProps> = ({
   prefixCls,
-  min = 0,
-  max = 100,
+  className,
   value,
   onChange,
-  className,
-  formatter,
+  ...props
 }) => {
   const colorSteppersPrefixCls = `${prefixCls}-steppers`;
   const [internalValue, setInternalValue] = useState<number | undefined>(0);
@@ -32,11 +23,9 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
 
   return (
     <InputNumber
+      {...props}
       className={clsx(colorSteppersPrefixCls, className)}
-      min={min}
-      max={max}
       value={stepValue}
-      formatter={formatter}
       size="small"
       onChange={(step) => {
         setInternalValue(step || 0);

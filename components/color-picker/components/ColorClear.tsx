@@ -5,15 +5,13 @@ import clsx from 'clsx';
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 
-interface ColorClearProps {
+interface ColorClearProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'value' | 'onChange'> {
   prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
-const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className, style }) => {
+const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className, ...props }) => {
   const onClick = () => {
     if (onChange && value && !value.cleared) {
       const hsba = value.toHsb();
@@ -34,11 +32,8 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
 
   return (
     <div
-      role="button"
-      aria-label="Clear color"
-      tabIndex={0}
+      {...props}
       className={clsx(`${prefixCls}-clear`, className)}
-      style={style}
       onClick={onClick}
       onKeyDown={onKeyDown}
     />

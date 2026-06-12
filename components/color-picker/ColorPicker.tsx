@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { useControlledState } from '@rc-component/util';
+import { useControlledState, useLockFocus } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -16,6 +16,7 @@ import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
+import type { TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
@@ -132,6 +133,30 @@ const ColorPicker: CompoundedComponent = (props) => {
       onOpenChange?.(visible);
     }
   };
+
+  // ================ Focus Management ===============
+  // `_InternalPanel` renders the panel inline (always open); skip focus trapping there.
+  const isPurePanel =
+    (props as { __colorPickerPurePanel?: boolean }).__colorPickerPurePanel === true;
+  const popoverRef = React.useRef<TooltipRef>(null);
+
+  // Move focus into the panel when it opens and trap Tab navigation within it.
+  useLockFocus(popupOpen && !isPurePanel, () => popoverRef.current?.popupElement ?? null);
+
+  // Return focus to the trigger when the panel closes from within (e.g. Esc / selecting),
+  // but leave it alone if the user moved focus elsewhere (e.g. clicked another input).
+  const wasOpenRef = React.useRef(false);
+  React.useEffect(() => {
+    if (wasOpenRef.current && !popupOpen) {
+      const active = document.activeElement;
+      const popupEl = popoverRef.current?.popupElement;
+      const triggerEl = popoverRef.current?.nativeElement;
+      if (triggerEl && (!active || active === document.body || popupEl?.contains(active))) {
+        triggerEl.focus();
+      }
+    }
+    wasOpenRef.current = popupOpen;
+  }, [popupOpen]);
 
   // ================== Value & Mode =================
   const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
@@ -268,6 +293,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   return (
     <Popover
+      ref={popoverRef}
       classNames={{ root: mergedPopupCls }}
       styles={{
         root: mergedStyles.popup?.root,
@@ -329,11 +355,13 @@ if (process.env.NODE_ENV !== 'production') {
 const PurePanel = genPurePanel(
   ColorPicker,
   undefined,
-  (props: ColorPickerProps) => ({
-    ...props,
-    placement: 'bottom' as TriggerPlacement,
-    autoAdjustOverflow: false,
-  }),
+  (props: ColorPickerProps) =>
+    ({
+      ...props,
+      placement: 'bottom' as TriggerPlacement,
+      autoAdjustOverflow: false,
+      __colorPickerPurePanel: true,
+    }) as ColorPickerProps,
   'color-picker',
   /* istanbul ignore next */
   (prefixCls) => prefixCls,

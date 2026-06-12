@@ -114,9 +114,24 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     [color, prefixCls, classNames.body, classNames.content, styles.body, styles.content],
   );
 
+  // A `div[role="button"]` does not fire click on Enter/Space the way a native button does,
+  // so translate keyboard activation into the click that the popover trigger listens for.
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      event.currentTarget.click();
+    }
+  };
+
   return (
     <div
       ref={ref}
+      role="button"
+      tabIndex={disabled ? -1 : 0}
+      aria-label={color.toHexString()}
+      aria-haspopup="dialog"
+      aria-expanded={!!open}
+      aria-disabled={disabled}
       className={clsx(colorTriggerPrefixCls, className, classNames.root, {
         [`${colorTriggerPrefixCls}-active`]: open,
         [`${colorTriggerPrefixCls}-disabled`]: disabled,
@@ -126,6 +141,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         ...style,
       }}
       {...pickAttrs(rest)}
+      onKeyDown={onKeyDown}
     >
       {containerNode}
       {showText && (

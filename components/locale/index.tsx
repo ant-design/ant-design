@@ -57,10 +57,25 @@ export interface Locale {
     scanned?: string;
   };
   ColorPicker?: {
+    label: string;
+    labelDescription: string;
+    clearLabel: string;
     presetEmpty: string;
     transparent: string;
     singleColor: string;
     gradientColor: string;
+    hue: string;
+    alpha: string;
+    formatSelect: string;
+    hexInput: string;
+    hsbInput: string;
+    hsbHue: string;
+    hsbSaturation: string;
+    hsbBrightness: string;
+    rgbInput: string;
+    rgbRed: string;
+    rgbGreen: string;
+    rgbBlue: string;
   };
 }
 

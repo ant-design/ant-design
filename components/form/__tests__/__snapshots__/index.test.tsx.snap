@@ -981,13 +981,16 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-disabled="true"
+              aria-expanded="false"
+              aria-haspopup="dialog"
+              aria-label="#00000000"
               class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
+              role="button"
+              tabindex="-1"
             >
               <div
-                aria-label="Clear color"
                 class="ant-color-picker-clear"
-                role="button"
-                tabindex="0"
               />
             </div>
           </div>
