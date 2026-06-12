@@ -42,7 +42,7 @@ tag: vVERSION
 - 🐞 Fix Tabs more dropdown animation direction when popup placement flips upward. [#58202](https://github.com/ant-design/ant-design/pull/58202) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Tree.DirectoryTree `defaultExpandParent` not working. [#58068](https://github.com/ant-design/ant-design/pull/58068) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Upload progress bar becoming abnormally thick when `progress` is not configured. [#58126](https://github.com/ant-design/ant-design/pull/58126) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Fix icon spin animation stopping when multiple `iconPrefixCls` coexist. [#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
+- 🐞 Fix Icon spin animation stopping when multiple `iconPrefixCls` coexist. [#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
 - 💄 Fix AutoComplete disabled custom input background color being darker than other disabled controls. [#58114](https://github.com/ant-design/ant-design/pull/58114) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 Fix Checkbox hover style remaining after tap on mobile devices. [#58085](https://github.com/ant-design/ant-design/pull/58085) [@unknowntocka](https://github.com/unknowntocka)
 - 💄 Fix Empty SVG colors not using design tokens to support dark mode. [#58152](https://github.com/ant-design/ant-design/pull/58152) [@wanpan11](https://github.com/wanpan11)

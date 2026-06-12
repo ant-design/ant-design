@@ -42,7 +42,7 @@ tag: vVERSION
 - 🐞 修复 Tabs 更多菜单在向上弹出时动画方向错误的问题。[#58202](https://github.com/ant-design/ant-design/pull/58202) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Tree.DirectoryTree 设置 `defaultExpandParent` 不生效的问题。[#58068](https://github.com/ant-design/ant-design/pull/58068) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Upload 未配置 progress 时进度条异常变粗的问题。[#58126](https://github.com/ant-design/ant-design/pull/58126) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 修复存在多个 `iconPrefixCls` 时图标旋转动画停止的问题。[#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
+- 🐞 修复 Icon 在存在多个 `iconPrefixCls` 时旋转动画停止的问题。[#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
 - 💄 修复 AutoComplete 禁用自定义输入组件时背景色比其他禁用控件更深的问题。[#58114](https://github.com/ant-design/ant-design/pull/58114) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 修复 Checkbox 在移动端设备上点击时残留 hover 样式。[#58085](https://github.com/ant-design/ant-design/pull/58085) [@unknowntocka](https://github.com/unknowntocka)
 - 💄 修复 Empty 组件未使用 design tokens 来支持暗色模式下的 SVG 颜色。[#58152](https://github.com/ant-design/ant-design/pull/58152) [@wanpan11](https://github.com/wanpan11)
