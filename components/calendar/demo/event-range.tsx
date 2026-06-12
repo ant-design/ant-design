@@ -2,56 +2,62 @@ import React from 'react';
 import { Calendar, theme } from 'antd';
 import type { CalendarProps } from 'antd';
 import { createStyles } from 'antd-style';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
-const useStyle = createStyles(({ token, css }) => {
-  const cellOffset = token.paddingXS + token.marginXS / 2;
-  const barHeight = token.controlHeightSM - token.marginXXS;
-  const barRadius = barHeight / 2;
+const useStyle = createStyles(({ cssVar, css }) => {
+  const barRadius = 999;
+
+  const {
+    controlHeight,
+    marginXXS,
+    controlHeightSM,
+    colorTextLightSolid,
+    fontSizeSM,
+    paddingXS,
+    marginXS,
+    paddingXXS,
+  } = cssVar;
 
   return {
-    calendar: css`
-      .ant-picker-calendar-date-content {
-        overflow: visible;
-      }
+    itemContent: css`
+      overflow: visible;
     `,
     cell: css`
-      min-height: ${token.controlHeight * 2}px;
+      min-height: ${controlHeight};
     `,
     list: css`
       display: flex;
       flex-direction: column;
-      gap: ${token.marginXXS / 2}px;
-      margin-top: ${token.marginXXS}px;
+      gap: ${marginXXS};
+      margin-top: ${marginXXS};
     `,
     bar: css`
       display: block;
-      height: ${barHeight}px;
+      height: calc(${controlHeightSM} - ${marginXXS});
       overflow: hidden;
-      color: ${token.colorTextLightSolid};
-      font-size: ${token.fontSizeSM}px;
-      line-height: ${barHeight}px;
+      color: ${colorTextLightSolid};
+      font-size: ${fontSizeSM};
       white-space: nowrap;
       text-overflow: ellipsis;
-      background: var(--event-color);
     `,
     barStart: css`
-      margin-inline-end: -${cellOffset}px;
-      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      margin-inline-end: calc(-1 * (${paddingXS} + ${marginXS} / 2));
+      padding-inline-start: calc(${paddingXXS} + ${paddingXXS});
       border-start-start-radius: ${barRadius}px;
       border-end-start-radius: ${barRadius}px;
     `,
     barMiddle: css`
-      margin-inline: -${cellOffset}px;
+      margin-inline: calc(-1 * (${paddingXS} + ${marginXS} / 2));
     `,
     barEnd: css`
-      margin-inline-start: -${cellOffset}px;
+      margin-inline-start: calc(-1 * (${paddingXS} + ${marginXS} / 2));
       border-start-end-radius: ${barRadius}px;
       border-end-end-radius: ${barRadius}px;
     `,
     barSingle: css`
-      padding-inline-start: ${token.paddingXXS + token.paddingXXS / 2}px;
+      padding-inline-start: calc(${paddingXXS} + ${paddingXXS});
       border-radius: ${barRadius}px;
     `,
   };
@@ -87,10 +93,18 @@ const getEvents = (token: ReturnType<typeof theme.useToken>['token']): CalendarE
     end: dayjs('2026-01-24'),
     color: token.colorWarning,
   },
+  {
+    key: 'bug-fix',
+    title: 'Bug fix',
+    start: dayjs('2026-01-30'),
+    end: dayjs('2026-01-31'),
+    color: token.colorError,
+  },
 ];
 
-const isInRange = (current: Dayjs, event: CalendarEvent) =>
-  !current.isBefore(event.start, 'day') && !current.isAfter(event.end, 'day');
+const isInRange = (current: Dayjs, event: CalendarEvent) => {
+  return !current.isBefore(event.start, 'day') && !current.isAfter(event.end, 'day');
+};
 
 const getRangePosition = (current: Dayjs, event: CalendarEvent) => {
   const starts = current.isSame(event.start, 'day');
@@ -135,17 +149,13 @@ const App: React.FC = () => {
                 end: styles.barEnd,
                 single: styles.barSingle,
               }[position];
-
               return (
                 <span
                   key={event.key}
-                  className={`${styles.bar} ${rangeClassName}`}
-                  style={{ '--event-color': event.color } as React.CSSProperties}
-                  title={`${event.title}: ${event.start.format('YYYY-MM-DD')} - ${event.end.format(
-                    'YYYY-MM-DD',
-                  )}`}
+                  className={clsx(styles.bar, rangeClassName)}
+                  style={{ backgroundColor: event.color }}
                 >
-                  {position === 'start' || position === 'single' ? event.title : ''}
+                  {position === 'start' || position === 'single' ? event.title : null}
                 </span>
               );
             })}
@@ -158,7 +168,7 @@ const App: React.FC = () => {
 
   return (
     <Calendar
-      className={styles.calendar}
+      classNames={{ itemContent: styles.itemContent }}
       defaultValue={dayjs('2026-01-01')}
       cellRender={cellRender}
     />
