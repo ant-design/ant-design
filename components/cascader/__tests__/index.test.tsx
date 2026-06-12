@@ -433,6 +433,23 @@ describe('Cascader', () => {
     expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
+  it('right-aligned placement reverses column order to keep parent column fixed', () => {
+    const customOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [{ value: 'hangzhou', label: 'Hangzhou' }],
+      },
+    ];
+    const { container } = render(
+      <Cascader options={customOptions} placement="bottomRight" defaultValue={['zhejiang']} open />,
+    );
+
+    const dropdown = getDropdown(container);
+    expect(dropdown?.className).toContain('ant-select-dropdown-placement-bottomRight');
+    expect(container.querySelector('.ant-cascader-menus')).toBeTruthy();
+  });
+
   it('popup correctly with defaultValue RTL', () => {
     const { asFragment } = render(
       <ConfigProvider direction="rtl">

@@ -1,3 +1,4 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -71,6 +72,23 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
         {
           [`&${antCls}-select-dropdown`]: {
             padding: 0,
+          },
+          // Right-aligned placement anchors the popup's right edge to the trigger.
+          // Reverse the column order so newly expanded child columns grow leftwards
+          // and the parent column stays fixed, avoiding the parent shifting/jittering.
+          // Only apply in LTR: in RTL `direction: rtl` already lays columns out
+          // right-to-left, so reversing again would flip the layout incorrectly.
+          [`&${antCls}-select-dropdown-placement-bottomRight:not(${componentCls}-dropdown-rtl),
+            &${antCls}-select-dropdown-placement-topRight:not(${componentCls}-dropdown-rtl)`]: {
+            [`${componentCls}-menus`]: {
+              flexDirection: 'row-reverse',
+            },
+            // The visual order is reversed, so move the column divider to the
+            // inline-start side and keep it off the visually-leftmost column.
+            [`${componentCls}-menu:not(:last-child)`]: {
+              borderInlineEnd: 'none',
+              borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+            },
           },
         },
         getColumnsStyle(token),
