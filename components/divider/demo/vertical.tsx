@@ -5,9 +5,13 @@ const App: React.FC = () => (
   <>
     Text
     <Divider orientation="vertical" />
-    <a href="#">Link</a>
+    <a href="#" aria-label="Ant Design component examples">
+      Link
+    </a>
     <Divider vertical />
-    <a href="#">Link</a>
+    <a href="#" aria-label="Ant Design component examples">
+      Link
+    </a>
   </>
 );
 
