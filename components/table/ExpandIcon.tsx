@@ -12,10 +12,21 @@ interface DefaultExpandIconProps<RecordType = AnyObject> {
   onExpand: (record: RecordType, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function renderExpandIcon(locale: TableLocale) {
+interface RenderExpandIconOptions {
+  expandIcon?: React.ReactNode;
+  expandIconExpanded?: React.ReactNode;
+}
+
+function renderExpandIcon(locale: TableLocale, options?: RenderExpandIconOptions) {
+  const { expandIcon, expandIconExpanded } = options || {};
+  
   return <RecordType extends AnyObject = AnyObject>(props: DefaultExpandIconProps<RecordType>) => {
     const { prefixCls, onExpand, record, expanded, expandable } = props;
-    const iconPrefix = `${prefixCls}-row-expand-icon`;
+    const iconPrefix = ${prefixCls}-row-expand-icon;
+    
+    // Use custom icon if provided
+    const customIcon = expanded ? expandIconExpanded : expandIcon;
+    
     return (
       <button
         type="button"
@@ -24,13 +35,15 @@ function renderExpandIcon(locale: TableLocale) {
           e.stopPropagation();
         }}
         className={clsx(iconPrefix, {
-          [`${iconPrefix}-spaced`]: !expandable,
-          [`${iconPrefix}-expanded`]: expandable && expanded,
-          [`${iconPrefix}-collapsed`]: expandable && !expanded,
+          [${iconPrefix}-spaced]: !expandable,
+          [${iconPrefix}-expanded]: expandable && expanded,
+          [${iconPrefix}-collapsed]: expandable && !expanded,
         })}
         aria-label={expanded ? locale.collapse : locale.expand}
         aria-expanded={expanded}
-      />
+      >
+        {customIcon}
+      </button>
     );
   };
 }
