@@ -19,6 +19,8 @@ tag: vVERSION
 
 `2026-06-12`
 
+- 🛠 Fix build failures in Vite, Yarn PnP, Node 25 and other strict ESM environments caused by deep rc component package imports. [#58115](https://github.com/ant-design/ant-design/issues/58115) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Fix multiple components rendering empty wrapper DOM nodes when ReactNode content is empty string. [#58160](https://github.com/ant-design/ant-design/pull/58160) [@QDyanbing](https://github.com/QDyanbing)
 - Descriptions
   - 🐞 Fix Descriptions width being unexpectedly inflated when nested inside a Table. [#58203](https://github.com/ant-design/ant-design/pull/58203) [@18062706139fcz](https://github.com/18062706139fcz)
   - 🐞 Fix Descriptions responsive `column` value not behaving as expected. [#58058](https://github.com/ant-design/ant-design/pull/58058) [@kfylaktopoulos](https://github.com/kfylaktopoulos)
