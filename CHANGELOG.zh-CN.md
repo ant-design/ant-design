@@ -19,6 +19,8 @@ tag: vVERSION
 
 `2026-06-12`
 
+- 🛠 修复多个组件在 Vite、Yarn PnP、Node 25 等严格 ESM 环境下因引用 rc 组件包深路径导致构建失败的问题。[#58115](https://github.com/ant-design/ant-design/issues/58115) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 修复多个组件在 ReactNode 内容为空字符串时渲染空包装 DOM 节点的问题。[#58160](https://github.com/ant-design/ant-design/pull/58160) [@QDyanbing](https://github.com/QDyanbing)
 - Descriptions
   - 🐞 修复 Descriptions 嵌套 Table 时宽度可能被异常撑大的问题。[#58203](https://github.com/ant-design/ant-design/pull/58203) [@18062706139fcz](https://github.com/18062706139fcz)
   - 🐞 修复 Descriptions 传入响应式 `column` 属性值时行为可能不符合预期的问题。[#58058](https://github.com/ant-design/ant-design/pull/58058) [@kfylaktopoulos](https://github.com/kfylaktopoulos)
