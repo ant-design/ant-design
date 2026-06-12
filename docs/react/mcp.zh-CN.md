@@ -39,11 +39,20 @@ tag: New
 
 ### 配置 {#configuration}
 
-全局安装 CLI 并将 MCP 服务器添加到 IDE 配置：
+将 MCP 服务器添加到 IDE 配置：
 
-```bash
-npm install -g @ant-design/cli
+```json
+{
+  "mcpServers": {
+    "antd": {
+      "command": "npx",
+      "args": ["-y", "@ant-design/cli", "mcp"]
+    }
+  }
+}
 ```
+
+如果你已全局安装 CLI（`npm i -g @ant-design/cli`），也可以使用：
 
 ```json
 {
@@ -62,8 +71,8 @@ npm install -g @ant-design/cli
 {
   "mcpServers": {
     "antd": {
-      "command": "antd",
-      "args": ["mcp", "--version", "5.20.0"]
+      "command": "npx",
+      "args": ["-y", "@ant-design/cli", "mcp", "--version", "5.20.0"]
     }
   }
 }
@@ -73,14 +82,15 @@ npm install -g @ant-design/cli
 
 | 工具 | 说明 | 配置 |
 | --- | --- | --- |
-| **Cursor** | 添加到 `.cursor/mcp.json` 或设置 → 功能 → MCP。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Windsurf** | 添加到 `~/.codeium/windsurf/mcp_config.json`。[文档](https://docs.windsurf.com/windsurf/cascade/memories) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Claude Code** | 添加到 Claude 设置的 `mcpServers`。[文档](https://docs.anthropic.com/en/docs/claude-code) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Codex** | 添加到 `.codex/mcp.json`。[文档](https://github.com/openai/codex) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Gemini CLI** | 添加到 MCP 配置。[文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Trae** | 添加到 MCP 设置。[文档](https://www.trae.ai/docs) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Qoder** | 添加到 MCP 配置。[文档](https://docs.qoder.com/) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
-| **Neovate Code** | 在设置中配置 MCP 或使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `{ "mcpServers": { "antd": { "command": "antd", "args": ["mcp"] } } }` |
+| **Cursor** | 添加到 `.cursor/mcp.json` 或设置 → 功能 → MCP。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Windsurf** | 添加到 `~/.codeium/windsurf/mcp_config.json`。[文档](https://docs.windsurf.com/windsurf/cascade/memories) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Claude Code** | 添加到 Claude 设置的 `mcpServers`。[文档](https://docs.anthropic.com/en/docs/claude-code) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **VS Code** | 添加到 `.vscode/mcp.json` 或设置 → MCP。[文档](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Codex** | 添加到 `.codex/mcp.json`。[文档](https://github.com/openai/codex) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Gemini CLI** | 添加到 MCP 配置。[文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Trae** | 添加到 MCP 设置。[文档](https://www.trae.ai/docs) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Qoder** | 添加到 MCP 配置。[文档](https://docs.qoder.com/) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **Neovate Code** | 在设置中配置 MCP 或使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 
 ## 社区 MCP Server {#community-mcp-server}
 
