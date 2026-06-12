@@ -421,6 +421,36 @@ exports[`renders components/border-beam/demo/duration.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/border-beam/demo/line-width.tsx correctly 1`] = `
+<div
+  style="width:360px"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+    style="border-width:2px"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Custom line width
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set lineWidth to match the border width of this container.
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/border-beam/demo/non-uniform-radius.tsx correctly 1`] = `
 <div
   style="width:360px"

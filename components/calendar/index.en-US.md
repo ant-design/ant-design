@@ -16,6 +16,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" clientOnly>Basic</code>
 <code src="./demo/notice-calendar.tsx" clientOnly>Notice Calendar</code>
+<code src="./demo/event-range.tsx" clientOnly>Event Range</code>
 <code src="./demo/card.tsx" clientOnly>Card</code>
 <code src="./demo/select.tsx" clientOnly>Selectable Calendar</code>
 <code src="./demo/lunar.tsx" clientOnly>Lunar Calendar</code>
