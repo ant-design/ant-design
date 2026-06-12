@@ -26,7 +26,7 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
 const data = Array.from({ length: 1 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i}`,
-  avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+  avatar: `https://api.dicebear.com/10.x/lorelei/svg?seed=${i}`,
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:

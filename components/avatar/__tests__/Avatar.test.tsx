@@ -53,7 +53,7 @@ describe('Avatar Render', () => {
 
   it('should handle onError correctly', () => {
     const LOAD_FAILURE_SRC = 'http://error.url/';
-    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
+    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/10.x/pixel-art/svg';
     const Foo: React.FC = () => {
       const [avatarSrc, setAvatarSrc] = useState<typeof LOAD_FAILURE_SRC | typeof LOAD_SUCCESS_SRC>(
         LOAD_FAILURE_SRC,
@@ -75,7 +75,7 @@ describe('Avatar Render', () => {
 
   it('should show image on success after a failure state', () => {
     const LOAD_FAILURE_SRC = 'http://error.url';
-    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
+    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/10.x/pixel-art/svg';
 
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
@@ -167,7 +167,7 @@ describe('Avatar Render', () => {
   });
 
   it('should exist crossorigin attribute', () => {
-    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
+    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/10.x/pixel-art/svg';
     const crossOrigin = 'anonymous';
     const { container } = render(
       <Avatar src={LOAD_SUCCESS_SRC} crossOrigin={crossOrigin}>
@@ -179,7 +179,7 @@ describe('Avatar Render', () => {
   });
 
   it('should not exist crossorigin attribute', () => {
-    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
+    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/10.x/pixel-art/svg';
     const { container } = render(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
     expect(container.querySelector('img')?.crossOrigin).toBeFalsy();
     expect(container.querySelector('img')?.crossOrigin).toBeFalsy();

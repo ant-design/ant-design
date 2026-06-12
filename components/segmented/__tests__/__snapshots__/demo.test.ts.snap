@@ -551,7 +551,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
             >
               <img
                 alt="User 1"
-                src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+                src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
               />
             </span>
             <div>

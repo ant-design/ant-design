@@ -931,7 +931,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
-            src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+            src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
           />
         </span>
       </div>
@@ -1043,7 +1043,7 @@ exports[`renders components/card/demo/no-body-debug.tsx correctly 1`] = `
   >
     <img
       alt="example"
-      src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+      src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
     />
   </div>
   <ul
@@ -1139,7 +1139,7 @@ exports[`renders components/card/demo/style-class.tsx correctly 1`] = `
             class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
           >
             <img
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
             />
           </span>
         </div>
@@ -1287,7 +1287,7 @@ exports[`renders components/card/demo/style-class.tsx correctly 1`] = `
             class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
           >
             <img
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
             />
           </span>
         </div>
