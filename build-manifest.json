@@ -1,0 +1,15 @@
+{
+  "assets": {
+    "-async.js": "/45aaf06a-async.b45b7f26.js",
+    ".gitkeep.": "/.gitkeep.d41d8cd9.",
+    "common-async.js": "/common-async.2fad31c1.js",
+    "umi.css": "/umi.0633454d.css",
+    "umi.js": "/umi.be9500e0.js",
+    "vendors_0-async.css": "/vendors_0-async.e96b29bd.css",
+    "vendors_0-async.js": "/vendors_0-async.1f711377.js",
+    "vendors_1-async.js": "/vendors_1-async.c47f0a7e.js",
+    "vendors_2-async.css": "/vendors_2-async.83bb6baa.css",
+    "vendors_2-async.js": "/vendors_2-async.e248d9f9.js",
+    "vendors_3-async.js": "/vendors_3-async.8a5a6fea.js"
+  }
+}

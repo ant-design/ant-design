@@ -1,0 +1,140 @@
+---
+group:
+  title: 进阶使用
+order: 5
+title: 国际化
+---
+
+`antd` 目前的默认文案是英文，如果需要使用其他语言，可以参考下面的方案。
+
+## ConfigProvider
+
+antd 提供了一个 React 组件 [ConfigProvider](/components/config-provider-cn) 用于全局配置国际化文案。
+
+```jsx
+import zhCN from 'antd/locale/zh_CN';
+
+// for date-picker i18n
+import 'dayjs/locale/zh-cn';
+
+return (
+  <ConfigProvider locale={zhCN}>
+    <App />
+  </ConfigProvider>
+);
+```
+
+详细配置见：[ConfigProvider](/components/config-provider)。
+
+注意：`zh_CN` 是文件名，以下表格也遵循同样的规则。
+
+目前支持以下语言：
+
+| 语言                   | 文件名 |
+| ---------------------- | ------ |
+| 阿拉伯语               | ar_EG  |
+| 阿塞拜疆语             | az_AZ  |
+| 保加利亚语             | bg_BG  |
+| 孟加拉语（孟加拉国）   | bn_BD  |
+| 白俄罗斯语             | by_BY  |
+| 加泰罗尼亚语           | ca_ES  |
+| 捷克语                 | cs_CZ  |
+| 丹麦语                 | da_DK  |
+| 德语                   | de_DE  |
+| 希腊语                 | el_GR  |
+| 英语                   | en_GB  |
+| 英语（美式）           | en_US  |
+| 西班牙语               | es_ES  |
+| 巴斯克语               | eu_ES  |
+| 爱沙尼亚语             | et_EE  |
+| 波斯语                 | fa_IR  |
+| 芬兰语                 | fi_FI  |
+| 法语（比利时）         | fr_BE  |
+| 法语（加拿大）         | fr_CA  |
+| 法语（法国）           | fr_FR  |
+| 爱尔兰语               | ga_IE  |
+| 加利西亚语（西班牙）   | gl_ES  |
+| 希伯来语               | he_IL  |
+| 印地语                 | hi_IN  |
+| 克罗地亚语             | hr_HR  |
+| 匈牙利语               | hu_HU  |
+| 亚美尼亚               | hy_AM  |
+| 印度尼西亚语           | id_ID  |
+| 意大利语               | it_IT  |
+| 冰岛语                 | is_IS  |
+| 日语                   | ja_JP  |
+| 格鲁吉亚语             | ka_GE  |
+| 高棉语                 | km_KH  |
+| 北库尔德语             | kmr_IQ |
+| 卡纳达语               | kn_IN  |
+| 哈萨克语               | kk_KZ  |
+| 韩语/朝鲜语            | ko_KR  |
+| 立陶宛语               | lt_LT  |
+| 拉脱维亚语             | lv_LV  |
+| 马其顿语               | mk_MK  |
+| 马拉雅拉姆语           | ml_IN  |
+| 马拉地语（印度）       | mr_IN  |
+| 蒙古语                 | mn_MN  |
+| 马来语 (马来西亚)      | ms_MY  |
+| 缅甸语                 | my_MM  |
+| 挪威语                 | nb_NO  |
+| 尼泊尔语               | ne_NP  |
+| 荷兰语（比利时）       | nl_BE  |
+| 荷兰语                 | nl_NL  |
+| 波兰语                 | pl_PL  |
+| 葡萄牙语(巴西)         | pt_BR  |
+| 葡萄牙语               | pt_PT  |
+| 罗马尼亚语             | ro_RO  |
+| 俄罗斯语               | ru_RU  |
+| 僧伽罗语               | si_LK  |
+| 斯洛伐克语             | sk_SK  |
+| 塞尔维亚语             | sr_RS  |
+| 斯洛文尼亚语           | sl_SI  |
+| 瑞典语                 | sv_SE  |
+| 泰米尔语               | ta_IN  |
+| 泰语                   | th_TH  |
+| 土耳其语               | tr_TR  |
+| 土库曼                 | tk_TK  |
+| 乌尔都语 (巴基斯坦)    | ur_PK  |
+| 乌克兰语               | uk_UA  |
+| 乌兹别克语（拉丁字母） | uz_UZ  |
+| 越南语                 | vi_VN  |
+| 简体中文               | zh_CN  |
+| 繁体中文（中国香港）   | zh_HK  |
+| 繁体中文（中国台湾）   | zh_TW  |
+
+具体的使用方法请参考 [ConfigProvider 文档](/components/config-provider-cn)。
+
+## 增加语言包
+
+如果你找不到你需要的语言包，欢迎你在 [英文语言包](https://github.com/ant-design/ant-design/blob/master/components/locale/en_US.ts) 的基础上创建一个新的语言包，并给我们发一个 Pull Request，可以参考 [阿塞拜疆语的 PR](https://github.com/ant-design/ant-design/pull/21387)。
+
+基本步骤如下：
+
+1. Fork `antd` 并 git clone 到本地，切换到 `feature` 分支，执行一次拉取确保最新，基于 `feature` 分支切换一个新分支，以下工作将在新分支完成。
+
+   ```bash
+   git clone git@github.com:<your organization>/ant-design.git
+   cd ant-design/
+   git remote add upstream git@github.com:ant-design/ant-design.git
+   git checkout -b <your new branch name> upstream/feature
+   ```
+
+2. 为 [@rc-component/picker](https://github.com/react-component/picker) 添加对应语言，参考 [这个](https://github.com/react-component/picker/blob/master/src/locale/en_US.ts)。
+3. 为 [@rc-component/pagination](https://github.com/react-component/pagination) 添加对应语言，参考 [这个](https://github.com/react-component/pagination/blob/master/src/locale/en_US.ts)。
+4. 等待 `@rc-component/picker` 和 `@rc-component/pagination` 发布含上述内容的最低版本。
+5. 参考 [阿塞拜疆语的 PR](https://github.com/ant-design/ant-design/pull/21387) 向 `antd` 发起 PR，完善对应语言的其他内容和更新 `@rc-component/picker` 和 `@rc-component/pagination` 版本。
+6. 在 [index.test.tsx](https://github.com/ant-design/ant-design/blob/master/components/locale/__tests__/index.test.tsx) 添加该语言的测试用例。
+7. 更新 snapshot，在这之前或许你还需要先删除 `node_modules` 和 lock 文件 （`yarn.lock` or `package-lock.json`） 并全新安装。
+
+   ```bash
+   npm run test -- components/locale -u
+   ```
+
+8. 更新 [docs/react/i18n.zh-CN.md](https://github.com/ant-design/ant-design/blob/master/docs/react/i18n.zh-CN.md) 和 [docs/react/i18n.zh-CN.md](https://github.com/ant-design/ant-design/blob/master/docs/react/i18n.zh-CN.md)，将对应语言添加到文档列表。
+9. 观察 CI 是否通过，若未通过，根据日志进行修改直至通过。
+10. 万事俱备等待 review 。
+
+## i18n 项目示例
+
+你可以参考 [Ant Design Pro 国际化文档](https://pro.ant.design/zh-CN/docs/i18n) 查看完整的国际化项目示例。

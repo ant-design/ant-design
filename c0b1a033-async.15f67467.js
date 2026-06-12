@@ -1,0 +1,5 @@
+(("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd=("undefined"!=typeof globalThis?globalThis:self).makoChunk_antd||[]).push([["c0b1a033"],{c0b1a033:function(e,a,o){"use strict";o.d(a,"__esModule",{value:!0}),o.d(a,"default",{enumerable:!0,get:function(){return i;}});var d=o("f19d2b93");o("53de9639");var r=o("a9d1a279");let s=(0,o("3835a2b7").createStaticStyles)(({css:e})=>({root:e`
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+  `})),t={root:{border:"2px solid #1890ff",borderRadius:8,padding:16,backgroundColor:"rgb(24, 144, 255, 0.1)"}},l=e=>{if("canvas"===e.props.type)return{root:{border:"2px solid #ff4d4f",borderRadius:8,padding:16,backgroundColor:"rgba(255, 77, 79, 0.1)"}};};var i=()=>{let e={value:"https://ant.design/",size:160,classNames:s};return(0,d.jsxs)(r.Flex,{gap:"medium",children:[(0,d.jsx)(r.QRCode,{...e,styles:t}),(0,d.jsx)(r.QRCode,{...e,type:"canvas",icon:"https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",styles:l})]});};}}]);
