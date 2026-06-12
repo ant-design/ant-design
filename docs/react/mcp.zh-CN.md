@@ -85,7 +85,7 @@ tag: New
 | **Cursor** | 添加到 `.cursor/mcp.json` 或设置 → 功能 → MCP。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 | **Windsurf** | 添加到 `~/.codeium/windsurf/mcp_config.json`。[文档](https://docs.windsurf.com/windsurf/cascade/memories) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 | **Claude Code** | 添加到 Claude 设置的 `mcpServers`。[文档](https://docs.anthropic.com/en/docs/claude-code) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
-| **VS Code** | 添加到 `.vscode/mcp.json` 或设置 → MCP。[文档](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
+| **VS Code** | 添加到 `.vscode/mcp.json` 或设置 → MCP。[文档](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) | `{ "servers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 | **Codex** | 添加到 `.codex/mcp.json`。[文档](https://github.com/openai/codex) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 | **Gemini CLI** | 添加到 MCP 配置。[文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
 | **Trae** | 添加到 MCP 设置。[文档](https://www.trae.ai/docs) | `{ "mcpServers": { "antd": { "command": "npx", "args": ["-y", "@ant-design/cli", "mcp"] } } }` |
