@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import {
@@ -373,6 +374,75 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   ];
 };
 
+// ============================== Dark Theme ==============================
+// https://github.com/ant-design/ant-design/issues/45549
+// Menu's own dark theme styles are skipped when rendered inside Dropdown
+// (Menu uses injectStyle=false because Dropdown handles menu style itself).
+// We provide a minimal dark theme variant here so `<Dropdown menu={{ theme: 'dark' }} />`
+// applies the expected dark colors. Values mirror Menu's dark token defaults.
+const genDarkStyle: GenerateStyle<DropdownToken> = (token) => {
+  const { menuCls, colorTextLightSolid, colorPrimary, colorError, colorErrorHover } = token;
+  const darkMenuCls = `${menuCls}-dark`;
+  const darkItemColor = new FastColor(colorTextLightSolid).setA(0.65).toRgbString();
+  const darkItemDisabledColor = new FastColor(colorTextLightSolid).setA(0.25).toRgbString();
+  const darkItemBg = '#001529';
+  const darkItemSelectedBg = colorPrimary;
+  const darkItemHoverBg = new FastColor(colorTextLightSolid).setA(0.08).toRgbString();
+
+  return {
+    [darkMenuCls]: {
+      backgroundColor: darkItemBg,
+
+      [`${menuCls}-item, ${menuCls}-submenu-title`]: {
+        color: darkItemColor,
+
+        '&:hover, &-active': {
+          color: colorTextLightSolid,
+          backgroundColor: darkItemHoverBg,
+        },
+
+        '&-selected': {
+          color: colorTextLightSolid,
+          backgroundColor: darkItemSelectedBg,
+
+          '&:hover, &-active': {
+            backgroundColor: darkItemSelectedBg,
+          },
+        },
+
+        '&-disabled': {
+          color: `${darkItemDisabledColor} !important`,
+
+          '&:hover': {
+            color: `${darkItemDisabledColor} !important`,
+            backgroundColor: 'transparent',
+          },
+        },
+
+        // Danger
+        '&-danger': {
+          color: colorError,
+
+          '&:hover': {
+            color: colorErrorHover,
+          },
+        },
+      },
+
+      [`${menuCls}-item-group-title`]: {
+        color: darkItemColor,
+      },
+
+      // Submenu expand icon arrow
+      [`${menuCls}-submenu-title`]: {
+        [`${menuCls}-submenu-arrow-icon`]: {
+          color: darkItemColor,
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Dropdown'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 50,
@@ -394,7 +464,11 @@ export default genStyleHooks(
       dropdownArrowDistance: token.calc(sizePopupArrow).div(2).add(marginXXS).equal(),
       dropdownEdgeChildPadding: paddingXXS,
     });
-    return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
+    return [
+      genBaseStyle(dropdownToken),
+      genDarkStyle(dropdownToken),
+      genStatusStyle(dropdownToken),
+    ];
   },
   prepareComponentToken,
   { resetStyle: false },
