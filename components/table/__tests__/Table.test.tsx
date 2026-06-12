@@ -428,6 +428,25 @@ describe('Table', () => {
     expect(container.querySelector('.ant-table')?.getAttribute('data-number')).toBe('123');
   });
 
+  // https://github.com/ant-design/ant-design/issues/44802
+  it('passes aria-* props to all tables with scroll', () => {
+    const { container } = render(
+      <Table
+        aria-label="label"
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[{ key: '1', name: 'Bamboo' }]}
+        pagination={false}
+        scroll={{ x: 400, y: 100 }}
+      />,
+    );
+
+    const tables = Array.from(container.querySelectorAll('table'));
+    expect(tables.length).toBeGreaterThan(1);
+    tables.forEach((table) => {
+      expect(table).toHaveAttribute('aria-label', 'label');
+    });
+  });
+
   it('support wireframe', () => {
     const columns = [{ title: 'Name', key: 'name', dataIndex: 'name' }];
     const { container } = render(
