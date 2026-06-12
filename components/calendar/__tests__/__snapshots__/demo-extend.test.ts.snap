@@ -7839,7 +7839,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 
 exports[`renders components/calendar/demo/event-range.tsx extend context correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full acss-1mlzeqv css-var-test-id"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
@@ -8668,13 +8668,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     28
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8693,13 +8693,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     29
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8718,13 +8718,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     30
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8743,13 +8743,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     31
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8768,13 +8768,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     01
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8793,13 +8793,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     02
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8818,13 +8818,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     03
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8845,13 +8845,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     04
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8870,13 +8870,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     05
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8895,13 +8895,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     06
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8920,13 +8920,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     07
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -8945,18 +8945,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     08
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-w0u96"
-                          style="--event-color: #1677ff;"
-                          title="Release window: 2026-01-08 - 2026-01-10"
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color: rgb(22, 119, 255);"
                         >
                           Release window
                         </span>
@@ -8978,18 +8977,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     09
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-1r2xucw"
-                          style="--event-color: #1677ff;"
-                          title="Release window: 2026-01-08 - 2026-01-10"
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color: rgb(22, 119, 255);"
                         />
                       </div>
                     </div>
@@ -9009,18 +9007,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     10
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-64kuwx"
-                          style="--event-color: #1677ff;"
-                          title="Release window: 2026-01-08 - 2026-01-10"
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color: rgb(22, 119, 255);"
                         />
                       </div>
                     </div>
@@ -9042,13 +9039,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     11
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9067,13 +9064,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     12
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9092,13 +9089,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     13
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9117,18 +9114,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     14
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-14rofyj"
-                          style="--event-color: #52c41a;"
-                          title="Design review: 2026-01-14 - 2026-01-14"
+                          class="acss-16x69h6 acss-1fbs1g2"
+                          style="background-color: rgb(82, 196, 26);"
                         >
                           Design review
                         </span>
@@ -9150,13 +9146,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     15
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9175,13 +9171,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     16
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9200,13 +9196,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     17
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9227,13 +9223,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     18
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9252,13 +9248,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     19
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9277,13 +9273,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     20
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9302,18 +9298,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     21
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-w0u96"
-                          style="--event-color: #faad14;"
-                          title="Maintenance: 2026-01-21 - 2026-01-24"
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color: rgb(250, 173, 20);"
                         >
                           Maintenance
                         </span>
@@ -9335,18 +9330,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     22
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-1r2xucw"
-                          style="--event-color: #faad14;"
-                          title="Maintenance: 2026-01-21 - 2026-01-24"
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color: rgb(250, 173, 20);"
                         />
                       </div>
                     </div>
@@ -9366,18 +9360,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     23
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-1r2xucw"
-                          style="--event-color: #faad14;"
-                          title="Maintenance: 2026-01-21 - 2026-01-24"
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color: rgb(250, 173, 20);"
                         />
                       </div>
                     </div>
@@ -9397,18 +9390,17 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     24
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       >
                         <span
-                          class="acss-1wwzg94 acss-64kuwx"
-                          style="--event-color: #faad14;"
-                          title="Maintenance: 2026-01-21 - 2026-01-24"
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color: rgb(250, 173, 20);"
                         />
                       </div>
                     </div>
@@ -9430,13 +9422,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     25
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9455,13 +9447,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     26
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9480,13 +9472,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     27
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9505,13 +9497,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     28
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9530,13 +9522,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     29
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9555,14 +9547,21 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     30
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
-                      />
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color: rgb(255, 77, 79);"
+                        >
+                          Bug fix
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -9580,14 +9579,19 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     31
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
-                      />
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color: rgb(255, 77, 79);"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -9607,13 +9611,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     01
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9632,13 +9636,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     02
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9657,13 +9661,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     03
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9682,13 +9686,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     04
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9707,13 +9711,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     05
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9732,13 +9736,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     06
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
@@ -9757,13 +9761,13 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
                     07
                   </div>
                   <div
-                    class="ant-picker-calendar-date-content"
+                    class="ant-picker-calendar-date-content acss-9sezk8"
                   >
                     <div
-                      class="acss-10d28jp"
+                      class="acss-1djfasj"
                     >
                       <div
-                        class="acss-1o23e62"
+                        class="acss-ovn49p"
                       />
                     </div>
                   </div>
