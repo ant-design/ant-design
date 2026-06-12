@@ -201,6 +201,50 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('beam-length'))).toBe('');
   });
 
+  it('should support customizing line width with prop', async () => {
+    const { container, rerender } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            BorderBeam: {
+              lineWidth: 3,
+            },
+          },
+        }}
+      >
+        <BorderBeam lineWidth={5}>
+          <div>
+            <span>content</span>
+          </div>
+        </BorderBeam>
+      </ConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('5px');
+    });
+
+    rerender(
+      <BorderBeam lineWidth="0.25rem">
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('0.25rem');
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('');
+  });
+
   it('should infer child border radius from computed style', async () => {
     const { container } = render(
       <BorderBeam>
