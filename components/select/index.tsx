@@ -426,6 +426,14 @@ const InternalSelect = <
     (mergedStyles.popup.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
   );
 
+  // ====================== mousedown =========================
+  const mergedOnMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    props?.onMouseDown?.(event);
+    if (!event.isPropagationStopped()) {
+      event.stopPropagation();
+    }
+  };
+
   // ====================== Render =======================
   return (
     <RcSelect<ValueType, OptionType>
@@ -460,6 +468,7 @@ const InternalSelect = <
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      onMouseDown={mergedOnMouseDown}
     />
   );
 };
