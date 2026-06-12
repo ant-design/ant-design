@@ -308,7 +308,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             '&-has-search-value': {
               color: 'transparent',
 
-              [`> :not(${componentCls}-input)`]: {
+              [`> *:not(${componentCls}-input)`]: {
                 opacity: 0,
               },
             },
@@ -317,14 +317,29 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             '&-value': {
               transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
               zIndex: 1,
+              opacity: 1,
             },
           },
 
+          // Dim the selected content while the dropdown is open. Shared by all select-like
+          // components (Select / Cascader / TreeSelect) since they render through the same
+          // `content` structure.
           [`&${componentCls}-open ${componentCls}-content`]: {
             color: token.colorTextPlaceholder,
 
+            // Rich content (e.g. images) can't be dimmed via `color`, so fade child nodes.
+            '&-has-value': {
+              [`> *:not(${componentCls}-input)`]: {
+                opacity: 0.25,
+              },
+            },
+
             '&-has-search-value': {
               color: 'transparent',
+
+              [`> *:not(${componentCls}-input)`]: {
+                opacity: 0,
+              },
             },
           },
         },
