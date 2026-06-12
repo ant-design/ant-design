@@ -402,8 +402,8 @@ const GlobalStyle: React.FC = () => {
 
         .grid-demo,
         [id^='grid-demo-'] {
-          ${antCls}-row > div,
-            .code-box-demo ${antCls}-row > div {
+          ${antCls}-row > div:not(${antCls}-row-grid > div),
+            .code-box-demo ${antCls}-row > div:not(${antCls}-row-grid > div) {
             min-height: 30px;
             margin-top: ${token.marginXS}px;
             margin-bottom: ${token.marginXS}px;
@@ -412,7 +412,7 @@ const GlobalStyle: React.FC = () => {
             border-radius: 0;
           }
 
-          .code-box-demo ${antCls}-row > div:not(.gutter-row) {
+          .code-box-demo ${antCls}-row > div:not(${antCls}-row-grid > div):not(.gutter-row) {
             padding: ${token.padding}px 0;
             background: ${demoGridColor};
 
