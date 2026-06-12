@@ -117,6 +117,9 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
+  // Align with design token `Tour.zIndexPopup` (zIndexPopupBase + 70) when not nested
+  // and no custom zIndex is provided, instead of relying on rc-tour's default (1001).
+  const mergedZIndex = zIndex ?? token.zIndexPopupBase + 70;
 
   return (
     <ZIndexContext.Provider value={contextZIndex}>
@@ -126,7 +129,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
         keyboard={keyboard}
-        zIndex={zIndex}
+        zIndex={mergedZIndex}
         rootClassName={mergedRootClassName}
         prefixCls={prefixCls}
         animated
