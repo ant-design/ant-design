@@ -55,7 +55,7 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 | `antd semantic <Component>` | Semantic `classNames` / `styles` structure with usage examples |
 | `antd changelog [v1] [v2] [component]` | Changelog entries, version ranges, or cross-version API diff |
 
-#### antd design.md
+#### antd design.md {#design-md}
 
 `antd design.md` outputs the design language description file for Ant Design, conformant with the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) specification. This file is intended for AI design tools (Figma Make, Google Stitch, etc.) so they can generate UI that follows Ant Design's visual language.
 
