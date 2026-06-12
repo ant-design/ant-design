@@ -1317,4 +1317,115 @@ describe('Menu', () => {
     const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
     expect(popup).toHaveStyle(testStyles.popup.root);
   });
+
+  describe('anchor link keyboard navigation', () => {
+    it('should click anchor link when Enter is pressed on menu item containing a link', () => {
+      const { container } = render(
+        <Menu
+          mode="vertical"
+          items={[
+            {
+              key: 'link1',
+              label: <a href="https://ant.design">Ant Design</a>,
+            },
+          ]}
+        />,
+      );
+
+      const menuItem = container.querySelector<HTMLElement>('[data-menu-id]')!;
+      const anchor = menuItem.querySelector<HTMLAnchorElement>('a[href]')!;
+      const clickSpy = jest.spyOn(anchor, 'click').mockImplementation(() => {});
+
+      fireEvent.keyDown(menuItem, { key: 'Enter' });
+
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should prevent default when Enter is pressed on menu item containing a link', () => {
+      const { container } = render(
+        <Menu
+          mode="vertical"
+          items={[
+            {
+              key: 'link1',
+              label: <a href="https://ant.design">Ant Design</a>,
+            },
+          ]}
+        />,
+      );
+
+      const menuItem = container.querySelector<HTMLElement>('[data-menu-id]')!;
+      const anchor = menuItem.querySelector<HTMLAnchorElement>('a[href]')!;
+      jest.spyOn(anchor, 'click').mockImplementation(() => {});
+
+      const result = fireEvent.keyDown(menuItem, { key: 'Enter' });
+
+      expect(result).toBe(false);
+    });
+
+    it('should not click anchor when a non-Enter key is pressed on menu item with a link', () => {
+      const { container } = render(
+        <Menu
+          mode="vertical"
+          items={[
+            {
+              key: 'link1',
+              label: <a href="https://ant.design">Ant Design</a>,
+            },
+          ]}
+        />,
+      );
+
+      const menuItem = container.querySelector<HTMLElement>('[data-menu-id]')!;
+      const anchor = menuItem.querySelector<HTMLAnchorElement>('a[href]')!;
+      const clickSpy = jest.spyOn(anchor, 'click').mockImplementation(() => {});
+
+      fireEvent.keyDown(menuItem, { key: 'Space' });
+
+      expect(clickSpy).not.toHaveBeenCalled();
+    });
+
+    it('should not prevent default when Enter is pressed on menu item without a link', () => {
+      const { container } = render(
+        <Menu
+          mode="vertical"
+          items={[
+            {
+              key: 'plain',
+              label: 'Plain item',
+            },
+          ]}
+        />,
+      );
+
+      const menuItem = container.querySelector<HTMLElement>('[data-menu-id]')!;
+
+      const result = fireEvent.keyDown(menuItem, { key: 'Enter' });
+
+      expect(result).toBe(true);
+    });
+
+    it('should not click anchor for items without href', () => {
+      const { container } = render(
+        <Menu
+          mode="vertical"
+          items={[
+            {
+              key: 'link1',
+              label: <a>No href anchor</a>,
+            },
+          ]}
+        />,
+      );
+
+      const menuItem = container.querySelector<HTMLElement>('[data-menu-id]')!;
+      const anchor = menuItem.querySelector<HTMLAnchorElement>('a')!;
+      const clickSpy = jest.spyOn(anchor, 'click').mockImplementation(() => {});
+
+      const result = fireEvent.keyDown(menuItem, { key: 'Enter' });
+
+      expect(clickSpy).not.toHaveBeenCalled();
+      expect(result).toBe(true);
+    });
+  });
 });
