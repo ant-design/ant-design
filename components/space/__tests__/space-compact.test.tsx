@@ -66,6 +66,58 @@ describe('Space.Compact', () => {
     expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
+  it('should keep first and last class when only one child is actually rendered', () => {
+    const ConditionalButton = ({ visible }: { visible: boolean }) =>
+      visible ? <Button>Conditional</Button> : null;
+
+    const { container } = render(
+      <Space.Compact>
+        <Button className="test-single-button">Always visible</Button>
+        <ConditionalButton visible={false} />
+      </Space.Compact>,
+    );
+
+    expect(container.querySelector('.test-single-button')).toHaveClass(
+      'ant-btn-compact-first-item',
+    );
+    expect(container.querySelector('.test-single-button')).toHaveClass('ant-btn-compact-last-item');
+  });
+
+  it('should include nested Compact in outer first and last calculation', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Space.Compact>
+          <Input className="test-nested-left-input" />
+          <Button className="test-nested-left-button">Left</Button>
+        </Space.Compact>
+        <Button className="test-nested-middle-button">Middle</Button>
+        <Space.Compact>
+          <Input className="test-nested-right-input" />
+          <Button className="test-nested-right-button">Right</Button>
+        </Space.Compact>
+      </Space.Compact>,
+    );
+
+    expect(container.querySelector('.test-nested-left-input')).toHaveClass(
+      'ant-input-compact-first-item',
+    );
+    expect(container.querySelector('.test-nested-left-button')).not.toHaveClass(
+      'ant-btn-compact-last-item',
+    );
+    expect(container.querySelector('.test-nested-middle-button')).not.toHaveClass(
+      'ant-btn-compact-first-item',
+    );
+    expect(container.querySelector('.test-nested-middle-button')).not.toHaveClass(
+      'ant-btn-compact-last-item',
+    );
+    expect(container.querySelector('.test-nested-right-input')).not.toHaveClass(
+      'ant-input-compact-first-item',
+    );
+    expect(container.querySelector('.test-nested-right-button')).toHaveClass(
+      'ant-btn-compact-last-item',
+    );
+  });
+
   [
     {
       name: 'Button',

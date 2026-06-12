@@ -101,7 +101,7 @@ exports[`Input.Search should support addonAfter 1`] = `
     value=""
   />
   <button
-    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-input-search-btn"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
     type="button"
   >
     <span
@@ -144,7 +144,7 @@ exports[`Input.Search should support addonAfter 2`] = `
     value=""
   />
   <button
-    class="ant-btn css-var-root ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-input-search-btn"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
     type="button"
   >
     <span
@@ -196,7 +196,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
     </span>
   </span>
   <button
-    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-input-search-btn"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
     type="button"
   >
     <span
@@ -246,7 +246,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
     </span>
   </span>
   <button
-    class="ant-btn css-var-root ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-input-search-btn"
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
     type="button"
   >
     <span
@@ -302,7 +302,7 @@ exports[`Input.Search should support custom button 1`] = `
   class="ant-space-compact ant-input-search css-var-root ant-input-search-with-button"
 >
   <input
-    class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+    class="ant-input ant-input-outlined css-var-root ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
     type="search"
     value=""
   />
