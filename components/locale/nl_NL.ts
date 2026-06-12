@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Sluiten',
     show: 'Weergeven',
     hide: 'Verbergen',
+    clear: 'Wissen',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',

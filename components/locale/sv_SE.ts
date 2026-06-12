@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Stäng',
     show: 'Visa',
     hide: 'Dölj',
+    clear: 'Rensa',
   },
   Table: {
     filterTitle: 'Filtermeny',

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'إغلاق',
     show: 'إظهار',
     hide: 'إخفاء',
+    clear: 'مسح',
   },
   Table: {
     filterTitle: 'الفلاتر',

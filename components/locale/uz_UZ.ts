@@ -23,6 +23,7 @@ const localeValues: Locale = {
     close: 'Yopish',
     show: "Ko'rsat",
     hide: 'Yashir',
+    clear: 'Tozalash',
   },
   Table: {
     filterTitle: 'Filtr',

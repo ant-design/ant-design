@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'மூடு',
     show: 'காட்டு',
     hide: 'மறை',
+    clear: 'அழி',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',

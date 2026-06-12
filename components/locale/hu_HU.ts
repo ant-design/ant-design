@@ -17,6 +17,7 @@ const localeValues: Locale = {
     close: 'Bezárás',
     show: 'Megjelenítés',
     hide: 'Elrejtés',
+    clear: 'Törlés',
   },
   Table: {
     filterTitle: 'Szűrők',

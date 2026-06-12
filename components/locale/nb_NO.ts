@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Lukk',
     show: 'Vis',
     hide: 'Skjul',
+    clear: 'Tøm',
   },
   Table: {
     filterTitle: 'Filtermeny',

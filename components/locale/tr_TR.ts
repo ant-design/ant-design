@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Kapat',
     show: 'Göster',
     hide: 'Gizle',
+    clear: 'Temizle',
   },
   Table: {
     filterTitle: 'Filtre menüsü',

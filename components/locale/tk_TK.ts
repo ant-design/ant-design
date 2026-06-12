@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Ýagty',
     show: 'Görkez',
     hide: 'Gizle',
+    clear: 'Arassala',
   },
   Table: {
     filterTitle: 'Filter',

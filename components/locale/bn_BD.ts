@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'বন্ধ',
     show: 'দেখান',
     hide: 'লুকান',
+    clear: 'পরিষ্কার করুন',
   },
   Table: {
     filterTitle: 'ফিল্টার মেনু',

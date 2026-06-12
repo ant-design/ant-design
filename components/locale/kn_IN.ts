@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'ಮುಚ್ಚಿ',
     show: 'ತೋರಿಸಿ',
     hide: 'ಮರೆಮಾಡಿ',
+    clear: 'ತೆರವುಗೊಳಿಸಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',

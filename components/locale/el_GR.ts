@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Κλείσιμο',
     show: 'Εμφάνιση',
     hide: 'Απόκρυψη',
+    clear: 'Καθαρισμός',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Bağla',
     show: 'Göstər',
     hide: 'Gizlət',
+    clear: 'Təmizlə',
   },
   Table: {
     filterTitle: 'Filter menyu',

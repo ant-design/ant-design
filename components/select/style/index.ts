@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -19,7 +19,6 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
     [`${componentCls}-clear`]: {
       opacity: 1,
       background: token.colorBgBase,
-      borderRadius: '50%',
     },
   };
 
@@ -61,7 +60,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
-        lineHeight: 1,
+        lineHeight: 0,
         textAlign: 'center',
         textTransform: 'none',
         cursor: 'pointer',
@@ -81,10 +80,16 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         '&:hover': {
           color: token.colorIcon,
         },
+
+        '&:focus-visible': {
+          color: token.colorIcon,
+          borderRadius: token.borderRadiusSM,
+          ...genFocusOutline(token),
+        },
       },
 
       '@media(hover:none)': hoverShowClearStyle,
-      '&:hover': hoverShowClearStyle,
+      '&:hover, &:focus-within': hoverShowClearStyle,
     },
 
     // ========================= Feedback ==========================
