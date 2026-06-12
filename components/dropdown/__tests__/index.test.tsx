@@ -552,4 +552,26 @@ describe('Dropdown', () => {
     expect(itemContent).toHaveStyle(objectStyles.itemContent);
     expect(itemTitle).toHaveStyle(objectStyles.itemTitle);
   });
+
+  // https://github.com/ant-design/ant-design/issues/56044
+  it('vertical menu should keep viewport spacing instead of full 100vh', () => {
+    render(
+      <Dropdown menu={{ items }} open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    const verticalRule = cssText
+      .split('}')
+      .find(
+        (rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'),
+      );
+
+    expect(verticalRule).toBeTruthy();
+    expect(verticalRule).toContain('calc(100vh');
+    expect(verticalRule).not.toMatch(/max-height:\s*100vh/);
+  });
 });
