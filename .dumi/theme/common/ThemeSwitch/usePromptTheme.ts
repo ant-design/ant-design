@@ -3,6 +3,12 @@ import { XStream } from '@ant-design/x-sdk';
 
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 
+type ThemeStreamData = {
+  lane?: string;
+  payload?: string;
+  type?: string;
+};
+
 const fetchTheme = async (
   prompt: string,
   update: (currentFullContent: string) => void,
@@ -36,11 +42,25 @@ const fetchTheme = async (
     for await (const chunk of XStream({
       readableStream: response.body,
     })) {
-      const data = JSON.parse(chunk.data) as {
-        lane?: string;
-        payload?: string;
-        type?: string;
-      };
+      if (!chunk.data || chunk.data === '[DONE]') {
+        continue;
+      }
+
+      if (chunk.event !== 'message' && chunk.event !== 'error') {
+        continue;
+      }
+
+      let data: ThemeStreamData;
+
+      try {
+        data = JSON.parse(chunk.data) as ThemeStreamData;
+      } catch (error) {
+        if (chunk.event === 'error') {
+          throw new Error(chunk.data);
+        }
+
+        throw error;
+      }
 
       if (chunk.event === 'error' || data.type === 'error') {
         let errorMessage = 'Failed to generate theme';
@@ -52,7 +72,9 @@ const fetchTheme = async (
 
           errorMessage = payload.errorMsg || errorMessage;
         } catch {
-          // Keep fallback error message if the stream payload is not parseable.
+          if (data.payload) {
+            errorMessage = data.payload;
+          }
         }
 
         throw new Error(errorMessage);
@@ -130,11 +152,19 @@ export default function usePromptTheme(
         console.warn('Request was aborted');
       } else {
         console.error('Failed to generate theme:', error);
-        setErrorMessage(error instanceof Error ? error.message : 'Failed to generate theme');
+        setErrorMessage(
+          error instanceof SyntaxError
+            ? 'Failed to parse the generated theme. Please try again.'
+            : error instanceof Error
+              ? error.message
+              : 'Failed to generate theme',
+        );
       }
     } finally {
-      setLoading(false);
-      abortControllerRef.current = null;
+      if (abortControllerRef.current === abortController) {
+        setLoading(false);
+        abortControllerRef.current = null;
+      }
     }
   };
 
