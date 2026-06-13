@@ -27,6 +27,7 @@ export interface BorderBeamProps {
   duration?: number;
   lineWidth?: number | string;
   outset?: number | string;
+  size?: number | string;
 }
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
@@ -39,6 +40,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     duration,
     lineWidth,
     outset,
+    size,
   } = props;
 
   const {
@@ -77,6 +79,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
           ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
           ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
+          ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}
