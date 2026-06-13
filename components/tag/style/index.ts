@@ -149,14 +149,10 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
       },
     },
 
-    [`&${token.componentCls}-solid`]: {
+    [`&${componentCls}-solid`]: {
       borderColor: 'transparent',
-      color: token.colorTextLightSolid,
+      color: token.solidTextColor,
       backgroundColor: token.colorBgSolid,
-
-      [`&${componentCls}-default`]: {
-        color: token.solidTextColor,
-      },
     },
 
     [`${componentCls}-filled`]: {
@@ -220,7 +216,7 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Tag'>>[0]) => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
-  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), token.colorBgContainer)
     ? '#000'
     : '#fff';
 
