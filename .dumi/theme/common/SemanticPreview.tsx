@@ -107,7 +107,6 @@ function HighlightExample(props: {
   }, [componentName, itemsAPI, semanticName]);
 
   return (
-    // biome-ignore lint: lint/security/noDangerouslySetInnerHtml
     <div dangerouslySetInnerHTML={{ __html: highlightCode }} />
   );
 }

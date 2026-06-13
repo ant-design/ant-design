@@ -74,10 +74,10 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 
 ### CLI Management
 
-| Command        | Description                                                        |
-| -------------- | ------------------------------------------------------------------ |
-| `antd mcp`     | Start an MCP server with 8 tools and 2 prompts for IDE integration |
-| `antd upgrade` | Upgrade the CLI to the latest version                              |
+| Command | Description |
+| --- | --- |
+| `antd mcp` | Start an MCP server with 8 tools and 2 prompts for IDE integration (Claude Code, Cursor, VS Code, etc.) |
+| `antd upgrade` | Upgrade the CLI to the latest version |
 
 The `antd mcp` command launches a [Model Context Protocol](https://modelcontextprotocol.io/) server, allowing AI assistants to access Ant Design knowledge directly. See the [MCP Server](/docs/react/mcp-en-US) guide for full details and configuration.
 
