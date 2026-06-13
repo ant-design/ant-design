@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'dumi';
 
-const WrapHelmet: React.FC<React.PropsWithChildren<React.ComponentProps<typeof Helmet>>> = (
-  props,
-) => {
+type WrapHelmetProps = React.ComponentProps<typeof Helmet>;
+
+const WrapHelmet: React.FC<React.PropsWithChildren<WrapHelmetProps>> = (props) => {
   const { children, ...rest } = props;
   return <Helmet {...rest}>{children}</Helmet>;
 };
