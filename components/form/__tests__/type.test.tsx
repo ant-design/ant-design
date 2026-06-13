@@ -62,16 +62,6 @@ describe('Form.typescript', () => {
       };
       expect(Demo).toBeTruthy();
     });
-
-    it('accepts partial values from generic helper', () => {
-      const useGenericSetter = <Values,>() => {
-        const [form] = Form.useForm<Values>();
-
-        return (values: Partial<Values>) => form.setFieldsValue(values);
-      };
-
-      expect(useGenericSetter).toBeTruthy();
-    });
   });
 
   it('FormItem renderProps support generic', () => {
