@@ -1,6 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
@@ -172,6 +173,27 @@ export const genOutlinedGroupStyle: GenerateStyle<InputToken, CSSObject> = (toke
 });
 
 /* ============ Borderless ============ */
+const borderlessFocusVisibleSelector =
+  '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)';
+
+const genBorderlessStatusStyle = (
+  token: InputToken,
+  options: {
+    color: string;
+    affixColor: string;
+  },
+): CSSObject => ({
+  '&, & input, & textarea': {
+    color: options.color,
+  },
+  [borderlessFocusVisibleSelector]: {
+    outlineColor: options.color,
+  },
+  [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
+    color: options.affixColor,
+  },
+});
+
 export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => {
   const { componentCls } = token;
 
@@ -195,6 +217,8 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
         outline: 'none',
       },
 
+      [borderlessFocusVisibleSelector]: genFocusOutline(token),
+
       // >>>>> Disabled
       [`&${componentCls}-disabled, &[disabled]`]: {
         color: token.colorTextDisabled,
@@ -202,23 +226,15 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
       },
 
       // >>>>> Status
-      [`&${componentCls}-status-error`]: {
-        '&, & input, & textarea': {
-          color: token.colorError,
-        },
-        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
-          color: token.colorErrorAffix,
-        },
-      },
+      [`&${componentCls}-status-error`]: genBorderlessStatusStyle(token, {
+        color: token.colorError,
+        affixColor: token.colorErrorAffix,
+      }),
 
-      [`&${componentCls}-status-warning`]: {
-        '&, & input, & textarea': {
-          color: token.colorWarning,
-        },
-        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
-          color: token.colorWarningAffix,
-        },
-      },
+      [`&${componentCls}-status-warning`]: genBorderlessStatusStyle(token, {
+        color: token.colorWarning,
+        affixColor: token.colorWarningAffix,
+      }),
 
       ...extraStyles,
     },
