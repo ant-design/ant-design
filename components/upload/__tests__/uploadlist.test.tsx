@@ -1023,7 +1023,13 @@ describe('Upload List', () => {
       />,
     );
     fireEvent.click(wrapper.querySelector('.ant-upload-list-item-name')!);
+    expect(wrapper.querySelector('.ant-upload-list-item-name')?.getAttribute('role')).toBe(
+      'button',
+    );
     expect(onPreview).toHaveBeenCalled();
+    fireEvent.keyDown(wrapper.querySelector('.ant-upload-list-item-name')!, { key: 'Enter' });
+    fireEvent.keyDown(wrapper.querySelector('.ant-upload-list-item-name')!, { key: ' ' });
+    expect(onPreview).toHaveBeenCalledTimes(5);
 
     unmount();
   });
