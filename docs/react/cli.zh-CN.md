@@ -98,10 +98,10 @@ antd design.md --lang zh      # 中文描述
 
 ### CLI 管理 {#cli-management}
 
-| 命令           | 说明                                                       |
-| -------------- | ---------------------------------------------------------- |
-| `antd mcp`     | 启动 MCP 服务器，提供 8 个工具和 2 个提示词，支持 IDE 集成 |
-| `antd upgrade` | 将 CLI 升级到最新版本                                      |
+| 命令 | 说明 |
+| --- | --- |
+| `antd mcp` | 启动 MCP 服务器，提供 8 个工具和 2 个提示词，支持 IDE 集成（Claude Code、Cursor、VS Code 等） |
+| `antd upgrade` | 将 CLI 升级到最新版本 |
 
 `antd mcp` 命令启动 [Model Context Protocol](https://modelcontextprotocol.io/) 服务器，让 AI 助手可以直接访问 Ant Design 知识。详细配置参见 [MCP Server](/docs/react/mcp-zh-CN) 指南。
 

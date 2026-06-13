@@ -130,6 +130,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     class="ant-tag ant-tag-filled css-var-test-id"
   >
     <a
+      aria-label="Ant Design issue"
       href="https://github.com/ant-design/ant-design/issues/1862"
       rel="noopener noreferrer"
       target="_blank"

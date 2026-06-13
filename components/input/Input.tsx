@@ -193,7 +193,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
-    // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffixRef.current) {
         warning(

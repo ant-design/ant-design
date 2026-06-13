@@ -16734,7 +16734,7 @@ exports[`ConfigProvider components List configProvider 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image css-var-root config-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -16788,7 +16788,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image css-var-root config-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -16842,7 +16842,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
                 class="config-avatar config-avatar-lg config-avatar-circle config-avatar-image css-var-root config-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -16896,7 +16896,7 @@ exports[`ConfigProvider components List configProvider componentSize medium 1`] 
                 class="config-avatar config-avatar-circle config-avatar-image css-var-root config-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -16950,7 +16950,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
                 class="config-avatar config-avatar-sm config-avatar-circle config-avatar-image css-var-root config-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -17004,7 +17004,7 @@ exports[`ConfigProvider components List normal 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
@@ -17058,7 +17058,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=9"
                 />
               </span>
             </div>
