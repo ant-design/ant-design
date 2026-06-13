@@ -44,7 +44,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
         box-sizing: border-box;
       }
       &:hover:before {
-        background: rgba(0, 0, 0, 0.04);
+        background: ${token.controlItemBgHover};
       }
     `,
     today: css`
@@ -80,7 +80,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
       border-radius: ${token.borderRadiusOuter}px;
       padding: 5px 0;
       &:hover {
-        background: rgba(0, 0, 0, 0.04);
+        background: ${token.controlItemBgHover};
       }
     `,
     monthCellCurrent: css`
@@ -106,10 +106,8 @@ const App: React.FC = () => {
     setPanelDate(value);
   };
 
-  const onDateChange: CalendarProps<Dayjs>['onSelect'] = (value, selectInfo) => {
-    if (selectInfo.source === 'date') {
-      setSelectDate(value);
-    }
+  const onDateChange: CalendarProps<Dayjs>['onSelect'] = (value) => {
+    setSelectDate(value);
   };
 
   const cellRender: CalendarProps<Dayjs>['fullCellRender'] = (date, info) => {

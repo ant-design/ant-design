@@ -104,6 +104,16 @@ async function getBranchLatestRef(branchName: string) {
   return ref;
 }
 
+async function ossSnapshotExists(ref: string) {
+  const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
+  try {
+    const res = await fetch(imageSnapshotsUrl, { method: 'HEAD' });
+    return res.ok && res.status === 200;
+  } catch {
+    return false;
+  }
+}
+
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
   const tar = await import('tar');
   // download imageSnapshotsUrl
@@ -150,12 +160,17 @@ export interface IBadCase {
 const git = simpleGit();
 
 async function parseArgs() {
-  // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
+  // parse args from -- --pr-id=123 --base_ref=feature --base-sha=abc123 --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+
+  // The exact base commit the PR is merged onto. Used to align the baseline
+  // snapshot with the PR's current side, avoiding stale-pointer false diffs.
+  // Optional: falls back to the branch pointer when not provided or missing on OSS.
+  const baseSha = argv['base-sha'] || '';
 
   const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
 
@@ -164,6 +179,7 @@ async function parseArgs() {
   return {
     prId,
     baseRef,
+    baseSha,
     currentRef: latest?.hash.slice(0, 8) || '',
     maxWorkers,
   };
@@ -244,14 +260,29 @@ function generateReport(
   currentRef: string,
   prId: string,
   publicPath = '.',
+  baselineStale = false,
 ): [string, string] {
   const passed = badCases.length === 0;
+
+  const staleWarning = baselineStale
+    ? `\n> ⚠️ **Baseline may be stale:** no snapshot for the PR's base commit was found, so an older branch snapshot was used. Some diffs below may come from changes already merged into \`${targetBranch}\` rather than this PR.`
+    : '';
+
+  const staleWarningCN = baselineStale
+    ? `\n> ⚠️ **基线可能已过期:** 未找到该 PR 基准提交对应的快照,因此回退使用了较旧的分支快照。下方部分差异可能来自已合并到 \`${targetBranch}\` 的改动,而非本 PR。`
+    : '';
 
   const commonHeader = `
 <!-- ${passed ? 'VISUAL_DIFF_SUCCESS' : 'VISUAL_DIFF_FAILED'} -->
 
 ## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **🎯 Target branch:** ${targetBranch} (${targetRef})
+> **🎯 Target branch:** ${targetBranch} (${targetRef.slice(0, 8)})${staleWarning}
+  `.trim();
+
+  // 中文报告头部,折叠展示用,不含 CI 解析的 checkbox 结构
+  const commonHeaderCN = `
+## 👁 PR #${prId} 视觉回归报告 ${passed ? '通过 ✅' : '失败 ❌'}
+> **🎯 目标分支:** ${targetBranch} (${targetRef.slice(0, 8)})${staleWarningCN}
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
@@ -268,6 +299,13 @@ function generateReport(
       fullReport,
       '\n🎊 Congrats! No visual-regression diff found.\n',
       '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
+      [
+        '\n<details>',
+        '<summary>📖 中文报告</summary>\n',
+        commonHeaderCN,
+        '\n🎊 恭喜!未发现视觉回归差异。\n',
+        '</details>',
+      ].join('\n'),
     ].join('\n');
 
     return [mdStr, markdown2Html(mdStr)];
@@ -303,15 +341,20 @@ function generateReport(
   const removedCount = filter(badCases, { type: 'removed' }).length;
   const addedCount = filter(badCases, { type: 'added' }).length;
 
+  // 收集评论版表格行,中英文报告复用
+  let commentTableRows = '';
+
   for (const badCase of badCases) {
     diffCount += 1;
     if (diffCount <= commentReportLimit) {
       // 将图片下方增加文件名
-      reportMdStr += generateLineReport(badCase, publicPath, currentRef, true);
+      commentTableRows += generateLineReport(badCase, publicPath, currentRef, true);
     }
 
     fullVersionMd += generateLineReport(badCase, publicPath, currentRef, false);
   }
+
+  reportMdStr += commentTableRows;
 
   const hasMore = badCount > commentReportLimit;
 
@@ -347,6 +390,48 @@ function generateReport(
 
     reportMdStr = reportMdStr.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
     fullVersionMd = fullVersionMd.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
+
+    // 中文报告,折叠展示。不包含 CI 解析所需的 checkbox,避免干扰审批状态判断
+    const summaryLineCN = [
+      changedCount > 0 && `🔄 \`${changedCount}\` 变更`,
+      removedCount > 0 && `🛑 \`${removedCount}\` 删除`,
+      addedCount > 0 && `🆕 \`${addedCount}\` 新增`,
+    ]
+      .filter(Boolean)
+      .join(', ');
+
+    const tableHeaderCN = `
+| 期望 (分支 ${targetBranch}) | 实际 (当前 PR) | 差异 |
+| --- | --- | --- |
+    `.trim();
+
+    const reportCNStr = [
+      commonHeaderCN,
+      isLocalEnv ? false : fullReport,
+      `> **📊 概览:** ${summaryLineCN}`,
+      '\n',
+      tableHeaderCN,
+      commentTableRows,
+      hasMore &&
+        [
+          '\r',
+          '> [!WARNING]',
+          `> 还有更多差异未在表格中展示,请查看 <a href="${htmlReportLink}" target="_blank">完整报告</a> 了解详情。`,
+          '\r',
+        ].join('\n'),
+      '\n---\n',
+      '> [!NOTE]',
+      `> 本 PR 共发现 **${badCount}** 处差异:${summaryLineCN}。请在上方英文报告中勾选确认项以通过 CI 校验。`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    reportMdStr += [
+      '\n\n<details>',
+      '<summary>📖 中文报告</summary>\n',
+      reportCNStr,
+      '\n</details>',
+    ].join('\n');
   }
 
   // convert fullVersionMd to html
@@ -357,7 +442,7 @@ async function boot() {
   const args = await parseArgs();
   console.log(`Args: ${JSON.stringify(args)}`);
 
-  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
+  const { prId, baseRef: targetBranch = 'master', baseSha, currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
@@ -371,7 +456,41 @@ async function boot() {
   );
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetCommitSha = await getBranchLatestRef(targetBranch);
+  // Resolve the baseline snapshot ref.
+  //
+  // The PR's `current` side is rendered on the live merge ref (PR head merged
+  // onto the branch HEAD), so its base parent is `baseSha`. To avoid false diffs
+  // we want the `base` side to use the snapshot of that very commit.
+  //
+  // Snapshots are persisted per-commit on OSS, but the branch pointer
+  // (`<branch>/visual-regression-ref.txt`) can lag behind the branch HEAD when a
+  // persist run is delayed, failed, or skipped (e.g. right after an auto-merge of
+  // master into feature). Falling back to that lagging pointer is what makes
+  // unrelated changes show up as diffs. So:
+  //   1. prefer `baseSha` when its snapshot exists on OSS (perfectly aligned);
+  //   2. otherwise fall back to the branch pointer and flag the baseline as stale
+  //      so the report can warn that diffs may be noise.
+  const branchPointerSha = await getBranchLatestRef(targetBranch);
+  let targetCommitSha = branchPointerSha;
+  let baselineStale = false;
+
+  if (!isLocalEnv && baseSha) {
+    if (await ossSnapshotExists(baseSha)) {
+      targetCommitSha = baseSha;
+    } else {
+      // Snapshot for the PR's real base is missing; the branch pointer is the
+      // best we have, but it predates the PR's base when they differ.
+      baselineStale = branchPointerSha.slice(0, 8) !== baseSha.slice(0, 8);
+      console.log(
+        chalk.yellow(
+          `⚠️ No baseline snapshot for base commit ${baseSha}, falling back to branch pointer ${branchPointerSha}.${
+            baselineStale ? ' Baseline is stale; diffs may include noise.' : ''
+          }\n`,
+        ),
+      );
+    }
+  }
+
   assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
 
   if (!isLocalEnv) {
@@ -513,6 +632,7 @@ async function boot() {
     currentRef,
     prId,
     publicPath,
+    baselineStale,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');

@@ -53,7 +53,7 @@ const BlockList: React.FC<React.PropsWithChildren<TourProps>> = (props) => {
     <div
       style={{
         width: '100%',
-        height: 825,
+        height: 600,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -78,6 +78,7 @@ const BlockList: React.FC<React.PropsWithChildren<TourProps>> = (props) => {
             cover: (
               <img
                 alt="tour.png"
+                style={{ width: 360, maxWidth: '100%' }}
                 src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
               />
             ),

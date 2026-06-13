@@ -143,7 +143,7 @@ describe('Tag', () => {
       const onClick = jest.fn();
       const { container } = render(
         <Tag disabled>
-          <a href="https://ant.design" onClick={onClick}>
+          <a href="https://ant.design" aria-label="Ant Design website" onClick={onClick}>
             Link
           </a>
         </Tag>,

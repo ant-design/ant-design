@@ -50,46 +50,46 @@ demo:
 
 config 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 自定义按钮组 | ReactNode | - | 5.24.0 |
-| ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - |
-| className | 自定义 CSS class | string | - | - |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
-| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
-| description | 通知提醒内容，必选 | ReactNode | - | - |
-| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - |
-| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
-| icon | 自定义图标 | ReactNode | - | - |
-| key | 当前通知唯一标志 | string | - | - |
-| title | 通知提醒标题 | ReactNode | - | 6.0.0 |
-| ~~message~~ | 通知提醒标题，请使用 `title` 替换 | ReactNode | - | - |
-| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - |
-| role | 供屏幕阅读器识别的通知内容语义，默认为 `alert`。此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | `alert \| status` | `alert` | 5.6.0 |
-| style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| onClick | 点击通知时触发的回调函数 | function | - | - |
-| onClose | 当通知关闭时触发 | function | - | - |
-| props | 透传至通知 `div` 上的 props 对象，支持传入 `data-*` `aria-*` 或 `role` 作为对象的属性。需要注意的是，虽然在 TypeScript 类型中声明的类型支持传入 `data-*` 作为对象的属性，但目前只允许传入 `data-testid` 作为对象的属性。 详见 https://github.com/microsoft/TypeScript/issues/28960 | Object | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 自定义按钮组 | ReactNode | - | 5.24.0 | × |
+| ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - | × |
+| className | 自定义 CSS class | string | - | - | 5.7.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - | × |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 | 5.14.0 |
+| description | 通知提醒内容，必选 | ReactNode | - | - | × |
+| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - | × |
+| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 | × |
+| icon | 自定义图标 | ReactNode | - | - | × |
+| key | 当前通知唯一标志 | string | - | - | × |
+| title | 通知提醒标题 | ReactNode | - | 6.0.0 | × |
+| ~~message~~ | 通知提醒标题，请使用 `title` 替换 | ReactNode | - | - | × |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` | - | × |
+| role | 供屏幕阅读器识别的通知内容语义，默认为 `alert`。此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | `alert \| status` | `alert` | 5.6.0 | × |
+| style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - | 5.7.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| onClick | 点击通知时触发的回调函数 | function | - | - | × |
+| onClose | 当通知关闭时触发 | function | - | - | × |
+| props | 透传至通知 `div` 上的 props 对象，支持传入 `data-*` `aria-*` 或 `role` 作为对象的属性。需要注意的是，虽然在 TypeScript 类型中声明的类型支持传入 `data-*` 作为对象的属性，但目前只允许传入 `data-testid` 作为对象的属性。 详见 https://github.com/microsoft/TypeScript/issues/28960 | Object | - | - | × |
 
 - `notification.useNotification(config)`
 
 config 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
-| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
-| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  |
-| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 |
-| rtl | 是否开启 RTL 模式 | boolean | false |  |
-| stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
-| top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
-| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  | × |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 | 5.14.0 |
+| getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  | × |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  | × |
+| showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | 5.18.0 | × |
+| rtl | 是否开启 RTL 模式 | boolean | false |  | × |
+| stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 | × |
+| top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  | × |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 | × |
 
 ### ClosableType
 

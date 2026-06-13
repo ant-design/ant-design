@@ -8,6 +8,7 @@ type BorderBeamGradientItem = {
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 
+export const DEFAULT_BORDER_BEAM_DURATION = 6;
 export const MAX_BEAM_COLOR_STOP_PERCENT = 70;
 
 const getLinearGradient = (...colorStops: string[]) =>

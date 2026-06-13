@@ -913,7 +913,6 @@ Array [
           <label
             class=""
             for="col-24-debug_select"
-            title=""
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
@@ -1332,7 +1331,6 @@ Array [
           <label
             class=""
             for="select"
-            title=""
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
@@ -5125,7 +5123,7 @@ Array [
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
-                  class="ant-slider-handle"
+                  class="ant-slider-handle ant-slider-handle-disabled"
                   role="slider"
                   style="left: 0%; transform: translateX(-50%);"
                 />
@@ -9484,6 +9482,43 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            for="global_state_profile_email"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="global_state_profile_email"
+                type="text"
+                value="antd@example.com"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
   <div
     class="ant-typography css-var-test-id"
@@ -9496,6 +9531,13 @@ Array [
       "username"
     ],
     "value": "Ant Design"
+  },
+  {
+    "name": [
+      "profile",
+      "email"
+    ],
+    "value": "antd@example.com"
   }
 ]
     </pre>
@@ -9672,7 +9714,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
         <label
           class=""
           for="label-ellipsis_username"
-          title=""
         >
           <span
             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
@@ -9713,7 +9754,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
         <label
           class=""
           for="label-ellipsis_password"
-          title=""
         >
           <span
             class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
@@ -12385,7 +12425,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
           Required Mark
           <span
             class="ant-form-item-optional"
-            title=""
           >
             (optional)
           </span>
@@ -12636,7 +12675,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
           </div>
           <span
             class="ant-form-item-optional"
-            title=""
           >
             (optional)
           </span>

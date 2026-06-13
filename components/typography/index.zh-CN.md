@@ -37,64 +37,64 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ### Typography.Text
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
-| delete | 添加删除线样式 | boolean | false |  |
-| disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
-| ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手动配置宽度样式 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  |
-| italic | 是否斜体 | boolean | false | 4.16.0 |
-| keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
-| mark | 添加标记样式 | boolean | false |  |
-| strong | 是否加粗 | boolean | false |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | 添加下划线样式 | boolean | false |  |
-| onClick | 点击 Text 时的回调 | (event) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | 添加代码样式 | boolean | false |  | × |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  | × |
+| delete | 添加删除线样式 | boolean | false |  | × |
+| disabled | 禁用文本 | boolean | false |  | × |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手动配置宽度样式 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  | × |
+| italic | 是否斜体 | boolean | false | 4.16.0 | × |
+| keyboard | 添加键盘样式 | boolean | false | 4.3.0 | × |
+| mark | 添加标记样式 | boolean | false |  | × |
+| strong | 是否加粗 | boolean | false |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | 添加下划线样式 | boolean | false |  | × |
+| onClick | 点击 Text 时的回调 | (event) => void | - |  | × |
 
 ### Typography.Title
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
-| delete | 添加删除线样式 | boolean | false |  |
-| disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  |
-| italic | 是否斜体 | boolean | false | 4.16.0 |
-| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
-| mark | 添加标记样式 | boolean | false |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | 添加下划线样式 | boolean | false |  |
-| onClick | 点击 Title 时的回调 | (event) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | 添加代码样式 | boolean | false |  | × |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  | × |
+| delete | 添加删除线样式 | boolean | false |  | × |
+| disabled | 禁用文本 | boolean | false |  | × |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  | × |
+| italic | 是否斜体 | boolean | false | 4.16.0 | × |
+| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 | × |
+| mark | 添加标记样式 | boolean | false |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | 添加下划线样式 | boolean | false |  | × |
+| onClick | 点击 Title 时的回调 | (event) => void | - |  | × |
 
 ### Typography.Paragraph
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
-| delete | 添加删除线样式 | boolean | false |  |
-| disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  |
-| italic | 是否斜体 | boolean | false | 4.16.0 |
-| mark | 添加标记样式 | boolean | false |  |
-| strong | 是否加粗 | boolean | false |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | 添加下划线样式 | boolean | false |  |
-| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | 添加代码样式 | boolean | false |  | × |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  | × |
+| delete | 添加删除线样式 | boolean | false |  | × |
+| disabled | 禁用文本 | boolean | false |  | × |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  | × |
+| italic | 是否斜体 | boolean | false | 4.16.0 | × |
+| mark | 添加标记样式 | boolean | false |  | × |
+| strong | 是否加粗 | boolean | false |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | 添加下划线样式 | boolean | false |  | × |
+| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  | × |
 
 ### actions
 

@@ -46,34 +46,33 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
-| defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  |
-| expandIcon | custom expand icon of submenu | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 |
-| forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
-| inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
-| inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
-| items | Menu item content | [ItemType\[\]](#itemtype) | - | 4.20.0 |
-| mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
-| multiple | Allows selection of multiple items | boolean | false |  |
-| openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
-| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  |
-| selectable | Allows selecting menu items | boolean | true |  |
-| selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
-| style | Style of the root node | CSSProperties | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
-| subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
-| tooltip | Config tooltip props for menu items in inline collapsed mode. Set to `false` to disable. | false \| TooltipProps | - | 6.3.0 |
-| theme | Color theme of the menu | `light` \| `dark` | `light` |  |
-| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
-| onClick | Called when a menu item is clicked | function({ key, keyPath, domEvent }) | - |  |
-| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
-| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
-| onSelect | Called when a menu item is selected | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
-| popupRender | Custom popup renderer for submenu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  | × |
+| defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  | × |
+| expandIcon | custom expand icon of submenu | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 | 5.15.0 |
+| forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  | × |
+| inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  | × |
+| inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  | × |
+| items | Menu item content | [ItemType\[\]](#itemtype) | - | 4.20.0 | × |
+| mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  | × |
+| multiple | Allows selection of multiple items | boolean | false |  | × |
+| openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  | × |
+| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  | × |
+| selectable | Allows selecting menu items | boolean | true |  | × |
+| selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  | × |
+| subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  | × |
+| tooltip | Config tooltip props for menu items in inline collapsed mode. Set to `false` to disable. | false \| TooltipProps | - | 6.3.0 | × |
+| theme | Color theme of the menu | `light` \| `dark` | `light` |  | × |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  | × |
+| onClick | Called when a menu item is clicked | function({ key, keyPath, domEvent, itemData }) | - |  | × |
+| onDeselect | Called when a menu item is deselected (multiple mode only) | function({ key, keyPath, selectedKeys, domEvent, itemData }) | - |  | × |
+| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  | × |
+| onSelect | Called when a menu item is selected | function({ key, keyPath, selectedKeys, domEvent, itemData }) | - |  | × |
+| popupRender | Custom popup renderer for submenu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  | × |
 
 > More options in [@rc-component/menu](https://github.com/react-component/menu#api)
 

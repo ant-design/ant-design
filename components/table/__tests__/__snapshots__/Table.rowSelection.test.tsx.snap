@@ -214,6 +214,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -240,6 +241,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -266,6 +268,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -292,6 +295,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 4"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -552,6 +556,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -578,6 +583,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -604,6 +610,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -630,6 +637,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 4"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -811,6 +819,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -837,6 +846,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -863,6 +873,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -889,6 +900,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 4"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
