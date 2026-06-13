@@ -36,6 +36,9 @@ const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string)
   },
 });
 
+const genTitleOnlyCls = (componentCls: string) =>
+  `&:not(:has(> ${componentCls}-actions)):has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
+
 export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -60,7 +63,6 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorErrorBorder,
     colorInfoBorder,
   } = token;
-
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -131,6 +133,14 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         paddingTop: 0,
         paddingBottom: 0,
         opacity: 0,
+      },
+
+      [genTitleOnlyCls(componentCls)]: {
+        alignItems: 'flex-start',
+
+        [`${componentCls}-icon`]: {
+          marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
+        },
       },
     },
 
@@ -204,10 +214,11 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     motionDurationMid,
     marginXS,
     fontSizeIcon,
+    fontSize,
+    lineHeight,
     colorIcon,
     colorIconHover,
   } = token;
-
   return {
     [componentCls]: {
       [`${componentCls}-actions`]: {
@@ -232,6 +243,10 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
             color: colorIconHover,
           },
         },
+      },
+
+      [`${genTitleOnlyCls(componentCls)} ${componentCls}-close-icon`]: {
+        marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
       },
 
       '&-close-text': {
