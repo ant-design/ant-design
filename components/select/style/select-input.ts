@@ -417,14 +417,13 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {},
         {},
         {
-          [`&:not(${componentCls}-disabled):has(input:focus-visible)`]: {
-            ...genFocusOutline(token),
-          },
-          [`&${componentCls}-status-error:not(${componentCls}-disabled):has(input:focus-visible)`]:
+          [`&:not(${componentCls}-disabled):has(input:focus-visible), &:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
+            genFocusOutline(token),
+          [`&${componentCls}-status-error:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-error:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
             {
               outlineColor: token.colorError,
             },
-          [`&${componentCls}-status-warning:not(${componentCls}-disabled):has(input:focus-visible)`]:
+          [`&${componentCls}-status-warning:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-warning:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
             {
               outlineColor: token.colorWarning,
             },
