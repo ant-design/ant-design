@@ -36,13 +36,30 @@ const fetchTheme = async (
     for await (const chunk of XStream({
       readableStream: response.body,
     })) {
-      if (chunk.event === 'message') {
-        const data = JSON.parse(chunk.data) as {
-          lane: string;
-          payload: string;
-        };
+      const data = JSON.parse(chunk.data) as {
+        lane?: string;
+        payload?: string;
+        type?: string;
+      };
 
-        const payload = JSON.parse(data.payload) as {
+      if (chunk.event === 'error' || data.type === 'error') {
+        let errorMessage = 'Failed to generate theme';
+
+        try {
+          const payload = JSON.parse(data.payload || '{}') as {
+            errorMsg?: string;
+          };
+
+          errorMessage = payload.errorMsg || errorMessage;
+        } catch {
+          // Keep fallback error message if the stream payload is not parseable.
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      if (chunk.event === 'message') {
+        const payload = JSON.parse(data.payload || '{}') as {
           text: string;
         };
 
@@ -71,6 +88,7 @@ export default function usePromptTheme(
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
   const [resText, setResText] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string>();
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const submitPrompt = async (nextPrompt: string) => {
@@ -91,6 +109,7 @@ export default function usePromptTheme(
 
     setLoading(true);
     setResText('');
+    setErrorMessage(undefined);
 
     try {
       const data = await fetchTheme(
@@ -111,6 +130,7 @@ export default function usePromptTheme(
         console.warn('Request was aborted');
       } else {
         console.error('Failed to generate theme:', error);
+        setErrorMessage(error instanceof Error ? error.message : 'Failed to generate theme');
       }
     } finally {
       setLoading(false);
@@ -126,5 +146,12 @@ export default function usePromptTheme(
     }
   };
 
-  return [submitPrompt, loading, prompt, getJsonText(resText), cancelRequest] as const;
+  return [
+    submitPrompt,
+    loading,
+    prompt,
+    getJsonText(resText),
+    cancelRequest,
+    errorMessage,
+  ] as const;
 }
