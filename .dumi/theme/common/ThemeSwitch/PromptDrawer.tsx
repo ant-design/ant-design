@@ -7,6 +7,7 @@ import type { SenderRef } from '@ant-design/x/es/sender';
 import {
   theme as antdTheme,
   Button,
+  ConfigProvider,
   Divider,
   Drawer,
   Flex,
@@ -29,6 +30,8 @@ import usePromptTheme from './usePromptTheme';
 const antdLogoSrc = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 const THEME_EMOJIS = ['🌅', '🌊', '🌿', '🍂', '🌸', '🌌', '🎨', '⚡', '🔮', '🪐'];
+
+const runtimeThemeConfig: ThemeConfig = { zeroRuntime: false };
 
 const getEmojiForTheme = (index: number) => THEME_EMOJIS[index % THEME_EMOJIS.length];
 
@@ -460,31 +463,33 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
         {/* 右侧对话区域 */}
         <Splitter.Panel defaultSize="50%" min="30%" max="70%">
-          <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
-            <div
-              ref={scrollContainerRef}
-              onScroll={handleScroll}
-              style={{ flex: 1, padding: 0, overflow: 'auto' }}
-            >
-              {!prompt ? (
-                <>
-                  {renderedWelcome}
-                  {renderedPrompts}
-                </>
-              ) : (
-                <Bubble.List items={items} />
-              )}
-            </div>
-            <Sender
-              ref={senderRef}
-              value={inputValue}
-              onChange={setInputValue}
-              onSubmit={handleSubmit}
-              loading={loading}
-              onCancel={cancelRequest}
-              placeholder={locale.placeholder}
-            />
-          </Flex>
+          <ConfigProvider theme={runtimeThemeConfig}>
+            <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
+              <div
+                ref={scrollContainerRef}
+                onScroll={handleScroll}
+                style={{ flex: 1, padding: 0, overflow: 'auto' }}
+              >
+                {!prompt ? (
+                  <>
+                    {renderedWelcome}
+                    {renderedPrompts}
+                  </>
+                ) : (
+                  <Bubble.List items={items} />
+                )}
+              </div>
+              <Sender
+                ref={senderRef}
+                value={inputValue}
+                onChange={setInputValue}
+                onSubmit={handleSubmit}
+                loading={loading}
+                onCancel={cancelRequest}
+                placeholder={locale.placeholder}
+              />
+            </Flex>
+          </ConfigProvider>
         </Splitter.Panel>
       </Splitter>
     </Drawer>
