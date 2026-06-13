@@ -221,7 +221,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   } = token;
   return {
     [componentCls]: {
-      '&-actions': {
+      [`${componentCls}-actions`]: {
         marginInlineStart: marginXS,
       },
 

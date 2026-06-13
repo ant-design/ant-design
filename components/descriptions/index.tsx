@@ -60,11 +60,9 @@ export type DescriptionsSemanticAllType = GenerateSemantic<
   DescriptionsProps
 >;
 
-export interface DescriptionsProps {
+export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
-  className?: string;
   rootClassName?: string;
-  style?: React.CSSProperties;
   bordered?: boolean;
   /**
    * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
@@ -90,7 +88,6 @@ export interface DescriptionsProps {
   classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
   styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
-  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {

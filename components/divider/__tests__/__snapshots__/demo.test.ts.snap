@@ -434,6 +434,7 @@ Array [
     role="separator"
   />,
   <a
+    aria-label="Ant Design component examples"
     href="#"
   >
     Link
@@ -443,6 +444,7 @@ Array [
     role="separator"
   />,
   <a
+    aria-label="Ant Design component examples"
     href="#"
   >
     Link

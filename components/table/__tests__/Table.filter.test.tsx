@@ -131,6 +131,18 @@ describe('Table.filter', () => {
     );
   });
 
+  it('marks filter dropdown wrapper as presentation', async () => {
+    const { container } = render(createTable());
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+
+    await waitFor(() => {
+      const dropdown = container.querySelector('.ant-table-filter-dropdown');
+
+      expect(dropdown).toHaveAttribute('role', 'presentation');
+      expect(dropdown).not.toHaveAttribute('aria-hidden');
+    });
+  });
+
   it('renders empty menu correctly', () => {
     resetWarned();
 
