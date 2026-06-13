@@ -28,7 +28,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                 />
               </span>
             </div>
@@ -65,7 +65,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                 />
               </span>
             </div>
@@ -102,7 +102,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                 />
               </span>
             </div>
@@ -139,7 +139,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
                 />
               </span>
             </div>
@@ -474,7 +474,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                   />
                 </span>
               </div>
@@ -511,7 +511,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                   />
                 </span>
               </div>
@@ -548,7 +548,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                   />
                 </span>
               </div>
@@ -585,7 +585,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
                   />
                 </span>
               </div>
@@ -656,7 +656,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                   />
                 </span>
               </div>
@@ -693,7 +693,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                   />
                 </span>
               </div>
@@ -730,7 +730,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                   />
                 </span>
               </div>
@@ -767,7 +767,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
                   />
                 </span>
               </div>
@@ -3211,7 +3211,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                   />
                 </span>
               </div>
@@ -3248,7 +3248,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                   />
                 </span>
               </div>
@@ -3285,7 +3285,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                   />
                 </span>
               </div>
@@ -3322,7 +3322,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
                   />
                 </span>
               </div>
@@ -3973,7 +3973,7 @@ exports[`renders components/list/demo/spin-debug.tsx extend context correctly 1`
                 class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                 />
               </span>
             </div>
@@ -4040,7 +4040,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                   />
                 </span>
               </div>
@@ -4204,7 +4204,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                   />
                 </span>
               </div>
@@ -4368,7 +4368,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                   />
                 </span>
               </div>

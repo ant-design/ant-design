@@ -440,6 +440,43 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
 
 exports[`renders components/border-beam/demo/duration.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 1`] = `
+<div
+  style="width: 360px;"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+    style="border-width: 2px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Custom line width
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set lineWidth to match the border width of this container.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-line-width: 2px; --ant-border-beam-inset-offset: -2px -2px -2px -2px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend context correctly 1`] = `
 <div
   style="width: 360px;"

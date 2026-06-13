@@ -17,6 +17,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" clientOnly>基本</code>
 <code src="./demo/notice-calendar.tsx" clientOnly>通知事项日历</code>
+<code src="./demo/event-range.tsx" clientOnly>跨日期事件</code>
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
 <code src="./demo/lunar.tsx" clientOnly>农历日历</code>

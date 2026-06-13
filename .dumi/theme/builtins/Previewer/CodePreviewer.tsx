@@ -241,7 +241,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           {description && (
             <div
               className="code-box-description"
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}

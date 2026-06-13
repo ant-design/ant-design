@@ -15,6 +15,56 @@ tag: vVERSION
 
 ---
 
+## 6.4.4
+
+`2026-06-12`
+
+- 🛠 Fix build failures in Vite, Yarn PnP, Node 25 and other strict ESM environments caused by deep path imports of rc-component packages. [#58115](https://github.com/ant-design/ant-design/issues/58115) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 Fix multiple components rendering empty wrapper DOM nodes when ReactNode content is an empty string. [#58160](https://github.com/ant-design/ant-design/pull/58160) [@QDyanbing](https://github.com/QDyanbing)
+- Descriptions
+  - 🐞 Fix Descriptions width being unexpectedly inflated when nested inside a Table. [#58203](https://github.com/ant-design/ant-design/pull/58203) [@18062706139fcz](https://github.com/18062706139fcz)
+  - 🐞 Fix Descriptions responsive `column` value not behaving as expected. [#58058](https://github.com/ant-design/ant-design/pull/58058) [@kfylaktopoulos](https://github.com/kfylaktopoulos)
+- Radio
+  - 🐞 Fix Radio.Group button style border radius and adjacent border display issue in vertical layout. [#58317](https://github.com/ant-design/ant-design/pull/58317) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Radio checked state not updating on click in uncontrolled mode. [#57917](https://github.com/ant-design/ant-design/pull/57917) [@QDyanbing](https://github.com/QDyanbing)
+- Table
+  - 🐞 Fix Table incorrect semantic DOM structure in `virtual` mode. [#58134](https://github.com/ant-design/ant-design/pull/58134) [@meet-student](https://github.com/meet-student)
+  - ⌨️ Improve Table filter dropdown accessibility by marking the wrapper container as presentational. [#58164](https://github.com/ant-design/ant-design/pull/58164) [@ug-hero](https://github.com/ug-hero)
+- Tour
+  - ⌨️ Fix Tour previous button text color readability on hover in primary type. [#58311](https://github.com/ant-design/ant-design/pull/58311) [@QDyanbing](https://github.com/QDyanbing)
+  - 🇰🇭 Add missing Tour Khmer km_KH locale text. [#58140](https://github.com/ant-design/ant-design/pull/58140) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- Transfer
+  - ⌨️ Fix Transfer not forwarding root HTML attributes which affects accessibility. [#58166](https://github.com/ant-design/ant-design/pull/58166) [@ZQDesigned](https://github.com/ZQDesigned)
+  - ⚡️ Improve Transfer iteration performance when collecting enabled item keys. [#58168](https://github.com/ant-design/ant-design/pull/58168) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix Menu icon animation jumping when collapsed. [#58271](https://github.com/ant-design/ant-design/pull/58271) [@murisans](https://github.com/murisans)
+- 🐞 Fix Modal footer buttons vertical misalignment when `confirmLoading` is `true`. [#58120](https://github.com/ant-design/ant-design/pull/58120) [@xxiaoxiong](https://github.com/xxiaoxiong)
+- 🐞 Fix Notification close button overlapping description content when title is not provided. [#58096](https://github.com/ant-design/ant-design/pull/58096) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Popover and Popconfirm not rendering when `title` or `content` is the number `0`. [#58296](https://github.com/ant-design/ant-design/pull/58296) [@afc163](https://github.com/afc163)
+- 🐞 Fix Slider surrounding text being unexpectedly selected when dragging the handle in Safari. [#58024](https://github.com/ant-design/ant-design/pull/58024) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 Fix Tabs more dropdown animation direction when popup placement flips upward. [#58202](https://github.com/ant-design/ant-design/pull/58202) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Tree.DirectoryTree `defaultExpandParent` not working. [#58068](https://github.com/ant-design/ant-design/pull/58068) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Upload progress bar becoming abnormally thick when `progress` is not configured. [#58126](https://github.com/ant-design/ant-design/pull/58126) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Icon spin animation stopping when multiple `iconPrefixCls` coexist. [#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
+- 💄 Fix AutoComplete disabled custom input background color being darker than other disabled controls. [#58114](https://github.com/ant-design/ant-design/pull/58114) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Checkbox hover style remaining after tap on mobile devices. [#58085](https://github.com/ant-design/ant-design/pull/58085) [@unknowntocka](https://github.com/unknowntocka)
+- 💄 Fix Empty SVG colors not using design tokens to support dark mode. [#58152](https://github.com/ant-design/ant-design/pull/58152) [@wanpan11](https://github.com/wanpan11)
+- 💄 Fix Result and Popconfirm icon colors being overridden by global icon reset styles. [#58157](https://github.com/ant-design/ant-design/pull/58157) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Select selected option active state background color not following theme color. [#58069](https://github.com/ant-design/ant-design/pull/58069) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Tooltip and Popover arrow shadow being darker than container. [#57988](https://github.com/ant-design/ant-design/pull/57988) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 Deepen `boxShadowTertiary` for better visibility on light backgrounds, affecting Card, Tour and Segmented. [#58205](https://github.com/ant-design/ant-design/pull/58205) [@afc163](https://github.com/afc163)
+- ⌨️ Improve ColorPicker clear button semantic attributes for better accessibility. [#58040](https://github.com/ant-design/ant-design/pull/58040) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ Improve DatePicker and TimePicker clear button accessibility. [#58132](https://github.com/ant-design/ant-design/pull/58132) [@Pareder](https://github.com/Pareder)
+- ⌨️ Improve Splitter split bar semantic attributes for better accessibility. [#58060](https://github.com/ant-design/ant-design/pull/58060) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ Improve Tag.CheckableTag semantic attributes for better accessibility. [#58067](https://github.com/ant-design/ant-design/pull/58067) [@ug-hero](https://github.com/ug-hero)
+- 🛠 Fix Dropdown triggering React 19 element.ref deprecation warning when the trigger node has a ref. [#58056](https://github.com/ant-design/ant-design/pull/58056) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 Fix multiple components rendering empty wrapper DOM nodes when ReactNode content is false. [#58088](https://github.com/ant-design/ant-design/pull/58088) [@QDyanbing](https://github.com/QDyanbing)
+- 🌐 Localization
+  - 🇬🇧 Improve QRCode and ColorPicker British English en_GB locale to align with American English en_US. [#58224](https://github.com/ant-design/ant-design/pull/58224) [@JordanWeatherby](https://github.com/JordanWeatherby)
+  - 🇧🇷 Add missing Brazilian Portuguese pt_BR locale text for QRCode and ColorPicker. [#58188](https://github.com/ant-design/ant-design/pull/58188) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- TypeScript
+  - 🤖 Fix AutoComplete `showSearch` type leaking unsupported Select props. [#58104](https://github.com/ant-design/ant-design/pull/58104) [@sri443](https://github.com/sri443)
+  - 🤖 Improve Descriptions type definition to support native HTML attributes. [#58190](https://github.com/ant-design/ant-design/pull/58190) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+
 ## 6.4.3
 
 `2026-05-18`

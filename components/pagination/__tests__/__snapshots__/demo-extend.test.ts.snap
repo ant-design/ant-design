@@ -5216,18 +5216,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-4 ant-pagination-item-after-jump-prev"
-    tabindex="0"
-    title="4"
-  >
-    <a
-      rel="nofollow"
-    >
-      4
-    </a>
-  </li>
-  <li
-    class="ant-pagination-item ant-pagination-item-5"
+    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-after-jump-prev"
     tabindex="0"
     title="5"
   >
@@ -5249,7 +5238,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-7"
+    class="ant-pagination-item ant-pagination-item-7 ant-pagination-item-before-jump-next"
     tabindex="0"
     title="7"
   >
@@ -5257,17 +5246,6 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
       rel="nofollow"
     >
       7
-    </a>
-  </li>
-  <li
-    class="ant-pagination-item ant-pagination-item-8 ant-pagination-item-before-jump-next"
-    tabindex="0"
-    title="8"
-  >
-    <a
-      rel="nofollow"
-    >
-      8
     </a>
   </li>
   <li
