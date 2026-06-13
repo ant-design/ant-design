@@ -2,6 +2,7 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
+import type { DropdownProps as RcDropdownProps } from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import { getNodeRef, omit, useComposeRef, useControlledState, useEvent } from '@rc-component/util';
@@ -34,6 +35,12 @@ const _Placements = [
   'bottomRight',
   'top',
   'bottom',
+  'left',
+  'leftTop',
+  'leftBottom',
+  'right',
+  'rightTop',
+  'rightBottom',
 ] as const;
 
 type Placement = (typeof _Placements)[number];
@@ -197,6 +204,12 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (placement.includes('top')) {
       return `${rootPrefixCls}-slide-down`;
     }
+    if (placement.includes('left')) {
+      return `${rootPrefixCls}-slide-right`;
+    }
+    if (placement.includes('right')) {
+      return `${rootPrefixCls}-slide-left`;
+    }
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
 
@@ -352,7 +365,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={memoPlacement}
+      placement={memoPlacement as unknown as RcDropdownProps['placement']}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
