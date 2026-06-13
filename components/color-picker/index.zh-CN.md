@@ -31,6 +31,7 @@ group:
 <code src="./demo/format.tsx">颜色编码</code>
 <code src="./demo/presets.tsx">预设颜色</code>
 <code src="./demo/presets-line-gradient.tsx" debug>预设渐变色</code>
+<code src="./demo/panel.tsx" version="6.4.0">面板</code>
 <code src="./demo/panel-render.tsx">自定义面板</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
@@ -40,6 +41,8 @@ group:
 通用属性参考：[通用属性](/docs/react/common-props)
 
 > 自 `antd@5.5.0` 版本开始提供该组件。
+
+### ColorPicker
 
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
@@ -71,6 +74,16 @@ group:
 | onFormatChange | 颜色格式变化的回调 | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |  | × |
 | onOpenChange | 当 `open` 被改变时的回调 | `(open: boolean) => void` | - |  | × |
 | onClear | 清除的回调 | `() => void` | - | 5.6.0 | × |
+
+### ColorPicker.Panel
+
+内嵌使用的颜色面板，不包含触发器和弹层能力。
+
+> 自 `antd@6.4.0` 版本开始提供该静态面板组件。
+>
+> `ColorPicker.Panel` 复用 `ColorPicker` 的面板相关属性。
+
+`ColorPicker.Panel` 不支持 Trigger 和 Popover 相关属性。
 
 #### ColorType
 

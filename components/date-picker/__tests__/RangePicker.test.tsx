@@ -165,9 +165,7 @@ describe('RangePicker', () => {
     };
 
     (['year', 'quarter', 'month', 'week'] as const).forEach((picker) => {
-      const { container, unmount } = render(
-        <RangePicker picker={picker} locale={partialLocale} />,
-      );
+      const { container, unmount } = render(<RangePicker picker={picker} locale={partialLocale} />);
       const inputs = container.querySelectorAll('input');
       expect(inputs[0]?.placeholder).toEqual('Fallback start');
       expect(inputs[inputs.length - 1]?.placeholder).toEqual('Fallback end');

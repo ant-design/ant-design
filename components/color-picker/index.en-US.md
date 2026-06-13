@@ -30,6 +30,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
 <code src="./demo/presets-line-gradient.tsx" debug>Preset Line Gradient</code>
+<code src="./demo/panel.tsx" version="6.4.0">Panel</code>
 <code src="./demo/panel-render.tsx">Custom Render Panel</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
@@ -39,6 +40,8 @@ Used when the user needs to make a customized color selection.
 Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.5.0`.
+
+### ColorPicker
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
@@ -70,6 +73,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |  | × |
 | onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |  | × |
 | onClear | Called when clear | `() => void` | - | 5.6.0 | × |
+
+### ColorPicker.Panel
+
+Inline color panel without trigger or popup behavior.
+
+> This static panel component is available since `antd@6.4.0`.
+>
+> `ColorPicker.Panel` reuses the panel-related props from `ColorPicker`.
+
+`ColorPicker.Panel` does not support Trigger- or Popover-related props.
 
 #### ColorType
 

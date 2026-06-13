@@ -16,6 +16,7 @@ interface ColorPresetsProps {
   presets: PresetsItem[];
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabled?: boolean;
 }
 
 const genPresetColor = (list: PresetsItem[]) =>
@@ -39,7 +40,13 @@ const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
   return `panel-${mergedKey}`;
 };
 
-const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
+const ColorPresets: FC<ColorPresetsProps> = ({
+  prefixCls,
+  presets,
+  value: color,
+  onChange,
+  disabled,
+}) => {
   const [locale] = useLocale('ColorPicker');
   const [, token] = useToken();
   const presetsValue = useMemo(() => genPresetColor(presets), [presets]);
@@ -58,12 +65,17 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   );
 
   const handleClick = (colorValue: AggregationColor) => {
+    if (disabled) {
+      return;
+    }
+
     onChange?.(colorValue);
   };
 
   const items = presetsValue.map<NonNullable<CollapseProps['items']>[number]>((preset, index) => ({
     key: genCollapsePanelKey(preset, index),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
+    collapsible: disabled ? 'disabled' : undefined,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
@@ -77,6 +89,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
                 color={colorInst.toCssString()}
                 prefixCls={prefixCls}
                 className={clsx(`${colorPresetsPrefixCls}-color`, {
+                  [`${colorPresetsPrefixCls}-color-disabled`]: disabled,
                   [`${colorPresetsPrefixCls}-color-checked`]:
                     presetColor.toCssString() === color?.toCssString(),
                   [`${colorPresetsPrefixCls}-color-bright`]: isBright(

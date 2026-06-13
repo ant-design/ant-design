@@ -105,6 +105,15 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
               },
             },
           },
+
+          [`&${componentCls}-presets-color-disabled`]: {
+            cursor: 'not-allowed',
+            opacity: 0.5,
+
+            '&:hover::before': {
+              borderColor: 'transparent',
+            },
+          },
         },
       },
       '&-empty': {
