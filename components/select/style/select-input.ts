@@ -65,8 +65,8 @@ const genSelectInputVariantStyle = (
   token: SelectToken,
   variant: string,
   colors: VariableColors,
-  errorColors: Partial<VariableColors> = {},
-  warningColors: Partial<VariableColors> = {},
+  errorColors: Partial<VariableColors>,
+  warningColors: Partial<VariableColors>,
   patchStyle?: CSSObject,
 ): CSSObject => {
   const { componentCls } = token;
