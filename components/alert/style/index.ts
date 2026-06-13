@@ -23,6 +23,21 @@ export interface ComponentToken {
    * @descEN Icon size with description
    */
   withDescriptionIconSize: number | string;
+  /**
+   * @desc 标题字体大小
+   * @descEN Title font size
+   */
+  titleFontSize: number | string;
+  /**
+   * @desc 带有描述时的标题字体大小
+   * @descEN Title font size with description
+   */
+  withDescriptionTitleFontSize: number | string;
+  /**
+   * @desc 描述字体大小
+   * @descEN Description font size
+   */
+  descriptionFontSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
@@ -42,8 +57,6 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     motionDurationSlow: duration,
     marginXS,
     marginSM,
-    fontSize,
-    fontSizeLG,
     lineHeight,
     borderRadiusLG: borderRadius,
     motionEaseInOutCirc,
@@ -52,6 +65,9 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorTextHeading,
     withDescriptionPadding,
     defaultPadding,
+    titleFontSize,
+    withDescriptionTitleFontSize,
+    descriptionFontSize,
     lineWidth,
     lineType,
 
@@ -109,12 +125,13 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 
       '&-description': {
         display: 'none',
-        fontSize,
+        fontSize: descriptionFontSize,
         lineHeight,
       },
 
       '&-title': {
         color: colorTextHeading,
+        fontSize: titleFontSize,
       },
 
       [`&${componentCls}-motion-leave`]: {
@@ -147,7 +164,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         display: 'block',
         marginBottom: marginXS,
         color: colorTextHeading,
-        fontSize: fontSizeLG,
+        fontSize: withDescriptionTitleFontSize,
       },
 
       [`${componentCls}-description`]: {
@@ -251,6 +268,9 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
     withDescriptionIconSize: token.fontSizeHeading3,
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+    titleFontSize: token.fontSize,
+    withDescriptionTitleFontSize: token.fontSizeLG,
+    descriptionFontSize: token.fontSize,
   };
 };
 
