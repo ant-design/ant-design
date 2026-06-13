@@ -91,6 +91,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | The selected value | string\[] \| number\[] | - |  | × |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  | × |
+| onClear | Called when clear | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden, use `onOpenChange` instead | (value) => void | - | 4.17.0 | × |
 | onOpenChange | Callback when popup shown or hidden | (value) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | Callback when popup shown or hidden, please use `onOpenChange` instead | (value) => void | - | - | × |
