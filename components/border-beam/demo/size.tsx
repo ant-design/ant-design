@@ -1,9 +1,9 @@
 import React from 'react';
 import { BorderBeam, Card, Tag, Typography } from 'antd';
 
-const lengths: Array<{
+const sizes: Array<{
   name: string;
-  beamLength?: number | string;
+  size?: number | string;
   bodyMinHeight: number;
   description: string;
   spanFull?: boolean;
@@ -15,13 +15,13 @@ const lengths: Array<{
   },
   {
     name: 'Compact',
-    beamLength: 56,
+    size: 56,
     bodyMinHeight: 112,
     description: 'Keeps the highlight shorter for dense card groups.',
   },
   {
     name: 'Extended',
-    beamLength: 160,
+    size: 160,
     bodyMinHeight: 192,
     description: 'Creates a longer highlight for wider feature panels.',
     spanFull: true,
@@ -37,12 +37,12 @@ const App: React.FC = () => (
       maxWidth: 960,
     }}
   >
-    {lengths.map(({ name, beamLength, bodyMinHeight, description, spanFull }) => (
+    {sizes.map(({ name, size, bodyMinHeight, description, spanFull }) => (
       <div key={name} style={{ gridColumn: spanFull ? '1 / -1' : undefined }}>
-        <BorderBeam beamLength={beamLength}>
+        <BorderBeam size={size}>
           <Card
             title={name}
-            extra={<Tag variant="filled">{beamLength ?? 100}px</Tag>}
+            extra={<Tag variant="filled">{size ?? 100}px</Tag>}
             styles={{ body: { minHeight: bodyMinHeight, display: 'flex', alignItems: 'center' } }}
           >
             <Typography.Text type="secondary">{description}</Typography.Text>

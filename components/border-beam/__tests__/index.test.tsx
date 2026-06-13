@@ -165,9 +165,9 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
   });
 
-  it('should support customizing the beam length', async () => {
+  it('should support customizing the beam size', async () => {
     const { container, rerender } = render(
-      <BorderBeam beamLength={160}>
+      <BorderBeam size={160}>
         <div>
           <span>content</span>
         </div>
@@ -175,20 +175,18 @@ describe('BorderBeam', () => {
     );
 
     await waitFor(() => {
-      expect(getBeamElement(container).style.getPropertyValue(varName('beam-length'))).toBe(
-        '160px',
-      );
+      expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('160px');
     });
 
     rerender(
-      <BorderBeam beamLength="12em">
+      <BorderBeam size="12em">
         <div>
           <span>content</span>
         </div>
       </BorderBeam>,
     );
 
-    expect(getBeamElement(container).style.getPropertyValue(varName('beam-length'))).toBe('12em');
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('12em');
 
     rerender(
       <BorderBeam>
@@ -198,7 +196,7 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    expect(getBeamElement(container).style.getPropertyValue(varName('beam-length'))).toBe('');
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('');
   });
 
   it('should support customizing line width with prop', async () => {

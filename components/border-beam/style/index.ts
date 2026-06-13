@@ -14,7 +14,6 @@ interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [, varRef] = genCssVar(antCls, 'border-beam');
-  const beamLength = varRef('beam-length', '100px');
   const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary} 0%, ${token.colorPrimaryHover} ${MAX_BEAM_COLOR_STOP_PERCENT}%, transparent)`;
 
   // =========================== Animation ============================
@@ -58,13 +57,13 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             position: 'absolute',
             top: 0,
             left: 0,
-            width: beamLength,
+            width: varRef('size', '100px'),
             aspectRatio: '1 / 1',
             opacity: 0.95,
             backgroundImage: varRef('beam-gradient', defaultBeamGradient),
             offsetAnchor: '90% 50%',
             offsetDistance: '0%',
-            offsetPath: `rect(0 auto auto 0 round ${beamLength})`,
+            offsetPath: `rect(0 auto auto 0 round ${varRef('size', '100px')})`,
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
             animationDuration: varRef('duration', `${DEFAULT_BORDER_BEAM_DURATION}s`),

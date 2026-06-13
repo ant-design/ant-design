@@ -23,7 +23,7 @@ tag: 6.4.0
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
-<code src="./demo/beam-length.tsx" version="6.5.0">流光长度</code>
+<code src="./demo/size.tsx" version="6.5.0">尺寸</code>
 <code src="./demo/line-width.tsx" version="6.5.0">线宽</code>
 <code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -36,12 +36,12 @@ tag: 6.4.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| beamLength | 流光可见段的长度，数字类型按像素处理 | `number \| string` | 100 | 6.5.0 | × |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |
 | lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | 6.5.0 | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | 6.4.0 | × |
+| size | 流光可见段的尺寸，数字类型按像素处理 | `number \| string` | 100 | 6.5.0 | × |
 
 ## 主题变量（Design Token）{#design-token}
 
