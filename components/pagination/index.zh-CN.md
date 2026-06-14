@@ -54,14 +54,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  | × |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  | × |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton: ReactNode } | false |  | × |
-| showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| [SelectProps](/components/select-cn#api) | - | SelectProps: 5.21.0 | 5.7.0 |
+| showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| [SelectProps](/components/select-cn#api) | - | SelectProps: 5.21.0 | 4.21.0，SelectProps: 5.21.0 |
 | showTitle | 是否显示原生 tooltip 页码提示 | boolean | true |  | × |
 | showTotal | 用于显示数据总量和当前数据顺序 | function(total, range) | - |  | × |
 | simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - |  | × |
 | size | 组件尺寸 | `large` \| `medium` \| `small` | `medium` |  | × |
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | 数据总数 | number | 0 |  | × |
-| totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  | 5.7.0 |
+| totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  | 6.2.0 |
 | onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  | × |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  | × |
 

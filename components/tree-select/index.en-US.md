@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type | × |
 | ~~autoClearSearchValue~~ | If auto clear search input value when multiple select is selected/deselected | boolean | true |  | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✔ |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultOpen | Initial open state of dropdown | boolean | - |  | × |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  | × |
 | disabled | Disabled or not | boolean | false |  | × |
@@ -75,9 +75,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true |  | × |
 | size | To set the size of the select input | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✔ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
 | suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  | × |
-| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 | ✔ |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 | 5.28.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  | × |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  | × |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  | × |
@@ -97,6 +97,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 | × |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  | × |
+| onClear | Called when clear | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | function(open) | - |  | × |
 | onOpenChange | Called when dropdown open | (open: boolean) => void | - |  | × |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - | 5.17.0 | × |
