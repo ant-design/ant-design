@@ -7,6 +7,7 @@ import type { SenderRef } from '@ant-design/x/es/sender';
 import {
   theme as antdTheme,
   Button,
+  ConfigProvider,
   Divider,
   Drawer,
   Flex,
@@ -29,6 +30,8 @@ import usePromptTheme from './usePromptTheme';
 const antdLogoSrc = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 const THEME_EMOJIS = ['🌅', '🌊', '🌿', '🍂', '🌸', '🌌', '🎨', '⚡', '🔮', '🪐'];
+
+const runtimeThemeConfig: ThemeConfig = { zeroRuntime: false };
 
 const getEmojiForTheme = (index: number) => THEME_EMOJIS[index % THEME_EMOJIS.length];
 
@@ -84,7 +87,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = useState(false);
 
-  const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
+  const [submitPrompt, loading, prompt, resText, cancelRequest, generateErrorMessage] =
+    usePromptTheme(onThemeChange);
+  const hasGenerateError = generateErrorMessage !== undefined;
 
   const {
     recommendations,
@@ -177,7 +182,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         key: 2,
         role: 'ai',
         placement: 'start',
-        content: resText,
+        content: hasGenerateError ? generateErrorMessage : resText,
         avatar: (
           <img
             draggable={false}
@@ -186,7 +191,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
             style={{ width: 28, height: 28 }}
           />
         ),
-        loading: !resText,
+        loading: loading && !resText && !hasGenerateError,
         contentRender: (content: string) => (
           <Typography>
             <pre
@@ -207,18 +212,19 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
             </pre>
           </Typography>
         ),
-        footer: !loading ? (
-          <Flex justify="flex-end" style={{ marginTop: 4 }}>
-            <Tooltip title={copied ? locale.copied : locale.copyTheme}>
-              <Button
-                type="text"
-                size="small"
-                icon={copied ? <CheckOutlined /> : <CopyOutlined />}
-                onClick={handleCopyTheme}
-              />
-            </Tooltip>
-          </Flex>
-        ) : undefined,
+        footer:
+          !loading && resText && !hasGenerateError ? (
+            <Flex justify="flex-end" style={{ marginTop: 4 }}>
+              <Tooltip title={copied ? locale.copied : locale.copyTheme}>
+                <Button
+                  type="text"
+                  size="small"
+                  icon={copied ? <CheckOutlined /> : <CopyOutlined />}
+                  onClick={handleCopyTheme}
+                />
+              </Tooltip>
+            </Flex>
+          ) : undefined,
         styles: {
           content: {
             background: 'transparent',
@@ -229,7 +235,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       },
     ];
 
-    if (!loading) {
+    if (!loading && resText && !hasGenerateError) {
       nextItems.push({
         key: 3,
         role: 'system',
@@ -306,6 +312,8 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     prompt,
     resText,
     loading,
+    hasGenerateError,
+    generateErrorMessage,
     recommendLoading,
     locale.finishTips,
     isDark,
@@ -460,31 +468,33 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
         {/* 右侧对话区域 */}
         <Splitter.Panel defaultSize="50%" min="30%" max="70%">
-          <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
-            <div
-              ref={scrollContainerRef}
-              onScroll={handleScroll}
-              style={{ flex: 1, padding: 0, overflow: 'auto' }}
-            >
-              {!prompt ? (
-                <>
-                  {renderedWelcome}
-                  {renderedPrompts}
-                </>
-              ) : (
-                <Bubble.List items={items} />
-              )}
-            </div>
-            <Sender
-              ref={senderRef}
-              value={inputValue}
-              onChange={setInputValue}
-              onSubmit={handleSubmit}
-              loading={loading}
-              onCancel={cancelRequest}
-              placeholder={locale.placeholder}
-            />
-          </Flex>
+          <ConfigProvider theme={runtimeThemeConfig}>
+            <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
+              <div
+                ref={scrollContainerRef}
+                onScroll={handleScroll}
+                style={{ flex: 1, padding: 0, overflow: 'auto' }}
+              >
+                {!prompt ? (
+                  <>
+                    {renderedWelcome}
+                    {renderedPrompts}
+                  </>
+                ) : (
+                  <Bubble.List items={items} />
+                )}
+              </div>
+              <Sender
+                ref={senderRef}
+                value={inputValue}
+                onChange={setInputValue}
+                onSubmit={handleSubmit}
+                loading={loading}
+                onCancel={cancelRequest}
+                placeholder={locale.placeholder}
+              />
+            </Flex>
+          </ConfigProvider>
         </Splitter.Panel>
       </Splitter>
     </Drawer>
