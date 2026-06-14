@@ -8,14 +8,7 @@ import { isFunction } from '../../_util/is';
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
 import { getFieldId, toArray } from '../util';
 
-type RecursivePartial<T> = T extends (infer U)[]
-  ? RecursivePartial<U>[]
-  : T extends object
-    ? { [P in keyof T]?: RecursivePartial<T[P]> }
-    : T;
-
-export interface FormInstance<Values = any> extends Omit<RcFormInstance<Values>, 'setFieldsValue'> {
-  setFieldsValue: (values: RecursivePartial<Values> | Partial<Values>) => void;
+export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
   focusField: (name: NamePath) => void;
   /** @internal: This is an internal usage. Do not use in your prod */
@@ -55,7 +48,6 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
     () =>
       form ?? {
         ...rcForm,
-        setFieldsValue: rcForm.setFieldsValue as FormInstance<Values>['setFieldsValue'],
         __INTERNAL__: {
           itemRef: (name: InternalNamePath) => (node: React.ReactElement) => {
             const namePathStr = toNamePathStr(name);
