@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import genSelectInputCustomizeStyle from './select-input-customize';
@@ -87,6 +87,12 @@ const genSelectInputVariantStyle = (
     ],
   };
 };
+
+const genSelectInputFocusVisibleStyle = (token: SelectToken, outlineColor: string): CSSObject => ({
+  outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
+  outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+});
 
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const {
@@ -418,15 +424,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {},
         {
           [`&:not(${componentCls}-disabled):has(input:focus-visible), &:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
-            genFocusOutline(token),
+            genSelectInputFocusVisibleStyle(token, token.activeBorderColor),
           [`&${componentCls}-status-error:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-error:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
-            {
-              outlineColor: token.colorError,
-            },
+            genSelectInputFocusVisibleStyle(token, token.colorError),
           [`&${componentCls}-status-warning:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-warning:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
-            {
-              outlineColor: token.colorWarning,
-            },
+            genSelectInputFocusVisibleStyle(token, token.colorWarning),
         },
       ),
 

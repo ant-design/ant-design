@@ -1,7 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
@@ -176,6 +175,12 @@ export const genOutlinedGroupStyle: GenerateStyle<InputToken, CSSObject> = (toke
 const borderlessFocusVisibleSelector =
   '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)';
 
+const genBorderlessFocusVisibleStyle = (token: InputToken, outlineColor: string): CSSObject => ({
+  outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
+  outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+});
+
 const genBorderlessStatusStyle = (
   token: InputToken,
   options: {
@@ -186,9 +191,7 @@ const genBorderlessStatusStyle = (
   '&, & input, & textarea': {
     color: options.color,
   },
-  [borderlessFocusVisibleSelector]: {
-    outlineColor: options.color,
-  },
+  [borderlessFocusVisibleSelector]: genBorderlessFocusVisibleStyle(token, options.color),
   [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
     color: options.affixColor,
   },
@@ -217,7 +220,10 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
         outline: 'none',
       },
 
-      [borderlessFocusVisibleSelector]: genFocusOutline(token),
+      [borderlessFocusVisibleSelector]: genBorderlessFocusVisibleStyle(
+        token,
+        token.activeBorderColor,
+      ),
 
       // >>>>> Disabled
       [`&${componentCls}-disabled, &[disabled]`]: {
