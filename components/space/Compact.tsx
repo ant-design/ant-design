@@ -103,6 +103,14 @@ const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>
   );
 };
 
+const getCompactItemKey = (child: React.ReactNode, index: number, prefixCls: string) =>
+  React.isValidElement(child) && child.key != null ? child.key : `${prefixCls}-item-${index}`;
+
+const isVisibleNonCompactItem = (child: React.ReactNode) =>
+  (typeof child === 'string' && child !== '') ||
+  typeof child === 'number' ||
+  (React.isValidElement(child) && typeof child.type === 'string');
+
 const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
@@ -144,7 +152,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
-  const childNodes = toArray(children);
+  const childNodes = toArray(children) as React.ReactNode[];
 
   useLayoutEffect(() => {
     if (
@@ -163,7 +171,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   ]);
 
   const itemKeys = React.useMemo(
-    () => childNodes.map((child, i) => child?.key ?? `${prefixCls}-item-${i}`),
+    () => childNodes.map((child, i) => getCompactItemKey(child, i, prefixCls)),
     [childNodes, prefixCls],
   );
   const registeredItemCountRef = React.useRef<Map<React.Key, number>>(new Map());
@@ -208,8 +216,13 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const visibleItemKeys = React.useMemo(
     () =>
-      registeredItemIds.size ? itemKeys.filter((key) => registeredItemIds.has(key)) : itemKeys,
-    [itemKeys, registeredItemIds],
+      registeredItemIds.size
+        ? itemKeys.filter(
+            (key, index) =>
+              registeredItemIds.has(key) || isVisibleNonCompactItem(childNodes[index]),
+          )
+        : itemKeys,
+    [childNodes, itemKeys, registeredItemIds],
   );
   const firstVisibleItemKey = visibleItemKeys[0];
   const lastVisibleItemKey = visibleItemKeys[visibleItemKeys.length - 1];

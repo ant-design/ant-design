@@ -83,6 +83,20 @@ describe('Space.Compact', () => {
     });
   });
 
+  it('should not ignore plain elements or text when marking first and last items', () => {
+    const { container } = render(
+      <Space.Compact>
+        <span className="addon">$</span>
+        <Button>Submit</Button>
+        Text
+      </Space.Compact>,
+    );
+    const button = container.querySelector('.ant-btn');
+
+    expect(button).not.toHaveClass('ant-btn-compact-first-item');
+    expect(button).not.toHaveClass('ant-btn-compact-last-item');
+  });
+
   [
     {
       name: 'Button',
