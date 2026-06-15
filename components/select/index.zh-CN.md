@@ -30,7 +30,6 @@ demo:
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>
 <code src="./demo/coordinate.tsx">联动</code>
-<code src="./demo/search-box.tsx">搜索框</code>
 <code src="./demo/label-in-value.tsx">获得选项的文本</code>
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
 <code src="./demo/custom-tokenization.tsx" version="6.5.0">自定义分词</code>
