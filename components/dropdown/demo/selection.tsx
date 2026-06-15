@@ -56,7 +56,11 @@ const App: React.FC = () => {
   };
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-    messageApi.info(`${labels[key]}: ${selection?.text}`);
+    if (!selection) {
+      return;
+    }
+
+    messageApi.info(`${labels[key]}: ${selection.text}`);
     window.getSelection()?.removeAllRanges();
     setSelection(null);
   };
@@ -68,6 +72,7 @@ const App: React.FC = () => {
         menu={{ items, onClick: handleMenuClick }}
         open={!!selection}
         placement="bottom"
+        trigger={[]}
         onOpenChange={(nextOpen) => {
           if (!nextOpen) {
             setSelection(null);
