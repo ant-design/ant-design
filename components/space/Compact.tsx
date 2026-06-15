@@ -184,10 +184,6 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
     if (count === 0) {
       setRegisteredItemIds((prevIds) => {
-        if (prevIds.has(itemId)) {
-          return prevIds;
-        }
-
         const nextIds = new Set(prevIds);
         nextIds.add(itemId);
         return nextIds;
@@ -200,10 +196,6 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
       if (latestCount <= 1) {
         registeredItemCountRef.current.delete(itemId);
         setRegisteredItemIds((prevIds) => {
-          if (!prevIds.has(itemId)) {
-            return prevIds;
-          }
-
           const nextIds = new Set(prevIds);
           nextIds.delete(itemId);
           return nextIds;
