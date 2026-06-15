@@ -180,7 +180,7 @@
     "@inquirer/prompts": "^8.4.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.4",
-    "@npmcli/run-script": "^10.0.4",
+    "@npmcli/run-script": "^11.0.0",
     "@octokit/rest": "^22.0.1",
     "@prettier/sync": "^0.6.1",
     "@qixian.cs/github-contributors-list": "^2.0.2",
