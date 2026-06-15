@@ -66,6 +66,23 @@ describe('Space.Compact', () => {
     expect(container.querySelector('.test-button')).toHaveClass('ant-btn-compact-last-item');
   });
 
+  it('should ignore children which render nothing when marking first and last items', () => {
+    const Empty = () => null;
+
+    [
+      [<Button key="visible">Submit</Button>, <Empty key="empty" />],
+      [<Empty key="empty" />, <Button key="visible">Submit</Button>],
+    ].forEach((children) => {
+      const { container, unmount } = render(<Space.Compact>{children}</Space.Compact>);
+      const button = container.querySelector('.ant-btn');
+
+      expect(button).toHaveClass('ant-btn-compact-first-item');
+      expect(button).toHaveClass('ant-btn-compact-last-item');
+
+      unmount();
+    });
+  });
+
   [
     {
       name: 'Button',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { toArray } from '@rc-component/util';
+import { toArray, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
@@ -16,6 +16,8 @@ export interface SpaceCompactItemContextType {
   compactDirection?: 'horizontal' | 'vertical';
   isFirstItem?: boolean;
   isLastItem?: boolean;
+  compactItemId?: React.Key;
+  registerCompactItem?: (itemId: React.Key) => () => void;
 }
 
 export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType | null>(
@@ -24,6 +26,14 @@ export const SpaceCompactItemContext = React.createContext<SpaceCompactItemConte
 
 export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
   const compactItemContext = React.useContext(SpaceCompactItemContext);
+
+  useLayoutEffect(() => {
+    if (compactItemContext?.compactItemId == null || !compactItemContext.registerCompactItem) {
+      return;
+    }
+
+    return compactItemContext.registerCompactItem(compactItemContext.compactItemId);
+  }, [compactItemContext?.compactItemId, compactItemContext?.registerCompactItem]);
 
   const compactItemClassnames = React.useMemo<string>(() => {
     if (!compactItemContext) {
@@ -66,10 +76,28 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
 
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
   const { children, ...others } = props;
+  const {
+    compactSize,
+    compactDirection,
+    isFirstItem,
+    isLastItem,
+    compactItemId,
+    registerCompactItem,
+  } = others;
+  const contextValue = React.useMemo<SpaceCompactItemContextType>(
+    () => ({
+      compactSize,
+      compactDirection,
+      isFirstItem,
+      isLastItem,
+      compactItemId,
+      registerCompactItem,
+    }),
+    [compactSize, compactDirection, isFirstItem, isLastItem, compactItemId, registerCompactItem],
+  );
+
   return (
-    <SpaceCompactItemContext.Provider
-      value={React.useMemo<SpaceCompactItemContextType>(() => others, [others])}
-    >
+    <SpaceCompactItemContext.Provider value={contextValue}>
       {children}
     </SpaceCompactItemContext.Provider>
   );
@@ -118,25 +146,107 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const childNodes = toArray(children);
 
+  useLayoutEffect(() => {
+    if (
+      childNodes.length === 0 ||
+      compactItemContext?.compactItemId == null ||
+      !compactItemContext.registerCompactItem
+    ) {
+      return;
+    }
+
+    return compactItemContext.registerCompactItem(compactItemContext.compactItemId);
+  }, [
+    childNodes.length,
+    compactItemContext?.compactItemId,
+    compactItemContext?.registerCompactItem,
+  ]);
+
+  const itemKeys = React.useMemo(
+    () => childNodes.map((child, i) => child?.key ?? `${prefixCls}-item-${i}`),
+    [childNodes, prefixCls],
+  );
+  const registeredItemCountRef = React.useRef<Map<React.Key, number>>(new Map());
+  const [registeredItemIds, setRegisteredItemIds] = React.useState<Set<React.Key>>(() => new Set());
+
+  const registerCompactItem = React.useCallback((itemId: React.Key) => {
+    const count = registeredItemCountRef.current.get(itemId) ?? 0;
+
+    registeredItemCountRef.current.set(itemId, count + 1);
+
+    if (count === 0) {
+      setRegisteredItemIds((prevIds) => {
+        if (prevIds.has(itemId)) {
+          return prevIds;
+        }
+
+        const nextIds = new Set(prevIds);
+        nextIds.add(itemId);
+        return nextIds;
+      });
+    }
+
+    return () => {
+      const latestCount = registeredItemCountRef.current.get(itemId) ?? 0;
+
+      if (latestCount <= 1) {
+        registeredItemCountRef.current.delete(itemId);
+        setRegisteredItemIds((prevIds) => {
+          if (!prevIds.has(itemId)) {
+            return prevIds;
+          }
+
+          const nextIds = new Set(prevIds);
+          nextIds.delete(itemId);
+          return nextIds;
+        });
+      } else {
+        registeredItemCountRef.current.set(itemId, latestCount - 1);
+      }
+    };
+  }, []);
+
+  const visibleItemKeys = React.useMemo(
+    () =>
+      registeredItemIds.size ? itemKeys.filter((key) => registeredItemIds.has(key)) : itemKeys,
+    [itemKeys, registeredItemIds],
+  );
+  const firstVisibleItemKey = visibleItemKeys[0];
+  const lastVisibleItemKey = visibleItemKeys[visibleItemKeys.length - 1];
+
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
-        const key = child?.key || `${prefixCls}-item-${i}`;
+        const key = itemKeys[i];
         return (
           <CompactItem
             key={key}
+            compactItemId={key}
+            registerCompactItem={registerCompactItem}
             compactSize={mergedSize}
             compactDirection={mergedOrientation}
-            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
+            isFirstItem={
+              key === firstVisibleItemKey &&
+              (!compactItemContext || compactItemContext?.isFirstItem)
+            }
             isLastItem={
-              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
+              key === lastVisibleItemKey && (!compactItemContext || compactItemContext?.isLastItem)
             }
           >
             {child}
           </CompactItem>
         );
       }),
-    [childNodes, compactItemContext, mergedOrientation, mergedSize, prefixCls],
+    [
+      childNodes,
+      compactItemContext,
+      firstVisibleItemKey,
+      itemKeys,
+      lastVisibleItemKey,
+      mergedOrientation,
+      mergedSize,
+      registerCompactItem,
+    ],
   );
 
   // =========================== Render ===========================
