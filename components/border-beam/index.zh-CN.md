@@ -21,6 +21,7 @@ tag: 6.4.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
+<code src="./demo/custom-container.tsx">自定义容器</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
 <code src="./demo/size.tsx" version="6.5.0">尺寸</code>

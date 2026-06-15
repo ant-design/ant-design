@@ -116,6 +116,25 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
 
 exports[`renders components/border-beam/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 1`] = `
+<div
+  style="position: relative; width: 420px; background: rgb(255, 255, 255); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
+>
+  <div
+    style="min-height: 160px; padding: 24px; color: rgba(0, 0, 0, 0.88); line-height: 1.5715;"
+  >
+    Review task status, deployment health, and recent automation activity in one custom container.
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-border-beam css-var-test-id"
+    style="--ant-border-beam-inset-offset: -1px -1px -1px -1px; --ant-border-beam-border-radius: 8px;"
+  />
+</div>
+`;
+
+exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/customized-color.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
