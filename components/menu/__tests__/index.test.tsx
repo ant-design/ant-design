@@ -518,6 +518,134 @@ describe('Menu', () => {
     expect(container.querySelectorAll('.ant-tooltip-container')[2].textContent).toBe('item');
   });
 
+  it('items SubMenu should use title for collapsed title content', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        label: 'Submenu',
+        title: 'Submenu Title',
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" inlineCollapsed items={items} />);
+
+    expect(container.querySelector('.ant-menu-inline-collapsed-noicon')).toHaveAttribute(
+      'title',
+      'Submenu Title',
+    );
+  });
+
+  it('items SubMenu should keep label as collapsed no-icon content', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        label: 'Users',
+        title: 'People',
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" inlineCollapsed items={items} />);
+    const collapsedNoIcon = container.querySelector('.ant-menu-inline-collapsed-noicon');
+
+    expect(collapsedNoIcon).toHaveAttribute('title', 'People');
+    expect(collapsedNoIcon).toHaveTextContent('U');
+  });
+
+  it('items SubMenu should keep label when title is undefined', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        label: <span className="custom-submenu-label">Submenu</span>,
+        title: undefined,
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" items={items} />);
+
+    expect(container.querySelector('.custom-submenu-label')).toHaveTextContent('Submenu');
+  });
+
+  it('items SubMenu should not add native title from string label', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        label: 'Submenu',
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" items={items} />);
+
+    expect(container.querySelector('.ant-menu-title-content')).not.toHaveAttribute('title');
+  });
+
+  it('items SubMenu should keep title when label is a span with icon', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        icon: <MailOutlined />,
+        label: <span className="custom-submenu-label">Submenu</span>,
+        title: 'Submenu Title',
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" inlineCollapsed items={items} />);
+
+    expect(container.querySelector('.ant-menu-item-icon')).toHaveAttribute('title', 'Submenu Title');
+    expect(container.querySelector('.custom-submenu-label')).toHaveAttribute(
+      'title',
+      'Submenu Title',
+    );
+  });
+
+  it('items SubMenu should keep title on collapsed no-icon label node', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'sub',
+        label: <span className="custom-submenu-label">Submenu</span>,
+        title: 'Submenu Title',
+        children: [{ key: 'child', label: 'Child' }],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" inlineCollapsed items={items} />);
+
+    expect(container.querySelector('.ant-menu-inline-collapsed-noicon')).toHaveAttribute(
+      'title',
+      'Submenu Title',
+    );
+    expect(container.querySelector('.ant-menu-inline-collapsed-noicon')?.textContent).toBe('S');
+  });
+
+  it('items nested SubMenu should keep title', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: 'root',
+        label: 'Root',
+        children: [
+          null,
+          {
+            key: 'child-sub',
+            label: <span className="nested-submenu-label">Child submenu</span>,
+            title: 'Nested Submenu Title',
+            children: [{ key: 'leaf', label: 'Leaf' }],
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(<Menu mode="inline" defaultOpenKeys={['root']} items={items} />);
+    const nestedTitleContent = container
+      .querySelector('.nested-submenu-label')
+      ?.closest('.ant-menu-title-content');
+
+    expect(nestedTitleContent).toHaveAttribute('title', 'Nested Submenu Title');
+  });
+
   it('inlineCollapsed Menu.Item Tooltip can be disabled by prop', () => {
     const { container } = render(
       <Menu
@@ -1025,12 +1153,11 @@ describe('Menu', () => {
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
-    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[0]?.textContent).toEqual(
-      'L',
-    );
-    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[1]?.textContent).toEqual(
-      'B',
-    );
+    const collapsedNoIconNodes = container.querySelectorAll('.ant-menu-inline-collapsed-noicon');
+
+    expect(collapsedNoIconNodes[0]).toHaveAttribute('title', 'Light');
+    expect(collapsedNoIconNodes[0]?.textContent).toEqual('L');
+    expect(collapsedNoIconNodes[1]?.textContent).toEqual('B');
   });
 
   it('divider should show', () => {

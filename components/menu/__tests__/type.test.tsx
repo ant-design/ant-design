@@ -13,6 +13,7 @@ describe('Menu.typescript', () => {
           {
             key: 'submenu',
             theme: 'light',
+            title: 'Submenu',
             children: [
               { key: 'submenu-item', title: 'SubmenuItem' },
               { key: 'submenu-submenu', theme: 'light', children: [] },
@@ -53,6 +54,7 @@ describe('Menu.typescript', () => {
           {
             key: 'submenu',
             theme: 'light',
+            title: 'Submenu',
             children: [
               { key: 'submenu-item', title: 'SubmenuItem', 'data-x': 0 },
               { key: 'submenu-submenu', theme: 'light', children: [], 'data-x': 0 },

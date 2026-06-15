@@ -106,6 +106,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 | theme | 设置子菜单的主题，默认从 Menu 上继承 | `light` \| `dark` | - |  |
+| title | 设置收缩时展示的子菜单悬浮标题 | string | - | 6.4.4 |
 | popupRender | 自定义当前子菜单的弹出框 | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
 
 #### MenuItemGroupType

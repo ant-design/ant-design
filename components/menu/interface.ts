@@ -20,6 +20,7 @@ export interface SubMenuType<T extends MenuItemType = MenuItemType>
   extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
+  title?: string;
   children: ItemType<T>[];
 }
 

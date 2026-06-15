@@ -36,6 +36,53 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
+type InternalSubMenuItemType = Exclude<ItemType, null> & {
+  children?: ItemType[];
+  itemTitle?: string | false;
+  title?: string;
+};
+
+function normalizeSubMenuItemTitle(items?: ItemType[]): ItemType[] | undefined {
+  let changed = false;
+
+  const mergedItems = items?.map((item) => {
+    if (!item || typeof item !== 'object') {
+      return item;
+    }
+
+    const menuItem = item as InternalSubMenuItemType;
+    const children = menuItem.children;
+    const mergedChildren = normalizeSubMenuItemTitle(children);
+    const isSubMenu = Array.isArray(children) && menuItem.type !== 'group';
+    const hasTitle = Object.prototype.hasOwnProperty.call(menuItem, 'title');
+
+    if (isSubMenu) {
+      const { title, ...restItem } = menuItem;
+      const normalizedItem = hasTitle ? restItem : menuItem;
+      changed = true;
+
+      return {
+        ...normalizedItem,
+        itemTitle: typeof title === 'string' ? title : false,
+        children: mergedChildren,
+      } as unknown as ItemType;
+    }
+
+    if (mergedChildren !== children) {
+      changed = true;
+
+      return {
+        ...menuItem,
+        children: mergedChildren,
+      } as ItemType;
+    }
+
+    return item;
+  });
+
+  return changed ? mergedItems : items;
+}
+
 export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
 
 export type MenuSemanticClassNames = {
@@ -151,6 +198,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     overflowedIndicatorPopupClassName,
     classNames,
     styles,
+    items,
     ...restProps
   } = props;
 
@@ -169,6 +217,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+  const mergedItems = React.useMemo(() => normalizeSubMenuItemTitle(items), [items]);
 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -309,6 +358,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
+          items={mergedItems}
           inlineCollapsed={mergedInlineCollapsed}
           style={{ ...mergedStyles.root, ...contextStyle, ...style }}
           className={menuClassName}
