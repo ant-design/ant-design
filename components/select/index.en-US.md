@@ -29,7 +29,6 @@ demo:
 <code src="./demo/tags.tsx">Tags</code>
 <code src="./demo/optgroup.tsx">Option Group</code>
 <code src="./demo/coordinate.tsx">coordinate</code>
-<code src="./demo/search-box.tsx">Search Box</code>
 <code src="./demo/label-in-value.tsx">Get value of selected item</code>
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>

@@ -49,7 +49,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | block | 将宽度调整为父元素宽度的选项 | boolean | false |  | × |
 | classNames | 用于自定义 Segmented 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| defaultValue | 默认选中的值 | string \| number |  |  | × |
+| defaultValue | 默认选中的值 | string \| number | `options` 首项的值 |  | × |
 | disabled | 是否禁用 | boolean | false |  | × |
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  | × |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
