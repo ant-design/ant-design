@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import type { MenuProps } from 'antd';
-import { Dropdown, message } from 'antd';
+import { Dropdown, message, theme } from 'antd';
 
 interface SelectionInfo {
   text: string;
@@ -18,6 +18,9 @@ const items: MenuProps['items'] = Object.entries(labels).map(([key, label]) => (
 
 const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
+  const {
+    token: { borderRadiusLG, colorBgLayout, colorText },
+  } = theme.useToken();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [selection, setSelection] = useState<SelectionInfo | null>(null);
 
@@ -98,8 +101,9 @@ const App: React.FC = () => {
         ref={wrapperRef}
         onMouseUp={handleMouseUp}
         style={{
-          background: '#f5f5f5',
-          borderRadius: 8,
+          color: colorText,
+          background: colorBgLayout,
+          borderRadius: borderRadiusLG,
           lineHeight: 1.8,
           padding: 24,
           userSelect: 'text',
