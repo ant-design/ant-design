@@ -65,7 +65,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
 
   const contributors = contributorLogins.map((login) => ({
     username: login,
-    url: `https://github.com/${login}.png`,
+    url: `https://github.com/${login}.png?size=32`,
   }));
 
   return (

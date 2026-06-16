@@ -94,7 +94,6 @@ async function getFileCommits(filePath: string) {
 async function execute() {
   const componentNames = await getComponentNames();
 
-  await fs.rm(outputDir, { recursive: true, force: true });
   await fs.mkdir(outputDir, { recursive: true });
 
   const progressBar = new cliProgress.SingleBar(
