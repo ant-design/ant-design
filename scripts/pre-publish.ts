@@ -264,6 +264,7 @@ const runPrePublish = async () => {
   const zip = new AdmZip(firstArtifactFile);
   zip.extractAllTo('./', true);
   showMessage(`成功解压构建产物`, 'succeed');
+  await runScript({ event: 'component-contributors', path: '.', stdio: 'inherit' });
   await runScript({ event: 'test:dekko', path: '.', stdio: 'inherit' });
   await runScript({ event: 'test:package-diff', path: '.', stdio: 'inherit' });
   showMessage(`文件检查通过，准备发布！`, 'succeed');

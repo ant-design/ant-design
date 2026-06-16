@@ -47,6 +47,7 @@
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
     "clean": "antd-tools run clean && rimraf es lib coverage locale dist report.html artifacts.zip oss-artifacts.zip",
     "clean:lockfiles": "rimraf package-lock.json yarn.lock",
+    "component-contributors": "tsx scripts/generate-component-contributors.ts",
     "precompile": "npm run prestart",
     "compile": "npm run compileOnly",
     "compileOnly": "npm run clean && antd-tools run compile",
