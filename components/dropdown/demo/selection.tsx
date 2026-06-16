@@ -99,6 +99,7 @@ const App: React.FC = () => {
       </Dropdown>
       <div
         ref={wrapperRef}
+        onMouseDown={() => setSelection(null)}
         onMouseUp={handleMouseUp}
         style={{
           color: colorText,
