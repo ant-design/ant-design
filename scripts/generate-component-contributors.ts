@@ -111,7 +111,7 @@ async function execute() {
       const contributors = await getFileCommits(docFilePath);
       const outputFile = path.join(outputDir, `${componentName}-${locale}.json`);
 
-      await fs.writeFile(outputFile, JSON.stringify(contributors));
+      await fs.writeFile(outputFile, `${JSON.stringify(contributors, null, 2)}\n`);
     }
 
     progressBar.increment();
