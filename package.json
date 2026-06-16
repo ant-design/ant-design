@@ -184,7 +184,6 @@
     "@npmcli/run-script": "^11.0.0",
     "@octokit/rest": "^22.0.1",
     "@prettier/sync": "^0.6.1",
-    "@qixian.cs/github-contributors-list": "^2.0.2",
     "@rc-component/virtual-list": "^1.0.2",
     "@size-limit/file": "^12.1.0",
     "@stackblitz/sdk": "^1.11.0",

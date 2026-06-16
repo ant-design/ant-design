@@ -1,9 +1,8 @@
 import React, { Suspense } from 'react';
-import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useIntl } from 'dumi';
-import { SWRConfig } from 'swr';
+import useSWR from 'swr';
 
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
@@ -38,46 +37,45 @@ interface ContributorsProps {
   filename?: string;
 }
 
-// 这些机器人账号不需要展示
-const blockList = [
-  'github-actions',
-  'copilot',
-  'renovate',
-  'dependabot',
-  'gemini-code-assist[bot]',
-];
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
+function getContributorUrl(filename?: string) {
+  const match = filename?.match(/^components\/([^/]+)\/index\.(zh-CN|en-US)\.md$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, component, locale] = match;
+
+  return `/component-contributors/${component}-${locale === 'zh-CN' ? 'zhCN' : 'enUS'}.json`;
+}
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
+  const contributorUrl = getContributorUrl(filename);
+  const { data: contributorLogins = [] } = useSWR<string[]>(contributorUrl, fetcher, {
+    errorRetryCount: 3,
+  });
 
-  if (!filename) {
+  if (!contributorUrl) {
     return null;
   }
+
+  const contributors = contributorLogins.map((login) => ({
+    username: login,
+    url: `https://github.com/${login}.png`,
+  }));
 
   return (
     <div className={clsx({ [styles.listMobile]: isMobile })}>
       <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
-      <SWRConfig
-        value={{
-          revalidateOnFocus: false,
-          revalidateOnReconnect: false,
-          revalidateOnMount: false,
-          revalidateIfStale: false,
-        }}
-      >
-        <ContributorsList
-          cache
-          repo="ant-design"
-          owner="ant-design"
-          fileName={filename}
-          className={styles.list}
-          filter={(item) => !blockList.includes(item?.username?.toLowerCase() ?? '')}
-          renderItem={(item, loading) => (
-            <ContributorAvatar item={item} loading={loading} key={item?.url} />
-          )}
-        />
-      </SWRConfig>
+      <ul className={styles.list}>
+        {contributors.map((item) => (
+          <ContributorAvatar item={item} key={item.username} />
+        ))}
+      </ul>
     </div>
   );
 };

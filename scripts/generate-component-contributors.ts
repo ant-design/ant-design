@@ -12,6 +12,16 @@ const repo = 'ant-design';
 const componentsDir = path.join(cwd, 'components');
 const outputDir = path.join(cwd, 'public', 'component-contributors');
 const excludeComponents = new Set(['_util', 'overview']);
+const blockList = [
+  'github-actions',
+  'github-actions[bot]',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
+  'gemini-code-assist[bot]',
+];
 const docFiles = [
   { filename: 'index.zh-CN.md', locale: 'zhCN' },
   { filename: 'index.en-US.md', locale: 'enUS' },
@@ -72,7 +82,7 @@ async function getFileCommits(filePath: string) {
     commits.reduce<Set<string>>((loginSet, commit) => {
       const login = commit.author?.login;
 
-      if (login) {
+      if (login && !blockList.includes(login.toLowerCase())) {
         loginSet.add(login);
       }
 
