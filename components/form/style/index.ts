@@ -214,18 +214,6 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
         display: 'none',
       },
 
-      '&-has-warning': {
-        [`${formItemCls}-split`]: {
-          color: token.colorError,
-        },
-      },
-
-      '&-has-error': {
-        [`${formItemCls}-split`]: {
-          color: token.colorWarning,
-        },
-      },
-
       // ==============================================================
       // =                            Label                           =
       // ==============================================================
