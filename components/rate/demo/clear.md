@@ -4,4 +4,4 @@
 
 ## en-US
 
-Support set allow to clear star when click again.
+Allow clearing the rating when clicking the same star again.
