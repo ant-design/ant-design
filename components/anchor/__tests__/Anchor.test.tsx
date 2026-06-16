@@ -452,7 +452,7 @@ describe('Anchor Render', () => {
 
   it('replaces item href in browser history (external href)', () => {
     const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
-    const pushStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+    const pushStateSpy = jest.spyOn(window.history, 'pushState').mockImplementation(() => {});
     const hash = getHashUrl();
     const href = `http://www.example.com/#${hash}`;
     const title = hash;
