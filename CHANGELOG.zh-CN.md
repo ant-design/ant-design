@@ -15,6 +15,56 @@ tag: vVERSION
 
 ---
 
+## 6.4.4
+
+`2026-06-12`
+
+- 🛠 修复多个组件在 Vite、Yarn PnP、Node 25 等严格 ESM 环境下因引用 rc 组件包深路径导致构建失败的问题。[#58115](https://github.com/ant-design/ant-design/issues/58115) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 修复多个组件在 ReactNode 内容为空字符串时渲染空包装 DOM 节点的问题。[#58160](https://github.com/ant-design/ant-design/pull/58160) [@QDyanbing](https://github.com/QDyanbing)
+- Descriptions
+  - 🐞 修复 Descriptions 嵌套 Table 时宽度可能被异常撑大的问题。[#58203](https://github.com/ant-design/ant-design/pull/58203) [@18062706139fcz](https://github.com/18062706139fcz)
+  - 🐞 修复 Descriptions 传入响应式 `column` 属性值时行为可能不符合预期的问题。[#58058](https://github.com/ant-design/ant-design/pull/58058) [@kfylaktopoulos](https://github.com/kfylaktopoulos)
+- Radio
+  - 🐞 修复 Radio.Group button 形态在垂直布局下圆角和相邻边框展示异常的问题。[#58317](https://github.com/ant-design/ant-design/pull/58317) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Radio 非受控模式下点击后选中状态不更新的问题。[#57917](https://github.com/ant-design/ant-design/pull/57917) [@QDyanbing](https://github.com/QDyanbing)
+- Table
+  - 🐞 修复 Table 开启 `virtual` 模式时部分语义化 DOM 结构不正确的问题。[#58134](https://github.com/ant-design/ant-design/pull/58134) [@meet-student](https://github.com/meet-student)
+  - ⌨️ 优化 Table 筛选下拉框外层容器的无障碍语义为展示用途。[#58164](https://github.com/ant-design/ant-design/pull/58164) [@ug-hero](https://github.com/ug-hero)
+- Tour
+  - ⌨️ 修复 Tour 主色模式下 hover 上一步按钮时文字颜色的可读性问题。[#58311](https://github.com/ant-design/ant-design/pull/58311) [@QDyanbing](https://github.com/QDyanbing)
+  - 🇰🇭 补全 Tour 的高棉语 km_KH 本地化文案。[#58140](https://github.com/ant-design/ant-design/pull/58140) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- Transfer
+  - ⌨️ 修复 Transfer 未透传根 HTML 属性影响可访问性的问题。[#58166](https://github.com/ant-design/ant-design/pull/58166) [@ZQDesigned](https://github.com/ZQDesigned)
+  - ⚡️ 优化 Transfer 收集可用项 key 时的遍历性能。[#58168](https://github.com/ant-design/ant-design/pull/58168) [@ug-hero](https://github.com/ug-hero)
+- 🐞 修复 Menu 折叠时图标动画可能发生跳动的问题。[#58271](https://github.com/ant-design/ant-design/pull/58271) [@murisans](https://github.com/murisans)
+- 🐞 修复 Modal 在 `confirmLoading` 为 `true` 时 footer 按钮垂直方向错位的问题。[#58120](https://github.com/ant-design/ant-design/pull/58120) [@xxiaoxiong](https://github.com/xxiaoxiong)
+- 🐞 修复 Notification 在未传入 title 时关闭按钮与描述内容重叠的问题。[#58096](https://github.com/ant-design/ant-design/pull/58096) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Popover 与 Popconfirm 在 `title` 或 `content` 为数字 `0` 时不渲染的问题。[#58296](https://github.com/ant-design/ant-design/pull/58296) [@afc163](https://github.com/afc163)
+- 🐞 修复 Slider 滑块在 Safari 中拖动时周围文本可能被意外选中的问题。[#58024](https://github.com/ant-design/ant-design/pull/58024) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- 🐞 修复 Tabs 更多菜单在向上弹出时动画方向错误的问题。[#58202](https://github.com/ant-design/ant-design/pull/58202) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Tree.DirectoryTree 设置 `defaultExpandParent` 不生效的问题。[#58068](https://github.com/ant-design/ant-design/pull/58068) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Upload 未配置 progress 时进度条异常变粗的问题。[#58126](https://github.com/ant-design/ant-design/pull/58126) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Icon 在存在多个 `iconPrefixCls` 时旋转动画停止的问题。[#58253](https://github.com/ant-design/ant-design/pull/58253) [@18062706139fcz](https://github.com/18062706139fcz)
+- 💄 修复 AutoComplete 禁用自定义输入组件时背景色比其他禁用控件更深的问题。[#58114](https://github.com/ant-design/ant-design/pull/58114) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Checkbox 在移动端设备上点击时残留 hover 样式。[#58085](https://github.com/ant-design/ant-design/pull/58085) [@unknowntocka](https://github.com/unknowntocka)
+- 💄 修复 Empty 组件未使用 design tokens 来支持暗色模式下的 SVG 颜色。[#58152](https://github.com/ant-design/ant-design/pull/58152) [@wanpan11](https://github.com/wanpan11)
+- 💄 修复 Result 和 Popconfirm 图标颜色可能被全局图标 reset 样式覆盖的问题。[#58157](https://github.com/ant-design/ant-design/pull/58157) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Select 选中项激活态背景色不是主题色的问题。[#58069](https://github.com/ant-design/ant-design/pull/58069) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Tooltip 和 Popover 箭头阴影比容器深的问题。[#57988](https://github.com/ant-design/ant-design/pull/57988) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 加深 `boxShadowTertiary` 阴影，提升浅色背景下的可见度，影响 Card、Tour 和 Segmented 组件。[#58205](https://github.com/ant-design/ant-design/pull/58205) [@afc163](https://github.com/afc163)
+- ⌨️ 优化 ColorPicker 清除按钮的语义化属性以提升可访问性。[#58040](https://github.com/ant-design/ant-design/pull/58040) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ 提升 DatePicker 及 TimePicker 清除按钮的可访问性。[#58132](https://github.com/ant-design/ant-design/pull/58132) [@Pareder](https://github.com/Pareder)
+- ⌨️ 优化 Splitter 分隔条的语义化属性以提升可访问性。[#58060](https://github.com/ant-design/ant-design/pull/58060) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ 优化 Tag.CheckableTag 的语义化属性以提升可访问性。[#58067](https://github.com/ant-design/ant-design/pull/58067) [@ug-hero](https://github.com/ug-hero)
+- 🛠 修复 Dropdown 触发节点带有 ref 时在 React 19 下出现 element.ref 废弃警告的问题。[#58056](https://github.com/ant-design/ant-design/pull/58056) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 修复多个组件在 ReactNode 内容为 false 时渲染空包装 DOM 节点的问题。[#58088](https://github.com/ant-design/ant-design/pull/58088) [@QDyanbing](https://github.com/QDyanbing)
+- 🌐 国际化
+  - 🇬🇧 优化 QRCode 及 ColorPicker 英国英语 en_GB 以对齐美国英语 en_US。[#58224](https://github.com/ant-design/ant-design/pull/58224) [@JordanWeatherby](https://github.com/JordanWeatherby)
+  - 🇧🇷 补充 QRCode 与 ColorPicker 组件缺失的巴西葡萄牙语 pt_BR 国际化文案。[#58188](https://github.com/ant-design/ant-design/pull/58188) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+- TypeScript
+  - 🤖 修复 AutoComplete `showSearch` 类型泄露不支持的 Select 属性的问题。[#58104](https://github.com/ant-design/ant-design/pull/58104) [@sri443](https://github.com/sri443)
+  - 🤖 完善 Descriptions 类型定义以支持传递原生 HTML 属性。[#58190](https://github.com/ant-design/ant-design/pull/58190) [@yogeshwaran-c](https://github.com/yogeshwaran-c)
+
 ## 6.4.3
 
 `2026-05-18`

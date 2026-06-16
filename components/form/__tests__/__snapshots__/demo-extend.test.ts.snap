@@ -9484,6 +9484,43 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            for="global_state_profile_email"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+                id="global_state_profile_email"
+                type="text"
+                value="antd@example.com"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
   <div
     class="ant-typography css-var-test-id"
@@ -9496,6 +9533,13 @@ Array [
       "username"
     ],
     "value": "Ant Design"
+  },
+  {
+    "name": [
+      "profile",
+      "email"
+    ],
+    "value": "antd@example.com"
   }
 ]
     </pre>

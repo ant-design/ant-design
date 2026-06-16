@@ -84,7 +84,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | minScale | Minimum zoom scale | number | 1 |  |
-| movable | Whether it is movable | boolean | true |  |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
@@ -121,7 +121,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
-| movable | Whether movable | boolean | true |  |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |

@@ -687,7 +687,7 @@ See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/283
 
 Starting from version `5.17.0`, the sliding operation will prioritize using the ref element forwarded by the form control elements. Therefore, when considering custom components to support verification scrolling, please consider forwarding it to the form control elements first.
 
-`scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
+`scrollToFirstError` and `scrollToField` depend on the `id` attribute passed to form controls. Make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for a solution.
 
 2. multiple forms on same page
 
