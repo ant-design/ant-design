@@ -46,7 +46,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-const sharpMatcherRegex = /#([\S ]+)$/;
+const sharpMatcherRegex = /#(.+)$/;
 
 interface Section {
   link: string;
