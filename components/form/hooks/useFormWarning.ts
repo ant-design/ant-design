@@ -6,6 +6,8 @@ import type { FormProps } from '../Form';
 const names: Record<string, number> = {};
 
 export default function useFormWarning({ name }: FormProps) {
+  'use no memo';
+
   const warning = devUseWarning('Form');
 
   React.useEffect(() => {
