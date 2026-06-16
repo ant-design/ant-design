@@ -85,7 +85,7 @@ dayjs.locale('zh-cn');
 
 <!-- prettier-ignore -->
 :::warning
-When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+When using the Next.js App Router, make sure to add `'use client'` before importing Day.js locale files. This is because all Ant Design components only work on the client side, so importing locale files in RSC will not work.
 :::
 
 ### Common API
