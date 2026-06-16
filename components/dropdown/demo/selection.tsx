@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import type { MenuProps } from 'antd';
-import { Dropdown, message, theme } from 'antd';
+import { Dropdown, message } from 'antd';
+import { createStyles } from 'antd-style';
+import type { ItemType } from 'antd/es/menu/interface';
 
 interface SelectionInfo {
   text: string;
@@ -14,14 +16,37 @@ const labels: Record<string, string> = {
   search: 'Search keyword',
 };
 
-const items: MenuProps['items'] = Object.entries(labels).map(([key, label]) => ({ key, label }));
+const useStyle = createStyles(({ cssVar, css }) => {
+  const { colorText, colorBgLayout, borderRadiusLG, paddingLG } = cssVar;
+  return {
+    wrapper: css`
+      padding: ${paddingLG};
+      user-select: text;
+      color: ${colorText};
+      background-color: ${colorBgLayout};
+      border-radius: ${borderRadiusLG};
+    `,
+    trigger: css`
+      position: fixed;
+      display: block;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      pointer-events: none;
+    `,
+  };
+});
 
-const App: React.FC = () => {
+const items = Object.entries(labels).map<ItemType>(([key, label]) => ({ key, label }));
+
+const Demo: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const {
-    token: { borderRadiusLG, colorBgLayout, colorText },
-  } = theme.useToken();
+
+  const { styles } = useStyle();
+
   const wrapperRef = useRef<HTMLDivElement>(null);
+
   const [selection, setSelection] = useState<SelectionInfo | null>(null);
 
   const handleSelect = () => {
@@ -54,7 +79,7 @@ const App: React.FC = () => {
     });
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp: React.MouseEventHandler<HTMLDivElement> = () => {
     setTimeout(handleSelect);
   };
 
@@ -62,7 +87,6 @@ const App: React.FC = () => {
     if (!selection) {
       return;
     }
-
     messageApi.info(`${labels[key]}: ${selection.text}`);
     window.getSelection()?.removeAllRanges();
     setSelection(null);
@@ -73,7 +97,7 @@ const App: React.FC = () => {
       {contextHolder}
       <Dropdown
         menu={{ items, onClick: handleMenuClick }}
-        open={!!selection}
+        open={Boolean(selection)}
         placement="bottom"
         trigger={[]}
         onOpenChange={(nextOpen) => {
@@ -84,16 +108,10 @@ const App: React.FC = () => {
       >
         <span
           aria-hidden
+          className={styles.trigger}
           style={{
-            position: 'fixed',
             left: selection?.x ?? -9999,
             top: selection?.y ?? -9999,
-            display: 'block',
-            width: 1,
-            height: 1,
-            margin: 0,
-            padding: 0,
-            pointerEvents: 'none',
           }}
         />
       </Dropdown>
@@ -101,14 +119,7 @@ const App: React.FC = () => {
         ref={wrapperRef}
         onMouseDown={() => setSelection(null)}
         onMouseUp={handleMouseUp}
-        style={{
-          color: colorText,
-          background: colorBgLayout,
-          borderRadius: borderRadiusLG,
-          lineHeight: 1.8,
-          padding: 24,
-          userSelect: 'text',
-        }}
+        className={styles.wrapper}
       >
         Select any text in this paragraph to open a Dropdown menu near the selection. This is useful
         for actions such as masking sensitive words, marking entities, or searching the selected
@@ -118,4 +129,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Demo;
