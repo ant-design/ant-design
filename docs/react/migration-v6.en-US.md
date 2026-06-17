@@ -302,7 +302,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 ### Overlay components (Modal, Drawer, etc.)
 
 - v6 introduces the `mask` overlay option and supports a blur effect.
-- The blur is enabled by default. To disable blur:
+- v6.0.0 – v6.2.x enabled blur by default; starting from v6.3.0, **blur is disabled by default**. To enable blur:
 
 ```tsx
 import { ConfigProvider, Drawer, Modal } from 'antd';
@@ -311,12 +311,12 @@ export default () => (
   <ConfigProvider
     modal={{
       mask: {
-        blur: false,
+        blur: true,
       },
     }}
     drawer={{
       mask: {
-        blur: false,
+        blur: true,
       },
     }}
   >
@@ -371,13 +371,7 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 
 v6 progressively unified component `size` enums to `'large' | 'medium' | 'small'`. The old values still work but produce deprecation warnings and will be removed in v7.
 
-**Introduced in 6.3.0:**
-
-- `Avatar` default `size` changed from `default` to `medium`.
-
-**Introduced in 6.3.2:**
-
-- `Badge`, `Card`, `Progress`, `Steps`, `Switch`, `Spin`: `size` now uses `medium` instead of `default`.
+- `Avatar`, `Badge`, `Card`, `Progress`, `Steps`, `Switch`, `Spin`: `size` now uses `medium` instead of `default`.
 - `Descriptions`: `size` now uses `medium` instead of `middle`, and `large` instead of `default`.
 - `Table`, `Divider`: `size` now uses `medium` instead of `middle`.
 
@@ -395,41 +389,9 @@ v6 progressively unified component `size` enums to `'large' | 'medium' | 'small'
 + <Table size="medium" />
 ```
 
-### Modal and Drawer mask blur adjustment (6.3.0) {#mask-blur-default}
-
-v6.0.0 enabled mask blur by default for Modal and Drawer. In 6.3.0, **blur is now disabled by default**. To re-enable it, use ConfigProvider:
-
-```tsx
-import { ConfigProvider } from 'antd';
-
-export default () => (
-  <ConfigProvider modal={{ mask: { blur: true } }} drawer={{ mask: { blur: true } }}>
-    {/* ... */}
-  </ConfigProvider>
-);
-```
-
-### Component DOM structure changes (6.2.0 – 6.3.0) {#dom-structure-changes}
-
-The following releases optimized the DOM structure of several components. If your project has custom CSS selectors targeting internal DOM nodes of these components, you may need to update them.
-
-**Introduced in 6.2.0:**
-
-- `Modal` removed unnecessary DOM elements and improved focus trapping logic.
-
-**Introduced in 6.3.0:**
-
-- `Select` (single mode) removed the extra `-content-value` div node in favor of semantic structure.
-- `Radio` and `Checkbox` removed the `-inner` DOM node inside `icon`.
-- `Spin` refactored its DOM structure for consistency and now supports full semantic structure.
-
 ### Splitter `collapsibleIcon` deprecated (6.4.0) {#splitter-collapsible-icon}
 
 - `Splitter` `collapsibleIcon` is deprecated and replaced by `collapsible.icon`.
-
-### Table `FilterRestProps` type rename (6.4.3) {#table-filter-rest-props}
-
-- `Table` filter type `FilterRestProps` has been corrected to `FilterResetProps`. The old name is kept as a deprecated alias.
 
 ### Browser support changes
 
