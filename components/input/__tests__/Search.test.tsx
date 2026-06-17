@@ -385,8 +385,9 @@ describe('Input.Search', () => {
       dynamicStyles.some(
         (style) =>
           style.includes('.ant-input-search.ant-input-search-small .ant-input-search-btn') &&
-          style.includes('height:max(') &&
-          !style.includes('height:NaNpx'),
+          style.includes('min-height:max(') &&
+          style.includes('input-font-size-sm') &&
+          !style.includes('min-height:NaNpx'),
       ),
     ).toBeTruthy();
     expect(
@@ -395,8 +396,8 @@ describe('Input.Search', () => {
           style.includes(
             '.ant-input-search.ant-input-search-small .ant-input-search-btn.ant-btn-icon-only',
           ) &&
-          style.includes('width:max(') &&
-          !style.includes('width:NaNpx'),
+          style.includes('min-width:max(') &&
+          !style.includes('min-width:NaNpx'),
       ),
     ).toBeTruthy();
   });

@@ -1,15 +1,18 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genStyleHooks } from '../../theme/internal';
+import type { GenerateStyle } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { InputToken } from './token';
+import { initComponentToken, initInputToken } from './token';
 
-const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => {
+const genSearchStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, calc, max } = token;
 
   const btnCls = `${componentCls}-btn`;
+  const inputFontSizeSM = token.inputFontSizeSM ?? token.fontSize;
   const smallButtonHeight = max(
     token.controlHeightSM,
-    calc(token.fontSize).mul(token.lineHeight).add(calc(token.lineWidth).mul(2).equal()).equal(),
+    calc(inputFontSizeSM).mul(token.lineHeight).add(calc(token.lineWidth).mul(2).equal()).equal(),
   );
 
   return {
@@ -34,14 +37,21 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => 
       },
 
       [`&${componentCls}-small ${btnCls}`]: {
-        height: smallButtonHeight,
+        minHeight: smallButtonHeight,
 
         [`&${token.antCls}-btn-icon-only`]: {
-          width: smallButtonHeight,
+          minWidth: smallButtonHeight,
         },
       },
     },
   };
 };
 
-export default genStyleHooks(['Input', 'Search'], genSearchStyle);
+export default genStyleHooks(
+  ['Input', 'Search'],
+  (token) => {
+    const inputToken = mergeToken<InputToken>(token, initInputToken(token));
+    return genSearchStyle(inputToken);
+  },
+  initComponentToken,
+);
