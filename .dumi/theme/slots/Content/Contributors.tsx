@@ -43,23 +43,28 @@ function getContributorUrl(filename?: string) {
   const match = filename?.match(/^components\/([^/]+)\/index\.(zh-CN|en-US)\.md$/);
 
   if (!match) {
-    return null;
+    return { url: null, component: null };
   }
 
-  const [, component, locale] = match;
+  const [, component, lang] = match;
 
-  return `/component-contributors/${component}-${locale === 'zh-CN' ? 'zhCN' : 'enUS'}.json`;
+  return {
+    url: `/component-contributors/${lang === 'zh-CN' ? 'zhCN' : 'enUS'}.json`,
+    component,
+  };
 }
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
-  const contributorUrl = getContributorUrl(filename);
-  const { data: contributorLogins = [] } = useSWR<string[]>(contributorUrl, fetcher, {
+  const { url, component } = getContributorUrl(filename);
+  const { data: allContributors = {} } = useSWR<Record<string, string[]>>(url, fetcher, {
     errorRetryCount: 3,
   });
 
-  if (!contributorUrl) {
+  const contributorLogins = component ? (allContributors[component] ?? []) : [];
+
+  if (!url || !component) {
     return null;
   }
 

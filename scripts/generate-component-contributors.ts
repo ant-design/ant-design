@@ -91,6 +91,31 @@ async function getFileCommits(filePath: string) {
   );
 }
 
+function stringifyCompact(data: unknown, indent = 0): string {
+  const pad = '  '.repeat(indent);
+  const pad1 = '  '.repeat(indent + 1);
+
+  if (data === null || typeof data !== 'object') {
+    return JSON.stringify(data);
+  }
+
+  if (Array.isArray(data)) {
+    if (data.length === 0) return '[]';
+    if (data.every((v) => typeof v === 'string')) {
+      return `[${data.map(JSON.stringify).join(', ')}]`;
+    }
+    const items = data.map((v) => `${pad1}${stringifyCompact(v, indent + 1)}`);
+    return `[\n${items.join(',\n')}\n${pad}]`;
+  }
+
+  const entries = Object.entries(data as Record<string, unknown>);
+  if (entries.length === 0) return '{}';
+  const items = entries.map(
+    ([k, v]) => `${pad1}${JSON.stringify(k)}: ${stringifyCompact(v, indent + 1)}`,
+  );
+  return `{\n${items.join(',\n')}\n${pad}}`;
+}
+
 async function execute() {
   const componentNames = await getComponentNames();
 
@@ -105,6 +130,8 @@ async function execute() {
 
   progressBar.start(componentNames.length, 0, { component: '' });
 
+  const result: Record<string, Record<string, string[]>> = {};
+
   for (const componentName of componentNames) {
     const componentPath = path.join(componentsDir, componentName);
 
@@ -118,15 +145,31 @@ async function execute() {
       }
 
       const contributors = await getFileCommits(docFilePath);
-      const outputFile = path.join(outputDir, `${componentName}-${locale}.json`);
 
-      await fs.writeFile(outputFile, `${JSON.stringify(contributors, null, 2)}\n`);
+      result[componentName] ??= {};
+      result[componentName][locale] = contributors;
     }
 
     progressBar.increment();
   }
 
   progressBar.stop();
+
+  for (const { locale } of docFiles) {
+    const localeData: Record<string, string[]> = {};
+
+    for (const [componentName, locales] of Object.entries(result)) {
+      if (locales[locale]) {
+        localeData[componentName] = locales[locale];
+      }
+    }
+
+    const outputFile = path.join(outputDir, `${locale}.json`);
+
+    const json = stringifyCompact(localeData);
+
+    await fs.writeFile(outputFile, `${json}\n`);
+  }
 }
 
 execute();
