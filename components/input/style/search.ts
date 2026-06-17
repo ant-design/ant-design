@@ -4,9 +4,13 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
 const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, calc, max } = token;
 
   const btnCls = `${componentCls}-btn`;
+  const smallButtonHeight = max(
+    token.controlHeightSM,
+    calc(token.fontSize).mul(token.lineHeight).add(calc(token.lineWidth).mul(2).equal()).equal(),
+  );
 
   return {
     [componentCls]: {
@@ -26,6 +30,14 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => 
               background: token.colorFill,
             },
           },
+        },
+      },
+
+      [`&${componentCls}-small ${btnCls}`]: {
+        height: smallButtonHeight,
+
+        [`&${token.antCls}-btn-icon-only`]: {
+          width: smallButtonHeight,
         },
       },
     },

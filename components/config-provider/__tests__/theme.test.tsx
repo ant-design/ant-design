@@ -77,7 +77,7 @@ describe('ConfigProvider.Theme', () => {
         sizeXS: 4,
         sizeXXS: 4,
         controlHeight: 28,
-        controlHeightSM: 22,
+        controlHeightSM: 21,
       }),
     );
   });
