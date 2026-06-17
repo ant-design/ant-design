@@ -34,11 +34,52 @@ import {
 
 type DirectionType = ConfigProviderProps['direction'];
 
-const InputGroup = Input.Group;
-const ButtonGroup = Button.Group;
-
-const { TreeNode } = Tree;
 const { Search } = Input;
+
+const treeData = [
+  {
+    title: 'parent 1',
+    key: '0-0',
+    children: [
+      {
+        title: 'parent 1-0',
+        key: '0-0-0',
+        disabled: true,
+        children: [
+          { title: 'leaf', key: '0-0-0-0', disableCheckbox: true },
+          { title: 'leaf', key: '0-0-0-1' },
+        ],
+      },
+      {
+        title: 'parent 1-1',
+        key: '0-0-1',
+        children: [{ title: <span style={{ color: '#1677ff' }}>sss</span>, key: '0-0-1-0' }],
+      },
+    ],
+  },
+];
+
+const treeSelectData = [
+  {
+    title: 'parent 1',
+    value: '0-1',
+    children: [
+      {
+        title: 'parent 1-0',
+        value: '0-1-1',
+        children: [
+          { title: 'my leaf', value: 'random' },
+          { title: 'your leaf', value: 'random1' },
+        ],
+      },
+      {
+        title: 'parent 1-1',
+        value: 'random2',
+        children: [{ title: <b style={{ color: '#08c' }}>sss</b>, value: 'random3' }],
+      },
+    ],
+  },
+];
 
 const cascaderOptions = [
   {
@@ -213,7 +254,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
       <Row>
         <Col span={12}>
           <Divider titlePlacement="start">Button example</Divider>
-          <div className="button-demo">
+          <Flex wrap gap="small">
             <Button type="primary" icon={<DownloadOutlined />} />
             <Button type="primary" shape="circle" icon={<DownloadOutlined />} />
             <Button type="primary" shape="round" icon={<DownloadOutlined />} />
@@ -223,24 +264,21 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
             <Button type="primary" icon={<DownloadOutlined />}>
               Download
             </Button>
-            <br />
-            <Button.Group>
-              <Button type="primary">
-                <LeftOutlined />
+            <Space.Compact>
+              <Button type="primary" icon={<LeftOutlined />}>
                 Backward
               </Button>
-              <Button type="primary">
+              <Button type="primary" icon={<RightOutlined />} iconPlacement="end">
                 Forward
-                <RightOutlined />
               </Button>
-            </Button.Group>
+            </Space.Compact>
             <Button type="primary" loading>
               Loading
             </Button>
             <Button type="primary" size="small" loading>
               Loading
             </Button>
-          </div>
+          </Flex>
         </Col>
         <Col span={12}>
           <Divider titlePlacement="start">Tree example</Divider>
@@ -250,17 +288,8 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
             defaultExpandedKeys={['0-0-0', '0-0-1']}
             defaultSelectedKeys={['0-0-0', '0-0-1']}
             defaultCheckedKeys={['0-0-0', '0-0-1']}
-          >
-            <TreeNode title="parent 1" key="0-0">
-              <TreeNode title="parent 1-0" key="0-0-0" disabled>
-                <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />
-                <TreeNode title="leaf" key="0-0-0-1" />
-              </TreeNode>
-              <TreeNode title="parent 1-1" key="0-0-1">
-                <TreeNode title={<span style={{ color: '#1677ff' }}>sss</span>} key="0-0-1-0" />
-              </TreeNode>
-            </TreeNode>
-          </Tree>
+            treeData={treeData}
+          />
         </Col>
       </Row>
       <Row>
@@ -268,21 +297,19 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <Divider titlePlacement="start">Input (Input Group) example</Divider>
           <Flex vertical gap="large">
             <Flex vertical gap="middle">
-              <InputGroup size="large">
-                <Row gutter={8}>
-                  <Col span={5}>
-                    <Input defaultValue="0571" />
-                  </Col>
-                  <Col span={8}>
-                    <Input defaultValue="26888888" />
-                  </Col>
-                </Row>
-              </InputGroup>
-              <InputGroup compact>
+              <Row gutter={8}>
+                <Col span={5}>
+                  <Input size="large" defaultValue="0571" />
+                </Col>
+                <Col span={8}>
+                  <Input size="large" defaultValue="26888888" />
+                </Col>
+              </Row>
+              <Space.Compact>
                 <Input style={{ width: '20%' }} defaultValue="0571" />
                 <Input style={{ width: '30%' }} defaultValue="26888888" />
-              </InputGroup>
-              <InputGroup compact>
+              </Space.Compact>
+              <Space.Compact>
                 <Select
                   defaultValue="Option1"
                   options={[
@@ -292,7 +319,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                 />
                 <Input style={{ width: '50%' }} defaultValue="input content" />
                 <InputNumber />
-              </InputGroup>
+              </Space.Compact>
               <Search placeholder="input search text" enterButton="Search" size="large" />
               <Space.Compact>
                 {selectBefore}
@@ -352,17 +379,8 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                   placeholder="Please select"
                   allowClear
                   treeDefaultExpandAll
-                >
-                  <TreeNode title="parent 1" key="0-1">
-                    <TreeNode title="parent 1-0" key="0-1-1">
-                      <TreeNode title="my leaf" key="random" />
-                      <TreeNode title="your leaf" key="random1" />
-                    </TreeNode>
-                    <TreeNode title="parent 1-1" key="random2">
-                      <TreeNode title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
-                    </TreeNode>
-                  </TreeNode>
-                </TreeSelect>
+                  treeData={treeSelectData}
+                />
               </Col>
             </Row>
             <Row>
@@ -442,23 +460,21 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               </Col>
               <Col span={12}>
                 <Divider titlePlacement="start">Badge example</Divider>
-                <Badge count={badgeCount}>
-                  <a href="#" className="head-example" />
-                </Badge>
-                <ButtonGroup>
-                  <Button onClick={declineBadge}>
-                    <MinusOutlined />
-                  </Button>
-                  <Button onClick={increaseBadge}>
-                    <PlusOutlined />
-                  </Button>
-                </ButtonGroup>
-                <div style={{ marginTop: 12 }}>
+                <Flex align="center" gap="middle">
+                  <Badge count={badgeCount}>
+                    <a href="#" className="head-example" />
+                  </Badge>
+                  <Space.Compact>
+                    <Button icon={<MinusOutlined />} onClick={declineBadge} />
+                    <Button icon={<PlusOutlined />} onClick={increaseBadge} />
+                  </Space.Compact>
+                </Flex>
+                <Flex align="center" gap="middle" style={{ marginTop: 12 }}>
                   <Badge dot={showBadge}>
                     <a href="#" className="head-example" />
                   </Badge>
                   <Switch onChange={onChangeBadge} checked={showBadge} />
-                </div>
+                </Flex>
               </Col>
             </Row>
           </Flex>
