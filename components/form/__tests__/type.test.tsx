@@ -6,8 +6,14 @@ import Input from '../../input';
 
 interface FormValues {
   username?: string;
+  value3: string;
   path1?: { path2?: number };
 }
+
+type IsAny<T> = 0 extends 1 & T ? true : false;
+type Equal<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? true : false;
+type Expect<T extends true> = T;
 
 describe('Form.typescript', () => {
   it('Form.Item', () => {
@@ -82,13 +88,26 @@ describe('Form.typescript', () => {
     expect(Demo).toBeTruthy();
   });
 
-  // TODO: @crazyair fix for value types
   it('useWatch', () => {
     const Demo: React.FC = () => {
       const [form] = Form.useForm<FormValues>();
       const value = Form.useWatch('username', form);
+      const value3 = Form.useWatch('value3', form);
+      const pathValue = Form.useWatch(['path1', 'path2'], form);
+      const typeCheck: [
+        Expect<Equal<IsAny<typeof value3>, false>>,
+        Expect<Equal<typeof value3, string>>,
+        Expect<Equal<typeof pathValue, number | undefined>>,
+      ] = [true, true, true];
 
-      return <Form form={form}>{value}</Form>;
+      // @ts-expect-error not a field of FormValues
+      Form.useWatch('unknown', form);
+      // @ts-expect-error not a nested field of FormValues
+      Form.useWatch(['path1', 'unknown'], form);
+
+      expect(typeCheck).toBeTruthy();
+
+      return <Form form={form}>{value ?? value3 ?? pathValue}</Form>;
     };
 
     expect(Demo).toBeTruthy();

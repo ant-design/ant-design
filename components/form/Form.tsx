@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FieldForm, { List, useWatch } from '@rc-component/form';
+import FieldForm, { List, useWatch as useRcWatch } from '@rc-component/form';
 import type {
   FormRef,
   InternalNamePath,
@@ -26,9 +26,85 @@ import type { FormTooltipProps } from './FormItemLabel';
 import useForm from './hooks/useForm';
 import type { FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
-import type { FormLabelAlign, ScrollFocusOptions } from './interface';
+import type { FormLabelAlign, NamePath, ScrollFocusOptions, Store } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
+
+type ReturnPromise<T> = T extends Promise<infer ValueType> ? ValueType : never;
+type GetFormValues<TForm extends FormInstance> = ReturnPromise<ReturnType<TForm['validateFields']>>;
+type WatchOptions<TForm extends FormInstance = FormInstance> = {
+  form?: TForm;
+  preserve?: boolean;
+};
+type PathValue<Values, Path> = Path extends readonly [infer FieldKey, ...infer RestPath]
+  ? FieldKey extends keyof NonNullable<Values>
+    ? RestPath extends []
+      ? NonNullable<Values>[FieldKey] | Extract<Values, null | undefined>
+      :
+          | PathValue<NonNullable<NonNullable<Values>[FieldKey]>, RestPath>
+          | Extract<NonNullable<Values>[FieldKey], null | undefined>
+          | Extract<Values, null | undefined>
+    : never
+  : Path extends keyof NonNullable<Values>
+    ? NonNullable<Values>[Path] | Extract<Values, null | undefined>
+    : never;
+
+function useWatch<TForm extends FormInstance>(
+  dependencies: [],
+  form?: TForm | WatchOptions<TForm>,
+): GetFormValues<TForm>;
+function useWatch<TForm extends FormInstance, SelectedValue = unknown>(
+  selector: (values: GetFormValues<TForm>) => SelectedValue,
+  form?: TForm | WatchOptions<TForm>,
+): SelectedValue;
+function useWatch<ValueType = Store, SelectedValue = unknown>(
+  selector: (values: ValueType) => SelectedValue,
+  form?: FormInstance | WatchOptions<FormInstance>,
+): SelectedValue;
+function useWatch<
+  TForm extends FormInstance,
+  TField1 extends keyof GetFormValues<TForm>,
+  TField2 extends keyof NonNullable<GetFormValues<TForm>[TField1]>,
+  TField3 extends keyof NonNullable<NonNullable<GetFormValues<TForm>[TField1]>[TField2]>,
+  TField4 extends keyof NonNullable<
+    NonNullable<NonNullable<GetFormValues<TForm>[TField1]>[TField2]>[TField3]
+  >,
+>(
+  dependencies: [TField1, TField2, TField3, TField4],
+  form?: TForm | WatchOptions<TForm>,
+): PathValue<GetFormValues<TForm>, [TField1, TField2, TField3, TField4]>;
+function useWatch<
+  TForm extends FormInstance,
+  TField1 extends keyof GetFormValues<TForm>,
+  TField2 extends keyof NonNullable<GetFormValues<TForm>[TField1]>,
+  TField3 extends keyof NonNullable<NonNullable<GetFormValues<TForm>[TField1]>[TField2]>,
+>(
+  dependencies: [TField1, TField2, TField3],
+  form?: TForm | WatchOptions<TForm>,
+): PathValue<GetFormValues<TForm>, [TField1, TField2, TField3]>;
+function useWatch<
+  TForm extends FormInstance,
+  TField1 extends keyof GetFormValues<TForm>,
+  TField2 extends keyof NonNullable<GetFormValues<TForm>[TField1]>,
+>(
+  dependencies: [TField1, TField2],
+  form?: TForm | WatchOptions<TForm>,
+): PathValue<GetFormValues<TForm>, [TField1, TField2]>;
+function useWatch<TForm extends FormInstance, TField extends keyof GetFormValues<TForm>>(
+  dependencies: TField | [TField],
+  form?: TForm | WatchOptions<TForm>,
+): PathValue<GetFormValues<TForm>, TField>;
+function useWatch<
+  TForm extends FormInstance,
+  const TNamePath extends NamePath<GetFormValues<TForm>>,
+>(
+  dependencies: TNamePath,
+  form?: TForm | WatchOptions<TForm>,
+): PathValue<GetFormValues<TForm>, TNamePath>;
+function useWatch<ValueType = Store>(dependencies: NamePath): ValueType;
+function useWatch(...args: Parameters<typeof useRcWatch>) {
+  return useRcWatch(...args);
+}
 
 export type RequiredMark =
   | boolean
