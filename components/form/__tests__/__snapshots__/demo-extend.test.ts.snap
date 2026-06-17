@@ -8800,9 +8800,10 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                     </svg>
                   </span>
                 </span>
-                <span
+                <button
+                  aria-label="Clear"
                   class="ant-picker-clear"
-                  role="button"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -8824,7 +8825,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
               </div>
             </div>
             <div
