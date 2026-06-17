@@ -10,18 +10,24 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);
 
   const fontSize = mergedMapToken.fontSizeSM; // Smaller size font-size as base
+  const fontMapToken = genFontMapToken(fontSize);
   const controlHeight = mergedMapToken.controlHeight - 4;
+  const controlHeightMapToken = genControlHeight({ ...mergedMapToken, controlHeight });
 
   return {
     ...mergedMapToken,
     ...genCompactSizeMapToken(mapToken ?? token),
 
     // font
-    ...genFontMapToken(fontSize),
+    ...fontMapToken,
 
     // controlHeight
     controlHeight,
-    ...genControlHeight({ ...mergedMapToken, controlHeight }),
+    ...controlHeightMapToken,
+    controlHeightSM: Math.max(
+      controlHeightMapToken.controlHeightSM,
+      fontMapToken.fontHeight + mergedMapToken.lineWidth * 2,
+    ),
   };
 };
 
