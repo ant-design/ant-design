@@ -27,12 +27,6 @@ antd list                           # List all components
 
 Always use `--format json` for structured output you can parse programmatically.
 
-### Full CLI skill file
-
-For detailed workflows, scenarios, and rules, read the full skill file:
-
-<https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md>
-
 ## 2. MCP Server
 
 If your environment supports [MCP (Model Context Protocol)](https://modelcontextprotocol.io/), configure it to access Ant Design knowledge as tools:
