@@ -35,6 +35,8 @@ const FormList: React.FC<FormListProps> = ({
   children,
   ...props
 }) => {
+  'use no memo';
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Form.List');
 

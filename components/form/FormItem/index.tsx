@@ -107,6 +107,8 @@ function genEmptyMeta(): Meta {
 }
 
 function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
+  'use no memo';
+
   const {
     name,
     noStyle,

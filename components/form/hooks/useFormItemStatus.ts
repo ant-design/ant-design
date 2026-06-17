@@ -11,6 +11,8 @@ type UseFormItemStatus = () => {
 };
 
 const useFormItemStatus: UseFormItemStatus = () => {
+  'use no memo';
+
   const { status, errors = [], warnings = [] } = React.useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
