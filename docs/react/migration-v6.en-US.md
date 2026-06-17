@@ -367,6 +367,52 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
     <Form onFinish={onFinish} />
 ```
 
+### `size` enum unification (6.3.0 – 6.3.2) {#size-enum-unify}
+
+v6 progressively unified component `size` enums to `'large' | 'medium' | 'small'`. The old values still work but produce deprecation warnings and will be removed in v7.
+
+**Introduced in 6.3.0:**
+
+- `Avatar` default `size` changed from `default` to `medium`.
+
+**Introduced in 6.3.2:**
+
+- `Badge`, `Card`, `Progress`, `Steps`, `Switch`, `Spin`: `size` now uses `medium` instead of `default`.
+- `Descriptions`: `size` now uses `medium` instead of `middle`, and `large` instead of `default`.
+- `Table`, `Divider`: `size` now uses `medium` instead of `middle`.
+
+```diff
+- <Switch size="default" />
++ <Switch size="medium" />
+
+- <Descriptions size="default" />
++ <Descriptions size="large" />
+
+- <Descriptions size="middle" />
++ <Descriptions size="medium" />
+
+- <Table size="middle" />
++ <Table size="medium" />
+```
+
+### Modal and Drawer mask blur adjustment (6.3.0) {#mask-blur-default}
+
+v6.0.0 enabled mask blur by default for Modal and Drawer. In 6.3.0, **blur is now disabled by default**. To re-enable it, use ConfigProvider:
+
+```tsx
+import { ConfigProvider } from 'antd';
+
+export default () => (
+  <ConfigProvider modal={{ mask: { blur: true } }} drawer={{ mask: { blur: true } }}>
+    {/* ... */}
+  </ConfigProvider>
+);
+```
+
+### Splitter `collapsibleIcon` deprecated (6.4.0) {#splitter-collapsible-icon}
+
+- `Splitter` `collapsibleIcon` is deprecated and replaced by `collapsible.icon`.
+
 ### Browser support changes
 
 - CSS variables are enabled by default and only modern browsers are supported.
