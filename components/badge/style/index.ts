@@ -268,7 +268,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
         },
         [`${componentCls}-status-processing`]: {
           overflow: 'visible',
-          color: token.colorInfo,
+          color: token.colorInfoTextHover,
           backgroundColor: token.colorInfo,
           borderColor: 'currentcolor',
 

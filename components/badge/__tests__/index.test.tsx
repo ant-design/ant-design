@@ -1,10 +1,13 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import Badge from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer19 } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import Tooltip from '../../tooltip';
 
 describe('Badge', () => {
@@ -149,6 +152,28 @@ describe('Badge', () => {
     expect(container.querySelector<HTMLElement>('.ant-badge-status-text')).toHaveStyle({
       color: 'rgb(255, 0, 0)',
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55234
+  it('should use a stronger processing ring color in dark theme', () => {
+    const cache = createCache();
+    const darkToken = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
+
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+          <Badge status="processing" />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain(
+      '.ant-badge.ant-badge-status .ant-badge-status-processing{overflow:visible;color:var(--ant-color-info-text-hover);background-color:var(--ant-color-info);border-color:currentcolor;',
+    );
+    expect(styleText).toContain(`--ant-color-info-text-hover:${darkToken.colorInfoTextHover};`);
+    expect(styleText).toContain(`--ant-color-info:${darkToken.colorInfo};`);
   });
 
   // https://github.com/ant-design/ant-design/issues/15799
