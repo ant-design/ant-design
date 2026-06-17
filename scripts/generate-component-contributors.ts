@@ -91,31 +91,6 @@ async function getFileCommits(filePath: string) {
   );
 }
 
-function stringifyCompact(data: unknown, indent = 0): string {
-  const pad = '  '.repeat(indent);
-  const pad1 = '  '.repeat(indent + 1);
-
-  if (data === null || typeof data !== 'object') {
-    return JSON.stringify(data);
-  }
-
-  if (Array.isArray(data)) {
-    if (data.length === 0) return '[]';
-    if (data.every((v) => typeof v === 'string')) {
-      return `[${data.map(JSON.stringify).join(', ')}]`;
-    }
-    const items = data.map((v) => `${pad1}${stringifyCompact(v, indent + 1)}`);
-    return `[\n${items.join(',\n')}\n${pad}]`;
-  }
-
-  const entries = Object.entries(data as Record<string, unknown>);
-  if (entries.length === 0) return '{}';
-  const items = entries.map(
-    ([k, v]) => `${pad1}${JSON.stringify(k)}: ${stringifyCompact(v, indent + 1)}`,
-  );
-  return `{\n${items.join(',\n')}\n${pad}}`;
-}
-
 async function execute() {
   const componentNames = await getComponentNames();
 
@@ -166,9 +141,7 @@ async function execute() {
 
     const outputFile = path.join(outputDir, `${locale}.json`);
 
-    const json = stringifyCompact(localeData);
-
-    await fs.writeFile(outputFile, `${json}\n`);
+    await fs.writeFile(outputFile, `${JSON.stringify(localeData, null, 2)}\n`);
   }
 }
 
