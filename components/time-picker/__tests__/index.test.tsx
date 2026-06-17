@@ -57,15 +57,20 @@ describe('TimePicker', () => {
 
   it('should trigger onClear when click clear button', () => {
     const onClear = jest.fn();
-    const rangeOnClear = jest.fn();
     const time = dayjs('00:00:00', 'HH:mm:ss');
-    const { container, rerender } = render(<TimePicker defaultValue={time} onClear={onClear} />);
+    const { container } = render(<TimePicker defaultValue={time} onClear={onClear} />);
 
     fireEvent.click(container.querySelector('.ant-picker-clear')!);
 
     expect(onClear).toHaveBeenCalledTimes(1);
+  });
 
-    rerender(<TimePicker.RangePicker defaultValue={[time, time]} onClear={rangeOnClear} />);
+  it('should trigger onClear in RangePicker when click clear button', () => {
+    const rangeOnClear = jest.fn();
+    const time = dayjs('00:00:00', 'HH:mm:ss');
+    const { container } = render(
+      <TimePicker.RangePicker defaultValue={[time, time]} onClear={rangeOnClear} />,
+    );
 
     fireEvent.click(container.querySelector('.ant-picker-clear')!);
 
