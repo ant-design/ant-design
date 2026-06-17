@@ -39,9 +39,10 @@ Array [
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Изчистване"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -63,7 +64,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>,
   <div

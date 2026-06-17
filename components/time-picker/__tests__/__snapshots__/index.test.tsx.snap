@@ -87,9 +87,10 @@ Array [
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -111,7 +112,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>,
   <div
@@ -1718,9 +1719,10 @@ exports[`TimePicker should support bordered 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -1742,7 +1744,7 @@ exports[`TimePicker should support bordered 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;

@@ -7,7 +7,7 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 
@@ -53,6 +53,23 @@ describe('TimePicker', () => {
       <TimePicker clearIcon={clearIcon} value={dayjs('00:00:00', 'HH:mm:ss')} />,
     );
     expect(container.querySelector('.test-clear-icon')).toBeTruthy();
+  });
+
+  it('should trigger onClear when click clear button', () => {
+    const onClear = jest.fn();
+    const rangeOnClear = jest.fn();
+    const time = dayjs('00:00:00', 'HH:mm:ss');
+    const { container, rerender } = render(<TimePicker defaultValue={time} onClear={onClear} />);
+
+    fireEvent.click(container.querySelector('.ant-picker-clear')!);
+
+    expect(onClear).toHaveBeenCalledTimes(1);
+
+    rerender(<TimePicker.RangePicker defaultValue={[time, time]} onClear={rangeOnClear} />);
+
+    fireEvent.click(container.querySelector('.ant-picker-clear')!);
+
+    expect(rangeOnClear).toHaveBeenCalledTimes(1);
   });
 
   it('prop locale should works', () => {

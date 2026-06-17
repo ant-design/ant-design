@@ -134,7 +134,7 @@
     "@rc-component/mutate-observer": "^2.0.1",
     "@rc-component/notification": "~2.0.7",
     "@rc-component/pagination": "~1.4.0",
-    "@rc-component/picker": "~1.10.0",
+    "@rc-component/picker": "~1.11.0",
     "@rc-component/progress": "~1.0.2",
     "@rc-component/qrcode": "~2.0.0",
     "@rc-component/rate": "~1.0.1",
