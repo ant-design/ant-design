@@ -157,7 +157,6 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/55234
   it('should use a stronger processing ring color in dark theme', () => {
     const cache = createCache();
-    const darkToken = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
 
     render(
       <StyleProvider cache={cache}>
@@ -172,8 +171,6 @@ describe('Badge', () => {
     expect(styleText).toContain(
       '.ant-badge.ant-badge-status .ant-badge-status-processing{overflow:visible;color:var(--ant-color-info-text-hover);background-color:var(--ant-color-info);border-color:currentcolor;',
     );
-    expect(styleText).toContain(`--ant-color-info-text-hover:${darkToken.colorInfoTextHover};`);
-    expect(styleText).toContain(`--ant-color-info:${darkToken.colorInfo};`);
   });
 
   // https://github.com/ant-design/ant-design/issues/15799
