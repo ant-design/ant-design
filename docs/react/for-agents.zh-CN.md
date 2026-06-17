@@ -14,9 +14,7 @@ tag: New
 复制到你的 Agent 对话或自动化流程中。
 
 ```text
-Install the Ant Design CLI and follow the instructions to use it.
-
-npm install -g @ant-design/cli
+Read https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md and follow the instructions to use Ant Design.
 
 If you can install skills, run:
 npx skills add ant-design/ant-design-cli
