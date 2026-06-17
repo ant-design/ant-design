@@ -253,6 +253,9 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `direction` is deprecated and replaced by `orientation`.
   - `items.description` is deprecated and replaced by `items.content`.
 
+- `Switch`
+  - `size="default"` is deprecated and replaced by `size="medium"`.
+
 - `Table`
   - `pagination.position` is deprecated and replaced by `pagination.placement`.
   - `onSelectInvert` is deprecated and replaced by `onChange`.

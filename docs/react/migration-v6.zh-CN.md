@@ -251,6 +251,9 @@ pnpm add @ant-design/icons@6
   - `direction` 弃用，变为 `orientation`。
   - `items.description` 弃用，变为 `items.content`。
 
+- `Switch`
+  - `size="default"` 弃用，变为 `size="medium"`。
+
 - `Table`
   - `pagination.position` 弃用，变为 `pagination.placement`。
   - `onSelectInvert` 弃用，变为 `onChange`。
