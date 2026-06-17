@@ -16,6 +16,7 @@ import {
   Col,
   ConfigProvider,
   Divider,
+  Flex,
   Input,
   InputNumber,
   Modal,
@@ -165,7 +166,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
   // ==== End Badge ====
 
   return (
-    <div className="direction-components">
+    <Flex className="direction-components" vertical gap="large">
       <Row>
         <Col span={24}>
           <Divider titlePlacement="start">Cascader example</Divider>
@@ -187,7 +188,6 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           />
         </Col>
       </Row>
-      <br />
       <Row>
         <Col span={12}>
           <Divider titlePlacement="start">Switch example</Divider>
@@ -210,7 +210,6 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           </Radio.Group>
         </Col>
       </Row>
-      <br />
       <Row>
         <Col span={12}>
           <Divider titlePlacement="start">Button example</Divider>
@@ -264,220 +263,213 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           </Tree>
         </Col>
       </Row>
-      <br />
       <Row>
         <Col span={24}>
           <Divider titlePlacement="start">Input (Input Group) example</Divider>
-          <InputGroup size="large">
-            <Row gutter={8}>
-              <Col span={5}>
-                <Input defaultValue="0571" />
+          <Flex vertical gap="large">
+            <Flex vertical gap="middle">
+              <InputGroup size="large">
+                <Row gutter={8}>
+                  <Col span={5}>
+                    <Input defaultValue="0571" />
+                  </Col>
+                  <Col span={8}>
+                    <Input defaultValue="26888888" />
+                  </Col>
+                </Row>
+              </InputGroup>
+              <InputGroup compact>
+                <Input style={{ width: '20%' }} defaultValue="0571" />
+                <Input style={{ width: '30%' }} defaultValue="26888888" />
+              </InputGroup>
+              <InputGroup compact>
+                <Select
+                  defaultValue="Option1"
+                  options={[
+                    { label: 'Option1', value: 'Option1' },
+                    { label: 'Option2', value: 'Option2' },
+                  ]}
+                />
+                <Input style={{ width: '50%' }} defaultValue="input content" />
+                <InputNumber />
+              </InputGroup>
+              <Search placeholder="input search text" enterButton="Search" size="large" />
+              <Space.Compact>
+                {selectBefore}
+                <Input defaultValue="mysite" />
+                {selectAfter}
+              </Space.Compact>
+            </Flex>
+            <Row>
+              <Col span={12}>
+                <Divider titlePlacement="start">Select example</Divider>
+                <Space wrap>
+                  <Select
+                    mode="multiple"
+                    defaultValue="مورچه"
+                    style={{ width: 120 }}
+                    options={[
+                      { label: 'jack', value: 'jack' },
+                      { label: 'مورچه', value: 'مورچه' },
+                      { label: 'disabled', value: 'disabled', disabled: true },
+                      { label: 'yiminghe', value: 'Yiminghe' },
+                    ]}
+                  />
+                  <Select
+                    disabled
+                    defaultValue="مورچه"
+                    style={{ width: 120 }}
+                    options={[{ label: 'مورچه', value: 'مورچه' }]}
+                  />
+                  <Select
+                    loading
+                    defaultValue="مورچه"
+                    style={{ width: 120 }}
+                    options={[{ label: 'مورچه', value: 'مورچه' }]}
+                  />
+                  <Select
+                    showSearch
+                    style={{ width: 200 }}
+                    placeholder="Select a person"
+                    options={[
+                      { label: 'jack', value: 'jack' },
+                      { label: 'سعید', value: 'سعید' },
+                      { label: 'Tom', value: 'tom' },
+                    ]}
+                  />
+                </Space>
               </Col>
-              <Col span={8}>
-                <Input defaultValue="26888888" />
+              <Col span={12}>
+                <Divider titlePlacement="start">TreeSelect example</Divider>
+                <TreeSelect
+                  showSearch
+                  style={{ width: '100%' }}
+                  styles={{
+                    popup: {
+                      root: { maxHeight: 400, overflow: 'auto' },
+                    },
+                  }}
+                  placeholder="Please select"
+                  allowClear
+                  treeDefaultExpandAll
+                >
+                  <TreeNode title="parent 1" key="0-1">
+                    <TreeNode title="parent 1-0" key="0-1-1">
+                      <TreeNode title="my leaf" key="random" />
+                      <TreeNode title="your leaf" key="random1" />
+                    </TreeNode>
+                    <TreeNode title="parent 1-1" key="random2">
+                      <TreeNode title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
+                    </TreeNode>
+                  </TreeNode>
+                </TreeSelect>
               </Col>
             </Row>
-          </InputGroup>
-          <br />
-          <InputGroup compact>
-            <Input style={{ width: '20%' }} defaultValue="0571" />
-            <Input style={{ width: '30%' }} defaultValue="26888888" />
-          </InputGroup>
-          <br />
-          <InputGroup compact>
-            <Select
-              defaultValue="Option1"
-              options={[
-                { label: 'Option1', value: 'Option1' },
-                { label: 'Option2', value: 'Option2' },
-              ]}
-            />
-            <Input style={{ width: '50%' }} defaultValue="input content" />
-            <InputNumber />
-          </InputGroup>
-          <br />
-          <Search placeholder="input search text" enterButton="Search" size="large" />
-          <br />
-          <br />
-          <div style={{ marginBottom: 16 }}>
-            <Space.Compact>
-              {selectBefore}
-              <Input defaultValue="mysite" />
-              {selectAfter}
-            </Space.Compact>
-          </div>
-          <br />
-          <Row>
-            <Col span={12}>
-              <Divider titlePlacement="start">Select example</Divider>
-              <Space wrap>
-                <Select
-                  mode="multiple"
-                  defaultValue="مورچه"
-                  style={{ width: 120 }}
-                  options={[
-                    { label: 'jack', value: 'jack' },
-                    { label: 'مورچه', value: 'مورچه' },
-                    { label: 'disabled', value: 'disabled', disabled: true },
-                    { label: 'yiminghe', value: 'Yiminghe' },
-                  ]}
-                />
-                <Select
-                  disabled
-                  defaultValue="مورچه"
-                  style={{ width: 120 }}
-                  options={[{ label: 'مورچه', value: 'مورچه' }]}
-                />
-                <Select
-                  loading
-                  defaultValue="مورچه"
-                  style={{ width: 120 }}
-                  options={[{ label: 'مورچه', value: 'مورچه' }]}
-                />
-                <Select
-                  showSearch
-                  style={{ width: 200 }}
-                  placeholder="Select a person"
-                  options={[
-                    { label: 'jack', value: 'jack' },
-                    { label: 'سعید', value: 'سعید' },
-                    { label: 'Tom', value: 'tom' },
-                  ]}
-                />
-              </Space>
-            </Col>
-            <Col span={12}>
-              <Divider titlePlacement="start">TreeSelect example</Divider>
-              <TreeSelect
-                showSearch
-                style={{ width: '100%' }}
-                styles={{
-                  popup: {
-                    root: { maxHeight: 400, overflow: 'auto' },
-                  },
-                }}
-                placeholder="Please select"
-                allowClear
-                treeDefaultExpandAll
-              >
-                <TreeNode title="parent 1" key="0-1">
-                  <TreeNode title="parent 1-0" key="0-1-1">
-                    <TreeNode title="my leaf" key="random" />
-                    <TreeNode title="your leaf" key="random1" />
-                  </TreeNode>
-                  <TreeNode title="parent 1-1" key="random2">
-                    <TreeNode title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
-                  </TreeNode>
-                </TreeNode>
-              </TreeSelect>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={24}>
-              <Divider titlePlacement="start">Modal example</Divider>
-              <Button type="primary" onClick={showModal}>
-                Open Modal
-              </Button>
-              <Modal title="پنچره ساده" open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>نگاشته‌های خود را اینجا قراردهید</p>
-                <p>نگاشته‌های خود را اینجا قراردهید</p>
-                <p>نگاشته‌های خود را اینجا قراردهید</p>
-              </Modal>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={24}>
-              <Divider titlePlacement="start">Steps example</Divider>
-              <Steps
-                progressDot
-                current={currentStep}
-                items={[
-                  {
-                    title: 'Finished',
-                    description: 'This is a description.',
-                  },
-                  {
-                    title: 'In Progress',
-                    description: 'This is a description.',
-                  },
-                  {
-                    title: 'Waiting',
-                    description: 'This is a description.',
-                  },
-                ]}
-              />
-              <br />
-              <Steps
-                current={currentStep}
-                onChange={onStepsChange}
-                items={[
-                  {
-                    title: 'Step 1',
-                    description: 'This is a description.',
-                  },
-                  {
-                    title: 'Step 2',
-                    description: 'This is a description.',
-                  },
-                  {
-                    title: 'Step 3',
-                    description: 'This is a description.',
-                  },
-                ]}
-              />
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={12}>
-              <Divider titlePlacement="start">Rate example</Divider>
-              <Rate defaultValue={2.5} />
-              <br />
-              <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
-              supported after{' '}
-              <a
-                href="https://github.com/react-component/rate"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                rc-rate
-              </a>{' '}
-              implement rtl support.
-            </Col>
-            <Col span={12}>
-              <Divider titlePlacement="start">Badge example</Divider>
-              <Badge count={badgeCount}>
-                <a href="#" className="head-example" />
-              </Badge>
-              <ButtonGroup>
-                <Button onClick={declineBadge}>
-                  <MinusOutlined />
+            <Row>
+              <Col span={24}>
+                <Divider titlePlacement="start">Modal example</Divider>
+                <Button type="primary" onClick={showModal}>
+                  Open Modal
                 </Button>
-                <Button onClick={increaseBadge}>
-                  <PlusOutlined />
-                </Button>
-              </ButtonGroup>
-              <div style={{ marginTop: 12 }}>
-                <Badge dot={showBadge}>
+                <Modal title="پنچره ساده" open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                </Modal>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Divider titlePlacement="start">Steps example</Divider>
+                <Flex vertical gap="middle">
+                  <Steps
+                    progressDot
+                    current={currentStep}
+                    items={[
+                      {
+                        title: 'Finished',
+                        description: 'This is a description.',
+                      },
+                      {
+                        title: 'In Progress',
+                        description: 'This is a description.',
+                      },
+                      {
+                        title: 'Waiting',
+                        description: 'This is a description.',
+                      },
+                    ]}
+                  />
+                  <Steps
+                    current={currentStep}
+                    onChange={onStepsChange}
+                    items={[
+                      {
+                        title: 'Step 1',
+                        description: 'This is a description.',
+                      },
+                      {
+                        title: 'Step 2',
+                        description: 'This is a description.',
+                      },
+                      {
+                        title: 'Step 3',
+                        description: 'This is a description.',
+                      },
+                    ]}
+                  />
+                </Flex>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12}>
+                <Divider titlePlacement="start">Rate example</Divider>
+                <Flex vertical gap="small">
+                  <Rate defaultValue={2.5} />
+                  <div>
+                    <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
+                    supported after{' '}
+                    <a
+                      href="https://github.com/react-component/rate"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      rc-rate
+                    </a>{' '}
+                    implement rtl support.
+                  </div>
+                </Flex>
+              </Col>
+              <Col span={12}>
+                <Divider titlePlacement="start">Badge example</Divider>
+                <Badge count={badgeCount}>
                   <a href="#" className="head-example" />
                 </Badge>
-                <Switch onChange={onChangeBadge} checked={showBadge} />
-              </div>
-            </Col>
-          </Row>
+                <ButtonGroup>
+                  <Button onClick={declineBadge}>
+                    <MinusOutlined />
+                  </Button>
+                  <Button onClick={increaseBadge}>
+                    <PlusOutlined />
+                  </Button>
+                </ButtonGroup>
+                <div style={{ marginTop: 12 }}>
+                  <Badge dot={showBadge}>
+                    <a href="#" className="head-example" />
+                  </Badge>
+                  <Switch onChange={onChangeBadge} checked={showBadge} />
+                </div>
+              </Col>
+            </Row>
+          </Flex>
         </Col>
       </Row>
-      <br />
-      <br />
       <Row>
         <Col span={24}>
           <Divider titlePlacement="start">Pagination example</Divider>
           <Pagination showSizeChanger defaultCurrent={3} total={500} />
         </Col>
       </Row>
-      <br />
       <Row>
         <Col span={24}>
           <Divider titlePlacement="start">Grid System example</Divider>
@@ -518,7 +510,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           </div>
         </Col>
       </Row>
-    </div>
+    </Flex>
   );
 };
 
