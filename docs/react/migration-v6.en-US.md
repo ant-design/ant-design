@@ -409,9 +409,27 @@ export default () => (
 );
 ```
 
+### Component DOM structure changes (6.2.0 – 6.3.0) {#dom-structure-changes}
+
+The following releases optimized the DOM structure of several components. If your project has custom CSS selectors targeting internal DOM nodes of these components, you may need to update them.
+
+**Introduced in 6.2.0:**
+
+- `Modal` removed unnecessary DOM elements and improved focus trapping logic.
+
+**Introduced in 6.3.0:**
+
+- `Select` (single mode) removed the extra `-content-value` div node in favor of semantic structure.
+- `Radio` and `Checkbox` removed the `-inner` DOM node inside `icon`.
+- `Spin` refactored its DOM structure for consistency and now supports full semantic structure.
+
 ### Splitter `collapsibleIcon` deprecated (6.4.0) {#splitter-collapsible-icon}
 
 - `Splitter` `collapsibleIcon` is deprecated and replaced by `collapsible.icon`.
+
+### Table `FilterRestProps` type rename (6.4.3) {#table-filter-rest-props}
+
+- `Table` filter type `FilterRestProps` has been corrected to `FilterResetProps`. The old name is kept as a deprecated alias.
 
 ### Browser support changes
 

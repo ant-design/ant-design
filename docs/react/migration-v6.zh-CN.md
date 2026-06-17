@@ -405,9 +405,27 @@ export default () => (
 );
 ```
 
+### 组件 DOM 结构调整（6.2.0 ~ 6.3.0）{#dom-structure-changes}
+
+以下版本中部分组件进行了 DOM 结构优化。如果你的项目中存在依赖这些组件内部 DOM 节点的自定义选择器，升级后需要检查并调整。
+
+**6.2.0 引入：**
+
+- `Modal` 移除了无用的 DOM 结构，并优化了焦点捕获逻辑。
+
+**6.3.0 引入：**
+
+- `Select` 单选模式移除了额外的 `-content-value` div DOM 节点，改为语义化结构。
+- `Radio` 和 `Checkbox` 移除了 `icon` 子元素中的 `-inner` DOM 节点。
+- `Spin` 重构了 DOM 结构以对齐不同场景，并支持全量语义化结构。
+
 ### Splitter `collapsibleIcon` 废弃（6.4.0）{#splitter-collapsible-icon}
 
 - `Splitter` 的 `collapsibleIcon` 弃用，变为 `collapsible.icon`。
+
+### Table `FilterRestProps` 类型重命名（6.4.3）{#table-filter-rest-props}
+
+- `Table` 过滤类型 `FilterRestProps` 更正为 `FilterResetProps`，旧名称保留为 deprecated 别名。
 
 ### 浏览器支持调整
 
