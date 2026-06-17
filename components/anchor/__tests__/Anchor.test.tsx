@@ -270,6 +270,9 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenCalled();
     expect(pushStateSpy).not.toHaveBeenCalled();
     expect(replaceStateSpy).not.toHaveBeenCalled();
+    scrollToSpy.mockRestore();
+    pushStateSpy.mockRestore();
+    replaceStateSpy.mockRestore();
   });
 
   it('targetOffset prop', async () => {
