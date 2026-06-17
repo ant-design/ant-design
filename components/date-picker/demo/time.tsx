@@ -21,6 +21,7 @@ const App: React.FC = () => (
       onOk={onOk}
     />
     <RangePicker
+      previewValue={false}
       showTime={{ format: 'HH:mm' }}
       format="YYYY-MM-DD HH:mm"
       onChange={(value, dateString) => {
