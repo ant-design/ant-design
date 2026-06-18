@@ -276,8 +276,8 @@ const Footer: React.FC = () => {
         {
           icon: <RobotOutlined />,
           title: 'For Agents',
-          url: getLink('/docs/react/for-agents'),
-          LinkComponent: Link,
+          url: 'https://ant.design/for-agents.md',
+          openExternal: true,
         },
         {
           icon: <BugOutlined />,
