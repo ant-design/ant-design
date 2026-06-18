@@ -12,7 +12,11 @@ const genSearchStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const inputFontSizeSM = token.inputFontSizeSM ?? token.fontSize;
   const smallButtonHeight = max(
     token.controlHeightSM,
-    calc(inputFontSizeSM).mul(token.lineHeight).add(calc(token.lineWidth).mul(2).equal()).equal(),
+    calc(inputFontSizeSM)
+      .mul(token.lineHeight)
+      .add(calc(token.paddingBlockSM).mul(2))
+      .add(calc(token.lineWidth).mul(2))
+      .equal(),
   );
 
   return {
