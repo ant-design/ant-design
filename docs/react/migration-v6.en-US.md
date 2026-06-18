@@ -302,7 +302,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 ### Overlay components (Modal, Drawer, etc.)
 
 - v6 introduces the `mask` overlay option and supports a blur effect.
-- The blur is enabled by default. To disable blur:
+- v6.0.0 – v6.2.x enabled blur by default; starting from v6.3.0, **blur is disabled by default**. To enable blur:
 
 ```tsx
 import { ConfigProvider, Drawer, Modal } from 'antd';
@@ -311,12 +311,12 @@ export default () => (
   <ConfigProvider
     modal={{
       mask: {
-        blur: false,
+        blur: true,
       },
     }}
     drawer={{
       mask: {
-        blur: false,
+        blur: true,
       },
     }}
   >
@@ -366,6 +366,32 @@ In v5, Form.List was treated as a single Field, causing `onFinish` to include al
 
     <Form onFinish={onFinish} />
 ```
+
+### `size` enum unification (6.3.0 – 6.3.2) {#size-enum-unify}
+
+v6 progressively unified component `size` enums to `'large' | 'medium' | 'small'`. The old values still work but produce deprecation warnings and will be removed in v7.
+
+- `Avatar`, `Badge`, `Card`, `Progress`, `Steps`, `Switch`, `Spin`: `size` now uses `medium` instead of `default`.
+- `Descriptions`: `size` now uses `medium` instead of `middle`, and `large` instead of `default`.
+- `Table`, `Divider`: `size` now uses `medium` instead of `middle`.
+
+```diff
+- <Switch size="default" />
++ <Switch size="medium" />
+
+- <Descriptions size="default" />
++ <Descriptions size="large" />
+
+- <Descriptions size="middle" />
++ <Descriptions size="medium" />
+
+- <Table size="middle" />
++ <Table size="medium" />
+```
+
+### Splitter `collapsibleIcon` deprecated (6.4.0) {#splitter-collapsible-icon}
+
+- `Splitter` `collapsibleIcon` is deprecated and replaced by `collapsible.icon`.
 
 ### Browser support changes
 
