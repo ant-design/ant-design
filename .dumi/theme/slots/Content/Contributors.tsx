@@ -47,9 +47,10 @@ function getContributorUrl(filename?: string) {
   }
 
   const [, component, lang] = match;
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
   return {
-    url: `/component-contributors/${lang === 'zh-CN' ? 'zhCN' : 'enUS'}.json`,
+    url: `${baseUrl}/component-contributors/${lang === 'zh-CN' ? 'zhCN' : 'enUS'}.json`,
     component,
   };
 }

@@ -10,7 +10,7 @@ const cwd = process.cwd();
 const owner = 'ant-design';
 const repo = 'ant-design';
 const componentsDir = path.join(cwd, 'components');
-const outputDir = path.join(cwd, 'public', 'component-contributors');
+const outputDir = process.argv[2] || path.join(cwd, '_site', 'component-contributors');
 const excludeComponents = new Set(['_util', 'overview']);
 const blockList = [
   'github-actions',
@@ -107,28 +107,31 @@ async function execute() {
 
   const result: Record<string, Record<string, string[]>> = {};
 
-  for (const componentName of componentNames) {
-    const componentPath = path.join(componentsDir, componentName);
+  try {
+    for (const componentName of componentNames) {
+      const componentPath = path.join(componentsDir, componentName);
 
-    progressBar.update({ component: componentName });
+      progressBar.update({ component: componentName });
 
-    for (const { filename, locale } of docFiles) {
-      const docFilePath = path.join(componentPath, filename);
+      for (const { filename, locale } of docFiles) {
+        const docFilePath = path.join(componentPath, filename);
 
-      if (!(await pathExists(docFilePath))) {
-        continue;
+        if (!(await pathExists(docFilePath))) {
+          continue;
+        }
+
+        const contributors = await getFileCommits(docFilePath);
+
+        result[componentName] ??= {};
+        result[componentName][locale] = contributors;
       }
 
-      const contributors = await getFileCommits(docFilePath);
-
-      result[componentName] ??= {};
-      result[componentName][locale] = contributors;
+      progressBar.increment();
     }
-
-    progressBar.increment();
+  } finally {
+    progressBar.stop();
+    process.stdout.write('\n');
   }
-
-  progressBar.stop();
 
   for (const { locale } of docFiles) {
     const localeData: Record<string, string[]> = {};
