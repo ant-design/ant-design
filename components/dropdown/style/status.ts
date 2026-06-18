@@ -1,7 +1,9 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { DropdownToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genStatusStyle: GenerateStyle<DropdownToken> = (token) => {
+const genStatusStyle: GenerateStyle<DropdownToken, CSSObject> = (token) => {
   const { componentCls, menuCls, colorError, colorTextLightSolid } = token;
 
   const itemCls = `${menuCls}-item`;

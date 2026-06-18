@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-
-type SemanticName = 'root' | 'rail' | 'content';
 
 export type TitlePlacement =
   | 'left'
@@ -20,8 +21,20 @@ export type TitlePlacement =
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 
-export type DividerClassNamesType = SemanticClassNamesType<DividerProps, SemanticName>;
-export type DividerStylesType = SemanticStylesType<DividerProps, SemanticName>;
+export type DividerSemanticType = {
+  classNames?: {
+    root?: string;
+    rail?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    rail?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
+};
+
+export type CardSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -44,11 +57,9 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: DividerClassNamesType;
-  styles?: DividerStylesType;
+  classNames?: CardSemanticAllType['classNamesAndFn'];
+  styles?: CardSemanticAllType['stylesAndFn'];
 }
-
-const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
 
 const Divider: React.FC<DividerProps> = (props) => {
   const {
@@ -86,7 +97,6 @@ const Divider: React.FC<DividerProps> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const sizeFullName = useSize(customSize);
-  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const hasChildren = !!children;
 
@@ -118,13 +128,11 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: sizeFullName,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DividerClassNamesType,
-    DividerStylesType,
-    DividerProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+  );
 
   const classString = clsx(
     prefixCls,
@@ -141,7 +149,8 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
-      [`${prefixCls}-${sizeCls}`]: !!sizeCls,
+      [`${prefixCls}-md`]: sizeFullName === 'medium' || sizeFullName === 'middle',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [railCls]: !children,
       [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
     },
@@ -151,7 +160,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   const memoizedPlacementMargin = React.useMemo<string | number>(() => {
-    if (typeof orientationMargin === 'number') {
+    if (isNumber(orientationMargin)) {
       return orientationMargin;
     }
     if (/^\d+$/.test(orientationMargin!)) {

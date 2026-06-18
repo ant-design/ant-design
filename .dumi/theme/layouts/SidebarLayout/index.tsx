@@ -1,13 +1,13 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
 
 import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   main: css`
     display: flex;
     margin-top: ${cssVar.marginXL};
@@ -15,7 +15,6 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 }));
 
 const SidebarLayout: React.FC<PropsWithChildren> = ({ children }) => {
-  const { styles } = useStyle();
   const [searchParams] = useSearchParams();
   const hideLayout = searchParams.get('layout') === 'false';
   return (

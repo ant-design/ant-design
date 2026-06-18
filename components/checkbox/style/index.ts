@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusOutline, resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -26,8 +27,9 @@ interface CheckboxToken extends FullToken<'Checkbox'> {
 
 // ============================== Styles ==============================
 export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
-  const { checkboxCls } = token;
+  const { checkboxCls, checkboxSize, lineWidth } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
+  const hoverMediaQuery = '@media (hover: hover) and (pointer: fine)';
 
   return [
     // ===================== Basic =====================
@@ -66,13 +68,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`& + ${wrapperCls}`]: {
           marginInlineStart: 0,
         },
-
-        [`&${wrapperCls}-in-form-item`]: {
-          'input[type="checkbox"]': {
-            width: 14, // FIXME: magic
-            height: 14, // FIXME: magic
-          },
-        },
       },
 
       // Wrapper > Checkbox
@@ -83,11 +78,43 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         whiteSpace: 'nowrap',
         lineHeight: 1,
         cursor: 'pointer',
-        borderRadius: token.borderRadiusSM,
 
         // To make alignment right when `controlHeight` is changed
         // Ref: https://github.com/ant-design/ant-design/issues/41564
         alignSelf: 'center',
+
+        // Styles moved from inner
+        boxSizing: 'border-box',
+        display: 'block',
+        width: checkboxSize,
+        height: checkboxSize,
+        direction: 'ltr',
+        backgroundColor: token.colorBgContainer,
+        border: `${unit(lineWidth)} ${token.lineType} ${token.colorBorder}`,
+        borderRadius: token.borderRadiusSM,
+        borderCollapse: 'separate',
+        transition: `all ${token.motionDurationSlow}`,
+        flex: 'none',
+        ...genNoMotionStyle(),
+
+        // Checkmark
+        '&:after': {
+          boxSizing: 'border-box',
+          position: 'absolute',
+          top: `calc(${checkboxSize} / 2 - ${lineWidth})`,
+          insetInlineStart: `calc(${checkboxSize} / 4 - ${lineWidth})`,
+          display: 'table',
+          width: token.calc(checkboxSize).div(14).mul(5).equal(),
+          height: token.calc(checkboxSize).div(14).mul(8).equal(),
+          border: `${unit(token.lineWidthBold)} solid ${token.colorWhite}`,
+          borderTop: 0,
+          borderInlineStart: 0,
+          transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
+          opacity: 0,
+          content: '""',
+          transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
+          ...genNoMotionStyle(),
+        },
 
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
@@ -95,45 +122,15 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           // Since baseline align will get additional space offset,
           // we need to move input to top to make it align with text.
           // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
-          inset: 0,
+          inset: `calc(-1 * (${lineWidth}))`,
           zIndex: 1,
           cursor: 'pointer',
           opacity: 0,
           margin: 0,
-
-          [`&:focus-visible + ${checkboxCls}-inner`]: genFocusOutline(token),
         },
 
-        // Wrapper > Checkbox > inner
-        [`${checkboxCls}-inner`]: {
-          boxSizing: 'border-box',
-          display: 'block',
-          width: token.checkboxSize,
-          height: token.checkboxSize,
-          direction: 'ltr',
-          backgroundColor: token.colorBgContainer,
-          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderRadius: token.borderRadiusSM,
-          borderCollapse: 'separate',
-          transition: `all ${token.motionDurationSlow}`,
-
-          '&:after': {
-            boxSizing: 'border-box',
-            position: 'absolute',
-            top: '50%',
-            insetInlineStart: '25%',
-            display: 'table',
-            width: token.calc(token.checkboxSize).div(14).mul(5).equal(),
-            height: token.calc(token.checkboxSize).div(14).mul(8).equal(),
-            border: `${unit(token.lineWidthBold)} solid ${token.colorWhite}`,
-            borderTop: 0,
-            borderInlineStart: 0,
-            transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
-            opacity: 0,
-            content: '""',
-            transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
-          },
-        },
+        // Focus outline on checkbox when input is focus-visible
+        [`&:has(${checkboxCls}-input:focus-visible)`]: genFocusOutline(token),
 
         // Wrapper > Checkbox + Text
         '& + span': {
@@ -145,23 +142,22 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
     // ===================== Hover =====================
     {
-      // Wrapper & Wrapper > Checkbox
-      [`
-        ${wrapperCls}:not(${wrapperCls}-disabled),
-        ${checkboxCls}:not(${checkboxCls}-disabled)
-      `]: {
-        [`&:hover ${checkboxCls}-inner`]: {
-          borderColor: token.colorPrimary,
+      [hoverMediaQuery]: {
+        // Wrapper & Wrapper > Checkbox
+        [`
+          ${wrapperCls}:not(${wrapperCls}-disabled),
+          ${checkboxCls}:not(${checkboxCls}-disabled)
+        `]: {
+          [`&:hover ${checkboxCls}`]: {
+            borderColor: token.colorPrimary,
+          },
         },
-      },
 
-      [`${wrapperCls}:not(${wrapperCls}-disabled)`]: {
-        [`&:hover ${checkboxCls}-checked:not(${checkboxCls}-disabled) ${checkboxCls}-inner`]: {
-          backgroundColor: token.colorPrimaryHover,
-          borderColor: 'transparent',
-        },
-        [`&:hover ${checkboxCls}-checked:not(${checkboxCls}-disabled):after`]: {
-          borderColor: token.colorPrimaryHover,
+        [`${wrapperCls}:not(${wrapperCls}-disabled)`]: {
+          [`&:hover ${checkboxCls}-checked:not(${checkboxCls}-disabled)`]: {
+            backgroundColor: token.colorPrimaryHover,
+            borderColor: 'transparent',
+          },
         },
       },
     },
@@ -170,25 +166,22 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       // Wrapper > Checkbox
       [`${checkboxCls}-checked`]: {
-        [`${checkboxCls}-inner`]: {
-          backgroundColor: token.colorPrimary,
-          borderColor: token.colorPrimary,
+        backgroundColor: token.colorPrimary,
+        borderColor: token.colorPrimary,
 
-          '&:after': {
-            opacity: 1,
-            transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
-          },
+        '&:after': {
+          opacity: 1,
+          transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
+          transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
+          ...genNoMotionStyle(),
         },
-      },
 
-      [`
-        ${wrapperCls}-checked:not(${wrapperCls}-disabled),
-        ${checkboxCls}-checked:not(${checkboxCls}-disabled)
-      `]: {
-        [`&:hover ${checkboxCls}-inner`]: {
-          backgroundColor: token.colorPrimaryHover,
-          borderColor: 'transparent',
+        [hoverMediaQuery]: {
+          // Hover on checked checkbox directly
+          [`&:not(${checkboxCls}-disabled):hover`]: {
+            backgroundColor: token.colorPrimaryHover,
+            borderColor: 'transparent',
+          },
         },
       },
     },
@@ -197,29 +190,26 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       [checkboxCls]: {
         '&-indeterminate': {
-          '&': {
-            // Wrapper > Checkbox > inner
-            [`${checkboxCls}-inner`]: {
-              backgroundColor: `${token.colorBgContainer}`,
-              borderColor: `${token.colorBorder}`,
+          backgroundColor: token.colorBgContainer,
+          borderColor: token.colorBorder,
 
-              '&:after': {
-                top: '50%',
-                insetInlineStart: '50%',
-                width: token.calc(token.fontSizeLG).div(2).equal(),
-                height: token.calc(token.fontSizeLG).div(2).equal(),
-                backgroundColor: token.colorPrimary,
-                border: 0,
-                transform: 'translate(-50%, -50%) scale(1)',
-                opacity: 1,
-                content: '""',
-              },
-            },
+          '&:after': {
+            top: '50%',
+            insetInlineStart: '50%',
+            width: token.calc(token.fontSizeLG).div(2).equal(),
+            height: token.calc(token.fontSizeLG).div(2).equal(),
+            backgroundColor: token.colorPrimary,
+            border: 0,
+            transform: 'translate(-50%, -50%) scale(1)',
+            opacity: 1,
+            content: '""',
+          },
 
+          [hoverMediaQuery]: {
             // https://github.com/ant-design/ant-design/issues/50074
-            [`&:hover ${checkboxCls}-inner`]: {
-              backgroundColor: `${token.colorBgContainer}`,
-              borderColor: `${token.colorPrimary}`,
+            [`&:not(${checkboxCls}-disabled):hover`]: {
+              backgroundColor: token.colorBgContainer,
+              borderColor: token.colorPrimary,
             },
           },
         },
@@ -243,25 +233,19 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           pointerEvents: 'none',
         },
 
-        // Wrapper > Checkbox > inner
-        [`${checkboxCls}-inner`]: {
-          background: token.colorBgContainerDisabled,
-          borderColor: token.colorBorder,
-
-          '&:after': {
-            borderColor: token.colorTextDisabled,
-          },
-        },
+        // Disabled checkbox styles
+        background: token.colorBgContainerDisabled,
+        borderColor: token.colorBorder,
 
         '&:after': {
-          display: 'none',
+          borderColor: token.colorTextDisabled,
         },
 
         '& + span': {
           color: token.colorTextDisabled,
         },
 
-        [`&${checkboxCls}-indeterminate ${checkboxCls}-inner::after`]: {
+        [`&${checkboxCls}-indeterminate::after`]: {
           background: token.colorTextDisabled,
         },
       },

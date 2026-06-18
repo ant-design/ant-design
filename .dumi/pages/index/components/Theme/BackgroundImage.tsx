@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
@@ -10,7 +10,7 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   image: css`
     transition: all ${cssVar.motionDurationSlow};
     position: absolute;
@@ -29,7 +29,6 @@ const onHide = () => ({ opacity: 0 });
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
-  const { styles } = useStyle();
 
   const [keyList, setKeyList] = useState<string[]>([]);
 

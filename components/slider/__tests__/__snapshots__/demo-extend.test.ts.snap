@@ -1612,7 +1612,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
 
 exports[`renders components/slider/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-slider acss-1pw5qi4 css-var-test-id ant-slider-horizontal"

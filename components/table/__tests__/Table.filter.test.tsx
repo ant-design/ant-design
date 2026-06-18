@@ -131,6 +131,18 @@ describe('Table.filter', () => {
     );
   });
 
+  it('marks filter dropdown wrapper as presentation', async () => {
+    const { container } = render(createTable());
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+
+    await waitFor(() => {
+      const dropdown = container.querySelector('.ant-table-filter-dropdown');
+
+      expect(dropdown).toHaveAttribute('role', 'presentation');
+      expect(dropdown).not.toHaveAttribute('aria-hidden');
+    });
+  });
+
   it('renders empty menu correctly', () => {
     resetWarned();
 
@@ -2010,7 +2022,7 @@ describe('Table.filter', () => {
     ];
 
     const App: React.FC = () => {
-      const [ddd, setData] = React.useState<Array<DataType>>([
+      const [data, setData] = React.useState<Array<DataType>>([
         {
           key: '1',
           name: 'John Brown',
@@ -2089,7 +2101,7 @@ describe('Table.filter', () => {
           <span className="rest-btn" onClick={handleClick}>
             refresh
           </span>
-          <Table columns={cs} dataSource={ddd} />
+          <Table columns={cs} dataSource={data} />
         </div>
       );
     };

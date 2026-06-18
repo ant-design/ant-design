@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import extendsObject from '../_util/extendsObject';
+import { isFunction, isPlainObject } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -20,11 +22,17 @@ import Item from './Item';
 import useStyle from './style';
 
 export type { ListConsumerProps } from './context';
-export type { ListItemMetaProps, ListItemProps } from './Item';
+export type {
+  ListItemMetaProps,
+  ListItemProps,
+  ListItemSemanticClassNames,
+  ListItemSemanticName,
+  ListItemSemanticStyles,
+} from './Item';
 
 export type ColumnCount = number;
 
-export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type ColumnType = 'gutter' | 'column' | Breakpoint;
 
 export interface ListGridType {
   gutter?: RowProps['gutter'];
@@ -35,6 +43,7 @@ export interface ListGridType {
   lg?: ColumnCount;
   xl?: ColumnCount;
   xxl?: ColumnCount;
+  xxxl?: ColumnCount;
 }
 
 export type ListSize = 'small' | 'default' | 'large';
@@ -93,11 +102,12 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     ...rest
   } = props;
 
-  const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+  const paginationObj = isPlainObject(pagination) ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
     paginationObj.defaultCurrent || 1,
   );
+
   const [paginationSize, setPaginationSize] = React.useState(paginationObj.defaultPageSize || 10);
 
   const {
@@ -134,7 +144,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
 
     let key: any;
 
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       key = rowKey(item);
     } else if (rowKey) {
       key = item[rowKey];
@@ -199,7 +209,9 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     cssVarCls,
   );
 
-  const paginationProps = extendsObject(
+  const containerCls = `${prefixCls}-container`;
+
+  const paginationProps = mergeProps(
     defaultPaginationProps,
     {
       total: dataSource.length,
@@ -235,7 +247,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   }
 
   const needResponsive = Object.keys(grid || {}).some((key) =>
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+    responsiveArray.includes(key as Breakpoint),
   );
   const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
@@ -266,7 +278,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map(renderInternalItem);
     childrenContent = grid ? (
-      <Row gutter={grid.gutter}>
+      <Row className={clsx(containerCls, cssVarCls)} gutter={grid.gutter}>
         {React.Children.map(items, (child) => (
           <div key={child?.key} style={colStyle}>
             {child}
@@ -274,7 +286,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
         ))}
       </Row>
     ) : (
-      <ul className={`${prefixCls}-items`}>{items}</ul>
+      <ul className={clsx(`${prefixCls}-items`, containerCls, cssVarCls)}>{items}</ul>
     );
   } else if (!children && !isLoading) {
     childrenContent = (

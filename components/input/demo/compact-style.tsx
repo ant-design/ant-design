@@ -16,7 +16,7 @@ const options = [
 ];
 
 const App: React.FC = () => (
-  <Space vertical size="middle">
+  <Space vertical size="medium">
     <Space.Compact>
       <Input defaultValue="26888888" />
     </Space.Compact>

@@ -35,6 +35,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/disabled-custom-debug.tsx" debug>禁用自定义输入 Debug</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete 和 Select</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -49,10 +50,13 @@ demo:
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
 | children | 自定义输入框 | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| ~~dataSource~~ | 自动完成的数据源，请使用 `options` 替代 | DataSourceItemType[] | - | - |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
+| ~~dropdownClassName~~ | 下拉菜单的 className 属性，请使用 `classNames.popup.root` 替代 | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | 下拉菜单和输入框是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean \| number | true | - |
 | ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
 | popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
@@ -66,7 +70,7 @@ demo:
 | placeholder | 输入框提示 | string | - |  |
 | showSearch | 搜索配置 | true \| [Object](#showsearch) | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| size | 控件大小 | `large` \| `middle` \| `small` | - |  |
+| size | 控件大小 | `large` \| `medium` \| `small` | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
@@ -84,7 +88,7 @@ demo:
 
 ### showSearch
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |

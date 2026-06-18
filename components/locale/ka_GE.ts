@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ka_GE';
+import Pagination from '@rc-component/pagination/locale/ka_GE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ka_GE';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'გთხოვთ აირჩიოთ',
     close: 'დახურვა',
+    show: 'აჩვენე',
+    hide: 'დამალე',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',

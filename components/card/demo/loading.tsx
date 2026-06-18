@@ -11,11 +11,11 @@ const actions: React.ReactNode[] = [
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   return (
-    <Flex gap="middle" align="start" vertical>
+    <Flex gap="medium" align="start" vertical>
       <Switch checked={!loading} onChange={(checked) => setLoading(!checked)} />
       <Card loading={loading} actions={actions} style={{ minWidth: 300 }}>
         <Card.Meta
-          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
+          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=1" />}
           title="Card title"
           description={
             <>
@@ -27,7 +27,7 @@ const App: React.FC = () => {
       </Card>
       <Card loading={loading} actions={actions} style={{ minWidth: 300 }}>
         <Card.Meta
-          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" />}
+          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=2" />}
           title="Card title"
           description={
             <>

@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import type { PaginationToken } from '.';
@@ -5,11 +6,11 @@ import { prepareComponentToken, prepareToken } from '.';
 import type { GenerateStyle } from '../../theme/interface';
 import { genSubStyleComponent } from '../../theme/internal';
 
-const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
+const genBorderedStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
-    [`${componentCls}${componentCls}-bordered${componentCls}-disabled:not(${componentCls}-mini)`]: {
+    [`${componentCls}${componentCls}-bordered${componentCls}-disabled`]: {
       '&, &:hover': {
         [`${componentCls}-item-link`]: {
           borderColor: token.colorBorder,
@@ -54,7 +55,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
       },
     },
 
-    [`${componentCls}${componentCls}-bordered:not(${componentCls}-mini)`]: {
+    [`${componentCls}${componentCls}-bordered`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
         '&:hover button': {
           borderColor: token.colorPrimaryHover,

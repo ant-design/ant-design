@@ -161,6 +161,20 @@ export interface AliasToken extends MapToken {
    * @descEN Control the outline color of input component in error state.
    */
   colorErrorOutline: string;
+  /**
+   * @nameZH 错误状态下前后缀颜色
+   * @nameEN Error affix color
+   * @desc 控制表单控件前后缀在错误状态下的颜色。
+   * @descEN Control the color of form control prefix/suffix in error state.
+   */
+  colorErrorAffix: string;
+  /**
+   * @nameZH 警告状态下前后缀颜色
+   * @nameEN Warning affix color
+   * @desc 控制表单控件前后缀在警告状态下的颜色。
+   * @descEN Control the color of form control prefix/suffix in warning state.
+   */
+  colorWarningAffix: string;
 
   // Font
   /**
@@ -579,6 +593,27 @@ export interface AliasToken extends MapToken {
    * @descEN Control the minimum width of extra extra large screens.
    */
   screenXXLMin: number;
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超大屏幕最大值
+   * @nameEN Screen width (pixels) - Extra extra large screens maximum value
+   * @desc 控制超超大屏幕的最大宽度。
+   * @descEN Control the maximum width of extra extra large screens.
+   */
+  screenXXLMax: number;
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超超大屏幕
+   * @nameEN Screen width (pixels) - XXXL screens
+   * @desc 控制超超超大屏幕的屏幕宽度。
+   * @descEN Control the screen width of XXXL screens.
+   */
+  screenXXXL: number;
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超超大屏幕最小值
+   * @nameEN Screen width (pixels) - XXXL screens minimum value
+   * @desc 控制超超超大屏幕的最小宽度。
+   * @descEN Control the minimum width of XXXL screens.
+   */
+  screenXXXLMin: number;
 
   /**
    * @deprecated
@@ -591,6 +626,8 @@ export interface AliasToken extends MapToken {
   // FIXME: component box-shadow, should be removed
   /** @internal */
   boxShadowPopoverArrow: string;
+  /** @internal */
+  dropShadowPopover: string;
   /** @internal */
   boxShadowCard: string;
   /** @internal */

@@ -511,6 +511,7 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
+
   describe('When closeIcon is null, there is no close button', () => {
     it('Notification method', async () => {
       act(() => {

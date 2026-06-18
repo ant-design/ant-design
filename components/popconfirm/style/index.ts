@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -16,7 +18,7 @@ export interface ComponentToken {
 export interface PopconfirmToken extends FullToken<'Popconfirm'> {}
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
+const genBaseStyle: GenerateStyle<PopconfirmToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -45,8 +47,11 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         flexWrap: 'nowrap',
         alignItems: 'start',
 
-        [`> ${componentCls}-message-icon ${iconCls}`]: {
+        [`> ${componentCls}-message-icon`]: {
           color: colorWarning,
+        },
+
+        [`> ${componentCls}-message-icon ${iconCls}`]: {
           fontSize,
           lineHeight: 1,
           marginInlineEnd: marginXS,
@@ -88,6 +93,6 @@ export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
   };
 };
 
-export default genStyleHooks('Popconfirm', (token) => genBaseStyle(token), prepareComponentToken, {
+export default genStyleHooks('Popconfirm', genBaseStyle, prepareComponentToken, {
   resetStyle: false,
 });

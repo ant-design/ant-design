@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -128,7 +128,7 @@ describe('Tour', () => {
   it('button props onClick', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
-      const [btnName, steBtnName] = React.useState<string>('defaultBtn');
+      const [btnName, setBtnName] = React.useState<string>('defaultBtn');
       return (
         <>
           <span id="btnName">{btnName}</span>
@@ -143,17 +143,17 @@ describe('Tour', () => {
                 description: '',
                 target: () => coverBtnRef.current!,
                 nextButtonProps: {
-                  onClick: () => steBtnName('nextButton'),
+                  onClick: () => setBtnName('nextButton'),
                 },
               },
               {
                 title: '',
                 target: () => coverBtnRef.current!,
                 prevButtonProps: {
-                  onClick: () => steBtnName('prevButton'),
+                  onClick: () => setBtnName('prevButton'),
                 },
                 nextButtonProps: {
-                  onClick: () => steBtnName('finishButton'),
+                  onClick: () => setBtnName('finishButton'),
                 },
               },
             ]}

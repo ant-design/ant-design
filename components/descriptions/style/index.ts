@@ -62,7 +62,7 @@ export interface ComponentToken {
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {}
 
-const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
+const genBorderedStyle: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
   const { componentCls, labelBg } = token;
   return {
     [`&${componentCls}-bordered`]: {
@@ -100,7 +100,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
           },
         },
       },
-      [`&${componentCls}-middle`]: {
+      [`&${componentCls}-medium`]: {
         [`${componentCls}-row`]: {
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
             padding: `${unit(token.paddingSM)} ${unit(token.paddingLG)}`,
@@ -118,7 +118,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   };
 };
 
-const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
+const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
   const {
     componentCls,
     extraColor,
@@ -154,7 +154,13 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
-        width: '100%',
+        // Use `min-width: 100%` together with `width: 0` instead of
+        // `width: 100%` so the view still fills its container in normal layout,
+        // but won't contribute an extreme intrinsic width when nested inside a
+        // `max-content` sized ancestor (e.g. Table with
+        // `scroll={{ x: 'max-content' }}`). See #54268.
+        width: 0,
+        minWidth: '100%',
         borderRadius: token.borderRadiusLG,
         table: {
           width: '100%',
@@ -226,7 +232,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           },
         },
       },
-      '&-middle': {
+      '&-medium': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             paddingBottom: token.paddingSM,

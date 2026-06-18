@@ -3,15 +3,18 @@ import RCTour from '@rc-component/tour';
 import type { TourProps as RcTourProps } from '@rc-component/tour';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import getPlacements from '../_util/placements';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type { TourClassNamesType, TourProps, TourStylesType } from './interface';
+import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
+
+export type { TourProps, TourStepProps };
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -24,6 +27,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
+    keyboard = true,
     classNames,
     styles,
     className,
@@ -62,13 +66,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     steps: mergedSteps,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TourClassNamesType,
-    TourStylesType,
-    TourProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
     getPlacements({
@@ -115,12 +119,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
   return (
-    <zIndexContext.Provider value={contextZIndex}>
+    <ZIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
         styles={semanticStyles}
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
+        keyboard={keyboard}
         zIndex={zIndex}
         rootClassName={mergedRootClassName}
         prefixCls={prefixCls}
@@ -129,7 +134,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         builtinPlacements={builtinPlacements}
         steps={mergedSteps}
       />
-    </zIndexContext.Provider>
+    </ZIndexContext.Provider>
   );
 };
 

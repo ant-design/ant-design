@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/cs_CZ';
+import Pagination from '@rc-component/pagination/locale/cs_CZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/cs_CZ';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Prosím vyber',
     close: 'Zavřít',
+    show: 'Zobrazit',
+    hide: 'Skrýt',
   },
   Table: {
     filterTitle: 'Filtr',

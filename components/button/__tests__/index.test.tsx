@@ -3,14 +3,14 @@ import { SearchOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
-import type { GetRef } from '../../_util/type';
+import type { GetProp, GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
-import type { BaseButtonProps } from '../Button';
+import type { BaseButtonProps, ButtonProps } from '../Button';
 
 const { resetWarned } = warning;
 
@@ -21,7 +21,7 @@ describe('Button', () => {
   mountTest(Button.Group);
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
-  mountTest(() => <Button.Group size="middle" />);
+  mountTest(() => <Button.Group size="medium" />);
 
   rtlTest(Button);
   rtlTest(() => <Button size="large" />);
@@ -29,7 +29,7 @@ describe('Button', () => {
   rtlTest(Button.Group);
   rtlTest(() => <Button.Group size="large" />);
   rtlTest(() => <Button.Group size="small" />);
-  rtlTest(() => <Button.Group size="middle" />);
+  rtlTest(() => <Button.Group size="medium" />);
 
   it('renders correctly', () => {
     const { container } = render(<Button>Follow</Button>);
@@ -113,6 +113,23 @@ describe('Button', () => {
       </Button>,
     );
     expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/56591
+  it('should preserve className when rendering two Chinese characters in child element', () => {
+    const { container } = render(
+      <Button>
+        <span className="custom-class" style={{ color: 'rgb(255, 0, 0)' }}>
+          按钮
+        </span>
+      </Button>,
+    );
+
+    const span = container.querySelector('span.custom-class');
+    expect(span).toBeTruthy();
+    expect(span).toHaveClass('custom-class');
+    expect(span).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(span).toHaveTextContent('按 钮');
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
@@ -521,18 +538,18 @@ describe('Button', () => {
   });
 
   it('should support classnames and styles', () => {
-    const cusomStyles = {
+    const customStyles: Required<GetProp<ButtonProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { background: 'blue' },
       content: { fontSize: '20px' },
     };
-    const customClassNames = {
+    const customClassNames: Required<GetProp<ButtonProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
     };
     const { container, rerender, getByText } = render(
-      <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
+      <Button classNames={customClassNames} styles={customStyles} icon={<SearchOutlined />}>
         antd
       </Button>,
     );
@@ -541,17 +558,17 @@ describe('Button', () => {
     const content = getByText('antd');
     expect(root).toHaveClass(customClassNames.root);
     expect(icon).toHaveClass(customClassNames.icon);
-    expect(root).toHaveStyle(cusomStyles.root);
-    expect(icon).toHaveStyle(cusomStyles.icon);
-    expect(content).toHaveStyle(cusomStyles.content);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(icon).toHaveStyle(customStyles.icon);
+    expect(content).toHaveStyle(customStyles.content);
     rerender(
-      <Button classNames={customClassNames} styles={cusomStyles} loading>
+      <Button classNames={customClassNames} styles={customStyles} loading>
         antd
       </Button>,
     );
     const loadingIcon = container.querySelector('.ant-btn-icon');
     expect(loadingIcon).toHaveClass(customClassNames.icon);
-    expect(loadingIcon).toHaveStyle(cusomStyles.icon);
+    expect(loadingIcon).toHaveStyle(customStyles.icon);
   });
 
   it('should support customizing the background color of default type button in disabled state', () => {
@@ -611,6 +628,24 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-color-blue');
   });
 
+  it('button variant should provide default color', () => {
+    const { container } = render(<Button variant="solid">Button</Button>);
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-solid');
+    expect(container.firstChild).toHaveClass('ant-btn-color-primary');
+  });
+
+  it('ConfigProvider button variant should provide default color', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'solid' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-solid');
+    expect(container.firstChild).toHaveClass('ant-btn-color-primary');
+  });
+
   it('ConfigProvider support button shape', () => {
     const { container } = render(
       <ConfigProvider button={{ shape: 'round' }}>
@@ -644,6 +679,26 @@ describe('Button', () => {
 
     expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
+
+  it('support ConfigProvider loadingIcon', () => {
+    const { container } = render(
+      <ConfigProvider button={{ loadingIcon: 'foobar' }}>
+        <Button loading>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-icon')).toHaveTextContent('foobar');
+  });
+
+  it('prefer loading.icon prop over ConfigProvider loadingIcon', () => {
+    const { container } = render(
+      <ConfigProvider button={{ loadingIcon: 'foobar' }}>
+        <Button loading={{ icon: 'bamboo' }}>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-icon')).toHaveTextContent('bamboo');
   });
 
   describe('Button icon placement', () => {

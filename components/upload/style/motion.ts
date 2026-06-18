@@ -29,6 +29,7 @@ const genMotionStyle: GenerateStyle<UploadToken> = (token) => {
   });
 
   const inlineCls = `${componentCls}-animate-inline`;
+
   return [
     {
       [`${componentCls}-wrapper`]: {

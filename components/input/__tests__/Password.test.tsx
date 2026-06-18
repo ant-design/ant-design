@@ -1,4 +1,5 @@
 import React from 'react';
+import { LockOutlined } from '@ant-design/icons';
 
 import type { InputRef } from '..';
 import Input from '..';
@@ -6,8 +7,8 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Password from '../Password';
-import { LockOutlined } from '@ant-design/icons';
 
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
@@ -56,18 +57,31 @@ describe('Input.Password', () => {
     expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
   });
 
+  it('should toggle visibility on keyboard actions', () => {
+    const { container, getByDisplayValue } = render(<Input.Password />);
+    expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
+    fireEvent.keyDown(container.querySelector('.ant-input-password-icon')!, {
+      key: 'Enter',
+      keyCode: 13,
+    });
+    expect(container.querySelectorAll('.anticon-eye').length).toBe(1);
+    expect(getByDisplayValue('111')).toBeInTheDocument();
+  });
+
   it('should keep focus state', () => {
     const { container, unmount } = render(<Input.Password defaultValue="111" autoFocus />, {
       container: document.body,
     });
-    expect(document.activeElement).toBe(container.querySelector('input'));
-    (document?.activeElement as any)?.setSelectionRange(2, 2);
-    expect((document?.activeElement as any)?.selectionStart).toBe(2);
+    const input = container.querySelector('input')!;
+    expect(document.activeElement).toBe(input);
+    input.setSelectionRange(2, 2);
+    expect(input.selectionStart).toBe(2);
     fireEvent.mouseDown(container.querySelector('.ant-input-password-icon')!);
     fireEvent.mouseUp(container.querySelector('.ant-input-password-icon')!);
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
-    expect(document.activeElement).toBe(container.querySelector('input'));
-    expect((document?.activeElement as any).selectionStart).toBe(2);
+    expect(document.activeElement).toBe(input);
+    expect(input.selectionStart).toBe(2);
     unmount();
   });
 
@@ -165,5 +179,37 @@ describe('Input.Password', () => {
       <Input.Password suffix={<div className="custom-icon">custom icon</div>} />,
     );
     expect(container.querySelector('.custom-icon')).toBeTruthy();
+  });
+
+  describe('iconRender', () => {
+    it('should support iconRender prop', () => {
+      const { container } = render(
+        <Input.Password iconRender={() => <div className="custom-icon">custom</div>} />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeTruthy();
+    });
+
+    it('should support iconRender prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          inputPassword={{ iconRender: () => <div className="config-icon">config</div> }}
+        >
+          <Input.Password />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.config-icon')).toBeTruthy();
+    });
+
+    it('should prefer iconRender prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          inputPassword={{ iconRender: () => <div className="config-icon">config</div> }}
+        >
+          <Input.Password iconRender={() => <div className="custom-icon">custom</div>} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-icon')).toBeTruthy();
+      expect(container.querySelector('.config-icon')).toBeFalsy();
+    });
   });
 });

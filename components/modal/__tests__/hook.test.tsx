@@ -1,5 +1,4 @@
 import React from 'react';
-import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -187,6 +186,46 @@ describe('Modal.hook', () => {
     expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+    expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
+  });
+
+  it('hooks modal should trigger onCancel with mask.closable', () => {
+    let cancelCount = 0;
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = React.useCallback(() => {
+        modal.info({
+          okType: 'default',
+          mask: { closable: true },
+          okCancel: true,
+          onCancel: () => {
+            cancelCount += 1;
+          },
+          content: 'Hello!',
+        });
+      }, [modal]);
+
+      return (
+        <ConfigWarp>
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </ConfigWarp>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn')[0]);
+    expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
+
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
   });
@@ -323,6 +362,7 @@ describe('Modal.hook', () => {
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Click mask to close
+    fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
 
     await waitFakeTimer();
@@ -336,7 +376,7 @@ describe('Modal.hook', () => {
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Press ESC to turn off
     fireEvent.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
 
     await waitFakeTimer();
@@ -557,8 +597,7 @@ describe('Modal.hook', () => {
 
     // ESC to close
     fireEvent.keyDown(document.querySelector('.ant-modal')!, {
-      key: 'Esc',
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
     await waitFakeTimer();
 

@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/vi_VN';
+import Pagination from '@rc-component/pagination/locale/vi_VN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/vi_VN';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vui lòng chọn',
     close: 'Đóng',
+    show: 'Hiển thị',
+    hide: 'Ẩn',
   },
   Table: {
     filterTitle: 'Bộ lọc',

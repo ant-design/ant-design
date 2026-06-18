@@ -1,9 +1,10 @@
 import * as React from 'react';
 import type { FormInstance as RcFormInstance } from '@rc-component/form';
 import { useForm as useRcForm } from '@rc-component/form';
-import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
+import { getDOM } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
+import { isFunction } from '../../_util/is';
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
 import { getFieldId, toArray } from '../util';
 
@@ -76,8 +77,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
         },
         focusField: (name: NamePath) => {
           const itemRef = wrapForm.getFieldInstance(name);
-
-          if (typeof itemRef?.focus === 'function') {
+          if (isFunction(itemRef?.focus)) {
             itemRef.focus();
           } else {
             getFieldDOMNode(name, wrapForm)?.focus?.();

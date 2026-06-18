@@ -1,20 +1,14 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import omit from '@rc-component/util/lib/omit';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import fallbackProp from '../_util/fallbackProp';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
-import type { ButtonSemanticName } from '../button/Button';
+import type { ButtonSemanticType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -22,15 +16,28 @@ import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 import useStyle from './style/search';
 
-type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
-
-export type InputSearchClassNamesType = SemanticClassNamesType<SearchProps, SemanticName> & {
-  button?: SemanticClassNames<ButtonSemanticName>;
+export type InputSearchSemanticType = {
+  classNames?: {
+    root?: string;
+    input?: string;
+    prefix?: string;
+    suffix?: string;
+    clear?: string;
+    count?: string;
+    button?: ButtonSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    input?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    count?: React.CSSProperties;
+    button?: ButtonSemanticType['styles'];
+  };
 };
 
-export type InputSearchStylesType = SemanticStylesType<SearchProps, SemanticName> & {
-  button?: SemanticStyles<ButtonSemanticName>;
-};
+export type InputSearchSemanticAllType = GenerateSemantic<InputSearchSemanticType, SearchProps>;
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -44,11 +51,12 @@ export interface SearchProps extends InputProps {
       source?: 'clear' | 'input';
     },
   ) => void;
+  searchIcon?: React.ReactNode;
   enterButton?: React.ReactNode;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  classNames?: InputSearchClassNamesType;
-  styles?: InputSearchStylesType;
+  classNames?: InputSearchSemanticAllType['classNamesAndFn'];
+  styles?: InputSearchSemanticAllType['stylesAndFn'];
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -59,6 +67,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     size: customizeSize,
     style,
     enterButton = false,
+    searchIcon: customizeSearchIcon,
     addonAfter,
     loading,
     disabled,
@@ -79,6 +88,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     getPrefixCls,
     classNames: contextClassNames,
     styles: contextStyles,
+    searchIcon: contextSearchIcon,
   } = useComponentConfig('inputSearch');
 
   const mergedProps: SearchProps = {
@@ -86,11 +96,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     enterButton,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputSearchClassNamesType,
-    InputSearchStylesType,
-    SearchProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     { props: mergedProps },
@@ -143,7 +149,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onSearch(e);
   };
 
-  const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
+  const searchIcon =
+    typeof enterButton === 'boolean'
+      ? fallbackProp(customizeSearchIcon, contextSearchIcon, <SearchOutlined />)
+      : null;
   const btnPrefixCls = `${prefixCls}-btn`;
   const btnClassName = clsx(btnPrefixCls, {
     [`${btnPrefixCls}-${variant}`]: variant,
@@ -242,7 +251,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       onChange,
       disabled,
     },
-    Object.keys(rootProps) as any[],
+    Object.keys(rootProps) as Array<keyof typeof rootProps>,
   );
 
   return (

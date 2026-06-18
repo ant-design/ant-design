@@ -80,10 +80,14 @@ const groupItem: MenuItem[] = [
 
 type ModeType = 'horizontal' | 'vertical' | 'inline';
 
-const Block: React.FC<
-  MenuProps & { item: MenuItem[]; setMode: React.Dispatch<React.SetStateAction<ModeType>> }
-> = (props) => {
-  const { mode, setMode, item } = props;
+interface ExternalProps {
+  item: MenuItem[];
+  setMode: React.Dispatch<React.SetStateAction<ModeType>>;
+}
+
+const Block: React.FC<MenuProps & ExternalProps> = (props) => {
+  const { mode, setMode, item, ...restProps } = props;
+
   const divRef = React.useRef<HTMLDivElement>(null);
   const [current, setCurrent] = React.useState('mail');
 
@@ -93,7 +97,7 @@ const Block: React.FC<
   };
 
   return (
-    <Flex vertical gap="middle" ref={divRef} align="center">
+    <Flex vertical gap="medium" ref={divRef} align="center">
       <Segmented<ModeType> options={['horizontal', 'vertical', 'inline']} onChange={setMode} />
       <div style={{ height: 360 }}>
         <Menu
@@ -111,7 +115,7 @@ const Block: React.FC<
               },
             },
           }}
-          {...props}
+          {...restProps}
           openKeys={['SubMenu']}
           getPopupContainer={() => divRef.current!}
         />

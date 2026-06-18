@@ -26,6 +26,7 @@ demo:
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/debug-line.tsx" debug>Same line</code>
 <code src="./demo/debug-disable-popover.tsx" debug>Disabled to show Tooltip</code>
+<code src="./demo/debug-group-width.tsx" debug>Group same width</code>
 <code src="./demo/custom-line-width.tsx" debug>customize lineWidth</code>
 
 ## API
@@ -34,17 +35,17 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Checkbox
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| checked | Specifies whether the checkbox is selected | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
-| disabled | If disable checkbox | boolean | false |  |
-| indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  |
-| onBlur | Called when leaving the component | function() | - |  |
-| onFocus | Called when entering the component | function() | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | Specifies whether the checkbox is selected | boolean | false |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  | × |
+| disabled | If disable checkbox | boolean | false |  | × |
+| indeterminate | The indeterminate checked state of checkbox | boolean | false |  | × |
+| onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  | × |
+| onBlur | Called when leaving the component | function() | - |  | × |
+| onFocus | Called when entering the component | function() | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
 #### Checkbox.Group
 

@@ -415,7 +415,7 @@ exports[`renders components/card/demo/component-token.tsx extend context correct
 
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable css-var-test-id"
+  class="ant-card ant-card-hoverable css-var-test-id"
   style="width: 240px;"
 >
   <div
@@ -704,7 +704,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <button
     aria-checked="false"
@@ -970,7 +970,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
-            src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+            src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
           />
         </span>
       </div>
@@ -1074,6 +1074,46 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
 
 exports[`renders components/card/demo/meta.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/card/demo/no-body-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered css-var-test-id"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-cover"
+  >
+    <img
+      alt="example"
+      src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
+    />
+  </div>
+  <ul
+    class="ant-card-actions"
+  >
+    <li
+      style="width: 50%;"
+    >
+      <span>
+        <span>
+          setting
+        </span>
+      </span>
+    </li>
+    <li
+      style="width: 50%;"
+    >
+      <span>
+        <span>
+          edit
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders components/card/demo/no-body-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered css-var-test-id"
@@ -1099,7 +1139,7 @@ exports[`renders components/card/demo/simple.tsx extend context correctly 2`] = 
 
 exports[`renders components/card/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
     class="ant-card css-var-test-id acss-1ri7sgv"
@@ -1144,7 +1184,7 @@ exports[`renders components/card/demo/style-class.tsx extend context correctly 1
             class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
           >
             <img
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
             />
           </span>
         </div>
@@ -1292,7 +1332,7 @@ exports[`renders components/card/demo/style-class.tsx extend context correctly 1
             class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
           >
             <img
-              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
             />
           </span>
         </div>
@@ -1569,7 +1609,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs css-var-test-id ant-tabs-css-var"
+        class="ant-tabs ant-tabs-top ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"

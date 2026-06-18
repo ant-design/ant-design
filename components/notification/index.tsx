@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { render } from '@rc-component/util/lib/React/render';
+import { render } from '@rc-component/util';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import PureList from './PureList';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
@@ -19,15 +20,7 @@ interface GlobalNotification {
   sync?: VoidFunction;
 }
 
-type Task =
-  | {
-      type: 'open';
-      config: ArgsProps;
-    }
-  | {
-      type: 'destroy';
-      key?: React.Key;
-    };
+type Task = { type: 'open'; config: ArgsProps } | { type: 'destroy'; key?: React.Key };
 
 let taskQueue: Task[] = [];
 
@@ -215,6 +208,8 @@ interface BaseMethods {
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList;
 }
 
 type StaticFn = (config: ArgsProps) => void;
@@ -234,6 +229,7 @@ const baseStaticMethods: BaseMethods = {
   config: setNotificationGlobalConfig,
   useNotification,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 };
 
 const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
@@ -247,7 +243,7 @@ methods.forEach((type: keyof NoticeMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-let _actWrapper: (wrapper: any) => void = noop;
+let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
     act = wrapper;

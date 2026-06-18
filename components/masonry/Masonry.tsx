@@ -2,13 +2,12 @@ import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
 import ResizeObserver from '@rc-component/resize-observer';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import isEqual from '@rc-component/util/lib/isEqual';
-import { composeRef } from '@rc-component/util/lib/ref';
+import { composeRef, isEqual, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -16,6 +15,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import useDelay from './hooks/useDelay';
 import usePositions from './hooks/usePositions';
 import type { ItemHeightData } from './hooks/usePositions';
@@ -25,12 +25,21 @@ import type { MasonryItemType } from './MasonryItem';
 import useStyle from './style';
 
 export type Gap = number | undefined;
+
 export type Key = string | number;
 
-export type SemanticName = 'root' | 'item';
+export type MasonrySemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
+};
 
-export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, SemanticName>;
-export type MasonryStylesType = SemanticStylesType<MasonryProps, SemanticName>;
+export type MasonrySemanticAllType = GenerateSemantic<MasonrySemanticType, MasonryProps>;
 
 export interface MasonryProps<ItemDataType = any> {
   // Style
@@ -39,8 +48,8 @@ export interface MasonryProps<ItemDataType = any> {
   rootClassName?: string;
   style?: CSSProperties;
 
-  classNames?: MasonryClassNamesType;
-  styles?: MasonryStylesType;
+  classNames?: MasonrySemanticAllType['classNamesAndFn'];
+  styles?: MasonrySemanticAllType['stylesAndFn'];
 
   /** Spacing between items */
   gutter?: RowProps['gutter'];
@@ -92,8 +101,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   } = useComponentConfig('masonry');
 
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [varName, varRef] = genCssVar(rootPrefixCls, 'masonry');
 
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -122,7 +134,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
       return 3;
     }
 
-    if (typeof columns === 'number') {
+    if (isNumber(columns)) {
       return columns;
     }
 
@@ -144,13 +156,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     columns: columnCount,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    MasonryClassNamesType,
-    MasonryStylesType,
-    MasonryProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
@@ -231,12 +243,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{
-          height: totalHeight,
-          ...mergedStyles.root,
-          ...contextStyle,
-          ...style,
-        }}
+        style={{ height: totalHeight, ...mergedStyles.root, ...contextStyle, ...style }}
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}
@@ -263,9 +270,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             const { column: columnIndex = 0 } = position;
 
             const itemStyle: CSSProperties = {
-              '--item-width': `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(var(--item-width) * ${columnIndex})`,
-              width: `calc(var(--item-width) - ${horizontalGutter}px)`,
+              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
+              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
+              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
               top: position.top,
               position: 'absolute',
             };

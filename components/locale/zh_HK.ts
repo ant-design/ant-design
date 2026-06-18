@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/zh_TW';
+import Pagination from '@rc-component/pagination/locale/zh_TW';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_TW';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '請選擇',
     close: '關閉',
+    show: '顯示',
+    hide: '隱藏',
   },
   Table: {
     filterTitle: '篩選器',

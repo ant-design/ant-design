@@ -1,8 +1,8 @@
 import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { Affix, BorderBeam, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
+import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -12,7 +12,7 @@ import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   componentsOverviewGroupTitle: css`
     margin-bottom: ${cssVar.marginLG} !important;
   `,
@@ -78,7 +78,6 @@ const reportSearch = debounce<(value: string) => void>((value) => {
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
-  const { styles } = useStyle();
   const { isDark } = React.use(SiteContext);
 
   const data = useSidebarData();
@@ -195,11 +194,20 @@ const Overview: React.FC = () => {
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
                     let url = component.link;
+                    let src = component.cover;
+
                     /** 是否是外链 */
                     const isExternalLink = url.startsWith('http');
 
+                    /** BorderBeam 组件需要特殊处理 */
+                    const isBorderBeam = component.title === 'BorderBeam';
+
                     if (!isExternalLink) {
                       url += urlSearch;
+                    }
+
+                    if (isDark && component.coverDark) {
+                      src = component.coverDark;
                     }
 
                     const cardContent = (
@@ -210,7 +218,9 @@ const Overview: React.FC = () => {
                           body: {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'bottom right',
-                            backgroundImage: `url(${component.tag || ''})`,
+                            backgroundSize: '32px 32px',
+                            backgroundImage: component.tag ? `url(${component.tag})` : undefined,
+                            backgroundColor: 'transparent',
                           },
                         }}
                         size="small"
@@ -222,24 +232,30 @@ const Overview: React.FC = () => {
                         }
                       >
                         <div className={styles.componentsOverviewImg}>
-                          <img
-                            draggable={false}
-                            src={
-                              isDark && component.coverDark ? component.coverDark : component.cover
-                            }
-                            alt={component.title}
-                          />
+                          {src && (
+                            <img
+                              src={src}
+                              alt={component.title}
+                              title={component.title}
+                              draggable={false}
+                            />
+                          )}
                         </div>
                       </Card>
                     );
 
                     const linkContent = isExternalLink ? (
-                      <a href={url} key={component.title}>
-                        {cardContent}
+                      <a
+                        href={url}
+                        key={`${component.title}-external-link`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
                       </a>
                     ) : (
-                      <Link to={url} key={component.title}>
-                        {cardContent}
+                      <Link to={url} key={`${component.title}-internal-link`}>
+                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
                       </Link>
                     );
 

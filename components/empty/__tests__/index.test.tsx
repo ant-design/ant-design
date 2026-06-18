@@ -33,7 +33,7 @@ describe('Empty', () => {
   });
 
   it('dark mode compatible', () => {
-    const { container } = render(
+    const { asFragment } = render(
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
@@ -43,9 +43,97 @@ describe('Empty', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('svg')).toHaveStyle({
-      opacity: 0.65,
-    });
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment().firstChild).not.toHaveStyle({ opacity: 0.65 });
+  });
+
+  it('CSS variables compatible', () => {
+    const { container, rerender } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorFillSecondary: 'var(--test-color)' as any,
+          },
+        }}
+      >
+        <Empty />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('ellipse')?.getAttribute('fill')).toBe('var(--test-color)');
+
+    // background is a CSS variable
+    rerender(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgContainer: 'var(--bg-color)' as any,
+            colorFillSecondary: '#f0f0f0',
+          },
+        }}
+      >
+        <Empty />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('ellipse')?.getAttribute('fill')).toBe('#f0f0f0');
+  });
+
+  it('PRESENTED_IMAGE_SIMPLE CSS variables compatible', () => {
+    const { container, rerender } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorFillTertiary: 'var(--test-color)' as any,
+          },
+        }}
+      >
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('ellipse')?.getAttribute('fill')).toBe('var(--test-color)');
+
+    // background is a CSS variable
+    rerender(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgContainer: 'var(--bg-color)' as any,
+            colorFill: '#f0f0f0',
+          },
+        }}
+      >
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('g[stroke]')?.getAttribute('stroke')).toBe('#f0f0f0');
+  });
+
+  it('PRESENTED_IMAGE_SIMPLE should render default description when locale description is empty', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ locale: 'en', Empty: { description: '' } } as any}>
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('title')?.textContent).toBe('Empty');
+  });
+
+  it('PRESENTED_IMAGE_SIMPLE should render default description when locale is missing', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ Empty: { description: undefined } } as any}>
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('title')?.textContent).toBe('Empty');
+  });
+
+  it('Default image should render default description when locale description is empty', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ locale: 'en', Empty: { description: '' } } as any}>
+        <Empty />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('title')?.textContent).toBe('Empty');
   });
 
   it('should apply custom styles to Empty', () => {

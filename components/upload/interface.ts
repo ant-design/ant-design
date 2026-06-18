@@ -4,14 +4,9 @@ import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
-} from '@rc-component/upload/lib/interface';
+} from '@rc-component/upload';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -90,12 +85,25 @@ export type ItemRender<T = any> = (
 ) => React.ReactNode;
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export type SemanticName = 'root' | 'list' | 'item';
+export type UploadSemanticType = {
+  classNames?: {
+    root?: string;
+    list?: string;
+    item?: string;
+    trigger?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    trigger?: React.CSSProperties;
+  };
+};
 
-export type UploadClassNamesType<T = any> = SemanticClassNamesType<UploadProps<T>, SemanticName>;
-export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, SemanticName>;
+export type UploadSemanticAllType<T = any> = GenerateSemantic<UploadSemanticType, UploadProps<T>>;
 
 export interface UploadProps<T = any>
   extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
@@ -121,8 +129,8 @@ export interface UploadProps<T = any>
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
-  classNames?: UploadClassNamesType<T>;
-  styles?: UploadStylesType<T>;
+  classNames?: UploadSemanticAllType<T>['classNamesAndFn'];
+  styles?: UploadSemanticAllType<T>['stylesAndFn'];
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
@@ -160,8 +168,8 @@ export interface UploadState<T = any> {
 }
 
 export interface UploadListProps<T = any> {
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: UploadSemanticAllType['classNames'];
+  styles?: UploadSemanticAllType['styles'];
   listType?: UploadListType;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;

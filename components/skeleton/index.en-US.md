@@ -36,14 +36,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Skeleton
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| active | Show animation effect | boolean | false |  |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |  |
-| loading | Display the skeleton when true | boolean | - |  |
-| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |  |
-| round | Show paragraph and title radius when true | boolean | false |  |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| active | Show animation effect | boolean | false |  | × |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatar](#skeletonavatar) | false |  | × |
+| loading | Display the skeleton when true | boolean | - |  | × |
+| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |  | × |
+| round | Show paragraph and title radius when true | boolean | false |  | × |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |  | × |
 
 #### SkeletonTitleProps
 
@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- |
 | active | Show animation effect, only valid when used avatar independently | boolean | false |
 | shape | Set the shape of avatar | `circle` \| `square` | `circle` |
-| size | Set the size of avatar | number \| `large` \| `small` \| `default` | `default` |
+| size | Set the size of avatar | number \| `large` \| `medium` \| `small` | `medium` |
 
 ### Skeleton.Button
 
@@ -73,14 +73,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | active | Show animation effect | boolean | false |  |
 | block | Option to fit button width to its parent width | boolean | false | 4.17.0 |
 | shape | Set the shape of button | `circle` \| `round` \| `square` \| `default` | - |  |
-| size | Set the size of button | `large` \| `small` \| `default` | - |  |
+| size | Set the size of button | `large` \| `medium` \| `small` | `medium` |  |
 
 ### Skeleton.Input
 
-| Property | Description           | Type                            | Default |
-| -------- | --------------------- | ------------------------------- | ------- |
-| active   | Show animation effect | boolean                         | false   |
-| size     | Set the size of input | `large` \| `small` \| `default` | -       |
+| Property | Description           | Type                           | Default  |
+| -------- | --------------------- | ------------------------------ | -------- |
+| active   | Show animation effect | boolean                        | false    |
+| size     | Set the size of input | `large` \| `medium` \| `small` | `medium` |
 
 ## Semantic DOM
 

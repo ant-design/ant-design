@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genPlaceholderStyle, initInputToken } from '../../input/style';
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import {
   initMoveMotion,
@@ -15,6 +15,7 @@ import {
 import { genRoundedArrow } from '../../style/roundedArrow';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genPickerMultipleStyle from './multiple';
 import genPickerPanelStyle, { genPanelStyle } from './panel';
 import type { ComponentToken, PanelComponentToken, PickerPanelToken, PickerToken } from './token';
@@ -30,18 +31,21 @@ const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObjec
   };
 };
 
-const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls, colorError, colorWarning } = token;
+  const [varName] = genCssVar(token.antCls, 'date-picker');
 
   return {
     [`${componentCls}:not(${componentCls}-disabled):not([disabled])`]: {
       [`&${componentCls}-status-error`]: {
+        [varName('affix-color')]: token.colorErrorAffix,
         [`${componentCls}-active-bar`]: {
           background: colorError,
         },
       },
 
       [`&${componentCls}-status-warning`]: {
+        [varName('affix-color')]: token.colorWarningAffix,
         [`${componentCls}-active-bar`]: {
           background: colorWarning,
         },
@@ -91,9 +95,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     lineHeightLG,
   } = token;
 
+  const [varName, varRef] = genCssVar(antCls, 'date-picker');
+
   return [
     {
       [componentCls]: {
+        [varName('affix-color')]: 'inherit',
         ...resetComponent(token),
         ...genPickerPadding(token.paddingBlock, token.paddingInline),
         position: 'relative',
@@ -101,9 +108,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         alignItems: 'center',
         lineHeight: 1,
         borderRadius,
-        transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
+        transition: [`border`, `box-shadow`, `background-color`]
+          .map((prop) => `${prop} ${motionDurationMid}`)
+          .join(', '),
 
         [`${componentCls}-prefix`]: {
+          color: varRef('affix-color'),
           flex: '0 0 auto',
           marginInlineEnd: token.inputAffixPadding,
         },
@@ -180,7 +190,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextQuaternary,
           lineHeight: 1,
           pointerEvents: 'none',
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -200,7 +210,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          pointerEvents: 'none',
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -209,11 +220,18 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           '&:hover': {
             color: colorIcon,
           },
+
+          '&:focus-visible': {
+            color: token.colorIcon,
+            borderRadius: token.borderRadiusSM,
+            ...genFocusOutline(token),
+          },
         },
 
-        '&:hover': {
+        '&:hover, &:focus-within': {
           [`${componentCls}-clear`]: {
             opacity: 1,
+            pointerEvents: 'auto',
           },
           // Should use the following selector, but since `:has` has poor compatibility,
           // we use `:not(:last-child)` instead, which may cause some problems in some cases.

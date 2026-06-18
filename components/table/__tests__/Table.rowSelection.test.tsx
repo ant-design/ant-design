@@ -1104,7 +1104,7 @@ describe('Table.rowSelection', () => {
   it('select by checkbox to trigger stopPropagation', () => {
     const { container } = render(createTable());
     expect(() => {
-      fireEvent.click(container.querySelectorAll('span')[10]);
+      fireEvent.click(container.querySelectorAll('.ant-checkbox')[4]);
     }).not.toThrow();
   });
 
@@ -1831,6 +1831,37 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: undefined }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
+    });
+
+    it('works with preserveSelectedRowKeys after receive selectedRowKeys from [] to undefined', () => {
+      const onChange = jest.fn();
+      const dataSource = [{ name: 'Jack' }];
+      const { container, rerender } = render(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: ['Jack'] }}
+          rowKey="name"
+        />,
+      );
+
+      rerender(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: [] }}
+          rowKey="name"
+        />,
+      );
+
+      rerender(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true }}
           rowKey="name"
         />,
       );

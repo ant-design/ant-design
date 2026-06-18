@@ -6,17 +6,20 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isFunction } from '../_util/is';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
 
-const dimensionMaxMap = {
+const dimensionMaxMap: Record<Breakpoint, string> = {
   xs: '479.98px',
   sm: '575.98px',
   md: '767.98px',
   lg: '991.98px',
   xl: '1199.98px',
   xxl: '1599.98px',
+  xxxl: `1839.98px`,
 };
 
 const isNumeric = (val: any) =>
@@ -43,7 +46,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  breakpoint?: Breakpoint;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
 }
@@ -124,13 +127,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     let mql: MediaQueryList;
     if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
       mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
-      if (typeof mql?.addEventListener === 'function') {
+      if (isFunction(mql?.addEventListener)) {
         mql.addEventListener('change', responsiveHandler);
       }
       responsiveHandler(mql);
     }
     return () => {
-      if (typeof mql?.removeEventListener === 'function') {
+      if (isFunction(mql?.removeEventListener)) {
         mql.removeEventListener('change', responsiveHandler);
       }
     };

@@ -12,6 +12,13 @@ updates:
       time: "05:00"
       timezone: Asia/Shanghai
     groups:
+      jest-dependencies:
+        patterns:
+          - jest
+          - "jest-*"
+          - "@types/jest*"
+          - "@testing-library/jest-dom"
+          - eslint-plugin-jest
       dependencies:
         dependency-type: production
         update-types: [major, minor]
@@ -28,7 +35,12 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     labels:
       - github-actions
       - dependencies
@@ -37,3 +49,4 @@ updates:
       # `actions/upload-artifact` modify the upload logic
       # which can not correct download by `dawidd6/action-download-artifact`
       - dependency-name: actions/upload-artifact
+      - dependency-name: dawidd6/action-download-artifact

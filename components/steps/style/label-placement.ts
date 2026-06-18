@@ -2,37 +2,51 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import { getItemWithWidthStyle } from './util';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, descriptionMaxWidth, marginXS, fontHeightLG, calc } = token;
+  const {
+    componentCls,
+    descriptionMaxWidth,
+    marginXS,
+    fontHeightLG,
+    margin,
+    paddingSM,
+    marginXXS,
+    antCls,
+    calc,
+  } = token;
 
   const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
 
   return {
     // ====================== Shared ======================
     [componentCls]: {
       // Dot Steps active icon size is 2px larger than the default icon size
-      '--steps-icon-size-max':
-        'max(var(--steps-icon-size), var(--steps-icon-size-active, var(--steps-icon-size)))',
+      [varName('icon-size-max')]:
+        `max(${varRef('icon-size')}, ${varRef('icon-size-active', varRef('icon-size'))})`,
 
       // Icon
       [`${itemCls}-icon`]: {
-        marginBlockStart: `calc((var(--steps-heading-height) - var(--steps-icon-size)) / 2)`,
+        marginBlockStart: `calc((${varRef('heading-height')} - ${varRef('icon-size')}) / 2)`,
       },
     },
 
     // ==================== Horizontal ====================
     [`${componentCls}-title-horizontal`]: {
-      '--steps-title-horizontal-item-margin': token.margin,
-      '--steps-title-horizontal-rail-margin': token.margin,
-      '--steps-title-horizontal-title-height': fontHeightLG,
-      '--steps-heading-height': `max(var(--steps-icon-size), var(--steps-title-horizontal-title-height))`,
+      [varName('title-horizontal-item-margin')]: margin,
+      [varName('title-horizontal-rail-margin')]: margin,
+      [varName('title-horizontal-title-height')]: fontHeightLG,
+      [varName('heading-height')]:
+        `max(${varRef('icon-size')}, ${varRef('title-horizontal-title-height')})`,
 
       // Horizontal only
       [`&${componentCls}-horizontal, &${componentCls}-horizontal-alternate`]: {
         [`${itemCls}:not(:first-child)`]: {
-          marginInlineStart: `var(--steps-title-horizontal-item-margin)`,
+          marginInlineStart: varRef('title-horizontal-item-margin'),
         },
 
         [`${itemCls}:last-child`]: {
@@ -56,7 +70,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           },
 
           [`${itemCls}-content`]: {
-            marginTop: calc('var(--steps-heading-height)').sub(token.fontHeight).div(2).equal(),
+            marginTop: calc(varRef('heading-height')).sub(token.fontHeight).div(2).equal(),
           },
         },
       },
@@ -68,7 +82,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       [`${itemCls}-header`]: {
-        minHeight: 'var(--steps-heading-height)',
+        minHeight: varRef('heading-height'),
       },
 
       [`${itemCls}-title`]: {
@@ -83,25 +97,24 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       [`&${componentCls}-horizontal ${itemCls}-rail`]: {
-        '--steps-item-wrapper-padding-top': '0px',
+        [varName('item-wrapper-padding-top')]: '0px',
 
-        flex: 1,
-        marginInlineStart: `var(--steps-title-horizontal-rail-margin)`,
+        flex: '1 1 0%',
+        marginInlineStart: varRef('title-horizontal-rail-margin'),
       },
     },
 
     // ===================== Vertical =====================
     [`${componentCls}-title-vertical`]: {
-      '--steps-title-vertical-row-gap': token.paddingSM,
-      '--steps-title-horizontal-rail-gap': token.marginXXS,
-      '--steps-heading-height': 'var(--steps-icon-size-max)',
+      [varName('title-vertical-row-gap')]: paddingSM,
+      [varName('title-horizontal-rail-gap')]: marginXXS,
+      [varName('heading-height')]: varRef('icon-size-max'),
 
       [`> ${itemCls}`]: {
-        flex: 1,
-
+        flex: '1 1 0%',
         [`${itemCls}-wrapper`]: {
           flexDirection: 'column',
-          rowGap: `var(--steps-title-vertical-row-gap)`,
+          rowGap: varRef('title-vertical-row-gap'),
           alignItems: 'center',
         },
 
@@ -130,8 +143,8 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         [`${itemCls}-rail`]: {
           position: 'absolute',
           top: 0,
-          width: `calc(100% - var(--steps-icon-size) - var(--steps-title-horizontal-rail-gap) * 2)`,
-          insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-title-horizontal-rail-gap))`,
+          width: `calc(100% - ${varRef('icon-size')} - ${varRef('title-horizontal-rail-gap')} * 2)`,
+          insetInlineStart: `calc(50% + ${varRef('icon-size')} / 2 + ${varRef('title-horizontal-rail-gap')})`,
         },
       },
 

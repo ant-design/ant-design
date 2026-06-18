@@ -2,15 +2,10 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
-import type {
-  PopoverClassNamesType,
-  PopoverProps,
-  PopoverSemanticName,
-  PopoverStylesType,
-} from '.';
+import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isReactRenderable } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -18,25 +13,25 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames?: SemanticClassNames<PopoverSemanticName>;
-  styles?: SemanticStyles<PopoverSemanticName>;
+  classNames?: PopoverSemanticAllType['classNames'];
+  styles?: PopoverSemanticAllType['styles'];
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
   const { title, content, prefixCls, classNames, styles } = props;
 
-  if (!title && !content) {
+  if (!isReactRenderable(title) && !isReactRenderable(content)) {
     return null;
   }
 
   return (
     <>
-      {title && (
+      {isReactRenderable(title) && (
         <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
           {title}
         </div>
       )}
-      {content && (
+      {isReactRenderable(content) && (
         <div className={clsx(`${prefixCls}-content`, classNames?.content)} style={styles?.content}>
           {content}
         </div>
@@ -75,11 +70,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     placement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PopoverClassNamesType,
-    PopoverStylesType,
-    PopoverProps
-  >([classNames], [styles], {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
     props: mergedProps,
   });
 

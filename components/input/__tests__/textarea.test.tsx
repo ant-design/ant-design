@@ -1,6 +1,6 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -315,6 +315,16 @@ describe('TextArea', () => {
 });
 
 describe('TextArea allowClear', () => {
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <TextArea allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<TextArea allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should change type when click', () => {
     const { asFragment, container } = render(<TextArea allowClear />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });
@@ -604,5 +614,19 @@ describe('TextArea allowClear', () => {
 
     fireEvent.mouseUp(container.querySelector('textarea')!);
     expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
+  });
+
+  describe('ref.nativeElement should be the root div', () => {
+    it('basic', () => {
+      const ref = React.createRef<TextAreaRef>();
+      const { container } = render(<TextArea ref={ref} />);
+      expect(ref.current?.nativeElement).toBe(container.firstChild);
+    });
+
+    it('with showCount', () => {
+      const ref = React.createRef<TextAreaRef>();
+      const { container } = render(<TextArea ref={ref} showCount />);
+      expect(ref.current?.nativeElement).toBe(container.firstChild);
+    });
   });
 });

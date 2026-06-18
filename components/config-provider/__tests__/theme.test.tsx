@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Modal } from 'antd';
 
 import ConfigProvider from '..';
-import { Button, InputNumber, Select } from '../..';
+import { Button, InputNumber, Select, Space } from '../..';
 import { render, waitFakeTimer } from '../../../tests/utils';
+import Modal from '../../modal';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
@@ -111,6 +111,21 @@ describe('ConfigProvider.Theme', () => {
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
       ),
     ).toBeTruthy();
+  });
+
+  it('should support Addon component token', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ components: { Addon: { colorText: '#0000FF', algorithm: true } } }}>
+        <Space.Compact>
+          <Space.Addon className="test-addon">Addon Content</Space.Addon>
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    const addon = container.querySelector('.test-addon')!;
+    expect(addon).toHaveStyle({
+      '--ant-color-text': '#0000FF',
+    });
   });
 
   it('hashed should be true if not changed', () => {
@@ -249,6 +264,9 @@ describe('ConfigProvider.Theme', () => {
     it('prefix follow prefixCls by default', () => {
       const { container } = render(
         <>
+          <ConfigProvider prefixCls="ak">
+            <Button className="button-ak">Button</Button>
+          </ConfigProvider>
           <ConfigProvider prefixCls="foo" theme={{ cssVar: { key: 'foo' }, hashed: true }}>
             <Button className="button-foo">Button</Button>
           </ConfigProvider>
@@ -270,6 +288,18 @@ describe('ConfigProvider.Theme', () => {
           </ConfigProvider>
         </>,
       );
+
+      const akBtn = container.querySelector('.button-ak')!;
+      expect(akBtn).toHaveClass('css-var-root');
+      expect(akBtn).toHaveStyle({
+        '--ak-btn-shadow': 'var(--ak-button-default-shadow)',
+        'border-radius': 'var(--ak-border-radius)',
+      });
+      expect(
+        Array.from(document.querySelectorAll('style[data-css-hash]')).some(({ innerHTML }) =>
+          innerHTML.includes('--ak-color-text'),
+        ),
+      ).toBeTruthy();
 
       const fooBtn = container.querySelector('.button-foo')!;
       expect(fooBtn).toHaveClass('foo');

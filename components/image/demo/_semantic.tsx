@@ -1,14 +1,14 @@
 import React from 'react';
+import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { Flex, Image, theme } from 'antd';
 import type { ImageProps } from 'antd';
-import type { ImageProps as RcImageProps } from '@rc-component/image';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
-const useStyle = createStyles(() => ({
+const styles = createStaticStyles(({ css }) => ({
   cover: css`
     &.semantic-mark-active {
       opacity: 1;
@@ -26,6 +26,7 @@ const locales = {
     'popup.body': '预览内容元素，设置flex布局、居中对齐和指针事件样式',
     'popup.footer': '预览页脚元素，设置绝对定位、居中布局和底部操作区域样式',
     'popup.actions': '预览操作组元素，设置flex布局、背景色、圆角和操作按钮样式',
+    'popup.close': '预览关闭按钮元素，设置按钮的基础样式',
   },
   en: {
     root: 'Root element, sets relative positioning and inline-block layout styles',
@@ -42,6 +43,7 @@ const locales = {
       'Preview footer element, sets absolute positioning, center layout and bottom operation area styles',
     'popup.actions':
       'Preview actions group element, sets flex layout, background color, border radius and action button styles',
+    'popup.close': 'Preview close button element, sets basic button styles',
   },
 };
 interface ImagePropsBlock extends Omit<ImageProps, 'classNames'> {
@@ -53,8 +55,6 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
 
   const { token } = theme.useToken();
 
-  const { styles } = useStyle();
-
   return (
     <Flex vertical align="center" style={{ minHeight: '100%', width: '100%' }}>
       <Flex style={{ padding: token.padding, flex: 'none' }} justify="center">
@@ -62,11 +62,10 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
           width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
           classNames={{ ...classNames, cover: clsx(classNames?.cover, styles.cover) }}
-          preview={{ getContainer: () => holderRef.current! }}
           {...restProps}
         />
       </Flex>
-      <div style={{ flex: 1, position: 'relative', minHeight: 500, width: '100%' }} ref={holderRef}>
+      <div style={{ flex: 1, position: 'relative', minHeight: 360, width: '100%' }} ref={holderRef}>
         <Image.PreviewGroup
           items={[
             'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -74,7 +73,7 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
           ]}
           classNames={classNames}
           styles={{ popup: { root: { position: 'absolute' } } }}
-          preview={{ getContainer: () => holderRef.current!, open: true }}
+          preview={{ getContainer: () => holderRef.current!, open: true, focusTrap: false }}
         />
       </div>
     </Flex>
@@ -96,6 +95,7 @@ const App: React.FC = () => {
         { name: 'popup.body', desc: locale['popup.body'] },
         { name: 'popup.footer', desc: locale['popup.footer'] },
         { name: 'popup.actions', desc: locale['popup.actions'] },
+        { name: 'popup.close', desc: locale['popup.close'], version: '6.4.0' },
       ]}
     >
       <Block />

@@ -16,7 +16,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -58,7 +57,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -100,7 +98,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -427,7 +424,7 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-lg"
@@ -496,7 +493,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var acss-3jrxlv"

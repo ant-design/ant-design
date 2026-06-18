@@ -10,7 +10,7 @@ const baseStyle: React.CSSProperties = {
 const App: React.FC = () => {
   const [value, setValue] = React.useState<string>('horizontal');
   return (
-    <Flex gap="middle" vertical>
+    <Flex gap="medium" vertical>
       <Radio.Group value={value} onChange={(e) => setValue(e.target.value)}>
         <Radio value="horizontal">horizontal</Radio>
         <Radio value="vertical">vertical</Radio>

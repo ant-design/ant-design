@@ -19,6 +19,8 @@ export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';
+export { default as BorderBeam } from './border-beam';
+export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam';
 export { default as Breadcrumb } from './breadcrumb';
 export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
 export { default as Button } from './button';
@@ -81,7 +83,7 @@ export type {
 } from './form';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
-export type { ImageProps } from './image';
+export type { ImageProgressConfig, ImageProps, PlaceholderType } from './image';
 export { default as Input } from './input';
 export type { InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';

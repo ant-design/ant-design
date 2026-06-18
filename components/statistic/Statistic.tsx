@@ -1,10 +1,11 @@
 import * as React from 'react';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -12,9 +13,29 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix';
-export type StatisticClassNamesType = SemanticClassNamesType<StatisticProps, SemanticName>;
-export type StatisticStylesType = SemanticStylesType<StatisticProps, SemanticName>;
+export type StatisticSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+    value?: string /* 👈 6.4.0+ */;
+    title?: string;
+    header?: string;
+    prefix?: string;
+    suffix?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    value?: React.CSSProperties /* 👈 6.4.0+ */;
+    title?: React.CSSProperties;
+    header?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+  };
+};
+
+export type StatisticSemanticAllType = GenerateSemantic<StatisticSemanticType, StatisticProps>;
+
 export interface StatisticRef {
   nativeElement: HTMLDivElement;
 }
@@ -22,8 +43,8 @@ export interface StatisticRef {
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
-  classNames?: StatisticClassNamesType;
-  styles?: StatisticStylesType;
+  classNames?: StatisticSemanticAllType['classNamesAndFn'];
+  styles?: StatisticSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
@@ -86,13 +107,13 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     loading,
     value,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    StatisticClassNamesType,
-    StatisticStylesType,
-    StatisticProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -102,17 +123,6 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
-
-  const valueNode: React.ReactNode = (
-    <StatisticNumber
-      decimalSeparator={decimalSeparator}
-      groupSeparator={groupSeparator}
-      prefixCls={prefixCls}
-      formatter={formatter}
-      precision={precision}
-      value={value}
-    />
-  );
 
   const rootClassNames = clsx(
     prefixCls,
@@ -133,9 +143,24 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
 
   const contentClassNames = clsx(`${prefixCls}-content`, mergedClassNames.content);
 
+  const valueClassNames = clsx(`${prefixCls}-content-value`, mergedClassNames.value);
+
   const prefixClassNames = clsx(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
 
   const suffixClassNames = clsx(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
+
+  const valueNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      prefixCls={prefixCls}
+      formatter={formatter}
+      precision={precision}
+      value={value}
+      className={valueClassNames}
+      style={mergedStyles.value}
+    />
+  );
 
   const internalRef = React.useRef<HTMLDivElement>(null);
 
@@ -168,7 +193,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
               {prefix}
             </span>
           )}
-          {valueRender ? valueRender(valueNode) : valueNode}
+          {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
           {suffix && (
             <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}

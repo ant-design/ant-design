@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/is_IS';
+import Pagination from '@rc-component/pagination/locale/is_IS';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/is_IS';
@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Loka',
+    show: 'Sýna',
+    hide: 'Fela',
   },
   Table: {
     filterTitle: 'Afmarkanir',

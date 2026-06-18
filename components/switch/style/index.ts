@@ -3,6 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -208,6 +209,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         width: handleSize,
         height: handleSize,
         transition: `all ${token.switchDuration} ease-in-out`,
+        ...genNoMotionStyle(),
 
         '&::before': {
           position: 'absolute',
@@ -220,6 +222,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           boxShadow: handleShadow,
           transition: `all ${token.switchDuration} ease-in-out`,
           content: '""',
+          ...genNoMotionStyle(),
         },
       },
 
@@ -250,6 +253,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
     innerMinMargin,
     innerMaxMargin,
     handleSize,
+    switchDuration,
     calc,
   } = token;
   const switchInnerCls = `${componentCls}-inner`;
@@ -266,15 +270,20 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         height: '100%',
         paddingInlineStart: innerMaxMargin,
         paddingInlineEnd: innerMinMargin,
-        transition: `padding-inline-start ${token.switchDuration} ease-in-out, padding-inline-end ${token.switchDuration} ease-in-out`,
-
+        transition: [`padding-inline-start`, `padding-inline-end`]
+          .map((prop) => `${prop} ${switchDuration} ease-in-out`)
+          .join(', '),
+        ...genNoMotionStyle(),
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
           display: 'block',
           color: token.colorTextLightSolid,
           fontSize: token.fontSizeSM,
-          transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
           pointerEvents: 'none',
           minHeight: trackHeight,
+          transition: [`margin-inline-start`, `margin-inline-end`]
+            .map((prop) => `${prop} ${switchDuration} ease-in-out`)
+            .join(', '),
+          ...genNoMotionStyle(),
         },
 
         [`${switchInnerCls}-checked`]: {
@@ -322,7 +331,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   };
 };
 
-const genSwitchStyle = (token: SwitchToken): CSSObject => {
+const genSwitchStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls, trackHeight, trackMinWidth } = token;
 
   return {
@@ -342,7 +351,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       cursor: 'pointer',
       transition: `all ${token.motionDurationMid}`,
       userSelect: 'none',
-
+      ...genNoMotionStyle(),
       [`&:hover:not(${componentCls}-disabled)`]: {
         background: token.colorTextTertiary,
       },

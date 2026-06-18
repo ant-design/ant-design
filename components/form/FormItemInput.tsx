@@ -1,9 +1,10 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { get, set } from '@rc-component/util';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { get, set, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
+import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -68,18 +69,22 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const mergedWrapperCol = React.useMemo(() => {
     let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !labelCol && !wrapperCol && formContext.labelCol) {
-      const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+      const list = [undefined, ...responsiveArrayReversed] as const;
 
       list.forEach((size) => {
         const _size = size ? [size] : [];
 
         const formLabel = get(formContext.labelCol, _size);
-        const formLabelObj = typeof formLabel === 'object' ? formLabel : {};
+        const formLabelObj = isPlainObject(formLabel) ? formLabel : {};
 
         const wrapper = get(mergedWrapper, _size);
-        const wrapperObj = typeof wrapper === 'object' ? wrapper : {};
+        const wrapperObj = isPlainObject(wrapper) ? wrapper : {};
 
-        if ('span' in formLabelObj && !('offset' in wrapperObj) && formLabelObj.span < GRID_MAX) {
+        if (
+          'span' in formLabelObj &&
+          !('offset' in wrapperObj) &&
+          (formLabelObj as any).span < GRID_MAX
+        ) {
           mergedWrapper = set(mergedWrapper, [..._size, 'offset'], formLabelObj.span);
         }
       });
@@ -140,7 +145,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`} ref={extraRef}>
+    <div
+      {...extraProps}
+      className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}
+      style={contextStyles?.extra}
+      ref={extraRef}
+    >
       {extra}
     </div>
   ) : null;

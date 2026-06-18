@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
@@ -112,6 +112,7 @@ export default function imageTest(
 
   afterEach(() => {
     page.removeAllListeners('request'); // 保证没有历史残留
+    MockDate.reset();
   });
 
   afterAll(async () => {
@@ -150,9 +151,17 @@ export default function imageTest(
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
 
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.goto(`file://${process.cwd()}/tests/index.html`, {
+        waitUntil: 'domcontentloaded',
+      });
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-      await page.addStyleTag({ content: '*{animation: none!important;}' });
+      // Disable animation & transition (including pseudo-elements like
+      // `::before`/`::after`, used by Menu/Tabs/Carousel active bars) to avoid
+      // capturing intermediate frames, which makes the rendered width/content
+      // flaky across runs.
+      await page.addStyleTag({
+        content: '*,*::before,*::after{animation: none!important; transition: none!important;}',
+      });
 
       const cache = createCache();
 
@@ -229,6 +238,27 @@ export default function imageTest(
         openTriggerClassName || '',
       );
 
+      // Wait for fonts to be ready and the layout to settle BEFORE measuring
+      // the page size. Otherwise the rendered width/height may shift after the
+      // screenshot is taken, making the visual diff flaky.
+      await page.evaluate(async () => {
+        // Wait fonts ready, but cap it at 1000ms as a safety net so a stuck
+        // font load can never hang the screenshot.
+        await Promise.race([
+          document.fonts?.ready ?? Promise.resolve(),
+          new Promise((resolve) => setTimeout(resolve, 1000)),
+        ]);
+        // Always settle the layout with raf * 2, regardless of which branch
+        // above resolved first.
+        await new Promise((resolve) => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              resolve(true);
+            });
+          });
+        });
+      });
+
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
@@ -240,6 +270,7 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
+
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
@@ -297,28 +328,28 @@ export function imageDemoTest(component: string, options: Options = {}) {
   const getTestOption = (file: string) => ({
     onlyViewport:
       options.onlyViewport === true ||
-      (Array.isArray(options.onlyViewport) && options.onlyViewport.some((c) => file.endsWith(c))),
+      (Array.isArray(options.onlyViewport) && options.onlyViewport.includes(path.basename(file))),
     ssr: options.ssr,
     openTriggerClassName: options.openTriggerClassName,
   });
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
-      describeMethod = describe.skip;
-    } else {
-      describeMethod = describe;
-    }
+    const shouldSkip = Array.isArray(options.skip) && options.skip.includes(path.basename(file));
+    describeMethod = shouldSkip ? describe.skip : describe;
 
     describeMethod(`Test ${file} image`, () => {
-      let Demo = require(`../../${file}`).default;
-      if (typeof Demo === 'function') {
-        Demo = <Demo />;
-      }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
+      // Only require the demo file if it's not skipped to avoid dependency issues
+      if (!shouldSkip) {
+        let Demo = jest.requireActual(`../../${file}`).default;
+        if (typeof Demo === 'function') {
+          Demo = <Demo />;
+        }
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
-      // Check if need mobile test
-      if ((options.mobile || []).some((c) => file.endsWith(c))) {
-        mobileDemos.push([file, Demo]);
+        // Check if need mobile test
+        if ((options.mobile || []).includes(path.basename(file))) {
+          mobileDemos.push([file, Demo]);
+        }
       }
     });
   });

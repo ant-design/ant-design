@@ -1,14 +1,14 @@
 import React from 'react';
 import { Flex, QRCode } from 'antd';
-import type { QRCodeProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, QRCodeProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    border: '1px solid #ccc',
-    borderRadius: 8,
-    padding: 16,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+  `,
 }));
 
 const stylesObject: QRCodeProps['styles'] = {
@@ -20,7 +20,7 @@ const stylesObject: QRCodeProps['styles'] = {
   },
 };
 
-const stylesFunction: QRCodeProps['styles'] = (info) => {
+const stylesFunction: QRCodeProps['styles'] = (info): GetProp<QRCodeProps, 'styles', 'Return'> => {
   if (info.props.type === 'canvas') {
     return {
       root: {
@@ -29,13 +29,11 @@ const stylesFunction: QRCodeProps['styles'] = (info) => {
         padding: 16,
         backgroundColor: 'rgba(255, 77, 79, 0.1)',
       },
-    } satisfies QRCodeProps['styles'];
+    };
   }
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: QRCodeProps = {
     value: 'https://ant.design/',
     size: 160,
@@ -43,7 +41,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <QRCode {...sharedProps} styles={stylesObject} />
       <QRCode
         {...sharedProps}

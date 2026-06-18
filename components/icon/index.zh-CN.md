@@ -42,13 +42,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 ### 通用图标 {#common-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 设置图标的样式名 | string | - |  |
-| rotate | 图标旋转角度（IE9 无效） | number | - |  |
-| spin | 是否有旋转动画 | boolean | false |  |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串 | string \| string[] | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| className | 设置图标的样式名 | string | - |  | × |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  | × |
+| spin | 是否有旋转动画 | boolean | false |  | × |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  | × |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，或主要颜色和次要颜色 | string \| \[string, string] | - |  | × |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
@@ -62,12 +62,12 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 ### 自定义 Icon {#custom-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - |  |
-| rotate | 图标旋转角度（IE9 无效） | number | - |  |
-| spin | 是否有旋转动画 | boolean | false |  |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - |  | × |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  | × |
+| spin | 是否有旋转动画 | boolean | false |  | × |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  | × |
 
 ### 关于 SVG 图标 {#about-svg-icons}
 
@@ -101,7 +101,7 @@ getTwoToneColor(); // #eb2f96
 
 ### 自定义 font 图标 {#custom-font-icon}
 
-在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
+在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](https://iconfont.cn/) 上自行管理的图标。
 
 ```jsx
 import React from 'react';
@@ -119,14 +119,14 @@ ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 
 options 的配置项如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | { \[key: string]: any } | {} |  |
-| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 js 地址，`@ant-design/icons@4.1.0` 之后支持 `string[]` 类型 | string \| string\[] | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | { \[key: string]: any } | {} |  | × |
+| scriptUrl | [iconfont.cn](https://iconfont.cn/) 项目在线生成的 js 地址，`@ant-design/icons@4.1.0` 之后支持 `string[]` 类型 | string \| string\[] | - |  | × |
 
-在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
+在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](https://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
-见 [iconfont.cn 使用帮助](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) 查看如何生成 js 地址。
+见 [iconfont.cn 使用帮助](https://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) 查看如何生成 js 地址。
 
 ### 自定义 SVG 图标 {#custom-svg-icon}
 
@@ -178,13 +178,13 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段      | 说明                    | 类型             | 只读值         | 版本 |
-| --------- | ----------------------- | ---------------- | -------------- | ---- |
-| className | 计算后的 `svg` 类名     | string           | -              |      |
-| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
-| height    | `svg` 元素高度          | string \| number | `1em`          |      |
-| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
-| width     | `svg` 元素宽度          | string \| number | `1em`          |      |
+| 字段 | 说明 | 类型 | 只读值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| className | 计算后的 `svg` 类名 | string | - |  | × |
+| fill | `svg` 元素填充的颜色 | string | `currentColor` |  | × |
+| height | `svg` 元素高度 | string \| number | `1em` |  | × |
+| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  | × |
+| width | `svg` 元素宽度 | string \| number | `1em` |  | × |
 
 ## 主题变量（Design Token）{#design-token}
 

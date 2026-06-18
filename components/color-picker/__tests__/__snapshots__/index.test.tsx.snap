@@ -6,7 +6,10 @@ exports[`ColorPicker Should disabled work 1`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
 </div>
@@ -19,7 +22,10 @@ exports[`ColorPicker Should panelRender work 1`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
   <div
@@ -143,15 +149,10 @@ exports[`ColorPicker Should panelRender work 1`] = `
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -296,7 +297,10 @@ exports[`ColorPicker Should panelRender work 2`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
   <div
@@ -417,15 +421,10 @@ exports[`ColorPicker Should panelRender work 2`] = `
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -575,7 +574,10 @@ exports[`ColorPicker rtl render component should be rendered correctly in RTL di
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
 >
   <div
+    aria-label="Clear color"
     class="ant-color-picker-clear"
+    role="button"
+    tabindex="0"
   />
 </div>
 `;

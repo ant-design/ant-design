@@ -11,18 +11,21 @@ concurrency:
   group: unique
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     name: Build Project
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
-      - uses: actions/cache@v5
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -40,7 +43,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -54,7 +57,7 @@ jobs:
         if: ${{ failure() }}
         run: utx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
-      - uses: actions-cool/ci-notice@v1
+      - uses: actions-cool/ci-notice@89af4a933717226a062cbf65c439beda5eb8aa5d # v1
         if: ${{ failure() }}
         with:
           notice-types: dingding

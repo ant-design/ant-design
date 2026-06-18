@@ -1,10 +1,5 @@
 import * as React from 'react';
 import RcTooltip from '@rc-component/tooltip';
-import type { placements as Placements } from '@rc-component/tooltip/lib/placements';
-import type {
-  TooltipProps as RcTooltipProps,
-  TooltipRef as RcTooltipRef,
-} from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -12,23 +7,30 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
+
+type RcTooltipProps = React.ComponentPropsWithoutRef<typeof RcTooltip>;
+type RcTooltipRef = React.ComponentRef<typeof RcTooltip>;
+type Placements = NonNullable<RcTooltipProps['builtinPlacements']>;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -86,11 +88,20 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = 'root' | 'container' | 'arrow';
+export type TooltipSemanticType = {
+  classNames?: {
+    root?: string;
+    container?: string;
+    arrow?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    container?: React.CSSProperties;
+    arrow?: React.CSSProperties;
+  };
+};
 
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>;
-
-export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
+export type TooltipSemanticAllType = GenerateSemantic<TooltipSemanticType, TooltipProps>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
@@ -98,7 +109,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
-  builtinPlacements?: typeof Placements;
+  builtinPlacements?: Placements;
   openClassName?: string;
   arrow?: boolean | { pointAtCenter?: boolean };
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -125,8 +136,8 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
 export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
-  classNames?: TooltipClassNamesType;
-  styles?: TooltipStylesType;
+  classNames?: TooltipSemanticAllType['classNamesAndFn'];
+  styles?: TooltipSemanticAllType['stylesAndFn'];
 }
 
 interface InternalTooltipProps extends TooltipProps {
@@ -176,20 +187,32 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const [, token] = useToken();
 
+  const injectFromPopover = props['data-popover-inject'];
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    ...semanticConfig
+  } = useComponentConfig('tooltip');
+
+  // When injected from Popover/Popconfirm, skip tooltip-specific semantic config
+  // to prevent ConfigProvider tooltip config from leaking into those components
+  const {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
-  } = useComponentConfig('tooltip');
+  }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
+
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
+  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
+  const inTableMeasureRow = React.useContext(TableMeasureRowContext);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -258,8 +281,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
-      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+    <ContextIsolator space form>
+      {isFunction(memoOverlay) ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
 
@@ -267,35 +290,26 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedProps: TooltipProps = {
     ...props,
     trigger: mergedTrigger,
-    color,
-    placement,
-    builtinPlacements,
-    openClassName,
-    arrow: tooltipArrow,
-    autoAdjustOverflow,
-    getPopupContainer,
-    children,
-    destroyTooltipOnHide,
-    destroyOnHidden,
+    builtinPlacements: tooltipPlacements,
+    getPopupContainer: mergedGetPopupContainer,
+    destroyOnHidden: mergedDestroyOnHidden,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TooltipClassNamesType,
-    TooltipStylesType,
-    TooltipProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
 
-  const injectFromPopover = props['data-popover-inject'];
-
   let tempOpen = open;
-  // Hide tooltip when there is no title
-  if (!('open' in props) && noTitle) {
+  // Hide tooltip when there is no title or in table measure row
+  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
     tempOpen = false;
   }
 
@@ -313,7 +327,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const themeCls = clsx(rootCls, hashId, cssVarCls);
@@ -341,7 +355,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     <RcTooltip
       unique
       {...restProps}
-      trigger={mergedTrigger}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
@@ -365,9 +378,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         uniqueContainer: containerStyle,
         arrow: mergedStyles.arrow,
       }}
-      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={tooltipPlacements}
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
@@ -381,13 +392,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         ),
         motionDeadline: 1000,
       }}
-      destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
+      trigger={mergedTrigger}
+      builtinPlacements={tooltipPlacements}
+      getTooltipContainer={mergedGetPopupContainer}
+      destroyOnHidden={mergedDestroyOnHidden}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
 
-  return <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{content}</ZIndexContext.Provider>;
 });
 
 type CompoundedComponent = typeof InternalTooltip & {

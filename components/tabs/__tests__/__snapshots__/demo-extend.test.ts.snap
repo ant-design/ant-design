@@ -2161,7 +2161,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs ant-tabs-top ant-tabs-middle ant-tabs-card css-var-test-id ant-tabs-css-var"
+      class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
     >
       <div
         aria-orientation="horizontal"
@@ -3903,6 +3903,7 @@ Array [
   />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -3915,9 +3916,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="left"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -3937,9 +3935,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="right"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -4381,6 +4376,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Parent - start"
               >
@@ -4397,6 +4393,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Parent - end"
               >
@@ -4413,6 +4410,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Parent - top"
               >
@@ -4429,6 +4427,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Parent - bottom"
               >
@@ -4539,6 +4538,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Child - start"
               >
@@ -4555,6 +4555,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Child - end"
               >
@@ -4571,6 +4572,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Child - top"
               >
@@ -4587,6 +4589,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Child - bottom"
               >
@@ -4697,6 +4700,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Parent - line"
               >
@@ -4713,6 +4717,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Parent - card"
               >
@@ -4729,6 +4734,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Parent - card edit"
               >
@@ -4839,6 +4845,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Child - line"
               >
@@ -4855,6 +4862,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Child - card"
               >
@@ -4871,6 +4879,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Child - card edit"
               >
@@ -5423,6 +5432,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -5435,9 +5445,6 @@ Array [
               name="test-id"
               type="radio"
               value="top"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -5457,9 +5464,6 @@ Array [
               name="test-id"
               type="radio"
               value="bottom"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -5481,9 +5485,6 @@ Array [
               type="radio"
               value="start"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5502,9 +5503,6 @@ Array [
               name="test-id"
               type="radio"
               value="end"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -5660,6 +5658,7 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 16px;"
   >
     <label
@@ -5674,9 +5673,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -5695,16 +5691,13 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="middle"
-        />
-        <span
-          class="ant-radio-button-inner"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Middle
+        Medium
       </span>
     </label>
     <label
@@ -5718,9 +5711,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="large"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -6283,6 +6273,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 8px;"
   >
     <label
@@ -6297,9 +6288,6 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="top"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -6319,9 +6307,6 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="left"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -6908,10 +6893,10 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 2`] = `
 
 exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-tabs ant-tabs-top acss-1lyenb6 css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
   >
     <div
@@ -7053,7 +7038,7 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-card acss-1lyenb6 css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-left ant-tabs-card acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="background-color: rgba(250, 250, 250, 0.8); border-color: rgb(217, 217, 217);"
   >
     <div

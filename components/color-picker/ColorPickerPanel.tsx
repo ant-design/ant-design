@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
 
+import { isFunction } from '../_util/is';
 import Divider from '../divider';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
@@ -104,12 +105,9 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     <PanelPickerContext.Provider value={panelContext}>
       <PanelPresetsContext.Provider value={presetContext}>
         <div className={colorPickerPanelPrefixCls}>
-          {typeof panelRender === 'function'
+          {isFunction(panelRender)
             ? panelRender(innerPanel, {
-                components: {
-                  Picker: PanelPicker,
-                  Presets: PanelPresets,
-                },
+                components: { Picker: PanelPicker, Presets: PanelPresets },
               })
             : innerPanel}
         </div>

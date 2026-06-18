@@ -1,15 +1,14 @@
 import React from 'react';
+import type { CollapseProps, GetProp } from 'antd';
 import { Collapse, Flex } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-import type { CollapseProps } from '..';
-
-const useStyles = createStyles(() => ({
-  root: {
-    backgroundColor: '#fafafa',
-    border: '1px solid #e0e0e0',
-    borderRadius: 8,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+  `,
 }));
 
 const element = (
@@ -50,7 +49,9 @@ const styles: CollapseProps['styles'] = {
   },
 };
 
-const stylesFn: CollapseProps['styles'] = ({ props }) => {
+const stylesFn: CollapseProps['styles'] = ({
+  props,
+}): GetProp<CollapseProps, 'styles', 'Return'> => {
   if (props.size === 'large') {
     return {
       root: {
@@ -63,17 +64,15 @@ const stylesFn: CollapseProps['styles'] = ({ props }) => {
         padding: '12px 16px',
         color: '#141414',
       },
-    } satisfies CollapseProps['styles'];
+    };
   }
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: CollapseProps = { classNames, items };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Collapse {...sharedProps} defaultActiveKey={['1']} styles={styles} />
       <Collapse {...sharedProps} defaultActiveKey={['2']} styles={stylesFn} size="large" />
     </Flex>

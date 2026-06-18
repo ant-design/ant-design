@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -47,6 +48,11 @@ export interface ComponentToken {
    * @descEN Size of status badge
    */
   statusSize: number;
+  /**
+   * @desc 多字符徽标水平内边距
+   * @descEN Inline padding of multiple words badge
+   */
+  paddingInline: number | string;
 }
 
 /**
@@ -139,7 +145,7 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
+const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -192,7 +198,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
         background: token.badgeColor,
         borderRadius: calc(indicatorHeight).div(2).equal(),
         boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
-        transition: `background ${token.motionDurationMid}`,
+        transition: `background-color ${token.motionDurationMid}`,
 
         a: {
           color: token.badgeTextColor,
@@ -214,7 +220,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
       },
 
       [`${componentCls}-multiple-words`]: {
-        padding: `0 ${unit(token.paddingXS)}`,
+        paddingInline: token.paddingInline,
 
         bdi: {
           unicodeBidi: 'plaintext',
@@ -372,7 +378,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Badge'>>[0]) => {
   const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = fontHeight;
@@ -400,7 +406,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeT
 };
 
 export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
-  const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
+  const { fontSize, lineHeight, fontSizeSM, lineWidth, paddingXS } = token;
   return {
     indicatorZIndex: 'auto',
     indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
@@ -410,6 +416,7 @@ export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
     textFontSizeSM: fontSizeSM,
     textFontWeight: 'normal',
     statusSize: fontSizeSM / 2,
+    paddingInline: paddingXS,
   };
 };
 

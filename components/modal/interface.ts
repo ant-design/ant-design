@@ -1,29 +1,39 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type {
-  ClosableType,
-  MaskType,
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { ClosableType, MaskType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
+import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable';
 
-export type SemanticName =
-  | 'root'
-  | 'header'
-  | 'body'
-  | 'footer'
-  | 'container'
-  | 'title'
-  | 'wrapper'
-  | 'mask';
+export type ModalSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    footer?: string;
+    container?: string;
+    title?: string;
+    wrapper?: string;
+    mask?: string;
+    close?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    container?: React.CSSProperties;
+    title?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    mask?: React.CSSProperties;
+    close?: React.CSSProperties;
+  };
+};
 
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, SemanticName>;
-
-export type ModalStylesType = SemanticStylesType<ModalProps, SemanticName>;
+export type ModalSemanticAllType = GenerateSemantic<ModalSemanticType, ModalProps>;
 
 interface ModalCommonProps
   extends Omit<
@@ -38,6 +48,7 @@ interface ModalCommonProps
     | 'mask'
     | 'classNames'
     | 'styles'
+    | OmitFocusType
   > {
   footer?:
     | React.ReactNode
@@ -48,8 +59,8 @@ interface ModalCommonProps
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNamesAndFn'];
+  styles?: ModalSemanticAllType['stylesAndFn'];
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -61,8 +72,8 @@ export interface ModalProps extends ModalCommonProps {
   title?: React.ReactNode;
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-  onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button, or presses Esc key */
+  onCancel?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>) => void;
   afterClose?: () => void;
   /** Callback when the animation ends when Modal is turned on and off */
   afterOpenChange?: (open: boolean) => void;
@@ -76,7 +87,10 @@ export interface ModalProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   /** Text of the Cancel button */
   cancelText?: React.ReactNode;
-  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
+  /**
+   * @deprecated Please use `mask.closable` instead
+   * @description Whether to close the modal dialog when the mask (area outside the modal) is clicked
+   */
   maskClosable?: boolean;
   /** Force render Modal */
   forceRender?: boolean;
@@ -107,13 +121,17 @@ export interface ModalProps extends ModalCommonProps {
   prefixCls?: string;
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
-  focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
   mousePosition?: MousePosition;
   /**
    * @since 5.18.0
    */
   loading?: boolean;
+
+  // Focusable
+  /** @deprecated Please use `focusable.focusTriggerAfterClose` instead */
+  focusTriggerAfterClose?: boolean;
+  focusable?: FocusableConfig;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -137,8 +155,9 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: MaskType;
+  /** @deprecated Please use `mask.closable` instead */
   maskClosable?: boolean;
+  mask?: MaskType;
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
@@ -148,7 +167,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
-  autoFocusButton?: null | 'ok' | 'cancel';
+
   transitionName?: string;
   maskTransitionName?: string;
   direction?: DirectionType;
@@ -157,7 +176,15 @@ export interface ModalFuncProps extends ModalCommonProps {
   closeIcon?: React.ReactNode;
   footer?: ModalProps['footer'];
   modalRender?: (node: React.ReactNode) => React.ReactNode;
+
+  // Focusable
+  /** @deprecated Please use `focusable.focusTriggerAfterClose` instead */
   focusTriggerAfterClose?: boolean;
+  /** @deprecated Please use `focusable.autoFocusButton` instead */
+  autoFocusButton?: null | 'ok' | 'cancel';
+  focusable?: FocusableConfig & {
+    autoFocusButton?: null | 'ok' | 'cancel';
+  };
 }
 
 export interface ModalLocale {

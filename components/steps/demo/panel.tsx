@@ -33,7 +33,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Steps {...sharedProps} />
       <Steps {...sharedProps} size="small" variant="outlined" />
     </Flex>

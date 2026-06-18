@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
@@ -9,7 +11,7 @@ interface SpaceToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceCompactStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -32,13 +34,8 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(
-  ['Space', 'Compact'],
-  (token) => [genSpaceCompactStyle(token)],
-  () => ({}),
-  {
-    // Space component don't apply extra font style
-    // https://github.com/ant-design/ant-design/issues/40315
-    resetStyle: false,
-  },
-);
+export default genStyleHooks(['Space', 'Compact'], genSpaceCompactStyle, () => ({}), {
+  // Space component don't apply extra font style
+  // https://github.com/ant-design/ant-design/issues/40315
+  resetStyle: false,
+});

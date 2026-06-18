@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Transfer } from 'antd';
 
 const App: React.FC = () => (
-  <Flex gap="middle" vertical>
+  <Flex gap="medium" vertical>
     <Transfer status="error" />
     <Transfer status="warning" showSearch />
   </Flex>

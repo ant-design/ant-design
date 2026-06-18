@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -20,11 +21,26 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
+export type SkeletonSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    section?: string;
+    avatar?: string;
+    title?: string;
+    paragraph?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    section?: React.CSSProperties;
+    avatar?: React.CSSProperties;
+    title?: React.CSSProperties;
+    paragraph?: React.CSSProperties;
+  };
+};
 
-export type SkeletonClassNamesType = SemanticClassNamesType<SkeletonProps, SemanticName>;
-
-export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SemanticName>;
+export type SkeletonSemanticAllType = GenerateSemantic<SkeletonSemanticType, SkeletonProps>;
 
 export interface SkeletonProps {
   active?: boolean;
@@ -37,12 +53,12 @@ export interface SkeletonProps {
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
   round?: boolean;
-  classNames?: SkeletonClassNamesType;
-  styles?: SkeletonStylesType;
+  classNames?: SkeletonSemanticAllType['classNamesAndFn'];
+  styles?: SkeletonSemanticAllType['stylesAndFn'];
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
-  if (prop && typeof prop === 'object') {
+  if (isPlainObject(prop)) {
     return prop;
   }
   return {};
@@ -136,13 +152,13 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     paragraph,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SkeletonClassNamesType,
-    SkeletonStylesType,
-    SkeletonProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;

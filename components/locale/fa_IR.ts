@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/fa_IR';
+import Pagination from '@rc-component/pagination/locale/fa_IR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fa_IR';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'لطفاً انتخاب کنید',
     close: 'بستن',
+    show: 'نمایش',
+    hide: 'مخفی کردن',
   },
   Table: {
     filterTitle: 'منوی فیلتر',

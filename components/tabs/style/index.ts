@@ -2,6 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
+import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -149,7 +150,7 @@ export interface TabsToken extends FullToken<'Tabs'> {
   tabsHorizontalItemMarginRTL: string;
 }
 
-const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genCardStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     tabsCardPadding,
@@ -272,8 +273,8 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   };
 };
 
-const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
+const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
+  const { antCls, componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
   return {
     [`${componentCls}-dropdown`]: {
       ...resetComponent(token),
@@ -290,6 +291,42 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
       '&-hidden': {
         display: 'none',
       },
+
+      // When position is not enough for tabs dropdown, the placement will revert.
+      // We will handle this with revert motion name.
+      [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-dropdown-placement-bottomRight,
+        &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-dropdown-placement-bottomRight`]:
+        {
+          animationName: slideUpIn,
+        },
+
+      [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
+        &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topRight`]:
+        {
+          animationName: slideDownIn,
+        },
+
+      [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottomLeft,
+        &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottom,
+        &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-dropdown-placement-bottomRight`]:
+        {
+          animationName: slideUpOut,
+        },
+
+      [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
+        &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-top,
+        &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
+        {
+          animationName: slideDownOut,
+        },
 
       [`${componentCls}-dropdown-menu`]: {
         maxHeight: token.tabsDropdownHeight,
@@ -361,7 +398,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
   };
 };
 
-const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     margin,
@@ -369,6 +406,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     horizontalMargin,
     verticalItemPadding,
     verticalItemMargin,
+    motionDurationSlow,
     calc,
   } = token;
   return {
@@ -397,8 +435,9 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           height: token.lineWidthBold,
 
           '&-animated': {
-            transition: `width ${token.motionDurationSlow}, left ${token.motionDurationSlow},
-            right ${token.motionDurationSlow}`,
+            transition: ['width', 'left', 'right']
+              .map((prop) => `${prop} ${motionDurationSlow}`)
+              .join(', '),
           },
         },
 
@@ -524,7 +563,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           width: token.lineWidthBold,
 
           '&-animated': {
-            transition: `height ${token.motionDurationSlow}, top ${token.motionDurationSlow}`,
+            transition: ['height', 'top'].map((prop) => `${prop} ${motionDurationSlow}`).join(', '),
           },
         },
 
@@ -598,7 +637,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
   };
 };
 
-const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genSizeStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     cardPaddingSM,
@@ -688,7 +727,7 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   };
 };
 
-const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
+const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     itemActiveColor,
@@ -798,7 +837,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   };
 };
 
-const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
+const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const { componentCls, tabsHorizontalItemMarginRTL, iconCls, cardGutter, calc } = token;
   const rtlCls = `${componentCls}-rtl`;
   return {
@@ -826,18 +865,18 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
             },
             marginLeft: {
               _skip_check_: true,
-              value: unit(token.marginSM),
+              value: token.marginSM,
             },
           },
 
           [`${componentCls}-tab-remove`]: {
             marginRight: {
               _skip_check_: true,
-              value: unit(token.marginXS),
+              value: token.marginXS,
             },
             marginLeft: {
               _skip_check_: true,
-              value: unit(calc(token.marginXXS).mul(-1).equal()),
+              value: calc(token.marginXXS).mul(-1).equal(),
             },
 
             [iconCls]: {
@@ -896,7 +935,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   };
 };
 
-const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genTabsStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     tabsCardPadding,

@@ -3,13 +3,14 @@ import { forwardRef } from 'react';
 import type {
   TextAreaProps as RcTextAreaProps,
   TextAreaRef as RcTextAreaRef,
-} from '@rc-component/textarea';
-import RcTextArea from '@rc-component/textarea';
+} from '@rc-component/input';
+import { TextArea as RcTextArea } from '@rc-component/input';
 import { clsx } from 'clsx';
 
-import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useAllowClear } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -27,11 +28,22 @@ import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 
-type SemanticName = 'root' | 'textarea' | 'count';
+export type TextAreaSemanticType = {
+  classNames?: {
+    root?: string;
+    textarea?: string;
+    clear?: string;
+    count?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    textarea?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    count?: React.CSSProperties;
+  };
+};
 
-export type TextAreaClassNamesType = SemanticClassNamesType<TextAreaProps, SemanticName>;
-
-export type TextAreaStylesType = SemanticStylesType<TextAreaProps, SemanticName>;
+export type TextAreaSemanticAllType = GenerateSemantic<TextAreaSemanticType, TextAreaProps>;
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNames' | 'styles'> {
   /** @deprecated Use `variant` instead */
@@ -44,14 +56,15 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNa
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: TextAreaClassNamesType;
-  styles?: TextAreaStylesType;
+  classNames?: TextAreaSemanticAllType['classNamesAndFn'];
+  styles?: TextAreaSemanticAllType['stylesAndFn'];
 }
 
 export interface TextAreaRef {
   focus: (options?: InputFocusOptions) => void;
   blur: () => void;
   resizableTextArea?: RcTextAreaRef['resizableTextArea'];
+  nativeElement: HTMLElement | null;
 }
 
 const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
@@ -102,13 +115,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TextAreaClassNamesType,
-    TextAreaStylesType,
-    TextAreaProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
@@ -119,6 +132,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       triggerFocus(innerRef.current?.resizableTextArea?.textArea, option);
     },
     blur: () => innerRef.current?.blur(),
+    nativeElement: innerRef.current?.nativeElement || null,
   }));
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
@@ -136,7 +150,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
-  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    componentName: 'TextArea',
+  });
 
   // ==================== Resize ====================
   // https://github.com/ant-design/ant-design/issues/51594
@@ -161,9 +179,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     onResize?.(size);
 
     // Change to dirty since this maybe from the `resize: both` style
-    if (isMouseDown && typeof getComputedStyle === 'function') {
+    if (isMouseDown && isFunction(getComputedStyle)) {
       const ele = innerRef.current?.nativeElement?.querySelector('textarea');
-
       if (ele && getComputedStyle(ele).resize === 'both') {
         setResizeDirty(true);
       }

@@ -1,8 +1,10 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FormToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls } = token;
+const genFormValidateMotionStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
+  const { componentCls, motionDurationFast, motionEaseInOut } = token;
 
   const helpCls = `${componentCls}-show-help`;
   const helpItemCls = `${componentCls}-show-help-item`;
@@ -10,7 +12,7 @@ const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
   return {
     [helpCls]: {
       // Explain holder
-      transition: `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
+      transition: `opacity ${motionDurationFast} ${motionEaseInOut}`,
 
       '&-appear, &-enter': {
         opacity: 0,
@@ -31,9 +33,9 @@ const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
       // Explain
       [helpItemCls]: {
         overflow: 'hidden',
-        transition: `height ${token.motionDurationFast} ${token.motionEaseInOut},
-                     opacity ${token.motionDurationFast} ${token.motionEaseInOut},
-                     transform ${token.motionDurationFast} ${token.motionEaseInOut} !important`,
+        transition: `${['height', 'opacity', 'transform']
+          .map((prop) => `${prop} ${motionDurationFast} ${motionEaseInOut}`)
+          .join(', ')} !important`,
 
         [`&${helpItemCls}-appear, &${helpItemCls}-enter`]: {
           transform: `translateY(-5px)`,

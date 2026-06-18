@@ -107,7 +107,7 @@ const App: React.FC = () => (
     </ConfigProvider>
     <Flex align="flex-end">
       <Tabs size="large" type="card" {...sharedTabsProps} />
-      <Tabs size="middle" type="card" {...sharedTabsProps} />
+      <Tabs size="medium" type="card" {...sharedTabsProps} />
       <Tabs size="small" type="editable-card" {...sharedTabsProps} />
       <Tabs size="small" type="card" {...sharedTabsProps} />
     </Flex>

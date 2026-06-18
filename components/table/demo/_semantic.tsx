@@ -119,7 +119,7 @@ const Block: React.FC<TableProps<DataType>> = (props) => {
       style={{ width: '100%' }}
       columns={columns}
       dataSource={data}
-      size="middle"
+      size="medium"
       pagination={{ pageSize: 3 }}
       title={() => <>table title</>}
       footer={() => <>table footer</>}
@@ -137,6 +137,7 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'title', desc: locale.title },
+        { name: 'content', desc: locale.content },
         { name: 'header.wrapper', desc: locale['header.wrapper'] },
         { name: 'header.row', desc: locale['header.row'] },
         { name: 'header.cell', desc: locale['header.cell'] },

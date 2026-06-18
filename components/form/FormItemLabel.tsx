@@ -3,6 +3,7 @@ import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
+import { isFunction } from '../_util/is';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -14,11 +15,11 @@ import { FormContext } from './context';
 import type { RequiredMark } from './Form';
 import type { FormLabelAlign } from './interface';
 
-export type WrapperTooltipProps = TooltipProps & {
+export type FormTooltipProps = TooltipProps & {
   icon?: React.ReactElement;
 };
 
-export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
+export type FormItemTooltipType = FormTooltipProps | React.ReactNode;
 
 export interface FormItemLabelProps {
   colon?: boolean;
@@ -30,7 +31,7 @@ export interface FormItemLabelProps {
    * @internal Used for pass `requiredMark` from `<Form />`
    */
   requiredMark?: RequiredMark;
-  tooltip?: LabelTooltipType;
+  tooltip?: FormItemTooltipType;
   vertical?: boolean;
 }
 
@@ -55,6 +56,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     colon: contextColon,
     classNames: contextClassNames,
     styles: contextStyles,
+    tooltip: contextTooltip,
   } = React.useContext<FormContextProps>(FormContext);
 
   if (!label) {
@@ -86,23 +88,19 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
-  // Tooltip
-  const tooltipProps = convertToTooltipProps(tooltip);
-
+  const tooltipProps = convertToTooltipProps<FormTooltipProps>(tooltip, contextTooltip);
   if (tooltipProps) {
-    const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
     const tooltipNode: React.ReactNode = (
-      <Tooltip {...restTooltipProps}>
-        {React.cloneElement(icon, {
-          className: `${prefixCls}-item-tooltip`,
-          title: '',
-          onClick: (e: React.MouseEvent) => {
-            // Prevent label behavior in tooltip icon
-            // https://github.com/ant-design/ant-design/issues/46154
+      <Tooltip {...tooltipProps}>
+        <span
+          className={`${prefixCls}-item-tooltip`}
+          onClick={(e: React.MouseEvent) => {
             e.preventDefault();
-          },
-          tabIndex: null,
-        })}
+          }}
+          tabIndex={-1}
+        >
+          {tooltipProps.icon || tooltipProps.children || <QuestionCircleOutlined />}
+        </span>
       </Tooltip>
     );
 
@@ -116,7 +114,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   // Required Mark
   const isOptionalMark = requiredMark === 'optional';
-  const isRenderMark = typeof requiredMark === 'function';
+  const isRenderMark = isFunction(requiredMark);
   const hideRequiredMark = requiredMark === false;
 
   if (isRenderMark) {
@@ -125,7 +123,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = (
       <>
         {labelChildren}
-        <span className={`${prefixCls}-item-optional`} title="">
+        <span className={`${prefixCls}-item-optional`}>
           {formLocale?.optional || defaultLocale.Form?.optional}
         </span>
       </>
@@ -152,7 +150,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         htmlFor={htmlFor}
         className={labelClassName}
         style={contextStyles?.label}
-        title={typeof label === 'string' ? label : ''}
+        title={typeof label === 'string' ? label : undefined}
       >
         {labelChildren}
       </label>

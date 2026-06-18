@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent, resetIcon } from '../../style';
@@ -59,7 +60,7 @@ type CollapseToken = FullToken<'Collapse'> & {
   collapsePanelBorderRadius: number;
 };
 
-export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
+export const genBaseStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const {
     componentCls,
     contentBg,
@@ -244,10 +245,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`& ${componentCls}-item-disabled > ${componentCls}-header`]: {
-        [`
-          &,
-          & > .arrow
-        `]: {
+        '&, & > .arrow': {
           color: colorTextDisabled,
           cursor: 'not-allowed',
         },
@@ -269,7 +267,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   };
 };
 
-const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
+const genArrowStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`;
@@ -283,7 +281,7 @@ const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   };
 };
 
-const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
+const genBorderlessStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls, headerBg, borderlessContentPadding, borderlessContentBg, colorBorder } =
     token;
 
@@ -319,7 +317,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
   };
 };
 
-const genGhostStyle: GenerateStyle<CollapseToken> = (token) => {
+const genGhostStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls, paddingSM } = token;
 
   return {

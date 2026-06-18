@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
+import type { CheckboxGroupProps } from '..';
+import Checkbox from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import type { CheckboxGroupProps } from '../index';
-import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -274,5 +274,19 @@ describe('CheckboxGroup', () => {
       <Checkbox.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
     );
     expect(container.querySelector('#bamboo')).toBeTruthy();
+  });
+
+  describe('role prop', () => {
+    it('should set default role', () => {
+      const { container } = render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} />);
+      expect(container.firstChild).toHaveAttribute('role', 'group');
+    });
+
+    it('should set passed role', () => {
+      const { container } = render(
+        <Checkbox.Group options={['Apple', 'Pear', 'Orange']} role="checkbox" />,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'checkbox');
+    });
   });
 });

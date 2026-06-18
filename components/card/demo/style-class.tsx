@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditOutlined, HeartOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Flex } from 'antd';
-import type { CardMetaProps, CardProps } from 'antd';
+import type { CardMetaProps, CardProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 
 const { Meta } = Card;
@@ -34,7 +34,7 @@ const stylesCard: CardProps['styles'] = {
   },
 };
 
-const stylesCardFn: CardProps['styles'] = (info) => {
+const stylesCardFn: CardProps['styles'] = (info): GetProp<CardProps, 'styles', 'Return'> => {
   if (info.props.variant === 'outlined') {
     return {
       root: {
@@ -50,7 +50,7 @@ const stylesCardFn: CardProps['styles'] = (info) => {
         fontWeight: 500,
         color: '#A7AAE1',
       },
-    } satisfies CardProps['styles'];
+    };
   }
 };
 
@@ -78,12 +78,12 @@ const App: React.FC = () => {
   };
 
   const sharedCardMetaProps: CardMetaProps = {
-    avatar: <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />,
+    avatar: <Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=1" />,
     description: 'This is the description',
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Card
         {...sharedCardProps}
         title="Object Card"

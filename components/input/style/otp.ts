@@ -1,10 +1,12 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
 import { initComponentToken, initInputToken } from './token';
 
 // =============================== OTP ================================
-const genOTPStyle: GenerateStyle<InputToken> = (token) => {
+const genOTPStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, paddingXS } = token;
 
   return {
@@ -27,6 +29,9 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
         [`${componentCls}-mask-input`]: {
           color: 'transparent',
           caretColor: token.colorText,
+          '&::selection': {
+            color: 'transparent',
+          },
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',

@@ -1,3 +1,4 @@
+import { isPlainObject } from '../../_util/is';
 import type { Breakpoint, ScreenMap } from '../../_util/responsiveObserver';
 import { responsiveArray } from '../../_util/responsiveObserver';
 import type { RowProps } from '../row';
@@ -19,10 +20,11 @@ export default function useGutter(
     lg: true,
     xl: true,
     xxl: true,
+    xxxl: true,
   };
 
   normalizedGutter.forEach((g, index) => {
-    if (typeof g === 'object' && g !== null) {
+    if (isPlainObject(g)) {
       for (let i = 0; i < responsiveArray.length; i++) {
         const breakpoint: Breakpoint = responsiveArray[i];
         if (mergedScreens[breakpoint] && g[breakpoint] !== undefined) {

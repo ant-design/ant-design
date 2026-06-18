@@ -1,16 +1,16 @@
 import React from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Flex, Space, Tag } from 'antd';
-import type { GetProps, TagProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, GetProps, TagProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
 type CheckableTagGroupProps = GetProps<typeof Tag.CheckableTagGroup>;
 
-const useStyles = createStyles(() => ({
-  root: {
-    padding: '2px 6px',
-    borderRadius: 4,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 2px 6px;
+    border-radius: 4px;
+  `,
 }));
 
 const styles: TagProps['styles'] = {
@@ -25,7 +25,7 @@ const styles: TagProps['styles'] = {
   },
 };
 
-const stylesFn: TagProps['styles'] = (info) => {
+const stylesFn: TagProps['styles'] = (info): GetProp<TagProps, 'styles', 'Return'> => {
   if (info.props.variant === 'filled') {
     return {
       root: {
@@ -37,7 +37,7 @@ const stylesFn: TagProps['styles'] = (info) => {
       content: {
         color: '#8F87F1',
       },
-    } satisfies TagProps['styles'];
+    };
   }
 };
 
@@ -55,7 +55,9 @@ const groupStyles: CheckableTagGroupProps['styles'] = {
   },
 };
 
-const groupStylesFn: CheckableTagGroupProps['styles'] = (info) => {
+const groupStylesFn: CheckableTagGroupProps['styles'] = (
+  info,
+): GetProp<CheckableTagGroupProps, 'styles', 'Return'> => {
   const { multiple } = info.props;
   if (multiple) {
     return {
@@ -71,17 +73,15 @@ const groupStylesFn: CheckableTagGroupProps['styles'] = (info) => {
         color: '#8F87F1',
         fontWeight: 500,
       },
-    } satisfies CheckableTagGroupProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   return (
     <Space size="large" vertical>
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Tag classNames={classNames} styles={styles} icon={<CheckCircleOutlined />}>
           Object
         </Tag>
@@ -94,7 +94,7 @@ const App: React.FC = () => {
           Function
         </Tag>
       </Flex>
-      <Flex vertical gap="middle">
+      <Flex vertical gap="medium">
         <Tag.CheckableTagGroup
           classNames={classNames}
           styles={groupStyles}

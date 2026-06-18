@@ -1,7 +1,7 @@
 import React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import getScroll from '../_util/getScroll';
@@ -25,6 +25,9 @@ export interface BackTopProps {
   duration?: number;
 }
 
+/**
+ * @deprecated Please use `FloatButton.BackTop` instead.
+ */
 const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,

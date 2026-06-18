@@ -4,14 +4,6 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -29,6 +21,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -39,9 +32,12 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -106,9 +102,12 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -177,8 +176,11 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
             </span>
           </div>
           <div
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-2"
             role="treeitem"
           >
             <span
@@ -240,14 +242,6 @@ exports[`Directory Tree defaultExpandAll 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -265,6 +259,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -275,9 +270,12 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -342,9 +340,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -393,9 +393,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -444,9 +446,12 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -511,9 +516,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -562,9 +569,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-1"
             role="treeitem"
           >
             <span
@@ -623,14 +632,6 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -648,6 +649,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -658,9 +660,12 @@ exports[`Directory Tree defaultExpandParent 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -725,9 +730,190 @@ exports[`Directory Tree defaultExpandParent 1`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title="---"
+            >
+              <span
+                class="ant-tree-iconEle ant-tree-icon__customize"
+              >
+                <span
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-title"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Directory Tree defaultExpandParent with false 1`] = `
+<div
+  class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            draggable="false"
+            id="test-id-0-0"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title="---"
+            >
+              <span
+                class="ant-tree-iconEle ant-tree-icon__customize"
+              >
+                <span
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-title"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -802,14 +988,6 @@ exports[`Directory Tree expand with state control click 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -827,6 +1005,7 @@ exports[`Directory Tree expand with state control click 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -837,9 +1016,12 @@ exports[`Directory Tree expand with state control click 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -904,9 +1086,11 @@ exports[`Directory Tree expand with state control click 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -965,14 +1149,6 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -990,6 +1166,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1000,9 +1177,12 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1067,9 +1247,11 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -1128,14 +1310,6 @@ exports[`Directory Tree expandedKeys update 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -1153,6 +1327,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1163,9 +1338,12 @@ exports[`Directory Tree expandedKeys update 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1230,9 +1408,12 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -1297,9 +1478,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -1348,9 +1531,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="false"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-1"
             role="treeitem"
           >
             <span
@@ -1409,14 +1594,6 @@ exports[`Directory Tree group select 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -1434,6 +1611,7 @@ exports[`Directory Tree group select 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1444,9 +1622,12 @@ exports[`Directory Tree group select 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1511,9 +1692,11 @@ exports[`Directory Tree group select 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -1562,9 +1745,11 @@ exports[`Directory Tree group select 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -1613,9 +1798,12 @@ exports[`Directory Tree group select 1`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -1680,9 +1868,11 @@ exports[`Directory Tree group select 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -1731,9 +1921,11 @@ exports[`Directory Tree group select 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-1"
             role="treeitem"
           >
             <span
@@ -1792,14 +1984,6 @@ exports[`Directory Tree group select 2`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -1817,6 +2001,7 @@ exports[`Directory Tree group select 2`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1827,9 +2012,12 @@ exports[`Directory Tree group select 2`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1894,9 +2082,11 @@ exports[`Directory Tree group select 2`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -1945,9 +2135,11 @@ exports[`Directory Tree group select 2`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -1996,9 +2188,12 @@ exports[`Directory Tree group select 2`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -2063,9 +2258,11 @@ exports[`Directory Tree group select 2`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -2114,9 +2311,11 @@ exports[`Directory Tree group select 2`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-1"
             role="treeitem"
           >
             <span
@@ -2175,14 +2374,6 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-rtl css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -2200,6 +2391,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -2219,14 +2411,6 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 <div
   class="ant-tree ant-tree-block-node ant-tree-rtl ant-tree-directory ant-tree-directory-rtl css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -2244,6 +2428,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -2263,14 +2448,6 @@ exports[`Directory Tree selectedKeys update 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -2288,6 +2465,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position: relative;"
+    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -2298,9 +2476,12 @@ exports[`Directory Tree selectedKeys update 1`] = `
           style="display: flex; flex-direction: column;"
         >
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
+            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -2365,9 +2546,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -2416,9 +2599,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -2467,9 +2652,12 @@ exports[`Directory Tree selectedKeys update 1`] = `
             </span>
           </div>
           <div
+            aria-disabled="false"
             aria-expanded="true"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
+            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -2534,9 +2722,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -2585,9 +2775,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
             </span>
           </div>
           <div
-            aria-expanded="true"
+            aria-disabled="false"
+            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
+            id="test-id-0-1-1"
             role="treeitem"
           >
             <span

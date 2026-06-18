@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Flex, Space } from 'antd';
-import type { DropdownProps, MenuProps } from 'antd';
+import type { DropdownProps, GetProp, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -35,7 +35,7 @@ const items: MenuProps['items'] = [
 
 const objectStyles: DropdownProps['styles'] = {
   root: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     border: '1px solid #d9d9d9',
     borderRadius: '4px',
   },
@@ -48,14 +48,16 @@ const objectStyles: DropdownProps['styles'] = {
   },
   itemIcon: {
     color: '#1890ff',
-    marginRight: '8px',
+    marginInlineEnd: '8px',
   },
   itemContent: {
     backgroundColor: 'transparent',
   },
 };
 
-const functionStyles: DropdownProps['styles'] = (info) => {
+const functionStyles: DropdownProps['styles'] = (
+  info,
+): GetProp<DropdownProps, 'styles', 'Return'> => {
   const { props } = info;
   const isClick = props.trigger?.includes('click');
   if (isClick) {
@@ -64,7 +66,7 @@ const functionStyles: DropdownProps['styles'] = (info) => {
         borderColor: '#1890ff',
         borderRadius: '8px',
       },
-    } satisfies DropdownProps['styles'];
+    };
   }
   return {};
 };
@@ -79,7 +81,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle" wrap="wrap">
+    <Flex gap="medium" wrap="wrap">
       <Space vertical size="large">
         <Dropdown {...sharedProps} styles={objectStyles}>
           <Button>

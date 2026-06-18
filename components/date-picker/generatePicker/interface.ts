@@ -3,18 +3,9 @@ import type {
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
-import type {
-  PanelSemanticName as PopupSemantic,
-  Locale as RcPickerLocale,
-  SemanticName,
-} from '@rc-component/picker/interface';
+import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../../_util/hooks';
+import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';
@@ -25,16 +16,43 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
-export type DatePickerClassNamesType<P> = SemanticClassNamesType<
-  InjectDefaultProps<P>,
-  SemanticName,
-  { popup?: string | SemanticClassNames<PopupSemantic> }
->;
-
-export type DatePickerStylesType<P> = SemanticStylesType<
-  InjectDefaultProps<P>,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+export type DatePickerSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    popup?:
+      | string
+      | {
+          root?: string;
+          header?: string;
+          body?: string;
+          content?: string;
+          item?: string;
+          footer?: string;
+          container?: string;
+        };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      header?: React.CSSProperties;
+      body?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
+  };
+};
+export type DatePickerSemanticAllType<P = any> = GenerateSemantic<
+  DatePickerSemanticType,
+  InjectDefaultProps<P>
 >;
 
 export type PickerLocale = {
@@ -83,15 +101,6 @@ export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'p
   popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
 
-export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
-
-export type RequiredSemanticPicker = Readonly<
-  [
-    classNames: SemanticClassNames<SemanticName> & { popup: SemanticClassNames<PopupSemantic> },
-    styles: SemanticStyles<SemanticName> & { popup: SemanticStyles<PopupSemantic> },
-  ]
->;
-
 export type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
@@ -121,8 +130,8 @@ export type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  classNames?: DatePickerPickerClassNames<Props>;
-  styles?: DatePickerStylesType<Props>;
+  classNames?: DatePickerSemanticAllType<Props>['classNamesAndFn'];
+  styles?: DatePickerSemanticAllType<Props>['stylesAndFn'];
 };
 
 /** Base Single Picker props */

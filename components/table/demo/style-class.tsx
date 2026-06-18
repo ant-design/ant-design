@@ -1,14 +1,14 @@
 import React from 'react';
 import { Flex, Table } from 'antd';
-import type { TableProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, TableProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    color: '#e0e0e0',
-    borderRadius: 12,
-    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    color: #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  `,
 }));
 
 interface DataType {
@@ -67,10 +67,20 @@ const styles: TableProps<DataType>['styles'] = {
       padding: 10,
     },
   },
+  body: {
+    row: {
+      outline: '1px dashed rgba(226, 225, 225, 0.1)',
+    },
+    cell: {
+      outline: '1px dashed rgba(226, 225, 225, 0.1)',
+    },
+  },
 };
 
-const stylesFn: TableProps<DataType>['styles'] = (info) => {
-  if (info?.props?.size === 'middle') {
+const stylesFn: TableProps<DataType>['styles'] = (
+  info,
+): GetProp<TableProps<DataType>, 'styles', 'Return'> => {
+  if (info?.props?.size === 'medium') {
     return {
       root: {
         color: '#e0e0e0',
@@ -104,14 +114,12 @@ const stylesFn: TableProps<DataType>['styles'] = (info) => {
           color: '#b8bdfd',
         },
       },
-    } satisfies TableProps<DataType>['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: TableProps<DataType> = {
     columns,
     dataSource,
@@ -120,20 +128,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Table<DataType>
         {...sharedProps}
         styles={styles}
         title={() => 'Table Object Styles'}
         footer={() => 'Table Object Footer'}
         size="small"
+        virtual
+        scroll={{ y: 300 }}
       />
       <Table<DataType>
         {...sharedProps}
         styles={stylesFn}
         title={() => 'Table Function Styles'}
         footer={() => 'Table Function Styles'}
-        size="middle"
+        size="medium"
       />
     </Flex>
   );

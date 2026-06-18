@@ -1,20 +1,19 @@
 import React from 'react';
+import { warning } from '@rc-component/util';
 
 import Popover from '..';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TooltipRef } from '../../tooltip';
 
+const { resetWarned } = warning;
+
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBeFired } = Popover;
 
 describe('Popover', () => {
   mountTest(Popover);
-
-  const eventObject = expect.objectContaining({
-    target: expect.anything(),
-    preventDefault: expect.any(Function),
-  });
 
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
@@ -110,19 +109,19 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
-      e?.persist?.();
-    });
+    const onOpenChange = jest.fn();
     const wrapper = render(
-      <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
-        <span>Delete</span>
-      </Popover>,
+      <TriggerMockContext.Provider value={{ mock: false }}>
+        <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
+          <span>Delete</span>
+        </Popover>
+      </TriggerMockContext.Provider>,
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
-    fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it('should not display overlay when the content is null/undefined', () => {
@@ -136,6 +135,18 @@ describe('Popover', () => {
       const popup = document.querySelector('.ant-popover');
       expect(popup).toBe(null);
     });
+  });
+
+  it('should display overlay when the content is the number 0', () => {
+    const { container } = render(
+      <Popover content={0} trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+    fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).not.toBe(null);
+    expect(popup?.textContent).toContain('0');
   });
 
   it('ConfigProvider support arrow props', () => {
@@ -201,5 +212,48 @@ describe('Popover', () => {
     // Click the toggleArrow button again to show the arrow
     fireEvent.click(toggleArrowBtn!);
     expect(getTooltipArrow()).not.toBeNull();
+  });
+
+  it('should warn when onOpenChange has more than one argument', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpenChange = (_open: boolean, _e?: React.MouseEvent) => {};
+    render(
+      <Popover title="test" onOpenChange={onOpenChange}>
+        <span>Show</span>
+      </Popover>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Popover] The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  // Test `styles` (useMergeSemantic path) and `className` (direct injection path)
+  // to cover both ConfigProvider tooltip injection mechanisms
+  it('ConfigProvider tooltip config should not leak into Popover', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          className: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        }}
+      >
+        <Popover content="hello" open>
+          <span>Show</span>
+        </Popover>
+      </ConfigProvider>,
+    );
+
+    const popover = container.querySelector('.ant-popover');
+    expect(popover).not.toHaveClass('custom-tooltip-root');
+
+    const arrow = container.querySelector('.ant-popover-arrow');
+    expect(arrow).not.toHaveStyle({ background: 'red' });
   });
 });

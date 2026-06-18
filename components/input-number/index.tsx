@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import MinusOutlined from '@ant-design/icons/MinusOutlined';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';
 import type {
@@ -11,8 +12,9 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -29,23 +31,34 @@ import SpaceAddon from '../space/Addon';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
+export type InputNumberSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    input?: string;
+    actions?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    actions?: React.CSSProperties;
+  };
+};
 
-export type InputNumberClassNamesType<T extends ValueType = ValueType> = SemanticClassNamesType<
-  InputNumberProps<T>,
-  SemanticName
->;
-export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticStylesType<
-  InputNumberProps<T>,
-  SemanticName
+export type InputNumberSemanticAllType = GenerateSemantic<
+  InputNumberSemanticType,
+  InputNumberProps
 >;
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
-  classNames?: InputNumberClassNamesType;
-  styles?: InputNumberStylesType;
+  classNames?: InputNumberSemanticAllType['classNamesAndFn'];
+  styles?: InputNumberSemanticAllType['stylesAndFn'];
   /**
    * @deprecated Use `Space.Compact` instead.
    *
@@ -134,21 +147,24 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames: contextClassNames,
     } = useComponentConfig('inputNumber');
 
-    //controls && !props.disabled && !props.readOnly;
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
+
+    // controls && !mergedDisabled && !readOnly;
     const mergedControls = React.useMemo(() => {
-      if (!controls || props.disabled || props.readOnly) {
+      if (!controls || mergedDisabled || readOnly) {
         return false;
       }
-
       return controls;
-    }, [controls, props.disabled, props.readOnly]);
+    }, [controls, mergedDisabled, readOnly]);
 
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
     let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
     const controlsTemp = typeof mergedControls === 'boolean' ? mergedControls : undefined;
 
-    if (typeof mergedControls === 'object') {
+    if (isPlainObject(mergedControls)) {
       upIcon = mergedControls.upIcon || upIcon;
       downIcon = mergedControls.downIcon || downIcon;
     }
@@ -156,10 +172,6 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     const { hasFeedback, isFormItemInput, feedbackIcon } = React.useContext(FormItemInputContext);
 
     const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled ?? disabled;
 
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
@@ -173,13 +185,13 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       controls: mergedControls,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      InputNumberClassNamesType,
-      InputNumberStylesType,
-      InputNumberProps
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     return (
       <RcInputNumber

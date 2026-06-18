@@ -1,14 +1,14 @@
 import type { FC } from 'react';
 import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../../hooks/useLocale';
 import type { BehaviorMapProps } from './BehaviorMap';
 
 const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   fallback: css`
     width: 100%;
     > * {
@@ -32,7 +32,6 @@ const locales = {
 };
 
 const BehaviorMapFallback: React.FC = () => {
-  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   return (
     <div className={styles.fallback}>

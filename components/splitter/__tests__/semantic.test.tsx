@@ -1,15 +1,17 @@
 import React from 'react';
-import type { GetProps, SplitterProps } from 'antd';
 
+import type { SplitterProps } from '..';
 import Splitter from '..';
+import type { GetProps } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
+
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;
@@ -24,7 +26,7 @@ const resizeSplitter = async () => {
 
 describe('Splitter.Semantic', () => {
   it('should support classNames as function', async () => {
-    const classNamesFn = jest.fn(({ props }) => ({
+    const classNamesFn: SplitterProps['classNames'] = jest.fn(({ props }) => ({
       root: `custom-root-${props.orientation}`,
       panel: 'custom-panel',
       dragger: 'custom-dragger',
@@ -55,13 +57,14 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support styles as function', async () => {
-    const stylesFn = jest.fn(({ props }) => ({
+    const stylesFn: SplitterProps['styles'] = jest.fn(({ props }) => ({
       root: {
         backgroundColor:
           props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
       },
       panel: { padding: '10px' },
-      dragger: { width: '8px' },
+      // dragger: { width: '8px' },
+      dragger: { default: { width: '8px' } },
     }));
 
     const { container } = render(

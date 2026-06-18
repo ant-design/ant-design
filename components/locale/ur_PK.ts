@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/ur_PK';
+import Pagination from '@rc-component/pagination/locale/ur_PK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ur_PK';
@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'منتخب کریں',
     close: 'بند کریں',
+    show: 'دکھائیں',
+    hide: 'چھپائیں',
   },
   Table: {
     filterTitle: 'فلٹر مینو',

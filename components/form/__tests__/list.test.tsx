@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
+import { isNumber } from '../../_util/is';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
@@ -23,7 +24,7 @@ describe('Form.List', () => {
   ) => {
     let element: HTMLElement;
 
-    if (typeof input === 'number') {
+    if (isNumber(input)) {
       element = document.querySelectorAll('input')[input];
     }
 
@@ -137,7 +138,7 @@ describe('Form.List', () => {
           {(fields, { add, remove }) => (
             <>
               {fields.map((field) => (
-                /* biome-ignore lint/correctness/useJsxKeyInIterable: key is in a field */ /* eslint-disable-next-line react/no-missing-key */
+                /* eslint-disable-next-line react/no-missing-key */
                 <Form.Item {...field}>
                   <Input />
                 </Form.Item>

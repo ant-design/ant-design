@@ -87,6 +87,7 @@ exports[`Table.filter override custom filter correctly 1`] = `
 exports[`Table.filter renders custom content correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <div
     class="custom-filter-dropdown"
@@ -101,7 +102,9 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -205,7 +208,9 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -315,7 +320,9 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -442,7 +449,9 @@ exports[`Table.filter renders filter correctly 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -560,6 +569,7 @@ exports[`Table.filter renders filter correctly 1`] = `
 exports[`Table.filter renders menu correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <ul
     class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
@@ -586,9 +596,6 @@ exports[`Table.filter renders menu correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span>
@@ -614,9 +621,6 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -700,6 +704,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 exports[`Table.filter renders radio filter correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <ul
     class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
@@ -726,9 +731,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
               class="ant-radio-input"
               type="radio"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
         </label>
         <span>
@@ -754,9 +756,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
         </label>

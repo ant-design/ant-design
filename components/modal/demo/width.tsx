@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const [openResponsive, setOpenResponsive] = useState(false);
 
   return (
-    <Flex vertical gap="middle" align="flex-start">
+    <Flex vertical gap="medium" align="flex-start">
       {/* Basic */}
       <Button type="primary" onClick={() => setOpen(true)}>
         Open Modal of 1000px width

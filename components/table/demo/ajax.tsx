@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import React, { useEffect, useState } from 'react';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
@@ -117,6 +116,9 @@ const App: React.FC = () => {
             // total: data.totalCount,
           },
         });
+      })
+      .catch(() => {
+        console.log('fetch mock data failed');
       });
   };
 

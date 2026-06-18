@@ -5,7 +5,9 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -104,7 +106,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -155,7 +157,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                       <span
                         class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                       >
-                        LOSER
+                        KAWAII
                       </span>
                     </div>
                   </td>
@@ -163,7 +165,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -227,7 +229,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -342,7 +344,9 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -560,7 +564,9 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -868,6 +874,136 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
           </button>
         </li>
       </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/column-defaults.tsx correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:140px"
+                />
+                <col
+                  style="width:180px"
+                />
+                <col
+                  style="width:220px"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align:center"
+                    title="Name"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align:center"
+                    title="Description"
+                  >
+                    Description
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align:left"
+                    title="Address"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:center"
+                    title="John Brown"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:center"
+                    title="Shared column props let repeated column settings live on the table."
+                  >
+                    Shared column props let repeated column settings live on the table.
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:left"
+                    title="No. 1 Lake Park Road, Hangzhou, Zhejiang, China"
+                  >
+                    No. 1 Lake Park Road, Hangzhou, Zhejiang, China
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:center"
+                    title="Jim Green"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:center"
+                    title="Columns can still override the default alignment or other shared props."
+                  >
+                    Columns can still override the default alignment or other shared props.
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align:left"
+                    title="No. 99 Garden Avenue, Pudong, Shanghai, China"
+                  >
+                    No. 99 Garden Avenue, Pudong, Shanghai, China
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1406,6 +1542,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1419,9 +1556,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="large"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1440,16 +1574,13 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="middle"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
+                      value="medium"
                     />
                   </span>
                   <span
                     class="ant-radio-button-label"
                   >
-                    Middle
+                    Medium
                   </span>
                 </label>
                 <label
@@ -1463,9 +1594,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1507,6 +1635,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1520,9 +1649,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="unset"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1543,9 +1669,6 @@ Array [
                       type="radio"
                       value="scroll"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1564,9 +1687,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1608,6 +1728,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1621,9 +1742,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="unset"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1643,9 +1761,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1687,6 +1802,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1699,9 +1815,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topStart"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1722,9 +1835,6 @@ Array [
                       type="radio"
                       value="topCenter"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1743,9 +1853,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topEnd"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1766,9 +1873,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1810,6 +1914,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1822,9 +1927,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomStart"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1844,9 +1946,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1868,9 +1967,6 @@ Array [
                       type="radio"
                       value="bottomEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1890,9 +1986,6 @@ Array [
                       type="radio"
                       value="none"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1911,7 +2004,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -1960,9 +2055,6 @@ Array [
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -2173,9 +2265,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2198,7 +2287,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2275,9 +2364,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2300,7 +2386,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2377,9 +2463,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2402,7 +2485,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2479,9 +2562,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2504,7 +2584,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2581,9 +2661,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2606,7 +2683,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2683,9 +2760,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2708,7 +2782,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2785,9 +2859,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2810,7 +2881,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2887,9 +2958,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2912,7 +2980,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2989,9 +3057,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -3014,7 +3079,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -3091,9 +3156,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -3116,7 +3178,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -3278,7 +3340,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3550,7 +3614,9 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -3933,7 +3999,9 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -4258,7 +4326,9 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -4474,7 +4544,9 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -5326,6 +5398,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5339,9 +5412,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="large"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5360,16 +5430,13 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="middle"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
+                      value="medium"
                     />
                   </span>
                   <span
                     class="ant-radio-button-label"
                   >
-                    Middle
+                    Medium
                   </span>
                 </label>
                 <label
@@ -5383,9 +5450,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5427,6 +5491,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5440,9 +5505,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="unset"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5463,9 +5525,6 @@ Array [
                       type="radio"
                       value="scroll"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -5484,9 +5543,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5528,6 +5584,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5541,9 +5598,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="unset"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5563,9 +5617,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5607,6 +5658,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5619,9 +5671,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topStart"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5642,9 +5691,6 @@ Array [
                       type="radio"
                       value="topCenter"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -5663,9 +5709,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topEnd"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5686,9 +5729,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5730,6 +5770,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5742,9 +5783,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomStart"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5764,9 +5802,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -5788,9 +5823,6 @@ Array [
                       type="radio"
                       value="bottomEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -5810,9 +5842,6 @@ Array [
                       type="radio"
                       value="none"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -5831,7 +5860,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -5880,9 +5911,6 @@ Array [
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -6093,9 +6121,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6118,7 +6143,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6195,9 +6220,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6220,7 +6242,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6297,9 +6319,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6322,7 +6341,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6399,9 +6418,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6424,7 +6440,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6501,9 +6517,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6526,7 +6539,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6603,9 +6616,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6628,7 +6638,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6705,9 +6715,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6730,7 +6737,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6807,9 +6814,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6832,7 +6836,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6909,9 +6913,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -6934,7 +6935,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -7011,9 +7012,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7036,7 +7034,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -7196,7 +7194,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -7410,7 +7410,9 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -7494,7 +7496,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7523,7 +7525,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7552,7 +7554,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7581,7 +7583,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7610,7 +7612,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7639,7 +7641,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7668,7 +7670,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7697,7 +7699,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7726,7 +7728,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7755,7 +7757,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7941,19 +7943,13 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="10 / page"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility:visible"
-                title="10 / page"
-              >
-                10 / page
-              </div>
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -8003,7 +7999,9 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8294,7 +8292,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8597,7 +8597,9 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8897,7 +8899,9 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9234,7 +9238,9 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9585,7 +9591,9 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9936,7 +9944,9 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -10726,7 +10736,9 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -12636,19 +12648,13 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="10 / page"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility:visible"
-                title="10 / page"
-              >
-                10 / page
-              </div>
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -12698,7 +12704,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -13442,7 +13450,9 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -14643,19 +14653,13 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="50 / page"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility:visible"
-                title="50 / page"
-              >
-                50 / page
-              </div>
+              50 / page
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -14705,13 +14709,15 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
+        class="ant-table ant-table-medium ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -14990,7 +14996,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                           Name
                         </span>
                         <span
-                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -15612,7 +15618,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15786,19 +15792,13 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="10 / page"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility:visible"
-                title="10 / page"
-              >
-                10 / page
-              </div>
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -15848,7 +15848,9 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -16245,6 +16247,7 @@ Array [
   </div>,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -16257,9 +16260,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="1"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16280,9 +16280,6 @@ Array [
           type="checkbox"
           value="2"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16301,9 +16298,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="3"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16324,9 +16318,6 @@ Array [
           type="checkbox"
           value="4"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16345,9 +16336,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="5"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16368,9 +16356,6 @@ Array [
           type="checkbox"
           value="6"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16389,9 +16374,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="7"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16412,9 +16394,6 @@ Array [
           type="checkbox"
           value="8"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16428,7 +16407,9 @@ Array [
     style="margin-top:24px"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -16687,7 +16668,9 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -16808,7 +16791,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -16862,7 +16845,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                       <span
                         class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                       >
-                        LOSER
+                        KAWAII
                       </span>
                     </div>
                   </td>
@@ -16870,7 +16853,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -16937,7 +16920,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -17052,7 +17035,9 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -17473,7 +17458,9 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -17723,7 +17710,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -17946,19 +17933,13 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
             class="ant-pagination-options"
           >
             <div
-              aria-label="Page Size"
               class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="10 / page"
               >
-                <div
-                  class="ant-select-content-value"
-                  style="visibility:visible"
-                  title="10 / page"
-                >
-                  10 / page
-                </div>
+                10 / page
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -18115,7 +18096,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -18453,7 +18436,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -18592,7 +18577,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -18687,7 +18674,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -18773,7 +18760,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -18859,7 +18846,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19111,13 +19098,15 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+          class="ant-table ant-table-medium css-var-test-id ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -19250,7 +19239,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -19345,7 +19336,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19431,7 +19422,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19517,7 +19508,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19684,7 +19675,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -19769,7 +19760,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -19908,7 +19901,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -20003,7 +19998,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -20089,7 +20084,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -20175,7 +20170,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -20342,7 +20337,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20431,7 +20426,9 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -20495,9 +20492,6 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </div>
@@ -20550,9 +20544,6 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -20598,9 +20589,6 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -20648,9 +20636,6 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -20696,9 +20681,6 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -20803,6 +20785,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   <div>
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
       style="margin-bottom:10px"
     >
       <label
@@ -20817,9 +20800,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="topStart"
-          />
-          <span
-            class="ant-radio-inner"
           />
         </span>
         <span
@@ -20840,9 +20820,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             type="radio"
             value="topCenter"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -20861,9 +20838,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="topEnd"
-          />
-          <span
-            class="ant-radio-inner"
           />
         </span>
         <span
@@ -20884,9 +20858,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             type="radio"
             value="none"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -20898,6 +20869,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:10px"
   >
     <label
@@ -20911,9 +20883,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="bottomStart"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -20933,9 +20902,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="bottomCenter"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -20957,9 +20923,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           type="radio"
           value="bottomEnd"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -20979,9 +20942,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           type="radio"
           value="none"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -20994,7 +20954,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -21172,7 +21134,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -21223,7 +21185,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                         <span
                           class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                         >
-                          LOSER
+                          KAWAII
                         </span>
                       </div>
                     </td>
@@ -21231,7 +21193,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -21295,7 +21257,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -21453,7 +21415,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -21922,342 +21886,14 @@ Array [
 ]
 `;
 
-exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
-<div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading css-var-test-id"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout:auto"
-            >
-              <colgroup>
-                <col
-                  style="width:200px"
-                />
-                <col
-                  style="width:100px"
-                />
-                <col
-                  style="width:100px"
-                />
-                <col
-                  style="width:100px"
-                />
-              </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Date
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    aria-description="sortable"
-                    aria-label="Amount"
-                    class="ant-table-cell ant-table-column-has-sorters react-resizable"
-                    scope="col"
-                    tabindex="0"
-                  >
-                    <div
-                      class="ant-table-column-sorters"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Amount
-                      </span>
-                      <span
-                        class="ant-table-column-sorter ant-table-column-sorter-full"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="ant-table-column-sorter-inner"
-                        >
-                          <span
-                            aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </div>
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Type
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell react-resizable"
-                    scope="col"
-                  >
-                    Note
-                    <span
-                      class="react-resizable-handle"
-                    />
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-02-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    120
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-03-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    243
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2018-04-11
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    98
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    income
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    transfer
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a
-            rel="nofollow"
-          >
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <button
-            class="ant-pagination-item-link"
-            disabled=""
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
 <div
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -22394,6 +22030,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -22407,9 +22044,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="checkbox"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -22430,9 +22064,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           type="radio"
           value="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -22449,7 +22080,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -22492,9 +22125,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -22541,9 +22171,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             name="John Brown"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -22582,9 +22209,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -22625,9 +22249,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             name="Joe Black"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -22667,9 +22288,6 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             disabled=""
                             name="Disabled User"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -22784,10 +22402,10 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-medium"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
@@ -22803,7 +22421,9 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -22846,9 +22466,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -22894,9 +22511,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -22932,9 +22546,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -22972,9 +22583,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -23010,9 +22618,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -23050,9 +22655,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -23088,9 +22690,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -23128,9 +22727,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -23166,9 +22762,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -23206,9 +22799,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -23244,9 +22834,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -23406,7 +22993,9 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -23449,9 +23038,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                             aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -23524,9 +23110,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -23562,9 +23145,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -23602,9 +23182,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -23640,9 +23217,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -23680,9 +23254,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -23718,9 +23289,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -23758,9 +23326,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -23796,9 +23361,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -23836,9 +23398,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -23874,9 +23433,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -24035,7 +23591,9 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -24079,9 +23637,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </div>
@@ -24117,9 +23672,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -24161,9 +23713,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -24203,9 +23752,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -24247,9 +23793,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -24289,9 +23832,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -24521,7 +24061,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -24564,9 +24106,6 @@ Array [
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -24612,9 +24151,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24653,9 +24189,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24696,9 +24229,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24737,9 +24267,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24780,9 +24307,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24821,9 +24345,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24864,9 +24385,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24905,9 +24423,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24948,9 +24463,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24989,9 +24501,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25032,9 +24541,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25073,9 +24579,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25116,9 +24619,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25157,9 +24657,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25200,9 +24697,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25241,9 +24735,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25284,9 +24775,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25325,9 +24813,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25368,9 +24853,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25409,9 +24891,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25452,9 +24931,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25493,9 +24969,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25536,9 +25009,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25577,9 +25047,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25620,9 +25087,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25661,9 +25125,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25704,9 +25165,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25745,9 +25203,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25788,9 +25243,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25829,9 +25281,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25872,9 +25321,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25913,9 +25359,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25956,9 +25399,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -25997,9 +25437,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26040,9 +25477,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26081,9 +25515,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26124,9 +25555,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26165,9 +25593,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26208,9 +25633,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26249,9 +25671,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26292,9 +25711,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26333,9 +25749,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26376,9 +25789,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26417,9 +25827,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26460,9 +25867,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26501,9 +25905,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26544,9 +25945,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26585,9 +25983,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26628,9 +26023,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26670,9 +26062,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -26711,7 +26100,9 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -26754,9 +26145,6 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                             aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -26829,9 +26217,6 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -26868,9 +26253,6 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -26906,9 +26288,6 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -27030,7 +26409,7 @@ Array [
     <span
       class="ant-divider-inner-text"
     >
-      Middle size table
+      Medium size table
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -27040,13 +26419,15 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+          class="ant-table ant-table-medium css-var-test-id ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -27150,7 +26531,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27251,7 +26632,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -27361,7 +26744,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27450,7 +26833,9 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -28647,19 +28032,13 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="10 / page"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility:visible"
-                title="10 / page"
-              >
-                10 / page
-              </div>
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -28704,488 +28083,6 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
-<div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
->
-  <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
-    style="padding:10px;border-radius:8px"
-  >
-    <div
-      class="ant-spin-nested-loading css-var-test-id"
-    >
-      <div
-        class="ant-spin-container"
-      >
-        <div
-          class="ant-table ant-table-small css-var-test-id ant-table-css-var"
-        >
-          <div
-            class="ant-table-title"
-          >
-            Table Object Styles
-          </div>
-          <div
-            class="ant-table-container"
-          >
-            <div
-              class="ant-table-content"
-            >
-              <table
-                style="table-layout:auto"
-              >
-                <thead
-                  class="ant-table-thead"
-                >
-                  <tr>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                    >
-                      Name
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                    >
-                      Age
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                    >
-                      Address
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                    >
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Jim Green
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sydney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div
-            class="ant-table-footer"
-          >
-            Table Object Footer
-          </div>
-        </div>
-        <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
-          style="padding:10px"
-        >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              disabled=""
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="left"
-                class="anticon anticon-left"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="left"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-          <li
-            class="ant-pagination-simple-pager"
-            title="1/2"
-          >
-            <input
-              aria-label="Go to"
-              size="3"
-              type="text"
-              value="1"
-            />
-            <span
-              class="ant-pagination-slash"
-            >
-              /
-            </span>
-            2
-          </li>
-          <li
-            aria-disabled="false"
-            class="ant-pagination-next"
-            title="Next Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
-    style="color:#e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)"
-  >
-    <div
-      class="ant-spin-nested-loading css-var-test-id"
-    >
-      <div
-        class="ant-spin-container"
-      >
-        <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
-        >
-          <div
-            class="ant-table-title"
-            style="background-image:linear-gradient(90deg, #6a5acd, #836fff);color:#fff;font-size:1.25rem;font-weight:600;padding:12px 16px"
-          >
-            Table Function Styles
-          </div>
-          <div
-            class="ant-table-container"
-          >
-            <div
-              class="ant-table-content"
-            >
-              <table
-                style="table-layout:auto"
-              >
-                <thead
-                  class="ant-table-thead"
-                >
-                  <tr>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
-                    >
-                      Name
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
-                    >
-                      Age
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
-                    >
-                      Address
-                    </th>
-                    <th
-                      class="ant-table-cell"
-                      scope="col"
-                      style="font-weight:600;font-size:0.95rem;color:#b8bdfd;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08)"
-                    >
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Jim Green
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sydney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div
-            class="ant-table-footer"
-            style="color:#9ca3af"
-          >
-            Table Function Styles
-          </div>
-        </div>
-        <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
-          style="padding:10px"
-        >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-prev ant-pagination-disabled"
-            style="color:#b8bdfd"
-            title="Previous Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              disabled=""
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="left"
-                class="anticon anticon-left"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="left"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-          <li
-            class="ant-pagination-simple-pager"
-            style="color:#b8bdfd"
-            title="1/2"
-          >
-            <input
-              aria-label="Go to"
-              size="3"
-              type="text"
-              value="1"
-            />
-            <span
-              class="ant-pagination-slash"
-            >
-              /
-            </span>
-            2
-          </li>
-          <li
-            aria-disabled="false"
-            class="ant-pagination-next"
-            style="color:#b8bdfd"
-            title="Next Page"
-          >
-            <button
-              class="ant-pagination-item-link"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders components/table/demo/summary.tsx correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
@@ -29194,7 +28091,9 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -29376,7 +28275,9 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -29861,7 +28762,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -29912,9 +28815,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -29958,9 +28858,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30007,9 +28904,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30170,7 +29064,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -30222,9 +29118,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -30275,9 +29168,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30332,9 +29222,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30387,9 +29274,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30444,9 +29328,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30499,9 +29380,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30556,9 +29434,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30611,9 +29486,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30668,9 +29540,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30723,9 +29592,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30925,7 +29791,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -30976,9 +29844,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -31022,9 +29887,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -31072,9 +29934,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -31120,9 +29979,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -31170,9 +30026,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -31218,9 +30071,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>

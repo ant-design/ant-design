@@ -27,7 +27,7 @@ const data: DataType[] = [
     lastName: 'Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    tags: ['kawaii'],
   },
   {
     key: '3',
@@ -55,7 +55,7 @@ const App: React.FC = () => (
         <Flex gap="small" align="center" wrap>
           {tags.map((tag) => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
+            if (tag === 'kawaii') {
               color = 'volcano';
             }
             return (
@@ -71,7 +71,7 @@ const App: React.FC = () => (
       title="Action"
       key="action"
       render={(_: any, record: DataType) => (
-        <Space size="middle">
+        <Space size="medium">
           <a>Invite {record.lastName}</a>
           <a>Delete</a>
         </Space>

@@ -5,6 +5,7 @@ import genPurePanel from '../_util/PurePanel';
 import generatePicker from './generatePicker';
 import type {
   RangePickerProps as BaseRangePickerProps,
+  DatePickerSemanticType,
   PickerProps,
   PickerPropsWithMultiple,
 } from './generatePicker/interface';
@@ -19,6 +20,8 @@ export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
 >;
 export type WeekPickerProps<ValueType = Dayjs | Dayjs> = Omit<DatePickerProps<ValueType>, 'picker'>;
 export type RangePickerProps = BaseRangePickerProps<Dayjs>;
+
+export type { DatePickerSemanticType };
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 

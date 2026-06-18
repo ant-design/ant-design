@@ -4,13 +4,15 @@
  */
 
 // Style as inline component
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { prepareToken } from '.';
 import type { FormToken } from '.';
 import { genSubStyleComponent } from '../../theme/internal';
 import type { GenerateStyle } from '../../theme/internal';
 
 // ============================= Fallback =============================
-const genFallbackStyle: GenerateStyle<FormToken> = (token) => {
+const genFallbackStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { formItemCls } = token;
 
   return {

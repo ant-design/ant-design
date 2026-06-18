@@ -19,7 +19,7 @@ const locales = {
 const Demo: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Flex>
         <div style={{ width: 106 }}>{locale.taskInProgress}</div>
         <Progress type="line" percent={50} showInfo={false} style={{ width: 320 }} />

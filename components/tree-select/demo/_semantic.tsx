@@ -31,7 +31,7 @@ const App: React.FC = () => {
       componentName="TreeSelect"
       prefix="prefix"
       style={{ width: 300 }}
-      multipleProps={{ multiple: true }}
+      multipleProps={{ multiple: true, defaultValue: ['aojunhao123'] }}
       treeData={treeData}
       treeDefaultExpandAll
       showSearch

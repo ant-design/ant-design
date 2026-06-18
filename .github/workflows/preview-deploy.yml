@@ -11,18 +11,43 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.id }}
+  cancel-in-progress: true
+
 jobs:
+  check-trust:
+    name: Check if workflow run is trusted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
+    outputs:
+      trusted: ${{ steps.check.outputs.trusted }}
+    steps:
+      - name: Check trust
+        id: check
+        env:
+          REPO: ${{ github.event.workflow_run.repository.full_name }}
+          EVENT: ${{ github.event.workflow_run.event }}
+        run: |
+          if [[ "$REPO" == "ant-design/ant-design" && "$EVENT" == "pull_request" ]]; then
+            echo "trusted=true" >> $GITHUB_OUTPUT
+          else
+            echo "trusted=false" >> $GITHUB_OUTPUT
+          fi
+
   upstream-workflow-summary:
     name: upstream workflow summary
-    runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request'
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
+    needs: [check-trust]
+    if: fromJSON(needs.check-trust.outputs.trusted)
     outputs:
       jobs: ${{ steps.prep-summary.outputs.result }}
       build-success: ${{ steps.prep-summary.outputs.build-success }}
       build-failure: ${{ steps.prep-summary.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v8
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: prep-summary
         with:
           script: |
@@ -57,13 +82,14 @@ jobs:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
-    runs-on: ubuntu-latest
-    needs: upstream-workflow-summary
-    if: github.event.workflow_run.event == 'pull_request'
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 30
+    needs: [check-trust, upstream-workflow-summary]
+    if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v12
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -83,7 +109,7 @@ jobs:
       # Download site artifact
       - name: download site artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v12
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -94,12 +120,13 @@ jobs:
         continue-on-error: true
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
           export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         if: ${{ steps.deploy.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -111,7 +138,7 @@ jobs:
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

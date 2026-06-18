@@ -4,12 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -59,23 +54,27 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
-type SemanticName = 'root';
-
-type PopupSemantic = 'root';
-
-export type ColorPickerClassNamesType = SemanticClassNamesType<
-  ColorPickerProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
->;
-
-export type ColorPickerStylesType = SemanticStylesType<
-  ColorPickerProps,
-  SemanticName,
-  {
-    popup?: SemanticStyles<PopupSemantic>;
+export type ColorPickerSemanticType = {
+  classNames?: {
+    root?: string;
+    body?: string;
+    content?: string;
+    description?: string;
+    popup?: { root?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+    content?: React.CSSProperties;
+    description?: React.CSSProperties;
     popupOverlayInner?: React.CSSProperties;
-  }
+    popup?: { root?: React.CSSProperties };
+  };
+};
+
+export type ColorPickerSemanticAllType = GenerateSemantic<
+  ColorPickerSemanticType,
+  ColorPickerProps
 >;
 
 export type ColorPickerProps = Omit<
@@ -100,15 +99,15 @@ export type ColorPickerProps = Omit<
   defaultFormat?: ColorFormatType;
   allowClear?: boolean;
   presets?: PresetsItem[];
-  arrow?: boolean | { pointAtCenter: boolean };
+  arrow?: boolean | { pointAtCenter?: boolean };
   panelRender?: (
     panel: React.ReactNode,
     extra: { components: { Picker: React.FC; Presets: React.FC } },
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: ColorPickerClassNamesType;
-  styles?: ColorPickerStylesType;
+  classNames?: ColorPickerSemanticAllType['classNamesAndFn'];
+  styles?: ColorPickerSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

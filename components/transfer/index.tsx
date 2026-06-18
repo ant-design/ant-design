@@ -1,9 +1,13 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
-import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMultipleSelect } from '../_util/hooks';
+import type { PrevSelectedIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -28,21 +32,64 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type SemanticName =
-  | 'root'
-  | 'section'
-  | 'header'
-  | 'title'
-  | 'body'
-  | 'list'
-  | 'item'
-  | 'itemIcon'
-  | 'itemContent'
-  | 'footer'
-  | 'actions';
+export type TransferSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    header?: string;
+    title?: string;
+    body?: string;
+    list?: string;
+    item?: string;
+    itemIcon?: string;
+    itemContent?: string;
+    footer?: string;
+    actions?: string;
+    source?: TransferSectionSemanticClassNames;
+    target?: TransferSectionSemanticClassNames;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    body?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    source?: TransferSectionSemanticStyles;
+    target?: TransferSectionSemanticStyles;
+  };
+};
 
-export type TransferClassNamesType = SemanticClassNamesType<TransferProps, SemanticName>;
-export type TransferStylesType = SemanticStylesType<TransferProps, SemanticName>;
+type TransferSectionSemanticClassNames = {
+  section?: string;
+  header?: string;
+  title?: string;
+  body?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
+  footer?: string;
+};
+
+type TransferSectionSemanticStyles = {
+  section?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  body?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  footer?: React.CSSProperties;
+};
+
+export type TransferSemanticAllType = GenerateSemantic<TransferSemanticType, TransferProps>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -62,7 +109,6 @@ export interface TransferItem {
 }
 
 export type KeyWise<T> = T & { key: TransferKey };
-
 export type KeyWiseTransferItem = KeyWise<TransferItem>;
 
 type TransferRender<RecordType> = (item: RecordType) => RenderResult;
@@ -95,7 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -104,8 +151,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: TransferClassNamesType;
-  styles?: TransferStylesType;
+  classNames?: TransferSemanticAllType['classNamesAndFn'];
+  styles?: TransferSemanticAllType['stylesAndFn'];
 
   disabled?: boolean;
   dataSource?: RecordType[];
@@ -181,6 +228,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
+    ...restProps
   } = props;
 
   const {
@@ -208,6 +256,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedActions = actions || operations || [];
+  const isRtl = dir === 'rtl';
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -242,11 +291,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       keys: TransferKey[] | ((prevKeys: TransferKey[]) => TransferKey[]),
     ) => {
       if (direction === 'left') {
-        const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
-        setSourceSelectedKeys(nextKeys);
+        setSourceSelectedKeys(isFunction(keys) ? keys(sourceSelectedKeys || []) : keys);
       } else {
-        const nextKeys = typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys;
-        setTargetSelectedKeys(nextKeys);
+        setTargetSelectedKeys(isFunction(keys) ? keys(targetSelectedKeys || []) : keys);
       }
     },
     [sourceSelectedKeys, targetSelectedKeys],
@@ -313,7 +360,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const onItemSelectAll = (
     direction: TransferDirection,
-    keys: string[],
+    keys: TransferKey[],
     checkAll: boolean | 'replace',
   ) => {
     setStateKeys(direction, (prevKeys) => {
@@ -334,13 +381,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setPrevSelectedIndex(direction, null);
   };
 
-  const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
-    onItemSelectAll('left', keys, checkAll);
-  };
+  const onLeftItemSelectAll: TransferListProps<KeyWise<RecordType>>['onItemSelectAll'] = (
+    keys,
+    checkAll,
+  ) => onItemSelectAll('left', keys, checkAll);
 
-  const onRightItemSelectAll = (keys: string[], checkAll: boolean) => {
-    onItemSelectAll('right', keys, checkAll);
-  };
+  const onRightItemSelectAll: TransferListProps<KeyWise<RecordType>>['onItemSelectAll'] = (
+    keys,
+    checkAll,
+  ) => onItemSelectAll('right', keys, checkAll);
 
   const leftFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('left', e.target.value);
 
@@ -386,15 +435,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     multiple?: boolean,
   ) => {
     const isLeftDirection = direction === 'left';
-    const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
+    const holder = isLeftDirection ? sourceSelectedKeys : targetSelectedKeys;
     const holderSet = new Set(holder);
-    const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item?.disabled,
+    const data: KeyWise<RecordType>[] = (isLeftDirection ? leftDataSource : rightDataSource).filter(
+      (item): item is KeyWise<RecordType> => !item.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
-      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
+      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
@@ -413,10 +462,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
 
-  const onRightItemSelect = (
-    selectedKey: TransferKey,
-    checked: boolean,
-    e?: React.MouseEvent<Element, MouseEvent>,
+  const onRightItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
   ) => {
     onItemSelect('right', selectedKey, checked, e?.shiftKey);
   };
@@ -431,7 +480,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const handleListStyle = (direction: TransferDirection): CSSProperties => {
-    if (typeof listStyle === 'function') {
+    if (isFunction(listStyle)) {
       return listStyle({ direction });
     }
     return listStyle || {};
@@ -459,20 +508,24 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TransferClassNamesType,
-    TransferStylesType,
-    TransferProps<RecordType>
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+    {
+      source: {},
+      target: {},
+    },
+  );
 
   const cls = clsx(
     prefixCls,
     {
       [`${prefixCls}-disabled`]: mergedDisabled,
       [`${prefixCls}-customize-list`]: !!children,
-      [`${prefixCls}-rtl`]: dir === 'rtl',
+      [`${prefixCls}-rtl`]: isRtl,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     contextClassName,
@@ -492,6 +545,49 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
 
+  const sectionSemanticKeys = [
+    'section',
+    'header',
+    'title',
+    'body',
+    'list',
+    'item',
+    'itemIcon',
+    'itemContent',
+    'footer',
+  ] as const;
+
+  const getMergedSectionClassNames = (direction: 'source' | 'target') => {
+    const mergedSectionClassNames = { ...mergedClassNames };
+    const directionClassNames = mergedClassNames[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionClassNames[key] = clsx(mergedClassNames[key], directionClassNames?.[key]);
+    });
+
+    return mergedSectionClassNames;
+  };
+
+  const getMergedSectionStyles = (direction: 'source' | 'target') => {
+    const mergedSectionStyles = { ...mergedStyles };
+    const directionStyles = mergedStyles[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionStyles[key] = { ...mergedStyles[key], ...directionStyles?.[key] };
+    });
+
+    return mergedSectionStyles;
+  };
+
+  const sourceSectionClassNames = getMergedSectionClassNames('source');
+  const targetSectionClassNames = getMergedSectionClassNames('target');
+  const sourceSectionStyles = getMergedSectionStyles('source');
+  const targetSectionStyles = getMergedSectionStyles('target');
+  const rootProps = pickAttrs(restProps, {
+    aria: true,
+    data: true,
+  });
+
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -509,12 +605,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...rootProps} className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={sourceSectionClassNames}
+        styles={sourceSectionStyles}
         titleText={leftTitle}
         dataSource={leftDataSource as any}
         filterOption={filterOption}
@@ -522,14 +618,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
-        onItemSelectAll={onLeftItemSelectAll as any}
+        onItemSelectAll={onLeftItemSelectAll}
         render={render}
         showSearch={showSearch}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
         disabled={mergedDisabled}
-        direction={dir === 'rtl' ? 'right' : 'left'}
+        direction={isRtl ? 'right' : 'left'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
@@ -554,8 +650,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('right')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={targetSectionClassNames}
+        styles={targetSectionStyles}
         titleText={rightTitle}
         dataSource={rightDataSource as any}
         filterOption={filterOption}
@@ -563,7 +659,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
-        onItemSelectAll={onRightItemSelectAll as any}
+        onItemSelectAll={onRightItemSelectAll}
         onItemRemove={onRightItemRemove}
         render={render}
         showSearch={showSearch}
@@ -571,7 +667,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         footer={footer as any}
         onScroll={handleRightScroll}
         disabled={mergedDisabled}
-        direction={dir === 'rtl' ? 'left' : 'right'}
+        direction={isRtl ? 'left' : 'right'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}

@@ -1,9 +1,10 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
+const getHorizontalStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow,
@@ -43,9 +44,9 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-        transition: [`border-color ${motionDurationSlow}`, `background ${motionDurationSlow}`].join(
-          ',',
-        ),
+        transition: [`border-color`, `background-color`]
+          .map((prop) => `${prop} ${motionDurationSlow}`)
+          .join(','),
       },
 
       // ===================== Sub Menu =====================

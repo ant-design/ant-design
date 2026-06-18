@@ -1,12 +1,12 @@
 import React from 'react';
 import { Descriptions, Flex } from 'antd';
-import type { DescriptionsProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { DescriptionsProps, GetProp } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: {
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 10px;
+  `,
 }));
 
 const items: DescriptionsProps['items'] = [
@@ -33,22 +33,22 @@ const styles: DescriptionsProps['styles'] = {
   },
 };
 
-const stylesFn: DescriptionsProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+const stylesFn: DescriptionsProps['styles'] = (
+  info,
+): GetProp<DescriptionsProps, 'styles', 'Return'> => {
+  if (info.props.size === 'large') {
     return {
       root: {
         borderRadius: 8,
         border: '1px solid #CDC1FF',
       },
       label: { color: '#A294F9' },
-    } satisfies DescriptionsProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
-
   const descriptionsProps: DescriptionsProps = {
     title: 'User Info',
     items,
@@ -57,9 +57,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Descriptions {...descriptionsProps} styles={styles} size="small" />
-      <Descriptions {...descriptionsProps} styles={stylesFn} size="default" />
+      <Descriptions {...descriptionsProps} styles={stylesFn} size="large" />
     </Flex>
   );
 };

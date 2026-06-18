@@ -2,12 +2,13 @@
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isFunction } from '../../_util/is';
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
-import type { ColorFormatType, ColorPickerProps } from '../interface';
+import type { ColorFormatType, ColorPickerProps, ColorPickerSemanticAllType } from '../interface';
 import { getColorAlpha } from '../util';
 import ColorClear from './ColorClear';
 
@@ -20,6 +21,8 @@ export interface ColorTriggerProps {
   showText?: ColorPickerProps['showText'];
   className?: string;
   style?: CSSProperties;
+  classNames: NonNullable<ColorPickerSemanticAllType['classNames']>;
+  styles: NonNullable<ColorPickerSemanticAllType['styles']>;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
@@ -27,8 +30,20 @@ export interface ColorTriggerProps {
 }
 
 const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) => {
-  const { color, prefixCls, open, disabled, format, className, showText, activeIndex, ...rest } =
-    props;
+  const {
+    color,
+    prefixCls,
+    open,
+    disabled,
+    format,
+    className,
+    style,
+    classNames,
+    styles,
+    showText,
+    activeIndex,
+    ...rest
+  } = props;
 
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
   const colorTextPrefixCls = `${colorTriggerPrefixCls}-text`;
@@ -42,7 +57,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       return '';
     }
 
-    if (typeof showText === 'function') {
+    if (isFunction(showText)) {
       return showText(color);
     }
 
@@ -85,24 +100,42 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const containerNode = useMemo<React.ReactNode>(
     () =>
       color.cleared ? (
-        <ColorClear prefixCls={prefixCls} />
+        <ColorClear prefixCls={prefixCls} className={classNames.body} style={styles.body} />
       ) : (
-        <ColorBlock prefixCls={prefixCls} color={color.toCssString()} />
+        <ColorBlock
+          prefixCls={prefixCls}
+          color={color.toCssString()}
+          className={classNames.body}
+          innerClassName={classNames.content}
+          style={styles.body}
+          innerStyle={styles.content}
+        />
       ),
-    [color, prefixCls],
+    [color, prefixCls, classNames.body, classNames.content, styles.body, styles.content],
   );
 
   return (
     <div
       ref={ref}
-      className={clsx(colorTriggerPrefixCls, className, {
+      className={clsx(colorTriggerPrefixCls, className, classNames.root, {
         [`${colorTriggerPrefixCls}-active`]: open,
         [`${colorTriggerPrefixCls}-disabled`]: disabled,
       })}
+      style={{
+        ...styles.root,
+        ...style,
+      }}
       {...pickAttrs(rest)}
     >
       {containerNode}
-      {showText && <div className={colorTextPrefixCls}>{desc}</div>}
+      {showText && (
+        <div
+          className={clsx(colorTextPrefixCls, classNames.description)}
+          style={styles.description}
+        >
+          {desc}
+        </div>
+      )}
     </div>
   );
 });

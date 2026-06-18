@@ -5,7 +5,7 @@ import { FastColor } from '@ant-design/fast-color';
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
 
-const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
+const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     pickerCellCls,
     pickerCellInnerCls,
@@ -45,7 +45,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: cellHeight,
       lineHeight: unit(cellHeight),
       borderRadius: borderRadiusSM,
-      transition: `background ${motionDurationMid}`,
+      transition: `background-color ${motionDurationMid}`,
     },
 
     // >>> Hover
@@ -141,7 +141,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
+export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     pickerCellCls,
@@ -230,17 +230,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       // ========================================================
       // =                     Shared Panel                     =
       // ========================================================
-      [`&-decade-panel,
-        &-year-panel,
-        &-quarter-panel,
-        &-month-panel,
-        &-week-panel,
-        &-date-panel,
-        &-time-panel`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: pickerPanelWidth,
-      },
+      '&-decade-panel, &-year-panel, &-quarter-panel, &-month-panel, &-week-panel, &-date-panel, &-time-panel':
+        {
+          display: 'flex',
+          flexDirection: 'column',
+          width: pickerPanelWidth,
+        },
 
       // ======================= Header =======================
       '&-header': {
@@ -306,10 +301,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
       // Arrow button
-      [`&-prev-icon,
-        &-next-icon,
-        &-super-prev-icon,
-        &-super-next-icon`]: {
+      '&-prev-icon, &-next-icon, &-super-prev-icon, &-super-next-icon': {
         position: 'relative',
         width: pickerControlIconSize,
         height: pickerControlIconSize,
@@ -327,8 +319,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
 
-      [`&-super-prev-icon,
-        &-super-next-icon`]: {
+      '&-super-prev-icon, &-super-next-icon': {
         '&::after': {
           position: 'absolute',
           top: pickerControlIconMargin,
@@ -383,10 +374,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         ...genPickerCellInnerStyle(token),
       },
 
-      [`&-decade-panel,
-        &-year-panel,
-        &-quarter-panel,
-        &-month-panel`]: {
+      '&-decade-panel, &-year-panel, &-quarter-panel, &-month-panel': {
         [`${componentCls}-content`]: {
           height: token.calc(withoutTimeCellHeight).mul(4).equal(),
         },
@@ -418,9 +406,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       },
 
       // ============= Year & Quarter & Month Panel =============
-      [`&-year-panel,
-        &-quarter-panel,
-        &-month-panel`]: {
+      '&-year-panel, &-quarter-panel, &-month-panel': {
         [`${componentCls}-body`]: {
           padding: `0 ${unit(paddingXS)}`,
         },
@@ -446,7 +432,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-week-panel-row': {
         td: {
           '&:before': {
-            transition: `background ${motionDurationMid}`,
+            transition: `background-color ${motionDurationMid}`,
           },
 
           '&:first-child:before': {
@@ -539,10 +525,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: timeColumnWidth,
           margin: `${unit(paddingXXS)} 0`,
           padding: 0,
-          overflowY: 'hidden',
+          overflowY: 'auto',
           textAlign: 'start',
           listStyle: 'none',
-          transition: `background ${motionDurationMid}`,
+          transition: `background-color ${motionDurationMid}`,
           overflowX: 'hidden',
 
           '&::-webkit-scrollbar': {
@@ -575,10 +561,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
           },
 
-          '&:hover': {
-            overflowY: 'auto',
-          },
-
           '> li': {
             margin: 0,
             padding: 0,
@@ -597,7 +579,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 lineHeight: unit(timeCellHeight),
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
-                transition: `background ${motionDurationMid}`,
+                transition: `background-color ${motionDurationMid}`,
 
                 '&:hover': {
                   background: cellHoverBg,
@@ -625,7 +607,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     textHeight,

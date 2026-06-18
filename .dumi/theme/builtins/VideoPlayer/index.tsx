@@ -1,9 +1,9 @@
 import React from 'react';
 import { PauseCircleFilled, PlayCircleFilled } from '@ant-design/icons';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
-const useStyles = createStyles(({ cx, cssVar }) => {
+const styles = createStaticStyles(({ css, cx, cssVar }) => {
   const play = css`
     position: absolute;
     inset-inline-end: ${cssVar.paddingLG};
@@ -45,7 +45,6 @@ const VideoPlayer: React.FC<React.HtmlHTMLAttributes<HTMLVideoElement>> = ({
   className,
   ...restProps
 }) => {
-  const { styles } = useStyles();
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = React.useState(false);
 

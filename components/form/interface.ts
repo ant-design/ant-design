@@ -4,7 +4,7 @@ export type {
   NamePath,
   Store,
   StoreValue,
-} from '@rc-component/form/lib/interface';
+} from '@rc-component/form';
 
 export type ScrollFocusOptions = Options & {
   focus?: boolean;

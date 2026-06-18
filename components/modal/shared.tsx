@@ -1,6 +1,7 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
+import { isFunction } from '../_util/is';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import NormalCancelBtn from './components/NormalCancelBtn';
@@ -20,7 +21,7 @@ export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) 
 
 interface FooterProps {
   onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  onCancel?: ModalProps['onCancel'];
 }
 
 export const Footer: React.FC<
@@ -77,7 +78,7 @@ export const Footer: React.FC<
   ]);
 
   let footerNode: React.ReactNode;
-  if (typeof footer === 'function' || typeof footer === 'undefined') {
+  if (isFunction(footer) || typeof footer === 'undefined') {
     footerNode = (
       <>
         <NormalCancelBtn />
@@ -85,7 +86,7 @@ export const Footer: React.FC<
       </>
     );
 
-    if (typeof footer === 'function') {
+    if (isFunction(footer)) {
       footerNode = footer(footerNode, { OkBtn: NormalOkBtn, CancelBtn: NormalCancelBtn });
     }
 

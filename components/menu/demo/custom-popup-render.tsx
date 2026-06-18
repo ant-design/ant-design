@@ -95,7 +95,7 @@ const App: React.FC = () => {
   const { styles } = useStyles();
   const popupRender: MenuProps['popupRender'] = (_, { item }) => {
     return (
-      <Flex className={styles.navigationPopup} vertical gap="middle">
+      <Flex className={styles.navigationPopup} vertical gap="medium">
         <Typography.Title level={3} className={styles.leadingHeader}>
           {item.title}
         </Typography.Title>

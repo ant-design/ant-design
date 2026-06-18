@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Progress } from 'antd';
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Flex vertical gap="small" style={{ width: 300 }}>
       <Progress percent={50} />
       <Progress percent={50} size="small" />

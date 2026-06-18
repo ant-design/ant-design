@@ -1,8 +1,8 @@
 import React from 'react';
 import { SoundOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, cssVar }) => {
+const styles = createStaticStyles(({ css, cssVar }) => {
   return {
     playBtn: css`
       display: inline-flex;
@@ -30,7 +30,6 @@ interface AudioProps {
 }
 
 const AudioControl: React.FC<React.PropsWithChildren<AudioProps>> = ({ id, children }) => {
-  const { styles } = useStyle();
   const onClick: React.MouseEventHandler<HTMLAnchorElement> = () => {
     const audio = document.querySelector<HTMLAudioElement>(`#${id}`);
     audio?.play();

@@ -55,7 +55,7 @@ const expandColumns: TableColumnsType<ExpandedDataType> = [
     title: 'Action',
     key: 'operation',
     render: () => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Pause</a>
         <a>Stop</a>
         <Dropdown menu={{ items }}>
@@ -97,7 +97,7 @@ const App: React.FC = () => (
       columns={columns}
       expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
       dataSource={dataSource}
-      size="middle"
+      size="medium"
     />
     <Table<DataType>
       columns={columns}

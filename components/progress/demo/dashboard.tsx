@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Flex, Progress, Segmented } from 'antd';
+import type { ProgressProps } from 'antd';
 
-import type { GapPlacement } from '../progress';
+type GapPlacement = NonNullable<ProgressProps['gapPlacement']>;
 
 const App: React.FC = () => {
   const [gapPlacement, setGapPlacement] = useState<GapPlacement>('bottom');

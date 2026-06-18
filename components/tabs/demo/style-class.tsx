@@ -1,10 +1,15 @@
 import React from 'react';
 import { Flex, Tabs } from 'antd';
-import type { TabsProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, TabsProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    border-width: 2px;
+    border-style: dashed;
+    padding: 16px;
+    margin-bottom: 10px;
+  `,
 }));
 
 const stylesObject: TabsProps['styles'] = {
@@ -15,12 +20,12 @@ const stylesObject: TabsProps['styles'] = {
   content: { backgroundColor: 'rgba(230,247,255,0.8)', padding: 16 },
 };
 
-const stylesFn: TabsProps['styles'] = (info) => {
+const stylesFn: TabsProps['styles'] = (info): GetProp<TabsProps, 'styles', 'Return'> => {
   if (info.props.type === 'card') {
     return {
       root: { backgroundColor: 'rgba(250,250,250, 0.8)', borderColor: '#d9d9d9' },
       header: { textAlign: 'start' },
-    } satisfies TabsProps['styles'];
+    };
   }
   return {};
 };
@@ -44,7 +49,6 @@ const items = [
 ];
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
   const shareProps: TabsProps = {
     items,
     defaultActiveKey: '1',
@@ -52,7 +56,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Tabs {...shareProps} styles={stylesObject} />
       <Tabs tabPlacement="start" type="card" {...shareProps} styles={stylesFn} />
     </Flex>

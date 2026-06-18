@@ -12,13 +12,13 @@ const desc: RateProps['tooltips'] = [
 
 function getDescTitle(value: number, desc: RateProps['tooltips']) {
   const item = desc?.[value - 1];
-  return typeof item === 'object' ? item.title : item;
+  return item && typeof item === 'object' ? item.title : item;
 }
 
 const App: React.FC = () => {
   const [value, setValue] = useState(3);
   return (
-    <Flex gap="middle" vertical>
+    <Flex gap="medium" vertical>
       <Rate tooltips={desc} onChange={setValue} value={value} />
       {value ? <span>{getDescTitle(value, desc) as React.ReactNode}</span> : null}
     </Flex>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Flex, Slider } from 'antd';
-import type { SliderSingleProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, SliderSingleProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     width: 300px;
   `,
 }));
 
-const useStylesFn = createStyles(({ css, cssVar }) => ({
+const classNamesFn = createStaticStyles(({ css, cssVar }) => ({
   root: css`
     width: 100px;
     &:hover .ant-slider-handle:after {
@@ -31,29 +31,29 @@ const stylesObject: SliderSingleProps['styles'] = {
   handle: { borderColor: '#1677ff', boxShadow: '0 2px 8px #1677ff' },
 };
 
-const stylesFn: SliderSingleProps['styles'] = (info) => {
+const stylesFn: SliderSingleProps['styles'] = (
+  info,
+): GetProp<SliderSingleProps, 'styles', 'Return'> => {
   if (info.props.orientation === 'vertical') {
     return {
       root: { height: 300 },
       track: { backgroundImage: 'linear-gradient(180deg, #722cc0, #722ed1)' },
       handle: { borderColor: '#722ed1', boxShadow: '0 2px 8px #722ed1' },
-    } satisfies SliderSingleProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-  const { styles: classNameFn } = useStylesFn();
   const sharedProps: SliderSingleProps = {
     defaultValue: 30,
   };
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Slider {...sharedProps} classNames={classNames} styles={stylesObject} />
       <Slider
         {...sharedProps}
-        classNames={classNameFn}
+        classNames={classNamesFn}
         orientation="vertical"
         reverse
         styles={stylesFn}

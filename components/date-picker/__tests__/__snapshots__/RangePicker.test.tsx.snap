@@ -19,7 +19,12 @@ exports[`RangePicker customize separator 1`] = `
   <div
     class="ant-picker-range-separator"
   >
-    test
+    <span
+      aria-label="to"
+      class="ant-picker-separator"
+    >
+      test
+    </span>
   </div>
   <div
     class="ant-picker-input ant-picker-input-end"
@@ -41,6 +46,7 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="calendar"
       class="anticon anticon-calendar"
       role="img"
@@ -128,6 +134,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"

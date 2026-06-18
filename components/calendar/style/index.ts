@@ -8,7 +8,7 @@ import {
   initPickerPanelToken,
 } from '../../date-picker/style';
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -67,7 +67,7 @@ interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelCo
   dateContentHeight: number | string;
 }
 
-export const genCalendarStyles = (token: CalendarToken): CSSObject => {
+export const genCalendarStyles: GenerateStyle<CalendarToken, CSSObject> = (token) => {
   const { calendarCls, componentCls, fullBg, fullPanelBg, itemActiveBg } = token;
   return {
     [calendarCls]: {
@@ -196,7 +196,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         border: 0,
         borderTop: `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
         borderRadius: 0,
-        transition: `background ${token.motionDurationSlow}`,
+        transition: `background-color ${token.motionDurationSlow}`,
         '&-value': {
           lineHeight: unit(token.dateValueHeight),
           transition: `color ${token.motionDurationSlow}`,

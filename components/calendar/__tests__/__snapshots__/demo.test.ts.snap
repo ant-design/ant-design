@@ -11,15 +11,10 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:visible"
-          title="2016"
-        >
-          2016
-        </div>
+        2016
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -61,15 +56,10 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:visible"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Nov
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -109,6 +99,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -122,9 +113,6 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="month"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -144,9 +132,6 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -944,15 +929,10 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -994,15 +974,10 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1042,6 +1017,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1055,9 +1031,6 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -1077,9 +1050,6 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -1876,15 +1846,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1926,15 +1891,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1974,6 +1934,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1987,9 +1948,6 @@ Array [
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -2009,9 +1967,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -2804,15 +2759,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2854,15 +2804,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2902,6 +2847,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2915,9 +2861,6 @@ Array [
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -2937,9 +2880,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3745,6 +3685,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
       >
         <div
           class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
+          role="radiogroup"
         >
           <label
             class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -3758,9 +3699,6 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                 name="test-id"
                 type="radio"
                 value="month"
-              />
-              <span
-                class="ant-radio-button-inner"
               />
             </span>
             <span
@@ -3781,9 +3719,6 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
                 type="radio"
                 value="year"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -3796,15 +3731,10 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="2016"
           >
-            <div
-              class="ant-select-content-value"
-              style="visibility:visible"
-              title="2016"
-            >
-              2016
-            </div>
+            2016
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -3846,15 +3776,10 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="Nov"
           >
-            <div
-              class="ant-select-content-value"
-              style="visibility:visible"
-              title="Nov"
-            >
-              Nov
-            </div>
+            Nov
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -4668,7 +4593,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
+exports[`renders components/calendar/demo/event-range.tsx correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
@@ -4679,15 +4604,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2026"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:visible"
-          title="2016"
-        >
-          2016
-        </div>
+        2026
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -4729,15 +4649,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Jan"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:visible"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Jan
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -4777,6 +4692,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -4790,9 +4706,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="month"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -4813,8 +4726,1314 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
             type="radio"
             value="year"
           />
-          <span
-            class="ant-radio-button-inner"
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Year
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-picker-panel"
+    tabindex="0"
+  >
+    <div
+      class="ant-picker-date-panel"
+    >
+      <div
+        class="ant-picker-body"
+      >
+        <table
+          class="ant-picker-content"
+        >
+          <thead>
+            <tr>
+              <th>
+                Su
+              </th>
+              <th>
+                Mo
+              </th>
+              <th>
+                Tu
+              </th>
+              <th>
+                We
+              </th>
+              <th>
+                Th
+              </th>
+              <th>
+                Fr
+              </th>
+              <th>
+                Sa
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="ant-picker-cell"
+                title="2025-12-28"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2025-12-29"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2025-12-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2025-12-31"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
+                title="2026-01-01"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-02"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-03"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-04"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-05"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-06"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-07"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-08"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color:#1677ff"
+                        >
+                          Release window
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-09"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color:#1677ff"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-10"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color:#1677ff"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-11"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-12"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    12
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-13"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    13
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-14"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    14
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-1fbs1g2"
+                          style="background-color:#52c41a"
+                        >
+                          Design review
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-15"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    15
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-16"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    16
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-17"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    17
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-18"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    18
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-19"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    19
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-20"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    20
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-21"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    21
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color:#faad14"
+                        >
+                          Maintenance
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-22"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    22
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color:#faad14"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-23"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    23
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-184a497"
+                          style="background-color:#faad14"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-24"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    24
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color:#faad14"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-25"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    25
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-26"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    26
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-27"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    27
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-28"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-29"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-ykfg5y"
+                          style="background-color:#ff4d4f"
+                        >
+                          Bug fix
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2026-01-31"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      >
+                        <span
+                          class="acss-16x69h6 acss-1dubx4w"
+                          style="background-color:#ff4d4f"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-01"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-02"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-03"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-04"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-05"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-06"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2026-02-07"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content acss-9sezk8"
+                  >
+                    <div
+                      class="acss-1djfasj"
+                    >
+                      <div
+                        class="acss-ovn49p"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
+<div
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
+>
+  <div
+    class="ant-picker-calendar-header"
+  >
+    <div
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    >
+      <div
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
+      >
+        2016
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-select-suffix"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    >
+      <div
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
+      >
+        Nov
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-select-suffix"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+      role="radiogroup"
+    >
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="month"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Month
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="year"
           />
         </span>
         <span
@@ -5998,7 +7217,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
 exports[`renders components/calendar/demo/select.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -6022,15 +7241,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2017"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2017"
-          >
-            2017
-          </div>
+          2017
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6072,15 +7286,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Jan"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Jan"
-          >
-            Jan
-          </div>
+          Jan
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6120,6 +7329,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -6133,9 +7343,6 @@ Array [
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -6155,9 +7362,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -6944,7 +8148,7 @@ Array [
 
 exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini acss-1f1p24i css-var-test-id"
@@ -6957,15 +8161,10 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7007,15 +8206,10 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7055,6 +8249,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -7068,9 +8263,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -7090,9 +8282,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -7885,15 +9074,10 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7935,15 +9119,10 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7983,6 +9162,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -7996,9 +9176,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -8018,9 +9195,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -8817,15 +9991,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8867,15 +10036,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8915,6 +10079,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -8928,9 +10093,6 @@ Array [
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -8950,9 +10112,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -9806,15 +10965,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9856,15 +11010,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility:visible"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9904,6 +11053,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -9917,9 +11067,6 @@ Array [
               name="test-id"
               type="radio"
               value="month"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -9939,9 +11086,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span

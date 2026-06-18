@@ -20,7 +20,12 @@ const App: React.FC = () => {
 
   const fetchData = (currentPage: number) => {
     const fakeDataUrl = `https://660d2bd96ddfa2943b33731c.mockapi.io/api/users?page=${currentPage}&limit=${PAGE_SIZE}`;
-    return fetch(fakeDataUrl).then((res) => res.json());
+    return fetch(fakeDataUrl)
+      .then((res) => res.json())
+      .catch(() => {
+        console.log('fetch mock data failed');
+        return [];
+      });
   };
 
   useEffect(() => {

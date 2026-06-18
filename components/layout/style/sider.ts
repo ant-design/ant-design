@@ -88,7 +88,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         background: siderBg,
         borderRadius: `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
         cursor: 'pointer',
-        transition: `background ${motionDurationSlow} ease`,
+        transition: `background-color ${motionDurationSlow} ease`,
 
         '&::after': {
           position: 'absolute',

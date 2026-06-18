@@ -38,6 +38,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/debug.tsx" debug>多样的 Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/component-token.tsx" debug>自定义主题</code>
 
 ## API
 
@@ -45,22 +46,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### Space
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| ~~direction~~ | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| orientation | 间距方向 | `vertical` \| `horizontal` | `horizontal` |  |
-| size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
-| ~~split~~ | 设置分隔符, 请使用 `separator` 替换 | ReactNode | - | 4.7.0 |
-| separator | 设置分隔符 | ReactNode | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
-| wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.6.0 |
+| ~~direction~~ | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 | × |
+| orientation | 间距方向 | `vertical` \| `horizontal` | `horizontal` |  | × |
+| size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 | 5.6.0 |
+| ~~split~~ | 设置分隔符, 请使用 `separator` 替换 | ReactNode | - | 4.7.0 | × |
+| separator | 设置分隔符 | ReactNode | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.6.0 |
+| vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - | × |
+| wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 | × |
 
 ### Size
 
-`'small' | 'middle' | 'large' | number`
+`'small' | 'medium' | 'large' | number`
 
 ### Space.Compact
 
@@ -81,7 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | ~~direction~~ | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` |  |
-| size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | 子组件大小 | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 
 ### Space.Addon

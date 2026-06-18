@@ -1,14 +1,8 @@
 import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
-import type { SemanticName } from '@rc-component/picker/interface';
 import type { Dayjs } from 'dayjs';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
@@ -22,19 +16,38 @@ import type {
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
-export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer' | 'container';
+export type TimePickerSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    popup?:
+      | string
+      | {
+          root?: string;
+          content?: string;
+          item?: string;
+          footer?: string;
+          container?: string;
+        };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
+  };
+};
 
-export type TimePickerClassNames = SemanticClassNamesType<
-  TimePickerProps,
-  SemanticName,
-  { popup?: string | SemanticClassNames<PanelSemanticName> }
->;
-
-export type TimePickerStyles = SemanticStylesType<
-  TimePickerProps,
-  SemanticName,
-  { popup?: SemanticStyles<PanelSemanticName> }
->;
+export type TimePickerSemanticAllType = GenerateSemantic<TimePickerSemanticType, TimePickerProps>;
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -74,8 +87,8 @@ export interface TimePickerProps
   popupStyle?: React.CSSProperties;
   rootClassName?: string;
 
-  classNames?: TimePickerClassNames;
-  styles?: TimePickerStyles;
+  classNames?: TimePickerSemanticAllType['classNamesAndFn'];
+  styles?: TimePickerSemanticAllType['stylesAndFn'];
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => {
@@ -115,14 +128,17 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
     variant: mergedVariant,
   };
   // =========== Merged Semantic ===========
-  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<TimePickerProps>(
+  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
     'timePicker',
     classNames,
     styles,
     popupClassName,
     popupStyle,
     mergedProps,
-  );
+  ) as [
+    NonNullable<TimePickerSemanticAllType['classNames']>,
+    NonNullable<TimePickerSemanticAllType['styles']>,
+  ];
 
   return (
     <InternalTimePicker

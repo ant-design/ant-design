@@ -3,7 +3,6 @@ import flattenDeep from 'lodash/flattenDeep';
 import semver from 'semver';
 
 import deprecatedVersions from '../../../BUG_VERSIONS.json';
-import themeConfig from '../themeConfig';
 
 interface Meta {
   skip?: boolean;
@@ -215,5 +214,3 @@ export function isOfficialHost(hostname: string) {
   const officialHostnames = ['ant.design', 'antgroup.com'];
   return officialHostnames.some((official) => hostname.includes(official));
 }
-
-export const getThemeConfig = () => themeConfig;

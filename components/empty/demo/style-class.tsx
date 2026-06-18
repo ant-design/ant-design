@@ -1,15 +1,14 @@
 import React from 'react';
+import type { EmptyProps, GetProp } from 'antd';
 import { Button, Empty, Flex } from 'antd';
-import { createStyles } from 'antd-style';
-
-import type { EmptyProps } from '..';
+import { createStaticStyles } from 'antd-style';
 
 const emptySharedProps: EmptyProps = {
   image: Empty.PRESENTED_IMAGE_SIMPLE,
   children: <Button type="primary">Create Now</Button>,
 };
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border: 1px dashed #ccc;
     padding: 16px;
@@ -23,36 +22,34 @@ const stylesObject: EmptyProps['styles'] = {
   footer: { marginTop: '16px' },
 };
 
-const stylesFn: EmptyProps['styles'] = ({ props }) => {
+const stylesFn: EmptyProps['styles'] = ({ props }): GetProp<EmptyProps, 'styles', 'Return'> => {
   if (props.description) {
     return {
       root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },
       description: { color: '#1890ff', fontWeight: 'bold' },
       image: { filter: 'hue-rotate(180deg)' },
-    } satisfies EmptyProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
-  const classNames: EmptyProps['classNames'] = {
-    root: styles.root,
+  const emptyClassNames: EmptyProps['classNames'] = {
+    root: classNames.root,
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Empty
         {...emptySharedProps}
         description="Object styles"
-        classNames={classNames}
+        classNames={emptyClassNames}
         styles={stylesObject}
       />
       <Empty
         {...emptySharedProps}
         description="Function styles"
-        classNames={classNames}
+        classNames={emptyClassNames}
         styles={stylesFn}
       />
     </Flex>

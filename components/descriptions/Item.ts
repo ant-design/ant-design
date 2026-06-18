@@ -1,9 +1,7 @@
 import type * as React from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
-
-type SemanticName = 'label' | 'content';
+import type { CellSemanticType } from './DescriptionsContext';
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
@@ -14,8 +12,8 @@ export interface DescriptionsItemProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: CellSemanticType['classNames'];
+  styles?: CellSemanticType['styles'];
   span?: number | 'filled' | { [key in Breakpoint]?: number };
   children?: React.ReactNode;
 }

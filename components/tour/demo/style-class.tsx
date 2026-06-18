@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Divider, Flex, Space, Tour } from 'antd';
-import type { TourProps, TourStepProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, TourProps, TourStepProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
 const btnProps: {
   nextButtonProps: TourStepProps['nextButtonProps'];
@@ -21,13 +21,13 @@ const btnProps: {
   },
 };
 
-const useStyles = createStyles(() => ({
-  root: {
-    borderRadius: 4,
-  },
-  section: {
-    borderRadius: 8,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    border-radius: 4px;
+  `,
+  section: css`
+    border-radius: 8px;
+  `,
 }));
 
 const stylesObject: TourProps['styles'] = {
@@ -43,7 +43,7 @@ const stylesObject: TourProps['styles'] = {
   },
 };
 
-const stylesFunction: TourProps['styles'] = (info) => {
+const stylesFunction: TourProps['styles'] = (info): GetProp<TourProps, 'styles', 'Return'> => {
   if (info.props.type === 'primary') {
     return {
       mask: {
@@ -56,7 +56,7 @@ const stylesFunction: TourProps['styles'] = (info) => {
       cover: {
         borderRadius: '12px 12px 0 0',
       },
-    } satisfies TourProps['styles'];
+    };
   }
   return {};
 };
@@ -68,8 +68,6 @@ const App: React.FC = () => {
 
   const [open, setOpen] = useState<boolean>(false);
   const [openFn, setOpenFn] = useState<boolean>(false);
-
-  const { styles: classNames } = useStyles();
 
   const steps: TourProps['steps'] = [
     {
@@ -103,8 +101,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
-      <Flex gap="middle">
+    <Flex vertical gap="medium">
+      <Flex gap="medium">
         <Button type="primary" onClick={() => setOpen(true)}>
           Begin Tour Object
         </Button>

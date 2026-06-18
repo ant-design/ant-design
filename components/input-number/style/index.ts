@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
@@ -11,12 +12,13 @@ import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ComponentToken, InputNumberToken } from './token';
 import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
-const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
   const {
     componentCls,
     lineWidth,
@@ -30,6 +32,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     paddingBlockLG,
     paddingInlineLG,
     colorIcon,
+    colorTextDisabled,
     motionDurationMid,
     handleHoverColor,
     handleOpacity,
@@ -43,9 +46,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     handleBorderColor,
     filledHandleBg,
     lineHeightLG,
+    antCls,
   } = token;
 
   const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`;
+
+  const [varName, varRef] = genCssVar(antCls, 'input-number');
 
   return [
     // ==========================================================
@@ -56,8 +62,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         ...resetComponent(token),
         ...genBasicInputStyle(token),
 
-        '--input-number-input-padding-block': unit(paddingBlock),
-        '--input-number-input-padding-inline': unit(paddingInline),
+        [varName('input-padding-block')]: unit(paddingBlock),
+        [varName('input-padding-inline')]: unit(paddingInline),
 
         display: 'inline-flex',
         width: controlWidth,
@@ -97,6 +103,20 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         }),
         ...genBorderlessStyle(token),
 
+        // InputNumber 两层结构：borderless 补偿只加在内层 input 的 CSS 变量上，避免外层+内层双重 padding 导致高度异常
+        [`&${componentCls}-borderless`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlock).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-sm`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockSM).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-lg`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockLG).add(lineWidth).equal()),
+        },
+
         // ========================= RTL ==========================
         '&-rtl': {
           direction: 'rtl',
@@ -117,11 +137,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-input`]: {
           ...resetComponent(token),
           width: '100%',
-          paddingBlock: `var(--input-number-input-padding-block)`,
+          paddingBlock: varRef('input-padding-block'),
           textAlign: 'start',
           backgroundColor: 'transparent',
           border: 0,
-          borderRadius,
+          borderRadius: 0,
           outline: 0,
           transition: `all ${motionDurationMid} linear`,
           appearance: 'textfield',
@@ -154,13 +174,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     {
       [componentCls]: {
         // ======================= Shared =======================
-        [`
-          ${componentCls}-action-up-disabled,
-          ${componentCls}-action-down-disabled
-        `]: {
-          cursor: 'not-allowed',
-        },
-
         [`${componentCls}-action`]: {
           ...resetIcon(),
 
@@ -172,12 +185,21 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           cursor: 'pointer',
           transition: `all ${motionDurationMid} linear`,
 
-          '&:active': {
-            background: handleActiveBg,
-          },
-          // Hover
-          '&:hover': {
-            color: handleHoverColor,
+          // Active: change background not disabled only;
+          [`&:active:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              background: handleActiveBg,
+            },
+
+          // Hover: change color not disabled only;
+          [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              color: handleHoverColor,
+            },
+
+          [`&${componentCls}-action-up-disabled, &${componentCls}-action-down-disabled`]: {
+            cursor: 'not-allowed',
+            color: colorTextDisabled,
           },
         },
 
@@ -223,10 +245,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             height: '50%',
             borderInlineStart: borderStyle,
 
-            // Hover
-            '&:hover': {
-              height: `60%`,
-            },
+            // Hover: change height not disabled only;
+            [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+              {
+                height: `60%`,
+              },
           },
 
           [`&${componentCls}-disabled, &${componentCls}-readonly`]: {
@@ -243,7 +266,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`${componentCls}-action`]: {
             flex: 'none',
-            paddingInline: 'var(--input-number-input-padding-inline)',
+            paddingInline: varRef('input-padding-inline'),
 
             '&-up': {
               borderInlineStart: borderStyle,
@@ -256,7 +279,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`${componentCls}-input`]: {
             textAlign: 'center',
-            paddingInline: 'var(--input-number-input-padding-inline)',
+            paddingInline: varRef('input-padding-inline'),
           },
         },
       },
@@ -268,8 +291,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     {
       [componentCls]: {
         '&-lg': {
-          '--input-number-input-padding-block': unit(paddingBlockLG),
-          '--input-number-input-padding-inline': unit(paddingInlineLG),
+          [varName('input-padding-block')]: unit(paddingBlockLG),
+          [varName('input-padding-inline')]: unit(paddingInlineLG),
 
           paddingBlock: 0,
           fontSize: inputFontSizeLG,
@@ -277,8 +300,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         '&-sm': {
-          '--input-number-input-padding-block': unit(paddingBlockSM),
-          '--input-number-input-padding-inline': unit(paddingInlineSM),
+          [varName('input-padding-block')]: unit(paddingBlockSM),
+          [varName('input-padding-inline')]: unit(paddingInlineSM),
 
           paddingBlock: 0,
           fontSize: inputFontSizeSM,
@@ -320,7 +343,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
   ];
 };
 
-const genCompatibleStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genCompatibleStyles: GenerateStyle<InputNumberToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
   return {

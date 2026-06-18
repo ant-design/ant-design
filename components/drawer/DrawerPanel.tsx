@@ -3,27 +3,52 @@ import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
-import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { pickClosable, useClosable } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
-export type SemanticName =
-  | 'root'
-  | 'mask'
-  | 'header'
-  | 'title'
-  | 'extra'
-  | 'section'
-  | 'body'
-  | 'footer'
-  | 'wrapper'
-  | 'dragger'
-  | 'close';
+export type DrawerSemanticType = {
+  classNames?: {
+    root?: string;
+    mask?: string;
+    header?: string;
+    title?: string;
+    extra?: string;
+    section?: string;
+    body?: string;
+    footer?: string;
+    wrapper?: string;
+    dragger?: string;
+    close?: string;
+    /**
+     * @deprecated please use `classNames.section` instead.
+     */
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    mask?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    section?: React.CSSProperties;
+    body?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    dragger?: React.CSSProperties;
+    close?: React.CSSProperties;
+    /**
+     * @deprecated please use `styles.section` instead.
+     */
+    content?: React.CSSProperties;
+  };
+};
 
-export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
-
-export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
+export type DrawerSemanticAllType = GenerateSemantic<DrawerSemanticType, DrawerProps>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -44,8 +69,8 @@ export interface DrawerPanelProps {
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
-  classNames?: DrawerClassNamesType;
-  styles?: DrawerStylesType;
+  classNames?: DrawerSemanticAllType['classNamesAndFn'];
+  styles?: DrawerSemanticAllType['stylesAndFn'];
   loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
@@ -88,27 +113,23 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     closable: contextClosable,
   } = drawerContext;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DrawerClassNamesType,
-    DrawerStylesType,
-    DrawerPanelProps
-  >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], {
-    props: {
-      ...props,
-      closable: closable ?? contextClosable,
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, drawerClassNames],
+    [contextStyles, drawerStyles],
+    {
+      props: {
+        ...props,
+        closable: closable ?? contextClosable,
+      },
     },
-  });
+  );
 
   const closablePlacement = React.useMemo<'start' | 'end' | undefined>(() => {
-    const mergedClosableVal = closable ?? contextClosable;
-    if (mergedClosableVal === false) {
+    const merged = closable ?? contextClosable;
+    if (merged === false) {
       return undefined;
     }
-    if (
-      typeof mergedClosableVal === 'object' &&
-      mergedClosableVal &&
-      mergedClosableVal.placement === 'end'
-    ) {
+    if (isPlainObject(merged) && merged?.placement === 'end') {
       return 'end';
     }
     return 'start';

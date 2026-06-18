@@ -2,19 +2,18 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
+import type {
+  EditableConfig,
+  GetIndicatorSize,
+  MoreProps,
+  TabsProps as RcTabsProps,
+  Tab,
+} from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
-import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -35,21 +34,28 @@ export type TabPlacement = 'top' | 'end' | 'bottom' | 'start';
 
 export type { TabPaneProps };
 
-export type TabsSemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
+export type TabsSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    remove?: string;
+    indicator?: string;
+    content?: string;
+    header?: string;
+    popup?: { root?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    remove?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+    content?: React.CSSProperties;
+    header?: React.CSSProperties;
+    popup?: { root?: React.CSSProperties };
+  };
+};
 
-type PopupSemantic = 'root';
-
-export type TabsClassNamesType = SemanticClassNamesType<
-  TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
->;
-
-export type TabsStylesType = SemanticStylesType<
-  TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
->;
+export type TabsSemanticAllType = GenerateSemantic<TabsSemanticType, TabsProps>;
 
 export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
@@ -67,8 +73,8 @@ export interface BaseTabsProps {
   centered?: boolean;
   className?: string;
   rootClassName?: string;
-  classNames?: TabsClassNamesType;
-  styles?: TabsStylesType;
+  classNames?: TabsSemanticAllType['classNamesAndFn'];
+  styles?: TabsSemanticAllType['stylesAndFn'];
   /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition;
   tabPlacement?: TabPlacement;
@@ -87,8 +93,6 @@ export interface TabsProps
   moreIcon?: React.ReactNode;
   more?: MoreProps;
   removeIcon?: React.ReactNode;
-  styles?: TabsStylesType;
-  classNames?: TabsClassNamesType;
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
 }
@@ -220,11 +224,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TabsClassNamesType,
-    TabsStylesType,
-    TabsProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -246,7 +246,8 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       items={mergedItems}
       className={clsx(
         {
-          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-large`]: size === 'large',
+          [`${prefixCls}-small`]: size === 'small',
           [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type!),
           [`${prefixCls}-editable-card`]: type === 'editable-card',
           [`${prefixCls}-centered`]: centered,

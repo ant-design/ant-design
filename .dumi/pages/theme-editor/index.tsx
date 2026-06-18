@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { App, Button, ConfigProvider, Skeleton, version } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
@@ -9,7 +9,7 @@ import useLocale from '../../hooks/useLocale';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   editor: css`
     svg,
     img {
@@ -49,7 +49,6 @@ const ANT_DESIGN_V5_THEME_EDITOR_THEME = `ant-design-v${antdMajor}-theme-editor-
 const CustomTheme: React.FC = () => {
   const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
-  const { styles } = useStyle();
 
   const [theme, setTheme] = React.useState<ThemeConfig>(() => {
     try {
@@ -78,7 +77,7 @@ const CustomTheme: React.FC = () => {
             hideAdvancedSwitcher
             theme={{ name: 'Custom Theme', key: 'test', config: theme }}
             style={{ height: 'calc(100vh - 64px)' }}
-            className={styles.editor}
+            className={classNames.editor}
             onThemeChange={(newTheme) => {
               setTheme(newTheme.config);
             }}

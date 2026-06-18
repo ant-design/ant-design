@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import type { MenuProps } from 'antd';
+import type { MenuProps, TagProps } from 'antd';
 import { Flex, Tag, version } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
@@ -22,7 +22,7 @@ const locales = {
   },
 };
 
-const getTagColor = (val?: string) => {
+const getTagColor = (val?: string): TagProps['color'] => {
   switch (val?.toUpperCase()) {
     case 'UPDATED':
       return 'processing';
@@ -33,7 +33,7 @@ const getTagColor = (val?: string) => {
   }
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     font-weight: normal;
     font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
-    margin-left: 4px;
+    margin-inline-start: ${cssVar.marginSM};
   `,
 }));
 
@@ -62,19 +62,19 @@ interface MenuItemLabelProps {
 }
 
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
-  const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
-  const [locale] = useLocale(locales);
+  const [locale] = useLocale<string>(locales);
+
   const getLocale = (name: string) => {
-    return (locale as any)[name.toLowerCase()] ?? name;
+    return locale[name.toLowerCase()] ?? name;
   };
 
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={clsx(className, { [styles.link]: tag })}>
-        <Flex justify="flex-start" align="center" gap="small">
-          <span>{title}</span>
+        <Flex justify="flex-start" align="center">
+          {title && <span>{title}</span>}
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>
         {tag && (

@@ -2,16 +2,16 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { clsx } from 'clsx';
 
-import type { KeyWiseTransferItem, SemanticName } from '.';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import type { KeyWiseTransferItem, TransferSemanticAllType } from '.';
+import { isNumber } from '../_util/is';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
@@ -43,7 +43,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   });
 
   let title: string | undefined;
-  if (typeof renderedText === 'string' || typeof renderedText === 'number') {
+  if (typeof renderedText === 'string' || isNumber(renderedText)) {
     title = String(renderedText);
   }
 

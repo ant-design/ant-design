@@ -8,14 +8,16 @@ import type {
   PaginationProps as RcPaginationProps,
 } from '@rc-component/pagination';
 import RcPagination from '@rc-component/pagination';
-import enUS from '@rc-component/pagination/lib/locale/en_US';
+import enUS from '@rc-component/pagination/locale/en_US';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import type { SelectProps } from '../select';
@@ -25,21 +27,23 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-export type SemanticName = 'root' | 'item';
+export type PaginationSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
+};
 
-export type PaginationSemanticName = SemanticName;
-
-export type PaginationClassNamesType = SemanticClassNamesType<
-  PaginationProps,
-  PaginationSemanticName
->;
-
-export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticName>;
+export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
 export interface PaginationProps
   extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  size?: 'default' | 'small';
+  size?: SizeType;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -49,8 +53,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
-  classNames?: PaginationClassNamesType;
-  styles?: PaginationStylesType;
+  classNames?: PaginationSemanticAllType['classNamesAndFn'];
+  styles?: PaginationSemanticAllType['stylesAndFn'];
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -90,6 +94,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    totalBoundaryShowSizeChanger: contextTotalBoundaryShowSizeChanger,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -100,6 +105,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const mergedSize = useSize(customizeSize);
 
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+  const [inputVariant, enableInputVariantCls] = useVariant('input');
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: PaginationProps = {
@@ -108,13 +114,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PaginationClassNamesType,
-    PaginationStylesType,
-    PaginationProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Locale =============================
   const [contextLocale] = useLocale('Pagination', enUS);
@@ -136,7 +142,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   // Generate options
   const mergedPageSizeOptions = React.useMemo(() => {
-    return pageSizeOptions ? pageSizeOptions.map((option) => Number(option)) : undefined;
+    return pageSizeOptions ? pageSizeOptions.map<number>(Number) : undefined;
   }, [pageSizeOptions]);
 
   // Render size changer
@@ -174,7 +180,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           onSizeChange?.(nextSize);
           propSizeChangerOnChange?.(nextSize, option);
         }}
-        size={isSmall ? 'small' : 'middle'}
+        size={mergedSize}
         className={clsx(sizeChangerClassName, propSizeChangerClassName)}
       />
     );
@@ -237,6 +243,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const extendedClassName = clsx(
     {
       [`${prefixCls}-${align}`]: !!align,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-${inputVariant}`]: enableInputVariantCls && inputVariant !== 'outlined',
+      /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
@@ -270,6 +279,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         locale={locale}
         pageSizeOptions={mergedPageSizeOptions}
         showSizeChanger={mergedShowSizeChanger}
+        totalBoundaryShowSizeChanger={
+          restProps.totalBoundaryShowSizeChanger ?? contextTotalBoundaryShowSizeChanger
+        }
         sizeChangerRender={sizeChangerRender}
       />
     </>

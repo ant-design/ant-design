@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 interface IconProps {
@@ -7,7 +7,7 @@ interface IconProps {
   style?: React.CSSProperties;
 }
 
-const useStyle = createStyles(() => ({
+const classNames = createStaticStyles(({ css }) => ({
   iconWrap: css`
     display: inline-flex;
     align-items: center;
@@ -19,9 +19,8 @@ const useStyle = createStyles(() => ({
 
 const BunIcon: React.FC<IconProps> = (props) => {
   const { className, style } = props;
-  const { styles } = useStyle();
   return (
-    <span className={clsx(styles.iconWrap, className)} style={style}>
+    <span className={clsx(classNames.iconWrap, className)} style={style}>
       <svg id="Bun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 70" width="1em" height="1em">
         <title>Bun Logo</title>
         <path

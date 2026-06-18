@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { BaseSelectRef } from '@rc-component/select';
-import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from '@rc-component/tree-select';
 import RcTreeSelect, {
   SHOW_ALL,
@@ -8,17 +7,12 @@ import RcTreeSelect, {
   SHOW_PARENT,
   TreeNode,
 } from '@rc-component/tree-select';
-import type { DataNode } from '@rc-component/tree-select/lib/interface';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -47,6 +41,8 @@ import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
 
+type DataNode = NonNullable<RcTreeSelectProps['treeData']>[number];
+
 type RawValue = string | number;
 
 export interface LabeledValue {
@@ -57,26 +53,49 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName =
-  | 'root'
-  | 'prefix'
-  | 'input'
-  | 'suffix'
-  | 'content'
-  | 'placeholder'
-  | 'item'
-  | 'itemContent'
-  | 'itemRemove';
-
-type PopupSemantic = 'item' | 'itemTitle' | 'root';
-
-export type TreeSelectClassNamesType = SemanticClassNamesType<TreeSelectProps, SemanticName> & {
-  popup?: SemanticClassNames<PopupSemantic>;
+export type TreeSelectPopupSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemTitle?: string;
+    itemSwitcher?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemSwitcher?: React.CSSProperties;
+  };
 };
 
-export type TreeSelectStylesType = SemanticStylesType<TreeSelectProps, SemanticName> & {
-  popup?: SemanticStyles<PopupSemantic>;
+export type TreeSelectSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    content?: string;
+    placeholder?: string;
+    item?: string;
+    itemContent?: string;
+    itemRemove?: string;
+    popup?: TreeSelectPopupSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    content?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRemove?: React.CSSProperties;
+    popup?: TreeSelectPopupSemanticType['styles'];
+  };
 };
+
+export type TreeSelectSemanticAllType = GenerateSemantic<TreeSelectSemanticType, TreeSelectProps>;
 
 interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends React.AriaAttributes,
@@ -100,8 +119,8 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
 
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends BaseTreeSelectProps<ValueType, OptionType> {
-  styles?: TreeSelectStylesType;
-  classNames?: TreeSelectClassNamesType;
+  classNames?: TreeSelectSemanticAllType['classNamesAndFn'];
+  styles?: TreeSelectSemanticAllType['stylesAndFn'];
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -139,10 +158,12 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   variant?: Variant;
 }
 
-const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
+type InternalTreeSelectRef = <ValueType = any, OptionType extends DataNode = DataNode>(
   props: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
-) => {
+) => React.ReactElement;
+
+const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -265,23 +286,19 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps: TreeSelectProps<ValueType, OptionType> = {
+  const mergedProps = {
     ...props,
     size: mergedSize,
     disabled: mergedDisabled,
     status: mergedStatus,
     variant,
-  };
+  } as TreeSelectProps;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeSelectClassNamesType,
-    TreeSelectStylesType,
-    TreeSelectProps<ValueType, OptionType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
-      props: mergedProps,
+      props: mergedProps as unknown as TreeSelectProps,
     },
     {
       popup: {
@@ -349,17 +366,10 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   }
 
   // ==================== Render =====================
-  const selectProps = omit(restProps, [
-    'suffixIcon',
-    'removeIcon',
-    'clearIcon',
-    'itemIcon' as any,
-    'switcherIcon' as any,
-    'style',
-  ]);
+  const selectProps = omit(restProps, ['suffixIcon', 'removeIcon', 'clearIcon']);
 
   // ===================== Placement =====================
-  const memoizedPlacement = React.useMemo<Placement>(() => {
+  const memoizedPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }

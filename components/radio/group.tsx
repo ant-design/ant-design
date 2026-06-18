@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useControlledState } from '@rc-component/util';
-import useId from '@rc-component/util/lib/hooks/useId';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -49,6 +48,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     onBlur,
     orientation,
     vertical,
+    role = 'radiogroup',
   } = props;
 
   const [value, setValue] = useControlledState(defaultValue, customizedValue);
@@ -78,7 +78,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   // 如果存在 options, 优先使用
   if (options && options.length > 0) {
     childrenToRender = options.map((option) => {
-      if (typeof option === 'string' || typeof option === 'number') {
+      if (typeof option === 'string' || isNumber(option)) {
         // 此处类型自动推导为 string
         return (
           <Radio
@@ -118,7 +118,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
     {
-      [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
+      [`${groupPrefixCls}-large`]: mergedSize === 'large',
+      [`${groupPrefixCls}-small`]: mergedSize === 'small',
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       [`${groupPrefixCls}-block`]: block,
     },
@@ -137,6 +138,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   return (
     <div
       {...pickAttrs(props, { aria: true, data: true })}
+      role={role}
       className={clsx(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
       style={style}
       onMouseEnter={onMouseEnter}

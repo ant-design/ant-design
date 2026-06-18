@@ -1,13 +1,13 @@
 import React from 'react';
 import { Flex, Timeline } from 'antd';
-import type { TimelineProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, TimelineProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    padding: 8,
-    borderRadius: 4,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 8px;
+    border-radius: 4px;
+  `,
 }));
 
 const styles: TimelineProps['styles'] = {
@@ -16,7 +16,7 @@ const styles: TimelineProps['styles'] = {
   },
 };
 
-const stylesFn: TimelineProps['styles'] = (info) => {
+const stylesFn: TimelineProps['styles'] = (info): GetProp<TimelineProps, 'styles', 'Return'> => {
   if (info.props.orientation === 'vertical') {
     return {
       root: {
@@ -26,14 +26,12 @@ const stylesFn: TimelineProps['styles'] = (info) => {
       itemIcon: {
         borderColor: '#A294F9',
       },
-    } satisfies TimelineProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: TimelineProps = {
     classNames,
     items: [
@@ -52,7 +50,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Timeline {...sharedProps} orientation="horizontal" styles={styles} />
       <Timeline {...sharedProps} orientation="vertical" styles={stylesFn} />
     </Flex>

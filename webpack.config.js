@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
-const path = require('path');
+const path = require('node:path');
 
 function addLocales(config) {
   const newConfig = { ...config }; // Avoid mutating the original config
@@ -72,7 +72,7 @@ function addPluginsForProduction(config) {
   return newConfig;
 }
 
-let webpackConfig = getWebpackConfig(false, { enabledReactCompiler: true });
+let webpackConfig = getWebpackConfig(false);
 
 if (process.env.PRODUCTION_ONLY) {
   console.log('🍐 Build production only');

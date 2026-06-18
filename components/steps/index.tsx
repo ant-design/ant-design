@@ -1,19 +1,22 @@
 import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
-import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
 import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
@@ -27,21 +30,34 @@ export type IconRenderType = (
   info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
 
-export type StepsSemanticName =
-  | 'root'
-  | 'item'
-  | 'itemWrapper'
-  | 'itemIcon'
-  | 'itemSection'
-  | 'itemHeader'
-  | 'itemTitle'
-  | 'itemSubtitle'
-  | 'itemContent'
-  | 'itemRail';
+export type StepsSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemWrapper?: string;
+    itemIcon?: string;
+    itemSection?: string;
+    itemHeader?: string;
+    itemTitle?: string;
+    itemSubtitle?: string;
+    itemContent?: string;
+    itemRail?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemWrapper?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemSection?: React.CSSProperties;
+    itemHeader?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemSubtitle?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRail?: React.CSSProperties;
+  };
+};
 
-export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticName>;
-
-export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticName>;
+export type StepsSemanticAllType = GenerateSemantic<StepsSemanticType, StepsProps>;
 
 interface StepItem {
   className?: string;
@@ -76,11 +92,13 @@ export interface BaseStepsProps {
   // Style
   className?: string;
   rootClassName?: string;
-  classNames?: StepsClassNamesType;
-  styles?: StepsStylesType;
+  classNames?: StepsSemanticAllType['classNamesAndFn'];
+  styles?: StepsSemanticAllType['stylesAndFn'];
   variant?: 'filled' | 'outlined';
-  size?: 'default' | 'small';
-
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: Exclude<SizeType, 'large'> | 'default';
   // Layout
   type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot';
   /** @deprecated Please use `orientation` instead. */
@@ -177,12 +195,21 @@ const Steps = (props: StepsProps) => {
     ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
   }
 
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const itemIconCls = `${prefixCls}-item-icon`;
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
+
   // ============================= Size =============================
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Steps');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
+
   const mergedSize = useSize(size);
 
   // ============================= Item =============================
@@ -209,7 +236,7 @@ const Steps = (props: StepsProps) => {
 
   // Progress Dot Render function
   const legacyProgressDotRender = React.useMemo(() => {
-    return mergedType === 'dot' && typeof progressDot === 'function' ? progressDot : undefined;
+    return mergedType === 'dot' && isFunction(progressDot) ? progressDot : undefined;
   }, [mergedType, progressDot]);
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
@@ -251,13 +278,13 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    StepsClassNamesType,
-    StepsStylesType,
-    StepsProps
-  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [waveEffectClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {
@@ -287,7 +314,11 @@ const Steps = (props: StepsProps) => {
 
           if (status === 'process' && mergedPercent !== undefined) {
             numNode = (
-              <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
+              <ProgressIcon
+                prefixCls={prefixCls}
+                rootPrefixCls={rootPrefixCls}
+                percent={mergedPercent}
+              >
                 {numNode}
               </ProgressIcon>
             );
@@ -308,7 +339,7 @@ const Steps = (props: StepsProps) => {
         item,
         components: { Icon: StepIcon },
       });
-    } else if (typeof legacyProgressDotRender === 'function') {
+    } else if (isFunction(legacyProgressDotRender)) {
       iconNode = legacyProgressDotRender(iconNode, {
         index,
         ...(item as Required<typeof item>),
@@ -355,7 +386,7 @@ const Steps = (props: StepsProps) => {
 
   // ============================ Styles ============================
   const mergedStyle: React.CSSProperties = {
-    '--steps-items-offset': `${offset}`,
+    [varName('items-offset')]: `${offset}`,
     ...contextStyle,
     ...style,
   };
@@ -369,7 +400,7 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
     className,
     rootClassName,

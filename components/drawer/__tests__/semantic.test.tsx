@@ -1,8 +1,11 @@
 import React from 'react';
+import { warning } from '@rc-component/util';
 
 import Drawer from '..';
 import type { DrawerProps } from '..';
 import { render } from '../../../tests/utils';
+
+const { resetWarned } = warning;
 
 describe('Drawer.Semantic', () => {
   it('should apply custom classnames & styles to Drawer', () => {
@@ -216,5 +219,25 @@ describe('Drawer.Semantic', () => {
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
     expect(footerElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
     expect(closeElement).toHaveStyle({ color: 'rgb(90, 0, 0)' });
+  });
+
+  it('warning with both deprecated classNames.content and styles.content props', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    resetWarned();
+
+    render(
+      <Drawer
+        open
+        classNames={{ content: 'custom-content' }}
+        styles={{ content: { color: 'red' } }}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `classNames.content and styles.content` is deprecated. Please use `classNames.section and styles.section` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 });

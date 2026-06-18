@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import type { DefaultRecordType } from '@rc-component/table/lib/interface';
+import type { DefaultRecordType } from '@rc-component/table';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
+import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
@@ -104,6 +105,23 @@ describe('Transfer', () => {
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should only forward data and aria attributes to root element', () => {
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        data-testid="transfer-testid"
+        aria-label="transfer-label"
+        id="transfer-id"
+        title="transfer-title"
+      />,
+    );
+    const rootNode = container.querySelector('.ant-transfer');
+    expect(rootNode).toHaveAttribute('data-testid', 'transfer-testid');
+    expect(rootNode).toHaveAttribute('aria-label', 'transfer-label');
+    expect(rootNode).not.toHaveAttribute('id');
+    expect(rootNode).not.toHaveAttribute('title');
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -586,19 +604,19 @@ describe('Transfer', () => {
   });
 
   it('should apply custom classNames and styles to Transfer', () => {
-    const customClassNames: TransferProps['classNames'] = {
+    const customClassNames: Required<GetProp<TransferProps, 'classNames', 'Return'>> = {
       root: 'custom-transfer-root',
       section: 'custom-transfer-section',
       header: 'custom-transfer-header',
       actions: 'custom-transfer-actions',
-    };
+    } as Required<GetProp<TransferProps, 'classNames', 'Return'>> & {};
 
-    const customStyles: TransferProps['styles'] = {
+    const customStyles: Required<GetProp<TransferProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       section: { color: 'rgb(0, 0, 255)' },
       header: { color: 'rgb(255, 255, 0)' },
       actions: { color: 'rgb(0, 128, 0)' },
-    };
+    } as Required<GetProp<TransferProps, 'styles', 'Return'>> & {};
 
     const { container } = render(
       <Transfer
@@ -615,20 +633,20 @@ describe('Transfer', () => {
     const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root!);
-    expect(sectionElements[0]).toHaveClass(customClassNames.section!);
-    expect(sectionElements[1]).toHaveClass(customClassNames.section!);
-    expect(headerElements[0]).toHaveClass(customClassNames.header!);
-    expect(headerElements[1]).toHaveClass(customClassNames.header!);
-    expect(actionsElement).toHaveClass(customClassNames.actions!);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(sectionElements[0]).toHaveClass(customClassNames.section);
+    expect(sectionElements[1]).toHaveClass(customClassNames.section);
+    expect(headerElements[0]).toHaveClass(customClassNames.header);
+    expect(headerElements[1]).toHaveClass(customClassNames.header);
+    expect(actionsElement).toHaveClass(customClassNames.actions);
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section?.color });
-    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section?.color });
-    expect(headerElements[0]).toHaveStyle({ color: customStyles.header?.color });
-    expect(headerElements[1]).toHaveStyle({ color: customStyles.header?.color });
-    expect(actionsElement).toHaveStyle({ color: customStyles.actions?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section.color });
+    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section.color });
+    expect(headerElements[0]).toHaveStyle({ color: customStyles.header.color });
+    expect(headerElements[1]).toHaveStyle({ color: customStyles.header.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions.color });
   });
 
   it('should support classNames and styles as functions', () => {
@@ -962,7 +980,7 @@ describe('Transfer', () => {
   });
 
   it('should be no class name for the selected state,when transfer is disabled', () => {
-    const { container } = render(<Transfer {...listCommonProps} disabled={true} />);
+    const { container } = render(<Transfer {...listCommonProps} disabled />);
     expect(container.querySelectorAll('.ant-transfer-list-content-item-checked')).toHaveLength(0);
   });
 
@@ -1094,8 +1112,8 @@ describe('immutable data', () => {
       const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
       const getMock = () => {
-        const tempTargetKeys = [];
-        const tempMockData = [];
+        const tempTargetKeys: React.Key[] = [];
+        const tempMockData: DefaultRecordType[] = [];
         for (let i = 0; i < 2; i++) {
           const data = {
             key: i.toString(),

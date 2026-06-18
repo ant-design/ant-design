@@ -1,5 +1,5 @@
 import * as React from 'react';
-import raf from '@rc-component/util/lib/raf';
+import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider';
@@ -23,11 +23,12 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
+
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
-  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
+  const onInternalChange: React.InputEventHandler<HTMLInputElement> = (e) => {
+    onChange(index, (e.target as HTMLInputElement).value);
   };
 
   // ========================= Focus ==========================
@@ -40,7 +41,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     });
   };
 
-  const onInternalFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  const onInternalFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
     onFocus?.(e);
     syncSelection();
   };

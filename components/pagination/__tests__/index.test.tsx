@@ -1,5 +1,4 @@
 import React from 'react';
-import type { OptionFC } from '@rc-component/select/lib/Option';
 
 import type { PaginationProps } from '..';
 import Pagination from '..';
@@ -58,7 +57,7 @@ describe('Pagination', () => {
   it('should support custom selectComponentClass', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
+    const CustomSelect: React.FC<{ className?: string }> & { Option: typeof Select.Option } = ({
       className,
       ...props
     }) => <Select className={`${className} custom-select`} {...props} />;
@@ -93,7 +92,18 @@ describe('Pagination', () => {
         </ConfigProvider>,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelectorAll('.ant-select-lg').length).toBe(0);
+      expect(container.querySelectorAll('.ant-select-lg').length).toBe(1);
+    });
+
+    it('should follow ConfigProvider variant for quick jumper input', () => {
+      const { container } = render(
+        <ConfigProvider variant="filled">
+          <Pagination defaultCurrent={1} total={50} showQuickJumper />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-filled');
+      expect(container.querySelector('.ant-pagination-options-quick-jumper input')).toBeTruthy();
     });
   });
 

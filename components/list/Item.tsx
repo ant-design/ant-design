@@ -3,21 +3,31 @@ import React, { useContext } from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import { isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
-type SemanticName = 'actions' | 'extra';
+export type ListItemSemanticName = keyof ListItemSemanticClassNames & keyof ListItemSemanticStyles;
+
+export type ListItemSemanticClassNames = {
+  actions?: string;
+  extra?: string;
+};
+
+export type ListItemSemanticStyles = {
+  actions?: React.CSSProperties;
+  extra?: React.CSSProperties;
+};
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: SemanticClassNames<SemanticName>;
+  classNames?: ListItemSemanticClassNames;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: SemanticStyles<SemanticName>;
+  styles?: ListItemSemanticStyles;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
@@ -89,7 +99,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const isItemContainsTextNodeAndNotSingular = () => {
     const childNodes: React.ReactNode[] = toArray(children);
-    const hasTextNode = childNodes.some((node) => typeof node === 'string');
+    const hasTextNode = childNodes.some(isString);
     return hasTextNode && childNodes.length > 1;
   };
 

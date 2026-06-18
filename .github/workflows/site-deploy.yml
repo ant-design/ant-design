@@ -21,9 +21,9 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - run: ut
 
@@ -45,7 +45,7 @@ jobs:
           fi
 
       - name: upload site artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: real-site
           path: _site/
@@ -54,22 +54,24 @@ jobs:
       - name: Format version
         if: ${{ always() }}
         id: shared-formatted_version
-        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+        run: echo "VERSION=$(echo ${REF_NAME} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+        env:
+          REF_NAME: ${{ github.ref_name }}
 
   deploy-to-pages:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build-site
     steps:
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - name: download site artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: real-site
           path: _site
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
@@ -78,7 +80,7 @@ jobs:
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
       - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@v1
+        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
@@ -89,11 +91,13 @@ jobs:
         if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
-          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
 
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
       - name: Create Commit Comment
         if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
-        uses: peter-evans/commit-comment@v4
+        uses: peter-evans/commit-comment@f6d60c65d05bb59f750fa51ad3de1d443ba0eb52 # v4
         with:
           body: |
             - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
@@ -101,13 +105,13 @@ jobs:
 
   # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
   upload-to-release:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     # 仅在 tag 的时候工作，因为我们要将内容发布到以 tag 为版本号的 release 里
     if: startsWith(github.ref, 'refs/tags/')
     needs: build-site
     steps:
       - name: download site artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           name: real-site
           path: _site
@@ -119,7 +123,7 @@ jobs:
           cd ..
 
       - name: Upload to Release
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
         with:
           fail_on_unmatched_files: true
           files: website.tar.gz

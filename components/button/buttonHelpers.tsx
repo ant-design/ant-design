@@ -1,12 +1,13 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isNumber, isReactRenderable, isString } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';
 
 const rxTwoCNChar = /^[\u4E00-\u9FA5]{2}$/;
+
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
 export function convertLegacyProps(
@@ -18,44 +19,38 @@ export function convertLegacyProps(
   return { type };
 }
 
-export function isString(str: unknown): str is string {
-  return typeof str === 'string';
-}
-
 export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
   return type === 'text' || type === 'link';
 }
 
 function splitCNCharsBySpace(
-  child: React.ReactElement | string | number,
+  child: React.ReactElement<any> | string | number,
   needInserted: boolean,
   style?: React.CSSProperties,
   className?: string,
 ) {
-  if (!isNonNullable(child) || child === '') {
+  if (!isReactRenderable(child)) {
     return;
   }
 
   const SPACE = needInserted ? ' ' : '';
 
   if (
-    typeof child !== 'string' &&
-    typeof child !== 'number' &&
+    !isString(child) &&
+    !isNumber(child) &&
     isString(child.type) &&
-    isTwoCNChar(
-      (
-        child as React.ReactElement<{
-          children: string;
-        }>
-      ).props.children,
-    )
+    isTwoCNChar((child as React.ReactElement<{ children: string }>).props.children)
   ) {
-    return cloneElement(child, (oriProps) => ({
-      ...oriProps,
-      children: oriProps.children.split('').join(SPACE),
-      className,
-      style,
-    }));
+    return cloneElement(child, (oriProps) => {
+      const mergedCls = clsx(oriProps.className, className) || undefined;
+      const mergedStyle: React.CSSProperties = { ...style, ...oriProps.style };
+      return {
+        ...oriProps,
+        children: oriProps.children.split('').join(SPACE),
+        className: mergedCls,
+        style: mergedStyle,
+      };
+    });
   }
 
   if (isString(child)) {
@@ -89,10 +84,8 @@ export function spaceChildren(
 ) {
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
-
   React.Children.forEach(children, (child) => {
-    const type = typeof child;
-    const isCurrentChildPure = type === 'string' || type === 'number';
+    const isCurrentChildPure = isString(child) || isNumber(child);
     if (isPrevChildPure && isCurrentChildPure) {
       const lastIndex = childList.length - 1;
       const lastChild = childList[lastIndex];

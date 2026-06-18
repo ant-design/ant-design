@@ -4,10 +4,15 @@ import { Circle as RCCircle } from '@rc-component/progress';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
-import type { GapPosition, ProgressGradient, ProgressProps, SemanticName } from './progress';
+import type {
+  GapPosition,
+  ProgressGradient,
+  ProgressProps,
+  ProgressSemanticAllType,
+} from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
@@ -21,8 +26,8 @@ export interface CircleProps extends Omit<ProgressProps, 'classNames' | 'styles'
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: NonNullable<ProgressSemanticAllType['classNames']>;
+  styles: NonNullable<ProgressSemanticAllType['styles']>;
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
@@ -84,7 +89,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [direction, gapPlacement, gapPosition, type]);
 
   // using className to style stroke color
-  const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
+  const isGradient = isPlainObject<ProgressGradient>(props.strokeColor);
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
   const wrapperClassName = clsx(

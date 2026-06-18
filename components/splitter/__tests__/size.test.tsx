@@ -107,4 +107,22 @@ describe('useSizes', () => {
 
     expect(postPxSizes).toEqual([500, 500]);
   });
+
+  it('should set defined panel sizes correctly when some panels have undefined `size`', () => {
+    const items = [
+      {
+        size: '60%',
+      },
+      {
+        size: undefined,
+        defaultSize: 700, // This sets the second panel's value in innerSizes
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    // Check if the `size` of the first panel gets priority.
+    expect(postPxSizes).toEqual([600, 400]);
+  });
 });

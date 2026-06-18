@@ -6,13 +6,9 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -25,10 +21,24 @@ import useStyle from './style';
 
 export type ExpandIconPlacement = 'start' | 'end';
 
-export type CollapseSemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
+export type CollapseSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    title?: string;
+    body?: string;
+    icon?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    body?: React.CSSProperties;
+    icon?: React.CSSProperties;
+  };
+};
 
-export type CollapseClassNamesType = SemanticClassNamesType<CollapseProps, CollapseSemanticName>;
-export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticName>;
+export type CollapseSemanticAllType = GenerateSemantic<CollapseSemanticType, CollapseProps>;
 
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
@@ -58,8 +68,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
-  classNames?: CollapseClassNamesType;
-  styles?: CollapseStylesType;
+  classNames?: CollapseSemanticAllType['classNamesAndFn'];
+  styles?: CollapseSemanticAllType['stylesAndFn'];
 }
 
 interface PanelProps {
@@ -71,8 +81,8 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  classNames?: SemanticClassNames<CollapseSemanticName>;
-  styles?: SemanticStyles<CollapseSemanticName>;
+  classNames?: CollapseSemanticAllType['classNames'];
+  styles?: CollapseSemanticAllType['styles'];
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
@@ -118,13 +128,13 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPlacement: mergedPlacement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CollapseClassNamesType,
-    CollapseStylesType,
-    CollapseProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
@@ -140,20 +150,16 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
-      const icon =
-        typeof mergedExpandIcon === 'function' ? (
-          mergedExpandIcon(panelProps)
-        ) : (
-          <RightOutlined
-            rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
-            aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
-          />
-        );
-      return cloneElement(icon, () => ({
-        className: clsx(
-          (icon as React.ReactElement<{ className?: string }>)?.props?.className,
-          `${prefixCls}-arrow`,
-        ),
+      const icon = isFunction(mergedExpandIcon) ? (
+        mergedExpandIcon(panelProps)
+      ) : (
+        <RightOutlined
+          rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
+          aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+        />
+      );
+      return cloneElement(icon, (oriProps) => ({
+        className: clsx(oriProps.className, `${prefixCls}-arrow`),
       }));
     },
     [mergedExpandIcon, prefixCls, direction],
@@ -165,7 +171,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
-      [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
+      [`${prefixCls}-large`]: mergedSize === 'large',
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
     contextClassName,
     className,

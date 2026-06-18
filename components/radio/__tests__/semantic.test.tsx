@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Radio from '..';
+import type { RadioProps } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Radio.Semantic', () => {
@@ -33,5 +34,28 @@ describe('Radio.Semantic', () => {
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
     expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
     expect(labelElement).toBeNull(); // No label element should exist
+  });
+
+  it('should get correct checked prop when value matches group value', () => {
+    const classNamesFn: RadioProps['classNames'] = ({ props }) => {
+      return {
+        root: props.checked ? 'checked-radio' : 'unchecked-radio',
+      };
+    };
+
+    const { container } = render(
+      <Radio.Group value="A">
+        <Radio value="A" classNames={classNamesFn}>
+          Radio A
+        </Radio>
+        <Radio value="B" classNames={classNamesFn}>
+          Radio B
+        </Radio>
+      </Radio.Group>,
+    );
+
+    const radioElements = container.querySelectorAll<HTMLElement>('.ant-radio-wrapper');
+    expect(radioElements[0]).toHaveClass('checked-radio');
+    expect(radioElements[1]).toHaveClass('unchecked-radio');
   });
 });

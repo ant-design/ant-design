@@ -65,8 +65,7 @@ describe('ConfigProvider.Icon', () => {
     expect(container.querySelector('#csp')?.innerHTML).toEqual('light');
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('cssinjs should support nonce', () => {
+  it('cssinjs should support nonce', () => {
     render(
       <StyleProvider cache={createCache()}>
         <ConfigProvider csp={{ nonce: 'bamboo' }}>

@@ -4,10 +4,14 @@ import { clsx } from 'clsx';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
 
 (global as any).isVisible = true;
+
+const [varName] = genCssVar(defaultPrefixCls, 'wave');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -21,9 +25,12 @@ jest.mock('react-dom', () => {
   return realReactDOM;
 });
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => (global as any).isVisible,
+  };
 });
 
 describe('Wave component', () => {
@@ -139,9 +146,8 @@ describe('Wave component', () => {
 
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
-
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual(undefined);
+    expect(style[varName('color')]).toBe(undefined);
 
     unmount();
   });
@@ -159,7 +165,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -175,7 +181,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(0, 0, 255)');
+    expect(style[varName('color')]).toBe('rgb(0, 0, 255)');
 
     unmount();
   });
@@ -191,7 +197,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(0, 128, 0)');
+    expect(style[varName('color')]).toBe('rgb(0, 128, 0)');
 
     unmount();
   });
@@ -207,7 +213,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 255, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 255, 0)');
 
     unmount();
   });
@@ -288,7 +294,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -306,7 +312,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style[varName('color')]).toBe('red');
 
     unmount();
   });
@@ -374,8 +380,66 @@ describe('Wave component', () => {
     expect(document.querySelector('.ant-wave')).toBeTruthy();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
+  });
+
+  describe('trigger types', () => {
+    it('should trigger on click by default', () => {
+      const { container } = render(
+        <Wave>
+          <button type="button">Button</button>
+        </Wave>,
+      );
+
+      fireEvent.click(container.querySelector('button')!);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
+
+    it('should trigger on mousedown when configured', () => {
+      const { container } = render(
+        <ConfigProvider wave={{ triggerType: 'mousedown' }}>
+          <Wave>
+            <button type="button">Button</button>
+          </Wave>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+
+      fireEvent.click(button);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeFalsy();
+
+      // Should trigger on mousedown
+      fireEvent.mouseDown(button);
+      waitRaf();
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
+
+    it('should trigger on pointerdown when configured', () => {
+      const { container } = render(
+        <ConfigProvider wave={{ triggerType: 'pointerdown' }}>
+          <Wave>
+            <button type="button">Button</button>
+          </Wave>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+      fireEvent.click(button);
+
+      waitRaf();
+
+      expect(document.querySelector('.ant-wave')).toBeFalsy();
+
+      fireEvent.pointerDown(button);
+
+      waitRaf();
+
+      expect(document.querySelector('.ant-wave')).toBeTruthy();
+    });
   });
 });

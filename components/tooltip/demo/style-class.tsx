@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Flex, Tooltip } from 'antd';
-import type { TooltipProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, TooltipProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  container: {
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  container: css`
+    padding: 10px;
+  `,
 }));
 
 const styles: TooltipProps['styles'] = {
@@ -16,7 +16,7 @@ const styles: TooltipProps['styles'] = {
   },
 };
 
-const stylesFn: TooltipProps['styles'] = (info) => {
+const stylesFn: TooltipProps['styles'] = (info): GetProp<TooltipProps, 'styles', 'Return'> => {
   if (!info.props.arrow) {
     return {
       container: {
@@ -25,15 +25,14 @@ const stylesFn: TooltipProps['styles'] = (info) => {
         color: '#fff',
         borderRadius: 4,
       },
-    } satisfies TooltipProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Tooltip classNames={classNames} styles={styles} arrow={false} title="Object text">
         <Button>Object Style</Button>
       </Tooltip>

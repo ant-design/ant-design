@@ -96,6 +96,33 @@ describe('ConfigProvider.DynamicTheme', () => {
     ).toBeTruthy();
   });
 
+  it('icon styles should use cssVar key from theme config', () => {
+    render(
+      <ConfigProvider theme={{ cssVar: { key: 'custom-css-var' } }}>
+        <SmileOutlined />
+      </ConfigProvider>,
+    );
+
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+
+    // Should have styles with the custom cssVar key
+    expect(
+      dynamicStyles.some((style) => {
+        const { innerHTML } = style;
+        return innerHTML.includes('.custom-css-var');
+      }),
+    ).toBeTruthy();
+
+    // Should NOT have styles with the default css-var-root key
+    // This ensures icon styles registered inside ConfigProvider use the correct context
+    expect(
+      dynamicStyles.some((style) => {
+        const { innerHTML } = style;
+        return innerHTML.includes('.css-var-root');
+      }),
+    ).toBeFalsy();
+  });
+
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('layer should affect icon', () => {
     render(

@@ -10,7 +10,7 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 );
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Typography.Title level={3}>[true, 0, false]</Typography.Title>
     <Splitter style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
       <Splitter.Panel>

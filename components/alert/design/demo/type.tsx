@@ -57,7 +57,7 @@ const Demo: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <Flex gap="large" vertical style={{ maxWidth: 600 }}>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.successTitle}</div>
         <Alert showIcon type="success" message={locale.successMessage1} />
         <Alert
@@ -67,7 +67,7 @@ const Demo: React.FC = () => {
           description={locale.successDescription2}
         />
       </Flex>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.infoTitle}</div>
         <Alert showIcon type="info" title={locale.infoMessage1} />
         <Alert
@@ -77,7 +77,7 @@ const Demo: React.FC = () => {
           description={locale.infoDescription2}
         />
       </Flex>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.warningTitle}</div>
         <Alert showIcon type="warning" title={locale.warningMessage1} />
         <Alert
@@ -87,7 +87,7 @@ const Demo: React.FC = () => {
           description={locale.warningDescription2}
         />
       </Flex>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.errorTitle}</div>
         <Alert showIcon type="error" title={locale.errorMessage1} />
         <Alert

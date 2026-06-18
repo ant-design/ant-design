@@ -18,6 +18,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -59,6 +60,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -100,6 +102,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -187,6 +190,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     class="ant-picker-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="calendar"
       class="anticon anticon-calendar"
       role="img"

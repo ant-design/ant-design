@@ -18,26 +18,8 @@ Finally, if you are working in a local development environment, please refer to 
 
 Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
-```sandpack
-const sandpackConfig = {
-  autorun: true,
-};
-
-import React from 'react';
-import { Button, Space, DatePicker, version } from 'antd';
-
-const App = () => (
-  <div style={{ padding: '0 24px' }}>
-    <h1>antd version: {version}</h1>
-    <Space>
-      <DatePicker />
-      <Button type="primary">Primary Button</Button>
-    </Space>
-  </div>
-);
-
-export default App;
-```
+<!-- prettier-ignore -->
+<code src="./demo/first-example.tsx">First Example</code>
 
 Follow the steps below to play around with Ant Design yourself:
 
@@ -130,6 +112,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 
 ## Customize your Workflow
 
-If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) or [vite](https://vitejs.dev/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+If you want to customize your workflow, we recommend using [webpack](https://webpack.js.org) or [vite](https://vite.dev/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
 There are also some [scaffolds](https://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.

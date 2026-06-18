@@ -27,7 +27,7 @@ return (
   />
 );
 
-// No recommended 🙅🏻‍♀️
+// Not recommended 🙅🏼‍♀️
 return (
   <Radio.Group value={value}>
     <Radio value={1}>A</Radio>
@@ -52,6 +52,7 @@ return (
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
+<code src="./demo/debug-group-width.tsx" debug>Group same width</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/debug-upload.tsx" debug>Upload Debug</code>
@@ -63,14 +64,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Radio/Radio.Button
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| checked | Specifies whether the radio is selected | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
-| defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |  |
-| disabled | Disable radio | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
-| value | According to value for comparison, to determine whether the selected | any | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | Specifies whether the radio is selected | boolean | false |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |  | × |
+| disabled | Disable radio | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| value | According to value for comparison, to determine whether the selected | any | - |  | × |
 
 ### Radio.Group
 
@@ -87,7 +88,7 @@ Radio group can wrap a group of `Radio`.
 | options | Set children optional | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
-| size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
+| size | The size of radio button style | `large` \| `medium` \| `small` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | value | Used for setting the currently selected value | any | - |  |
 | vertical | If true, the Radio group will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |

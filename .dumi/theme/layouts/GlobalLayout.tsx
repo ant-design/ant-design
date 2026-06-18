@@ -235,18 +235,14 @@ const GlobalLayout: React.FC = () => {
   const [themeConfig, componentsClassNames] = React.useMemo<
     [ThemeConfig, SimpleComponentClassNames]
   >(() => {
-    let mergedTheme = theme;
+    const mergedTheme = theme;
 
+    // Ignore `algorithm` from AI-generated theme to preserve user's dark/light preference
     const {
-      algorithm: dynamicAlgorithm,
+      algorithm: _dynamicAlgorithm,
       token: dynamicToken,
       ...rawComponentsClassNames
     } = dynamicTheme || {};
-
-    if (dynamicAlgorithm) {
-      mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
-      mergedTheme.push(dynamicAlgorithm);
-    }
 
     // Convert rawComponentsClassNames to nextComponentsClassNames
     const nextComponentsClassNames: any = {};
@@ -277,7 +273,6 @@ const GlobalLayout: React.FC = () => {
       plain: true,
       types: 'style',
     });
-    // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
   });
 
@@ -291,7 +286,6 @@ const GlobalLayout: React.FC = () => {
         data-type="antd-css-var"
         data-rc-order="prepend"
         data-rc-priority="-9999"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
         dangerouslySetInnerHTML={{ __html: styleText }}
       />
     );
@@ -301,7 +295,6 @@ const GlobalLayout: React.FC = () => {
     <style
       data-sandpack="true"
       id="sandpack"
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: only used in .dumi
       dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
     />
   ));

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useEvent } from '@rc-component/util';
-import raf from '@rc-component/util/lib/raf';
+import { raf, useEvent } from '@rc-component/util';
 
 import type { WaveProps } from '.';
 import { ConfigContext } from '../../config-provider';
@@ -40,21 +39,21 @@ const useWave = (
     });
   });
 
-  const rafId = React.useRef<number>(null);
+  const rafIdRef = React.useRef<number>(null);
 
   // Clean up RAF on unmount to prevent memory leaks and stale callbacks
   React.useEffect(
     () => () => {
-      raf.cancel(rafId.current!);
+      raf.cancel(rafIdRef.current!);
     },
     [],
   );
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {
-    raf.cancel(rafId.current!);
+    raf.cancel(rafIdRef.current!);
 
-    rafId.current = raf(() => {
+    rafIdRef.current = raf(() => {
       showWave(event);
     });
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const PreviewImage: React.FC = () => {
   const token = useTheme();
 
   return (
@@ -10,7 +10,7 @@ export default () => {
       styles={css`
         .preview-image-boxes {
           display: flex;
-          float: right;
+          float: inline-end;
           clear: both;
           width: 496px;
           margin: 0 0 70px 64px;
@@ -24,7 +24,7 @@ export default () => {
           }
 
           .ant-row-rtl & {
-            float: left;
+            float: inline-start;
             margin: 0 64px 70px 0;
           }
         }
@@ -34,7 +34,7 @@ export default () => {
         }
 
         .preview-image-box {
-          float: left;
+          float: inline-start;
           width: 100%;
         }
 
@@ -146,7 +146,7 @@ export default () => {
 
         .transition-video-player,
         .motion-video-min {
-          float: right;
+          float: inline-end;
           width: 600px;
           padding: 0 0 70px 20px;
 
@@ -155,7 +155,7 @@ export default () => {
           }
 
           .ant-row-rtl & {
-            float: left;
+            float: inline-start;
           }
         }
 
@@ -203,3 +203,5 @@ export default () => {
     />
   );
 };
+
+export default PreviewImage;

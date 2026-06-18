@@ -18,8 +18,12 @@ function compactItemVerticalBorder(
     },
 
     '&-item': {
-      '&:hover,&:focus,&:active': {
+      '&:focus,&:active': {
         zIndex: 3,
+      },
+
+      '&:hover': {
+        zIndex: 4,
       },
 
       '&[disabled]': {

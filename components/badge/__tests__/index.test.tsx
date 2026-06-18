@@ -1,11 +1,11 @@
 import React from 'react';
 
+import Badge from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer19 } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
-import Badge from '../index';
 
 describe('Badge', () => {
   mountTest(Badge);
@@ -239,5 +239,11 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(0);
     rerender(<Badge count={0} showZero color="#ff0" />);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
+  });
+
+  it('should support ref when exist status & text', () => {
+    const badgeRef = React.createRef<HTMLSpanElement>();
+    const { container } = render(<Badge ref={badgeRef} status="success" text="Success" />);
+    expect(badgeRef.current).toBe(container.querySelector('.ant-badge'));
   });
 });

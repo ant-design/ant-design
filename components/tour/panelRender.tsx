@@ -1,15 +1,15 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isReactRenderable } from '../_util/is';
 import type { ButtonProps } from '../button/Button';
 import Button from '../button/Button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps, TourSemanticAllType, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -18,8 +18,8 @@ interface TourPanelProps {
   current: number;
   type: TourProps['type'];
   indicatorsRender?: TourProps['indicatorsRender'];
-  classNames?: TourProps['classNames'];
-  styles?: TourProps['styles'];
+  classNames?: TourSemanticAllType['classNames'];
+  styles?: TourSemanticAllType['styles'];
   actionsRender?: TourProps['actionsRender'];
 }
 
@@ -56,7 +56,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <button
       type="button"
       onClick={onClose}
-      className={`${prefixCls}-close`}
+      className={clsx(`${prefixCls}-close`, classNames.close)}
+      style={styles.close}
       aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >
@@ -80,7 +81,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     nextButtonProps?.onClick?.();
   };
 
-  const headerNode = isNonNullable(title) ? (
+  const headerNode = isReactRenderable(title) ? (
     <div className={clsx(`${prefixCls}-header`, classNames.header)} style={styles.header}>
       <div className={clsx(`${prefixCls}-title`, classNames.title)} style={styles.title}>
         {title}
@@ -88,7 +89,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     </div>
   ) : null;
 
-  const descriptionNode = isNonNullable(description) ? (
+  const descriptionNode = isReactRenderable(description) ? (
     <div
       className={clsx(`${prefixCls}-description`, classNames.description)}
       style={styles.description}
@@ -97,7 +98,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     </div>
   ) : null;
 
-  const coverNode = isNonNullable(cover) ? (
+  const coverNode = isReactRenderable(cover) ? (
     <div className={clsx(`${prefixCls}-cover`, classNames.cover)} style={styles.cover}>
       {cover}
     </div>

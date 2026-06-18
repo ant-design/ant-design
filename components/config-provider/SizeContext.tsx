@@ -1,6 +1,9 @@
 import * as React from 'react';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+/**
+ * Note: `middle` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type SizeType = 'small' | 'medium' | 'middle' | 'large' | undefined;
 
 const SizeContext = React.createContext<SizeType>(undefined);
 

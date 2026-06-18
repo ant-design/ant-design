@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/da_DK';
+import Pagination from '@rc-component/pagination/locale/da_DK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/da_DK';
@@ -14,6 +14,8 @@ const localeValues: Locale = {
   Pagination,
   global: {
     close: 'Luk',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermenu',

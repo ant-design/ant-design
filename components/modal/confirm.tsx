@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { render, unmount } from '@rc-component/util/lib/React/render';
+import { render, unmount } from '@rc-component/util';
 
+import { isFunction } from '../_util/is';
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ConfirmDialogProps } from './ConfirmDialog';
@@ -22,7 +23,15 @@ export type ModalFunc = (props: ModalFuncProps) => {
   update: (configUpdate: ConfigUpdate) => void;
 };
 
-export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+export type ModalStaticFunctions = {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
+  /** @deprecated Please use `warning` instead */
+  warn: ModalFunc;
+};
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const { prefixCls: customizePrefixCls, getContainer, direction } = props;
@@ -106,7 +115,7 @@ export default function confirm(config: ModalFuncProps) {
 
       render(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {typeof global.holderRender === 'function' ? global.holderRender(dom) : dom}
+          {isFunction(global.holderRender) ? global.holderRender(dom) : dom}
         </ConfigProvider>,
         container,
       );
@@ -118,7 +127,7 @@ export default function confirm(config: ModalFuncProps) {
       ...currentConfig,
       open: false,
       afterClose: () => {
-        if (typeof config.afterClose === 'function') {
+        if (isFunction(config.afterClose)) {
           config.afterClose();
         }
         // @ts-ignore
@@ -130,7 +139,7 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function update(configUpdate: ConfigUpdate) {
-    if (typeof configUpdate === 'function') {
+    if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
       currentConfig = { ...currentConfig, ...configUpdate };

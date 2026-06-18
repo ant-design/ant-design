@@ -1,15 +1,17 @@
 import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
-import KeyCode from '@rc-component/util/lib/KeyCode';
+import { KeyCode } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isFunction, isNumber, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
   ColumnGroupType,
+  ColumnSorter,
   ColumnsType,
   ColumnTitleProps,
   ColumnType,
@@ -29,7 +31,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (typeof column.sorter === 'object' && typeof column.sorter.multiple === 'number') {
+  if (isPlainObject<ColumnSorter<RecordType>>(column.sorter) && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;
@@ -38,10 +40,10 @@ const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
 const getSortFunction = <RecordType extends AnyObject = AnyObject>(
   sorter: ColumnType<RecordType>['sorter'],
 ): CompareFn<RecordType> | false => {
-  if (typeof sorter === 'function') {
+  if (isFunction(sorter)) {
     return sorter;
   }
-  if (sorter && typeof sorter === 'object' && sorter.compare) {
+  if (isPlainObject<ColumnSorter<RecordType>>(sorter) && sorter.compare) {
     return sorter.compare;
   }
   return false;
@@ -172,13 +174,9 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
       } else if (nextSortOrder === ASCEND) {
         sortTip = triggerAsc;
       }
-      const tooltipProps: TooltipProps =
-        typeof showSorterTooltip === 'object'
-          ? {
-              title: sortTip,
-              ...showSorterTooltip,
-            }
-          : { title: sortTip };
+      const tooltipProps: TooltipProps = isPlainObject(showSorterTooltip)
+        ? { title: sortTip, ...showSorterTooltip }
+        : { title: sortTip };
       newColumn = {
         ...newColumn,
         className: clsx(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
@@ -298,9 +296,12 @@ const stateToInfo = <RecordType extends AnyObject = AnyObject>(
 const generateSorterInfo = <RecordType extends AnyObject = AnyObject>(
   sorterStates: SortState<RecordType>[],
 ): SorterResult<RecordType> | SorterResult<RecordType>[] => {
-  const activeSorters = sorterStates
-    .filter(({ sortOrder }) => sortOrder)
-    .map<SorterResult<RecordType>>(stateToInfo);
+  const activeSorters = sorterStates.reduce<SorterResult<RecordType>[]>((list, sorterState) => {
+    if (sorterState.sortOrder) {
+      list.push(stateToInfo(sorterState));
+    }
+    return list;
+  }, []);
 
   // =========== Legacy compatible support ===========
   // https://github.com/ant-design/ant-design/pull/19226

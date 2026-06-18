@@ -2,13 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { resetWarned } from '../../_util/warning';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker.Semantic', () => {
-  mountTest(ColorPicker);
-  rtlTest(ColorPicker);
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     resetWarned();

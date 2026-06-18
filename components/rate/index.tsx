@@ -1,24 +1,25 @@
 import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import RcRate from '@rc-component/rate';
-import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
-import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import Tooltip from '../tooltip';
 import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
-const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
-  return typeof item === 'object' && item !== null;
-};
+type RateRef = React.ComponentRef<typeof RcRate>;
+type RcRateProps = React.ComponentPropsWithoutRef<typeof RcRate>;
+type RcCharacterRender = NonNullable<RcRateProps['characterRender']>;
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
   tooltips?: (TooltipProps | string)[];
-  size?: 'small' | 'middle' | 'large';
+  size?: SizeType;
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
@@ -30,18 +31,18 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     tooltips,
     character = <StarFilled />,
     disabled: customDisabled,
-    size = 'middle',
+    size,
     ...rest
   } = props;
 
-  const characterRender: RcStarProps['characterRender'] = (node, { index }) => {
+  const characterRender: RcCharacterRender = (node, { index }) => {
     if (!tooltips) {
       return node;
     }
 
     const tooltipsItem = tooltips[index as number];
 
-    if (isTooltipProps(tooltipsItem)) {
+    if (isPlainObject(tooltipsItem)) {
       return <Tooltip {...tooltipsItem}>{node}</Tooltip>;
     }
 
@@ -66,6 +67,9 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
   return (
     <RcRate
       ref={ref}
@@ -74,7 +78,10 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       disabled={mergedDisabled}
       {...rest}
       className={clsx(
-        `${ratePrefixCls}-${size}`,
+        {
+          [`${ratePrefixCls}-large`]: mergedSize === 'large',
+          [`${ratePrefixCls}-small`]: mergedSize === 'small',
+        },
         className,
         rootClassName,
         hashId,

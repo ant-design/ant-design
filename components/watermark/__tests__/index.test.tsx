@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -149,7 +149,7 @@ describe('Watermark', () => {
 
         const watermark = getWatermarkElement();
 
-        expect(watermark).toHaveStyle({ zIndex: '9' });
+        expect(watermark).toHaveStyle({ zIndex: '999' });
 
         // Not crash when children removed
         rerender(<Watermark className="test" />);

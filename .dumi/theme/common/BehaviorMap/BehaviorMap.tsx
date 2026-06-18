@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useRouteMeta } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
@@ -17,12 +17,12 @@ export interface BehaviorMapProps {
   data: BehaviorMapItem;
 }
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   container: css`
     width: 100%;
     min-height: 600px;
     height: fit-content;
-    background-color: #f5f5f5;
+    background-color: ${cssVar.colorBgLayout};
     border: 1px solid #e8e8e8;
     border-radius: ${cssVar.borderRadiusLG};
     overflow: hidden;
@@ -54,7 +54,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     inset-inline-end: 20px;
     z-index: 10;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: ${cssVar.fontSize};
   `,
   mvp: css`
     margin-inline-end: ${cssVar.marginMD};
@@ -100,23 +100,27 @@ const locales = {
 
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const chartRef = useRef<HTMLDivElement>(null);
-  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const meta = useRouteMeta();
 
   const mermaidCode = useMermaidCode(data);
 
+  const cancelledRef = useRef<boolean>(false);
+
   useEffect(() => {
-    let isCancelled = false;
+    cancelledRef.current = false;
 
     const renderChart = async () => {
-      if (!chartRef.current || !mermaidCode) return;
+      if (!chartRef.current || !mermaidCode) {
+        return;
+      }
 
       try {
-        const mermaidModule = await import('mermaid');
-        const mermaid = mermaidModule.default;
+        const mermaid = (await import('mermaid')).default;
 
-        if (isCancelled) return;
+        if (cancelledRef.current) {
+          return;
+        }
 
         mermaid.initialize({
           startOnLoad: false,
@@ -130,18 +134,15 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           },
         });
 
-        let mermaidChartCounter = 0;
-        mermaidChartCounter += 1;
-        const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
+        const id = `mermaid-${Date.now()}`;
 
         const { svg } = await mermaid.render(id, mermaidCode);
 
-        if (!isCancelled && chartRef.current) {
+        if (!cancelledRef.current && chartRef.current) {
           chartRef.current.innerHTML = svg;
         }
-      } catch (error) {
-        if (!isCancelled && chartRef.current) {
-          console.error('Mermaid render error:', error);
+      } catch {
+        if (!cancelledRef.current && chartRef.current) {
           chartRef.current.innerHTML = 'Render Error';
         }
       }
@@ -150,7 +151,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
     renderChart();
 
     return () => {
-      isCancelled = true;
+      cancelledRef.current = true;
     };
   }, [mermaidCode]);
 

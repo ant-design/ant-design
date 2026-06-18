@@ -44,7 +44,7 @@ const expandedColumns: TableProps<ExpandedDataType>['columns'] = [
     dataIndex: 'operation',
     key: 'operation',
     render: () => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Pause</a>
         <a>Stop</a>
         <Dropdown menu={{ items }}>

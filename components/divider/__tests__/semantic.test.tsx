@@ -2,12 +2,9 @@ import * as React from 'react';
 
 import Divider from '..';
 import type { DividerProps } from '..';
-import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 
 describe('Divider.Semantic', () => {
-  mountTest(Divider);
-
   it('not show children when vertical', () => {
     const testClassNames = {
       root: 'test-root',

@@ -1,12 +1,13 @@
 import React from 'react';
 
+import Breadcrumb from '..';
+import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { ItemType } from '../Breadcrumb';
-import Breadcrumb from '../index';
+import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
@@ -311,6 +312,75 @@ describe('Breadcrumb', () => {
     expect(document.querySelector('.ant-dropdown')).toBeTruthy();
   });
 
+  it('should support custom dropdownIcon', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+          },
+        ]}
+        dropdownIcon={<span>foobar</span>}
+      />,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should support custom dropdownIcon in ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should prefer custom dropdownIcon prop than ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+          dropdownIcon={<span>bamboo</span>}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
+  });
+
   it('Breadcrumb params type test', () => {
     interface Params {
       key1?: number;
@@ -320,12 +390,12 @@ describe('Breadcrumb', () => {
   });
 
   it('support classNames and styles', async () => {
-    const customClassNames = {
+    const customClassNames: Required<GetProp<BreadcrumbProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       separator: 'custom-separator',
     };
-    const customStyles = {
+    const customStyles: Required<GetProp<BreadcrumbProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 128, 0)' },
       separator: { color: 'rgb(0, 0, 255)' },
@@ -362,9 +432,9 @@ describe('Breadcrumb', () => {
     expect(item).toHaveClass(customClassNames.item);
     expect(separator).toHaveClass(customClassNames.separator);
 
-    expect(root).toHaveStyle({ color: customStyles.root?.color });
-    expect(item).toHaveStyle({ color: customStyles.item?.color });
-    expect(separator).toHaveStyle({ color: customStyles.separator?.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(item).toHaveStyle({ color: customStyles.item.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator.color });
   });
 
   it('supports ConfigProvider separator', () => {

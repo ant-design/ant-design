@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
 import { useOrientation } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
@@ -45,7 +45,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
     prefixCls,
     hashId,
     cssVarCls,
-    createFlexClassNames(prefixCls, props),
+    createFlexClassNames(prefixCls, { ...props, vertical: mergedVertical }),
     {
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
       [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),

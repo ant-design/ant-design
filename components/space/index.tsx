@@ -3,14 +3,16 @@ import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { useOrientation } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
-import Compact from './Compact';
 import Addon from './Addon';
+import Compact from './Compact';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
@@ -20,11 +22,20 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
-type SemanticName = 'root' | 'item' | 'separator';
+export type SpaceSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    separator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    separator?: React.CSSProperties;
+  };
+};
 
-export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
-
-export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
+export type SpaceSemanticAllType = GenerateSemantic<SpaceSemanticType, SpaceProps>;
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -42,8 +53,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   split?: React.ReactNode;
   separator?: React.ReactNode;
   wrap?: boolean;
-  classNames?: SpaceClassNamesType;
-  styles?: SpaceStylesType;
+  classNames?: SpaceSemanticAllType['classNamesAndFn'];
+  styles?: SpaceSemanticAllType['stylesAndFn'];
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -106,13 +117,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     align: mergedAlign,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SpaceClassNamesType,
-    SpaceStylesType,
-    SpaceProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const rootClassNames = clsx(
     prefixCls,
@@ -165,7 +176,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const memoizedSpaceContext = React.useMemo<SpaceContextType>(() => {
     const calcLatestIndex = childNodes.reduce<number>(
-      (latest, child, i) => (isNonNullable(child) ? i : latest),
+      (latest, child, i) => (isReactRenderable(child) ? i : latest),
       0,
     );
     return { latestIndex: calcLatestIndex };

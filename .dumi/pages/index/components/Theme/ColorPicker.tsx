@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, Flex, Input } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 
@@ -9,7 +9,7 @@ import { PRESET_COLORS } from './colorUtil';
 
 type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   color: css`
     width: calc(${cssVar.controlHeightLG} / 2);
     height: calc(${cssVar.controlHeightLG} / 2);
@@ -69,8 +69,6 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerPro
 };
 
 const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id }) => {
-  const { styles } = useStyle();
-
   const matchColors = React.useMemo(() => {
     const valueStr = generateColor(value || '').toRgbString();
     const colors = PRESET_COLORS.map((color) => {

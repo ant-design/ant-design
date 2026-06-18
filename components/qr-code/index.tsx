@@ -1,19 +1,19 @@
 import React from 'react';
 import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
-import { omit } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
+import type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
-export type { QRCodeProps, QRProps };
+export type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg };
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -33,6 +33,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
+    marginSize,
     statusRender,
     classNames,
     styles,
@@ -59,13 +60,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     errorLevel,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    QRCodeClassNamesType,
-    QRCodeStylesType,
-    QRCodeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
@@ -75,8 +76,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
-    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
+    height: isNumber(iconSize) ? iconSize : (iconSize?.height ?? 40),
+    width: isNumber(iconSize) ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
     crossOrigin: 'anonymous',
   };
@@ -96,6 +97,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    marginSize,
     boostLevel,
     ...a11yProps,
   };

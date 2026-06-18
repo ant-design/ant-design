@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { toArray } from '@rc-component/util';
-import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import { pickAttrs, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -13,7 +13,7 @@ import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbContextProps } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
-import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
+import { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
@@ -52,22 +52,29 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
+export type BreadcrumbSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    separator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    separator?: React.CSSProperties;
+  };
+};
 
-export type BreadcrumbClassNamesType<T extends AnyObject = AnyObject> = SemanticClassNamesType<
-  BreadcrumbProps<T>,
-  BreadcrumbSemanticName
->;
-
-export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStylesType<
-  BreadcrumbProps<T>,
-  BreadcrumbSemanticName
+export type BreadcrumbSemanticAllType<T extends AnyObject = AnyObject> = GenerateSemantic<
+  BreadcrumbSemanticType,
+  BreadcrumbProps<T>
 >;
 
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
   separator?: React.ReactNode;
+  dropdownIcon?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -77,8 +84,8 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   routes?: ItemType[];
 
   items?: ItemType[];
-  classNames?: BreadcrumbClassNamesType<T>;
-  styles?: BreadcrumbStylesType<T>;
+  classNames?: BreadcrumbSemanticAllType<T>['classNamesAndFn'];
+  styles?: BreadcrumbSemanticAllType<T>['stylesAndFn'];
 
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }
@@ -108,6 +115,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     params = {},
     classNames,
     styles,
+    dropdownIcon,
     ...restProps
   } = props;
 
@@ -119,9 +127,11 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     classNames: contextClassNames,
     styles: contextStyles,
     separator: contextSeparator,
+    dropdownIcon: contextDropdownIcon,
   } = useComponentConfig('breadcrumb');
 
   const mergedSeparator = separator ?? contextSeparator ?? '/';
+  const mergedDropdownIcon = dropdownIcon ?? contextDropdownIcon ?? <DownOutlined />;
 
   let crumbs: React.ReactNode;
 
@@ -139,13 +149,13 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   }, [props, mergedSeparator]);
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    BreadcrumbClassNamesType<T>,
-    BreadcrumbStylesType<T>,
-    BreadcrumbProps<T>
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Breadcrumb');
@@ -227,6 +237,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           className={itemClassName}
           style={style}
           dropdownProps={dropdownProps}
+          dropdownIcon={mergedDropdownIcon}
           href={href}
           separator={isLastItem ? '' : mergedSeparator}
           onClick={onClick}
@@ -282,9 +293,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     </BreadcrumbContext.Provider>
   );
 };
-
-Breadcrumb.Item = BreadcrumbItem;
-Breadcrumb.Separator = BreadcrumbSeparator;
 
 if (process.env.NODE_ENV !== 'production') {
   Breadcrumb.displayName = 'Breadcrumb';

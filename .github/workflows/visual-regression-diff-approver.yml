@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   approval:
     permissions:
@@ -17,14 +21,15 @@ jobs:
       statuses: write  # Allow to modfiy commit status
     name: Check Virtual Regression Approval
     if: github.event.issue.pull_request != ''
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
     # Check all the comments if contains `VISUAL_DIFF_SUCCESS` or `VISUAL_DIFF_FAILED`
     # Check if member of repo comment `Pass Visual Diff`
     # Return type: `success` or `failed` or `waiting`
     - name: Statistic Visual Diff Approval
       id: check_approval
-      uses: actions/github-script@v8
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
@@ -72,6 +77,7 @@ jobs:
           console.log('hasDiffSuccess:', hasDiffSuccess);
           console.log('hasDiffFailed:', hasDiffFailed);
           console.log('hasMemberApprove:', hasMemberApprove);
+          console.log('commentBody:', comments.map(comment => comment.body));
 
           const diffPassed = hasDiffSuccess || (hasDiffFailed && hasMemberApprove);
           const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';

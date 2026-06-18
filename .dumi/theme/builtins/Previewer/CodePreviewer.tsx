@@ -2,22 +2,23 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Badge, Tag, Tooltip } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import { major, minVersion } from 'semver';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
-import SiteContext from '../../slots/SiteContext';
 import DemoContext from '../../slots/DemoContext';
+import SiteContext from '../../slots/SiteContext';
 import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ cssVar }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -68,19 +69,18 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
 
   const location = useLocation();
-  const { styles } = useStyle();
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
 
-  const demoContainer = useRef<HTMLElement>(null);
+  const demoContainerRef = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
     error: liveDemoError,
     setSource: setLiveDemoSource,
   } = useLiveDemo(asset.id, {
     iframe: Boolean(iframe),
-    containerRef: demoContainer as React.RefObject<HTMLElement>,
+    containerRef: demoContainerRef as React.RefObject<HTMLElement>,
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
@@ -182,7 +182,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           aria-label="Go to online documentation"
           href={generateDocUrl()}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <FormattedMessage id="app.demo.online" />
         </a>
@@ -201,7 +201,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           aria-label="Go to previous version documentation"
           href={generateDocUrl(previousVersionDomain)}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
         </a>
@@ -221,7 +221,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         className="code-box-demo notranslate"
         translate="no"
         style={codeBoxDemoStyle}
-        ref={demoContainer}
+        ref={demoContainerRef}
       >
         {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>
@@ -241,7 +241,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           {description && (
             <div
               className="code-box-description"
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}

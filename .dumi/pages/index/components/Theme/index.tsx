@@ -3,6 +3,8 @@ import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import { FastColor } from '@ant-design/fast-color';
 import {
   BellOutlined,
+  CheckOutlined,
+  CopyOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
@@ -10,6 +12,7 @@ import {
 import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
+  Button,
   Card,
   ConfigProvider,
   Flex,
@@ -18,10 +21,12 @@ import {
   Menu,
   Radio,
   theme,
+  Tooltip,
   Typography,
 } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
+import copy from 'antd/lib/_util/copy';
 import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
@@ -30,6 +35,7 @@ import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
+import { generateThemeCode } from '../ThemePreview/themeCodeUtils';
 import { getCarouselStyle } from '../util';
 import { DarkContext } from './../../../../hooks/useDark';
 import BackgroundImage from './BackgroundImage';
@@ -46,10 +52,12 @@ const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
   const token = theme.useToken();
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line no-console
-    console.log('Demo Token:', token);
-  }
+  React.useEffect(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
+      console.log('Demo Token:', token);
+    }
+  }, [token]);
   return null;
 };
 
@@ -71,6 +79,8 @@ const locales = {
     dark: '暗黑',
     toDef: '深度定制',
     toUse: '去使用',
+    copyTheme: '复制主题代码',
+    copySuccess: '已复制',
   },
   en: {
     themeTitle: 'Flexible theme customization',
@@ -88,11 +98,13 @@ const locales = {
     dark: 'Dark',
     toDef: 'More',
     toUse: 'Apply',
+    copyTheme: 'Copy theme code',
+    copySuccess: 'Copied',
   },
 };
 
 // ============================= Style =============================
-const useStyle = createStyles(({ cssVar, css, cx }) => {
+const styles = createStaticStyles(({ cssVar, css, cx }) => {
   const { carousel } = getCarouselStyle();
   const demo = css`
     overflow: hidden;
@@ -345,12 +357,13 @@ function rgbToColorMatrix(color: string) {
 }
 
 const Theme: React.FC = () => {
-  const { styles } = useStyle();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
   const { search } = useLocation();
 
   const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
+  const [copied, setCopied] = React.useState(false);
+  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const onThemeChange = (_: Partial<ThemeData>, nextThemeData: ThemeData) => {
     React.startTransition(() => {
@@ -442,6 +455,27 @@ const Theme: React.FC = () => {
     [themeToken, colorPrimaryValue, algorithmFn, isLight, themeType],
   );
 
+  const handleCopyTheme = async () => {
+    const code = generateThemeCode(memoTheme);
+    const success = await copy(code);
+    if (success) {
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
+      setCopied(true);
+      copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  React.useEffect(
+    () => () => {
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
+    },
+    [],
+  );
+
   // ================================ Render ================================
   const themeNode = (
     <ConfigProvider theme={memoTheme}>
@@ -509,6 +543,14 @@ const Theme: React.FC = () => {
                   title={locale.myTheme}
                   extra={
                     <Flex gap="small">
+                      <Tooltip title={locale.copyTheme}>
+                        <Button
+                          icon={copied ? <CheckOutlined /> : <CopyOutlined />}
+                          onClick={handleCopyTheme}
+                        >
+                          {locale.copyTheme}
+                        </Button>
+                      </Tooltip>
                       <LinkButton to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
                         {locale.toDef}
                       </LinkButton>

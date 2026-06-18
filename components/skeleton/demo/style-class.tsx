@@ -1,19 +1,19 @@
 import React from 'react';
 import { Flex, Skeleton } from 'antd';
-import type { SkeletonProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, SkeletonProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    borderRadius: 10,
-    padding: 12,
-  },
-  header: {
-    marginBottom: 12,
-  },
+const classnames = createStaticStyles(({ css }) => ({
+  root: css`
+    border-radius: 10px;
+    padding: 12px;
+  `,
+  header: css`
+    margin-bottom: 12px;
+  `,
 }));
 
-const useParagraphStyles = createStyles(({ css }) => ({
+const paragraphStyles = createStaticStyles(({ css }) => ({
   paragraph: css`
     & > li {
       background-color: rgba(229, 243, 254, 0.5);
@@ -30,7 +30,7 @@ const styles: SkeletonProps['styles'] = {
   },
 };
 
-const stylesFn: SkeletonProps['styles'] = (info) => {
+const stylesFn: SkeletonProps['styles'] = (info): GetProp<SkeletonProps, 'styles', 'Return'> => {
   if (info.props.active) {
     return {
       root: {
@@ -41,16 +41,14 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
         height: 20,
         borderRadius: 20,
       },
-    } satisfies SkeletonProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classnames } = useStyles();
-  const { styles: paragraphStyles } = useParagraphStyles();
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Skeleton classNames={classnames} styles={styles} avatar paragraph={false} />
       <Skeleton
         classNames={{ ...classnames, paragraph: paragraphStyles.paragraph }}

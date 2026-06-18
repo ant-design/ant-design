@@ -1,11 +1,18 @@
 import React from 'react';
 import { Flex, Menu } from 'antd';
-import type { MenuProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, MenuProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: { border: '1px solid #f0f0f0', maxWidth: 600, padding: 8, borderRadius: 4 },
-  item: { color: '#1677ff' },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    border: 1px solid #f0f0f0;
+    max-width: 600px;
+    padding: 8px;
+    border-radius: 4px;
+  `,
+  item: css`
+    color: #1677ff;
+  `,
 }));
 
 const items: Required<MenuProps>['items'] = [
@@ -33,25 +40,23 @@ const styles: MenuProps['styles'] = {
   subMenu: { list: { color: '#fa541c' } },
 };
 
-const stylesFn: MenuProps['styles'] = (info) => {
+const stylesFn: MenuProps['styles'] = (info): GetProp<MenuProps, 'styles', 'Return'> => {
   const hasSub = info.props.items?.[0];
   return {
     root: {
       backgroundColor: hasSub ? 'rgba(240,249,255, 0.6)' : 'rgba(255,255,255)',
     },
-  } satisfies MenuProps['styles'];
+  };
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
-
   const shareProps: MenuProps = {
     classNames,
     items,
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Menu {...shareProps} styles={styles} />
       <Menu mode="inline" {...shareProps} styles={stylesFn} />
     </Flex>

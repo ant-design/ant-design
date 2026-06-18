@@ -20,7 +20,7 @@ const locales = {
   },
 };
 
-const BezierVisualizer = (props: BezierVisualizerProps) => {
+const BezierVisualizer: React.FC<BezierVisualizerProps> = (props) => {
   const { value } = props;
   const [locale] = useLocale(locales);
 
