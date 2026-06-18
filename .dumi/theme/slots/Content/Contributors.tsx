@@ -39,33 +39,37 @@ interface ContributorsProps {
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
 
+const MODULE_PATTERNS: [RegExp, string][] = [
+  [/^components\/([^/]+)\/index\.(zh-CN|en-US)\.md$/, 'components'],
+  [/^docs\/blog\/(.+)\.(zh-CN|en-US)\.md$/, 'blog'],
+  [/^docs\/react\/(.+)\.(zh-CN|en-US)\.md$/, 'react'],
+  [/^docs\/spec\/(.+)\.(zh-CN|en-US)\.md$/, 'spec'],
+];
+
 function getContributorUrl(filename?: string) {
-  const match = filename?.match(/^components\/([^/]+)\/index\.(zh-CN|en-US)\.md$/);
-
-  if (!match) {
-    return { url: null, component: null };
+  for (const [pattern, module] of MODULE_PATTERNS) {
+    const match = filename?.match(pattern);
+    if (match) {
+      const [, key, lang] = match;
+      const locale = lang === 'zh-CN' ? 'zhCN' : 'enUS';
+      const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+      return { url: `${baseUrl}/contributors/${module}-${locale}.json`, key };
+    }
   }
-
-  const [, component, lang] = match;
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-
-  return {
-    url: `${baseUrl}/component-contributors/${lang === 'zh-CN' ? 'zhCN' : 'enUS'}.json`,
-    component,
-  };
+  return { url: null, key: null };
 }
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
-  const { url, component } = getContributorUrl(filename);
+  const { url, key } = getContributorUrl(filename);
   const { data: allContributors = {} } = useSWR<Record<string, string[]>>(url, fetcher, {
     errorRetryCount: 3,
   });
 
-  const contributorLogins = component ? (allContributors[component] ?? []) : [];
+  const contributorLogins = key ? (allContributors[key] ?? []) : [];
 
-  if (!url || !component) {
+  if (!url || !key) {
     return null;
   }
 
