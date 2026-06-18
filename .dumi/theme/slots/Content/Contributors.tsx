@@ -7,6 +7,7 @@ import type { SWRConfiguration } from 'swr';
 
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
+import type { AvatarListItem } from './ContributorAvatar';
 
 const styles = createStaticStyles(({ cssVar, css }) => ({
   listMobile: css`
@@ -68,7 +69,7 @@ function getContributorKey(filename?: string): string | null {
 
 const CONTRIBUTORS_URL = '/contributors.json';
 
-const swrConfig: SWRConfiguration<ContributorsData> = {
+const swrConfig: SWRConfiguration<ContributorsData, Error> = {
   errorRetryCount: 3,
 };
 
@@ -100,7 +101,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
     return null;
   }
 
-  const contributors = indices.map((i) => {
+  const contributors = indices.map<AvatarListItem>((i) => {
     const login = data.logins[i];
     return { username: login, url: `https://github.com/${login}.png?size=24` };
   });
