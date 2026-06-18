@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -1418,6 +1419,38 @@ describe('Form', () => {
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55523
+  it('should apply custom labelHeight token in vertical layout', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider
+          theme={{
+            components: {
+              Form: {
+                labelHeight: 100,
+              },
+            },
+          }}
+        >
+          <Form layout="vertical">
+            <Form.Item label="Username">
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('--ant-form-vertical-label-height:100px;');
+    expect(styleText).toContain(
+      '.ant-form-item-vertical .ant-form-item-label>label{height:var(--ant-form-vertical-label-height);}',
+    );
   });
 
   it('form.item should support label = null', () => {
