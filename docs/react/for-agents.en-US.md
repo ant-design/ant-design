@@ -14,7 +14,9 @@ This page provides a ready-to-use prompt that lets any AI coding agent work with
 Copy into your agent conversation or automation runner.
 
 ```text
-Before writing any code, please read https://ant.design/for-agents.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
+Before writing any code, please read https://ant.design/docs/react/for-agents.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
+
+Read https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md and follow the instructions to use Ant Design.
 
 If you can install skills, run:
 npx skills add ant-design/ant-design-cli
