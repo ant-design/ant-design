@@ -30,7 +30,8 @@ const docFiles = [
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
 if (!token) {
-  throw new Error('GITHUB_ACCESS_TOKEN is required to generate component contributors.');
+  console.log('GITHUB_ACCESS_TOKEN is not set, skipping component contributors generation.');
+  process.exit(0);
 }
 
 const octokit = new Octokit({ auth: token });
