@@ -59,9 +59,14 @@ pnpm add @ant-design/icons@6
 
 ⚠️ 下列 API 已被标记为**废弃（Deprecated）**。尽管这些属性当前仍可使用，但控制台会提示弃用警告，并将在 7.0 中被移除。为保持代码的可维护性和兼容性，**建议尽快迁移到对应的替代属性**。
 
+> 以下废弃项自 v6.0.0 起生效，另有标注的除外。
+
 - `Alert`
   - `closeText` 弃用，变为 `closable.closeIcon`。
+  - `closeIcon` 弃用，变为 `closable.closeIcon`。
   - `message` 弃用，变为 `title`。
+  - `onClose` 弃用，变为 `closable.onClose`。
+  - `afterClose` 弃用，变为 `closable.afterClose`。
 
 - `Anchor`
   - `Anchor children` 弃用，变为 `items`。
@@ -75,6 +80,9 @@ pnpm add @ant-design/icons@6
   - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
   - `dataSource` 弃用，变为 `options`。
 
+- `Avatar`
+  - `size="default"` 弃用，变为 `size="medium"`。（6.3.0）
+
 - `Avatar.Group`
   - `maxCount` 弃用，变为 `max={{ count: number }}`。
   - `maxStyle` 弃用，变为 `max={{ style: CSSProperties }}`。
@@ -84,9 +92,14 @@ pnpm add @ant-design/icons@6
 - `BackTop`
   - `BackTop` 弃用，变为 `FloatButton.BackTop`。
 
+- `Badge`
+  - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
+
 - `Breadcrumb`
   - `routes` 弃用，变为 `items`。
   - `Breadcrumb.Item` 和 `Breadcrumb.Separator` 弃用，变为 `items`。
+  - `breadcrumbName` 弃用，变为 `title`。
+  - `Breadcrumb.Item.children` 弃用，变为 `menu`。
 
 - `Button.Group`
   - `Button.Group` 弃用，变为 `Space.Compact`。
@@ -104,6 +117,7 @@ pnpm add @ant-design/icons@6
   - `headStyle` 弃用，变为 `styles.header`。
   - `bodyStyle` 弃用，变为 `styles.body`。
   - `bordered` 弃用，变为 `variant`。
+  - `tab` 弃用，变为 `label`。
 
 - `Carousel`
   - `dotPosition` 弃用，变为 `dotPlacement`。
@@ -116,6 +130,7 @@ pnpm add @ant-design/icons@6
   - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
   - `onPopupVisibleChange` 弃用，变为 `onOpenChange`。
   - `bordered` 弃用，变为 `variant`。
+  - `showArrow` 弃用，将变为默认行为，可通过设置 `suffixIcon` 为 `null` 隐藏。
 
 - `Collapse`
   - `destroyInactivePanel` 弃用，变为 `destroyOnHidden`。
@@ -142,8 +157,10 @@ pnpm add @ant-design/icons@6
   - `onSelect` 弃用，变为 `onCalendarChange`。
 
 - `Descriptions`
+  - `children` 弃用，变为 `items`。
   - `labelStyle` 弃用，变为 `styles.label`。
   - `contentStyle` 弃用，变为 `styles.content`。
+  - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
 
 - `Divider`
   - `type` 弃用，变为 `orientation`。
@@ -156,6 +173,9 @@ pnpm add @ant-design/icons@6
   - `contentWrapperStyle` 弃用，变为 `styles.wrapper`。
   - `maskStyle` 弃用，变为 `styles.mask`。
   - `drawerStyle` 弃用，变为 `styles.section`。
+  - `classNames.content` 弃用，变为 `classNames.section`。
+  - `styles.content` 弃用，变为 `styles.section`。
+  - `maskClosable` 弃用，变为 `mask.closable`。（6.3.0）
   - `destroyInactivePanel` 弃用，变为 `destroyOnHidden`。
   - `width` 弃用，变为 `size`。
   - `height` 弃用，变为 `size`。
@@ -187,6 +207,9 @@ pnpm add @ant-design/icons@6
 - `Input.Group`
   - `Input.Group` 弃用，变为 `Space.Compact`。
 
+- `Input`
+  - `bordered` 弃用，变为 `variant`。
+
 - `InputNumber`
   - `bordered` 弃用，变为 `variant`。
   - `addonAfter` 弃用，变为 `Space.Compact`。
@@ -202,6 +225,8 @@ pnpm add @ant-design/icons@6
   - `bodyStyle` 弃用，变为 `styles.body`。
   - `maskStyle` 弃用，变为 `styles.mask`。
   - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
+  - `maskClosable` 弃用，变为 `mask.closable`。（6.2.0）
+  - `focusTriggerAfterClose` 弃用，变为 `focusable.focusTriggerAfterClose`。
 
 - `Notification`
   - `btn` 弃用，变为 `actions`。
@@ -221,6 +246,7 @@ pnpm add @ant-design/icons@6
   - `dropdownRender` 弃用，变为 `popupRender`。
   - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
   - `bordered` 弃用，变为 `variant`。
+  - `showArrow` 弃用，将变为默认行为，可通过设置 `suffixIcon` 为 `null` 隐藏。
 
 - `Slider`
   - `tooltipPrefixCls` 弃用，变为 `tooltip.prefixCls`。
@@ -228,6 +254,10 @@ pnpm add @ant-design/icons@6
   - `tipFormatter` 弃用，变为 `tooltip.formatter`。
   - `tooltipPlacement` 弃用，变为 `tooltip.placement`。
   - `tooltipVisible` 弃用，变为 `tooltip.open`。
+  - `onAfterChange` 弃用，变为 `onChangeComplete`。
+  - `handleStyle` 弃用，变为 `styles.handle`。
+  - `trackStyle` 弃用，变为 `styles.track`。
+  - `railStyle` 弃用，变为 `styles.rail`。
 
 - `Space.Compact`
   - `direction` 弃用，变为 `orientation`。
@@ -235,6 +265,11 @@ pnpm add @ant-design/icons@6
 - `Space`
   - `direction` 弃用，变为 `orientation`。
   - `split` 弃用，变为 `separator`。
+
+- `Spin`
+  - `tip` 弃用，变为 `description`。
+  - `wrapperClassName` 弃用，变为 `classNames.root`。
+  - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
 
 - `Splitter`
   - `layout` 弃用，变为 `orientation`。
@@ -250,6 +285,7 @@ pnpm add @ant-design/icons@6
   - `progressDot` 弃用，变为 `type="dot"`。
   - `direction` 弃用，变为 `orientation`。
   - `items.description` 弃用，变为 `items.content`。
+  - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
 
 - `Table`
   - `pagination.position` 弃用，变为 `pagination.placement`。
@@ -257,11 +293,15 @@ pnpm add @ant-design/icons@6
   - `filterDropdownOpen` 弃用，变为 `filterDropdownProps.open`。
   - `onFilterDropdownOpenChange` 弃用，变为 `filterDropdownProps.onOpenChange`。
   - `filterCheckall` 弃用，变为 `locale.filterCheckAll`。
+  - `onSelectMultiple` 弃用，变为 `onChange`。
+  - `onSelectAll` 弃用，变为 `onChange`。
+  - `onSelectNone` 弃用，变为 `onChange`。
 
 - `Tabs`
   - `popupClassName` 弃用，变为 `classNames.popup`。
   - `tabPosition` 弃用，变为 `tabPlacement`。
   - `destroyInactiveTabPane` 弃用，变为 `destroyOnHidden`。
+  - `indicatorSize` 弃用，变为 `indicator={{ size: ... }}`。
   - `Tabs.TabPane` 弃用，变为 `items`。
 
 - `Tag`
@@ -270,9 +310,15 @@ pnpm add @ant-design/icons@6
 
 - `TimePicker`
   - `addon` 弃用，变为 `renderExtraFooter`。
+  - `popupClassName` 弃用，变为 `classNames.popup`。
+  - `popupStyle` 弃用，变为 `styles.popup`。
 
 - `Timeline`
   - `Timeline.Item` 弃用，变为 `items`。
+  - `Timeline.Item.position` 弃用，变为 `placement`。
+  - `Timeline.Item.label` 弃用，变为 `title`。
+  - `Timeline.Item.children` 弃用，变为 `content`。
+  - `Timeline.Item.dot` 弃用，变为 `icon`。
   - `pending` 弃用，变为 `items`。
   - `pendingDot` 弃用，变为 `items`。
   - `mode=left|right` 弃用，变为 `mode=start|end`。
@@ -296,6 +342,7 @@ pnpm add @ant-design/icons@6
   - `dropdownRender` 弃用，变为 `popupRender`。
   - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
   - `bordered` 弃用，变为 `variant`。
+  - `showArrow` 弃用，将变为默认行为，可通过设置 `suffixIcon` 为 `null` 隐藏。
 
 ### 弹层类组件（Modal、Drawer 等）
 
