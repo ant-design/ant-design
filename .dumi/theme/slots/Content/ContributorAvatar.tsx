@@ -1,6 +1,10 @@
 import React from 'react';
-import type { AvatarListItem } from '@qixian.cs/github-contributors-list/dist/AvatarList';
 import { Avatar, Tooltip } from 'antd';
+
+interface AvatarListItem {
+  username?: string;
+  url?: string;
+}
 
 interface ContributorAvatarProps {
   loading?: boolean;
