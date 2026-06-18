@@ -37,6 +37,14 @@ interface ContributorsProps {
   filename?: string;
 }
 
+interface ContributorsData {
+  logins: string[];
+  components: Record<string, number[]>;
+  blog: Record<string, number[]>;
+  react: Record<string, number[]>;
+  spec: Record<string, number[]>;
+}
+
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
 
 const MODULE_PATTERNS: [RegExp, string][] = [
@@ -46,37 +54,43 @@ const MODULE_PATTERNS: [RegExp, string][] = [
   [/^docs\/spec\/(.+)\.(zh-CN|en-US)\.md$/, 'spec'],
 ];
 
-function getContributorUrl(filename?: string) {
+function getContributorKey(filename?: string): string | null {
   for (const [pattern, module] of MODULE_PATTERNS) {
     const match = filename?.match(pattern);
     if (match) {
-      const [, key, lang] = match;
-      const locale = lang === 'zh-CN' ? 'zhCN' : 'enUS';
-      const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-      return { url: `${baseUrl}/contributors/${module}-${locale}.json`, key };
+      const [, key] = match;
+      return `${module}/${key}`;
     }
   }
-  return { url: null, key: null };
+  return null;
 }
+
+const CONTRIBUTORS_URL = '/contributors.json';
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
-  const { url, key } = getContributorUrl(filename);
-  const { data: allContributors = {} } = useSWR<Record<string, string[]>>(url, fetcher, {
+  const dataKey = getContributorKey(filename);
+  const { data } = useSWR<ContributorsData>(dataKey ? CONTRIBUTORS_URL : null, fetcher, {
     errorRetryCount: 3,
   });
 
-  const contributorLogins = key ? (allContributors[key] ?? []) : [];
-
-  if (!url || !key) {
+  if (!dataKey || !data) {
     return null;
   }
 
-  const contributors = contributorLogins.map((login) => ({
-    username: login,
-    url: `https://github.com/${login}.png?size=24`,
-  }));
+  const [module, ...rest] = dataKey.split('/');
+  const key = rest.join('/');
+  const indices = (data[module as keyof ContributorsData] as Record<string, number[]>)?.[key] ?? [];
+
+  if (!indices.length) {
+    return null;
+  }
+
+  const contributors = indices.map((i) => {
+    const login = data.logins[i];
+    return { username: login, url: `https://github.com/${login}.png?size=24` };
+  });
 
   return (
     <div className={clsx({ [styles.listMobile]: isMobile })}>

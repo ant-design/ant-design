@@ -9,7 +9,7 @@ dotenv.config({ override: true });
 const cwd = process.cwd();
 const owner = 'ant-design';
 const repo = 'ant-design';
-const outputDir = process.argv[2] || path.join(cwd, '_site', 'contributors');
+const outputFile = process.argv[2] || path.join(cwd, '_site', 'contributors.json');
 const excludeComponents = new Set(['_util', 'overview']);
 const blockList = [
   'github-actions',
@@ -51,7 +51,6 @@ async function pathExists(filePath: string) {
 interface ModuleConfig {
   name: string;
   dir: string;
-  /** Return doc file paths for a given locale suffix */
   getDocFiles: (localeSuffix: string) => Promise<{ key: string; filePath: string }[]>;
 }
 
@@ -134,47 +133,57 @@ async function getFileCommits(filePath: string) {
 }
 
 async function execute() {
-  // Collect all doc files across modules to get total count for progress bar
-  const allTasks: {
-    module: ModuleConfig;
-    locale: string;
-    localeSuffix: string;
-    key: string;
-    filePath: string;
-  }[] = [];
+  const allLogins: string[] = [];
+  const loginIndex = new Map<string, number>();
+
+  function getLoginIndex(login: string): number {
+    let idx = loginIndex.get(login);
+    if (idx === undefined) {
+      idx = allLogins.length;
+      allLogins.push(login);
+      loginIndex.set(login, idx);
+    }
+    return idx;
+  }
+
+  // Collect all doc files across modules
+  const allTasks: { module: ModuleConfig; locale: string; key: string; filePath: string }[] = [];
 
   for (const mod of modules) {
     for (const { locale, suffix } of locales) {
       const docs = await mod.getDocFiles(suffix);
       for (const { key, filePath } of docs) {
-        allTasks.push({ module: mod, locale, localeSuffix: suffix, key, filePath });
+        allTasks.push({ module: mod, locale, key, filePath });
       }
     }
   }
 
-  await fs.mkdir(outputDir, { recursive: true });
+  const dir = path.dirname(outputFile);
+  await fs.mkdir(dir, { recursive: true });
 
   const progressBar = new cliProgress.SingleBar(
     {
       format: 'Generate contributors [{bar}] {value}/{total} {module}',
+      clearOnComplete: true,
     },
     cliProgress.Presets.shades_classic,
   );
 
   progressBar.start(allTasks.length, 0, { module: '' });
 
-  // result[module][key][locale] = contributors[]
-  const result: Record<string, Record<string, Record<string, string[]>>> = {};
+  // moduleData[module][key][locale] = number[]
+  const moduleData: Record<string, Record<string, Record<string, number[]>>> = {};
 
   try {
     for (const { module: mod, locale, key, filePath } of allTasks) {
       progressBar.update({ module: `${mod.name}/${key}` });
 
-      const contributors = await getFileCommits(filePath);
+      const logins = await getFileCommits(filePath);
+      const indices = logins.map((login) => getLoginIndex(login));
 
-      result[mod.name] ??= {};
-      result[mod.name][key] ??= {};
-      result[mod.name][key][locale] = contributors;
+      moduleData[mod.name] ??= {};
+      moduleData[mod.name][key] ??= {};
+      moduleData[mod.name][key][locale] = indices;
 
       progressBar.increment();
     }
@@ -183,24 +192,30 @@ async function execute() {
     process.stdout.write('\n');
   }
 
-  // Write 8 JSON files: {module}-{locale}.json
+  // Merge into single output: { logins, components, blog, react, spec }
+  const output: Record<string, unknown> = { logins: allLogins };
+
   for (const mod of modules) {
-    const moduleData = result[mod.name];
-    if (!moduleData) continue;
+    const data = moduleData[mod.name];
+    if (!data) continue;
 
-    for (const { locale } of locales) {
-      const localeData: Record<string, string[]> = {};
+    // Flatten: merge locales for the same key, deduplicate indices
+    const merged: Record<string, number[]> = {};
 
-      for (const [key, localesMap] of Object.entries(moduleData)) {
-        if (localesMap[locale]) {
-          localeData[key] = localesMap[locale];
+    for (const [key, localesMap] of Object.entries(data)) {
+      const indices = new Set<number>();
+      for (const localeIndices of Object.values(localesMap)) {
+        for (const idx of localeIndices) {
+          indices.add(idx);
         }
       }
-
-      const outputFile = path.join(outputDir, `${mod.name}-${locale}.json`);
-      await fs.writeFile(outputFile, `${JSON.stringify(localeData, null, 2)}\n`);
+      merged[key] = Array.from(indices);
     }
+
+    output[mod.name] = merged;
   }
+
+  await fs.writeFile(outputFile, `${JSON.stringify(output)}\n`);
 }
 
 execute();
