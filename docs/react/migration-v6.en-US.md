@@ -65,9 +65,14 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 
 ⚠️ The APIs listed below have been marked as **deprecated**. Although they are still functional at present, deprecation warnings will appear in the console, and they will be removed in version 7.0. To maintain code sustainability and compatibility, **it is strongly recommended to migrate to the corresponding replacement APIs as soon as possible**.
 
+> All deprecations below take effect from v6.0.0 unless otherwise noted.
+
 - `Alert`
   - `closeText` is deprecated and replaced by `closable.closeIcon`.
+  - `closeIcon` is deprecated and replaced by `closable.closeIcon`.
   - `message` is deprecated and replaced by `title`.
+  - `onClose` is deprecated and replaced by `closable.onClose`.
+  - `afterClose` is deprecated and replaced by `closable.afterClose`.
 
 - `Anchor`
   - `Anchor children` is deprecated and replaced by `items`.
@@ -81,6 +86,9 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `dataSource` is deprecated and replaced by `options`.
 
+- `Avatar`
+  - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.0)
+
 - `Avatar.Group`
   - `maxCount` is deprecated and replaced by `max={{ count: number }}`.
   - `maxStyle` is deprecated and replaced by `max={{ style: CSSProperties }}`.
@@ -90,9 +98,14 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 - `BackTop`
   - `BackTop` is deprecated and replaced by `FloatButton.BackTop`.
 
+- `Badge`
+  - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.2)
+
 - `Breadcrumb`
   - `routes` is deprecated and replaced by `items`.
   - `Breadcrumb.Item` and `Breadcrumb.Separator` are deprecated and replaced by `items`.
+  - `breadcrumbName` is deprecated and replaced by `title`.
+  - `items.children` is deprecated and replaced by `menu`.
 
 - `Button.Group`
   - `Button.Group` is deprecated and replaced by `Space.Compact`.
@@ -110,6 +123,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `headStyle` is deprecated and replaced by `styles.header`.
   - `bodyStyle` is deprecated and replaced by `styles.body`.
   - `bordered` is deprecated and replaced by `variant`.
+  - `tab` is deprecated and replaced by `label`.
 
 - `Carousel`
   - `dotPosition` is deprecated and replaced by `dotPlacement`.
@@ -122,6 +136,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `onPopupVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `bordered` is deprecated and replaced by `variant`.
+  - `showArrow` is deprecated and will become default behavior; set `suffixIcon` to `null` to hide.
 
 - `Collapse`
   - `destroyInactivePanel` is deprecated and replaced by `destroyOnHidden`.
@@ -148,8 +163,11 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `onSelect` is deprecated and replaced by `onCalendarChange`.
 
 - `Descriptions`
+  - `children` is deprecated and replaced by `items`.
   - `labelStyle` is deprecated and replaced by `styles.label`.
   - `contentStyle` is deprecated and replaced by `styles.content`.
+  - `size="default"` is deprecated and replaced by `size="large"`. (6.3.2)
+  - `size="middle"` is deprecated and replaced by `size="medium"`. (6.3.2)
 
 - `Divider`
   - `type` is deprecated and replaced by `orientation`.
@@ -162,6 +180,9 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `contentWrapperStyle` is deprecated and replaced by `styles.wrapper`.
   - `maskStyle` is deprecated and replaced by `styles.mask`.
   - `drawerStyle` is deprecated and replaced by `styles.section`.
+  - `classNames.content` is deprecated and replaced by `classNames.section`.
+  - `styles.content` is deprecated and replaced by `styles.section`.
+  - `maskClosable` is deprecated and replaced by `mask.closable`. (6.3.0)
   - `destroyInactivePanel` is deprecated and replaced by `destroyOnHidden`.
   - `width` is deprecated and replaced by `size`.
   - `height` is deprecated and replaced by `size`.
@@ -193,6 +214,9 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 - `Input.Group`
   - `Input.Group` is deprecated and replaced by `Space.Compact`.
 
+- `Input`
+  - `bordered` is deprecated and replaced by `variant`.
+
 - `InputNumber`
   - `bordered` is deprecated and replaced by `variant`.
   - `addonAfter` is deprecated and replaced by `Space.Compact`.
@@ -208,6 +232,8 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `bodyStyle` is deprecated and replaced by `styles.body`.
   - `maskStyle` is deprecated and replaced by `styles.mask`.
   - `destroyOnClose` is deprecated and replaced by `destroyOnHidden`.
+  - `maskClosable` is deprecated and replaced by `mask.closable`. (6.3.0)
+  - `focusTriggerAfterClose` is deprecated and replaced by `focusable.focusTriggerAfterClose`. (6.2.0)
 
 - `Notification`
   - `btn` is deprecated and replaced by `actions`.
@@ -227,6 +253,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `dropdownRender` is deprecated and replaced by `popupRender`.
   - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `bordered` is deprecated and replaced by `variant`.
+  - `showArrow` is deprecated and will become default behavior; set `suffixIcon` to `null` to hide.
 
 - `Slider`
   - `tooltipPrefixCls` is deprecated and replaced by `tooltip.prefixCls`.
@@ -234,6 +261,10 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `tipFormatter` is deprecated and replaced by `tooltip.formatter`.
   - `tooltipPlacement` is deprecated and replaced by `tooltip.placement`.
   - `tooltipVisible` is deprecated and replaced by `tooltip.open`.
+  - `onAfterChange` is deprecated and replaced by `onChangeComplete`.
+  - `handleStyle` is deprecated and replaced by `styles.handle`.
+  - `trackStyle` is deprecated and replaced by `styles.track`.
+  - `railStyle` is deprecated and replaced by `styles.rail`.
 
 - `Space.Compact`
   - `direction` is deprecated and replaced by `orientation`.
@@ -241,6 +272,11 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 - `Space`
   - `direction` is deprecated and replaced by `orientation`.
   - `split` is deprecated and replaced by `separator`.
+
+- `Spin`
+  - `tip` is deprecated and replaced by `description`. (6.3.0)
+  - `wrapperClassName` is deprecated and replaced by `classNames.root`.
+  - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.2)
 
 - `Splitter`
   - `layout` is deprecated and replaced by `orientation`.
@@ -256,6 +292,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `progressDot` is deprecated and replaced by `type="dot"`.
   - `direction` is deprecated and replaced by `orientation`.
   - `items.description` is deprecated and replaced by `items.content`.
+  - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.2)
 
 - `Table`
   - `pagination.position` is deprecated and replaced by `pagination.placement`.
@@ -263,11 +300,15 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `filterDropdownOpen` is deprecated and replaced by `filterDropdownProps.open`.
   - `onFilterDropdownOpenChange` is deprecated and replaced by `filterDropdownProps.onOpenChange`.
   - `filterCheckall` is deprecated and replaced by `locale.filterCheckAll`.
+  - `onSelectMultiple` is deprecated and replaced by `onChange`.
+  - `onSelectAll` is deprecated and replaced by `onChange`.
+  - `onSelectNone` is deprecated and replaced by `onChange`.
 
 - `Tabs`
   - `popupClassName` is deprecated and replaced by `classNames.popup`.
   - `tabPosition` is deprecated and replaced by `tabPlacement`.
   - `destroyInactiveTabPane` is deprecated and replaced by `destroyOnHidden`.
+  - `indicatorSize` is deprecated and replaced by `indicator={{ size: ... }}`.
   - `Tabs.TabPane` is deprecated and replaced by `items`.
 
 - `Tag`
@@ -276,9 +317,15 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 
 - `TimePicker`
   - `addon` is deprecated and replaced by `renderExtraFooter`.
+  - `popupClassName` is deprecated and replaced by `classNames.popup`.
+  - `popupStyle` is deprecated and replaced by `styles.popup`.
 
 - `Timeline`
   - `Timeline.Item` is deprecated and replaced by `items`.
+  - `Timeline.Item.position` is deprecated and replaced by `placement`; values `left` / `right` should be changed to `start` / `end`.
+  - `Timeline.Item.label` is deprecated and replaced by `title`.
+  - `Timeline.Item.children` is deprecated and replaced by `content`.
+  - `Timeline.Item.dot` is deprecated and replaced by `icon`.
   - `pending` is deprecated and replaced by `items`.
   - `pendingDot` is deprecated and replaced by `items`.
   - `mode=left|right` is deprecated and replaced by `mode=start|end`.
@@ -302,6 +349,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `dropdownRender` is deprecated and replaced by `popupRender`.
   - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `bordered` is deprecated and replaced by `variant`.
+  - `showArrow` is deprecated and will become default behavior; set `suffixIcon` to `null` to hide.
 
 ### Overlay components (Modal, Drawer, etc.)
 
