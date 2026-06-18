@@ -49,7 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
+| max | Set maximum display related configurations | `{ count?: number; style?: CSSProperties; popover?: PopoverProps; overflowInFinal?: boolean }` | - | 5.18.0 |
 | ~~maxCount~~ | Deprecated, please use `max={{ count: number }}` | number | - |  |
 | ~~maxPopoverPlacement~~ | Deprecated, please use `max={{ popover: PopoverProps }}` | `top` \| `bottom` | `top` |  |
 | ~~maxPopoverTrigger~~ | Deprecated, please use `max={{ popover: PopoverProps }}` | `hover` \| `focus` \| `click` | `hover` |  |

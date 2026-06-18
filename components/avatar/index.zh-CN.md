@@ -54,7 +54,7 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| max | 设置最多显示相关配置 | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
+| max | 设置最多显示相关配置 | `{ count?: number; style?: CSSProperties; popover?: PopoverProps; overflowInFinal?: boolean }` | - | 5.18.0 |
 | ~~maxCount~~ | 已废弃，请使用 `max={{ count: number }}` | number | - |  |
 | ~~maxPopoverPlacement~~ | 已废弃，请使用 `max={{ popover: PopoverProps }}` | `top` \| `bottom` | `top` |  |
 | ~~maxPopoverTrigger~~ | 已废弃，请使用 `max={{ popover: PopoverProps }}` | `hover` \| `focus` \| `click` | `hover` |  |

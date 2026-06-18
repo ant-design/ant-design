@@ -301,4 +301,27 @@ describe('Avatar Render', () => {
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
   });
+
+  it('Avatar.Group support overflowInFinal', () => {
+    const { container } = render(
+      <Avatar.Group
+        max={{
+          count: 2,
+          overflowInFinal: true,
+          style: { color: 'blue' },
+        }}
+      >
+        <Avatar>A</Avatar>
+        <Avatar>B</Avatar>
+        <Avatar>C</Avatar>
+        <Avatar>D</Avatar>
+      </Avatar.Group>,
+    );
+
+    const avatars = container.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
+    // Should show 3 avatars: 2 normal + 1 overflow (at final position)
+    expect(avatars).toHaveLength(3);
+    // The last avatar should contain the overflow count text
+    expect(avatars[2]).toHaveTextContent('+2');
+  });
 });
