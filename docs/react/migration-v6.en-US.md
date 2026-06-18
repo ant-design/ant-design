@@ -101,7 +101,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `routes` is deprecated and replaced by `items`.
   - `Breadcrumb.Item` and `Breadcrumb.Separator` are deprecated and replaced by `items`.
   - `breadcrumbName` is deprecated and replaced by `title`.
-  - `Breadcrumb.Item.children` is deprecated and replaced by `menu`.
+  - `items.children` is deprecated and replaced by `menu`.
 
 - `Button.Group`
   - `Button.Group` is deprecated and replaced by `Space.Compact`.
@@ -162,7 +162,8 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `children` is deprecated and replaced by `items`.
   - `labelStyle` is deprecated and replaced by `styles.label`.
   - `contentStyle` is deprecated and replaced by `styles.content`.
-  - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.2)
+  - `size="default"` is deprecated and replaced by `size="large"`. (6.3.2)
+  - `size="middle"` is deprecated and replaced by `size="medium"`. (6.3.2)
 
 - `Divider`
   - `type` is deprecated and replaced by `orientation`.
@@ -227,7 +228,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `bodyStyle` is deprecated and replaced by `styles.body`.
   - `maskStyle` is deprecated and replaced by `styles.mask`.
   - `destroyOnClose` is deprecated and replaced by `destroyOnHidden`.
-  - `maskClosable` is deprecated and replaced by `mask.closable`. (6.2.0)
+  - `maskClosable` is deprecated and replaced by `mask.closable`. (6.3.0)
   - `focusTriggerAfterClose` is deprecated and replaced by `focusable.focusTriggerAfterClose`.
 
 - `Notification`

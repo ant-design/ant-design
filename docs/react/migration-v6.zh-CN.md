@@ -99,7 +99,7 @@ pnpm add @ant-design/icons@6
   - `routes` 弃用，变为 `items`。
   - `Breadcrumb.Item` 和 `Breadcrumb.Separator` 弃用，变为 `items`。
   - `breadcrumbName` 弃用，变为 `title`。
-  - `Breadcrumb.Item.children` 弃用，变为 `menu`。
+  - `items.children` 弃用，变为 `menu`。
 
 - `Button.Group`
   - `Button.Group` 弃用，变为 `Space.Compact`。
@@ -160,7 +160,8 @@ pnpm add @ant-design/icons@6
   - `children` 弃用，变为 `items`。
   - `labelStyle` 弃用，变为 `styles.label`。
   - `contentStyle` 弃用，变为 `styles.content`。
-  - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
+  - `size="default"` 弃用，变为 `size="large"`。（6.3.2）
+  - `size="middle"` 弃用，变为 `size="medium"`。（6.3.2）
 
 - `Divider`
   - `type` 弃用，变为 `orientation`。
@@ -225,7 +226,7 @@ pnpm add @ant-design/icons@6
   - `bodyStyle` 弃用，变为 `styles.body`。
   - `maskStyle` 弃用，变为 `styles.mask`。
   - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
-  - `maskClosable` 弃用，变为 `mask.closable`。（6.2.0）
+  - `maskClosable` 弃用，变为 `mask.closable`。（6.3.0）
   - `focusTriggerAfterClose` 弃用，变为 `focusable.focusTriggerAfterClose`。
 
 - `Notification`
