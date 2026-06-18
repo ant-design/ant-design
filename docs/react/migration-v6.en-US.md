@@ -8,6 +8,10 @@ title: From v5 to v6
 
 This document will help you upgrade antd from version `5.x` to `6.x`. This release is primarily a technical upgrade, most component APIs remain compatible, you will need to ensure your environment meets the new requirements before upgrading.
 
+## Use CLI to assist the upgrade {#use-cli}
+
+Before going through the checklist manually, we recommend using [Ant Design CLI](/docs/react/cli) to assist the upgrade. It can check deprecated APIs, component usage, and version differences in your codebase so you do not have to rely only on reading this document item by item. See the [CLI documentation](/docs/react/cli) for installation and usage.
+
 ## Before you upgrade
 
 1. First upgrade to the latest v5 release and address any deprecation warnings shown in the console.
