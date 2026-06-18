@@ -318,7 +318,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
 
 - `Timeline`
   - `Timeline.Item` is deprecated and replaced by `items`.
-  - `Timeline.Item.position` is deprecated and replaced by `placement`.
+  - `Timeline.Item.position` is deprecated and replaced by `placement`; values `left` / `right` should be changed to `start` / `end`.
   - `Timeline.Item.label` is deprecated and replaced by `title`.
   - `Timeline.Item.children` is deprecated and replaced by `content`.
   - `Timeline.Item.dot` is deprecated and replaced by `icon`.

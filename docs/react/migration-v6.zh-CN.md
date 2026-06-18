@@ -316,7 +316,7 @@ pnpm add @ant-design/icons@6
 
 - `Timeline`
   - `Timeline.Item` 弃用，变为 `items`。
-  - `Timeline.Item.position` 弃用，变为 `placement`。
+  - `Timeline.Item.position` 弃用，变为 `placement`，值 `left` / `right` 需改为 `start` / `end`。
   - `Timeline.Item.label` 弃用，变为 `title`。
   - `Timeline.Item.children` 弃用，变为 `content`。
   - `Timeline.Item.dot` 弃用，变为 `icon`。
