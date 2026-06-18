@@ -6,7 +6,7 @@ import cliProgress from 'cli-progress';
 import dotenv from 'dotenv';
 import ora from 'ora';
 
-const spinner = ora('Loading unicorns').start('开始检查仓库状态');
+const spinner = ora('开始检查仓库状态...').start();
 
 dotenv.config({ override: true });
 
