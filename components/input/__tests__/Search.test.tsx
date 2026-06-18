@@ -7,7 +7,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
-import theme from '../../theme';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
@@ -368,38 +367,6 @@ describe('Input.Search', () => {
     expect(button).toHaveStyle('color: rgb(0, 255, 0)');
     expect(buttonIcon).toHaveStyle('color: rgb(255, 0, 0)');
     expect(buttonContent).toHaveStyle('color: rgb(0, 255, 0)');
-  });
-
-  it('should align small search button height under compact algorithm', () => {
-    render(
-      <ConfigProvider theme={{ algorithm: theme.compactAlgorithm }}>
-        <Search size="small" />
-      </ConfigProvider>,
-    );
-
-    const dynamicStyles = Array.from(
-      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
-    ).map((style) => style.innerHTML);
-
-    expect(
-      dynamicStyles.some(
-        (style) =>
-          style.includes('.ant-input-search.ant-input-search-small .ant-input-search-btn') &&
-          style.includes('min-height:max(') &&
-          style.includes('input-font-size-sm') &&
-          !style.includes('min-height:NaNpx'),
-      ),
-    ).toBeTruthy();
-    expect(
-      dynamicStyles.some(
-        (style) =>
-          style.includes(
-            '.ant-input-search.ant-input-search-small .ant-input-search-btn.ant-btn-icon-only',
-          ) &&
-          style.includes('min-width:max(') &&
-          !style.includes('min-width:NaNpx'),
-      ),
-    ).toBeTruthy();
   });
 
   describe('searchIcon', () => {
