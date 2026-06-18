@@ -2,7 +2,11 @@ import * as AntdIcons from '@ant-design/icons';
 
 export const all = Object.keys(AntdIcons)
   .map((n) => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
-  .filter((n, i, arr) => arr.indexOf(n) === i);
+  .filter(
+    (n, i, arr) =>
+      (`${n}Outlined` in AntdIcons || `${n}Filled` in AntdIcons || `${n}TwoTone` in AntdIcons) &&
+      arr.indexOf(n) === i,
+  );
 
 const direction = [
   'StepBackward',
