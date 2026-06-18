@@ -229,7 +229,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `maskStyle` is deprecated and replaced by `styles.mask`.
   - `destroyOnClose` is deprecated and replaced by `destroyOnHidden`.
   - `maskClosable` is deprecated and replaced by `mask.closable`. (6.3.0)
-  - `focusTriggerAfterClose` is deprecated and replaced by `focusable.focusTriggerAfterClose`.
+  - `focusTriggerAfterClose` is deprecated and replaced by `focusable.focusTriggerAfterClose`. (6.2.0)
 
 - `Notification`
   - `btn` is deprecated and replaced by `actions`.
@@ -270,7 +270,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `split` is deprecated and replaced by `separator`.
 
 - `Spin`
-  - `tip` is deprecated and replaced by `description`.
+  - `tip` is deprecated and replaced by `description`. (6.3.0)
   - `wrapperClassName` is deprecated and replaced by `classNames.root`.
   - `size="default"` is deprecated and replaced by `size="medium"`. (6.3.2)
 

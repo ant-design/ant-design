@@ -227,7 +227,7 @@ pnpm add @ant-design/icons@6
   - `maskStyle` 弃用，变为 `styles.mask`。
   - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
   - `maskClosable` 弃用，变为 `mask.closable`。（6.3.0）
-  - `focusTriggerAfterClose` 弃用，变为 `focusable.focusTriggerAfterClose`。
+  - `focusTriggerAfterClose` 弃用，变为 `focusable.focusTriggerAfterClose`。（6.2.0）
 
 - `Notification`
   - `btn` 弃用，变为 `actions`。
@@ -268,7 +268,7 @@ pnpm add @ant-design/icons@6
   - `split` 弃用，变为 `separator`。
 
 - `Spin`
-  - `tip` 弃用，变为 `description`。
+  - `tip` 弃用，变为 `description`。（6.3.0）
   - `wrapperClassName` 弃用，变为 `classNames.root`。
   - `size="default"` 弃用，变为 `size="medium"`。（6.3.2）
 
