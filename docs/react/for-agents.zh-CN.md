@@ -16,6 +16,8 @@ tag: New
 ```text
 在编写任何代码之前，请先阅读 https://ant.design/docs/react/for-agents-cn.md 中的相关指南，留意弃用提示，并按照说明使用 Ant Design。
 
+阅读 https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md 并按照指引使用 Ant Design。
+
 如果你可以安装 skills，请运行：
 npx skills add ant-design/ant-design-cli
 ```
