@@ -1422,26 +1422,33 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/55523
-  it('should apply custom labelHeight token in vertical layout', () => {
+  it('should apply custom labelHeight token in vertical layout across themes', () => {
     const cache = createCache();
 
     render(
       <StyleProvider cache={cache}>
-        <ConfigProvider
-          theme={{
-            components: {
-              Form: {
-                labelHeight: 100,
-              },
-            },
-          }}
-        >
+        <>
           <Form layout="vertical">
             <Form.Item label="Username">
               <Input />
             </Form.Item>
           </Form>
-        </ConfigProvider>
+          <ConfigProvider
+            theme={{
+              components: {
+                Form: {
+                  labelHeight: 100,
+                },
+              },
+            }}
+          >
+            <Form layout="vertical">
+              <Form.Item label="Username">
+                <Input />
+              </Form.Item>
+            </Form>
+          </ConfigProvider>
+        </>
       </StyleProvider>,
     );
 
