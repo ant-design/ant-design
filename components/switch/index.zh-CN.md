@@ -39,7 +39,7 @@ demo:
 | defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 | × |
 | disabled | 是否禁用 | boolean | false |  | × |
 | loading | 加载中的开关 | boolean | false |  | × |
-| size | 开关大小，可选值：`medium` `small` | string | `medium` |  | × |
+| size | 开关大小，可选值：`medium` `small` | `'medium'` \| `'small'` | `medium` |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | unCheckedChildren | 非选中时的内容 | ReactNode | - |  | × |
 | value | `checked` 的别名 | boolean | - | 5.12.0 | × |
