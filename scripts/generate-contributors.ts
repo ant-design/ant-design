@@ -1,16 +1,23 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { Octokit } from '@octokit/rest';
+import chalk from 'chalk';
 import cliProgress from 'cli-progress';
 import dotenv from 'dotenv';
+import ora from 'ora';
+
+const spinner = ora('开始检查仓库状态...').start();
 
 dotenv.config({ override: true });
 
 const cwd = process.cwd();
 const owner = 'ant-design';
 const repo = 'ant-design';
+
 const outputFile = process.argv[2] || path.join(cwd, '_site', 'contributors.json');
+
 const excludeComponents = new Set(['_util', 'overview']);
+
 const blockList = [
   'github-actions',
   'github-actions[bot]',
@@ -21,6 +28,7 @@ const blockList = [
   'dependabot[bot]',
   'gemini-code-assist[bot]',
 ];
+
 const locales = [
   { locale: 'zhCN', suffix: 'zh-CN' },
   { locale: 'enUS', suffix: 'en-US' },
@@ -28,8 +36,18 @@ const locales = [
 
 const token = process.env.GITHUB_ACCESS_TOKEN;
 
-if (!token) {
-  console.log('GITHUB_ACCESS_TOKEN is not set, skipping contributors generation.');
+const relativePath = path.relative(cwd, outputFile).replace(/\\/g, '/');
+
+if (token) {
+  spinner.succeed(
+    chalk.green(`✅ GITHUB_ACCESS_TOKEN 验证成功，已完成权限校验，正在生成文件：${relativePath}`),
+  );
+  console.log(''); // Keep an empty line here to make looks good~
+} else {
+  spinner.fail(
+    chalk.red('🚨 请先设置 GITHUB_ACCESS_TOKEN 环境变量到本地，请不要泄露给任何在线页面'),
+  );
+  console.log(''); // Keep an empty line here to make looks good~
   process.exit(0);
 }
 
@@ -63,8 +81,9 @@ const modules: ModuleConfig[] = [
       const result: { key: string; filePath: string }[] = [];
 
       for (const entry of entries) {
-        if (!entry.isDirectory() || excludeComponents.has(entry.name)) continue;
-
+        if (!entry.isDirectory() || excludeComponents.has(entry.name)) {
+          continue;
+        }
         const filePath = path.join(this.dir, entry.name, `index.${localeSuffix}.md`);
         if (await pathExists(filePath)) {
           result.push({ key: entry.name, filePath });
@@ -102,8 +121,9 @@ async function getDocsFromFlatDir(dir: string, localeSuffix: string) {
   const result: { key: string; filePath: string }[] = [];
 
   for (const entry of entries) {
-    if (!entry.isFile() || !entry.name.endsWith(`.${localeSuffix}.md`)) continue;
-
+    if (!entry.isFile() || !entry.name.endsWith(`.${localeSuffix}.md`)) {
+      continue;
+    }
     const key = entry.name.replace(`.${localeSuffix}.md`, '');
     result.push({ key, filePath: path.join(dir, entry.name) });
   }
@@ -122,13 +142,11 @@ async function getFileCommits(filePath: string) {
   return Array.from(
     commits.reduce<Set<string>>((loginSet, commit) => {
       const login = commit.author?.login;
-
       if (login && !blockList.includes(login.toLowerCase())) {
         loginSet.add(login);
       }
-
       return loginSet;
-    }, new Set()),
+    }, new Set<string>()),
   );
 }
 
@@ -197,7 +215,9 @@ async function execute() {
 
   for (const mod of modules) {
     const data = moduleData[mod.name];
-    if (!data) continue;
+    if (!data) {
+      continue;
+    }
 
     // Flatten: merge locales for the same key, deduplicate indices
     const merged: Record<string, number[]> = {};
