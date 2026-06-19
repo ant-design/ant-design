@@ -34,6 +34,12 @@ const _Placements = [
   'bottomRight',
   'top',
   'bottom',
+  'left',
+  'leftTop',
+  'leftBottom',
+  'right',
+  'rightTop',
+  'rightBottom',
 ] as const;
 
 type Placement = (typeof _Placements)[number];
@@ -194,8 +200,14 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (transitionName !== undefined) {
       return transitionName;
     }
-    if (placement.includes('top')) {
+    if (placement.startsWith('top')) {
       return `${rootPrefixCls}-slide-down`;
+    }
+    if (placement.startsWith('left')) {
+      return `${rootPrefixCls}-slide-right`;
+    }
+    if (placement.startsWith('right')) {
+      return `${rootPrefixCls}-slide-left`;
     }
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
@@ -352,7 +364,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={memoPlacement}
+      placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}

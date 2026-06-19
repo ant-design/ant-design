@@ -8,6 +8,10 @@ import {
   initZoomMotion,
   slideDownIn,
   slideDownOut,
+  slideLeftIn,
+  slideLeftOut,
+  slideRightIn,
+  slideRightOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
@@ -171,6 +175,40 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           {
             animationName: slideDownOut,
           },
+
+        [`&${antCls}-slide-left-enter${antCls}-slide-left-enter-active${componentCls}-placement-right,
+          &${antCls}-slide-left-appear${antCls}-slide-left-appear-active${componentCls}-placement-right,
+          &${antCls}-slide-left-enter${antCls}-slide-left-enter-active${componentCls}-placement-rightTop,
+          &${antCls}-slide-left-appear${antCls}-slide-left-appear-active${componentCls}-placement-rightTop,
+          &${antCls}-slide-left-enter${antCls}-slide-left-enter-active${componentCls}-placement-rightBottom,
+          &${antCls}-slide-left-appear${antCls}-slide-left-appear-active${componentCls}-placement-rightBottom`]:
+          {
+            animationName: slideLeftIn,
+          },
+
+        [`&${antCls}-slide-right-enter${antCls}-slide-right-enter-active${componentCls}-placement-left,
+          &${antCls}-slide-right-appear${antCls}-slide-right-appear-active${componentCls}-placement-left,
+          &${antCls}-slide-right-enter${antCls}-slide-right-enter-active${componentCls}-placement-leftTop,
+          &${antCls}-slide-right-appear${antCls}-slide-right-appear-active${componentCls}-placement-leftTop,
+          &${antCls}-slide-right-enter${antCls}-slide-right-enter-active${componentCls}-placement-leftBottom,
+          &${antCls}-slide-right-appear${antCls}-slide-right-appear-active${componentCls}-placement-leftBottom`]:
+          {
+            animationName: slideRightIn,
+          },
+
+        [`&${antCls}-slide-left-leave${antCls}-slide-left-leave-active${componentCls}-placement-right,
+          &${antCls}-slide-left-leave${antCls}-slide-left-leave-active${componentCls}-placement-rightTop,
+          &${antCls}-slide-left-leave${antCls}-slide-left-leave-active${componentCls}-placement-rightBottom`]:
+          {
+            animationName: slideLeftOut,
+          },
+
+        [`&${antCls}-slide-right-leave${antCls}-slide-right-leave-active${componentCls}-placement-left,
+          &${antCls}-slide-right-leave${antCls}-slide-right-leave-active${componentCls}-placement-leftTop,
+          &${antCls}-slide-right-leave${antCls}-slide-right-leave-active${componentCls}-placement-leftBottom`]:
+          {
+            animationName: slideRightOut,
+          },
       },
     },
 
@@ -178,7 +216,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     // ==                        Arrow style                      ==
     // =============================================================
     getArrowStyle<DropdownToken>(token, colorBgElevated, {
-      arrowPlacement: { top: true, bottom: true },
+      arrowPlacement: { top: true, bottom: true, left: true, right: true },
     }),
 
     {
@@ -369,6 +407,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     [
       initSlideMotion(token, 'slide-up'),
       initSlideMotion(token, 'slide-down'),
+      initSlideMotion(token, 'slide-left'),
+      initSlideMotion(token, 'slide-right'),
       initMoveMotion(token, 'move-up'),
       initMoveMotion(token, 'move-down'),
       initZoomMotion(token, 'zoom-big'),
