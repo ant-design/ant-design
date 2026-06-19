@@ -215,9 +215,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     // =============================================================
     // ==                        Arrow style                      ==
     // =============================================================
-    getArrowStyle<DropdownToken>(token, colorBgElevated, {
-      arrowPlacement: { top: true, bottom: true, left: true, right: true },
-    }),
+    getArrowStyle<DropdownToken>(token, colorBgElevated),
 
     {
       // =============================================================
