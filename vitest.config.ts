@@ -170,6 +170,7 @@ export default defineConfig({
       'components/typography/__tests__/editable.test.tsx',
       'components/typography/__tests__/ellipsis.test.tsx',
       'components/typography/__tests__/index.test.tsx',
+      'components/upload/__tests__/upload.test.tsx',
       'components/upload/__tests__/uploadlist.test.tsx',
       'components/watermark/__tests__/index.test.tsx',
     ],
