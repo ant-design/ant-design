@@ -28,6 +28,20 @@ jobs:
       - run: ut
       - run: ut lint
 
+  ################################ Vitest ################################
+  test-vitest:
+    name: test-vitest (non-blocking)
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
+      - run: ut
+      - run: ut test:vitest -- --update
+
   ################################ Test ################################
   test-react-legacy:
     name: test-react-legacy

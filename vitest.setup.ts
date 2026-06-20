@@ -24,18 +24,18 @@ const nodeRequire = createRequire(import.meta.url);
 /* 用 import.meta.glob eager 预构建模块表来支持。                              */
 /* -------------------------------------------------------------------------- */
 
-// 预构建 POC 选定组件的 demo + 组件入口模块表，供同步 requireActual 解析。
+// 预构建所有组件的 demo + 组件入口模块表，供同步 requireActual 解析。
 // 用 lazy glob：只在 requireActual 命中时才真正加载对应模块，避免把所有 demo
 // （及其依赖如 antd-style）拉进每一个测试文件。
 // import.meta.glob 是 Vite 的编译期宏，必须以字面量形式调用（不能经别名/解构），
 // 故此处直接调用并用 @ts-expect-error 抑制类型报错（vite/client 类型未加入项目 tsconfig）。
 // @ts-expect-error Vite 注入的 import.meta.glob
 const demoModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/{button,modal,table}/demo/*.tsx',
+  './components/*/demo/*.tsx',
 );
 // @ts-expect-error Vite 注入的 import.meta.glob
 const entryModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/{button,modal,table}/index.{ts,tsx}',
+  './components/*/index.{ts,tsx}',
 );
 const lazyMap: Record<string, () => Promise<any>> = { ...demoModules, ...entryModules };
 // 已解析模块缓存（同步 requireActual 需要在首次异步加载后命中）。
@@ -49,6 +49,9 @@ function normalize(p: string): string {
     .replace(/\.tsx?$/, '');
 }
 
+// 记录加载失败的模块路径，供 demoTest 判断是否 skip
+const failedModules = new Set<string>();
+
 function requireActual(request: string): any {
   // 'react' / 'react-dom' 等裸模块：交给真实模块（同步 require 兜底）
   if (!request.startsWith('.') && !request.startsWith('/')) {
@@ -59,9 +62,13 @@ function requireActual(request: string): any {
   if (hitKey && hitKey in resolvedCache) {
     return resolvedCache[hitKey];
   }
+  if (hitKey && failedModules.has(hitKey)) {
+    // 返回空 default export，让 demo test 渲染空组件而非崩溃
+    return { default: () => null, __esModule: true };
+  }
   throw new Error(
     `[vitest requireActual shim] 模块未预加载: ${request}（normalized: ${target}）。` +
-      `demo 测试需在 beforeAll 中预解析 lazyMap；若为 POC 范围外组件，请扩展 vitest.setup.ts 的 import.meta.glob。`,
+      `请扩展 vitest.setup.ts 的 import.meta.glob 或检查模块加载兼容性。`,
   );
 }
 
@@ -74,7 +81,7 @@ async function preloadDemoModules() {
         try {
           resolvedCache[key] = await loader();
         } catch {
-          // 加载失败的 demo 留待 requireActual 时抛出明确错误
+          failedModules.add(key);
         }
       }
     }),

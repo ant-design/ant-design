@@ -1,6 +1,15 @@
-# Jest → Vitest 迁移可行性 POC · 结论报告
+# Jest → Vitest 迁移 · 进度报告
 
-> 方案 A（esbuild 原生路线）· 验证组件：Button / Modal / Table 完全并存：新增 vitest 配置与独立 script，不改任何现有 jest 配置与测试文件。
+> 方案 A（esbuild 原生路线）· 完全并存：新增 vitest 配置与独立 script，不改任何现有 jest 配置与测试文件。
+
+## 当前状态（扩面验证后）
+
+| 指标       | POC 阶段               | 扩面后           |
+| ---------- | ---------------------- | ---------------- |
+| 测试文件数 | 16                     | **302**          |
+| 用例数     | 272                    | **3321**         |
+| 覆盖组件数 | 3 (Button/Modal/Table) | **全组件**       |
+| CI 集成    | 无                     | non-blocking job |
 
 ## 一、一句话结论
 

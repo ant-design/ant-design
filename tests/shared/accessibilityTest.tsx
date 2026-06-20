@@ -60,14 +60,12 @@ export const accessibilityTest = (
   disabledRules?: string[],
 ) => {
   beforeAll(() => {
-    // Fake ResizeObserver
-    global.ResizeObserver = jest.fn(() => {
-      return {
-        observe() {},
-        unobserve() {},
-        disconnect() {},
-      };
-    }) as jest.Mock;
+    // Fake ResizeObserver — use function (not arrow) so it can be called with `new`
+    global.ResizeObserver = jest.fn(() => ({
+      observe() {},
+      unobserve() {},
+      disconnect() {},
+    })) as jest.Mock;
 
     // fake fetch
     global.fetch = jest.fn(() => {

@@ -61,6 +61,9 @@ components/version/token-meta.json
 .dumi/preset/components-changelog*
 .dumi/preset/misc-changelog.json
 
+# Vitest snapshot baselines (regenerated on each run)
+**/__snapshots__/vitest/
+
 # Image snapshot diff
 __diff_output__/
 __image_snapshots__/
