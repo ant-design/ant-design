@@ -60,11 +60,12 @@ export const accessibilityTest = (
   disabledRules?: string[],
 ) => {
   beforeAll(() => {
-    // Fake ResizeObserver — use function (not arrow) so it can be called with `new`
-    global.ResizeObserver = jest.fn(() => ({
-      observe() {},
-      unobserve() {},
-      disconnect() {},
+    // Fake ResizeObserver — use mockImplementation so jest.fn() itself is the constructor,
+    // compatible with `new` in both Jest and Vitest (arrow functions cannot be constructors)
+    global.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
     })) as jest.Mock;
 
     // fake fetch
