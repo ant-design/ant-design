@@ -1,13 +1,15 @@
 import { createRequire } from 'node:module';
-import util from 'node:util';
 import { ReadableStream } from 'node:stream/web';
+import util from 'node:util';
 import { MessagePort } from 'node:worker_threads';
+
 import '@testing-library/jest-dom/vitest';
-import { expect, vi } from 'vitest';
+
 import React from 'react';
 import { toHaveNoViolations } from 'jest-axe';
-import format, { plugins } from 'pretty-format';
 import type { DOMWindow } from 'jsdom';
+import format, { plugins } from 'pretty-format';
+import { expect, vi } from 'vitest';
 
 // 关闭动态 hash，避免版本变化影响 snapshot
 import { defaultConfig } from './components/theme/internal';
@@ -26,6 +28,8 @@ const nodeRequire = createRequire(import.meta.url);
 
 // 预构建组件入口模块表，供同步 requireActual 解析。demo suites 当前在
 // vitest.config.ts 中排除，避免每个普通 unit suite 都预加载全量 demo。
+// 如果后续恢复 demo suites，先重构 tests/shared/demoTest.tsx 的同步
+// jest.requireActual 路径，不要在这里重新 glob 全量 components/*/demo/*.tsx。
 // import.meta.glob 是 Vite 的编译期宏，必须以字面量形式调用（不能经别名/解构），
 // 故此处直接调用并用 @ts-expect-error 抑制类型报错（vite/client 类型未加入项目 tsconfig）。
 // @ts-expect-error Vite 注入的 import.meta.glob
@@ -69,7 +73,8 @@ async function preloadModules() {
         try {
           resolvedCache[key] = await loader();
         } catch {
-          // 加载失败的 demo 留待 requireActual 时抛出明确错误
+          // 保持失败可见：requireActual 未命中 resolvedCache 时会抛出明确错误。
+          // 不要返回空组件，否则会把兼容性失败记录成空 snapshot。
         }
       }
     }),

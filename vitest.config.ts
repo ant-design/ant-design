@@ -44,7 +44,13 @@ export default defineConfig({
       const file = normalized.slice(normalized.lastIndexOf('/') + 1);
       return `${dir}/__snapshots__/vitest/${file}${snapExtension}`;
     },
-    // include 覆盖全组件；exclude 分三类：
+    // include 覆盖全组件；exclude 是当前 Vitest 迁移进度的显式 manifest。
+    // 维护规则：
+    // - 每次从 exclude 移除文件，都要先单跑该文件，再跑 npm run test:vitest。
+    // - 只提交当前 collected test files 对应的 __snapshots__/vitest/*.snap。
+    // - CI 的覆盖统计使用 vitest list --filesOnly；不要用普通 vitest list 统计文件数。
+    //
+    // exclude 分四类：
     // (A) 非 jsdom 环境 / 需独立配置的测试类型
     // (B) demo 测试——依赖 jest.requireActual 同步 shim，且 antd-style 的 style-class.tsx
     //     demo 在 Vitest 中因模块状态冲突无法加载（57 个组件受影响）
