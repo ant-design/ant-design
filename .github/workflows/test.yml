@@ -43,7 +43,7 @@ jobs:
       - name: report vitest include/exclude counts
         run: |
           total=$(find components -path '*/__tests__/*.test.ts' -o -path '*/__tests__/*.test.tsx' | wc -l | tr -d ' ')
-          included=$(npx vitest list 2>/dev/null | wc -l | tr -d ' ')
+          included=$(npx vitest list --filesOnly 2>/dev/null | wc -l | tr -d ' ')
           excluded=$((total - included))
           echo "### Vitest Coverage Report" >> $GITHUB_STEP_SUMMARY
           echo "- Total test files: $total" >> $GITHUB_STEP_SUMMARY

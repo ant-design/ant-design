@@ -2,14 +2,6 @@
 
 exports[`Image > Default Group preview props 1`] = `
 <body>
-  <script
-    data-namespace="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
-    src="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
-  />
-  <script
-    data-namespace="//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js"
-    src="//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js"
-  />
   <div>
     <div
       aria-label="test image"

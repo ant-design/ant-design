@@ -24,20 +24,15 @@ const nodeRequire = createRequire(import.meta.url);
 /* 用 import.meta.glob eager 预构建模块表来支持。                              */
 /* -------------------------------------------------------------------------- */
 
-// 预构建所有组件的 demo + 组件入口模块表，供同步 requireActual 解析。
-// 用 lazy glob：只在 requireActual 命中时才真正加载对应模块，避免把所有 demo
-// （及其依赖如 antd-style）拉进每一个测试文件。
+// 预构建组件入口模块表，供同步 requireActual 解析。demo suites 当前在
+// vitest.config.ts 中排除，避免每个普通 unit suite 都预加载全量 demo。
 // import.meta.glob 是 Vite 的编译期宏，必须以字面量形式调用（不能经别名/解构），
 // 故此处直接调用并用 @ts-expect-error 抑制类型报错（vite/client 类型未加入项目 tsconfig）。
-// @ts-expect-error Vite 注入的 import.meta.glob
-const demoModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/*/demo/*.tsx',
-);
 // @ts-expect-error Vite 注入的 import.meta.glob
 const entryModules: Record<string, () => Promise<any>> = import.meta.glob(
   './components/*/index.{ts,tsx}',
 );
-const lazyMap: Record<string, () => Promise<any>> = { ...demoModules, ...entryModules };
+const lazyMap: Record<string, () => Promise<any>> = { ...entryModules };
 // 已解析模块缓存（同步 requireActual 需要在首次异步加载后命中）。
 const resolvedCache: Record<string, any> = {};
 
@@ -65,9 +60,9 @@ function requireActual(request: string): any {
   );
 }
 
-// demo 测试在 test 体内同步调用 requireActual。setupFiles 的顶层 await 在测试文件
-// 模块求值之前执行，故在此预解析 lazyMap 填充同步缓存，demo 测试即可同步命中。
-async function preloadDemoModules() {
+// setupFiles 的顶层 await 在测试文件模块求值之前执行，故在此预解析 lazyMap
+// 填充同步缓存，requireActual 即可同步命中。
+async function preloadModules() {
   await Promise.all(
     Object.entries(lazyMap).map(async ([key, loader]) => {
       if (!(key in resolvedCache)) {
@@ -81,7 +76,7 @@ async function preloadDemoModules() {
   );
 }
 // eslint-disable-next-line antfu/no-top-level-await
-await preloadDemoModules();
+await preloadModules();
 
 const jestShim: any = {
   fn: vi.fn,
