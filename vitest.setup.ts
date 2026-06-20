@@ -49,9 +49,6 @@ function normalize(p: string): string {
     .replace(/\.tsx?$/, '');
 }
 
-// 记录加载失败的模块路径，供 demoTest 判断是否 skip
-const failedModules = new Set<string>();
-
 function requireActual(request: string): any {
   // 'react' / 'react-dom' 等裸模块：交给真实模块（同步 require 兜底）
   if (!request.startsWith('.') && !request.startsWith('/')) {
@@ -61,10 +58,6 @@ function requireActual(request: string): any {
   const hitKey = Object.keys(lazyMap).find((key) => normalize(key) === target);
   if (hitKey && hitKey in resolvedCache) {
     return resolvedCache[hitKey];
-  }
-  if (hitKey && failedModules.has(hitKey)) {
-    // 返回空 default export，让 demo test 渲染空组件而非崩溃
-    return { default: () => null, __esModule: true };
   }
   throw new Error(
     `[vitest requireActual shim] 模块未预加载: ${request}（normalized: ${target}）。` +
@@ -81,7 +74,7 @@ async function preloadDemoModules() {
         try {
           resolvedCache[key] = await loader();
         } catch {
-          failedModules.add(key);
+          // 加载失败的 demo 留待 requireActual 时抛出明确错误
         }
       }
     }),

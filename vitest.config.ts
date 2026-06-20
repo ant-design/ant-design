@@ -45,9 +45,11 @@ export default defineConfig({
       return `${dir}/__snapshots__/vitest/${file}${snapExtension}`;
     },
     // include 覆盖全组件；exclude 分三类：
-    // (A) 非 jsdom 环境测试（需各自独立的 Vitest 配置）
-    // (B) jest.mock() 提升问题——通过垫片间接调用不会被 Vitest 提升
-    // (C) 其他兼容性问题（Tooltip popup 时序、requireActual 相对路径、模块循环依赖等）
+    // (A) 非 jsdom 环境 / 需独立配置的测试类型
+    // (B) demo 测试——依赖 jest.requireActual 同步 shim，且 antd-style 的 style-class.tsx
+    //     demo 在 Vitest 中因模块状态冲突无法加载（57 个组件受影响）
+    // (C) jest.mock() 提升问题——通过垫片间接调用不会被 Vitest 提升
+    // (D) 其他兼容性问题（Tooltip popup 时序、requireActual 相对路径等）
     include: ['components/**/__tests__/**/*.test.{ts,tsx}'],
     exclude: [
       '**/node_modules/**',
@@ -57,7 +59,11 @@ export default defineConfig({
       '**/demo-semantic.test.*',
       '**/a11y.test.*',
       '**/type.test.*',
-      // (B) jest.mock() 提升问题
+      // (B) demo 测试（jest.requireActual shim + antd-style 模块冲突）
+      '**/demo.test.*',
+      '**/demo-extend.test.*',
+      // (C) jest.mock() 提升 / requireActual 相对路径 / ResizeObserver 兼容性等
+      'components/affix/__tests__/Affix.test.tsx',
       'components/__tests__/index.test.ts',
       'components/__tests__/17.test.ts',
       'components/__tests__/node.test.tsx',
@@ -71,8 +77,6 @@ export default defineConfig({
       'components/avatar/__tests__/Avatar.test.tsx',
       'components/breadcrumb/__tests__/Breadcrumb.test.tsx',
       'components/button/__tests__/delay-timer.test.tsx',
-      'components/button/__tests__/demo-extend.test.ts',
-      'components/button/__tests__/demo.test.ts',
       'components/button/__tests__/index.test.tsx',
       'components/button/__tests__/wave.test.tsx',
       'components/calendar/__tests__/index.test.tsx',
@@ -95,7 +99,6 @@ export default defineConfig({
       'components/date-picker/__tests__/DatePicker.test.tsx',
       'components/date-picker/__tests__/RangePicker.test.tsx',
       'components/descriptions/__tests__/index.test.tsx',
-      'components/drawer/__tests__/demo-extend.test.tsx',
       'components/dropdown/__tests__/dropdown-button.test.tsx',
       'components/dropdown/__tests__/index.test.tsx',
       'components/dropdown/__tests__/semantic.test.tsx',
@@ -119,8 +122,6 @@ export default defineConfig({
       'components/message/__tests__/static-warning.test.tsx',
       'components/message/__tests__/type.test.tsx',
       'components/modal/__tests__/confirm.test.tsx',
-      'components/modal/__tests__/demo-extend.test.ts',
-      'components/modal/__tests__/demo.test.tsx',
       'components/modal/__tests__/hook.test.tsx',
       'components/modal/__tests__/Modal.test.tsx',
       'components/modal/__tests__/static-warning.test.tsx',
@@ -147,8 +148,6 @@ export default defineConfig({
       'components/splitter/__tests__/lazy.test.tsx',
       'components/switch/__tests__/index.test.tsx',
       'components/switch/__tests__/semantic.test.tsx',
-      'components/table/__tests__/demo-extend.test.ts',
-      'components/table/__tests__/demo.test.ts',
       'components/table/__tests__/semantic.test.tsx',
       'components/table/__tests__/Table.filter.test.tsx',
       'components/table/__tests__/Table.IE.test.tsx',
@@ -162,8 +161,6 @@ export default defineConfig({
       'components/time-picker/__tests__/semantic.test.tsx',
       'components/tooltip/__tests__/semantic.test.tsx',
       'components/tooltip/__tests__/tooltip.test.tsx',
-      'components/tour/__tests__/demo-extend.test.ts',
-      'components/tour/__tests__/demo-semantic.test.tsx',
       'components/tour/__tests__/index.test.tsx',
       'components/transfer/__tests__/dropdown.test.tsx',
       'components/transfer/__tests__/index.test.tsx',

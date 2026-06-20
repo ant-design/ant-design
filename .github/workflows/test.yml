@@ -40,7 +40,16 @@ jobs:
           node-version: 24
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
       - run: ut
-      - run: ut test:vitest -- --update
+      - name: report vitest include/exclude counts
+        run: |
+          total=$(find components -path '*/__tests__/*.test.ts' -o -path '*/__tests__/*.test.tsx' | wc -l | tr -d ' ')
+          included=$(npx vitest list 2>/dev/null | wc -l | tr -d ' ')
+          excluded=$((total - included))
+          echo "### Vitest Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "- Total test files: $total" >> $GITHUB_STEP_SUMMARY
+          echo "- Included: $included" >> $GITHUB_STEP_SUMMARY
+          echo "- Excluded: $excluded" >> $GITHUB_STEP_SUMMARY
+      - run: ut test:vitest
 
   ################################ Test ################################
   test-react-legacy:

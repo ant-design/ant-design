@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ColorPicker > Should disabled work 1`] = `
+<div>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
+  >
+    <div
+      aria-label="Clear color"
+      class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should render trigger work 1`] = `
+<div>
+  <div
+    class="trigger"
+  />
+</div>
+`;
+
+exports[`ColorPicker > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
+>
+  <div
+    aria-label="Clear color"
+    class="ant-color-picker-clear"
+    role="button"
+    tabindex="0"
+  />
+</div>
+`;

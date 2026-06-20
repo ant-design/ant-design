@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CheckboxGroup > passes prefixCls down to checkbox 1`] = `
+<div
+  class="my-checkbox-group css-var-root my-checkbox-css-var"
+  role="group"
+>
+  <label
+    class="my-checkbox-wrapper my-checkbox-group-item css-var-root my-checkbox-css-var"
+  >
+    <span
+      class="my-checkbox ant-wave-target"
+    >
+      <input
+        class="my-checkbox-input"
+        type="checkbox"
+        value="Apple"
+      />
+    </span>
+    <span
+      class="my-checkbox-label"
+    >
+      Apple
+    </span>
+  </label>
+  <label
+    class="my-checkbox-wrapper my-checkbox-group-item css-var-root my-checkbox-css-var"
+    style="font-size: 12px;"
+  >
+    <span
+      class="my-checkbox ant-wave-target"
+    >
+      <input
+        class="my-checkbox-input"
+        type="checkbox"
+        value="Orange"
+      />
+    </span>
+    <span
+      class="my-checkbox-label"
+    >
+      Orange
+    </span>
+  </label>
+</div>
+`;
+
+exports[`CheckboxGroup > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-checkbox-group ant-checkbox-group-rtl css-var-root ant-checkbox-css-var"
+  role="group"
+/>
+`;

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Splitter > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-splitter ant-splitter-horizontal ant-splitter-rtl css-var-root ant-splitter-css-var"
+/>
+`;
