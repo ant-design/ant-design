@@ -54,19 +54,27 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
+const isUsingFakeTimers = () =>
+  typeof (jest as any).isFakeTimers === 'function'
+    ? (jest as any).isFakeTimers()
+    : jest.isMockFunction(setTimeout) || !!(setTimeout as any).clock;
+
 // eslint-disable-next-line jest/no-export
 export const accessibilityTest = (
   Component: React.ComponentType<any>,
   disabledRules?: string[],
 ) => {
   beforeAll(() => {
-    // Fake ResizeObserver — use mockImplementation so jest.fn() itself is the constructor,
-    // compatible with `new` in both Jest and Vitest (arrow functions cannot be constructors)
-    global.ResizeObserver = jest.fn().mockImplementation(() => ({
-      observe: jest.fn(),
-      unobserve: jest.fn(),
-      disconnect: jest.fn(),
-    })) as jest.Mock;
+    // Fake ResizeObserver — Vitest constructs the mock implementation with `new`,
+    // so this must stay a function expression instead of an arrow.
+    // eslint-disable-next-line prefer-arrow-callback
+    global.ResizeObserver = jest.fn().mockImplementation(function ResizeObserverMock() {
+      return {
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+        disconnect: jest.fn(),
+      };
+    }) as jest.Mock;
 
     // fake fetch
     global.fetch = jest.fn(() => {
@@ -97,13 +105,22 @@ export const accessibilityTest = (
   });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
+      const restoreFakeTimers = isUsingFakeTimers();
+
       jest.useRealTimers();
-      const { container } = render(<Component />);
 
-      const rules = convertRulesToAxeFormat(disabledRules || []);
+      try {
+        const { container } = render(<Component />);
 
-      const results = await runAxe(container, { rules });
-      expect(results).toHaveNoViolations();
+        const rules = convertRulesToAxeFormat(disabledRules || []);
+
+        const results = await runAxe(container, { rules });
+        expect(results).toHaveNoViolations();
+      } finally {
+        if (restoreFakeTimers) {
+          jest.useFakeTimers();
+        }
+      }
     }, 50000);
   });
 };
