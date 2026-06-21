@@ -56,18 +56,24 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
-type JestWithFakeTimerState = typeof jest & {
+interface JestFakeTimerState {
   isFakeTimers?: () => boolean;
-};
+}
 
-type TimerWithClock = typeof setTimeout & {
+interface FakeTimerClock {
   clock?: unknown;
-};
+}
 
-const isUsingFakeTimers = () =>
-  isFunction((jest as JestWithFakeTimerState).isFakeTimers)
-    ? (jest as JestWithFakeTimerState).isFakeTimers()
-    : jest.isMockFunction(setTimeout) || !!(setTimeout as TimerWithClock).clock;
+const jestWithFakeTimerState = jest as typeof jest & JestFakeTimerState;
+
+const isUsingFakeTimers = () => {
+  const { isFakeTimers } = jestWithFakeTimerState;
+  const timeoutWithClock = setTimeout as typeof setTimeout & FakeTimerClock;
+
+  return isFunction(isFakeTimers)
+    ? isFakeTimers()
+    : jest.isMockFunction(setTimeout) || !!timeoutWithClock.clock;
+};
 
 // eslint-disable-next-line jest/no-export
 export const accessibilityTest = (Component: React.ComponentType, disabledRules?: string[]) => {
