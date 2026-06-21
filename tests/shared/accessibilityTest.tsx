@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 import { globSync } from 'glob';
 import { axe } from 'jest-axe';
 
+import { isFunction } from '../../components/_util/is';
+
 class AxeQueueManager {
   private queue: Promise<any> = Promise.resolve();
   private isProcessing = false;
@@ -54,17 +56,32 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
+type JestWithFakeTimerState = typeof jest & {
+  isFakeTimers?: () => boolean;
+};
+
+type TimerWithClock = typeof setTimeout & {
+  clock?: unknown;
+};
+
 const isUsingFakeTimers = () =>
-  typeof (jest as any).isFakeTimers === 'function'
-    ? (jest as any).isFakeTimers()
-    : jest.isMockFunction(setTimeout) || !!(setTimeout as any).clock;
+  isFunction((jest as JestWithFakeTimerState).isFakeTimers)
+    ? (jest as JestWithFakeTimerState).isFakeTimers()
+    : jest.isMockFunction(setTimeout) || !!(setTimeout as TimerWithClock).clock;
 
 // eslint-disable-next-line jest/no-export
-export const accessibilityTest = (
-  Component: React.ComponentType<any>,
-  disabledRules?: string[],
-) => {
+export const accessibilityTest = (Component: React.ComponentType, disabledRules?: string[]) => {
+  let originalResizeObserver: typeof global.ResizeObserver;
+  let originalFetch: typeof global.fetch;
+  let hadResizeObserver: boolean;
+  let hadFetch: boolean;
+
   beforeAll(() => {
+    hadResizeObserver = 'ResizeObserver' in global;
+    hadFetch = 'fetch' in global;
+    originalResizeObserver = global.ResizeObserver;
+    originalFetch = global.fetch;
+
     // Fake ResizeObserver — Vitest constructs the mock implementation with `new`,
     // so this must stay a function expression instead of an arrow.
     // eslint-disable-next-line prefer-arrow-callback
@@ -90,6 +107,20 @@ export const accessibilityTest = (
         },
       };
     }) as jest.Mock;
+  });
+
+  afterAll(() => {
+    if (hadResizeObserver) {
+      global.ResizeObserver = originalResizeObserver;
+    } else {
+      Reflect.deleteProperty(global, 'ResizeObserver');
+    }
+
+    if (hadFetch) {
+      global.fetch = originalFetch;
+    } else {
+      Reflect.deleteProperty(global, 'fetch');
+    }
   });
 
   beforeEach(() => {
