@@ -66,7 +66,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       ...resetComponent(token),
       position: 'relative',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
@@ -105,6 +105,8 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginXS,
         lineHeight: 0,
+        // Center icon with the first line of text when root uses flex-start
+        marginBlockStart: (fontSize * (lineHeight - 1)) / 2,
       },
 
       '&-description': {
@@ -139,6 +141,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       padding: withDescriptionPadding,
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
+        marginBlockStart: 0,
         fontSize: withDescriptionIconSize,
         lineHeight: 0,
       },
@@ -204,6 +207,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     motionDurationMid,
     marginXS,
     fontSizeIcon,
+    fontSize,
+    lineHeight,
     colorIcon,
     colorIconHover,
   } = token;
@@ -220,6 +225,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         overflow: 'hidden',
         fontSize: fontSizeIcon,
         lineHeight: unit(fontSizeIcon),
+        // Center close icon with the first line of text when root uses flex-start
+        marginBlockStart: (fontSize * lineHeight - fontSizeIcon) / 2,
         backgroundColor: 'transparent',
         border: 'none',
         cursor: 'pointer',
