@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import type { TableProps, TableRef } from '..';
 import Table from '..';
@@ -18,6 +19,30 @@ describe('Table', () => {
 
   afterAll(() => {
     warnSpy.mockRestore();
+  });
+
+  it('keeps top border for bordered sticky header', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Table
+          bordered
+          sticky
+          columns={[{ title: 'Name', dataIndex: 'name' }]}
+          dataSource={[{ key: '1', name: 'John' }]}
+          pagination={false}
+        />
+      </StyleProvider>,
+    );
+
+    const stickyHeaderSelector =
+      '.ant-table.ant-table-bordered >.ant-table-container >.ant-table-header.ant-table-sticky-holder';
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain(
+      `${stickyHeaderSelector}{margin-top:calc(var(--ant-line-width) * -1);border-top:var(--ant-line-width) var(--ant-line-type) var(--ant-table-border-color);}`,
+    );
   });
 
   it('renders JSX correctly', () => {
