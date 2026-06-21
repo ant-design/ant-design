@@ -23,7 +23,6 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           flex: 1,
           minWidth: 0,
           alignSelf: 'flex-start',
-          transform: 'translateY(-50%)',
         },
       },
     },
