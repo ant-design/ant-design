@@ -430,17 +430,6 @@ Array [
           />
         </span>
         <span
-          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-          style="background-color: rgb(245, 106, 0);"
-        >
-          <span
-            class="ant-avatar-string"
-            style="-webkit-transform: scale(1); transform: scale(1);"
-          >
-            K
-          </span>
-        </span>
-        <span
           aria-describedby="test-id"
           class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
           style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
@@ -449,7 +438,7 @@ Array [
             class="ant-avatar-string"
             style="-webkit-transform: scale(1); transform: scale(1);"
           >
-            +2
+            +3
           </span>
         </span>
         <div
@@ -472,6 +461,17 @@ Array [
             <div
               class="ant-popover-content"
             >
+              <span
+                class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+                style="background-color: rgb(245, 106, 0);"
+              >
+                <span
+                  class="ant-avatar-string"
+                  style="-webkit-transform: scale(1); transform: scale(1);"
+                >
+                  K
+                </span>
+              </span>
               <span
                 aria-describedby="test-id"
                 class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
@@ -819,17 +819,6 @@ Array [
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color: rgb(245, 106, 0);"
-    >
-      <span
-        class="ant-avatar-string"
-        style="-webkit-transform: scale(1); transform: scale(1);"
-      >
-        K
-      </span>
-    </span>
-    <span
       aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
@@ -838,7 +827,7 @@ Array [
         class="ant-avatar-string"
         style="-webkit-transform: scale(1); transform: scale(1);"
       >
-        +2
+        +3
       </span>
     </span>
     <div
@@ -861,6 +850,17 @@ Array [
         <div
           class="ant-popover-content"
         >
+          <span
+            class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+            style="background-color: rgb(245, 106, 0);"
+          >
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            >
+              K
+            </span>
+          </span>
           <span
             aria-describedby="test-id"
             class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
@@ -949,17 +949,6 @@ Array [
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color: rgb(245, 106, 0);"
-    >
-      <span
-        class="ant-avatar-string"
-        style="-webkit-transform: scale(1); transform: scale(1);"
-      >
-        K
-      </span>
-    </span>
-    <span
       aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
@@ -968,7 +957,7 @@ Array [
         class="ant-avatar-string"
         style="-webkit-transform: scale(1); transform: scale(1);"
       >
-        +2
+        +3
       </span>
     </span>
     <div
@@ -991,6 +980,17 @@ Array [
         <div
           class="ant-popover-content"
         >
+          <span
+            class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
+            style="background-color: rgb(245, 106, 0);"
+          >
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            >
+              K
+            </span>
+          </span>
           <span
             aria-describedby="test-id"
             class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
@@ -1079,17 +1079,6 @@ Array [
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color: rgb(245, 106, 0);"
-    >
-      <span
-        class="ant-avatar-string"
-        style="-webkit-transform: scale(1); transform: scale(1);"
-      >
-        K
-      </span>
-    </span>
-    <span
       aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207); cursor: pointer;"
@@ -1098,7 +1087,7 @@ Array [
         class="ant-avatar-string"
         style="-webkit-transform: scale(1); transform: scale(1);"
       >
-        +2
+        +3
       </span>
     </span>
     <div
@@ -1121,6 +1110,17 @@ Array [
         <div
           class="ant-popover-content"
         >
+          <span
+            class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
+            style="background-color: rgb(245, 106, 0);"
+          >
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            >
+              K
+            </span>
+          </span>
           <span
             aria-describedby="test-id"
             class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"

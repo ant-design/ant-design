@@ -427,24 +427,13 @@ Array [
         </span>
         <span
           class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-          style="background-color:#f56a00"
-        >
-          <span
-            class="ant-avatar-string"
-            style="opacity:0"
-          >
-            K
-          </span>
-        </span>
-        <span
-          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
           style="color:#f56a00;background-color:#fde3cf"
         >
           <span
             class="ant-avatar-string"
             style="opacity:0"
           >
-            +2
+            +3
           </span>
         </span>
       </div>
@@ -696,24 +685,13 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color:#f56a00"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        K
-      </span>
-    </span>
-    <span
-      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf"
     >
       <span
         class="ant-avatar-string"
         style="opacity:0"
       >
-        +2
+        +3
       </span>
     </span>
   </div>,
@@ -733,24 +711,13 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color:#f56a00"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        K
-      </span>
-    </span>
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf"
     >
       <span
         class="ant-avatar-string"
         style="opacity:0"
       >
-        +2
+        +3
       </span>
     </span>
   </div>,
@@ -770,24 +737,13 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
-      style="background-color:#f56a00"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        K
-      </span>
-    </span>
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
     >
       <span
         class="ant-avatar-string"
         style="opacity:0"
       >
-        +2
+        +3
       </span>
     </span>
   </div>,
