@@ -107,8 +107,9 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const mergeCount = max?.count || maxCount;
   const numOfChildren = childrenWithProps.length;
   if (mergeCount && mergeCount < numOfChildren) {
-    const childrenShow = childrenWithProps.slice(0, mergeCount - 1);
-    const childrenHidden = childrenWithProps.slice(mergeCount - 1, numOfChildren);
+    const showCount = Math.max(0, mergeCount - 1);
+    const childrenShow = childrenWithProps.slice(0, showCount);
+    const childrenHidden = childrenWithProps.slice(showCount, numOfChildren);
 
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
