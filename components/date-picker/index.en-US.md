@@ -136,6 +136,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | 6.4.0 |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.19.0, RangePicker: 5.19.0 |
+| onClear | Callback when click the clear button | () => void | - | 6.5.0 | × |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  | × |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  | × |
 | ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - | × |

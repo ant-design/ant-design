@@ -137,6 +137,7 @@ dayjs.locale('zh-cn');
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | ReactNode | - | × | 6.4.0 |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.19.0，RangePicker: 5.19.0 |
+| onClear | 点击清除按钮时的回调 | () => void | - | 6.5.0 | × |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  | × |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |

@@ -11670,9 +11670,10 @@ Array [
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -11694,7 +11695,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>,
   <div
@@ -14730,9 +14731,10 @@ Array [
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -14754,7 +14756,7 @@ Array [
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
@@ -17890,9 +17892,10 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -17914,7 +17917,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -19476,9 +19479,10 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -19500,7 +19504,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -21062,9 +21066,10 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -21086,7 +21091,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
