@@ -42,8 +42,6 @@ export interface AvatarGroupProps {
     count?: number;
     style?: React.CSSProperties;
     popover?: PopoverProps;
-    /** Display overflow count in the last avatar position when overflowCount > 1 */
-    overflowInFinal?: boolean;
   };
   /*
    * Size of avatar, options: `large`, `medium`, `small`
@@ -108,11 +106,9 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
   const mergeCount = max?.count || maxCount;
   const numOfChildren = childrenWithProps.length;
-  const overflowInFinal = max?.overflowInFinal;
   if (mergeCount && mergeCount < numOfChildren) {
-    const overflowCount = overflowInFinal ? Math.max(1, mergeCount - 1) : mergeCount;
-    const childrenShow = childrenWithProps.slice(0, overflowCount);
-    const childrenHidden = childrenWithProps.slice(overflowCount, numOfChildren);
+    const childrenShow = childrenWithProps.slice(0, mergeCount - 1);
+    const childrenHidden = childrenWithProps.slice(mergeCount - 1, numOfChildren);
 
     const mergeStyle = max?.style || maxStyle;
     const mergePopoverTrigger = max?.popover?.trigger || maxPopoverTrigger || 'hover';
@@ -128,7 +124,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
     childrenShow.push(
       <Popover key="avatar-popover-key" destroyOnHidden {...popoverProps}>
-        <Avatar style={mergeStyle}>{`+${numOfChildren - overflowCount}`}</Avatar>
+        <Avatar style={mergeStyle}>{`+${numOfChildren - (mergeCount - 1)}`}</Avatar>
       </Popover>,
     );
 

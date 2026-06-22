@@ -236,7 +236,7 @@ describe('Avatar Render', () => {
     );
 
     const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
-    fireEvent.mouseEnter(avatars?.[2]);
+    fireEvent.mouseEnter(avatars?.[1]);
     await waitFakeTimer();
 
     /* check style */
@@ -244,7 +244,7 @@ describe('Avatar Render', () => {
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
 
     /* check count */
-    expect(avatars.length).toBe(3);
+    expect(avatars.length).toBe(2);
 
     /* check popover */
     const popover = container.querySelector('.ant-avatar-group-popover');
@@ -289,7 +289,7 @@ describe('Avatar Render', () => {
     );
 
     /* check count */
-    expect(container.querySelectorAll('.ant-avatar-group .ant-avatar')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-avatar-group .ant-avatar')).toHaveLength(2);
 
     /* check popover */
     const popover = container.querySelector('.ant-avatar-group-popover');
@@ -302,12 +302,11 @@ describe('Avatar Render', () => {
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
   });
 
-  it('Avatar.Group support overflowInFinal', () => {
+  it('Avatar.Group should display at most max count including +N', () => {
     const { container } = render(
       <Avatar.Group
         max={{
           count: 2,
-          overflowInFinal: true,
           style: { color: 'blue' },
         }}
       >
@@ -319,9 +318,9 @@ describe('Avatar Render', () => {
     );
 
     const avatars = container.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
-    // Should show 3 avatars: 2 normal + 1 overflow (at final position)
-    expect(avatars).toHaveLength(3);
+    // Should show 2 avatars: 1 normal + 1 overflow (at final position)
+    expect(avatars).toHaveLength(2);
     // The last avatar should contain the overflow count text
-    expect(avatars[2]).toHaveTextContent('+2');
+    expect(avatars[1]).toHaveTextContent('+3');
   });
 });
