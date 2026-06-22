@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { spyElementPrototype, warning } from '@rc-component/util';
 
 import type { TooltipPlacement } from '..';
@@ -656,5 +657,23 @@ describe('Tooltip', () => {
 
     const arrow = container.querySelector('.ant-tooltip-arrow');
     expect(arrow).toHaveStyle({ background: 'red' });
+  });
+
+  it('does not put drop-shadow filter on popup root', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Tooltip title="hello" open>
+          <span>Hover me</span>
+        </Tooltip>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).not.toMatch(/\.ant-tooltip\{[^}]*filter:drop-shadow/);
+    expect(styleText).toMatch(/\.ant-tooltip-container\{[^}]*box-shadow:/);
+    expect(styleText).toMatch(/\.ant-tooltip-unique-container\{[^}]*box-shadow:/);
   });
 });
