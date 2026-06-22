@@ -97,6 +97,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 | × |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  | × |
+| onClear | Called when clear | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | function(open) | - |  | × |
 | onOpenChange | Called when dropdown open | (open: boolean) => void | - |  | × |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - | 5.17.0 | × |
