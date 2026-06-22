@@ -42,9 +42,10 @@ exports[`Picker format by locale > date 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="清除"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -66,7 +67,7 @@ exports[`Picker format by locale > date 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -109,9 +110,10 @@ exports[`Picker format by locale > dateTime 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="清除"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -133,7 +135,7 @@ exports[`Picker format by locale > dateTime 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -176,9 +178,10 @@ exports[`Picker format by locale > month 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="清除"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -200,7 +203,7 @@ exports[`Picker format by locale > month 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -243,9 +246,10 @@ exports[`Picker format by locale > week 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="清除"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -267,7 +271,7 @@ exports[`Picker format by locale > week 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
