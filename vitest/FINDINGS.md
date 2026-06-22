@@ -6,8 +6,8 @@
 
 | Metric | POC stage | Expanded stage |
 | --- | --: | --: |
-| Test files | 16 | 168 |
-| Test cases | 272 | 1343 |
+| Test files | 16 | 169 |
+| Test cases | 272 | 1365 |
 | Coverage scope | Button / Modal / Table | All component directories, excluding known incompatible suites |
 | CI | None | Non-blocking `test-vitest` job |
 
@@ -21,8 +21,8 @@ This PR is still an expansion checkpoint, not the final migration. The remaining
 
 `npm run test:vitest` currently passes with:
 
-- 168 test files
-- 1343 test cases
+- 169 test files
+- 1365 test cases
 - tracked Vitest snapshot baselines
 - no `--update` in CI
 

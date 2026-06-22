@@ -94,6 +94,7 @@ const jestShim: any = {
   restoreAllMocks: vi.restoreAllMocks,
   useFakeTimers: vi.useFakeTimers,
   useRealTimers: vi.useRealTimers,
+  isFakeTimers: vi.isFakeTimers,
   advanceTimersByTime: vi.advanceTimersByTime,
   advanceTimersByTimeAsync: vi.advanceTimersByTimeAsync,
   runAllTimers: vi.runAllTimers,
