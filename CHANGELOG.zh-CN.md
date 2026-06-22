@@ -15,6 +15,17 @@ tag: vVERSION
 
 ---
 
+## 6.4.5
+
+`2026-06-22`
+
+- 🐞 修复 Dropdown 纵向菜单在触发器位于屏幕中部时溢出视口、顶部菜单项无法点击的问题。[#58214](https://github.com/ant-design/ant-design/pull/58214) [@18062706139fcz](https://github.com/18062706139fcz)
+- 🐞 修复 Alert 在开启 hashed 样式时 `actions` 间距不生效的问题。[#58314](https://github.com/ant-design/ant-design/pull/58314) [@QDyanbing](https://github.com/QDyanbing)
+- ⌨️ 修复 Table 在 `scroll` 生成多个 table 时，固定表头 table 未应用 `aria-*` 属性的问题。[#58339](https://github.com/ant-design/ant-design/pull/58339) [@biubiukam](https://github.com/biubiukam)
+- 💄 修复 Pagination 快速跳转输入框未跟随 ConfigProvider `variant` 样式的问题。[#58371](https://github.com/ant-design/ant-design/pull/58371) [@biubiukam](https://github.com/biubiukam)
+- 🌐 国际化
+  - 🇳🇴 补充 nb_NO（挪威语）缺失的 locale 本地化键值。[#58439](https://github.com/ant-design/ant-design/pull/58439) [@arvindfroi](https://github.com/arvindfroi)
+
 ## 6.4.4
 
 `2026-06-12`
