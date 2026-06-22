@@ -1,6 +1,7 @@
 const compileModules = [
   'react-sticky-box',
   'rc-tween-one',
+  'tween-one',
   '@babel',
   '@ant-design',
   'countup.js',
