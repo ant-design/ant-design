@@ -37,7 +37,7 @@ const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string)
 });
 
 const genTitleOnlyCls = (componentCls: string) =>
-  `&:not(:has(> ${componentCls}-actions)):has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
+  `&:has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
 
 export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
