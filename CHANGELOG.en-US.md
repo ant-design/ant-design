@@ -15,6 +15,17 @@ tag: vVERSION
 
 ---
 
+## 6.4.5
+
+`2026-06-22`
+
+- 🐞 Fix Dropdown vertical menu overflowing the viewport when the trigger is centered, keeping all menu items reachable. [#58214](https://github.com/ant-design/ant-design/pull/58214) [@18062706139fcz](https://github.com/18062706139fcz)
+- 🐞 Fix Alert `actions` spacing not taking effect when hashed styles are enabled. [#58314](https://github.com/ant-design/ant-design/pull/58314) [@QDyanbing](https://github.com/QDyanbing)
+- ⌨️ Fix Table not applying `aria-*` attributes to fixed header tables when `scroll` creates multiple tables. [#58339](https://github.com/ant-design/ant-design/pull/58339) [@biubiukam](https://github.com/biubiukam)
+- 💄 Fix Pagination quick jumper input not following ConfigProvider `variant` styles. [#58371](https://github.com/ant-design/ant-design/pull/58371) [@biubiukam](https://github.com/biubiukam)
+- 🌐 Localization
+  - 🇺🇸 Fill missing nb_NO (Norwegian) locale keys. [#58439](https://github.com/ant-design/ant-design/pull/58439) [@arvindfroi](https://github.com/arvindfroi)
+
 ## 6.4.4
 
 `2026-06-12`
