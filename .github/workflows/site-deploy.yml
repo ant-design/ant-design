@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-site:
@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
 
@@ -31,6 +31,7 @@ jobs:
         run: ut predeploy
         env:
           NODE_OPTIONS: --max_old_space_size=4096
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: build dist and bundle analyzer report
         run: ut dist
@@ -61,6 +62,8 @@ jobs:
   deploy-to-pages:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build-site
+    permissions:
+      contents: write
     steps:
       - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
 
@@ -106,6 +109,8 @@ jobs:
   # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
   upload-to-release:
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    permissions:
+      contents: write
     # 仅在 tag 的时候工作，因为我们要将内容发布到以 tag 为版本号的 release 里
     if: startsWith(github.ref, 'refs/tags/')
     needs: build-site
