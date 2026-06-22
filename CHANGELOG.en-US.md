@@ -24,7 +24,7 @@ tag: vVERSION
 - ⌨️ Fix Table not applying `aria-*` attributes to fixed header tables when `scroll` creates multiple tables. [#58339](https://github.com/ant-design/ant-design/pull/58339) [@biubiukam](https://github.com/biubiukam)
 - 💄 Fix Pagination quick jumper input not following ConfigProvider `variant` styles. [#58371](https://github.com/ant-design/ant-design/pull/58371) [@biubiukam](https://github.com/biubiukam)
 - 🌐 Localization
-  - 🇺🇸 Fill missing nb_NO (Norwegian) locale keys. [#58439](https://github.com/ant-design/ant-design/pull/58439) [@arvindfroi](https://github.com/arvindfroi)
+  - 🇳🇴 Fill missing nb_NO (Norwegian) locale keys. [#58439](https://github.com/ant-design/ant-design/pull/58439) [@arvindfroi](https://github.com/arvindfroi)
 
 ## 6.4.4
 
