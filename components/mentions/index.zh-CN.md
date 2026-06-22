@@ -52,7 +52,7 @@ demo:
 | prefix | 设置触发关键字 | string \| string\[] | `@` |  | × |
 | split | 设置选中项前后分隔符 | string | ` ` |  | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  | × |
 | value | 设置值 | string | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
