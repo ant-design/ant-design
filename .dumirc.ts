@@ -67,7 +67,9 @@ export default defineConfig({
       : false,
   hash: true,
   mfsu: false,
-  utoopack: {},
+  utoopack: {
+    pluginRuntimeStrategy: 'childProcesses',
+  },
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
