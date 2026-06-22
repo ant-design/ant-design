@@ -79,7 +79,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const dataKey = getContributorKey(filename);
 
   const { data, error, isLoading } = useSWR<ContributorsData, Error>(
-    dataKey ? CONTRIBUTORS_URL : null,
+    process.env.NODE_ENV === 'production' && dataKey ? CONTRIBUTORS_URL : null,
     fetcher,
     swrConfig,
   );
