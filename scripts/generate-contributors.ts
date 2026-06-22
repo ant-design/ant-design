@@ -34,18 +34,20 @@ const locales = [
   { locale: 'enUS', suffix: 'en-US' },
 ];
 
-const token = process.env.GITHUB_ACCESS_TOKEN;
+const token = process.env.GITHUB_ACCESS_TOKEN || process.env.GITHUB_TOKEN;
 
 const relativePath = path.relative(cwd, outputFile).replace(/\\/g, '/');
 
 if (token) {
   spinner.succeed(
-    chalk.green(`✅ GITHUB_ACCESS_TOKEN 验证成功，已完成权限校验，正在生成文件：${relativePath}`),
+    chalk.green(
+      `✅ ${process.env.GITHUB_ACCESS_TOKEN ? 'GITHUB_ACCESS_TOKEN' : 'GITHUB_TOKEN'} 验证成功，已完成权限校验，正在生成文件：${relativePath}`,
+    ),
   );
   console.log(''); // Keep an empty line here to make looks good~
 } else {
   spinner.fail(
-    chalk.red('🚨 请先设置 GITHUB_ACCESS_TOKEN 环境变量到本地，请不要泄露给任何在线页面'),
+    chalk.red('🚨 请先设置 GITHUB_ACCESS_TOKEN 或 GITHUB_TOKEN 环境变量，请不要泄露给任何在线页面'),
   );
   console.log(''); // Keep an empty line here to make looks good~
   process.exit(0);
