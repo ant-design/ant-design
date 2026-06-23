@@ -1,8 +1,8 @@
 import React from 'react';
-import { Space, Typography } from 'antd';
+import { Flex, Typography } from 'antd';
 
 const App: React.FC = () => (
-  <Space orientation="vertical">
+  <Flex vertical>
     <Typography.Text shimmer>Thinking...</Typography.Text>
     <Typography.Title level={4} shimmer={{ duration: 1.5 }}>
       Generating title
@@ -16,7 +16,7 @@ const App: React.FC = () => (
     <Typography.Text shimmer disabled>
       Disabled shimmer (no animation)
     </Typography.Text>
-  </Space>
+  </Flex>
 );
 
 export default App;

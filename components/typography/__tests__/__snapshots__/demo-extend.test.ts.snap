@@ -2720,65 +2720,45 @@ exports[`renders components/typography/demo/paragraph-debug.tsx extend context c
 
 exports[`renders components/typography/demo/shimmer.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
 >
-  <div
-    class="ant-space-item"
+  <span
+    aria-busy="true"
+    class="ant-typography ant-typography-shimmer css-var-test-id"
+    style="--ant-typography-shimmer-duration: 3s;"
   >
-    <span
-      aria-busy="true"
-      class="ant-typography ant-typography-shimmer css-var-test-id"
-      style="--ant-typography-shimmer-duration: 3s;"
-    >
-      Thinking...
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
+    Thinking...
+  </span>
+  <h4
+    aria-busy="true"
+    class="ant-typography ant-typography-shimmer css-var-test-id"
+    style="--ant-typography-shimmer-duration: 1.5s;"
   >
-    <h4
-      aria-busy="true"
-      class="ant-typography ant-typography-shimmer css-var-test-id"
-      style="--ant-typography-shimmer-duration: 1.5s;"
-    >
-      Generating title
-    </h4>
-  </div>
+    Generating title
+  </h4>
   <div
-    class="ant-space-item"
+    aria-busy="true"
+    class="ant-typography ant-typography-shimmer css-var-test-id"
+    style="--ant-typography-shimmer-duration: 3s;"
   >
-    <div
-      aria-busy="true"
-      class="ant-typography ant-typography-shimmer css-var-test-id"
-      style="--ant-typography-shimmer-duration: 3s;"
-    >
-      Ant Design is analyzing your request and preparing the next response.
-    </div>
+    Ant Design is analyzing your request and preparing the next response.
   </div>
-  <div
-    class="ant-space-item"
+  <a
+    aria-busy="true"
+    class="ant-typography ant-typography-shimmer ant-typography-link css-var-test-id"
+    href="https://ant.design"
+    style="--ant-typography-shimmer-duration: 3s;"
   >
-    <a
-      aria-busy="true"
-      class="ant-typography ant-typography-shimmer ant-typography-link css-var-test-id"
-      href="https://ant.design"
-      style="--ant-typography-shimmer-duration: 3s;"
-    >
-      Loading link
-    </a>
-  </div>
-  <div
-    class="ant-space-item"
+    Loading link
+  </a>
+  <span
+    aria-busy="false"
+    aria-disabled="true"
+    class="ant-typography ant-typography-disabled ant-typography-shimmer ant-typography-shimmer-disabled css-var-test-id"
+    style="--ant-typography-shimmer-duration: 3s;"
   >
-    <span
-      aria-busy="false"
-      aria-disabled="true"
-      class="ant-typography ant-typography-disabled ant-typography-shimmer ant-typography-shimmer-disabled css-var-test-id"
-      style="--ant-typography-shimmer-duration: 3s;"
-    >
-      Disabled shimmer (no animation)
-    </span>
-  </div>
+    Disabled shimmer (no animation)
+  </span>
 </div>
 `;
 
