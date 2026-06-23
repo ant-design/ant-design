@@ -8,7 +8,7 @@ import type {
 } from '@rc-component/form';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import type { Variant } from '../config-provider';
@@ -171,9 +171,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     labelWrap: mergedLabelWrap,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FormSemanticAllType['classNames'],
+    FormSemanticAllType['styles'],
+    FormProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -285,7 +289,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
                   onFinishFailed={onInternalFinishFailed}
                   form={wrapForm}
                   ref={nativeElementRef}
-                  style={{ ...mergedStyles?.root, ...contextStyle, ...style }}
+                  style={mergedStyles?.root}
                   className={formClassName}
                 />
               </NoFormStyle>

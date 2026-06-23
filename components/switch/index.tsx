@@ -5,7 +5,7 @@ import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-comp
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -124,9 +124,13 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SwitchSemanticAllType['classNames'],
+    SwitchSemanticAllType['styles'],
+    SwitchProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -155,12 +159,6 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = {
-    ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
-  };
-
   const changeHandler: SwitchChangeEventHandler = (...args) => {
     setChecked(args[0]);
     onChange?.(...args);
@@ -176,7 +174,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
         onChange={changeHandler}
         prefixCls={prefixCls}
         className={classes}
-        style={mergedStyle}
+        style={mergedStyles.root}
         disabled={mergedDisabled}
         ref={ref}
         loadingIcon={loadingIcon}

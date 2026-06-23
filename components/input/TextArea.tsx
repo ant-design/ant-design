@@ -8,7 +8,7 @@ import { TextArea as RcTextArea } from '@rc-component/input';
 import { clsx } from 'clsx';
 
 import { useAllowClear } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
@@ -115,9 +115,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TextAreaSemanticAllType['classNames'],
+    TextAreaSemanticAllType['styles'],
+    TextAreaProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props,
     },
@@ -192,7 +196,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     <RcTextArea
       autoComplete={contextAutoComplete}
       {...rest}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       styles={mergedStyles}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}

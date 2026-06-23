@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
@@ -508,9 +508,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferSemanticAllType['classNames'],
+    TransferSemanticAllType['styles'],
+    TransferProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -605,7 +609,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div {...rootProps} className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...rootProps} className={cls} style={mergedStyles.root}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}

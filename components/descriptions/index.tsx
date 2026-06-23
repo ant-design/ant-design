@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -164,9 +164,13 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsSemanticAllType['classNames'],
+    DescriptionsSemanticAllType['styles'],
+    DescriptionsProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -214,7 +218,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...mergedStyles.root, ...style }}
+        style={mergedStyles.root}
         {...restProps}
       >
         {(title || extra) && (

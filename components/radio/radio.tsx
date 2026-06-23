@@ -3,7 +3,7 @@ import RcCheckbox from '@rc-component/checkbox';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -14,7 +14,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
+import type { RadioChangeEvent, RadioProps, RadioRef, RadioSemanticAllType } from './interface';
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
@@ -92,9 +92,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     checked: mergedChecked,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    RadioSemanticAllType['classNames'],
+    RadioSemanticAllType['styles'],
+    RadioProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -126,7 +130,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     <Wave component="Radio" disabled={radioProps.disabled}>
       <label
         className={wrapperClassString}
-        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        style={mergedStyles.root}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
         title={title}

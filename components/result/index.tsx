@@ -7,7 +7,7 @@ import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -176,9 +176,13 @@ const Result: ResultType = (props) => {
     status,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ResultSemanticAllType['classNames'],
+    ResultSemanticAllType['styles'],
+    ResultProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -217,8 +221,6 @@ const Result: ResultType = (props) => {
 
   const rootStyles: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   const restProps = pickAttrs(rest, { aria: true, data: true });

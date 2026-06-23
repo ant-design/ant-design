@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -80,9 +80,13 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    EmptySemanticAllType['classNames'],
+    EmptySemanticAllType['styles'],
+    EmptyProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props,
     },
@@ -128,7 +132,7 @@ const Empty: CompoundedComponent = (props) => {
         rootClassName,
         mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       {...restProps}
     >
       <div

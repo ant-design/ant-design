@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
@@ -152,9 +152,13 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     paragraph,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SkeletonSemanticAllType['classNames'],
+    SkeletonSemanticAllType['styles'],
+    SkeletonProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -244,7 +248,7 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     );
 
     return (
-      <div className={cls} style={{ ...mergedStyles.root, ...contextStyle, ...style }}>
+      <div className={cls} style={mergedStyles.root}>
         {avatarNode}
         {contentNode}
       </div>

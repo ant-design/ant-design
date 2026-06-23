@@ -12,7 +12,7 @@ import RcPagination from '@rc-component/pagination';
 import enUS from '@rc-component/pagination/locale/en_US';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -115,9 +115,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PaginationSemanticAllType['classNames'],
+    PaginationSemanticAllType['styles'],
+    PaginationProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -265,8 +269,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

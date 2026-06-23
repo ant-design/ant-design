@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
@@ -182,9 +182,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     vertical: mergedVertical,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SliderSemanticAllType['classNames'],
+    SliderSemanticAllType['styles'],
+    SliderBaseProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -397,8 +401,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Render ==============================
   const rootStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -358,9 +358,18 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ButtonSemanticAllType['classNames'],
+    ButtonSemanticAllType['styles'],
+    BaseButtonProps
+  >(
     [_skipSemantic ? undefined : contextClassNames, classNames],
-    [_skipSemantic ? undefined : contextStyles, styles],
+    [
+      _skipSemantic ? undefined : contextStyles,
+      useSemanticRootStyle(contextStyle),
+      styles,
+      useSemanticRootStyle(style),
+    ],
     { props: mergedProps },
   );
 
@@ -394,12 +403,6 @@ const InternalCompoundedButton = React.forwardRef<
     contextClassName,
     mergedClassNames.root,
   );
-
-  const fullStyle: React.CSSProperties = {
-    ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
-  };
 
   const iconSharedProps = {
     className: mergedClassNames.icon,
@@ -457,7 +460,7 @@ const InternalCompoundedButton = React.forwardRef<
         {...linkButtonRestProps}
         className={clsx(classes, { [`${prefixCls}-disabled`]: mergedDisabled })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
-        style={fullStyle}
+        style={mergedStyles.root}
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
@@ -474,7 +477,7 @@ const InternalCompoundedButton = React.forwardRef<
       {...rest}
       type={htmlType}
       className={classes}
-      style={fullStyle}
+      style={mergedStyles.root}
       onClick={handleClick}
       disabled={mergedDisabled}
       ref={mergedRef as React.Ref<HTMLButtonElement>}

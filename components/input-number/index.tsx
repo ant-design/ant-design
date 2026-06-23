@@ -12,7 +12,7 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
@@ -185,9 +185,13 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       controls: mergedControls,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      InputNumberSemanticAllType['classNames'],
+      InputNumberSemanticAllType['styles'],
+      InputNumberProps
+    >(
       [contextClassNames, classNames],
-      [contextStyles, styles],
+      [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
       {
         props: mergedProps,
       },
@@ -215,7 +219,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
             [`${prefixCls}-without-controls`]: !mergedControls,
           },
         )}
-        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        style={mergedStyles.root}
         upHandler={upIcon}
         downHandler={downIcon}
         prefixCls={prefixCls}

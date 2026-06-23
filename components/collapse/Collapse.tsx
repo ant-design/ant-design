@@ -6,7 +6,7 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
@@ -128,9 +128,13 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPlacement: mergedPlacement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CollapseSemanticAllType['classNames'],
+    CollapseSemanticAllType['styles'],
+    CollapseProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
     {
       props: mergedProps,
     },
@@ -207,7 +211,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
       destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
