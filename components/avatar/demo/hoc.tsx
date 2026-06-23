@@ -28,7 +28,7 @@ const withOverflowInFinal = (
   };
 };
 
-const AvatarGroupOverflow = withOverflowInFinal(Avatar.Group as any);
+const AvatarGroupOverflow = withOverflowInFinal(Avatar.Group);
 
 const App: React.FC = () => (
   <AvatarGroupOverflow
