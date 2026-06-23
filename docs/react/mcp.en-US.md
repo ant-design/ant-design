@@ -78,6 +78,19 @@ You can pin a specific antd version with additional args:
 }
 ```
 
+You can also let the CLI write supported project configuration for you:
+
+```bash
+antd setup --client claude
+antd setup --client cursor --mode both
+antd setup --client vscode --write-instructions
+antd setup --client codex
+antd setup --client claude --dry-run
+antd setup --client claude --check
+```
+
+Supported clients are `claude`, `cursor`, `vscode`, and `codex`. Setup modes are `mcp`, `skill`, and `both`.
+
 ## Usage with AI Tools
 
 | Tool | Description | Configuration |

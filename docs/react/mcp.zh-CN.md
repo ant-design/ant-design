@@ -78,6 +78,19 @@ tag: New
 }
 ```
 
+也可以让 CLI 自动写入支持的项目配置：
+
+```bash
+antd setup --client claude
+antd setup --client cursor --mode both
+antd setup --client vscode --write-instructions
+antd setup --client codex
+antd setup --client claude --dry-run
+antd setup --client claude --check
+```
+
+支持的客户端包括 `claude`、`cursor`、`vscode` 和 `codex`。Setup 模式包括 `mcp`、`skill` 和 `both`。
+
 ## 在 AI 工具中的使用 {#usage-with-ai-tools}
 
 | 工具 | 说明 | 配置 |
