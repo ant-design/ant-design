@@ -18,19 +18,19 @@ import type { GenerateStyle } from '../../theme/internal';
 // Shimmer animation keyframes
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPosition: '-70% 100%',
+    backgroundPosition: '-200% 100%, 0 0',
   },
   '25%': {
-    backgroundPosition: '-25% 100%',
+    backgroundPosition: '-100% 100%, 0 0',
   },
   '50%': {
-    backgroundPosition: '20% 100%',
+    backgroundPosition: '0% 100%, 0 0',
   },
   '75%': {
-    backgroundPosition: '65% 100%',
+    backgroundPosition: '100% 100%, 0 0',
   },
   '100%': {
-    backgroundPosition: '110% 100%',
+    backgroundPosition: '200% 100%, 0 0',
   },
 });
 
@@ -343,12 +343,14 @@ export const getEllipsisStyles = (): CSSObject => ({
 
 export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () => {
   return {
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text, text',
+    WebkitBackgroundClip: 'text, text',
     WebkitTextFillColor: 'transparent',
-    backgroundImage:
-      'linear-gradient(90deg, currentColor 0%, currentColor 48%, rgba(255, 255, 255, 0.95) 50%, currentColor 52%, currentColor 100%)',
-    backgroundSize: '300% 100%',
+    backgroundImage: [
+      'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
+      'linear-gradient(currentColor, currentColor)',
+    ].join(', '),
+    backgroundSize: '50% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
     animationDuration: `var(--ant-typography-shimmer-duration, 3s)`,

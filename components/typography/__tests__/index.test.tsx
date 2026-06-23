@@ -550,14 +550,14 @@ describe('Typography', () => {
 
     expect(styleText).toContain(
       [
-        'background-image:linear-gradient(90deg, currentColor 0%, currentColor 48%,',
-        ' rgba(255, 255, 255, 0.95) 50%, currentColor 52%, currentColor 100%)',
+        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95),',
+        ' transparent),linear-gradient(currentColor, currentColor)',
       ].join(''),
     );
-    expect(styleText).toContain('background-size:300% 100%');
+    expect(styleText).toContain('background-size:50% 100%,100% 100%');
     expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
-    expect(styleText).toContain('0%{background-position:-70% 100%;}');
-    expect(styleText).toContain('-webkit-background-clip:text');
+    expect(styleText).toContain('0%{background-position:-200% 100%,0 0;}');
+    expect(styleText).toContain('-webkit-background-clip:text, text');
     expect(styleText).toContain('-webkit-text-fill-color:transparent');
   });
 
