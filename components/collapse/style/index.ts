@@ -350,7 +350,7 @@ const genGhostStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => {
   const componentToken: ComponentToken = {
-    headerPadding: `${token.paddingSM}px ${token.padding}px`,
+    headerPadding: `unit(token.paddingSM) unit(token.padding)`,
     headerPaddingSM: `${token.paddingXS}px ${token.paddingSM}px ${token.paddingXS}px ${token.paddingXS}px`,
     headerPaddingLG: `${token.padding}px ${token.paddingLG}px ${token.padding}px ${token.padding}px`,
     headerBg: token.colorFillAlter,
