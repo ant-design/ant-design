@@ -351,14 +351,14 @@ const genGhostStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => {
   const componentToken: ComponentToken = {
     headerPadding: `${unit(token.paddingSM)} ${unit(token.padding)}`,
-    headerPaddingSM: `${token.paddingXS}px ${token.paddingSM}px ${token.paddingXS}px ${token.paddingXS}px`,
-    headerPaddingLG: `${token.padding}px ${token.paddingLG}px ${token.padding}px ${token.padding}px`,
+    headerPaddingSM: `${unit(token.paddingXS)} ${unit(token.paddingSM)} ${unit(token.paddingXS)} ${unit(token.paddingXS)}`,
+    headerPaddingLG: `${unit(token.padding)} ${unit(token.paddingLG)} ${unit(token.padding)} ${unit(token.padding)}`,
     headerBg: token.colorFillAlter,
-    contentPadding: `${token.padding}px 16px`, // Fixed Value
+    contentPadding: `${unit(token.padding)} ${unit(16)}`, // Fixed Value
     contentPaddingSM: token.paddingSM,
     contentPaddingLG: token.paddingLG,
     contentBg: token.colorBgContainer,
-    borderlessContentPadding: `${token.paddingXXS}px 16px ${token.padding}px`,
+    borderlessContentPadding: `${unit(token.paddingXXS)} ${unit(16)} ${unit(token.padding)}`,
     borderlessContentBg: 'transparent',
   };
 
