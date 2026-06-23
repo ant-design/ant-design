@@ -550,22 +550,15 @@ describe('Typography', () => {
 
     expect(styleText).toContain(
       [
-        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95),',
-        ' transparent),linear-gradient(var(--ant-typography-shimmer-color, currentColor),',
-        ' var(--ant-typography-shimmer-color, currentColor))',
+        'background-image:linear-gradient(90deg, currentColor 0%, currentColor 48%,',
+        ' rgba(255, 255, 255, 0.95) 50%, currentColor 52%, currentColor 100%)',
       ].join(''),
     );
-    expect(styleText).toContain('background-size:18% 100%,100% 100%');
-    expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 4s)');
-    expect(styleText).toContain('0%{background-position:-80% 100%,0 0;}');
-    expect(styleText).toContain('-webkit-background-clip:text, text');
+    expect(styleText).toContain('background-size:300% 100%');
+    expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
+    expect(styleText).toContain('0%{background-position:-70% 100%;}');
+    expect(styleText).toContain('-webkit-background-clip:text');
     expect(styleText).toContain('-webkit-text-fill-color:transparent');
-    expect(styleText).toContain(
-      [
-        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95),',
-        ' transparent),linear-gradient(var(--ant-color-link), var(--ant-color-link))',
-      ].join(''),
-    );
   });
 
   // https://github.com/ant-design/ant-design/issues/53858

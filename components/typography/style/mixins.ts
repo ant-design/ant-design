@@ -18,19 +18,19 @@ import type { GenerateStyle } from '../../theme/internal';
 // Shimmer animation keyframes
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPosition: '-80% 100%, 0 0',
+    backgroundPosition: '-70% 100%',
   },
   '25%': {
-    backgroundPosition: '-15% 100%, 0 0',
+    backgroundPosition: '-25% 100%',
   },
   '50%': {
-    backgroundPosition: '50% 100%, 0 0',
+    backgroundPosition: '20% 100%',
   },
   '75%': {
-    backgroundPosition: '115% 100%, 0 0',
+    backgroundPosition: '65% 100%',
   },
   '100%': {
-    backgroundPosition: '180% 100%, 0 0',
+    backgroundPosition: '110% 100%',
   },
 });
 
@@ -341,31 +341,20 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 });
 
-export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { colorLink, componentCls } = token;
-
+export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () => {
   return {
-    backgroundClip: 'text, text',
-    WebkitBackgroundClip: 'text, text',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    backgroundImage: [
-      'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
-      'linear-gradient(var(--ant-typography-shimmer-color, currentColor), var(--ant-typography-shimmer-color, currentColor))',
-    ].join(', '),
-    backgroundSize: '18% 100%, 100% 100%',
+    backgroundImage:
+      'linear-gradient(90deg, currentColor 0%, currentColor 48%, rgba(255, 255, 255, 0.95) 50%, currentColor 52%, currentColor 100%)',
+    backgroundSize: '300% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
-    animationDuration: `var(--ant-typography-shimmer-duration, 4s)`,
+    animationDuration: `var(--ant-typography-shimmer-duration, 3s)`,
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',
-
-    [`&${componentCls}-link`]: {
-      backgroundImage: [
-        'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
-        `linear-gradient(${colorLink}, ${colorLink})`,
-      ].join(', '),
-    },
 
     '&-disabled': {
       animation: 'none',
