@@ -86,6 +86,8 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const {
     direction,
     getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
     searchIcon: contextSearchIcon,
@@ -216,6 +218,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       [`${prefixCls}-with-button`]: !!enterButton,
     },
     className,
+    contextClassName,
     hashId,
     mergedClassNames.root,
   );
@@ -257,7 +260,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   return (
     <Compact
       className={mergedClassName}
-      style={{ ...style, ...mergedStyles.root }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...rootProps}
       hidden={hidden}
     >
