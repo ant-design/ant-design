@@ -82,6 +82,10 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
       ...operationUnit(token),
       userSelect: 'text',
 
+      [`&${componentCls}-shimmer`]: {
+        background: 'unset',
+      },
+
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',

@@ -559,6 +559,9 @@ describe('Typography', () => {
     expect(styleText).toContain('0%{background-position:-200% 100%,0 0;}');
     expect(styleText).toContain('-webkit-background-clip:text, text');
     expect(styleText).toContain('-webkit-text-fill-color:transparent');
+    expect(styleText).toContain(
+      '.ant-typography.ant-typography-link.ant-typography-shimmer{background:unset;}',
+    );
   });
 
   // https://github.com/ant-design/ant-design/issues/53858
