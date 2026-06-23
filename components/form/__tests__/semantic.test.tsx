@@ -3,6 +3,11 @@ import React from 'react';
 import Form from '..';
 import Input from '../../input';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Form.Semantic', () => {
   it('support classNames and styles', () => {
@@ -152,5 +157,23 @@ describe('Form.Semantic', () => {
     expect(help).toHaveStyle('margin-top: 10px');
     expect(helpItem).toHaveStyle('font-weight: 700');
     expect(extra).toHaveStyle('color: rgb(18, 52, 86)');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        form={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Form styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          <Form.Item label="Username" name="username">
+            <Input />
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-form'));
   });
 });
