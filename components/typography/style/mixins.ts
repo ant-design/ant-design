@@ -18,24 +18,19 @@ import type { GenerateStyle } from '../../theme/internal';
 // Shimmer animation keyframes
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPositionX: '-200%',
-    backgroundPositionY: '100%',
+    backgroundPosition: '-200% 100%, 0 0',
   },
   '25%': {
-    backgroundPositionX: '-100%',
-    backgroundPositionY: '100%',
+    backgroundPosition: '-100% 100%, 0 0',
   },
   '50%': {
-    backgroundPositionX: '0%',
-    backgroundPositionY: '100%',
+    backgroundPosition: '0% 100%, 0 0',
   },
   '75%': {
-    backgroundPositionX: '100%',
-    backgroundPositionY: '100%',
+    backgroundPosition: '100% 100%, 0 0',
   },
   '100%': {
-    backgroundPositionX: '200%',
-    backgroundPositionY: '100%',
+    backgroundPosition: '200% 100%, 0 0',
   },
 });
 
@@ -346,15 +341,16 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 });
 
-export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { colorTextBase, colorTextDescription } = token;
-
+export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () => {
   return {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
-    color: colorTextDescription,
-    backgroundImage: `linear-gradient(90deg, transparent, ${colorTextBase}, transparent)`,
-    backgroundSize: '50%',
+    WebkitTextFillColor: 'transparent',
+    backgroundImage: [
+      'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
+      'linear-gradient(currentColor, currentColor)',
+    ].join(', '),
+    backgroundSize: '30% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
     animationDuration: `var(--ant-typography-shimmer-duration, 1s)`,
@@ -365,7 +361,7 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (toke
     '&-disabled': {
       animation: 'none',
       backgroundImage: 'none',
-      color: colorTextDescription,
+      WebkitTextFillColor: 'currentColor',
       WebkitBackgroundClip: 'unset',
       backgroundClip: 'unset',
     },
