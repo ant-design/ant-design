@@ -2732,7 +2732,7 @@ exports[`renders components/typography/demo/shimmer.tsx extend context correctly
   <h4
     aria-busy="true"
     class="ant-typography ant-typography-shimmer css-var-test-id"
-    style="--ant-typography-shimmer-duration: 1.5s;"
+    style="--ant-typography-shimmer-duration: 1.5s; color: transparent;"
   >
     Generating title
   </h4>
@@ -2747,7 +2747,7 @@ exports[`renders components/typography/demo/shimmer.tsx extend context correctly
     aria-busy="true"
     class="ant-typography ant-typography-shimmer ant-typography-link css-var-test-id"
     href="https://ant.design"
-    style="--ant-typography-shimmer-duration: 3s;"
+    style="--ant-typography-shimmer-duration: 3s; color: transparent;"
   >
     Loading link
   </a>

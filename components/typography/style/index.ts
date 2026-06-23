@@ -122,11 +122,6 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
       // Shimmer
       '&-shimmer': getShimmerStyles(token),
 
-      [`h1&-shimmer, h2&-shimmer, h3&-shimmer, h4&-shimmer, h5&-shimmer, &-link&-shimmer, &-link&-shimmer:hover, &-link&-shimmer:focus, &-link&-shimmer:active`]:
-        {
-          color: 'transparent',
-        },
-
       '&-rtl': {
         direction: 'rtl',
       },

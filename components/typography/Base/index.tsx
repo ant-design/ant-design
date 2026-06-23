@@ -168,6 +168,8 @@ const DECORATION_PROPS = [
   'italic',
 ] as const;
 
+const SHIMMER_COLOR_COMPONENTS = ['a', 'h1', 'h2', 'h3', 'h4', 'h5'];
+
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -248,6 +250,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(shimmer, {
     duration: 3,
   });
+  const needShimmerColorOverride =
+    enableShimmer && !disabled && !!component && SHIMMER_COLOR_COMPONENTS.includes(component);
 
   const { placement = 'end' } = actions ?? {};
 
@@ -570,6 +574,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                     ['--ant-typography-shimmer-duration' as string]: `${shimmerConfig.duration}s`,
                   }
                 : null),
+              color: needShimmerColorOverride ? 'transparent' : style?.color,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
             component={component}

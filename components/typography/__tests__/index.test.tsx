@@ -511,17 +511,24 @@ describe('Typography', () => {
         <Text shimmer disabled>
           Paused
         </Text>
+        <Paragraph shimmer>Keep base shimmer</Paragraph>
+        <Link shimmer href="https://ant.design">
+          Link
+        </Link>
       </>,
     );
 
     const shimmerNodes = container.querySelectorAll('.ant-typography-shimmer');
-    expect(shimmerNodes).toHaveLength(3);
+    expect(shimmerNodes).toHaveLength(5);
     expect(shimmerNodes[0]).not.toHaveAttribute('shimmer');
     expect(shimmerNodes[0]).toHaveAttribute('aria-busy', 'true');
     expect(shimmerNodes[1]).toHaveStyle({ '--ant-typography-shimmer-duration': '1.5s' });
+    expect((shimmerNodes[1] as HTMLElement).style.color).toBe('transparent');
     expect(shimmerNodes[2]).toHaveClass('ant-typography-shimmer-disabled');
     expect(shimmerNodes[2]).toHaveAttribute('aria-busy', 'false');
     expect(shimmerNodes[2]).toHaveAttribute('aria-disabled', 'true');
+    expect((shimmerNodes[3] as HTMLElement).style.color).toBe('');
+    expect((shimmerNodes[4] as HTMLElement).style.color).toBe('transparent');
   });
 
   // https://github.com/ant-design/ant-design/issues/53858
