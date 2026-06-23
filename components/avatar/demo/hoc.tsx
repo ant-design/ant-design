@@ -36,7 +36,7 @@ const App: React.FC = () => (
       count: 3,
       style: { backgroundColor: '#52c41a', color: '#fff' },
     }}
-    overFlowInFinal
+    overflowInFinal
   >
     <Avatar style={{ backgroundColor: '#f56a00' }}>A</Avatar>
     <Avatar style={{ backgroundColor: '#7265e6' }}>B</Avatar>
