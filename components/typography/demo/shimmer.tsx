@@ -10,7 +10,7 @@ const App: React.FC = () => (
     <Typography.Link href="https://ant.design" shimmer>
       Loading link
     </Typography.Link>
-    <Typography.Title level={4} shimmer={{ duration: 1.5 }} style={{ marginTop: 0 }}>
+    <Typography.Title level={4} shimmer={{ duration: 2 }} style={{ marginTop: 0 }}>
       Generating title
     </Typography.Title>
   </Flex>
