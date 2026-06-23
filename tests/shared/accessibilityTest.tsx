@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 import { globSync } from 'glob';
 import { axe } from 'jest-axe';
 
+import { isFunction } from '../../components/_util/is';
+
 class AxeQueueManager {
   private queue: Promise<any> = Promise.resolve();
   private isProcessing = false;
@@ -54,18 +56,46 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
+interface JestFakeTimerState {
+  isFakeTimers?: () => boolean;
+}
+
+interface FakeTimerClock {
+  clock?: unknown;
+}
+
+const jestWithFakeTimerState = jest as typeof jest & JestFakeTimerState;
+
+const isUsingFakeTimers = () => {
+  const { isFakeTimers } = jestWithFakeTimerState;
+  const timeoutWithClock = setTimeout as typeof setTimeout & FakeTimerClock;
+
+  return isFunction(isFakeTimers)
+    ? isFakeTimers()
+    : jest.isMockFunction(setTimeout) || !!timeoutWithClock.clock;
+};
+
 // eslint-disable-next-line jest/no-export
-export const accessibilityTest = (
-  Component: React.ComponentType<any>,
-  disabledRules?: string[],
-) => {
+export const accessibilityTest = (Component: React.ComponentType, disabledRules?: string[]) => {
+  let originalResizeObserver: typeof global.ResizeObserver;
+  let originalFetch: typeof global.fetch;
+  let hadResizeObserver: boolean;
+  let hadFetch: boolean;
+
   beforeAll(() => {
-    // Fake ResizeObserver
-    global.ResizeObserver = jest.fn(() => {
+    hadResizeObserver = 'ResizeObserver' in global;
+    hadFetch = 'fetch' in global;
+    originalResizeObserver = global.ResizeObserver;
+    originalFetch = global.fetch;
+
+    // Fake ResizeObserver — Vitest constructs the mock implementation with `new`,
+    // so this must stay a function expression instead of an arrow.
+    // eslint-disable-next-line prefer-arrow-callback
+    global.ResizeObserver = jest.fn().mockImplementation(function ResizeObserverMock() {
       return {
-        observe() {},
-        unobserve() {},
-        disconnect() {},
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+        disconnect: jest.fn(),
       };
     }) as jest.Mock;
 
@@ -85,6 +115,20 @@ export const accessibilityTest = (
     }) as jest.Mock;
   });
 
+  afterAll(() => {
+    if (hadResizeObserver) {
+      global.ResizeObserver = originalResizeObserver;
+    } else {
+      Reflect.deleteProperty(global, 'ResizeObserver');
+    }
+
+    if (hadFetch) {
+      global.fetch = originalFetch;
+    } else {
+      Reflect.deleteProperty(global, 'fetch');
+    }
+  });
+
   beforeEach(() => {
     // Reset all mocks
     if (global.fetch) {
@@ -98,13 +142,22 @@ export const accessibilityTest = (
   });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
+      const restoreFakeTimers = isUsingFakeTimers();
+
       jest.useRealTimers();
-      const { container } = render(<Component />);
 
-      const rules = convertRulesToAxeFormat(disabledRules || []);
+      try {
+        const { container } = render(<Component />);
 
-      const results = await runAxe(container, { rules });
-      expect(results).toHaveNoViolations();
+        const rules = convertRulesToAxeFormat(disabledRules || []);
+
+        const results = await runAxe(container, { rules });
+        expect(results).toHaveNoViolations();
+      } finally {
+        if (restoreFakeTimers) {
+          jest.useFakeTimers();
+        }
+      }
     }, 50000);
   });
 };
