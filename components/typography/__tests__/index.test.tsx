@@ -557,6 +557,7 @@ describe('Typography', () => {
     );
     expect(styleText).toContain('background-size:30% 100%,100% 100%');
     expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
+    expect(styleText).toContain('-webkit-background-clip:text, text');
     expect(styleText).toContain('-webkit-text-fill-color:transparent');
     expect(styleText).toContain(
       [

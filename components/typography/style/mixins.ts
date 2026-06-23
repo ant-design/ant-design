@@ -345,8 +345,8 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (toke
   const { colorLink, componentCls } = token;
 
   return {
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text, text',
+    WebkitBackgroundClip: 'text, text',
     WebkitTextFillColor: 'transparent',
     backgroundImage: [
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
