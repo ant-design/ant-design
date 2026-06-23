@@ -355,7 +355,7 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (toke
     backgroundSize: '30% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
-    animationDuration: `var(--ant-typography-shimmer-duration, 1s)`,
+    animationDuration: `var(--ant-typography-shimmer-duration, 1.5s)`,
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',
