@@ -150,8 +150,8 @@ describe('Typography', () => {
           fireEvent.click(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(1);
 
-          expect((copy as any).mock.lastCall[0]).toEqual(target);
-          expect((copy as any).mock.lastCall[1].format).toEqual(format);
+          expect((copy as any).mock.lastCall[0]).toBe(target);
+          expect((copy as any).mock.lastCall[1].format).toBe(format);
 
           expect(onCopy).toHaveBeenCalled();
 
@@ -436,14 +436,14 @@ describe('Typography', () => {
         });
 
         fireEvent.focus(editIcon);
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
 
         fireEvent.click(editIcon);
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
 
         fireEvent.change(wrapper.querySelector('textarea')!, { target: { value: 'good' } });
 
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
       });
     });
 

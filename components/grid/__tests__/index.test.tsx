@@ -130,7 +130,7 @@ describe('Grid', () => {
     const called: number = (global as any).unsubscribeCnt;
 
     unmount();
-    expect((global as any).unsubscribeCnt).toEqual(called + 1);
+    expect((global as any).unsubscribeCnt).toBe(called + 1);
   });
 
   it('should work correct when gutter is string', () => {

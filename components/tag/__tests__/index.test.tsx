@@ -299,11 +299,11 @@ describe('Tag', () => {
   });
   it('should support aria-* in closable', () => {
     const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
-    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toBe(
       'CloseBtn',
     );
     expect(container.querySelector('.ant-tag-close-icon')).toHaveAttribute('role', 'button');
-    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toBe('X');
   });
 
   it.each(['Enter', ' '])('should close by %s key', (key) => {
