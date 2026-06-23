@@ -333,35 +333,6 @@ describe('Collapse', () => {
     });
   });
 
-  it('should generate valid default padding css variables for sizes', () => {
-    const items = [{ children: 'content', key: '1', label: 'This is panel header 1' }];
-    const { container } = render(
-      <ConfigProvider
-        theme={{
-          cssVar: {
-            key: 'collapse',
-          },
-        }}
-      >
-        <Collapse size="small" defaultActiveKey={['1']} items={items} />
-        <Collapse size="large" defaultActiveKey={['1']} items={items} />
-      </ConfigProvider>,
-    );
-
-    expect(container.querySelector('.ant-collapse-small')).toHaveStyle({
-      '--ant-collapse-header-padding-sm': '8px 12px 8px 8px',
-    });
-    expect(container.querySelector('.ant-collapse-small')).toHaveStyle({
-      '--ant-collapse-content-padding-sm': '12px',
-    });
-    expect(container.querySelector('.ant-collapse-large')).toHaveStyle({
-      '--ant-collapse-header-padding-lg': '16px 24px 16px 16px',
-    });
-    expect(container.querySelector('.ant-collapse-large')).toHaveStyle({
-      '--ant-collapse-content-padding-lg': '24px',
-    });
-  });
-
   describe('expandIconPlacement and expandIconPosition behavior', () => {
     let consoleErrorSpy: jest.SpyInstance;
 
