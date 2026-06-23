@@ -574,7 +574,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                     ['--ant-typography-shimmer-duration' as string]: `${shimmerConfig.duration}s`,
                   }
                 : null),
-              color: needShimmerColorOverride ? 'transparent' : style?.color,
+              ...(needShimmerColorOverride ? { color: 'transparent' } : null),
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
             component={component}
