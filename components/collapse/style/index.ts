@@ -355,8 +355,8 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => {
     headerPaddingLG: `${token.padding}px ${token.paddingLG}px ${token.padding}px ${token.padding}px`,
     headerBg: token.colorFillAlter,
     contentPadding: `${token.padding}px 16px`, // Fixed Value
-    contentPaddingSM: `${token.paddingSM}px`,
-    contentPaddingLG: `${token.paddingLG}px`,
+    contentPaddingSM: token.paddingSM,
+    contentPaddingLG: token.paddingLG,
     contentBg: token.colorBgContainer,
     borderlessContentPadding: `${token.paddingXXS}px 16px ${token.padding}px`,
     borderlessContentBg: 'transparent',
