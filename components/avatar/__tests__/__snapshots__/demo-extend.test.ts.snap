@@ -1277,6 +1277,105 @@ Array [
 
 exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/avatar/demo/max-count.tsx extend context correctly 1`] = `
+<div
+  class="ant-avatar-group css-var-test-id ant-avatar-css-var"
+>
+  <span
+    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+    style="background-color: rgb(245, 106, 0);"
+  >
+    <span
+      class="ant-avatar-string"
+      style="-webkit-transform: scale(1); transform: scale(1);"
+    >
+      A
+    </span>
+  </span>
+  <span
+    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+    style="background-color: rgb(114, 101, 230);"
+  >
+    <span
+      class="ant-avatar-string"
+      style="-webkit-transform: scale(1); transform: scale(1);"
+    >
+      B
+    </span>
+  </span>
+  <span
+    aria-describedby="test-id"
+    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+    style="background-color: rgb(82, 196, 26); color: rgb(255, 255, 255);"
+  >
+    <span
+      class="ant-avatar-string"
+      style="-webkit-transform: scale(1); transform: scale(1);"
+    >
+      +3
+    </span>
+  </span>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <span
+          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+          style="background-color: rgb(0, 162, 174);"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          >
+            C
+          </span>
+        </span>
+        <span
+          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+          style="background-color: rgb(245, 106, 0);"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          >
+            D
+          </span>
+        </span>
+        <span
+          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+          style="background-color: rgb(114, 101, 230);"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          >
+            E
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/avatar/demo/max-count.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
