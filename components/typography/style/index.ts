@@ -120,7 +120,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
       ...getEllipsisStyles(),
 
       // Shimmer
-      '&-shimmer': getShimmerStyles(token),
+      '&&-shimmer': getShimmerStyles(token),
 
       '&-rtl': {
         direction: 'rtl',
