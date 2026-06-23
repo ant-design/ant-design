@@ -329,26 +329,24 @@ export const getEllipsisStyles = (): CSSObject => ({
 });
 
 export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { colorText, colorTextDisabled } = token;
+  const { colorText } = token;
 
   return {
-    '&&': {
-      backgroundClip: 'text',
-      WebkitBackgroundClip: 'text',
-      color: 'transparent',
-      backgroundColor: 'transparent',
-      backgroundImage: `linear-gradient(90deg, transparent, ${colorText}, transparent)`,
-      backgroundSize: '200% 100%',
-      animationName: shimmerAnimation,
-      animationDuration: `var(--ant-typography-shimmer-duration, 2s)`,
-      animationIterationCount: 'infinite',
-      animationTimingFunction: 'linear',
-    },
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    color: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: `linear-gradient(90deg, transparent, ${colorText}, transparent)`,
+    backgroundSize: '200% 100%',
+    animationName: shimmerAnimation,
+    animationDuration: `var(--ant-typography-shimmer-duration, 2s)`,
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
 
-    '&&&-disabled': {
+    '&-disabled': {
       animation: 'none',
       backgroundImage: 'none',
-      color: colorTextDisabled,
+      color: colorText,
       WebkitBackgroundClip: 'unset',
       backgroundClip: 'unset',
     },
