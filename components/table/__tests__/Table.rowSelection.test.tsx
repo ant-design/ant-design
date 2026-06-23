@@ -136,9 +136,9 @@ describe('Table.rowSelection', () => {
     const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
 
     expect(checkboxes[1].disabled).toBe(false);
-    expect(checkboxes[1].name).toEqual(data[0].name);
+    expect(checkboxes[1].name).toBe(data[0].name);
     expect(checkboxes[2].disabled).toBe(true);
-    expect(checkboxes[2].name).toEqual(data[1].name);
+    expect(checkboxes[2].name).toBe(data[1].name);
 
     expect(getIndeterminateSelection(container)).toEqual([2]);
   });

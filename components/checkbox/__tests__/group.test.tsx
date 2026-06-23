@@ -64,7 +64,7 @@ describe('CheckboxGroup', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
       (el) => {
-        expect(el.getAttribute('name')).toEqual('checkboxgroup');
+        expect(el.getAttribute('name')).toBe('checkboxgroup');
       },
     );
   });
@@ -102,7 +102,7 @@ describe('CheckboxGroup', () => {
     );
     fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalled();
-    expect(onChange.mock.calls[0][0].target.value).toEqual('my');
+    expect(onChange.mock.calls[0][0].target.value).toBe('my');
   });
 
   // https://github.com/ant-design/ant-design/issues/16376
