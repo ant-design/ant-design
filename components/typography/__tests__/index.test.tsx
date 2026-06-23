@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 
@@ -523,12 +524,35 @@ describe('Typography', () => {
     expect(shimmerNodes[0]).not.toHaveAttribute('shimmer');
     expect(shimmerNodes[0]).toHaveAttribute('aria-busy', 'true');
     expect(shimmerNodes[1]).toHaveStyle({ '--ant-typography-shimmer-duration': '1.5s' });
-    expect((shimmerNodes[1] as HTMLElement).style.color).toBe('transparent');
+    expect((shimmerNodes[1] as HTMLElement).style.color).toBe(
+      'var(--ant-color-text-description)',
+    );
     expect(shimmerNodes[2]).toHaveClass('ant-typography-shimmer-disabled');
     expect(shimmerNodes[2]).toHaveAttribute('aria-busy', 'false');
     expect(shimmerNodes[2]).toHaveAttribute('aria-disabled', 'true');
     expect((shimmerNodes[3] as HTMLElement).style.color).toBe('');
-    expect((shimmerNodes[4] as HTMLElement).style.color).toBe('transparent');
+    expect((shimmerNodes[4] as HTMLElement).style.color).toBe(
+      'var(--ant-color-text-description)',
+    );
+  });
+
+  it('should use Think-like shimmer styles', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Text shimmer>Thinking</Text>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain(
+      'background-image:linear-gradient(90deg, transparent, var(--ant-color-text-base), transparent)',
+    );
+    expect(styleText).toContain('background-size:50%');
+    expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 1s)');
+    expect(styleText).toContain('color:var(--ant-color-text-description)');
   });
 
   // https://github.com/ant-design/ant-design/issues/53858
