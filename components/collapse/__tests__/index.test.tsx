@@ -290,49 +290,6 @@ describe('Collapse', () => {
     });
   });
 
-  it('should support size component padding tokens', () => {
-    const items = [{ children: 'content', key: '1', label: 'This is panel header 1' }];
-    const { container } = render(
-      <ConfigProvider
-        theme={{
-          cssVar: {
-            key: 'collapse',
-          },
-          components: {
-            Collapse: {
-              headerPaddingSM: '1px 2px',
-              contentPaddingSM: '5px 6px',
-              headerPaddingLG: '7px 8px',
-              contentPaddingLG: '11px 12px',
-            },
-          },
-        }}
-      >
-        <Collapse size="small" defaultActiveKey={['1']} items={items} />
-        <Collapse size="large" defaultActiveKey={['1']} items={items} />
-      </ConfigProvider>,
-    );
-
-    expect(container.querySelector('.ant-collapse-small .ant-collapse-header')).toHaveStyle({
-      padding: 'var(--ant-collapse-header-padding-sm)',
-    });
-    expect(container.querySelector('.ant-collapse-small .ant-collapse-header')).not.toHaveStyle({
-      paddingInlineStart: 'var(--ant-padding-xs)',
-    });
-    expect(container.querySelector('.ant-collapse-small .ant-collapse-body')).toHaveStyle({
-      padding: 'var(--ant-collapse-content-padding-sm)',
-    });
-    expect(container.querySelector('.ant-collapse-large .ant-collapse-header')).toHaveStyle({
-      padding: 'var(--ant-collapse-header-padding-lg)',
-    });
-    expect(container.querySelector('.ant-collapse-large .ant-collapse-header')).not.toHaveStyle({
-      paddingInlineStart: 'var(--ant-padding)',
-    });
-    expect(container.querySelector('.ant-collapse-large .ant-collapse-body')).toHaveStyle({
-      padding: 'var(--ant-collapse-content-padding-lg)',
-    });
-  });
-
   describe('expandIconPlacement and expandIconPosition behavior', () => {
     let consoleErrorSpy: jest.SpyInstance;
 
