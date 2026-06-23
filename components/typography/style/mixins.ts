@@ -354,7 +354,7 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () =>
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
       'linear-gradient(currentColor, currentColor)',
     ].join(', '),
-    backgroundSize: '35% 100%, 100% 100%',
+    backgroundSize: '25% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
     animationDuration: `var(--ant-typography-shimmer-duration, 3s)`,

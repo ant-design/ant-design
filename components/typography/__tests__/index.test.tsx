@@ -554,7 +554,7 @@ describe('Typography', () => {
         ' transparent),linear-gradient(currentColor, currentColor)',
       ].join(''),
     );
-    expect(styleText).toContain('background-size:35% 100%,100% 100%');
+    expect(styleText).toContain('background-size:25% 100%,100% 100%');
     expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
     expect(styleText).toContain('0%{background-position:-200% 100%,0 0;}');
     expect(styleText).toContain('-webkit-background-clip:text, text');
