@@ -501,6 +501,29 @@ describe('Typography', () => {
     await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
   });
 
+  it('should support shimmer on typography components', () => {
+    const { container } = render(
+      <>
+        <Text shimmer>Thinking</Text>
+        <Title level={4} shimmer={{ duration: 1.5 }}>
+          Generating
+        </Title>
+        <Text shimmer disabled>
+          Paused
+        </Text>
+      </>,
+    );
+
+    const shimmerNodes = container.querySelectorAll('.ant-typography-shimmer');
+    expect(shimmerNodes).toHaveLength(3);
+    expect(shimmerNodes[0]).not.toHaveAttribute('shimmer');
+    expect(shimmerNodes[0]).toHaveAttribute('aria-busy', 'true');
+    expect(shimmerNodes[1]).toHaveStyle({ '--ant-typography-shimmer-duration': '1.5s' });
+    expect(shimmerNodes[2]).toHaveClass('ant-typography-shimmer-disabled');
+    expect(shimmerNodes[2]).toHaveAttribute('aria-busy', 'false');
+    expect(shimmerNodes[2]).toHaveAttribute('aria-disabled', 'true');
+  });
+
   // https://github.com/ant-design/ant-design/issues/53858
   describe('decoration props can be changed dynamically', () => {
     const decorationProps = [

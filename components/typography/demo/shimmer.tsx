@@ -2,10 +2,20 @@ import React from 'react';
 import { Space, Typography } from 'antd';
 
 const App: React.FC = () => (
-  <Space vertical>
-    <Typography.Shimmer>Thinking...</Typography.Shimmer>
-    <Typography.Shimmer disabled>Disabled shimmer (no animation)</Typography.Shimmer>
-    <Typography.Shimmer component="div">Render as div</Typography.Shimmer>
+  <Space orientation="vertical">
+    <Typography.Text shimmer>Thinking...</Typography.Text>
+    <Typography.Title level={4} shimmer={{ duration: 1.5 }}>
+      Generating title
+    </Typography.Title>
+    <Typography.Paragraph shimmer>
+      Ant Design is analyzing your request and preparing the next response.
+    </Typography.Paragraph>
+    <Typography.Link href="https://ant.design" shimmer>
+      Loading link
+    </Typography.Link>
+    <Typography.Text shimmer disabled>
+      Disabled shimmer (no animation)
+    </Typography.Text>
   </Space>
 );
 

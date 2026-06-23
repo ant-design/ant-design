@@ -91,6 +91,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  | × |
 | italic | 是否斜体 | boolean | false | 4.16.0 | × |
 | mark | 添加标记样式 | boolean | false |  | × |
+| shimmer | 展示闪烁文字效果，为对象时可配置动画持续时间 | boolean \| { duration?: number } | false |  | × |
 | strong | 是否加粗 | boolean | false |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -106,15 +107,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | 参数      | 说明                       | 类型             | 默认值 | 版本  |
 | --------- | -------------------------- | ---------------- | ------ | ----- |
 | placement | 设置操作栏相对于文本的位置 | `start` \| `end` | `end`  | 6.4.0 |
-
-### Typography.Shimmer
-
-| 参数      | 说明               | 类型                        | 默认值 | 版本 |
-| --------- | ------------------ | --------------------------- | ------ | ---- |
-| children  | 文本内容           | ReactNode                   | -      |      |
-| duration  | 动画持续时间（秒） | number                      | 2      |      |
-| disabled  | 禁用动画           | boolean                     | false  |      |
-| component | 设置渲染的元素类型 | keyof JSX.IntrinsicElements | 'span' |      |
 
 ### copyable
 

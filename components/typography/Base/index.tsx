@@ -104,6 +104,10 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
+export interface ShimmerConfig {
+  duration?: number;
+}
+
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
   extends TypographyProps<C> {
   /**
@@ -116,6 +120,7 @@ export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.In
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
+  shimmer?: boolean | ShimmerConfig;
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -175,6 +180,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     disabled,
     children,
     ellipsis,
+    shimmer,
     editable,
     copyable,
     actions,
@@ -237,6 +243,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+
+  // ========================== Shimmer ===========================
+  const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(shimmer, {
+    duration: 3,
+  });
 
   const { placement = 'end' } = actions ?? {};
 
@@ -540,6 +551,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-shimmer`]: enableShimmer,
+                [`${prefixCls}-shimmer-disabled`]: enableShimmer && disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
@@ -552,6 +565,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             prefixCls={prefixCls}
             style={{
               ...style,
+              ...(enableShimmer
+                ? {
+                    ['--ant-typography-shimmer-duration' as string]: `${shimmerConfig.duration}s`,
+                  }
+                : null),
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
             component={component}
@@ -560,6 +578,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
+            aria-busy={enableShimmer ? !disabled : undefined}
+            aria-disabled={enableShimmer && disabled ? true : undefined}
             {...textProps}
           >
             <Ellipsis

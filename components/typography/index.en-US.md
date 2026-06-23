@@ -90,6 +90,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  | × |
 | italic | Italic style | boolean | false | 4.16.0 | × |
 | mark | Marked style | boolean | false |  | × |
+| shimmer | Show shimmer effect, can configure animation duration by using object | boolean \| { duration?: number } | false |  | × |
 | strong | Bold style | boolean | false |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -105,15 +106,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | placement | Set the operation bar placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
-
-### Typography.Shimmer
-
-| Property  | Description                    | Type                        | Default | Version |
-| --------- | ------------------------------ | --------------------------- | ------- | ------- |
-| children  | Text content                   | ReactNode                   | -       |         |
-| duration  | Animation duration in seconds  | number                      | 2       |         |
-| disabled  | Disable animation              | boolean                     | false   |         |
-| component | Set the element type to render | keyof JSX.IntrinsicElements | 'span'  |         |
 
 ### copyable
 
