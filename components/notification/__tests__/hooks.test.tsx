@@ -52,7 +52,7 @@ describe('notification.hooks', () => {
 
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should work with success', () => {
@@ -90,7 +90,7 @@ describe('notification.hooks', () => {
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should be same hook', () => {
@@ -101,7 +101,7 @@ describe('notification.hooks', () => {
       const [api] = notification.useNotification();
       React.useEffect(() => {
         count += 1;
-        expect(count).toEqual(1);
+        expect(count).toBe(1);
         forceUpdate([]);
       }, [api]);
 

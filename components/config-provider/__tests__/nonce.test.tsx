@@ -26,7 +26,7 @@ describe('ConfigProvider.Icon', () => {
         </ConfigProvider>,
       );
       const styleNode = document.querySelector('style');
-      expect(styleNode?.nonce).toEqual('little');
+      expect(styleNode?.nonce).toBe('little');
     });
 
     it('mix with iconPrefixCls', () => {
@@ -39,7 +39,7 @@ describe('ConfigProvider.Icon', () => {
       const styleNode = document.querySelector('style');
 
       expect(container.querySelector('.bamboo-smile')).toBeTruthy();
-      expect(styleNode?.nonce).toEqual('light');
+      expect(styleNode?.nonce).toBe('light');
     });
   });
 
@@ -61,8 +61,8 @@ describe('ConfigProvider.Icon', () => {
     const styleNode = document.querySelector('style');
 
     expect(container.querySelector('.bamboo-smile')).toBeTruthy();
-    expect(styleNode?.nonce).toEqual('light');
-    expect(container.querySelector('#csp')?.innerHTML).toEqual('light');
+    expect(styleNode?.nonce).toBe('light');
+    expect(container.querySelector('#csp')?.innerHTML).toBe('light');
   });
 
   it('cssinjs should support nonce', () => {
@@ -78,7 +78,7 @@ describe('ConfigProvider.Icon', () => {
 
     expect(styleList.length).toBeTruthy();
     styleList.forEach((style) => {
-      expect(style.nonce).toEqual('bamboo');
+      expect(style.nonce).toBe('bamboo');
     });
   });
 
@@ -93,7 +93,7 @@ describe('ConfigProvider.Icon', () => {
     const styleNodes = document.querySelectorAll('style');
 
     styleNodes.forEach((node) => {
-      expect(node?.nonce).toEqual('bamboo');
+      expect(node?.nonce).toBe('bamboo');
     });
   });
 });
