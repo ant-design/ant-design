@@ -82,6 +82,7 @@ jobs:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
+      statuses: write # for syncing preview deploy result back to the PR head commit
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 30
     needs: [check-trust, upstream-workflow-summary]
@@ -147,9 +148,55 @@ jobs:
           body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
+      - name: Sync preview deploy status
+        if: ${{ always() }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        env:
+          BUILD_SUCCESS: ${{ needs.upstream-workflow-summary.outputs.build-success }}
+          BUILD_FAILURE: ${{ needs.upstream-workflow-summary.outputs.build-failure }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prHeadSha = process.env.HEAD_SHA;
+            const buildSuccess = process.env.BUILD_SUCCESS === 'true';
+            const buildFailure = process.env.BUILD_FAILURE === 'true';
+            const deployOutcome = process.env.DEPLOY_OUTCOME;
+
+            let state = 'failure';
+            let description = 'Preview deploy failed';
+
+            if (buildFailure) {
+              description = 'Preview build failed';
+            } else if (deployOutcome === 'failure') {
+              description = 'Preview deploy failed';
+            } else if (buildSuccess && deployOutcome === 'success') {
+              state = 'success';
+              description = 'Preview deployed successfully';
+            }
+
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: prHeadSha,
+              state,
+              context: 'Preview Deploy',
+              description,
+              target_url: process.env.RUN_URL,
+            });
+
       - name: Check surge deploy result and exit if failed
+        env:
+          BUILD_SUCCESS: ${{ needs.upstream-workflow-summary.outputs.build-success }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
         run: |
-            if [ "${{ steps.deploy.outcome }}" != "success" ]; then
-              echo "Surge Deploy failed."
-              exit 1
-            fi
+          if [ "$BUILD_SUCCESS" != "true" ]; then
+            echo "Preview Build failed."
+            exit 1
+          fi
+          if [ "$DEPLOY_OUTCOME" != "success" ]; then
+            echo "Surge Deploy failed."
+            exit 1
+          fi
