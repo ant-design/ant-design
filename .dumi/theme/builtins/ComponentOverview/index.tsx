@@ -49,8 +49,7 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
       color: ${cssVar.colorTextDisabled};
     }
     &:focus-visible,
-    &:has(input:focus-visible),
-    &:has(textarea:focus-visible) {
+    &:has(input:focus-visible) {
       outline: none !important;
     }
   `,
