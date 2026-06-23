@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | menu | The menu props | [MenuProps](/components/menu/#api) | - |  | × |
 | ~~overlayClassName~~ | The class name of the dropdown root element, please use `classNames.root` instead | string | - |  | × |
 | ~~overlayStyle~~ | The style of the dropdown root element, please use `styles.root` instead | CSSProperties | - |  | × |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  | × |
+| placement | Placement of popup menu: `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | string | `bottomLeft` | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom`: 6.5.0 | × |
 | styles | Customize inline style for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  | × |
 | open | Whether the dropdown menu is currently open | boolean | - |  | × |
