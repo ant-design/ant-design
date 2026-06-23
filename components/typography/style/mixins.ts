@@ -341,14 +341,16 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 });
 
-export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () => {
+export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
+  const { colorLink, componentCls } = token;
+
   return {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundImage: [
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
-      'linear-gradient(currentColor, currentColor)',
+      'linear-gradient(var(--ant-typography-shimmer-color, currentColor), var(--ant-typography-shimmer-color, currentColor))',
     ].join(', '),
     backgroundSize: '30% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
@@ -357,6 +359,10 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = () =>
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',
+
+    [`&${componentCls}-link`]: {
+      '--ant-typography-shimmer-color': colorLink,
+    },
 
     '&-disabled': {
       animation: 'none',
