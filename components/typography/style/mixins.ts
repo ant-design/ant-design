@@ -18,19 +18,19 @@ import type { GenerateStyle } from '../../theme/internal';
 // Shimmer animation keyframes
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPosition: '-200% 100%, 0 0',
+    backgroundPosition: '-80% 100%, 0 0',
   },
   '25%': {
-    backgroundPosition: '-100% 100%, 0 0',
+    backgroundPosition: '-15% 100%, 0 0',
   },
   '50%': {
-    backgroundPosition: '0% 100%, 0 0',
+    backgroundPosition: '50% 100%, 0 0',
   },
   '75%': {
-    backgroundPosition: '100% 100%, 0 0',
+    backgroundPosition: '115% 100%, 0 0',
   },
   '100%': {
-    backgroundPosition: '200% 100%, 0 0',
+    backgroundPosition: '180% 100%, 0 0',
   },
 });
 
@@ -352,10 +352,10 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (toke
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
       'linear-gradient(var(--ant-typography-shimmer-color, currentColor), var(--ant-typography-shimmer-color, currentColor))',
     ].join(', '),
-    backgroundSize: '30% 100%, 100% 100%',
+    backgroundSize: '18% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
-    animationDuration: `var(--ant-typography-shimmer-duration, 3s)`,
+    animationDuration: `var(--ant-typography-shimmer-duration, 4s)`,
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',
