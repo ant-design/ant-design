@@ -62,7 +62,7 @@ demo:
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn#api) | - |  | × |
 | ~~overlayClassName~~ | 下拉根元素的类名称, 请使用 `classNames.root` 替换 | string | - |  | × |
 | ~~overlayStyle~~ | 下拉根元素的样式，请使用 `styles.root` | CSSProperties | - |  | × |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  | × |
+| placement | 菜单弹出位置：`top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | string | `bottomLeft` | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom`：6.5.0 | × |
 | styles | 用于自定义 Dropdown 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  | 6.0.0 |
 | trigger | 触发下拉的行为，移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  | × |
 | open | 菜单是否显示 | boolean | - |  | × |
