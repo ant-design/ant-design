@@ -48,6 +48,11 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     .anticon-search {
       color: ${cssVar.colorTextDisabled};
     }
+    &:focus-visible,
+    &:has(input:focus-visible),
+    &:has(textarea:focus-visible) {
+      outline: none !important;
+    }
   `,
   componentsOverviewContent: css`
     &:empty:after {
