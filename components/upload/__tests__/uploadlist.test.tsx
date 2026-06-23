@@ -995,6 +995,22 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('when picture-card file upload fails, non-image file should render file icon', () => {
+    const items = [{ status: 'error', uid: 'upload-list-item', name: 'report.pdf' }];
+    const { container: wrapper, unmount } = render(
+      <UploadList
+        listType="picture-card"
+        items={items as UploadListProps['items']}
+        locale={{ uploadError: 'upload error' }}
+      />,
+    );
+
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file')).toBeTruthy();
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-picture')).toBeFalsy();
+
+    unmount();
+  });
+
   it('onPreview should be called, when url exists', () => {
     const onPreview = jest.fn();
     const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
