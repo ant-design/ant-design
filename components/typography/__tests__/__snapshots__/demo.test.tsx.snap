@@ -2036,14 +2036,6 @@ exports[`renders components/typography/demo/shimmer.tsx correctly 1`] = `
   >
     Loading link
   </a>
-  <span
-    aria-busy="false"
-    aria-disabled="true"
-    class="ant-typography ant-typography-disabled ant-typography-shimmer ant-typography-shimmer-disabled css-var-test-id"
-    style="--ant-typography-shimmer-duration:3s"
-  >
-    Disabled shimmer (no animation)
-  </span>
 </div>
 `;
 

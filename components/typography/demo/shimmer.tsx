@@ -13,9 +13,6 @@ const App: React.FC = () => (
     <Typography.Link href="https://ant.design" shimmer>
       Loading link
     </Typography.Link>
-    <Typography.Text shimmer disabled>
-      Disabled shimmer (no animation)
-    </Typography.Text>
   </Flex>
 );
 
