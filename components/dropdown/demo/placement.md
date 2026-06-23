@@ -1,7 +1,7 @@
 ## zh-CN
 
-支持 6 个弹出位置。
+支持 12 个弹出位置。
 
 ## en-US
 
-Support 6 placements.
+Support 12 placements.
