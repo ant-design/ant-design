@@ -20,6 +20,7 @@ This guide explains how to use `@ant-design/cli` to query Ant Design component k
 - **Agent-optimized** — `--format json` on every command. Structured errors with codes and suggestions.
 - **Bilingual** — Every component name, description, and doc has both English and Chinese. Switch with `--lang zh`.
 - **Smart matching** — Typo `Buttn`? The CLI suggests `Button` using Levenshtein distance.
+- **18 commands** — From prop lookup to project-wide lint, from design tokens to MCP/Skill setup.
 
 ## Install
 
@@ -27,17 +28,28 @@ This guide explains how to use `@ant-design/cli` to query Ant Design component k
 npm install -g @ant-design/cli
 ```
 
+Requires Node.js `>=20.0.0`. You can also install globally with `pnpm add -g @ant-design/cli` or `bun add -g @ant-design/cli`.
+
 ## Quick Start
 
 ```bash
+antd list                           # All components with versions
 antd info Button                    # Component props, types, defaults
+antd doc Button                     # Full markdown documentation
 antd demo Select basic              # Runnable demo source code
 antd token DatePicker               # Design Token values (v5+)
+antd design.md                      # Design-language document (design.md)
 antd semantic Table                 # classNames / styles structure
 antd changelog 4.24.0 5.0.0 Select  # API diff across versions
 antd doctor                         # Diagnose project issues
+antd env                            # Collect env info for bug reports
+antd usage ./src                    # Analyze antd imports in project
 antd lint ./src                     # Check deprecated APIs & best practices
+antd migrate 3 4                    # v3 to v4 migration guide
 antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
+antd mcp                            # Start MCP server for IDE integration
+antd setup --client claude          # Set up MCP/Skill for AI agents
+antd upgrade                        # Upgrade CLI to latest version
 ```
 
 ## Commands
@@ -84,10 +96,10 @@ The file is also published at [ant.design/design.md](https://ant.design/design.m
 | Command | Description |
 | --- | --- |
 | `antd doctor` | 10 diagnostic checks: React compat, duplicates, peer deps, SSR, babel plugins |
+| `antd env [dir]` | Collect all antd-related environment information for bug reports or AI diagnosis |
 | `antd usage [dir]` | Import stats, sub-component breakdown (`Form.Item`), non-component exports |
 | `antd lint [target]` | Deprecated APIs, accessibility gaps, performance issues, best practices |
 | `antd migrate <from> <to>` | Migration checklist with auto-fixable/manual split and `--apply` agent prompt |
-| `antd env [dir]` | Collect antd-related environment information for bug reports |
 
 ### Issue Reporting
 
@@ -101,9 +113,21 @@ The file is also published at [ant.design/design.md](https://ant.design/design.m
 | Command | Description |
 | --- | --- |
 | `antd mcp` | Start an MCP server with 8 tools and 2 prompts for IDE integration (Claude Code, Cursor, VS Code, etc.) |
+| `antd setup` | Set up Ant Design MCP/Skill for Claude Code, Cursor, VS Code, or Codex |
 | `antd upgrade` | Upgrade the CLI to the latest version |
 
 The `antd mcp` command launches a [Model Context Protocol](https://modelcontextprotocol.io/) server, allowing AI assistants to access Ant Design knowledge directly. See the [MCP Server](/docs/react/mcp) guide for full details and configuration.
+
+The `antd setup` command can write MCP configuration, install the bundled Ant Design skill, or both:
+
+```bash
+antd setup --client claude
+antd setup --client cursor --mode both
+antd setup --client vscode --write-instructions
+antd setup --client codex
+antd setup --client claude --dry-run
+antd setup --client claude --check
+```
 
 ### Global Flags
 
@@ -115,13 +139,15 @@ The `antd mcp` command launches a [Model Context Protocol](https://modelcontextp
 | `--detail`                      | Include extended information        | `false`     |
 | `-V, --cli-version`             | Print the CLI version               | -           |
 
+Version auto-detection order: `--version` flag, `node_modules/antd`, `package.json` dependencies, then fallback.
+
 ### Environment Variables
 
-| Variable                | Description                       |
-| ----------------------- | --------------------------------- |
-| `ANTD_NO_AUTO_REPORT=1` | Disable bug-reporting suggestions |
-| `NO_UPDATE_CHECK=1`     | Skip the version update check     |
-| `CI=1`                  | Same as `NO_UPDATE_CHECK=1`       |
+| Variable                | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| `ANTD_NO_AUTO_REPORT=1` | Disable AI-agent bug-reporting suggestions                        |
+| `NO_UPDATE_CHECK=1`     | Skip the silent version update check                              |
+| `CI=1`                  | Skip the silent version update check, same as `NO_UPDATE_CHECK=1` |
 
 ## Usage with AI Tools
 

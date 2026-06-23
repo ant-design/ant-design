@@ -50,6 +50,17 @@ describe('Input.Password', () => {
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
   });
 
+  it('should support tabIndex in visibilityToggle', () => {
+    const { container, rerender } = render(<Input.Password />);
+    expect(container.querySelector('.ant-input-password-icon')).toHaveAttribute('tabindex', '0');
+
+    rerender(<Input.Password visibilityToggle={{ tabIndex: -1 }} />);
+    expect(container.querySelector('.ant-input-password-icon')).toHaveAttribute('tabindex', '-1');
+
+    rerender(<Input.Password disabled visibilityToggle={{ tabIndex: 0 }} />);
+    expect(container.querySelector('.ant-input-password-icon')).toHaveAttribute('tabindex', '-1');
+  });
+
   it('should not toggle visibility when disabled prop is true', () => {
     const { container } = render(<Input.Password disabled />);
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);

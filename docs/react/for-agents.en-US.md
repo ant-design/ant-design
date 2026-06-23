@@ -14,9 +14,7 @@ This page provides a ready-to-use prompt that lets any AI coding agent work with
 Copy into your agent conversation or automation runner.
 
 ```text
-Before writing any code, please read https://ant.design/docs/react/for-agents.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
-
-Read https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md and follow the instructions to use Ant Design.
+Before writing any code, please read https://ant.design/docs/react/for-agents.md and https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
 
 If you can install skills, run:
 npx skills add ant-design/ant-design-cli
@@ -33,14 +31,23 @@ npm install -g @ant-design/cli
 ```
 
 ```bash
+antd list                           # All components with versions
 antd info Button                    # Component props, types, defaults
+antd doc Button                     # Full markdown documentation
 antd demo Select basic              # Runnable demo source code
 antd token DatePicker               # Design Token values (v5+)
+antd design.md                      # Design-language document (design.md)
 antd semantic Table                 # classNames / styles structure
 antd changelog 4.24.0 5.0.0 Select  # API diff across versions
 antd doctor                         # Diagnose project issues
+antd env                            # Collect env info for bug reports
+antd usage ./src                    # Analyze antd imports in project
 antd lint ./src                     # Check deprecated APIs & best practices
+antd migrate 3 4                    # v3 to v4 migration guide
 antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
+antd mcp                            # Start MCP server for IDE integration
+antd setup --client claude          # Set up MCP/Skill for AI agents
+antd upgrade                        # Upgrade CLI to latest version
 ```
 
 Full reference: [CLI](/docs/react/cli)

@@ -14,9 +14,7 @@ tag: New
 复制到你的 Agent 对话或自动化流程中。
 
 ```text
-在编写任何代码之前，请先阅读 https://ant.design/docs/react/for-agents-cn.md 中的相关指南，留意弃用提示，并按照说明使用 Ant Design。
-
-阅读 https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md 并按照指引使用 Ant Design。
+在编写任何代码之前，请先阅读 https://ant.design/docs/react/for-agents-cn.md 和 https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md，留意弃用提示，并按照说明使用 Ant Design。
 
 如果你可以安装 skills，请运行：
 npx skills add ant-design/ant-design-cli
@@ -33,14 +31,23 @@ npm install -g @ant-design/cli
 ```
 
 ```bash
+antd list                           # 所有组件及版本信息
 antd info Button                    # 组件 Props、类型、默认值
+antd doc Button                     # 完整 Markdown 文档
 antd demo Select basic              # 可运行的 Demo 源码
 antd token DatePicker               # Design Token 值（v5+）
+antd design.md                      # 设计语言文档（design.md）
 antd semantic Table                 # classNames / styles 结构
 antd changelog 4.24.0 5.0.0 Select  # 跨版本 API 差异对比
 antd doctor                         # 诊断项目配置问题
+antd env                            # 收集环境信息用于 Bug 报告
+antd usage ./src                    # 分析项目中的 antd 导入
 antd lint ./src                     # 检查废弃 API 和最佳实践
+antd migrate 3 4                    # v3 到 v4 迁移指南
 antd migrate 4 5 --apply ./src      # 生成 Agent 迁移提示
+antd mcp                            # 启动 MCP 服务，供 IDE 集成
+antd setup --client claude          # 为 AI Agent 接入 MCP/Skill
+antd upgrade                        # 升级 CLI 到最新版本
 ```
 
 完整参考：[CLI](/docs/react/cli-cn)
