@@ -12,8 +12,13 @@ const withOverflowInFinal = (
 ) => {
   const { defaultMaxCount = 3 } = config;
 
-  return (props: AvatarGroupProps & { overFlowInFinal?: boolean }) => {
-    const { overFlowInFinal, ...restProps } = props;
+  return (props: AvatarGroupProps & { overflowInFinal?: boolean }) => {
+    const { overflowInFinal, ...restProps } = props;
+
+    if (!overflowInFinal) {
+      return <Component {...restProps} />;
+    }
+
     const mergedMaxCount = props.max?.count ?? defaultMaxCount;
 
     return (
@@ -21,14 +26,14 @@ const withOverflowInFinal = (
         {...restProps}
         max={{
           ...props.max,
-          count: overFlowInFinal ? mergedMaxCount - 1 : mergedMaxCount,
+          count: mergedMaxCount - 1,
         }}
       />
     );
   };
 };
 
-const AvatarGroupOverflow = withOverflowInFinal(Avatar.Group);
+const AvatarGroupOverflow = withOverflowInFinal(Avatar.Group as any);
 
 const App: React.FC = () => (
   <AvatarGroupOverflow
