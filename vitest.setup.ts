@@ -256,7 +256,7 @@ if (typeof HTMLCanvasElement !== 'undefined') {
   Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
     configurable: true,
     writable: true,
-    value: () => null,
+    value: vi.fn(() => null),
   });
 }
 
