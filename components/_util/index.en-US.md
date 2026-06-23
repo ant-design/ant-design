@@ -68,7 +68,7 @@ type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```
 
-Also supports getting the return type of a function property through the third parameter `'Return'`:
+Also supports getting the return type of a function property through the third parameter `Return`:
 
 ```tsx
 import type { GetProp } from 'antd';
