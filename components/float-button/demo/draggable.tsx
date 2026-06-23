@@ -23,8 +23,8 @@ const DraggableButton: React.FC<DraggableButtonProps> = (props) => {
   const mergedTransform = CSS.Translate.toString({
     x: position.x + (transform?.x ?? 0),
     y: position.y + (transform?.y ?? 0),
-    scaleX: 1,
-    scaleY: 1,
+    scaleX: transform?.scaleX ?? 1,
+    scaleY: transform?.scaleY ?? 1,
   });
 
   return (
