@@ -1054,7 +1054,7 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
+      expect(dataUrl).toBe('data:image/png;base64,');
     });
     unmount();
   });
@@ -1083,7 +1083,7 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
+      expect(dataUrl).toBe('data:image/png;base64,');
     });
     unmount();
   });
@@ -1108,7 +1108,7 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/gif;base64,');
+      expect(dataUrl).toBe('data:image/gif;base64,');
     });
     unmount();
   });
