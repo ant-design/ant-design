@@ -251,6 +251,15 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
+// jsdom 未实现 canvas getContext，补空实现以避免 QRCode 等组件测试输出噪声
+if (typeof HTMLCanvasElement !== 'undefined') {
+  Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+    configurable: true,
+    writable: true,
+    value: vi.fn(() => null),
+  });
+}
+
 if (global.HTMLElement) {
   global.HTMLElement.prototype.scrollIntoView = () => {};
 }
