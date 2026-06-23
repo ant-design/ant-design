@@ -41418,6 +41418,8 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41516,6 +41518,8 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41582,6 +41586,8 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41679,6 +41685,8 @@ exports[`ConfigProvider components Upload configProvider componentSize medium 1`
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41776,6 +41784,8 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41873,6 +41883,8 @@ exports[`ConfigProvider components Upload normal 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41970,6 +41982,8 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
         </div>
         <span
           class="prefix-Upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
