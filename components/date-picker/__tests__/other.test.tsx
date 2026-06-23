@@ -68,7 +68,7 @@ describe('Override locale setting of the ConfigProvider', () => {
         <DatePicker locale={zhTW} />
       </ConfigProvider>,
     );
-    expect(container.querySelector('input')?.placeholder).toEqual('請選擇日期');
+    expect(container.querySelector('input')?.placeholder).toBe('請選擇日期');
   });
   it('RangePicker', () => {
     const { container } = render(
@@ -76,7 +76,7 @@ describe('Override locale setting of the ConfigProvider', () => {
         <DatePicker.RangePicker locale={zhTW} />
       </ConfigProvider>,
     );
-    expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('開始日期');
-    expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('結束日期');
+    expect(container.querySelectorAll('input')[0]?.placeholder).toBe('開始日期');
+    expect(container.querySelectorAll('input')[1]?.placeholder).toBe('結束日期');
   });
 });

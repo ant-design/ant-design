@@ -127,7 +127,7 @@ describe('Upload', () => {
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled();
-          expect(file.name).toEqual('test.png');
+          expect(file.name).toBe('test.png');
           done();
         }
       },

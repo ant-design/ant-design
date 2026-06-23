@@ -55,7 +55,7 @@ describe('Slider', () => {
     );
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
-    expect(tooltipProps().placement).toEqual('left');
+    expect(tooltipProps().placement).toBe('left');
   });
 
   it('support autoAdjustOverflow', () => {
