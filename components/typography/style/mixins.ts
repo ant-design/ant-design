@@ -361,7 +361,10 @@ export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (toke
     animationFillMode: 'forwards',
 
     [`&${componentCls}-link`]: {
-      '--ant-typography-shimmer-color': colorLink,
+      backgroundImage: [
+        'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
+        `linear-gradient(${colorLink}, ${colorLink})`,
+      ].join(', '),
     },
 
     '&-disabled': {

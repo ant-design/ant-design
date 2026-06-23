@@ -537,7 +537,12 @@ describe('Typography', () => {
 
     render(
       <StyleProvider cache={cache}>
-        <Text shimmer>Thinking</Text>
+        <>
+          <Text shimmer>Thinking</Text>
+          <Link shimmer href="https://ant.design">
+            Loading link
+          </Link>
+        </>
       </StyleProvider>,
     );
 
@@ -553,7 +558,12 @@ describe('Typography', () => {
     expect(styleText).toContain('background-size:30% 100%,100% 100%');
     expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 1.5s)');
     expect(styleText).toContain('-webkit-text-fill-color:transparent');
-    expect(styleText).toContain('--ant-typography-shimmer-color:var(--ant-color-link)');
+    expect(styleText).toContain(
+      [
+        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95),',
+        ' transparent),linear-gradient(var(--ant-color-link), var(--ant-color-link))',
+      ].join(''),
+    );
   });
 
   // https://github.com/ant-design/ant-design/issues/53858
