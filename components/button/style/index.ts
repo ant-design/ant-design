@@ -49,13 +49,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       // https://github.com/ant-design/ant-design/issues/51380
       [`${componentCls}-icon > svg`]: resetIcon(),
 
-      // https://github.com/ant-design/ant-design/issues/57727
-      [`${componentCls}-icon`]: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-
       '> a': {
         color: 'currentColor',
       },
