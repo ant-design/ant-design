@@ -121,9 +121,31 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const isZhCN = lang === 'cn';
   const { styles } = useStyle();
 
+  // ======================== Source ========================
+  const [filledSource, abbrSource, componentLlmsPath] = React.useMemo(() => {
+    if (String(source) === 'true' && component) {
+      const kebabComponent = kebabCase(component);
+      return [
+        `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
+        `components/${kebabComponent}`,
+        `/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
+      ];
+    }
+
+    if (typeof source !== 'string') {
+      return [null, null, null];
+    }
+
+    return [source, source, null];
+  }, [component, repo, source, isZhCN]);
+
+  const filledLlmsPath = llmsPath ?? componentLlmsPath;
+  const showDocs = (showEdit && filename) || designUrl || filledLlmsPath || showChangelog;
+
   // ======================= Issues Count =======================
   const { issueCount, issueCountLoading, issueNewUrl, issueSearchUrl } = useIssueCount({
     repo,
+    enabled: Boolean(filledSource),
     titleKeywords: searchTitleKeywords,
   });
 
@@ -147,27 +169,6 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       setCopied(false);
     }
   };
-
-  // ======================== Source ========================
-  const [filledSource, abbrSource, componentLlmsPath] = React.useMemo(() => {
-    if (String(source) === 'true' && component) {
-      const kebabComponent = kebabCase(component);
-      return [
-        `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
-        `components/${kebabComponent}`,
-        `/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
-      ];
-    }
-
-    if (typeof source !== 'string') {
-      return [null, null, null];
-    }
-
-    return [source, source, null];
-  }, [component, repo, source, isZhCN]);
-
-  const filledLlmsPath = llmsPath ?? componentLlmsPath;
-  const showDocs = (showEdit && filename) || designUrl || filledLlmsPath || showChangelog;
 
   return (
     <Descriptions

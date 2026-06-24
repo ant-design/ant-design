@@ -1,7 +1,7 @@
 import React, { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
 import { clsx } from 'clsx';
-import { FormattedMessage, useRouteMeta } from 'dumi';
+import { FormattedMessage, useLocation as useDumiLocation, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
@@ -29,6 +29,7 @@ export interface ContentProps {
 
 const Content: React.FC<ContentProps> = ({ children, className }) => {
   const meta = useRouteMeta();
+  const rawLocation = useDumiLocation();
   const { pathname, hash } = useLocation();
   const { direction } = React.use(SiteContext);
   const { styles } = useStyle();
@@ -56,7 +57,7 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
   const isComponentPage = pathname.startsWith('/components/');
   const markdownPath =
     !isComponentPage && meta.frontmatter?.filename
-      ? `${pathname.replace(/\/$/, '')}.md`
+      ? `${rawLocation.pathname.replace(/\/$/, '') || '/index'}.md`
       : undefined;
 
   return (
