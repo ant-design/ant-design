@@ -32,6 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-item-path.tsx">字段路径前缀</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
 <code src="./demo/dynamic-form-items.tsx">动态增减嵌套字段</code>
+<code src="./demo/dynamic-form-items-drag-sorting.tsx">拖拽排序</code>
 <code src="./demo/dynamic-form-items-no-style.tsx" debug>动态增减嵌套纯字段</code>
 <code src="./demo/dynamic-form-items-complex.tsx">复杂的动态增减表单项</code>
 <code src="./demo/nest-messages.tsx">嵌套结构与校验信息</code>
