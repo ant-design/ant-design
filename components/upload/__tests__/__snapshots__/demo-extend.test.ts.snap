@@ -810,6 +810,8 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </div>
             <span
               class="ant-upload-list-item-name"
+              role="button"
+              tabindex="0"
               title="image.png"
             >
               image.png
@@ -1087,6 +1089,8 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </div>
             <span
               class="ant-upload-list-item-name"
+              role="button"
+              tabindex="0"
               title="image.png"
             >
               image.png
@@ -2460,6 +2464,8 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="image.png"
         >
           image.png
@@ -2569,6 +2575,8 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="pdf.pdf"
         >
           pdf.pdf
@@ -2670,6 +2678,8 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="doc.doc"
         >
           doc.doc
@@ -3529,6 +3539,8 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="image.png"
         >
           image.png
@@ -3808,6 +3820,8 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="image.png"
         >
           image.png
@@ -4003,6 +4017,8 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -4155,6 +4171,8 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="zzz.png"
         >
           zzz.png

@@ -300,7 +300,7 @@ describe('Popconfirm', () => {
       </div>,
     );
 
-    expect(container.textContent).toEqual('Test');
+    expect(container.textContent).toBe('Test');
 
     fireEvent.click(container.querySelector('.clickTarget')!);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);

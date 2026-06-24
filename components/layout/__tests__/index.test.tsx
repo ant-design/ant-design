@@ -391,7 +391,7 @@ describe('Sider', () => {
     expect(
       container.querySelector<HTMLDivElement>('.ant-layout-sider-zero-width-trigger')?.style
         .background,
-    ).toEqual('rgb(255, 153, 102)');
+    ).toBe('rgb(255, 153, 102)');
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {

@@ -384,4 +384,24 @@ describe('Input.Search', () => {
       expect(container.querySelector('.ant-input-search-btn')).toHaveTextContent('bamboo');
     });
   });
+
+  it('should support ConfigProvider className and style', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputSearch={{
+          className: 'bamboo',
+          style: { color: 'rgb(255, 0, 0)', backgroundColor: 'rgb(0, 255, 0)' },
+        }}
+      >
+        <Search style={{ color: 'rgb(0, 0, 255)' }} />
+      </ConfigProvider>,
+    );
+
+    const root = container.querySelector('.ant-input-search');
+    expect(root).toHaveClass('bamboo');
+    expect(root).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      backgroundColor: 'rgb(0, 255, 0)',
+    });
+  });
 });

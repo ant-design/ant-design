@@ -51,7 +51,7 @@ describe('Drawer', () => {
 
     rerender(<DrawerTest open={false} />);
 
-    expect(container.querySelector('.ant-drawer-body')?.textContent).toEqual(
+    expect(container.querySelector('.ant-drawer-body')?.textContent).toBe(
       'Here is content of Drawer',
     );
 
