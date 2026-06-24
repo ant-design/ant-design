@@ -315,14 +315,18 @@ Component archetypes capture the system's most common surfaces and states. Each 
 
 ## Customization
 
-Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. The system is designed to be re-skinned without editing this file or overriding individual tokens by hand.
+Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. Ant Design theming is broader than Design Token replacement: it includes algorithmic derivation, component-scoped overrides, dynamic switching, nested theme scopes, CSS variable output, static token consumption, and zero-runtime CSS extraction.
 
-Three layers of customization exist:
+The primary theme configuration entry is `ConfigProvider`'s `theme` prop:
 
 1. **Seed token overrides.** Pass `theme.token` to `ConfigProvider` to replace any seed. The primary and semantic color seeds (`colorPrimary`, `colorSuccess`, `colorWarning`, `colorError`, `colorInfo`) expand into derived gradients, while `colorBgBase` and `colorTextBase` drive neutral surfaces and text. Spacing, radius, and font-size seeds work the same way.
 
-2. **Algorithm switching.** Set `theme.algorithm` to swap the entire derivation logic. `darkAlgorithm` derives a dark surface ladder, inverted text alphas, and adjusted shadow values from the same seeds — do not invert colors manually; the algorithm accounts for non-linear gradient stops that flat inversion cannot reproduce. `compactAlgorithm` reduces control heights and spacing while preserving the same palette.
+2. **Algorithm switching.** Set `theme.algorithm` to swap the derivation logic. `defaultAlgorithm`, `darkAlgorithm`, and `compactAlgorithm` can be used alone or composed as an array — do not invert colors manually; the algorithms account for non-linear palette, surface, shadow, and size relationships.
 
-3. **Component-level overrides.** `theme.components.Button` (or any component's token namespace) can override a single component's derived tokens without affecting others — for example, changing the Button border radius without touching Input or Select.
+3. **Component-level overrides.** `theme.components.Button` (or any component's token namespace) can override a single component's Component Token and consumed Alias Token without affecting others. In component config, `algorithm` can opt that component into token derivation when the override should still follow seed-token relationships.
 
-For custom theme generation, keep Ant Design's interaction structure, density, state feedback, and component semantics first. Then change the smallest necessary seed set: usually `colorPrimary`, status colors, `borderRadius`, `fontFamily`, `fontSize`, and neutral surface bases. Brand pages may look distinct, but forms, tables, navigation, overlays, focus states, and validation feedback should still feel like Ant Design. Avoid generating custom CSS rules that bypass tokens; if a theme cannot be expressed through seed tokens, algorithms, or `theme.components`, treat that as a design-system extension rather than a one-off page style.
+4. **Runtime scope.** Themes can switch dynamically by changing `ConfigProvider.theme`, and nested `ConfigProvider` instances create local themes that inherit unchanged tokens from their parent. Static APIs such as `message.xxx`, `Modal.xxx`, and `notification.xxx` do not automatically receive the surrounding context; use hook-based APIs, `App`, or explicit context holders when themed static feedback is required.
+
+5. **Token consumption and output.** Use `theme.useToken()` inside React and `theme.getDesignToken()` outside React to consume resolved tokens. Use `theme.cssVar` when CSS variables are needed, and `theme.zeroRuntime` with prebuilt or extracted CSS when runtime style generation must be disabled.
+
+For custom theme generation, keep Ant Design's interaction structure, density, state feedback, and component semantics first. Then change the smallest necessary seed set: usually `colorPrimary`, status colors, `borderRadius`, `fontFamily`, `fontSize`, and neutral surface bases. Brand pages may look distinct, but forms, tables, navigation, overlays, focus states, and validation feedback should still feel like Ant Design. Avoid generating custom CSS rules that bypass tokens, algorithms, `theme.components`, CSS variables, or extracted static styles; if a theme cannot be expressed through those official layers, treat that as a design-system extension rather than a one-off page style.
