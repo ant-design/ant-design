@@ -119,17 +119,16 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     shape,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SegmentedSemanticAllType['classNames'],
     SegmentedSemanticAllType['styles'],
     SegmentedProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props: mergedProps,
-    },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style

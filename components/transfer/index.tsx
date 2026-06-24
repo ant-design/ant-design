@@ -508,13 +508,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TransferSemanticAllType['classNames'],
     TransferSemanticAllType['styles'],
     TransferProps
   >(
     [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },

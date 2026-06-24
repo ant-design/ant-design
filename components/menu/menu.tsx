@@ -209,13 +209,16 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     MenuClassNamesSchemaType,
     MenuStylesSchemaType,
     MenuProps
   >(
     [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },

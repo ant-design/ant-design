@@ -189,17 +189,16 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checked: mergedChecked,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CheckboxSemanticAllType['classNames'],
     CheckboxSemanticAllType['styles'],
     CheckboxProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props: mergedProps,
-    },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     `${prefixCls}-wrapper`,

@@ -337,13 +337,16 @@ const InternalSelect = <
     size: mergedSize,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SelectSemanticAllType['classNames'],
     SelectSemanticAllType['styles'],
     SelectProps
   >(
     [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps as unknown as SelectProps,
     },

@@ -114,18 +114,16 @@ const CheckableTagGroup = React.forwardRef<
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ====================== Styles ======================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CheckableTagGroupSemanticAllType['classNames'],
     CheckableTagGroupSemanticAllType['styles'],
     CheckableTagGroupBaseProps<CheckableTagValue>
   >(
     [contextClassNames as CheckableTagGroupProps['classNames'], classNames],
-    [
-      contextStyles as CheckableTagGroupProps['styles'],
-      useSemanticRootStyle(contextStyle),
-      styles,
-      useSemanticRootStyle(style),
-    ],
+    [contextStyles as CheckableTagGroupProps['styles'], contextStyleRoot, styles, styleRoot],
     {
       props,
     },

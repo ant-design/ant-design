@@ -407,13 +407,16 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     disabled: mergedDisabled,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CascaderSemanticAllType['classNames'],
     CascaderSemanticAllType['styles'],
     CascaderProps
   >(
     [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps as CascaderProps },
     {
       popup: {

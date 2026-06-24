@@ -358,18 +358,16 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ButtonSemanticAllType['classNames'],
     ButtonSemanticAllType['styles'],
     BaseButtonProps
   >(
     [_skipSemantic ? undefined : contextClassNames, classNames],
-    [
-      _skipSemantic ? undefined : contextStyles,
-      useSemanticRootStyle(contextStyle),
-      styles,
-      useSemanticRootStyle(style),
-    ],
+    [_skipSemantic ? undefined : contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
   );
 

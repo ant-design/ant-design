@@ -115,17 +115,16 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TextAreaSemanticAllType['classNames'],
     TextAreaSemanticAllType['styles'],
     TextAreaProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props,
-    },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);

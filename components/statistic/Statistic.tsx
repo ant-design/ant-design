@@ -107,17 +107,16 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     loading,
     value,
   };
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     StatisticSemanticAllType['classNames'],
     StatisticSemanticAllType['styles'],
     StatisticProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props: mergedProps,
-    },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {

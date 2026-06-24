@@ -301,13 +301,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     bordered,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TableSemanticAllType<RecordType>['classNames'],
     TableSemanticAllType<RecordType>['styles'],
     TableProps<RecordType>
   >(
     [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       pagination: {

@@ -59,17 +59,16 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CardMetaSemanticAllType['classNames'],
     CardMetaSemanticAllType['styles'],
     CardMetaProps
-  >(
-    [contextClassNames, cardMetaClassNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props,
-    },
-  );
+  >([contextClassNames, cardMetaClassNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
 

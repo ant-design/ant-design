@@ -160,15 +160,16 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     variant: variant as CardProps['variant'],
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     CardSemanticAllType['classNames'],
     CardSemanticAllType['styles'],
     CardProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    { props: mergedProps },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {

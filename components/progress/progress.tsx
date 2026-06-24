@@ -171,17 +171,16 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   };
 
   // ======================== Styles ========================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ProgressSemanticAllType['classNames'],
     ProgressSemanticAllType['styles'],
     ProgressProps
-  >(
-    [contextClassNames, classNames],
-    [contextStyles, useSemanticRootStyle(contextStyle), styles, useSemanticRootStyle(style)],
-    {
-      props: mergedProps,
-    },
-  );
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ========================= Info =========================
   const isLineType = type === 'line';
