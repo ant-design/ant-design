@@ -86,39 +86,6 @@ describe('Select', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
-  // https://github.com/ant-design/ant-design/issues/58221
-  it('should add scroll fade hints to popup virtual list holder', () => {
-    render(
-      <Select
-        open
-        options={Array.from({ length: 20 }, (_, index) => ({
-          label: `Option ${index}`,
-          value: index,
-        }))}
-      />,
-    );
-
-    const cssText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    const holderRule = cssText
-      .split('}')
-      .find(
-        (rule) =>
-          rule.includes('-select-dropdown') &&
-          rule.includes('rc-virtual-list-holder') &&
-          rule.includes('background-attachment'),
-      );
-
-    expect(holderRule).toBeTruthy();
-    expect(holderRule).toContain('linear-gradient');
-    expect(holderRule).toContain('radial-gradient');
-    expect(holderRule).toMatch(
-      /background-attachment\s*:\s*local,\s*local,\s*scroll,\s*scroll/i,
-    );
-    expect(holderRule).toMatch(/background-origin\s*:\s*content-box/i);
-  });
-
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);

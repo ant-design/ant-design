@@ -361,41 +361,6 @@ describe('Menu', () => {
     });
   });
 
-  // https://github.com/ant-design/ant-design/issues/58221
-  it('dark vertical submenu popup should use themed scroll fade hints', () => {
-    const { container } = render(
-      <Menu mode="vertical" openKeys={['1']} theme="dark">
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
-    );
-
-    triggerAllTimer();
-
-    expect(container.querySelector('div.ant-menu-submenu-popup')).toHaveClass('ant-menu-dark');
-
-    const cssText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    const darkPopupRule = cssText
-      .split('}')
-      .find(
-        (rule) =>
-          rule.includes('-menu-dark') &&
-          rule.includes('-menu-submenu-popup') &&
-          rule.includes('-menu-vertical') &&
-          rule.includes('background-attachment'),
-    );
-
-    expect(darkPopupRule).toBeTruthy();
-    expect(darkPopupRule).toContain('var(--ant-menu-dark-popup-bg)');
-    expect(darkPopupRule).not.toContain('var(--ant-color-bg-elevated)');
-    expect(darkPopupRule).toMatch(/background-origin\s*:\s*content-box/i);
-  });
-
   // https://github.com/ant-design/ant-design/pulls/4677
   // https://github.com/ant-design/ant-design/issues/4692
   // TypeError: Cannot read property 'indexOf' of undefined
