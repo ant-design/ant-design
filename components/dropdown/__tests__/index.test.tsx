@@ -615,5 +615,9 @@ describe('Dropdown', () => {
     expect(verticalRule).toBeTruthy();
     expect(verticalRule).toContain('linear-gradient');
     expect(verticalRule).toContain('radial-gradient');
+    expect(verticalRule).toMatch(
+      /background-attachment\s*:\s*local,\s*local,\s*scroll,\s*scroll/i,
+    );
+    expect(verticalRule).toMatch(/background-origin\s*:\s*content-box/i);
   });
 });

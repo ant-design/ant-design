@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
-import { genFocusOutline } from '../../style';
+import { genFocusOutline, genScrollFadeStyle } from '../../style';
 
 const accessibilityFocus = (token: MenuToken) => genFocusOutline(token);
 
@@ -175,6 +175,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       [`&${componentCls}-submenu-popup > ${componentCls}`]: {
         backgroundColor: popupBg,
       },
+
+      [`&${componentCls}-submenu-popup ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])`]:
+        {
+          ...genScrollFadeStyle(token, { backgroundColor: popupBg }),
+        },
       // ===== 设置浮层的颜色 end =======
 
       // ====================== Horizontal ======================

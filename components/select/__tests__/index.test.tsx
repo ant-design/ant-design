@@ -113,6 +113,10 @@ describe('Select', () => {
     expect(holderRule).toBeTruthy();
     expect(holderRule).toContain('linear-gradient');
     expect(holderRule).toContain('radial-gradient');
+    expect(holderRule).toMatch(
+      /background-attachment\s*:\s*local,\s*local,\s*scroll,\s*scroll/i,
+    );
+    expect(holderRule).toMatch(/background-origin\s*:\s*content-box/i);
   });
 
   it('should show search icon when showSearch and open', () => {
