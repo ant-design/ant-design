@@ -10,7 +10,7 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 import type { GetProp } from 'antd';
-import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
+import { Descriptions, Divider, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import copy from 'antd/es/_util/copy';
 import kebabCase from 'lodash/kebabCase';
@@ -171,107 +171,110 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   };
 
   return (
-    <Descriptions
-      size="small"
-      colon={false}
-      column={1}
-      style={{ marginTop: token.margin }}
-      styles={{ label: { paddingInlineEnd: token.padding, width: 56 } }}
-      items={
-        [
-          showImport &&
-            component && {
-              label: locale.import,
-              children: (
-                <Tooltip
-                  placement="right"
-                  title={copied ? locale.copied : locale.copy}
-                  onOpenChange={onOpenChange}
-                >
-                  <Typography.Text
-                    className={styles.code}
-                    style={{ cursor: 'pointer' }}
-                    onClick={onCopy}
+    <>
+      <Descriptions
+        size="small"
+        colon={false}
+        column={1}
+        style={{ marginTop: token.margin }}
+        styles={{ label: { paddingInlineEnd: token.padding, width: 56 } }}
+        items={
+          [
+            showImport &&
+              component && {
+                label: locale.import,
+                children: (
+                  <Tooltip
+                    placement="right"
+                    title={copied ? locale.copied : locale.copy}
+                    onOpenChange={onOpenChange}
                   >
-                    {importCode}
-                  </Typography.Text>
-                </Tooltip>
+                    <Typography.Text
+                      className={styles.code}
+                      style={{ cursor: 'pointer' }}
+                      onClick={onCopy}
+                    >
+                      {importCode}
+                    </Typography.Text>
+                  </Tooltip>
+                ),
+              },
+            filledSource && {
+              label: locale.source,
+              children: (
+                <Flex justify="flex-start" align="center" gap="small">
+                  <Typography.Link className={styles.code} href={filledSource} target="_blank">
+                    <GithubOutlined className={styles.icon} />
+                    <span>{abbrSource}</span>
+                  </Typography.Link>
+                  <Typography.Link className={styles.code} href={issueNewUrl} target="_blank">
+                    <BugOutlined className={styles.icon} />
+                    <span>{locale.issueNew}</span>
+                  </Typography.Link>
+                  <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
+                    <IssuesCloseOutlined className={styles.icon} />
+                    <span>
+                      {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
+                    </span>
+                  </Typography.Link>
+                </Flex>
               ),
             },
-          filledSource && {
-            label: locale.source,
-            children: (
-              <Flex justify="flex-start" align="center" gap="small">
-                <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                  <GithubOutlined className={styles.icon} />
-                  <span>{abbrSource}</span>
-                </Typography.Link>
-                <Typography.Link className={styles.code} href={issueNewUrl} target="_blank">
-                  <BugOutlined className={styles.icon} />
-                  <span>{locale.issueNew}</span>
-                </Typography.Link>
-                <Typography.Link className={styles.code} href={issueSearchUrl} target="_blank">
-                  <IssuesCloseOutlined className={styles.icon} />
-                  <span>
-                    {locale.issueOpen} {issueCountLoading ? <LoadingOutlined /> : issueCount}
-                  </span>
-                </Typography.Link>
-              </Flex>
-            ),
-          },
-          showDocs && {
-            label: locale.docs,
-            children: (
-              <Flex justify="flex-start" align="center" gap="small">
-                {showEdit && filename && (
-                  <Typography.Link
-                    className={styles.code}
-                    href={`${branchUrl(repo)}${filename}`}
-                    target="_blank"
-                  >
-                    <EditOutlined className={styles.icon} />
-                    <span>{locale.edit}</span>
-                  </Typography.Link>
-                )}
-                {designUrl && (
-                  <Link className={styles.code} to={designUrl}>
-                    <CompassOutlined className={styles.icon} />
-                    <span>{locale.design}</span>
-                  </Link>
-                )}
-                {filledLlmsPath && (
-                  <Typography.Link
-                    className={styles.code}
-                    href={filledLlmsPath}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FileTextOutlined className={styles.icon} />
-                    <span>LLMs.md</span>
-                  </Typography.Link>
-                )}
-                {showChangelog && (
-                  <ComponentChangelog>
-                    <Typography.Link className={styles.code}>
-                      <HistoryOutlined className={styles.icon} />
-                      <span>{locale.changelog}</span>
+            showDocs && {
+              label: locale.docs,
+              children: (
+                <Flex justify="flex-start" align="center" gap="small">
+                  {showEdit && filename && (
+                    <Typography.Link
+                      className={styles.code}
+                      href={`${branchUrl(repo)}${filename}`}
+                      target="_blank"
+                    >
+                      <EditOutlined className={styles.icon} />
+                      <span>{locale.edit}</span>
                     </Typography.Link>
-                  </ComponentChangelog>
-                )}
-              </Flex>
-            ),
-          },
-          isVersionNumber(version) && {
-            label: locale.version,
-            children: (
-              <Typography.Text className={styles.code}>
-                {isZhCN ? `自 ${version} 起支持` : `supported since ${version}`}
-              </Typography.Text>
-            ),
-          },
-        ].filter(Boolean) as GetProp<typeof Descriptions, 'items'>
-      }
-    />
+                  )}
+                  {designUrl && (
+                    <Link className={styles.code} to={designUrl}>
+                      <CompassOutlined className={styles.icon} />
+                      <span>{locale.design}</span>
+                    </Link>
+                  )}
+                  {filledLlmsPath && (
+                    <Typography.Link
+                      className={styles.code}
+                      href={filledLlmsPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FileTextOutlined className={styles.icon} />
+                      <span>LLMs.md</span>
+                    </Typography.Link>
+                  )}
+                  {showChangelog && (
+                    <ComponentChangelog>
+                      <Typography.Link className={styles.code}>
+                        <HistoryOutlined className={styles.icon} />
+                        <span>{locale.changelog}</span>
+                      </Typography.Link>
+                    </ComponentChangelog>
+                  )}
+                </Flex>
+              ),
+            },
+            isVersionNumber(version) && {
+              label: locale.version,
+              children: (
+                <Typography.Text className={styles.code}>
+                  {isZhCN ? `自 ${version} 起支持` : `supported since ${version}`}
+                </Typography.Text>
+              ),
+            },
+          ].filter(Boolean) as GetProp<typeof Descriptions, 'items'>
+        }
+      />
+      <Divider />
+    </>
   );
 };
 
