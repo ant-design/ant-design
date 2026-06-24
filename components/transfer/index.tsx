@@ -488,9 +488,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return listStyle || {};
   };
 
-  const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
-
-  const { hasFeedback, status } = formItemContext;
+  const { hasFeedback, status } = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
   const getLocale = (transferLocale: TransferLocale) => ({
     ...transferLocale,
@@ -502,11 +500,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedPagination = !children && pagination;
 
   const leftActive = rightDataSource.some(
-    (d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled,
+    (d) => d.key && targetSelectedKeys.includes(d.key) && !d.disabled,
   );
 
   const rightActive = leftDataSource.some(
-    (d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled,
+    (d) => d.key && sourceSelectedKeys.includes(d.key) && !d.disabled,
   );
 
   // ====================== Styles ======================
