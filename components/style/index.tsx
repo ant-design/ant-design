@@ -107,7 +107,6 @@ export const genScrollFadeStyle = (
       `100% ${shadowSize}`,
     ].join(', '),
     backgroundAttachment: 'local, local, scroll, scroll',
-    backgroundOrigin: 'content-box',
   };
 };
 
