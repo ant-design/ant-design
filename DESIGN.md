@@ -315,7 +315,7 @@ Component archetypes capture the system's most common surfaces and states. Each 
 
 ## Customization
 
-Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. Ant Design theming is broader than Design Token replacement: it includes algorithmic derivation, component-scoped overrides, dynamic switching, nested theme scopes, CSS variable output, static token consumption, and zero-runtime CSS extraction.
+Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. Ant Design theming is broader than Design Token replacement: it includes algorithmic derivation, component-scoped overrides, dynamic switching, nested theme scopes, CSS variable output, static token consumption, and zero-runtime CSS extraction. See [Customize Theme](https://ant.design/docs/react/customize-theme.md) for the complete runtime API and examples.
 
 The primary theme configuration entry is `ConfigProvider`'s `theme` prop:
 
