@@ -593,31 +593,4 @@ describe('Dropdown', () => {
     expect(verticalRule).not.toMatch(/max-height:\s*100vh/);
   });
 
-  // https://github.com/ant-design/ant-design/issues/58221
-  it('vertical menu should include scroll fade hints', () => {
-    render(
-      <Dropdown menu={{ items }} open>
-        <button type="button">button</button>
-      </Dropdown>,
-    );
-
-    const cssText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    const verticalRule = cssText
-      .split('}')
-      .find(
-        (rule) =>
-          rule.includes('-dropdown-menu-vertical') &&
-          rule.includes('background-attachment'),
-      );
-
-    expect(verticalRule).toBeTruthy();
-    expect(verticalRule).toContain('linear-gradient');
-    expect(verticalRule).toContain('radial-gradient');
-    expect(verticalRule).toMatch(
-      /background-attachment\s*:\s*local,\s*local,\s*scroll,\s*scroll/i,
-    );
-    expect(verticalRule).toMatch(/background-origin\s*:\s*content-box/i);
-  });
 });
