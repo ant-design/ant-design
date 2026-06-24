@@ -592,5 +592,4 @@ describe('Dropdown', () => {
     expect(verticalRule).toContain('calc(100vh');
     expect(verticalRule).not.toMatch(/max-height:\s*100vh/);
   });
-
 });
