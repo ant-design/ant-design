@@ -331,6 +331,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
             '&-has-search-value': {
               opacity: 1,
+              transition: `opacity ${token.motionDurationMid} ${token.motionEaseInOut}`,
               color: 'transparent',
               [`> *:not(${componentCls}-input)`]: {
                 opacity: 0,
