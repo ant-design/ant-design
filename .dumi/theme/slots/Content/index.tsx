@@ -59,6 +59,11 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
     !isComponentPage && meta.frontmatter?.filename
       ? `${rawLocation.pathname.replace(/\/$/, '') || '/index'}.md`
       : undefined;
+  const showComponentMeta =
+    meta.frontmatter.category === 'Components' && String(meta.frontmatter.showImport) !== 'false';
+  const showDocsMeta = meta.frontmatter.category !== 'Components' && markdownPath;
+  const showTitleEdit =
+    !pathname.startsWith('/components/overview') && !showComponentMeta && !showDocsMeta;
 
   return (
     <DemoContext value={contextValue}>
@@ -71,7 +76,7 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
                 <Space>
                   <span>{meta.frontmatter?.title}</span>
                   <span>{meta.frontmatter?.subtitle}</span>
-                  {!pathname.startsWith('/components/overview') && (
+                  {showTitleEdit && (
                     <EditButton
                       title={<FormattedMessage id="app.content.edit-page" />}
                       filename={meta.frontmatter.filename}
@@ -85,21 +90,20 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
 
           {/* Import Info */}
-          {meta.frontmatter.category === 'Components' &&
-            String(meta.frontmatter.showImport) !== 'false' && (
-              <ComponentMeta
-                source
-                component={meta.frontmatter.title}
-                filename={meta.frontmatter.filename}
-                version={meta.frontmatter.tag}
-                designUrl={meta.frontmatter.designUrl}
-                searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
-                  Boolean,
-                )}
-                repo="ant-design/ant-design"
-              />
-            )}
-          {meta.frontmatter.category !== 'Components' && markdownPath && (
+          {showComponentMeta && (
+            <ComponentMeta
+              source
+              component={meta.frontmatter.title}
+              filename={meta.frontmatter.filename}
+              version={meta.frontmatter.tag}
+              designUrl={meta.frontmatter.designUrl}
+              searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
+                Boolean,
+              )}
+              repo="ant-design/ant-design"
+            />
+          )}
+          {showDocsMeta && (
             <ComponentMeta
               filename={meta.frontmatter.filename}
               llmsPath={markdownPath}
