@@ -7,7 +7,7 @@ import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isNonNullable } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -500,11 +500,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedPagination = !children && pagination;
 
   const leftActive = rightDataSource.some(
-    (d) => d.key && targetSelectedKeys.includes(d.key) && !d.disabled,
+    (data) => isNonNullable(data.key) && targetSelectedKeys.includes(data.key) && !data.disabled,
   );
 
   const rightActive = leftDataSource.some(
-    (d) => d.key && sourceSelectedKeys.includes(d.key) && !d.disabled,
+    (data) => isNonNullable(data.key) && sourceSelectedKeys.includes(data.key) && !data.disabled,
   );
 
   // ====================== Styles ======================
