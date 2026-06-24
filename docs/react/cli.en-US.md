@@ -82,11 +82,11 @@ The file includes:
 - **YAML front-matter** — Structured token definitions for colors, typography, rounded corners, spacing, and core components, with `{path.to.token}` reference syntax
 - **Overview** — Ant Design's four design values (Natural, Certain, Meaningful, Growing)
 - **Colors** — Functional colors, preset palette, and why neutrals use `rgba()`
-- **Typography** — 14px base font size, font stack, three-weight constraint
+- **Typography** — 14px base font size, font stack, two-weight constraint
 - **Layout** — 4px grid, spacing scale, three-layer surface model
 - **Elevation & Depth** — Four shadow tiers, motion durations and easings
 - **Shapes** — 6px default radius and per-component classifications
-- **Components** — Style descriptions for 12 core component archetypes
+- **Components** — Style descriptions for core component archetypes and states
 - **Do's and Don'ts** — Design guidance rules
 
 The file is also published at [ant.design/design.md](https://ant.design/design.md) and can be read directly by AI tools via URL.
