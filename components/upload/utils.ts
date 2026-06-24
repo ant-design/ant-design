@@ -73,7 +73,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
     return isImageFileType(file.type);
   }
   const url = file.thumbUrl || file.url || '';
-  const extension = extname(url);
+  const extension = extname(url || file.name);
   if (/^data:image\//.test(url) || imageExtensions.includes(extension?.toLowerCase() || '')) {
     return true;
   }

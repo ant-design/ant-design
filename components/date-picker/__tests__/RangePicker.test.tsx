@@ -141,14 +141,14 @@ describe('RangePicker', () => {
   it('placeholder', () => {
     const { container } = render(<RangePicker placeholder={undefined} />);
     const inputLists = container.querySelectorAll('input');
-    expect(inputLists[0]?.placeholder).toEqual('Start date');
-    expect(inputLists[inputLists.length - 1].placeholder).toEqual('End date');
+    expect(inputLists[0]?.placeholder).toBe('Start date');
+    expect(inputLists[inputLists.length - 1].placeholder).toBe('End date');
   });
 
   it('RangePicker picker quarter placeholder', () => {
     const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
-    expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
-    expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
+    expect(container.querySelectorAll('input')[0]?.placeholder).toBe('Start quarter');
+    expect(container.querySelectorAll('input')[1]?.placeholder).toBe('End quarter');
   });
 
   it('should fall back to rangePlaceholder when locale omits range-variant placeholder', () => {
@@ -169,8 +169,8 @@ describe('RangePicker', () => {
         <RangePicker picker={picker} locale={partialLocale} />,
       );
       const inputs = container.querySelectorAll('input');
-      expect(inputs[0]?.placeholder).toEqual('Fallback start');
-      expect(inputs[inputs.length - 1]?.placeholder).toEqual('Fallback end');
+      expect(inputs[0]?.placeholder).toBe('Fallback start');
+      expect(inputs[inputs.length - 1]?.placeholder).toBe('Fallback end');
       unmount();
     });
   });

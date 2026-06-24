@@ -175,7 +175,7 @@ describe('Avatar Render', () => {
       </Avatar>,
     );
     expect(container.querySelector('img')?.crossOrigin).toBeTruthy();
-    expect(container.querySelector('img')?.crossOrigin).toEqual(crossOrigin);
+    expect(container.querySelector('img')?.crossOrigin).toBe(crossOrigin);
   });
 
   it('should not exist crossorigin attribute', () => {

@@ -91,9 +91,9 @@ describe('Mentions', () => {
   it('allowClear', () => {
     const wrapper = render(<Mentions allowClear defaultValue="111" />);
     const textareaInstance = wrapper.container.querySelector('textarea')!;
-    expect(textareaInstance.value).toEqual('111');
+    expect(textareaInstance.value).toBe('111');
     fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);
-    expect(textareaInstance.value).toEqual('');
+    expect(textareaInstance.value).toBe('');
   });
 
   it('should support allowClear.disabled', () => {

@@ -137,7 +137,7 @@ describe('Radio Group', () => {
     const { container } = render(<RadioGroupComponent name={GROUP_NAME} />);
 
     container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
-      expect(el.name).toEqual(GROUP_NAME);
+      expect(el.name).toBe(GROUP_NAME);
     });
   });
 
