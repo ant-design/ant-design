@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
-import { textEllipsis } from '../../style';
+import { genScrollFadeStyle, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
@@ -112,6 +112,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         "&:not([class*='-active'])": {
           overflowX: 'hidden',
           overflowY: 'auto',
+          ...genScrollFadeStyle(token),
         },
       },
     },

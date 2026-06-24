@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle, resetComponent } from '../../style';
+import { genFocusStyle, genScrollFadeStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -107,6 +107,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         '&-menu-vertical': {
           maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
           overflowY: 'auto',
+          ...genScrollFadeStyle(token),
         },
 
         [`&-trigger${antCls}-btn`]: {

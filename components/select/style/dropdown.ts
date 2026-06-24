@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genScrollFadeStyle, resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -91,6 +91,10 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
         '&-hidden': {
           display: 'none',
+        },
+
+        '.rc-virtual-list-holder': {
+          ...genScrollFadeStyle(token),
         },
 
         [selectItemCls]: {

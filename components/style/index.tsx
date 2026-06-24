@@ -76,6 +76,30 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
   '&:focus-visible': genFocusOutline(token, offset),
 });
 
+export const genScrollFadeStyle = (token: AliasToken): CSSObject => {
+  const { colorBgElevated, colorTextQuaternary, paddingXS, paddingXXS } = token;
+  const fadeSize = unit(paddingXS);
+  const shadowSize = unit(paddingXXS);
+
+  return {
+    backgroundImage: [
+      `linear-gradient(${colorBgElevated} 30%, transparent)`,
+      `linear-gradient(transparent, ${colorBgElevated} 70%)`,
+      `radial-gradient(farthest-side at 50% 0, ${colorTextQuaternary}, transparent)`,
+      `radial-gradient(farthest-side at 50% 100%, ${colorTextQuaternary}, transparent)`,
+    ].join(', '),
+    backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: [
+      `100% ${fadeSize}`,
+      `100% ${fadeSize}`,
+      `100% ${shadowSize}`,
+      `100% ${shadowSize}`,
+    ].join(', '),
+    backgroundAttachment: 'local, local, scroll, scroll',
+  };
+};
+
 export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   a: {
     color: token.colorLink,
