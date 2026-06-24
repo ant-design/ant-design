@@ -53,6 +53,11 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
   );
 
   const isRTL = direction === 'rtl';
+  const isComponentPage = pathname.startsWith('/components/');
+  const markdownPath =
+    !isComponentPage && meta.frontmatter?.filename
+      ? `${pathname.replace(/\/$/, '')}.md`
+      : undefined;
 
   return (
     <DemoContext value={contextValue}>
@@ -93,6 +98,16 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
                 repo="ant-design/ant-design"
               />
             )}
+          {meta.frontmatter.category !== 'Components' && markdownPath && (
+            <ComponentMeta
+              filename={meta.frontmatter.filename}
+              llmsPath={markdownPath}
+              repo="ant-design/ant-design"
+              showChangelog={false}
+              showEdit={false}
+              showImport={false}
+            />
+          )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>
             {children}
             <FloatButton.BackTop />

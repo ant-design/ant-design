@@ -89,17 +89,33 @@ const useStyle = createStyles(({ cssVar, token }) => ({
 }));
 
 export interface ComponentMetaProps {
-  component: string;
-  source: string | true;
+  component?: string;
+  source?: string | true;
   filename?: string;
+  llmsPath?: string;
   version?: string;
   designUrl?: string;
   searchTitleKeywords?: string[];
   repo: string;
+  showImport?: boolean;
+  showEdit?: boolean;
+  showChangelog?: boolean;
 }
 
 const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
-  const { component, source, filename, version, designUrl, searchTitleKeywords, repo } = props;
+  const {
+    component,
+    source,
+    filename,
+    llmsPath,
+    version,
+    designUrl,
+    searchTitleKeywords,
+    repo,
+    showImport = true,
+    showEdit = true,
+    showChangelog = true,
+  } = props;
   const { token } = theme.useToken();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
@@ -117,7 +133,9 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const importCode =
     component === 'Icon'
       ? `import { AntDesignOutlined } from '@ant-design/icons';`
-      : `import { ${transformComponentName(component)} } from 'antd';`;
+      : component
+        ? `import { ${transformComponentName(component)} } from 'antd';`
+        : '';
 
   const onCopy = async () => {
     await copy(importCode);
@@ -131,8 +149,8 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   };
 
   // ======================== Source ========================
-  const [filledSource, abbrSource, llmsPath] = React.useMemo(() => {
-    if (String(source) === 'true') {
+  const [filledSource, abbrSource, componentLlmsPath] = React.useMemo(() => {
+    if (String(source) === 'true' && component) {
       const kebabComponent = kebabCase(component);
       return [
         `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
@@ -148,6 +166,9 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     return [source, source, null];
   }, [component, repo, source, isZhCN]);
 
+  const filledLlmsPath = llmsPath ?? componentLlmsPath;
+  const showDocs = (showEdit && filename) || designUrl || filledLlmsPath || showChangelog;
+
   return (
     <Descriptions
       size="small"
@@ -157,24 +178,25 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       styles={{ label: { paddingInlineEnd: token.padding, width: 56 } }}
       items={
         [
-          {
-            label: locale.import,
-            children: (
-              <Tooltip
-                placement="right"
-                title={copied ? locale.copied : locale.copy}
-                onOpenChange={onOpenChange}
-              >
-                <Typography.Text
-                  className={styles.code}
-                  style={{ cursor: 'pointer' }}
-                  onClick={onCopy}
+          showImport &&
+            component && {
+              label: locale.import,
+              children: (
+                <Tooltip
+                  placement="right"
+                  title={copied ? locale.copied : locale.copy}
+                  onOpenChange={onOpenChange}
                 >
-                  {importCode}
-                </Typography.Text>
-              </Tooltip>
-            ),
-          },
+                  <Typography.Text
+                    className={styles.code}
+                    style={{ cursor: 'pointer' }}
+                    onClick={onCopy}
+                  >
+                    {importCode}
+                  </Typography.Text>
+                </Tooltip>
+              ),
+            },
           filledSource && {
             label: locale.source,
             children: (
@@ -196,39 +218,45 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
               </Flex>
             ),
           },
-          filename && {
+          showDocs && {
             label: locale.docs,
             children: (
               <Flex justify="flex-start" align="center" gap="small">
-                <Typography.Link
-                  className={styles.code}
-                  href={`${branchUrl(repo)}${filename}`}
-                  target="_blank"
-                >
-                  <EditOutlined className={styles.icon} />
-                  <span>{locale.edit}</span>
-                </Typography.Link>
+                {showEdit && filename && (
+                  <Typography.Link
+                    className={styles.code}
+                    href={`${branchUrl(repo)}${filename}`}
+                    target="_blank"
+                  >
+                    <EditOutlined className={styles.icon} />
+                    <span>{locale.edit}</span>
+                  </Typography.Link>
+                )}
                 {designUrl && (
                   <Link className={styles.code} to={designUrl}>
                     <CompassOutlined className={styles.icon} />
                     <span>{locale.design}</span>
                   </Link>
                 )}
-                <Typography.Link
-                  className={styles.code}
-                  href={llmsPath || ''}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FileTextOutlined className={styles.icon} />
-                  <span>LLMs.md</span>
-                </Typography.Link>
-                <ComponentChangelog>
-                  <Typography.Link className={styles.code}>
-                    <HistoryOutlined className={styles.icon} />
-                    <span>{locale.changelog}</span>
+                {filledLlmsPath && (
+                  <Typography.Link
+                    className={styles.code}
+                    href={filledLlmsPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FileTextOutlined className={styles.icon} />
+                    <span>LLMs.md</span>
                   </Typography.Link>
-                </ComponentChangelog>
+                )}
+                {showChangelog && (
+                  <ComponentChangelog>
+                    <Typography.Link className={styles.code}>
+                      <HistoryOutlined className={styles.icon} />
+                      <span>{locale.changelog}</span>
+                    </Typography.Link>
+                  </ComponentChangelog>
+                )}
               </Flex>
             ),
           },
