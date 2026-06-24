@@ -105,7 +105,6 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
               llmsPath={markdownPath}
               repo="ant-design/ant-design"
               showChangelog={false}
-              showEdit={false}
               showImport={false}
             />
           )}
