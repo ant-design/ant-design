@@ -2,38 +2,27 @@ import React from 'react';
 import { Avatar } from 'antd';
 import type { AvatarGroupProps } from '../AvatarGroup';
 
-interface Config {
-  defaultMaxCount?: number;
-}
+const defaultMaxCount = 3;
 
-const withOverflowInFinal = (
-  Component: React.ComponentType<AvatarGroupProps>,
-  config: Config = {},
-) => {
-  const { defaultMaxCount = 3 } = config;
+const AvatarGroupOverflow: React.FC<AvatarGroupProps & { overflowInFinal?: boolean }> = (props) => {
+  const { overflowInFinal, ...restProps } = props;
 
-  return (props: AvatarGroupProps & { overflowInFinal?: boolean }) => {
-    const { overflowInFinal, ...restProps } = props;
+  if (!overflowInFinal) {
+    return <Avatar.Group {...restProps} />;
+  }
 
-    if (!overflowInFinal) {
-      return <Component {...restProps} />;
-    }
+  const mergedMaxCount = props.max?.count ?? defaultMaxCount;
 
-    const mergedMaxCount = props.max?.count ?? defaultMaxCount;
-
-    return (
-      <Component
-        {...restProps}
-        max={{
-          ...props.max,
-          count: mergedMaxCount - 1,
-        }}
-      />
-    );
-  };
+  return (
+    <Avatar.Group
+      {...restProps}
+      max={{
+        ...props.max,
+        count: mergedMaxCount - 1,
+      }}
+    />
+  );
 };
-
-const AvatarGroupOverflow = withOverflowInFinal(Avatar.Group as any);
 
 const App: React.FC = () => (
   <AvatarGroupOverflow
