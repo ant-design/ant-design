@@ -9,6 +9,7 @@ colors:
   error: '#FF4D4F'
   info: '#1677FF'
   blue: '#1677FF'
+  blue-7: '#0958D9'
   purple: '#722ED1'
   cyan: '#13C2C2'
   green: '#52C41A'
@@ -172,30 +173,31 @@ components:
   alert-success:
     backgroundColor: '#F6FFED'
     textColor: '{colors.on-surface}'
-    rounded: '{rounded.DEFAULT}'
+    rounded: '{rounded.lg}'
     padding: 8px 12px
   alert-warning:
     backgroundColor: '#FFFBE6'
     textColor: '{colors.on-surface}'
-    rounded: '{rounded.DEFAULT}'
+    rounded: '{rounded.lg}'
     padding: 8px 12px
   alert-error:
     backgroundColor: '#FFF2F0'
     textColor: '{colors.on-surface}'
-    rounded: '{rounded.DEFAULT}'
+    rounded: '{rounded.lg}'
     padding: 8px 12px
   alert-info:
     backgroundColor: '#E6F4FF'
     textColor: '{colors.on-surface}'
-    rounded: '{rounded.DEFAULT}'
+    rounded: '{rounded.lg}'
     padding: 8px 12px
   badge-status-error:
     backgroundColor: '{colors.error}'
     rounded: '{rounded.full}'
-    size: 6px
+    width: 6px
+    height: 6px
   tag-blue:
     backgroundColor: '#E6F4FF'
-    textColor: '{colors.primary}'
+    textColor: '{colors.blue-7}'
     typography: '{typography.body-sm}'
     rounded: '{rounded.md}'
     padding: 0 7px
