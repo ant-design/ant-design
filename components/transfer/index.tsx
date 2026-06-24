@@ -141,8 +141,10 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any>
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
+export interface TransferProps<RecordType = any> extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onScroll' | 'children'
+> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -499,13 +501,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive =
-    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const leftActive = rightDataSource.some(
+    (d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled,
+  );
 
-  const rightActive =
-    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const rightActive = leftDataSource.some(
+    (d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled,
+  );
 
   // ====================== Styles ======================
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
