@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toArray } from '@rc-component/util';
 import { Avatar, Flex, InputNumber, Space, Switch } from 'antd';
 import type { AvatarGroupProps } from '../AvatarGroup';
 
@@ -7,7 +8,7 @@ const defaultMaxCount = 3;
 const AvatarGroupOverflow: React.FC<AvatarGroupProps & { overflowInFinal?: boolean }> = (props) => {
   const { overflowInFinal, ...restProps } = props;
   const mergedMaxCount = props.max?.count ?? defaultMaxCount;
-  const childrenCount = React.Children.count(props.children);
+  const childrenCount = toArray(props.children).length;
   if (!overflowInFinal || mergedMaxCount >= childrenCount) {
     return <Avatar.Group {...restProps} />;
   }
