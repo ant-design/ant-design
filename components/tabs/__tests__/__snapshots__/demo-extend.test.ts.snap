@@ -4302,12 +4302,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -4464,12 +4464,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -4626,12 +4626,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -4771,12 +4771,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

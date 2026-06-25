@@ -9023,11 +9023,11 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -13661,11 +13661,11 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -15100,11 +15100,11 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -18886,11 +18886,11 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
