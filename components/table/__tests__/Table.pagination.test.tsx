@@ -624,7 +624,7 @@ describe('Table.pagination', () => {
     };
 
     const { container } = render(<Demo />);
-    expect(container.querySelector('.ant-pagination-total-text')?.textContent).toEqual('>200<');
+    expect(container.querySelector('.ant-pagination-total-text')?.textContent).toBe('>200<');
 
     // Should hide
     fireEvent.click(container.querySelector('.ant-pagination-item-2')!);

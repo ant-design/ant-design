@@ -128,7 +128,7 @@ interface ExtraProps {
 }
 
 const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
-  if (!extra) {
+  if (!isReactRenderable(extra)) {
     return null;
   }
   return (

@@ -35,31 +35,31 @@ Used to input a value within a specified range.
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
-| disabled | If true, the slider will not be interactive | boolean | false |  |
-| keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ |
-| dots | Whether the thumb can only be dragged to tick marks | boolean | false |  |
-| included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true |  |
-| marks | Tick marks of Slider. The type of key must be `number`, and must be in closed interval \[min, max]. Each mark can declare its own style | object | { number: ReactNode } \| { number: { style: CSSProperties, label: ReactNode } } |  |
-| max | The maximum value the slider can slide to | number | 100 |  |
-| min | The minimum value the slider can slide to | number | 0 |  |
-| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
-| range | Enable dual thumb mode for range selection | boolean | false |  |
-| reverse | Reverse the component | boolean | false |  |
-| step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| tooltip | The tooltip related props | [tooltip](#tooltip) | - | 4.23.0 |
-| value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
-| vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
-| onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
-| onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
-| ~~handleStyle~~ | Style of the slider handle, please use `styles.handle` instead | CSSProperties | - | - |
-| ~~onAfterChange~~ | Callback fired when `mouseup` or `keyup` is fired, please use `onChangeComplete` instead | (value) => void | - | - |
-| ~~railStyle~~ | Style of the slider rail, please use `styles.rail` instead | CSSProperties | - | - |
-| ~~trackStyle~~ | Style of the slider track, please use `styles.track` instead | CSSProperties | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
+| defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  | × |
+| disabled | If true, the slider will not be interactive | boolean | false |  | × |
+| keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ | × |
+| dots | Whether the thumb can only be dragged to tick marks | boolean | false |  | × |
+| included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true |  | × |
+| marks | Tick marks of Slider. The type of key must be `number`, and must be in closed interval \[min, max]. Each mark can declare its own style | object | { number: ReactNode } \| { number: { style: CSSProperties, label: ReactNode } } |  | × |
+| max | The maximum value the slider can slide to | number | 100 |  | × |
+| min | The minimum value the slider can slide to | number | 0 |  | × |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
+| range | Enable dual thumb mode for range selection | boolean | false |  | × |
+| reverse | Reverse the component | boolean | false |  | × |
+| step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |
+| tooltip | The tooltip related props | [tooltip](#tooltip) | - | 4.23.0 | × |
+| value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  | × |
+| vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  | × |
+| onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  | × |
+| onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  | × |
+| ~~handleStyle~~ | Style of the slider handle, please use `styles.handle` instead | CSSProperties | - | - | × |
+| ~~onAfterChange~~ | Callback fired when `mouseup` or `keyup` is fired, please use `onChangeComplete` instead | (value) => void | - | - | × |
+| ~~railStyle~~ | Style of the slider rail, please use `styles.rail` instead | CSSProperties | - | - | × |
+| ~~trackStyle~~ | Style of the slider track, please use `styles.track` instead | CSSProperties | - | - | × |
 
 ### range
 

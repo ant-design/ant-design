@@ -183,12 +183,12 @@ describe('Modal.hook', () => {
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn')[0]);
-    expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
+    expect(cancelCount).toBe(1); // click cancel btn, trigger onCancel
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
-    expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
+    expect(cancelCount).toBe(2); // click modal wrapper, trigger onCancel
   });
 
   it('hooks modal should trigger onCancel with mask.closable', () => {
@@ -222,12 +222,12 @@ describe('Modal.hook', () => {
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn')[0]);
-    expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
+    expect(cancelCount).toBe(1); // click cancel btn, trigger onCancel
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
-    expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
+    expect(cancelCount).toBe(2); // click modal wrapper, trigger onCancel
   });
 
   it('update before render', () => {
@@ -261,8 +261,8 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
       'Little',
     );
   });
@@ -294,8 +294,8 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
-    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
       'Little',
     );
   });
@@ -440,7 +440,7 @@ describe('Modal.hook', () => {
 
     render(<Demo />);
 
-    expect(document.body.querySelector('.bamboo')?.textContent).toEqual('好的');
+    expect(document.body.querySelector('.bamboo')?.textContent).toBe('好的');
   });
 
   it('it should call forwarded afterClose', () => {
@@ -515,12 +515,12 @@ describe('Modal.hook', () => {
 
     const { unmount } = render(<Demo zh />);
     await waitFakeTimer();
-    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toBe('确 定');
     unmount();
 
     render(<Demo />);
     await waitFakeTimer();
-    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toBe('OK');
 
     jest.useRealTimers();
   });

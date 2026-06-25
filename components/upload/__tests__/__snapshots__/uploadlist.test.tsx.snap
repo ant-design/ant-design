@@ -58,6 +58,8 @@ exports[`Upload List handle error 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="foo.png"
         >
           foo.png
@@ -219,6 +221,8 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="foo.png"
         >
           foo.png

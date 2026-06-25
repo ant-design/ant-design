@@ -60,7 +60,7 @@ describe('Table.sorter', () => {
     const { container } = render(createTable({}, { defaultSortOrder: 'descend' }));
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(container.querySelector('th')?.getAttribute('aria-sort')).toEqual('descending');
+    expect(container.querySelector('th')?.getAttribute('aria-sort')).toBe('descending');
   });
   it('sort will work when column with children', () => {
     const onChange = jest.fn();
@@ -124,13 +124,13 @@ describe('Table.sorter', () => {
 
     // Test that it cycles through the order of sortDirections
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   it('should have aria-label if the column is sortable and is not sorted', () => {
@@ -148,16 +148,16 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
+    expect(getNameColumn()?.getAttribute('aria-label')).toBe('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
+    expect(getNameColumn()?.getAttribute('aria-label')).toBe('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toBe('Name');
   });
 
   it('sort records', () => {
@@ -166,17 +166,17 @@ describe('Table.sorter', () => {
 
     // first assert default state
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
 
     // ascend
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     // descend
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
   });
 
   it('sort records when press enter', () => {
@@ -265,7 +265,7 @@ describe('Table.sorter', () => {
         },
       ),
     );
-    expect(actualSortOrder!).toEqual('ascend');
+    expect(actualSortOrder!).toBe('ascend');
   });
 
   it('can update column sortOrder', () => {
@@ -637,11 +637,11 @@ describe('Table.sorter', () => {
       { key: 3, name: 'Jerry', age: 22 },
     ];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
-    expect(container.querySelector('.custom-title')?.textContent).toEqual('');
+    expect(container.querySelector('.custom-title')?.textContent).toBe('');
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(container.querySelector('.custom-title')?.textContent).toEqual('ascend');
+    expect(container.querySelector('.custom-title')?.textContent).toBe('ascend');
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(container.querySelector('.custom-title')?.textContent).toEqual('descend');
+    expect(container.querySelector('.custom-title')?.textContent).toBe('descend');
   });
 
   // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
@@ -670,16 +670,16 @@ describe('Table.sorter', () => {
     // sort name
     fireEvent.click(getNameColumn()!);
     expect(getNameIcon('up')?.className.includes('active')).toBeTruthy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
     expect(getAgeIcon('up')?.className.includes('active')).toBeFalsy();
-    expect(getAgeColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getAgeColumn().getAttribute('aria-sort')).toBe(null);
 
     // sort age
     fireEvent.click(getAgeColumn());
     expect(getNameIcon('up')?.className.includes('active')).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
     expect(getAgeIcon('up')?.className.includes('active')).toBeTruthy();
-    expect(getAgeColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getAgeColumn().getAttribute('aria-sort')).toBe('ascending');
   });
 
   // https://github.com/ant-design/ant-design/issues/12571
@@ -719,19 +719,19 @@ describe('Table.sorter', () => {
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeTruthy();
     expect(getIcon('down')?.className.includes('active')).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeFalsy();
     expect(getIcon('down')?.className.includes('active')).toBeTruthy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeFalsy();
     expect(getIcon('down')?.className.includes('active')).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
@@ -781,19 +781,19 @@ describe('Table.sorter', () => {
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeTruthy();
     expect(getIcon('down')?.className.includes('active')).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeFalsy();
     expect(getIcon('down')?.className.includes('active')).toBeTruthy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
     expect(getIcon('up')?.className.includes('active')).toBeFalsy();
     expect(getIcon('down')?.className.includes('active')).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   // https://github.com/ant-design/ant-design/issues/12870
@@ -837,7 +837,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
 
     // sort name
     fireEvent.click(getNameColumn()!);
@@ -847,7 +847,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
@@ -857,7 +857,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeTruthy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // sort name
     fireEvent.click(getNameColumn()!);
@@ -867,7 +867,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   it('should first sort by descend, then ascend, then cancel sort', () => {
@@ -877,17 +877,17 @@ describe('Table.sorter', () => {
     // descend
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // ascend
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
 
     // cancel sort
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   it('should first sort by descend, then cancel sort', () => {
@@ -900,17 +900,17 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     // default
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
 
     // descend
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // cancel sort
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   it('should first sort by descend, then cancel sort. (column prop)', () => {
@@ -926,17 +926,17 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     // default
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
 
     // descend
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('descending');
 
     // cancel sort
     fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
   });
 
   it('pagination back', () => {
@@ -956,12 +956,12 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => container.querySelector('th');
 
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe(null);
 
     fireEvent.click(getNameColumn()!);
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onPageChange).not.toHaveBeenCalled();
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toBe('ascending');
   });
 
   it('should support onHeaderCell in sort column', () => {

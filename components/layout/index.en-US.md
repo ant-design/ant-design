@@ -90,9 +90,9 @@ Common props ref：[Common props](/docs/react/common-props)
 
 The wrapper.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |  | × |
 
 ### Layout.Sider
 
