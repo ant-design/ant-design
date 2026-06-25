@@ -36,9 +36,14 @@ const App: React.FC = () => {
           max={6}
           value={maxCount}
           onChange={(value) => setMaxCount(value ?? defaultMaxCount)}
+          aria-label="maxCount"
         />
         <span>overflowInFinal:</span>
-        <Switch checked={overflowInFinal} onChange={setOverflowInFinal} />
+        <Switch
+          checked={overflowInFinal}
+          onChange={setOverflowInFinal}
+          aria-label="overflowInFinal"
+        />
       </Flex>
       <AvatarGroupOverflow
         max={{
