@@ -854,7 +854,9 @@ describe('ColorPicker', () => {
         container,
         0,
         50,
-        container.querySelectorAll<HTMLElement>('.ant-color-picker-slider-handle')[1]!,
+        container.querySelector<HTMLElement>(
+          '.ant-color-picker-slider-handle[aria-label="Alpha"]',
+        )!,
       );
 
       expect(onChange).toHaveBeenCalledWith(
@@ -862,6 +864,102 @@ describe('ColorPicker', () => {
         // Safe to change with any value but (0/0/0/0)
         'rgba(255,0,0,0.5)',
       );
+    });
+  });
+
+  describe('Accessibility tests', () => {
+    it('trigger exposes disclosure semantics', () => {
+      const { container, rerender } = render(<ColorPicker open={false} />);
+      const trigger = container.querySelector('.ant-color-picker-trigger')!;
+      expect(trigger.getAttribute('role')).toBe('button');
+      expect(trigger.getAttribute('aria-haspopup')).toBe('dialog');
+      expect(trigger.getAttribute('aria-expanded')).toBe('false');
+
+      rerender(<ColorPicker open />);
+      expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    });
+
+    it('disabled trigger is announced and out of tab order', () => {
+      const { container } = render(<ColorPicker disabled />);
+      const trigger = container.querySelector('.ant-color-picker-trigger')!;
+      expect(trigger.getAttribute('aria-disabled')).toBe('true');
+      expect(trigger.getAttribute('tabindex')).toBe('-1');
+    });
+
+    it('opens on Enter from the keyboard', async () => {
+      const { container } = render(<ColorPicker />);
+      const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
+      expect(trigger.getAttribute('aria-expanded')).toBe('false');
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      await waitFakeTimer();
+      expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    });
+
+    it('labels hue and alpha slider handles with value text', () => {
+      const { container } = render(<ColorPicker open defaultValue="#1677ff" />);
+      const hue = container.querySelector('.ant-color-picker-slider-handle[aria-label="Hue"]');
+      expect(hue).toBeTruthy();
+      expect(hue!.getAttribute('aria-valuetext')).toContain('°');
+      const alpha = container.querySelector('.ant-color-picker-slider-handle[aria-label="Alpha"]');
+      expect(alpha).toBeTruthy();
+      expect(alpha!.getAttribute('aria-valuetext')).toContain('%');
+    });
+
+    it('numbers gradient stop handles', () => {
+      const { container } = render(
+        <ColorPicker
+          open
+          mode="gradient"
+          defaultValue={
+            new AggregationColor([
+              { color: '#ff0000', percent: 0 },
+              { color: '#0000ff', percent: 100 },
+            ])
+          }
+        />,
+      );
+      expect(
+        container.querySelector('.ant-color-picker-slider-handle[aria-label="Gradient 1"]'),
+      ).toBeTruthy();
+      expect(
+        container.querySelector('.ant-color-picker-slider-handle[aria-label="Gradient 2"]'),
+      ).toBeTruthy();
+    });
+
+    it('returns focus to the trigger when the panel closes', async () => {
+      const { container, rerender } = render(<ColorPicker open />);
+      await waitFakeTimer();
+      const trigger = container.querySelector('.ant-color-picker-trigger')!;
+      rerender(<ColorPicker open={false} />);
+      await waitFakeTimer();
+      expect(document.activeElement).toBe(trigger);
+    });
+
+    // TODO: Enable once `@rc-component/color-picker`'s `ColorBlock` forwards native div
+    // props (role / tabIndex / aria-* / onKeyDown). The installed version drops them, so
+    // preset swatches currently render without option semantics.
+    // eslint-disable-next-line jest/no-disabled-tests
+    it.skip('preset swatches form a keyboard-navigable listbox', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <ColorPicker
+          open
+          onChange={onChange}
+          presets={[{ label: 'Recommended', colors: ['#f00', '#0f0', '#00f'] }]}
+        />,
+      );
+      const listbox = container.querySelector('[role="listbox"]')!;
+      const options = listbox.querySelectorAll<HTMLElement>('[role="option"]');
+      expect(options).toHaveLength(3);
+      // Roving tabindex: exactly one swatch is tabbable.
+      expect(listbox.querySelectorAll('[role="option"][tabindex="0"]')).toHaveLength(1);
+
+      options[0].focus();
+      fireEvent.keyDown(options[0], { key: 'ArrowRight' });
+      expect(document.activeElement).toBe(options[1]);
+
+      fireEvent.keyDown(options[1], { key: 'Enter' });
+      expect(onChange).toHaveBeenCalled();
     });
   });
 

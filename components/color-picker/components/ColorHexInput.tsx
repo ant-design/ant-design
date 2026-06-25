@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
 import Input from '../../input/Input';
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
 import { generateColor } from '../util';
@@ -20,6 +21,7 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   const [hexValue, setHexValue] = useState(() =>
     value ? toHexFormat(value.toHexString()) : undefined,
   );
+  const [locale] = useLocale('ColorPicker');
 
   // Update step value
   useEffect(() => {
@@ -43,6 +45,7 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
       prefix="#"
       onChange={handleHexChange}
       size="small"
+      aria-label={locale.hexInput}
     />
   );
 };

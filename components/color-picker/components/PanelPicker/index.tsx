@@ -5,6 +5,7 @@ import type { Color } from '@rc-component/color-picker';
 import { useLayoutEffect } from '@rc-component/util';
 
 import { useForceUpdate } from '../../../_util/hooks';
+import { useLocale } from '../../../locale';
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
@@ -41,6 +42,8 @@ const PanelPicker: FC = () => {
     gradientDragging,
     ...injectProps
   } = panelPickerContext;
+
+  const [locale] = useLocale('ColorPicker');
 
   // ============================ Colors ============================
   const colors = React.useMemo(() => {
@@ -171,6 +174,9 @@ const PanelPicker: FC = () => {
         <ColorClear
           prefixCls={prefixCls}
           value={value}
+          aria-label={locale.clearLabel}
+          role="button"
+          tabIndex={0}
           onChange={(clearColor) => {
             onChange(clearColor);
             onClear?.();
@@ -192,6 +198,14 @@ const PanelPicker: FC = () => {
         prefixCls={prefixCls}
         value={mergedPickerColor?.toHsb()}
         disabledAlpha={disabledAlpha}
+        locale={{
+          picker: locale.label,
+          pickerDescription: locale.labelDescription,
+          hue: locale.hue,
+          alpha: locale.alpha,
+          saturation: locale.hsbSaturation,
+          brightness: locale.hsbBrightness,
+        }}
         onChange={(colorValue, info) => {
           onPickerChange(colorValue, true, info);
         }}

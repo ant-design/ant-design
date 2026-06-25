@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -129,6 +130,8 @@ const genClearStyle = (
       '&:hover': {
         borderColor: colorBorder,
       },
+
+      '&:focus-visible': genFocusOutline(token),
     },
   };
 };
@@ -303,6 +306,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           '&:hover': {
             borderColor: colorPrimaryHover,
           },
+          '&:focus-within': genFocusOutline(token),
           [`&${componentCls}-trigger-active`]: {
             ...genActiveStyle(token, colorPrimary, controlOutline),
           },

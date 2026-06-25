@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useState } from 'react';
 import type { HSB } from '@rc-component/color-picker';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import { generateColor, getRoundNumber } from '../util';
 import ColorSteppers from './ColorSteppers';
@@ -14,6 +15,7 @@ interface ColorHsbInputProps {
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
+  const [locale] = useLocale('ColorPicker');
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
   );
@@ -31,13 +33,14 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
   };
 
   return (
-    <div className={colorHsbInputPrefixCls}>
+    <div className={colorHsbInputPrefixCls} role="group" aria-label={locale.hsbInput}>
       <ColorSteppers
         max={360}
         min={0}
         value={Number(hsbValue.toHsb().h)}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        aria-label={locale.hsbHue}
         formatter={(step) => getRoundNumber(step || 0).toString()}
         onChange={(step) => handleHsbChange(Number(step), 'h')}
       />
@@ -47,6 +50,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(hsbValue.toHsb().s) * 100}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        aria-label={locale.hsbSaturation}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 's')}
       />
@@ -56,6 +60,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(hsbValue.toHsb().b) * 100}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        aria-label={locale.hsbBrightness}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 'b')}
       />

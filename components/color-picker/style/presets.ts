@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { ColorPickerToken } from './index';
 
@@ -74,6 +75,8 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           '&:hover::before': {
             borderColor: colorFill,
           },
+
+          '&:focus-visible': genFocusOutline(token),
 
           '&::after': {
             boxSizing: 'border-box',

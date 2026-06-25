@@ -4,7 +4,13 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -93,10 +99,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -115,10 +123,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -151,6 +161,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -293,6 +304,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -303,8 +315,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -316,9 +327,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -386,7 +397,13 @@ exports[`renders components/color-picker/demo/base.tsx extend context correctly 
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -465,10 +482,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -487,10 +506,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -523,6 +544,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -665,6 +687,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -675,8 +698,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -688,9 +710,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -763,7 +785,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -842,10 +870,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -864,10 +894,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -900,6 +932,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1042,6 +1075,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -1052,8 +1086,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -1065,9 +1098,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -1132,7 +1165,13 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1211,10 +1250,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -1233,10 +1274,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -1269,6 +1312,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1411,6 +1455,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -1421,8 +1466,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -1434,9 +1478,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -1505,7 +1549,13 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="true"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
+    role="button"
+    tabindex="-1"
   >
     <div
       class="ant-color-picker-color-block"
@@ -1589,10 +1639,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -1611,10 +1663,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -1647,6 +1701,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -1789,6 +1844,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -1799,8 +1855,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -1812,9 +1867,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -1882,7 +1937,13 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context 
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -1961,10 +2022,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -1997,6 +2060,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2139,6 +2203,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -2172,7 +2237,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -2251,10 +2322,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -2273,10 +2346,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -2309,6 +2384,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -2451,6 +2527,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -2461,8 +2538,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -2474,9 +2550,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -2556,7 +2632,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1778ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -2635,10 +2717,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -2657,10 +2741,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(23, 120, 255);"
@@ -2693,6 +2779,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -2827,12 +2914,15 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-color-picker-input"
                     >
                       <div
+                        aria-label="HSB"
                         class="ant-color-picker-hsb-input"
+                        role="group"
                       >
                         <div
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Hue"
                             aria-valuemax="360"
                             aria-valuemin="0"
                             aria-valuenow="215"
@@ -2905,6 +2995,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Saturation"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="91"
@@ -2977,6 +3068,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-hsb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Brightness"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
@@ -3051,8 +3143,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -3064,9 +3155,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -3146,7 +3237,13 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -3225,10 +3322,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -3247,10 +3346,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -3283,6 +3384,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -3417,12 +3519,15 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-color-picker-input"
                     >
                       <div
+                        aria-label="RGB"
                         class="ant-color-picker-rgb-input"
+                        role="group"
                       >
                         <div
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Red"
                             aria-valuemax="255"
                             aria-valuemin="0"
                             aria-valuenow="22"
@@ -3495,6 +3600,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Green"
                             aria-valuemax="255"
                             aria-valuemin="0"
                             aria-valuenow="119"
@@ -3567,6 +3673,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-rgb-input ant-input-number-outlined ant-input-number-sm"
                         >
                           <input
+                            aria-label="Blue"
                             aria-valuemax="255"
                             aria-valuemin="0"
                             aria-valuenow="255"
@@ -3641,8 +3748,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -3654,9 +3760,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -3739,7 +3845,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#108ee9"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -3855,10 +3967,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 />
                 <div
                   aria-disabled="false"
+                  aria-label="Gradient 1"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
+                  aria-valuetext="0%"
                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle ant-color-picker-slider-handle-active"
                   role="slider"
                   style="left: 0%; transform: translateX(-50%); background: rgb(16, 142, 233);"
@@ -3866,10 +3980,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 />
                 <div
                   aria-disabled="false"
+                  aria-label="Gradient 2"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="100"
+                  aria-valuetext="100%"
                   class="ant-slider-handle ant-slider-handle-2 ant-color-picker-slider-handle"
                   role="slider"
                   style="left: 100%; transform: translateX(-50%); background: rgb(135, 208, 104);"
@@ -3918,10 +4034,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="205"
+                        aria-valuetext="205°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 57.10306406685237%; transform: translateX(-50%); background: rgb(0, 149, 255);"
@@ -3940,10 +4058,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(16, 143, 233);"
@@ -3976,6 +4096,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4118,6 +4239,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="108ee9"
@@ -4128,8 +4250,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -4141,9 +4262,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -4208,7 +4329,13 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#108ee9"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -4281,10 +4408,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 />
                 <div
                   aria-disabled="false"
+                  aria-label="Gradient 1"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
+                  aria-valuetext="0%"
                   class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle ant-color-picker-slider-handle-active"
                   role="slider"
                   style="left: 0%; transform: translateX(-50%); background: rgb(16, 142, 233);"
@@ -4292,10 +4421,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 />
                 <div
                   aria-disabled="false"
+                  aria-label="Gradient 2"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="100"
+                  aria-valuetext="100%"
                   class="ant-slider-handle ant-slider-handle-2 ant-color-picker-slider-handle"
                   role="slider"
                   style="left: 100%; transform: translateX(-50%); background: rgb(135, 208, 104);"
@@ -4344,10 +4475,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="205"
+                        aria-valuetext="205°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 57.10306406685237%; transform: translateX(-50%); background: rgb(0, 149, 255);"
@@ -4366,10 +4499,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(16, 143, 233);"
@@ -4402,6 +4537,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4544,6 +4680,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="108ee9"
@@ -4554,8 +4691,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -4567,9 +4703,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -4656,7 +4792,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -4743,10 +4885,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             />
                             <div
                               aria-disabled="false"
+                              aria-label="Hue"
                               aria-orientation="horizontal"
                               aria-valuemax="359"
                               aria-valuemin="0"
                               aria-valuenow="215"
+                              aria-valuetext="215°"
                               class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                               role="slider"
                               style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -4765,10 +4909,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             />
                             <div
                               aria-disabled="false"
+                              aria-label="Alpha"
                               aria-orientation="horizontal"
                               aria-valuemax="100"
                               aria-valuemin="0"
                               aria-valuenow="100"
+                              aria-valuetext="100%"
                               class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                               role="slider"
                               style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -4801,6 +4947,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Color format"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -4943,6 +5090,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             #
                           </span>
                           <input
+                            aria-label="Hex"
                             class="ant-input ant-input-sm"
                             type="text"
                             value="1677ff"
@@ -4953,8 +5101,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                       >
                         <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
+                          aria-label="Alpha"
                           aria-valuenow="100"
                           autocomplete="off"
                           class="ant-input-number-input"
@@ -4966,9 +5113,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-input-number-actions"
                         >
                           <span
-                            aria-disabled="true"
+                            aria-disabled="false"
                             aria-label="Increase Value"
-                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up"
                             role="button"
                             unselectable="on"
                           >
@@ -5049,7 +5196,13 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -5147,7 +5300,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-body"
                             >
                               <div
+                                aria-label="primary"
                                 class="ant-color-picker-presets-items"
+                                role="listbox"
                               >
                                 <div
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -5284,7 +5439,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-body"
                             >
                               <div
+                                aria-label="red"
                                 class="ant-color-picker-presets-items"
+                                role="listbox"
                               >
                                 <div
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -5421,7 +5578,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-body"
                             >
                               <div
+                                aria-label="green"
                                 class="ant-color-picker-presets-items"
+                                role="listbox"
                               >
                                 <div
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -5558,7 +5717,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-body"
                             >
                               <div
+                                aria-label="cyan"
                                 class="ant-color-picker-presets-items"
+                                role="listbox"
                               >
                                 <div
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -5698,10 +5859,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             />
                             <div
                               aria-disabled="false"
+                              aria-label="Hue"
                               aria-orientation="horizontal"
                               aria-valuemax="359"
                               aria-valuemin="0"
                               aria-valuenow="215"
+                              aria-valuetext="215°"
                               class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                               role="slider"
                               style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -5720,10 +5883,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             />
                             <div
                               aria-disabled="false"
+                              aria-label="Alpha"
                               aria-orientation="horizontal"
                               aria-valuemax="100"
                               aria-valuemin="0"
                               aria-valuenow="100"
+                              aria-valuetext="100%"
                               class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                               role="slider"
                               style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -5756,6 +5921,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Color format"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -5898,6 +6064,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             #
                           </span>
                           <input
+                            aria-label="Hex"
                             class="ant-input ant-input-sm"
                             type="text"
                             value="1677ff"
@@ -5908,8 +6075,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                       >
                         <input
-                          aria-valuemax="100"
-                          aria-valuemin="0"
+                          aria-label="Alpha"
                           aria-valuenow="100"
                           autocomplete="off"
                           class="ant-input-number-input"
@@ -5921,9 +6087,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-input-number-actions"
                         >
                           <span
-                            aria-disabled="true"
+                            aria-disabled="false"
                             aria-label="Increase Value"
-                            class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                            class="ant-input-number-action ant-input-number-action-up"
                             role="button"
                             unselectable="on"
                           >
@@ -5995,7 +6161,13 @@ exports[`renders components/color-picker/demo/presets.tsx extend context correct
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -6074,10 +6246,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -6096,10 +6270,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -6132,6 +6308,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -6274,6 +6451,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -6284,8 +6462,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -6297,9 +6474,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -6414,7 +6591,9 @@ Array [
                       class="ant-collapse-body"
                     >
                       <div
+                        aria-label="primary"
                         class="ant-color-picker-presets-items"
+                        role="listbox"
                       >
                         <div
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -6551,7 +6730,9 @@ Array [
                       class="ant-collapse-body"
                     >
                       <div
+                        aria-label="red"
                         class="ant-color-picker-presets-items"
+                        role="listbox"
                       >
                         <div
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -6688,7 +6869,9 @@ Array [
                       class="ant-collapse-body"
                     >
                       <div
+                        aria-label="green"
                         class="ant-color-picker-presets-items"
+                        role="listbox"
                       >
                         <div
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
@@ -6795,8 +6978,14 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="true"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
+      role="button"
       style="margin: 0px;"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -6875,10 +7064,12 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -6897,10 +7088,12 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -6933,6 +7126,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -7075,6 +7269,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -7085,8 +7280,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -7098,9 +7292,9 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -7180,7 +7374,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7259,10 +7459,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -7281,10 +7483,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -7317,6 +7521,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -7459,6 +7664,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -7469,8 +7675,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -7482,9 +7687,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -7549,7 +7754,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7628,10 +7839,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -7650,10 +7863,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -7686,6 +7901,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -7828,6 +8044,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -7838,8 +8055,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -7851,9 +8067,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -7918,7 +8134,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7997,10 +8219,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -8019,10 +8243,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -8055,6 +8281,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8197,6 +8424,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -8207,8 +8435,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -8220,9 +8447,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -8295,7 +8522,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8379,10 +8612,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -8401,10 +8636,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -8437,6 +8674,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8579,6 +8817,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -8589,8 +8828,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -8602,9 +8840,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -8669,7 +8907,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8753,10 +8997,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -8775,10 +9021,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -8811,6 +9059,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8953,6 +9202,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -8963,8 +9213,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -8976,9 +9225,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -9043,7 +9292,13 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="#1677ff"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -9127,10 +9382,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Hue"
                             aria-orientation="horizontal"
                             aria-valuemax="359"
                             aria-valuemin="0"
                             aria-valuenow="215"
+                            aria-valuetext="215°"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -9149,10 +9406,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           />
                           <div
                             aria-disabled="false"
+                            aria-label="Alpha"
                             aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="100"
+                            aria-valuetext="100%"
                             class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                             role="slider"
                             style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -9185,6 +9444,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Color format"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -9327,6 +9587,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           #
                         </span>
                         <input
+                          aria-label="Hex"
                           class="ant-input ant-input-sm"
                           type="text"
                           value="1677ff"
@@ -9337,8 +9598,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                     >
                       <input
-                        aria-valuemax="100"
-                        aria-valuemin="0"
+                        aria-label="Alpha"
                         aria-valuenow="100"
                         autocomplete="off"
                         class="ant-input-number-input"
@@ -9350,9 +9610,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-input-number-actions"
                       >
                         <span
-                          aria-disabled="true"
+                          aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
@@ -9432,7 +9692,13 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="#1677ff"
         class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var acss-pbemrr"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9503,10 +9769,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Hue"
                           aria-orientation="horizontal"
                           aria-valuemax="359"
                           aria-valuemin="0"
                           aria-valuenow="215"
+                          aria-valuetext="215°"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -9525,10 +9793,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Alpha"
                           aria-orientation="horizontal"
                           aria-valuemax="100"
                           aria-valuemin="0"
                           aria-valuenow="100"
+                          aria-valuetext="100%"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -9561,6 +9831,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Color format"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -9703,6 +9974,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         #
                       </span>
                       <input
+                        aria-label="Hex"
                         class="ant-input ant-input-sm"
                         type="text"
                         value="1677ff"
@@ -9713,8 +9985,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                   >
                     <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
+                      aria-label="Alpha"
                       aria-valuenow="100"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -9726,9 +9997,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-input-number-actions"
                     >
                       <span
-                        aria-disabled="true"
+                        aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
@@ -9797,7 +10068,13 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="#722ed1"
         class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var acss-pbemrr"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9868,10 +10145,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Hue"
                           aria-orientation="horizontal"
                           aria-valuemax="359"
                           aria-valuemin="0"
                           aria-valuenow="265"
+                          aria-valuetext="265°"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 73.81615598885793%; transform: translateX(-50%); background: rgb(106, 0, 255);"
@@ -9890,10 +10169,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         />
                         <div
                           aria-disabled="false"
+                          aria-label="Alpha"
                           aria-orientation="horizontal"
                           aria-valuemax="100"
                           aria-valuemin="0"
                           aria-valuenow="100"
+                          aria-valuetext="100%"
                           class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                           role="slider"
                           style="left: 100%; transform: translateX(-50%); background: rgb(114, 46, 209);"
@@ -9926,6 +10207,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Color format"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -10068,6 +10350,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         #
                       </span>
                       <input
+                        aria-label="Hex"
                         class="ant-input ant-input-sm"
                         type="text"
                         value="722ed1"
@@ -10078,8 +10361,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                   >
                     <input
-                      aria-valuemax="100"
-                      aria-valuemin="0"
+                      aria-label="Alpha"
                       aria-valuenow="100"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -10091,9 +10373,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-input-number-actions"
                     >
                       <span
-                        aria-disabled="true"
+                        aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
@@ -10168,7 +10450,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10262,10 +10550,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -10284,10 +10574,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -10320,6 +10612,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -10462,6 +10755,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -10472,8 +10766,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -10485,9 +10778,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -10552,7 +10845,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10638,10 +10937,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -10660,10 +10961,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -10696,6 +10999,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -10838,6 +11142,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -10848,8 +11153,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -10861,9 +11165,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -10928,7 +11232,13 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-disabled="false"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="#1677ff"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -11031,10 +11341,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Hue"
                         aria-orientation="horizontal"
                         aria-valuemax="359"
                         aria-valuemin="0"
                         aria-valuenow="215"
+                        aria-valuetext="215°"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -11053,10 +11365,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       />
                       <div
                         aria-disabled="false"
+                        aria-label="Alpha"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
                         aria-valuemin="0"
                         aria-valuenow="100"
+                        aria-valuetext="100%"
                         class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                         role="slider"
                         style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -11089,6 +11403,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Color format"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -11231,6 +11546,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       #
                     </span>
                     <input
+                      aria-label="Hex"
                       class="ant-input ant-input-sm"
                       type="text"
                       value="1677ff"
@@ -11241,8 +11557,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
                 >
                   <input
-                    aria-valuemax="100"
-                    aria-valuemin="0"
+                    aria-label="Alpha"
                     aria-valuenow="100"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -11254,9 +11569,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-input-number-actions"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
@@ -11319,7 +11634,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+  "Unknown event handler property \`%s\`. It will be ignored.",
+]
+`;
 
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
@@ -11401,10 +11721,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -11423,10 +11745,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -11459,6 +11783,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -11601,6 +11926,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -11611,8 +11937,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -11624,9 +11949,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
@@ -11694,7 +12019,13 @@ exports[`renders components/color-picker/demo/trigger-event.tsx extend context c
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="false"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="#1677ff"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -11773,10 +12104,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Hue"
                       aria-orientation="horizontal"
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
+                      aria-valuetext="215°"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
@@ -11795,10 +12128,12 @@ Array [
                     />
                     <div
                       aria-disabled="false"
+                      aria-label="Alpha"
                       aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
+                      aria-valuetext="100%"
                       class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
@@ -11831,6 +12166,7 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Color format"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -11973,6 +12309,7 @@ Array [
                     #
                   </span>
                   <input
+                    aria-label="Hex"
                     class="ant-input ant-input-sm"
                     type="text"
                     value="1677ff"
@@ -11983,8 +12320,7 @@ Array [
                 class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
-                  aria-valuemax="100"
-                  aria-valuemin="0"
+                  aria-label="Alpha"
                   aria-valuenow="100"
                   autocomplete="off"
                   class="ant-input-number-input"
@@ -11996,9 +12332,9 @@ Array [
                   class="ant-input-number-actions"
                 >
                   <span
-                    aria-disabled="true"
+                    aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
