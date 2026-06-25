@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toArray } from '@rc-component/util';
-import { Avatar, Flex, InputNumber, Space, Switch } from 'antd';
+import { Avatar, Flex, InputNumber, Switch } from 'antd';
 import type { AvatarGroupProps } from '../AvatarGroup';
 
 const defaultMaxCount = 3;
@@ -26,48 +26,34 @@ const AvatarGroupOverflow: React.FC<AvatarGroupProps & { overflowInFinal?: boole
 
 const App: React.FC = () => {
   const [avatarCount, setAvatarCount] = useState(4);
-  const [maxCount, setMaxCount] = useState(3);
-  const [overflowInFinal, setOverflowInFinal] = useState(false);
+  const [overflowInFinal, setOverflowInFinal] = useState(true);
 
   return (
     <Flex vertical gap="middle">
-      <Space>
-        <div>
-          <span>Avatar 数量:</span>
-          <InputNumber
-            min={2}
-            max={10}
-            value={avatarCount}
-            onChange={(value) => setAvatarCount(value ?? defaultMaxCount)}
-            aria-label="Avatar 数量"
-            mode="spinner"
-          />
-        </div>
-        <div>
-          <span>maxCount:</span>
-          <InputNumber
-            min={1}
-            max={10}
-            value={maxCount}
-            onChange={(value) => setMaxCount(value ?? defaultMaxCount)}
-            aria-label="maxCount"
-            mode="spinner"
-          />
-        </div>
-        <div>
-          <span>overflowInFinal:</span>
-          <Switch
-            style={{ width: 50 }}
-            checked={overflowInFinal}
-            onChange={setOverflowInFinal}
-            aria-label="overflowInFinal"
-          />
-        </div>
-      </Space>
+      <Flex gap={24}>
+        <span>Avatar count: </span>
+        <InputNumber
+          style={{ width: 120 }}
+          min={2}
+          max={10}
+          value={avatarCount}
+          onChange={(value) => setAvatarCount(value ?? defaultMaxCount)}
+          aria-label="Avatar count"
+          mode="spinner"
+        />
+      </Flex>
+      <Flex gap={8}>
+        <span>overflowInFinal: </span>
+        <Switch
+          checked={overflowInFinal}
+          onChange={setOverflowInFinal}
+          aria-label="overflowInFinal"
+        />
+      </Flex>
 
       <AvatarGroupOverflow
         max={{
-          count: maxCount,
+          count: defaultMaxCount,
           style: { backgroundColor: '#52c41a', color: '#fff' },
         }}
         overflowInFinal={overflowInFinal}
