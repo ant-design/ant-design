@@ -1,0 +1,8 @@
+{
+  "resource": "/",
+  "resource_name": "Ant Design Documentation",
+  "resource_documentation": "/docs/react/introduce",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": []
+}
