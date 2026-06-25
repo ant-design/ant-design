@@ -76,27 +76,27 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
   '&:focus-visible': genFocusOutline(token, offset),
 });
 
-type ScrollFadeStyleOptions = {
+interface ScrollFadeStyleOptions {
   backgroundColor?: string;
   shadowColor?: string;
-};
+}
 
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorBgElevated, colorTextQuaternary, paddingXS, paddingXXS } = token;
+  const { colorBgElevated, colorTextQuaternary, paddingLG, paddingSM } = token;
   const backgroundColor = options?.backgroundColor ?? colorBgElevated;
   const shadowColor = options?.shadowColor ?? colorTextQuaternary;
-  const fadeSize = unit(paddingXS);
-  const shadowSize = unit(paddingXXS);
+  const fadeSize = unit(paddingLG);
+  const shadowSize = unit(paddingSM);
 
   return {
     backgroundImage: [
       `linear-gradient(${backgroundColor} 30%, transparent)`,
       `linear-gradient(transparent, ${backgroundColor} 70%)`,
-      `radial-gradient(farthest-side at 50% 0, ${shadowColor}, transparent)`,
-      `radial-gradient(farthest-side at 50% 100%, ${shadowColor}, transparent)`,
+      `linear-gradient(to bottom, ${shadowColor}, transparent)`,
+      `linear-gradient(to top, ${shadowColor}, transparent)`,
     ].join(', '),
     backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
     backgroundRepeat: 'no-repeat',
