@@ -1786,12 +1786,12 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="select"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

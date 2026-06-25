@@ -7955,11 +7955,11 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -12660,11 +12660,11 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -14665,11 +14665,11 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -15804,11 +15804,11 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -17945,11 +17945,11 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -28044,11 +28044,11 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
