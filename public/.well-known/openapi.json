@@ -64,6 +64,26 @@
         }
       }
     },
+    "/.well-known/oauth-authorization-server": {
+      "get": {
+        "summary": "OAuth authorization server metadata",
+        "responses": {
+          "200": {
+            "description": "OAuth metadata for anonymous agent discovery."
+          }
+        }
+      }
+    },
+    "/.well-known/jwks.json": {
+      "get": {
+        "summary": "JSON Web Key Set",
+        "responses": {
+          "200": {
+            "description": "Empty JWKS for the anonymous public documentation flow."
+          }
+        }
+      }
+    },
     "/auth.md": {
       "get": {
         "summary": "Auth.md agent registration notes",

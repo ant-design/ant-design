@@ -20,6 +20,9 @@
 /.well-known/openapi.json
   Content-Type: application/openapi+json
 
+/.well-known/jwks.json
+  Content-Type: application/jwk-set+json
+
 /.well-known/oauth-protected-resource
   Content-Type: application/json
 
