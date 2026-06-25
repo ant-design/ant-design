@@ -1,3 +1,4 @@
+import { FastColor } from '@ant-design/fast-color';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
@@ -81,13 +82,15 @@ interface ScrollFadeStyleOptions {
   shadowColor?: string;
 }
 
+const getScrollFadeShadowColor = (color: string) => new FastColor(color).setA(0.05).toRgbString();
+
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
   const { colorBgElevated, colorTextQuaternary, paddingLG, paddingSM } = token;
   const backgroundColor = options?.backgroundColor ?? colorBgElevated;
-  const shadowColor = options?.shadowColor ?? colorTextQuaternary;
+  const shadowColor = options?.shadowColor ?? getScrollFadeShadowColor(colorTextQuaternary);
   const fadeSize = unit(paddingLG);
   const shadowSize = unit(paddingSM);
 
