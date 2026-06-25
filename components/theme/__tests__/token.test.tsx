@@ -257,6 +257,15 @@ describe('Theme', () => {
       expect(token).toEqual(hookToken);
     });
 
+    it('uses weak quaternary text color opacity for scroll shadows', () => {
+      expect(theme.getDesignToken().colorTextQuaternary).toBe('rgba(0,0,0,0.05)');
+      expect(
+        theme.getDesignToken({
+          algorithm: theme.darkAlgorithm,
+        }).colorTextQuaternary,
+      ).toBe('rgba(255,255,255,0.05)');
+    });
+
     it('with custom token', () => {
       const config: ThemeConfig = {
         token: {
