@@ -37,10 +37,10 @@ export interface ComponentToken {
    */
   starBg: string;
   /**
-   * @desc 默认星星边框颜色
-   * @descEN Default star border color
+   * @desc 星星边框颜色
+   * @descEN Star border color
    */
-  starBorderColorDefault: string;
+  starBorderColor: string;
   /**
    * @desc 默认星星边框宽度
    * @descEN Default star border width
@@ -97,7 +97,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         userSelect: 'none',
 
         '> span svg, > svg': {
-          stroke: token.starBorderColorDefault,
+          stroke: token.starBorderColor,
           strokeWidth: token.starBorderWidthDefault,
           strokeLinejoin: 'round',
         },
@@ -186,7 +186,7 @@ export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
   starSizeLG: token.controlHeightLG * 0.625,
   starHoverScale: 'scale(1.1)',
   starBg: token.colorFillContent,
-  starBorderColorDefault: token.colorTextTertiary,
+  starBorderColor: token.colorTextTertiary,
   starBorderWidthDefault: token.lineWidth,
   starBorderColorSelected: token.yellow8,
   starBorderWidthSelected: token.lineWidth,
