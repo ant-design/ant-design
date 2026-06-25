@@ -1,7 +1,11 @@
 ## zh-CN
 
-使用 HOC 方式封装 `Avatar.Group`，添加 `overflowInFinal` 属性。当设置为 `true` 时，`max.count` 表示总共显示的元素数量（包含 +N 溢出元素），即显示 `count-1` 个头像 + "+剩余数量"。
+使用 HOC 封装 `Avatar.Group`，添加 `overflowInFinal` 属性。开启后 `count` 表示总数，会预留 1 个位置给溢出指示器。
+
+> 注意：`overflowInFinal` 模式下 `count` 不能低于 2。
 
 ## en-US
 
-Wrap `Avatar.Group` with HOC to add `overflowInFinal` prop. When set to `true`, `max.count` represents the total number of elements displayed (including +N overflow), showing `count-1` avatars + "+remaining count".
+Wrap `Avatar.Group` with HOC to add `overflowInFinal` prop. When enabled, `count` represents the total count and reserves 1 slot for the overflow indicator.
+
+> Note: In `overflowInFinal` mode, `count` must be at least 2.
