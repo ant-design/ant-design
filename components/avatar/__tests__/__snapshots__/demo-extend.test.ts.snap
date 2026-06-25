@@ -1279,95 +1279,203 @@ exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] =
 
 exports[`renders components/avatar/demo/max-count.tsx extend context correctly 1`] = `
 <div
-  class="ant-avatar-group css-var-test-id ant-avatar-css-var"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
-  <span
-    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-    style="background-color: rgb(245, 106, 0);"
-  >
-    <span
-      class="ant-avatar-string"
-      style="-webkit-transform: scale(1); transform: scale(1);"
-    >
-      A
-    </span>
-  </span>
-  <span
-    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-    style="background-color: rgb(114, 101, 230);"
-  >
-    <span
-      class="ant-avatar-string"
-      style="-webkit-transform: scale(1); transform: scale(1);"
-    >
-      B
-    </span>
-  </span>
-  <span
-    aria-describedby="test-id"
-    class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-    style="background-color: rgb(82, 196, 26); color: rgb(255, 255, 255);"
-  >
-    <span
-      class="ant-avatar-string"
-      style="-webkit-transform: scale(1); transform: scale(1);"
-    >
-      +3
-    </span>
-  </span>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
   >
+    <span>
+      maxCount:
+    </span>
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
     >
-      <span
-        class="ant-popover-arrow-content"
+      <input
+        aria-label="maxCount"
+        aria-valuemax="6"
+        aria-valuemin="0"
+        aria-valuenow="3"
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="1"
+        value="3"
       />
-    </div>
-    <div
-      class="ant-popover-container"
-      id="test-id"
-      role="tooltip"
-    >
       <div
-        class="ant-popover-content"
+        class="ant-input-number-actions"
       >
         <span
-          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-          style="background-color: rgb(0, 162, 174);"
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-action ant-input-number-action-up"
+          role="button"
+          unselectable="on"
         >
           <span
-            class="ant-avatar-string"
-            style="-webkit-transform: scale(1); transform: scale(1);"
+            aria-label="up"
+            class="anticon anticon-up"
+            role="img"
           >
-            C
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
           </span>
         </span>
         <span
-          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-          style="background-color: rgb(245, 106, 0);"
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-action ant-input-number-action-down"
+          role="button"
+          unselectable="on"
         >
           <span
-            class="ant-avatar-string"
-            style="-webkit-transform: scale(1); transform: scale(1);"
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
           >
-            D
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
           </span>
         </span>
+      </div>
+    </div>
+    <span>
+      overflowInFinal:
+    </span>
+    <button
+      aria-checked="false"
+      aria-label="overflowInFinal"
+      class="ant-switch css-var-test-id"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
         <span
-          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
-          style="background-color: rgb(114, 101, 230);"
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
+  >
+    <span
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+      style="background-color: rgb(245, 106, 0);"
+    >
+      <span
+        class="ant-avatar-string"
+        style="-webkit-transform: scale(1); transform: scale(1);"
+      >
+        A
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+      style="background-color: rgb(114, 101, 230);"
+    >
+      <span
+        class="ant-avatar-string"
+        style="-webkit-transform: scale(1); transform: scale(1);"
+      >
+        B
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+      style="background-color: rgb(0, 162, 174);"
+    >
+      <span
+        class="ant-avatar-string"
+        style="-webkit-transform: scale(1); transform: scale(1);"
+      >
+        C
+      </span>
+    </span>
+    <span
+      aria-describedby="test-id"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+      style="background-color: rgb(82, 196, 26); color: rgb(255, 255, 255);"
+    >
+      <span
+        class="ant-avatar-string"
+        style="-webkit-transform: scale(1); transform: scale(1);"
+      >
+        +2
+      </span>
+    </span>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-content"
         >
           <span
-            class="ant-avatar-string"
-            style="-webkit-transform: scale(1); transform: scale(1);"
+            class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+            style="background-color: rgb(245, 106, 0);"
           >
-            E
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            >
+              D
+            </span>
           </span>
-        </span>
+          <span
+            class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
+            style="background-color: rgb(114, 101, 230);"
+          >
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            >
+              E
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
