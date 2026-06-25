@@ -324,11 +324,11 @@ exports[`List.pagination > should default work 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

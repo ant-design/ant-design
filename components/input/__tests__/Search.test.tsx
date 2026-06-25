@@ -26,6 +26,15 @@ describe('Input.Search', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should preserve custom Button className', () => {
+    const { container } = render(
+      <Search enterButton={<Button className="custom-search-button">ok</Button>} />,
+    );
+    const button = container.querySelector('button');
+    expect(button).toHaveClass('ant-input-search-btn');
+    expect(button).toHaveClass('custom-search-button');
+  });
+
   it('should support enterButton null', () => {
     expect(() => {
       render(<Search enterButton={null} />);
