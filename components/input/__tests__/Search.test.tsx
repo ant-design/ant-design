@@ -31,7 +31,7 @@ describe('Input.Search', () => {
       <Search enterButton={<Button className="custom-search-button">ok</Button>} />,
     );
     const button = container.querySelector('button');
-    expect(button).toHaveClass('ant-input-search-button');
+    expect(button).toHaveClass('ant-input-search-btn');
     expect(button).toHaveClass('custom-search-button');
   });
 
