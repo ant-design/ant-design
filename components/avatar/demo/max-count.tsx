@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Flex, InputNumber, Switch } from 'antd';
+import { Avatar, Flex, InputNumber, Space, Switch } from 'antd';
 import type { AvatarGroupProps } from '../AvatarGroup';
 
 const defaultMaxCount = 3;
@@ -24,27 +24,46 @@ const AvatarGroupOverflow: React.FC<AvatarGroupProps & { overflowInFinal?: boole
 };
 
 const App: React.FC = () => {
+  const [avatarCount, setAvatarCount] = useState(4);
   const [maxCount, setMaxCount] = useState(3);
   const [overflowInFinal, setOverflowInFinal] = useState(false);
 
   return (
     <Flex vertical gap="middle">
-      <Flex align="center" gap="middle">
-        <span>maxCount:</span>
-        <InputNumber
-          min={0}
-          max={6}
-          value={maxCount}
-          onChange={(value) => setMaxCount(value ?? defaultMaxCount)}
-          aria-label="maxCount"
-        />
-        <span>overflowInFinal:</span>
-        <Switch
-          checked={overflowInFinal}
-          onChange={setOverflowInFinal}
-          aria-label="overflowInFinal"
-        />
-      </Flex>
+      <Space>
+        <div>
+          <span>Avatar 数量:</span>
+          <InputNumber
+            min={2}
+            max={10}
+            value={avatarCount}
+            onChange={(value) => setAvatarCount(value ?? defaultMaxCount)}
+            aria-label="Avatar 数量"
+            mode="spinner"
+          />
+        </div>
+        <div>
+          <span>maxCount:</span>
+          <InputNumber
+            min={1}
+            max={10}
+            value={maxCount}
+            onChange={(value) => setMaxCount(value ?? defaultMaxCount)}
+            aria-label="maxCount"
+            mode="spinner"
+          />
+        </div>
+        <div>
+          <span>overflowInFinal:</span>
+          <Switch
+            style={{ width: 50 }}
+            checked={overflowInFinal}
+            onChange={setOverflowInFinal}
+            aria-label="overflowInFinal"
+          />
+        </div>
+      </Space>
+
       <AvatarGroupOverflow
         max={{
           count: maxCount,
@@ -52,11 +71,11 @@ const App: React.FC = () => {
         }}
         overflowInFinal={overflowInFinal}
       >
-        <Avatar style={{ backgroundColor: '#f56a00' }}>A</Avatar>
-        <Avatar style={{ backgroundColor: '#7265e6' }}>B</Avatar>
-        <Avatar style={{ backgroundColor: '#00a2ae' }}>C</Avatar>
-        <Avatar style={{ backgroundColor: '#f56a00' }}>D</Avatar>
-        <Avatar style={{ backgroundColor: '#7265e6' }}>E</Avatar>
+        {Array.from({ length: avatarCount }, (_, i) => (
+          <Avatar key={i} style={{ backgroundColor: '#f56a00' }}>
+            {String.fromCharCode(65 + i)}
+          </Avatar>
+        ))}
       </AvatarGroupOverflow>
     </Flex>
   );
