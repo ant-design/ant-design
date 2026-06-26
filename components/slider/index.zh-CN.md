@@ -29,6 +29,7 @@ demo:
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 <code src="./demo/multiple.tsx">多点组合</code>
 <code src="./demo/editable.tsx" version="5.20.0">动态增减节点</code>
+<code src="./demo/disabled-handle.tsx">禁用指定滑块</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -40,7 +41,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  | × |
-| disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  | × |
+| disabled | 值为 true 时，滑块为禁用状态。该属性也可以是一个数组，用于禁用 range 模式下特定的 handle，例如 `[true, false, true]` 会禁用第一个和第三个 handle。当任意 handle 被禁用时，`editable` 模式将自动禁用 | boolean \| boolean[] | false |  | × |
 | keyboard | 支持使用键盘操作 handler | boolean | true | 5.2.0+ | × |
 | dots | 是否只能拖拽到刻度上 | boolean | false |  | × |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true |  | × |

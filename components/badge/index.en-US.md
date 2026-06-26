@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.7.0 |
 | text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  | × |
-| title | Text to show when hovering over the badge | string | - |  | × |
+| title | Text to show when hovering over the badge. Set to `null` or `false` to remove the native tooltip | string \| null \| false | - | 6.5.0 | × |
 
 ### Badge.Ribbon
 

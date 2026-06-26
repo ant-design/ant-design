@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
@@ -77,7 +77,7 @@ export interface SliderBaseProps {
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;
-  disabled?: boolean;
+  disabled?: boolean | boolean[];
   keyboard?: boolean;
   orientation?: Orientation;
   vertical?: boolean;
@@ -182,13 +182,16 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     vertical: mergedVertical,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SliderSemanticAllType['classNames'],
+    SliderSemanticAllType['styles'],
+    SliderBaseProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ============================= Context ==============================
   const { handleRender: contextHandleRender, direction: internalContextDirection } =
@@ -397,8 +400,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Render ==============================
   const rootStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

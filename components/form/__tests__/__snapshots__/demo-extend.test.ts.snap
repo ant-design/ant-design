@@ -5123,7 +5123,7 @@ Array [
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
-                  class="ant-slider-handle"
+                  class="ant-slider-handle ant-slider-handle-disabled"
                   role="slider"
                   style="left: 0%; transform: translateX(-50%);"
                 />
@@ -8909,9 +8909,10 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                     </svg>
                   </span>
                 </span>
-                <span
+                <button
+                  aria-label="Clear"
                   class="ant-picker-clear"
-                  role="button"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -8933,7 +8934,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
               </div>
             </div>
             <div

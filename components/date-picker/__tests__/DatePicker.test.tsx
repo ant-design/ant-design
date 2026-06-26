@@ -653,6 +653,17 @@ describe('DatePicker', () => {
       );
       expect(getClearButton()).toBeTruthy();
     });
+
+    it('should trigger onClear when click clear button', () => {
+      const onClear = jest.fn();
+      const somePoint = dayjs('2023-08-01');
+
+      render(<DatePicker defaultValue={somePoint} onClear={onClear} />);
+
+      fireEvent.click(getClearButton()!);
+
+      expect(onClear).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('clearIcon', () => {
