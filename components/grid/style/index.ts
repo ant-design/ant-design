@@ -25,7 +25,6 @@ const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
-    // Grid system
     [componentCls]: {
       display: 'flex',
       flexFlow: 'row wrap',
@@ -34,9 +33,16 @@ const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
       '&::before, &::after': {
         display: 'flex',
       },
-
       '&-no-wrap': {
         flexWrap: 'nowrap',
+      },
+
+      '&-grid': {
+        display: 'grid',
+
+        '&::before, &::after': {
+          display: 'none',
+        },
       },
 
       // The origin of the X-axis

@@ -8,6 +8,7 @@ import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
+import type { GridItemConfig } from './row';
 import { useColStyle } from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
@@ -33,6 +34,7 @@ export interface ColProps
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
+  gridItemConfig?: GridItemConfig;
   prefixCls?: string;
 }
 
@@ -54,7 +56,7 @@ function parseFlex(flex: FlexType): string {
 
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap } = React.useContext(RowContext);
+  const { gutter, wrap, grid } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -63,6 +65,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     offset,
     push,
     pull,
+    gridItemConfig,
     className,
     children,
     flex,
@@ -81,6 +84,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const sizeStyle: Record<string, string> = {};
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
+
   responsiveArrayReversed.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
@@ -94,32 +98,38 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     sizeClassObj = {
       ...sizeClassObj,
-      [`${prefixCls}-${size}-${sizeProps.span}`]: isNonNullable(sizeProps.span),
-      [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
-      [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
-        sizeProps.offset || sizeProps.offset === 0,
-      [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
-      [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     };
 
-    // Responsive flex layout
-    if (sizeProps.flex) {
-      sizeClassObj[`${prefixCls}-${size}-flex`] = true;
-      sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+    if (!grid) {
+      sizeClassObj = {
+        ...sizeClassObj,
+        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
+        [`${prefixCls}-${size}-${sizeProps.span}`]: isNonNullable(sizeProps.span),
+        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
+          sizeProps.offset || sizeProps.offset === 0,
+        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
+        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+      };
+
+      if (sizeProps.flex) {
+        sizeClassObj[`${prefixCls}-${size}-flex`] = true;
+        sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+      }
     }
   });
 
   // ==================== Normal =====================
   const classes = clsx(
     prefixCls,
-    {
+    !grid && {
       [`${prefixCls}-${span}`]: span !== undefined,
       [`${prefixCls}-order-${order}`]: order,
       [`${prefixCls}-offset-${offset}`]: offset,
       [`${prefixCls}-push-${push}`]: push,
       [`${prefixCls}-pull-${pull}`]: pull,
     },
+    { [`${prefixCls}-grid`]: grid },
     className,
     sizeClassObj,
     hashId,
@@ -127,8 +137,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 
   const mergedStyle: React.CSSProperties = {};
-  // Horizontal gutter use padding
-  if (gutter?.[0]) {
+
+  if (!grid && gutter?.[0]) {
     const horizontalGutter = isNumber(gutter[0]) ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
     mergedStyle.paddingInline = horizontalGutter;
   }
@@ -141,6 +151,25 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     if (wrap === false && !mergedStyle.minWidth) {
       mergedStyle.minWidth = 0;
     }
+  }
+
+  // Grid mode
+  if (grid) {
+    const gridStyles: Record<string, string | number> = {};
+
+    if (span !== undefined && !gridItemConfig?.gridColumn) {
+      const spanNum = Number(span);
+
+      if (spanNum > 0) {
+        gridStyles.gridColumn = `span ${spanNum}`;
+      } else {
+        gridStyles.display = 'none';
+      }
+    }
+
+    Object.assign(gridStyles, gridItemConfig);
+
+    Object.assign(mergedStyle, gridStyles);
   }
 
   // ==================== Render =====================
