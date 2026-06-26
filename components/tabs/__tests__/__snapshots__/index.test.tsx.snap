@@ -8,15 +8,15 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     custom-tab-bar
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -99,15 +99,15 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-xx"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-xx"
         role="tabpanel"
         tabindex="-1"
@@ -214,15 +214,15 @@ exports[`Tabs tabBarGutter should work 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -230,7 +230,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -238,7 +238,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -345,15 +345,15 @@ exports[`Tabs tabBarGutter should work 2`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-left"
+      class="ant-tabs-body ant-tabs-body-left"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -361,7 +361,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -369,7 +369,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-null"
         role="tabpanel"
         tabindex="-1"
@@ -455,15 +455,15 @@ exports[`Tabs tabPosition remove card 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-left"
+      class="ant-tabs-body ant-tabs-body-left"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"

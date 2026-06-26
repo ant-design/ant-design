@@ -179,15 +179,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated"
+        class="ant-tabs-body ant-tabs-body-top ant-tabs-body-animated"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           style="height: 200px; box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);"
@@ -321,15 +321,15 @@ exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -461,15 +461,15 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -485,7 +485,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 2`] = `[
 
 exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
-  class="acss-1g7foe3"
+  class="acss-1oz6aet"
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
@@ -604,15 +604,15 @@ exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] 
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -753,15 +753,15 @@ exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -910,15 +910,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1060,15 +1060,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-left"
+          class="ant-tabs-body ant-tabs-body-left"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1210,15 +1210,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1360,15 +1360,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1497,15 +1497,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1634,15 +1634,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -1771,15 +1771,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="0"
@@ -2019,15 +2019,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -2144,15 +2144,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="-1"
@@ -2264,15 +2264,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="-1"
@@ -2494,15 +2494,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="-1"
@@ -2614,15 +2614,15 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-1"
             role="tabpanel"
             tabindex="-1"
@@ -2806,15 +2806,15 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -3007,15 +3007,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -3154,15 +3154,15 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         style="height: 200px;"
@@ -3330,15 +3330,15 @@ exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context cor
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -3470,15 +3470,15 @@ exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -3720,15 +3720,15 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
@@ -3873,15 +3873,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -4087,15 +4087,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -4263,15 +4263,15 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-2"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-2"
         role="tabpanel"
         tabindex="0"
@@ -5003,15 +5003,15 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -5389,15 +5389,15 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-content-holder"
+              class="ant-tabs-body-holder"
             >
               <div
-                class="ant-tabs-content ant-tabs-content-top"
+                class="ant-tabs-body ant-tabs-body-top"
               >
                 <div
                   aria-hidden="false"
                   aria-labelledby="rc-tabs-test-tab-1"
-                  class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                  class="ant-tabs-content ant-tabs-content-active"
                   id="rc-tabs-test-panel-1"
                   role="tabpanel"
                   tabindex="0"
@@ -5631,15 +5631,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-left"
+        class="ant-tabs-body ant-tabs-body-left"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -5838,15 +5838,15 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -5974,15 +5974,15 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -6246,15 +6246,15 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -6868,15 +6868,15 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
@@ -7018,18 +7018,19 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
+        style="background-color: rgba(230, 247, 255, 0.8);"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
-          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px;"
+          style="padding: 16px;"
           tabindex="0"
         >
           Content of Tab Pane 1
@@ -7156,15 +7157,15 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-left"
+        class="ant-tabs-body ant-tabs-body-left"
       >
         <div
           aria-hidden="false"
           aria-labelledby="rc-tabs-test-tab-1"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"

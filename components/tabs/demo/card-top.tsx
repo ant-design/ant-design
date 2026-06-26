@@ -7,7 +7,7 @@ const useStyle = createStyles(({ token, css }) => {
 
   return css`
     ${antdTabsCls}${antdTabsCls}-card {
-      ${antdTabsCls}-content {
+      ${antdTabsCls}-body {
         padding: ${token.padding}px;
         background: ${token.colorBgContainer};
       }
