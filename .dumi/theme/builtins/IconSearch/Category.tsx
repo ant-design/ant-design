@@ -15,7 +15,7 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     list-style: none;
     display: grid;
     grid-gap: ${cssVar.margin};
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     padding: 0;
   `,
   copiedCode: css`
