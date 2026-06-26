@@ -258,15 +258,15 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
               aria-labelledby="rc-tabs-test-tab-tab1"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
               tabindex="-1"
@@ -1571,15 +1571,15 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
               aria-labelledby="rc-tabs-test-tab-tab1"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
               tabindex="-1"
@@ -1734,15 +1734,15 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
               aria-labelledby="rc-tabs-test-tab-app"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               id="rc-tabs-test-panel-app"
               role="tabpanel"
               tabindex="-1"

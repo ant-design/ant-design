@@ -233,14 +233,14 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="-1"
             />
@@ -1503,14 +1503,14 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="-1"
             />
@@ -1641,14 +1641,14 @@ Array [
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="-1"
             />

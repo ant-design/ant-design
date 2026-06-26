@@ -27460,15 +27460,15 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27549,15 +27549,15 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27638,15 +27638,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27727,15 +27727,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize medium 1`] 
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27816,15 +27816,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27905,15 +27905,15 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27994,15 +27994,15 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     </div>
   </div>
   <div
-    class="prefix-Tabs-content-holder"
+    class="prefix-Tabs-body-holder"
   >
     <div
-      class="prefix-Tabs-content prefix-Tabs-content-top"
+      class="prefix-Tabs-body prefix-Tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
+        class="prefix-Tabs-content prefix-Tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
