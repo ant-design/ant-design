@@ -637,8 +637,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const { layer } = React.useContext(CssInJsStyleContext);
 
   const memoIconContextValue = React.useMemo(
-    () => ({ prefixCls: iconPrefixCls, csp, layer: layer ? 'antd' : undefined }),
-    [iconPrefixCls, csp, layer],
+    () => ({
+      prefixCls: iconPrefixCls,
+      csp,
+      layer: layer ? 'antd' : undefined,
+      zeroRuntime: mergedTheme?.zeroRuntime,
+    }),
+    [iconPrefixCls, csp, layer, mergedTheme?.zeroRuntime],
   );
 
   let childNode = (
