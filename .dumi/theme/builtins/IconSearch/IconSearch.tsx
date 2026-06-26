@@ -35,7 +35,23 @@ interface IconSearchState {
   searchKey: string;
 }
 
-const NEW_ICON_NAMES: ReadonlyArray<string> = [];
+const NEW_ICON_NAMES_IN_6_5_0: ReadonlyArray<string> = [
+  'TelegramFilled',
+  'MastodonFilled',
+  'ThreadsFilled',
+  'SnapchatFilled',
+  'AnthropicFilled',
+  'ClaudeFilled',
+  'GeminiFilled',
+  'MistralFilled',
+  'DeepSeekFilled',
+  'QwenFilled',
+  'PerplexityFilled',
+  'HuggingFaceFilled',
+  'OllamaFilled',
+  'ReplicateFilled',
+  'ElevenLabsFilled',
+];
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
@@ -111,7 +127,7 @@ const IconSearch: React.FC = () => {
         title={category as CategoriesKeys}
         theme={theme}
         icons={icons}
-        newIcons={NEW_ICON_NAMES}
+        newIcons={NEW_ICON_NAMES_IN_6_5_0}
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
