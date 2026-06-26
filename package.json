@@ -85,6 +85,7 @@
     "pretest": "npm run version",
     "test": "jest --config .jest.js --no-cache",
     "test:all": "sh -e ./scripts/test-all.sh",
+    "test:agent-discovery": "tsx scripts/check-agent-discovery.ts",
     "test:dekko": "tsx ./tests/dekko/index.test.ts",
     "test:image": "cross-env MOCK_USE_ID=false jest --config .jest.image.js --no-cache -i -u --forceExit",
     "test:node": "npm run version && jest --config .jest.node.js --no-cache",
