@@ -571,11 +571,11 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1043,11 +1043,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1371,12 +1371,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1667,11 +1667,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2006,12 +2006,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2425,11 +2425,11 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2758,11 +2758,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3097,12 +3097,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3536,11 +3536,11 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3958,12 +3958,12 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4388,11 +4388,11 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4810,12 +4810,12 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5205,11 +5205,11 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -5808,11 +5808,11 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6143,11 +6143,11 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6433,11 +6433,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6717,11 +6717,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7996,11 +7996,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8324,12 +8324,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8653,11 +8653,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8981,12 +8981,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
