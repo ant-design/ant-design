@@ -115,7 +115,7 @@
     "@ant-design/cssinjs": "^2.1.2",
     "@ant-design/cssinjs-utils": "^2.1.2",
     "@ant-design/fast-color": "^3.0.1",
-    "@ant-design/icons": "^6.3.0",
+    "@ant-design/icons": "^6.3.1",
     "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.29.2",
     "@rc-component/cascader": "~1.17.0",
