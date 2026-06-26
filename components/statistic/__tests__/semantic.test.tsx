@@ -3,6 +3,11 @@ import React from 'react';
 import Statistic from '..';
 import type { StatisticProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Statistic.Semantic', () => {
   it('support function classNames and styles', () => {
@@ -125,5 +130,24 @@ describe('Statistic.Semantic', () => {
     expect(value).toHaveStyle(objectStyles.value);
     expect(prefix).toHaveStyle(objectStyles.prefix);
     expect(suffix).toHaveStyle(objectStyles.suffix);
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        statistic={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Statistic
+          title="Revenue"
+          value={1234}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-statistic'));
   });
 });

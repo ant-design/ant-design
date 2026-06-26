@@ -9,7 +9,7 @@ import { composeRef, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -277,13 +277,16 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closable: isClosable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AlertSemanticAllType['classNames'],
+    AlertSemanticAllType['styles'],
+    AlertProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const alertCls = clsx(
     prefixCls,
@@ -346,8 +349,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           className={clsx(alertCls, motionClassName)}
           style={{
             ...mergedStyles.root,
-            ...contextStyle,
-            ...style,
             ...motionStyle,
           }}
           onMouseEnter={onMouseEnter}

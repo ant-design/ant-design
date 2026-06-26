@@ -4,6 +4,11 @@ import Collapse from '..';
 import type { CollapseProps } from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Collapse.Semantic', () => {
   it('should support styles and classNames', () => {
@@ -99,5 +104,23 @@ describe('Collapse.Semantic', () => {
     expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
     expect(bodyElement).toHaveStyle({ padding: '16px' });
     expect(iconElement).toHaveStyle({ transform: 'rotate(90deg)' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        collapse={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Collapse
+          items={[{ key: '1', label: 'title' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-collapse'));
   });
 });
