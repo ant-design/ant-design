@@ -151,12 +151,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -523,12 +523,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -900,12 +900,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -1269,12 +1269,12 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -1647,12 +1647,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -1997,12 +1997,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -2309,12 +2309,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -2693,12 +2693,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -3283,12 +3283,12 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -3976,12 +3976,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -4402,12 +4402,12 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -4801,12 +4801,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            autocomplete="off"
+                            autocomplete="new-password"
                             class="ant-select-input"
                             id="test-id"
                             readonly=""
                             role="combobox"
-                            type="search"
+                            type="text"
                             value=""
                           />
                         </div>
@@ -5756,12 +5756,12 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            autocomplete="off"
+                            autocomplete="new-password"
                             class="ant-select-input"
                             id="test-id"
                             readonly=""
                             role="combobox"
-                            type="search"
+                            type="text"
                             value=""
                           />
                         </div>
@@ -6132,12 +6132,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -6933,12 +6933,12 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -7317,12 +7317,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -7686,12 +7686,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -8055,12 +8055,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -8437,12 +8437,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -8811,12 +8811,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -9185,12 +9185,12 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          autocomplete="off"
+                          autocomplete="new-password"
                           class="ant-select-input"
                           id="test-id"
                           readonly=""
                           role="combobox"
-                          type="search"
+                          type="text"
                           value=""
                         />
                       </div>
@@ -9561,12 +9561,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="test-id"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -9926,12 +9926,12 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="test-id"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -10320,12 +10320,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -10696,12 +10696,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -11089,12 +11089,12 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -11459,12 +11459,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -11831,12 +11831,12 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>

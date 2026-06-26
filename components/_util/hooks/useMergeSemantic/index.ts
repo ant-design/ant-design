@@ -73,6 +73,10 @@ const useSemanticStyles = <StylesType extends AnyObject>(
   return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
 };
 
+export const useSemanticRootStyle = (style?: React.CSSProperties) => {
+  return React.useMemo(() => (style ? { root: style } : undefined), [style]);
+};
+
 // =========================== Export ===========================
 
 export const resolveStyleOrClass = <T = any>(

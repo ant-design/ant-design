@@ -98,12 +98,12 @@ Array [
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-required="true"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="advanced_search_field-1"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -348,12 +348,12 @@ Array [
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-required="true"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="advanced_search_field-4"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -989,12 +989,12 @@ Array [
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="col-24-debug_select"
                       role="combobox"
                       style="--select-input-width: 0;"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -1407,12 +1407,12 @@ Array [
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="select"
                       role="combobox"
                       style="--select-input-width: 0;"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -1681,12 +1681,12 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="control-hooks_gender"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -2183,12 +2183,12 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -2559,13 +2559,13 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     disabled=""
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -2692,13 +2692,13 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     disabled=""
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -2861,13 +2861,13 @@ Array [
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     disabled=""
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -5123,7 +5123,7 @@ Array [
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
-                  class="ant-slider-handle"
+                  class="ant-slider-handle ant-slider-handle-disabled"
                   role="slider"
                   style="left: 0%; transform: translateX(-50%);"
                 />
@@ -5315,13 +5315,13 @@ Array [
                                 aria-autocomplete="list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                autocomplete="off"
+                                autocomplete="new-password"
                                 class="ant-select-input"
                                 disabled=""
                                 id="test-id"
                                 readonly=""
                                 role="combobox"
-                                type="search"
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -8909,9 +8909,10 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                     </svg>
                   </span>
                 </span>
-                <span
+                <button
+                  aria-label="Clear"
                   class="ant-picker-clear"
-                  role="button"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -8933,7 +8934,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
               </div>
             </div>
             <div
@@ -11462,12 +11463,12 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="register_residence"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -11716,12 +11717,12 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -11957,12 +11958,12 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -12114,7 +12115,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-input ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
                   id="register_website"
                   placeholder="website"
@@ -12231,12 +12232,12 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="register_gender"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -13018,12 +13019,12 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -13150,12 +13151,12 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -13318,12 +13319,12 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -22998,12 +22999,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="validate_other_select"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -23168,12 +23169,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-required="true"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="validate_other_select-multiple"
                     role="combobox"
                     style="--select-input-width: 0;"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -24639,12 +24640,12 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               aria-autocomplete="list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
-                              autocomplete="off"
+                              autocomplete="new-password"
                               class="ant-select-input"
                               id="test-id"
                               readonly=""
                               role="combobox"
-                              type="search"
+                              type="text"
                               value=""
                             />
                           </div>
@@ -25034,12 +25035,12 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="occupation"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -29277,12 +29278,12 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -29501,12 +29502,12 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -29647,12 +29648,12 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -32590,12 +32591,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="Select"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -32730,12 +32731,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="Cascader"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -32884,12 +32885,12 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-required="true"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="TreeSelect"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>

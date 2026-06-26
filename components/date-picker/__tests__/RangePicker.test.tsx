@@ -6,7 +6,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { fireEvent, render, resetMockDate, setMockDate } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
@@ -165,9 +165,7 @@ describe('RangePicker', () => {
     };
 
     (['year', 'quarter', 'month', 'week'] as const).forEach((picker) => {
-      const { container, unmount } = render(
-        <RangePicker picker={picker} locale={partialLocale} />,
-      );
+      const { container, unmount } = render(<RangePicker picker={picker} locale={partialLocale} />);
       const inputs = container.querySelectorAll('input');
       expect(inputs[0]?.placeholder).toBe('Fallback start');
       expect(inputs[inputs.length - 1]?.placeholder).toBe('Fallback end');
@@ -347,6 +345,17 @@ describe('RangePicker', () => {
       );
       expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
       expect(container.querySelector('.global-custom-clear-icon')).toBeFalsy();
+    });
+
+    it('should trigger onClear when click clear button', () => {
+      const onClear = jest.fn();
+      const somePoint = dayjs('2023-08-01');
+
+      render(<RangePicker defaultValue={[somePoint, somePoint]} onClear={onClear} />);
+
+      fireEvent.click(getClearButton()!);
+
+      expect(onClear).toHaveBeenCalledTimes(1);
     });
   });
 });

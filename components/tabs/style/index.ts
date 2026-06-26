@@ -502,7 +502,7 @@ const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         },
       },
 
-      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
+      [`> ${componentCls}-body-holder, > div > ${componentCls}-body-holder`]: {
         order: 0,
       },
     },
@@ -584,7 +584,7 @@ const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         },
       },
 
-      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
+      [`> ${componentCls}-body-holder, > div > ${componentCls}-body-holder`]: {
         marginLeft: {
           _skip_check_: true,
           value: unit(calc(token.lineWidth).mul(-1).equal()),
@@ -594,7 +594,7 @@ const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           value: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         },
 
-        [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
+        [`> ${componentCls}-body > ${componentCls}-content`]: {
           paddingLeft: {
             _skip_check_: true,
             value: token.paddingLG,
@@ -615,7 +615,7 @@ const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         },
       },
 
-      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
+      [`> ${componentCls}-body-holder, > div > ${componentCls}-body-holder`]: {
         order: 0,
         marginRight: {
           _skip_check_: true,
@@ -626,7 +626,7 @@ const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           value: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         },
 
-        [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
+        [`> ${componentCls}-body > ${componentCls}-content`]: {
           paddingRight: {
             _skip_check_: true,
             value: token.paddingLG,
@@ -891,7 +891,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           order: 1,
         },
 
-        [`> ${componentCls}-content-holder`]: {
+        [`> ${componentCls}-body-holder`]: {
           order: 0,
         },
       },
@@ -901,7 +901,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           order: 0,
         },
 
-        [`> ${componentCls}-content-holder`]: {
+        [`> ${componentCls}-body-holder`]: {
           order: 1,
         },
       },
@@ -1062,18 +1062,18 @@ const genTabsStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
       ...genTabStyle(token),
 
       // =========================== TabPanes ===========================
-      [`${componentCls}-content`]: {
+      [`${componentCls}-body`]: {
         position: 'relative',
         width: '100%',
       },
 
-      [`${componentCls}-content-holder`]: {
+      [`${componentCls}-body-holder`]: {
         flex: 'auto',
         minWidth: 0,
         minHeight: 0,
       },
 
-      [`${componentCls}-tabpane`]: {
+      [`${componentCls}-content`]: {
         ...genFocusStyle(token),
         '&-hidden': {
           display: 'none',

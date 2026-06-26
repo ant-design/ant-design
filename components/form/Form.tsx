@@ -8,7 +8,7 @@ import type {
 } from '@rc-component/form';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import type { Variant } from '../config-provider';
@@ -96,6 +96,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     classNames: contextClassNames,
     tooltip: contextTooltip,
     labelAlign: contextLabelAlign,
+    labelWrap: contextLabelWrap,
   } = useComponentConfig('form');
 
   const {
@@ -148,6 +149,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const mergedLabelAlign = labelAlign ?? contextLabelAlign;
 
+  const mergedLabelWrap = labelWrap ?? contextLabelWrap;
+
   const mergedTooltip = { ...contextTooltip, ...tooltip };
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
@@ -164,15 +167,20 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     layout,
     colon: mergedColon,
     requiredMark: mergedRequiredMark,
+    labelAlign: mergedLabelAlign,
+    labelWrap: mergedLabelWrap,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FormSemanticAllType['classNames'],
+    FormSemanticAllType['styles'],
+    FormProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const formClassName = clsx(
     prefixCls,
@@ -201,7 +209,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       name,
       labelAlign: mergedLabelAlign,
       labelCol,
-      labelWrap,
+      labelWrap: mergedLabelWrap,
       wrapperCol,
       layout,
       colon: mergedColon,
@@ -216,6 +224,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     [
       name,
       mergedLabelAlign,
+      mergedLabelWrap,
       labelCol,
       wrapperCol,
       layout,
@@ -279,7 +288,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
                   onFinishFailed={onInternalFinishFailed}
                   form={wrapForm}
                   ref={nativeElementRef}
-                  style={{ ...mergedStyles?.root, ...contextStyle, ...style }}
+                  style={mergedStyles?.root}
                   className={formClassName}
                 />
               </NoFormStyle>

@@ -165,6 +165,8 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const isAntdButton =
     enterButtonAsElement.type && (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
   if (isAntdButton || enterButtonAsElement.type === 'button') {
+    const enterButtonProps = enterButtonAsElement.props as { className?: string };
+
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -176,7 +178,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton ? { className: btnClassName, size } : {}),
+      ...(isAntdButton ? { className: clsx(btnClassName, enterButtonProps.className), size } : {}),
     });
   } else {
     button = (

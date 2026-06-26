@@ -158,6 +158,7 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| tabIndex | Set the `tabIndex` of the toggle button | number | 0 | 6.5.0 |
 | visible | Whether the password is show or hide | boolean | false | 4.24.0 |
 | onVisibleChange | Callback executed when visibility of the password is changed | (visible) => void | - | 4.24.0 |
 
