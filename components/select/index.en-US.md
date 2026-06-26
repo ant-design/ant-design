@@ -31,6 +31,7 @@ demo:
 <code src="./demo/coordinate.tsx">coordinate</code>
 <code src="./demo/label-in-value.tsx">Get value of selected item</code>
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
+<code src="./demo/custom-tokenization.tsx" version="6.5.0">Custom tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
@@ -108,7 +109,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffixIcon | The custom suffix icon. Custom icons will not respond to clicks to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  | 6.4.0 |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  | × |
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 | × |
-| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  | × |
+| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` or `mode="multiple"` | string[] \| ((input: string) => string[]) | - | function: 6.5.0 | × |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  | × |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 | × |

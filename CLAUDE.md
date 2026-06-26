@@ -38,6 +38,10 @@ ant-design/
 - 判断数据类型时，优先使用 `components/_util/is.ts` 中已有的方法，例如 `isNumber`、`isString`、`isPlainObject`、`isFunction`、`isThenable`、`isPrimitive`、`isNonNullable`。
 - 仅当 `components/_util/is.ts` 中没有合适方法，或当前场景需要更严格、更特殊的判断逻辑时，再使用内联 `typeof`、`instanceof` 等判断方式。
 
+## 样式优先级规范
+
+- 当组件根节点同时支持 ConfigProvider 的 `styles.root`、ConfigProvider 的 `style`、组件自身的 `styles.root` 和组件自身的 `style` 时，优先级从低到高为：ConfigProvider `styles.root` -> ConfigProvider `style` -> 组件 `styles.root` -> 组件 `style`；如在 util 层预合并根节点样式，预合并结果内部应保持前三者的同样顺序，组件自身 `style` 保持最终最高优先级。
+
 ---
 
 ## Demo 导入规范

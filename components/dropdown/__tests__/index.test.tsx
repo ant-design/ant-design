@@ -134,6 +134,24 @@ describe('Dropdown', () => {
     error.mockRestore();
   });
 
+  it.each([
+    { placement: 'left', motionCls: 'ant-slide-right' },
+    { placement: 'leftTop', motionCls: 'ant-slide-right' },
+    { placement: 'leftBottom', motionCls: 'ant-slide-right' },
+    { placement: 'right', motionCls: 'ant-slide-left' },
+    { placement: 'rightTop', motionCls: 'ant-slide-left' },
+    { placement: 'rightBottom', motionCls: 'ant-slide-left' },
+  ] as const)('should support horizontal placement %s', ({ placement, motionCls }) => {
+    render(
+      <Dropdown menu={{ items }} open placement={placement}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    const popup = document.querySelector(`.ant-dropdown-placement-${placement}`);
+    expect(popup).toBeTruthy();
+    expect(popup).toHaveClass(motionCls);
+  });
+
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
     render(

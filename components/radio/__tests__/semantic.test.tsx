@@ -3,6 +3,11 @@ import React from 'react';
 import Radio from '..';
 import type { RadioProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Radio.Semantic', () => {
   it('should merge semantic styles with context styles', () => {
@@ -57,5 +62,21 @@ describe('Radio.Semantic', () => {
     const radioElements = container.querySelectorAll<HTMLElement>('.ant-radio-wrapper');
     expect(radioElements[0]).toHaveClass('checked-radio');
     expect(radioElements[1]).toHaveClass('unchecked-radio');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        radio={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Radio styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Radio
+        </Radio>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-radio-wrapper'));
   });
 });
