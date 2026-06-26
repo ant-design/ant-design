@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction, isNonNullable } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
@@ -141,10 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onScroll' | 'children'
-> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -508,9 +506,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   );
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferSemanticAllType['classNames'],
+    TransferSemanticAllType['styles'],
+    TransferProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -605,7 +610,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div {...rootProps} className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...rootProps} className={cls} style={mergedStyles.root}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}

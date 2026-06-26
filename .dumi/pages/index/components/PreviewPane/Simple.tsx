@@ -98,7 +98,7 @@ interface ComponentsBlockProps {
   inherit?: boolean;
 }
 
-const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
+const Simple: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
   const { config, style, className, containerClassName, inherit = false } = props;
@@ -231,4 +231,4 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   );
 };
 
-export default ComponentsBlock;
+export default Simple;

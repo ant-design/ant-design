@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 
@@ -59,20 +59,21 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, cardMetaClassNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardMetaSemanticAllType['classNames'],
+    CardMetaSemanticAllType['styles'],
+    CardMetaProps
+  >([contextClassNames, cardMetaClassNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
 
   const rootStyles: React.CSSProperties = {
-    ...contextStyle,
     ...mergedStyles.root,
-    ...style,
   };
 
   const avatarClassNames = clsx(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);

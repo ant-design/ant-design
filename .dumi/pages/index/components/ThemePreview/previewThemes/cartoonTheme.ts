@@ -32,7 +32,7 @@ const useCartoonTheme = () => {
           colorInfo: '#9CD3D3',
           colorInfoBorder: '#225555',
           colorBorder: '#225555',
-          colorBorderSecondary: '#225555',
+          colorBorderSecondary: '#88BBBB',
           lineWidth: 2,
           lineWidthBold: 2,
           borderRadius: 18,

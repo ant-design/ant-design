@@ -1,8 +1,8 @@
 import * as React from 'react';
-import FileTwoTone from '@ant-design/icons/FileTwoTone';
+import FileOutlined from '@ant-design/icons/FileOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
-import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
+import PictureOutlined from '@ant-design/icons/PictureOutlined';
 import type { CSSMotionListProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import { omit } from '@rc-component/util';
@@ -112,7 +112,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     const isLoading = file.status === 'uploading';
     if (listType.startsWith('picture')) {
       const loadingIcon = listType === 'picture' ? <LoadingOutlined /> : locale.uploading;
-      const fileIcon = isImgUrl?.(file) ? <PictureTwoTone /> : <FileTwoTone />;
+      const fileIcon = isImgUrl?.(file) ? <PictureOutlined /> : <FileOutlined />;
       return isLoading ? loadingIcon : fileIcon;
     }
     return isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;

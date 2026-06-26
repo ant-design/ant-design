@@ -5,6 +5,11 @@ import Card from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Card.Semantic', () => {
   it('should support useMergeSemantic with mergedProps', () => {
@@ -122,5 +127,41 @@ describe('Card.Semantic', () => {
     expect(actions).toHaveStyle('margin: 8px');
     expect(title).toHaveStyle('font-size: 22px');
     expect(extra).toHaveStyle('color: #000000');
+  });
+  it('Card should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        card={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Card styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Card
+        </Card>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-card'));
+  });
+
+  it('Card.Meta should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        cardMeta={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Card.Meta
+          title="Card title"
+          description="Card description"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-card-meta'));
   });
 });

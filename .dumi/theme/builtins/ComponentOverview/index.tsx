@@ -48,6 +48,10 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     .anticon-search {
       color: ${cssVar.colorTextDisabled};
     }
+    &:focus-visible,
+    &:has(input:focus-visible) {
+      outline: none !important;
+    }
   `,
   componentsOverviewContent: css`
     &:empty:after {
@@ -251,11 +255,19 @@ const Overview: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
+                        {isBorderBeam ? (
+                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
+                        ) : (
+                          cardContent
+                        )}
                       </a>
                     ) : (
                       <Link to={url} key={`${component.title}-internal-link`}>
-                        {isBorderBeam ? <BorderBeam>{cardContent}</BorderBeam> : cardContent}
+                        {isBorderBeam ? (
+                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
+                        ) : (
+                          cardContent
+                        )}
                       </Link>
                     );
 

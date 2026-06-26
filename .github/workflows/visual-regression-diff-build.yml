@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         shard: [1/3, 2/3, 3/3]
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
@@ -47,7 +47,7 @@ jobs:
   ############################### Diff Images ##############################
   visual-diff-report:
     name: visual-diff report
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     needs: visual-diff-snapshot
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
@@ -66,8 +66,9 @@ jobs:
         env:
           EVENT_NUMBER: ${{ github.event.number }}
           BASE_REF: ${{ github.base_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --base-sha=$BASE_SHA --max-workers=2
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact

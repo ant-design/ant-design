@@ -3,6 +3,11 @@ import React from 'react';
 import Progress from '..';
 import type { ProgressProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const classNames: ProgressProps['classNames'] = (info) => {
   return info.props.percent === 100
@@ -72,5 +77,23 @@ describe('Progress classNames & styles function', () => {
     expect(track).toHaveStyle({ padding: '8px' });
     expect(indicator).toHaveStyle({ padding: '8px' });
     expect(root).toHaveStyle({ padding: '8px' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        progress={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Progress
+          percent={50}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-progress'));
   });
 });

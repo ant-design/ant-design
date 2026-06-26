@@ -226,7 +226,9 @@ export interface TableRowSelection<T = AnyObject> {
   selectedRowKeys?: Key[];
   defaultSelectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
-  getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
+  getCheckboxProps?: (
+    record: T,
+  ) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>> & React.AriaAttributes;
   onSelect?: SelectionSelectFn<T>;
   /** @deprecated This function will be remove in v7 and should use `onChange` instead */
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;

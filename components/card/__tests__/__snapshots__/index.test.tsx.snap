@@ -235,15 +235,15 @@ exports[`Card correct pass tabList props 1`] = `
         </div>
       </div>
       <div
-        class="ant-tabs-content-holder"
+        class="ant-tabs-body-holder"
       >
         <div
-          class="ant-tabs-content ant-tabs-content-top"
+          class="ant-tabs-body ant-tabs-body-top"
         >
           <div
             aria-hidden="false"
             aria-labelledby="rc-tabs-test-tab-basic"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             id="rc-tabs-test-panel-basic"
             role="tabpanel"
             tabindex="-1"

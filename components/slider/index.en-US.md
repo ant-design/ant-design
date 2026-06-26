@@ -28,6 +28,7 @@ Used to input a value within a specified range.
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
 <code src="./demo/multiple.tsx">Multiple handles</code>
 <code src="./demo/editable.tsx" version="5.20.0">Dynamic edit nodes</code>
+<code src="./demo/disabled-handle.tsx">Disabled per handle</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -39,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
 | defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  | × |
-| disabled | If true, the slider will not be interactive | boolean | false |  | × |
+| disabled | If true, the slider will not be interactive. This prop can also be an array to disable specific handles in range mode, e.g. `[true, false, true]` disables first and third handles. When any rendered handle is disabled, `editable` mode will be disabled | boolean \| boolean[] | false |  | × |
 | keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ | × |
 | dots | Whether the thumb can only be dragged to tick marks | boolean | false |  | × |
 | included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true |  | × |

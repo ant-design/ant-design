@@ -8,6 +8,7 @@ type BorderBeamGradientItem = {
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 
+export const DEFAULT_BORDER_BEAM_DURATION = 6;
 export const MAX_BEAM_COLOR_STOP_PERCENT = 70;
 
 const getLinearGradient = (...colorStops: string[]) =>
@@ -27,7 +28,7 @@ const fillGradientEnd = (items: BorderBeamGradient): BorderBeamGradient => {
 };
 
 // Map user-facing 0~100 stops into the visible beam segment so the tail area stays reserved.
-// We scale instead of hard-clamping because users describe the gradient against the full beam length:
+// We scale instead of hard-clamping because users describe the gradient against the full beam size:
 // `30` should stay around the first third of the visible segment, rather than remain `30%` after
 // the available range shrinks, which would distort the original color distribution.
 const getMappedBeamColorStopPercent = (percent: number) =>
