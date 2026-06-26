@@ -228,6 +228,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     fontSize,
     lineHeight,
     controlHeightSM,
+    lineWidth,
     colorIcon,
     colorIconHover,
   } = token;
@@ -263,7 +264,12 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 
       [`${genTitleOnlyCls(componentCls)}:has(> ${componentCls}-actions) ${componentCls}-close-icon`]:
         {
-          marginBlockStart: token.calc(controlHeightSM).sub(fontSizeIcon).div(2).equal(),
+          marginBlockStart: token
+            .calc(controlHeightSM)
+            .sub(fontSizeIcon)
+            .div(2)
+            .sub(token.calc(lineWidth).div(2))
+            .equal(),
         },
 
       '&-close-text': {
