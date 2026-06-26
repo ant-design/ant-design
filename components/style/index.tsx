@@ -52,6 +52,24 @@ const loadingCircle = new Keyframes('loadingCircle', {
   },
 });
 
+const scrollFadeTop = new Keyframes('antScrollFadeTop', {
+  '0%': {
+    opacity: 0,
+  },
+  '12%, 100%': {
+    opacity: 1,
+  },
+});
+
+const scrollFadeBottom = new Keyframes('antScrollFadeBottom', {
+  '0%, 88%': {
+    opacity: 1,
+  },
+  '100%': {
+    opacity: 0,
+  },
+});
+
 export const clearFix = (): CSSObject => ({
   // https://github.com/ant-design/ant-design/issues/21301#issuecomment-583955229
   '&::before': {
@@ -93,6 +111,7 @@ export const genScrollFadeStyle = (
   const shadowColor = options?.shadowColor ?? getScrollFadeShadowColor(colorTextQuaternary);
   const fadeSize = unit(paddingLG);
   const shadowSize = unit(paddingSM);
+  const fadeOffset = `calc(${fadeSize} * -1)`;
 
   return {
     backgroundImage: [
@@ -110,6 +129,39 @@ export const genScrollFadeStyle = (
       `100% ${shadowSize}`,
     ].join(', '),
     backgroundAttachment: 'local, local, scroll, scroll',
+
+    '@supports (animation-timeline: scroll(nearest block))': {
+      position: 'relative',
+      backgroundImage: 'none',
+
+      '&::before, &::after': {
+        position: 'sticky',
+        zIndex: 1,
+        display: 'block',
+        height: fadeSize,
+        pointerEvents: 'none',
+        opacity: 0,
+        content: '""',
+        animationDuration: 'auto',
+        animationTimingFunction: 'linear',
+        animationFillMode: 'both',
+        animationTimeline: 'scroll(nearest block)',
+      },
+
+      '&::before': {
+        top: 0,
+        marginBottom: fadeOffset,
+        backgroundImage: `linear-gradient(to bottom, ${backgroundColor}, transparent)`,
+        animationName: scrollFadeTop,
+      },
+
+      '&::after': {
+        bottom: 0,
+        marginTop: fadeOffset,
+        backgroundImage: `linear-gradient(to top, ${backgroundColor}, transparent)`,
+        animationName: scrollFadeBottom,
+      },
+    },
   };
 };
 
