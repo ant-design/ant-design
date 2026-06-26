@@ -11,6 +11,9 @@ const App: React.FC = () => (
         Alert: {
           withDescriptionIconSize: 32,
           withDescriptionPadding: 16,
+          titleFontSize: 14,
+          withDescriptionTitleFontSize: 18,
+          descriptionFontSize: 14,
         },
       },
     }}
