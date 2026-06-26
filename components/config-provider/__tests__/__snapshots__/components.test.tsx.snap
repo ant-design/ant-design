@@ -16526,13 +16526,13 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16554,13 +16554,13 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16582,13 +16582,13 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16610,13 +16610,13 @@ exports[`ConfigProvider components Layout configProvider componentSize medium 1`
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16638,13 +16638,13 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16666,13 +16666,13 @@ exports[`ConfigProvider components Layout normal 1`] = `
     class="ant-layout css-var-root"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-root"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-root"
     />
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16694,13 +16694,13 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     class="prefix-Layout css-var-root"
   >
     <header
-      class="prefix-header"
+      class="prefix-header css-var-root"
     />
     <main
-      class="prefix-content"
+      class="prefix-content css-var-root"
     />
     <footer
-      class="prefix-footer"
+      class="prefix-footer css-var-root"
     />
   </div>
 </div>
