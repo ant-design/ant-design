@@ -36,9 +36,6 @@ const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string)
   },
 });
 
-const genTitleOnlyCls = (componentCls: string) =>
-  `&:has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
-
 export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -68,7 +65,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       ...resetComponent(token),
       position: 'relative',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
@@ -109,6 +106,10 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         lineHeight: 0,
       },
 
+      [`&:not(${componentCls}-with-description) ${componentCls}-icon`]: {
+        marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
+      },
+
       '&-description': {
         display: 'none',
         fontSize,
@@ -134,18 +135,9 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         paddingBottom: 0,
         opacity: 0,
       },
-
-      [genTitleOnlyCls(componentCls)]: {
-        alignItems: 'flex-start',
-
-        [`${componentCls}-icon`]: {
-          marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
-        },
-      },
     },
 
     [`${componentCls}-with-description`]: {
-      alignItems: 'flex-start',
       padding: withDescriptionPadding,
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
@@ -245,7 +237,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         },
       },
 
-      [`${genTitleOnlyCls(componentCls)} ${componentCls}-close-icon`]: {
+      [`&:not(${componentCls}-with-description) ${componentCls}-close-icon`]: {
         marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
       },
 
