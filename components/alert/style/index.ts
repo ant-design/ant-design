@@ -36,6 +36,9 @@ const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string)
   },
 });
 
+const genTitleOnlyCls = (componentCls: string) =>
+  `&:not(${componentCls}-with-description):has(> ${componentCls}-section > ${componentCls}-title)`;
+
 export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -52,6 +55,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorTextHeading,
     withDescriptionPadding,
     defaultPadding,
+    controlHeightSM,
     lineWidth,
     lineType,
 
@@ -106,8 +110,22 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         lineHeight: 0,
       },
 
-      [`&:not(${componentCls}-with-description) ${componentCls}-icon`]: {
+      [`${genTitleOnlyCls(componentCls)} ${componentCls}-icon`]: {
         marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
+      },
+
+      [`${genTitleOnlyCls(componentCls)}:has(> ${componentCls}-actions)`]: {
+        [`${componentCls}-section`]: {
+          marginBlockStart: token
+            .calc(controlHeightSM)
+            .sub(token.calc(fontSize).mul(lineHeight))
+            .div(2)
+            .equal(),
+        },
+
+        [`${componentCls}-icon`]: {
+          marginBlockStart: token.calc(controlHeightSM).sub(fontSize).div(2).equal(),
+        },
       },
 
       '&-description': {
@@ -209,6 +227,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     fontSizeIcon,
     fontSize,
     lineHeight,
+    controlHeightSM,
     colorIcon,
     colorIconHover,
   } = token;
@@ -238,9 +257,14 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         },
       },
 
-      [`&:not(${componentCls}-with-description) ${componentCls}-close-icon`]: {
+      [`${genTitleOnlyCls(componentCls)} ${componentCls}-close-icon`]: {
         marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
       },
+
+      [`${genTitleOnlyCls(componentCls)}:has(> ${componentCls}-actions) ${componentCls}-close-icon`]:
+        {
+          marginBlockStart: token.calc(controlHeightSM).sub(fontSizeIcon).div(2).equal(),
+        },
 
       '&-close-text': {
         color: colorIcon,
