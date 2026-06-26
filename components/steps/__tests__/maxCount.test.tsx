@@ -13,13 +13,13 @@ describe('Steps maxCount', () => {
   }));
 
   const cases: Array<Array<number | null>> = [
-    [0, 1, 2, null, 5, 6],
-    [0, 1, 2, null, 5, 6],
-    [0, 1, 2, 3, null, 6],
-    [0, null, 2, 3, 4, null, 6],
-    [0, null, 3, 4, 5, 6],
-    [0, 1, null, 4, 5, 6],
-    [0, 1, null, 4, 5, 6],
+    [0, 1, 2, null, 6],
+    [0, 1, 2, null, 6],
+    [0, 1, 2, null, 6],
+    [0, null, 3, null, 6],
+    [0, null, 4, 5, 6],
+    [0, null, 4, 5, 6],
+    [0, null, 4, 5, 6],
   ];
 
   beforeEach(() => {
@@ -78,7 +78,7 @@ describe('Steps maxCount', () => {
   it('renders collapsed steps when current is out of range', () => {
     const { container } = render(<Steps current={9} maxCount={5} items={items} />);
 
-    expect(getRenderedSteps(container)).toEqual([0, 1, null, 4, 5, 6]);
+    expect(getRenderedSteps(container)).toEqual([0, null, 4, 5, 6]);
     expect(container.querySelector('.ant-steps-item-active')).toBeFalsy();
   });
 
@@ -115,8 +115,21 @@ describe('Steps maxCount', () => {
     const onChange = jest.fn();
 
     render(<Steps current={3} maxCount={5} items={items} onChange={onChange} />);
-    fireEvent.click(screen.getByText('Step 5'));
+    fireEvent.click(screen.getByText('Step 7'));
 
-    expect(onChange).toHaveBeenCalledWith(4);
+    expect(onChange).toHaveBeenCalledWith(6);
+  });
+
+  it('keeps current and onChange independent from initial', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Steps initial={2} current={3} maxCount={5} items={items} onChange={onChange} />,
+    );
+
+    expect(getActiveStep(container)).toBe(3);
+
+    fireEvent.click(screen.getByText('Step 7'));
+
+    expect(onChange).toHaveBeenCalledWith(6);
   });
 });

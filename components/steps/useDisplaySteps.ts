@@ -75,33 +75,38 @@ function getCollapsedIndexes(
   maxCount: number,
 ): Array<number | null> {
   const safeCurrent = Math.min(Math.max(currentIndex, 0), total - 1);
-  const targetCount = Math.min(maxCount, total);
-  const indexes = new Set([0, safeCurrent, total - 1]);
+  const firstIndex = 0;
+  const lastIndex = total - 1;
+  const visibleCount = Math.min(maxCount, total);
 
-  for (let distance = 1; indexes.size < targetCount && distance < total; distance += 1) {
-    const candidates = [
-      safeCurrent - distance,
-      safeCurrent + distance,
-      distance,
-      total - 1 - distance,
-    ];
-
-    for (const index of candidates) {
-      if (indexes.size >= targetCount) {
-        break;
-      }
-
-      if (index >= 0 && index < total) {
-        indexes.add(index);
-      }
-    }
+  if (visibleCount < 5) {
+    return Array.from(new Set([firstIndex, safeCurrent, lastIndex])).sort((a, b) => a - b);
   }
 
-  return Array.from(indexes)
-    .sort((a, b) => a - b)
-    .flatMap((index, order, sortedIndexes) =>
-      order > 0 && index - sortedIndexes[order - 1] > 1 ? [null, index] : [index],
-    );
+  const edgeCount = visibleCount - 2;
+
+  if (safeCurrent <= edgeCount - 1) {
+    return [...Array.from({ length: edgeCount }, (_, index) => index), null, lastIndex];
+  }
+
+  if (safeCurrent >= total - edgeCount) {
+    return [
+      firstIndex,
+      null,
+      ...Array.from({ length: edgeCount }, (_, index) => total - edgeCount + index),
+    ];
+  }
+
+  const middleCount = visibleCount - 4;
+  const middleStart = safeCurrent - Math.floor((middleCount - 1) / 2);
+
+  return [
+    firstIndex,
+    null,
+    ...Array.from({ length: middleCount }, (_, index) => middleStart + index),
+    null,
+    lastIndex,
+  ];
 }
 
 /**
@@ -118,7 +123,7 @@ export default function useDisplaySteps(
 ): UseDisplayStepsResult {
   const canApplyMaxCount = maxCount !== undefined && maxCount >= 3 && mergedItems.length > maxCount;
 
-  const mappedCurrent = current - initial;
+  const mappedCurrent = current;
 
   const displaySteps = React.useMemo<DisplayStep[]>(() => {
     if (!canApplyMaxCount) {

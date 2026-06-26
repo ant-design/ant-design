@@ -183,8 +183,13 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         const sizes = contentLines.map(({ text, font: lineFont }) => {
           ctx.font = getCanvasFont(lineFont);
           const metrics = ctx.measureText(text);
+          const fontHeight =
+            metrics.fontBoundingBoxAscent !== undefined &&
+            metrics.fontBoundingBoxDescent !== undefined
+              ? metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent
+              : Number(lineFont.fontSize) || 16;
 
-          return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
+          return [metrics.width, fontHeight];
         });
         defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
         defaultHeight =

@@ -80,6 +80,10 @@ describe('Watermark', () => {
               font: { fontFamily: 'serif', fontSize: 12, fontStyle: 'italic' },
             },
             {
+              text: 'Style None',
+              font: { fontStyle: 'none' },
+            },
+            {
               text: 'Fallback',
               font: { fontFamily: 'monospace', fontSize: undefined },
             },
@@ -92,13 +96,19 @@ describe('Watermark', () => {
         expect.arrayContaining([
           'normal normal bold 20px sans-serif',
           'italic normal normal 12px serif',
+          'normal normal normal 16px sans-serif',
           'normal normal normal 16px monospace',
         ]),
       );
       const textCalls = fillText.mock.calls.filter(([text]) =>
-        ['Ant Design', 'Happy Working', 'Fallback'].includes(text as string),
+        ['Ant Design', 'Happy Working', 'Style None', 'Fallback'].includes(text as string),
       );
-      expect(textCalls.map(([text]) => text)).toEqual(['Ant Design', 'Happy Working', 'Fallback']);
+      expect(textCalls.map(([text]) => text)).toEqual([
+        'Ant Design',
+        'Happy Working',
+        'Style None',
+        'Fallback',
+      ]);
       textCalls.forEach(([, x, y]) => {
         expect(Number.isFinite(x)).toBeTruthy();
         expect(Number.isFinite(y)).toBeTruthy();
@@ -106,6 +116,22 @@ describe('Watermark', () => {
     } finally {
       fillText.mockRestore();
       spyCanvas.mockRestore();
+    }
+  });
+
+  it('falls back when canvas font bounding metrics are unavailable', async () => {
+    const measureText = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'measureText')
+      .mockReturnValue({ width: 80 } as TextMetrics);
+
+    try {
+      const { container } = render(<Watermark className="watermark" content="Ant Design" />);
+      await waitFakeTimer();
+
+      const target = container.querySelector<HTMLDivElement>('.watermark div');
+      expect(target?.style.backgroundSize).not.toContain('NaN');
+    } finally {
+      measureText.mockRestore();
     }
   });
 

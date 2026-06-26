@@ -454,7 +454,7 @@ const Steps = (props: StepsProps) => {
   const onDisplayChange = (displayCurrent: number) => {
     const target = displaySteps[displayCurrent];
     if (onChange && target && target.originIndex >= 0) {
-      onChange(initial + target.originIndex);
+      onChange(target.originIndex);
     }
   };
 

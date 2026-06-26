@@ -34,8 +34,9 @@ export const getFontSize = (font: Required<WatermarkFont>, ratio = 1) => {
 
 export const getCanvasFont = (font: Required<WatermarkFont>, ratio = 1, lineHeight?: number) => {
   const mergedLineHeight = lineHeight === undefined ? '' : `/${lineHeight}px`;
+  const fontStyle = font.fontStyle === 'none' ? 'normal' : font.fontStyle;
 
-  return `${font.fontStyle} normal ${font.fontWeight} ${getFontSize(
+  return `${fontStyle} normal ${font.fontWeight} ${getFontSize(
     font,
     ratio,
   )}px${mergedLineHeight} ${font.fontFamily}`;
