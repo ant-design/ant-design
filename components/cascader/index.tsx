@@ -11,7 +11,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -407,9 +407,16 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CascaderSemanticAllType['classNames'],
+    CascaderSemanticAllType['styles'],
+    CascaderProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps as CascaderProps },
     {
       popup: {
@@ -463,7 +470,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         cssVarCls,
       )}
       disabled={mergedDisabled}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
       {...(restProps as any)}

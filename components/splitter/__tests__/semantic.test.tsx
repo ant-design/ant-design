@@ -4,6 +4,11 @@ import type { SplitterProps } from '..';
 import Splitter from '..';
 import type { GetProps } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -137,5 +142,22 @@ describe('Splitter.Semantic', () => {
 
     const draggerElement = container.querySelector('.ant-splitter-bar-dragger');
     expect(draggerElement).toHaveClass('custom-dragger-default');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        splitter={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <SplitterDemo
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-splitter'));
   });
 });

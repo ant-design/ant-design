@@ -12,7 +12,7 @@ import type {
 import RcTabs from '@rc-component/tabs';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -224,9 +224,16 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TabsSemanticAllType['classNames'],
+    TabsSemanticAllType['styles'],
+    TabsProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -265,7 +272,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
         popup: clsx(popupClassName, hashId, cssVarCls, rootCls, mergedClassNames.popup?.root),
       }}
       styles={mergedStyles}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       editable={editable}
       more={{
         icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,

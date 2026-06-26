@@ -1,4 +1,3 @@
-import os from 'node:os';
 import path from 'node:path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
@@ -63,12 +62,14 @@ export default defineConfig({
   ssr:
     process.env.NODE_ENV === 'production'
       ? {
-          builder: 'mako',
+          builder: 'utoopack',
         }
       : false,
   hash: true,
   mfsu: false,
-  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  utoopack: {
+    pluginRuntimeStrategy: 'childProcesses',
+  },
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',

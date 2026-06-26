@@ -3,6 +3,11 @@ import { MailOutlined } from '@ant-design/icons';
 import type { MenuProps } from '..';
 import Menu from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Menu.Semantic', () => {
   it('support classNames and styles', () => {
@@ -168,5 +173,23 @@ describe('Menu.Semantic', () => {
         expect(item).toHaveStyle({ color: expected[label] });
       }
     });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        menu={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Menu
+          items={[{ key: 'mail', label: 'Navigation One' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-menu'));
   });
 });
