@@ -31,11 +31,12 @@ interface CategoryProps {
   icons: string[];
   theme: ThemeType;
   newIcons: ReadonlyArray<string> | string[];
+  newIconVersion: string;
 }
 
 const Category: React.FC<CategoryProps> = (props) => {
   const { message } = App.useApp();
-  const { icons, title, newIcons, theme } = props;
+  const { icons, title, newIcons, newIconVersion, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,6 +72,7 @@ const Category: React.FC<CategoryProps> = (props) => {
             name={name}
             theme={theme}
             isNew={newIcons.includes(name)}
+            newIconVersion={newIconVersion}
             justCopied={justCopied}
             onCopied={onCopied}
           />

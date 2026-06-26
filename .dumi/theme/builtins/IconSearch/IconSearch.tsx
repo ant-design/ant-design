@@ -35,7 +35,9 @@ interface IconSearchState {
   searchKey: string;
 }
 
-const NEW_ICON_NAMES_IN_6_5_0: ReadonlyArray<string> = [
+const NEW_ICON_VERSION = '6.5.0';
+
+const NEW_ICON_NAMES: ReadonlyArray<string> = [
   'TelegramFilled',
   'MastodonFilled',
   'ThreadsFilled',
@@ -127,7 +129,8 @@ const IconSearch: React.FC = () => {
         title={category as CategoriesKeys}
         theme={theme}
         icons={icons}
-        newIcons={NEW_ICON_NAMES_IN_6_5_0}
+        newIcons={NEW_ICON_NAMES}
+        newIconVersion={NEW_ICON_VERSION}
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;

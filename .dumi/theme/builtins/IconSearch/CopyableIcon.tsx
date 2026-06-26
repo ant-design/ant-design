@@ -111,6 +111,7 @@ const locales = {
 export interface CopyableIconProps {
   name: string;
   isNew: boolean;
+  newIconVersion: string;
   theme: ThemeType;
   justCopied: string | null;
   onCopied: (type: string, text: string) => void;
@@ -118,7 +119,7 @@ export interface CopyableIconProps {
 
 const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { message } = App.useApp();
-  const { name, isNew, justCopied, theme, onCopied } = props;
+  const { name, isNew, newIconVersion, justCopied, theme, onCopied } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
@@ -136,7 +137,7 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
       onClick={() => onCopy(`<${name} />`)}
       style={{ cursor: 'pointer' }}
     >
-      {isNew && <span className={styles.newIconVersion}>6.5.0</span>}
+      {isNew && <span className={styles.newIconVersion}>{newIconVersion}</span>}
       {React.createElement(allIcons[name])}
       <span className={styles.anticonCls}>{name}</span>
     </li>
