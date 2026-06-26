@@ -7,6 +7,12 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
+declare module '@ant-design/icons/lib/components/Context' {
+  interface IconContextProps {
+    zeroRuntime?: boolean;
+  }
+}
+
 describe('ConfigProvider.Icon', () => {
   beforeEach(() => {
     expect(document.querySelectorAll('style')).toHaveLength(0);
@@ -63,6 +69,21 @@ describe('ConfigProvider.Icon', () => {
     expect(container.querySelector('.bamboo-smile')).toBeTruthy();
     expect(styleNode?.nonce).toBe('light');
     expect(container.querySelector('#csp')?.innerHTML).toBe('light');
+  });
+
+  it('passes zeroRuntime theme config to icon context', () => {
+    const Checker = () => {
+      const { zeroRuntime } = React.useContext(IconContext);
+      return <div id="zero-runtime">{String(zeroRuntime)}</div>;
+    };
+
+    const { container } = render(
+      <ConfigProvider theme={{ zeroRuntime: true }}>
+        <Checker />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('#zero-runtime')?.innerHTML).toBe('true');
   });
 
   it('cssinjs should support nonce', () => {
