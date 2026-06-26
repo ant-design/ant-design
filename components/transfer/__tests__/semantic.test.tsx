@@ -2,6 +2,11 @@ import React from 'react';
 
 import Transfer from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Transfer.Semantic', () => {
   it('semantic structure', () => {
@@ -157,5 +162,30 @@ describe('Transfer.Semantic', () => {
     expect(targetSectionEle[0]).toHaveStyle(styles.target.section);
     expect(sourceHeaderEle[0]).toHaveStyle(styles.source.header);
     expect(targetHeaderEle[0]).toHaveStyle(styles.target.header);
+  });
+  it('should follow root style priority', () => {
+    const mockData = Array.from({ length: 2 }).map((_, i) => ({
+      key: i,
+      title: `content ${i + 1}`,
+    }));
+
+    const { container } = render(
+      <ConfigProvider
+        transfer={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Transfer
+          dataSource={mockData}
+          targetKeys={[1]}
+          render={(item) => item.title}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-transfer'));
   });
 });

@@ -4,6 +4,11 @@ import type { CheckboxProps } from '..';
 import Checkbox from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Checkbox.Semantic', () => {
   it('should support custom styles', () => {
@@ -99,5 +104,21 @@ describe('Checkbox.Semantic', () => {
 
     const rootElement = container.querySelector<HTMLElement>('.ant-checkbox-wrapper');
     expect(rootElement).toHaveClass('checked-checkbox');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        checkbox={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Checkbox styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Checkbox
+        </Checkbox>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-checkbox-wrapper'));
   });
 });

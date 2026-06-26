@@ -3,6 +3,11 @@ import React from 'react';
 import Tabs from '..';
 import type { TabsProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Tabs.Semantic', () => {
   it('support classnames and styles', () => {
@@ -91,5 +96,24 @@ describe('Tabs.Semantic', () => {
     const root = container.querySelector('.ant-tabs');
     expect(root).toHaveClass('custom-card-root');
     expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        tabs={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Tabs
+          defaultActiveKey="1"
+          items={[{ key: '1', label: 'Tab 1', children: 'Content' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-tabs'));
   });
 });
