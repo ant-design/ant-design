@@ -264,11 +264,11 @@ describe('Typography copy', () => {
       const { container: wrapper } = render(<Test />);
       const copyBtn = wrapper.querySelectorAll('.ant-typography-copy')[0];
       fireEvent.click(copyBtn);
-      expect(spy.mock.calls[0][0]).toEqual(originText);
+      expect(spy.mock.calls[0][0]).toBe(originText);
       await waitFakeTimer();
       spy.mockReset();
       fireEvent.click(copyBtn);
-      expect(spy.mock.calls[0][0]).toEqual(nextText);
+      expect(spy.mock.calls[0][0]).toBe(nextText);
       jest.useRealTimers();
       spy.mockReset();
     });
@@ -288,7 +288,7 @@ describe('Typography copy', () => {
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeTruthy();
       await waitFakeTimer();
-      expect(spy.mock.calls[0][0]).toEqual('Request text');
+      expect(spy.mock.calls[0][0]).toBe('Request text');
       spy.mockReset();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });

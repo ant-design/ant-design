@@ -55,12 +55,12 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 aria-autocomplete="list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -189,12 +189,12 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 aria-autocomplete="list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -440,12 +440,12 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 aria-autocomplete="list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -3038,12 +3038,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3163,12 +3163,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3291,12 +3291,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3419,12 +3419,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3524,12 +3524,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5225,7 +5225,7 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -5341,7 +5341,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5381,7 +5380,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5483,7 +5481,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5523,7 +5520,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5600,7 +5596,6 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -5734,7 +5729,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -5831,12 +5825,12 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6441,7 +6435,6 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -6770,12 +6763,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6928,7 +6921,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <button
             class="ant-input-clear-icon"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -7000,7 +6992,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <button
             class="ant-input-clear-icon"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -7072,12 +7063,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9117,12 +9108,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9242,12 +9233,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9372,12 +9363,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9525,12 +9516,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9655,7 +9646,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -9753,12 +9744,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9883,12 +9874,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -11204,7 +11195,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -11288,7 +11278,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -11407,7 +11396,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -12004,6 +11992,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   <div
     class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
+    style="border-width: 0px;"
   >
     <span
       class="ant-otp-input-wrapper"
@@ -12111,7 +12100,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   </div>
   <div
     class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
-    style="color: rgb(77, 168, 218);"
+    style="color: rgb(77, 168, 218); border-width: 0px;"
   >
     <input
       class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -12205,7 +12194,6 @@ Array [
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span

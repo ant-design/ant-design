@@ -34,24 +34,24 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Collapse
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| accordion | If true, Collapse renders as Accordion | boolean | false |  |
-| activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In [accordion mode](#collapse-demo-accordion), it's the key of the first panel |  |
-| bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
-| defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
-| ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
-| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
-| expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
-| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - |
-| ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 |
-| ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
-| size | Set the size of collapse | `large` \| `medium` \| `small` | `medium` | 5.2.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| onChange | Callback function executed when active panel is changed | function | - |  |
-| items | collapse items content | [ItemType](#itemtype) | - | 5.6.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| accordion | If true, Collapse renders as Accordion | boolean | false |  | × |
+| activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In [accordion mode](#collapse-demo-accordion), it's the key of the first panel |  | × |
+| bordered | Toggles rendering of the border around the collapse block | boolean | true |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 | × |
+| defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  | × |
+| ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  | × |
+| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 | × |
+| expandIcon | Customize the collapse expand icon | (panelProps) => ReactNode | - |  | 5.15.0 |
+| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - | × |
+| ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 | × |
+| ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 | × |
+| size | Set the size of collapse | `large` \| `medium` \| `small` | `medium` | 5.2.0 | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| onChange | Callback function executed when active panel is changed | function | - |  | × |
+| items | collapse items content | [ItemType](#itemtype) | - | 5.6.0 | × |
 
 ### ItemType
 

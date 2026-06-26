@@ -1,13 +1,14 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
-import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
-import RcSelect, { OptGroup, Option } from '@rc-component/select';
-import type { OptionProps } from '@rc-component/select/lib/Option';
 import type {
   BaseOptionType,
+  BaseSelectRef,
   DefaultOptionType,
+  OptionProps,
+  SelectProps as RcSelectProps,
   SearchConfig,
-} from '@rc-component/select/lib/Select';
+} from '@rc-component/select';
+import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -41,7 +42,7 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
+export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps, SearchConfig };
 
 export interface LabeledValue {
   key?: string;

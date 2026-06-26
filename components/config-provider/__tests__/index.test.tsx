@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { SmileOutlined } from '@ant-design/icons';
+import { LoadingOutlined, SmileOutlined } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
@@ -98,13 +99,36 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('[role="img"]')).toHaveClass('bamboo-smile');
   });
 
+  // https://github.com/ant-design/ant-design/issues/52412
+  it('should keep spin animation styles when multiple icon prefixes coexist', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <>
+          <ConfigProvider>
+            <LoadingOutlined spin />
+          </ConfigProvider>
+          <ConfigProvider iconPrefixCls="customicon">
+            <LoadingOutlined spin />
+          </ConfigProvider>
+        </>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('.anticon-spin{animation-name:loadingCircle;');
+    expect(styleText).toContain('.customicon-spin{animation-name:loadingCircle;');
+  });
+
   it('input autoComplete', () => {
     const { container } = render(
       <ConfigProvider input={{ autoComplete: 'off' }}>
         <Input />
       </ConfigProvider>,
     );
-    expect(container.querySelector('input')?.autocomplete).toEqual('off');
+    expect(container.querySelector('input')?.autocomplete).toBe('off');
   });
 
   it('select showSearch', () => {

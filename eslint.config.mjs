@@ -6,6 +6,17 @@ import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 
+const restrictedRcPackageDirectoryImports = [
+  '@rc-component/*/es',
+  '@rc-component/*/es/**',
+  '@rc-component/*/lib',
+  '@rc-component/*/lib/**',
+  'rc-*/es',
+  'rc-*/es/**',
+  'rc-*/lib',
+  'rc-*/lib/**',
+];
+
 export default antfu(
   {
     plugins: {
@@ -102,6 +113,23 @@ export default antfu(
     },
   },
   {
+    files: ['components/**/*.{ts,tsx}'],
+    ignores: ['components/*/demo/**/*', 'components/**/__tests__/**/*'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: restrictedRcPackageDirectoryImports,
+              message: 'Do not import package internals from es/lib. Import from the package root.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     ...compat.configs['flat/recommended'],
     rules: {
       ...compat.configs['flat/recommended'].rules,
@@ -129,7 +157,15 @@ export default antfu(
   },
   {
     // tests
-    files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
+    files: [
+      '**/*.test.ts',
+      'tests/**/*',
+      '**/__tests__/**/*',
+      'scripts/**/*',
+      '**/*.test.tsx',
+      'vitest.config.ts',
+      'vitest.setup.ts',
+    ],
     rules: {
       'react/use-state': 'off',
       'react/error-boundaries': 'off',

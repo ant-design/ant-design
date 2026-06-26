@@ -60,11 +60,9 @@ export type DescriptionsSemanticAllType = GenerateSemantic<
   DescriptionsProps
 >;
 
-export interface DescriptionsProps {
+export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
-  className?: string;
   rootClassName?: string;
-  style?: React.CSSProperties;
   bordered?: boolean;
   /**
    * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
@@ -90,7 +88,6 @@ export interface DescriptionsProps {
   classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
   styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
-  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
@@ -139,12 +136,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     });
   }
   // Column count
+  // Mobile-first cascade: try the user-supplied map first (scanning large→small
+  // over cumulative min-width screens, so a lower breakpoint like `md` is still
+  // "active" on an `lg` viewport).  Only fall back to DEFAULT_COLUMN_MAP when
+  // no user-supplied breakpoint is active at all.
   const mergedColumn = React.useMemo(() => {
     if (isNumber(column)) {
       return column;
     }
 
-    return matchScreen(screens, { ...DEFAULT_COLUMN_MAP, ...column }) ?? 3;
+    return matchScreen(screens, column) ?? matchScreen(screens, DEFAULT_COLUMN_MAP) ?? 3;
   }, [screens, column]);
 
   // Items with responsive

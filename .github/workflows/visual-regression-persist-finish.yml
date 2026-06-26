@@ -50,7 +50,7 @@ jobs:
       build-failure: ${{ steps.persist_start_job_status.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: persist_start_job_status
         with:
           script: |
@@ -91,14 +91,11 @@ jobs:
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       - name: checkout
-        uses: actions/checkout@v6
-        with:
-          # checkout the head sha/branch that triggered this workflow
-          ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       # We need get persist key first
       - name: Download Visual Regression Ref
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -112,7 +109,7 @@ jobs:
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}

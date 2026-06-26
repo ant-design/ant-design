@@ -1,7 +1,6 @@
 import * as React from 'react';
-import type { Meta } from '@rc-component/form/lib/interface';
-import { omit, useLayoutEffect } from '@rc-component/util';
-import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import type { Meta } from '@rc-component/form';
+import { isVisible, omit, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';
@@ -62,7 +61,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
-  const hasHelp = isNonNullable(help);
+  const hasHelp = isNonNullable(help) && help !== false;
   const hasError = !!(hasHelp || errors.length || warnings.length);
   const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);

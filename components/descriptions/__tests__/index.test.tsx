@@ -6,6 +6,8 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { matchScreen } from '../../_util/responsiveObserver';
+import DEFAULT_COLUMN_MAP from '../constant';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -145,6 +147,38 @@ describe('Descriptions', () => {
         .reduce((total, cur) => total + cur, 0),
     ).toBe(8);
     wrapper.unmount();
+  });
+
+  // Verify the mobile-first cascade fix: matchScreen(screens, userColumn) is tried
+  // before falling back to DEFAULT_COLUMN_MAP, so the highest explicitly-set
+  // user breakpoint wins over the library default for any unspecified higher breakpoint.
+  describe('column mobile-first cascade', () => {
+    it('cascades md:2 upward to lg viewport instead of DEFAULT_COLUMN_MAP.lg', () => {
+      // On an lg screen xs/sm/md/lg are all active (cumulative min-width semantics).
+      const lgScreens = { xs: true, sm: true, md: true, lg: true };
+      const column = { xs: 1, md: 2 };
+      const result =
+        matchScreen(lgScreens, column) ?? matchScreen(lgScreens, DEFAULT_COLUMN_MAP) ?? 3;
+      expect(result).toBe(2);
+    });
+
+    it('cascades xl:4 upward to xxl viewport', () => {
+      const xxlScreens = { xs: true, sm: true, md: true, lg: true, xl: true, xxl: true };
+      const column = { xs: 1, md: 2, xl: 4 };
+      const result =
+        matchScreen(xxlScreens, column) ?? matchScreen(xxlScreens, DEFAULT_COLUMN_MAP) ?? 3;
+      expect(result).toBe(4);
+    });
+
+    it('falls back to DEFAULT_COLUMN_MAP when no user-supplied key is active', () => {
+      // sm viewport; user only specified xl which is not yet active.
+      const smScreens = { xs: true, sm: true };
+      const column = { xl: 4 };
+      const result =
+        matchScreen(smScreens, column) ?? matchScreen(smScreens, DEFAULT_COLUMN_MAP) ?? 3;
+      // DEFAULT_COLUMN_MAP.sm = 2
+      expect(result).toBe(DEFAULT_COLUMN_MAP.sm);
+    });
   });
 
   it('warning if exceed the row span', () => {
@@ -288,7 +322,7 @@ describe('Descriptions', () => {
       const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
-        expect(Number(td.getAttribute('colSpan'))).toEqual(spans[index]);
+        expect(Number(td.getAttribute('colSpan'))).toBe(spans[index]);
       });
     }
 

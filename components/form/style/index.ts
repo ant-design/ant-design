@@ -36,6 +36,8 @@ export interface ComponentToken {
    * @descEN Label height
    */
   labelHeight: number | string;
+  /** @internal */
+  verticalLabelHeight: number | string;
   /**
    * @desc 小号表单项控件高度
    * @descEN Small form item control height
@@ -222,18 +224,6 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
         &-hidden${antCls}-row`]: {
         // https://github.com/ant-design/ant-design/issues/26141
         display: 'none',
-      },
-
-      '&-has-warning': {
-        [`${formItemCls}-split`]: {
-          color: token.colorError,
-        },
-      },
-
-      '&-has-error': {
-        [`${formItemCls}-split`]: {
-          color: token.colorWarning,
-        },
       },
 
       // ==============================================================
@@ -542,7 +532,7 @@ const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
 };
 
 const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
-  const { componentCls, formItemCls, antCls } = token;
+  const { componentCls, formItemCls, antCls, verticalLabelHeight } = token;
 
   return {
     [`${formItemCls}-vertical`]: {
@@ -551,7 +541,7 @@ const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
       },
 
       [`${formItemCls}-label > label`]: {
-        height: 'auto',
+        height: verticalLabelHeight,
       },
 
       [`${formItemCls}-control`]: {
@@ -607,6 +597,7 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
   labelHeight: token.controlHeight,
   controlHeightSM: token.controlHeightSM,
   controlHeightLG: token.controlHeightLG,
+  verticalLabelHeight: token.labelHeight ?? 'auto',
   labelColonMarginInlineStart: token.marginXXS / 2,
   labelColonMarginInlineEnd: token.marginXS,
   itemMarginBottom: token.marginLG,

@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -127,7 +128,7 @@ interface ExtraProps {
 }
 
 const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
-  if (!extra) {
+  if (!isReactRenderable(extra)) {
     return null;
   }
   return (
@@ -225,16 +226,18 @@ const Result: ResultType = (props) => {
   return (
     <div {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
-      <div className={titleClassNames} style={mergedStyles.title}>
-        {title}
-      </div>
-      {subTitle && (
+      {isReactRenderable(title) && (
+        <div className={titleClassNames} style={mergedStyles.title}>
+          {title}
+        </div>
+      )}
+      {isReactRenderable(subTitle) && (
         <div className={subTitleClassNames} style={mergedStyles.subTitle}>
           {subTitle}
         </div>
       )}
       <Extra className={extraClassNames} extra={extra} style={mergedStyles.extra} />
-      {children && (
+      {isReactRenderable(children) && (
         <div className={bodyClassNames} style={mergedStyles.body}>
           {children}
         </div>

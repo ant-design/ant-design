@@ -8,7 +8,7 @@ import type {
   PaginationProps as RcPaginationProps,
 } from '@rc-component/pagination';
 import RcPagination from '@rc-component/pagination';
-import enUS from '@rc-component/pagination/lib/locale/en_US';
+import enUS from '@rc-component/pagination/locale/en_US';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -17,6 +17,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import type { SelectProps } from '../select';
@@ -104,6 +105,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const mergedSize = useSize(customizeSize);
 
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+  const [inputVariant, enableInputVariantCls] = useVariant('input');
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: PaginationProps = {
@@ -242,6 +244,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     {
       [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-${inputVariant}`]: enableInputVariantCls && inputVariant !== 'outlined',
       /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',

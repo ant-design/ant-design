@@ -1,11 +1,11 @@
 import * as React from 'react';
 import FieldForm, { List, useWatch } from '@rc-component/form';
-import type { FormProps as RcFormProps } from '@rc-component/form/lib/Form';
 import type {
   FormRef,
   InternalNamePath,
+  FormProps as RcFormProps,
   ValidateErrorEntity,
-} from '@rc-component/form/lib/interface';
+} from '@rc-component/form';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -129,7 +129,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useFormWarning(props);
   }
 

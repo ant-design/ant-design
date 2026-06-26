@@ -49,4 +49,14 @@ export const sponsors: Sponsor[] = [
       en: 'Agent teammates that grow with you.',
     },
   },
+  {
+    name: 'CodeRabbit',
+    logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*yHnhRL4x1DEAAAAAQBAAAAgAeh6VAQ/original',
+    url: 'https://coderabbit.ai?utm_source=ant-design',
+    opencollective: 'https://opencollective.com/coderabbit',
+    description: {
+      cn: 'AI 代码审查工具，逐行分析 Pull Request，将代码审查时间与缺陷减半。',
+      en: 'AI-powered code review that cuts review time and bugs in half.',
+    },
+  },
 ];

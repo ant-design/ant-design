@@ -6,7 +6,10 @@ exports[`ColorPicker Should disabled work 1`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
 </div>
@@ -19,7 +22,10 @@ exports[`ColorPicker Should panelRender work 1`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
   <div
@@ -151,12 +157,12 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="test-id"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -291,7 +297,10 @@ exports[`ColorPicker Should panelRender work 2`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
   </div>
   <div
@@ -420,12 +429,12 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -565,7 +574,10 @@ exports[`ColorPicker rtl render component should be rendered correctly in RTL di
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
 >
   <div
+    aria-label="Clear color"
     class="ant-color-picker-clear"
+    role="button"
+    tabindex="0"
   />
 </div>
 `;

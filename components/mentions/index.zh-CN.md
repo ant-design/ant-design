@@ -39,33 +39,33 @@ demo:
 
 ### Mentions
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 5.13.0, disabled: 6.4.0 |
-| autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultValue | 默认值 | string | - |  |
-| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |  |
-| getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
-| placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  |
-| prefix | 设置触发关键字 | string \| string\[] | `@` |  |
-| split | 设置选中项前后分隔符 | string | ` ` |  |
-| size | 控件大小 | `large` \| `medium` \| `small` | - |  |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
-| value | 设置值 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
-| onBlur | 失去焦点时触发 | () => void | - |  |
-| onChange | 值改变时触发 | (text: string) => void | - |  |
-| onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
-| onFocus | 获得焦点时触发 | () => void | - |  |
-| onResize | resize 回调 | function({ width, height }) | - |  |
-| onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |
-| onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
-| onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 |
-| options | 选项配置 | [Options](#option) | [] | 5.1.0 |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 5.13.0, disabled: 6.4.0 | 6.4.0 |
+| autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultValue | 默认值 | string | - |  | × |
+| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |  | × |
+| getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
+| placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  | × |
+| prefix | 设置触发关键字 | string \| string\[] | `@` |  | × |
+| split | 设置选中项前后分隔符 | string | ` ` |  | × |
+| size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
+| validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  | × |
+| value | 设置值 | string | - |  | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
+| onBlur | 失去焦点时触发 | () => void | - |  | × |
+| onChange | 值改变时触发 | (text: string) => void | - |  | × |
+| onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 | × |
+| onFocus | 获得焦点时触发 | () => void | - |  | × |
+| onResize | resize 回调 | function({ width, height }) | - |  | × |
+| onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  | × |
+| onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  | × |
+| onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 | × |
+| options | 选项配置 | [Options](#option) | [] | 5.1.0 | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
 ### Mentions 方法
 

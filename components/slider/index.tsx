@@ -1,7 +1,6 @@
 import React from 'react';
-import type { SliderProps as RcSliderProps } from '@rc-component/slider';
+import type { SliderProps as RcSliderProps, SliderRef } from '@rc-component/slider';
 import RcSlider from '@rc-component/slider';
-import type { SliderRef } from '@rc-component/slider/lib/Slider';
 import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -351,7 +350,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             value={info.value}
             open={open}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
@@ -381,7 +380,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
             key="tooltip"

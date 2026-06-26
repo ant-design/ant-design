@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Panel } from '@rc-component/dialog';
-import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -12,6 +11,8 @@ import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps, ModalSemanticAllType } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+
+type PanelProps = React.ComponentPropsWithoutRef<typeof Panel>;
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
