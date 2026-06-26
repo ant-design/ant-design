@@ -9384,9 +9384,6 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
             viewBox="64 64 896 896"
             width="1em"
           >
-            <defs>
-              <style />
-            </defs>
             <path
               d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
             />
