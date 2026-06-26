@@ -38,10 +38,6 @@ interface IconSearchState {
 const NEW_ICON_VERSION = '6.5.0';
 
 const NEW_ICON_NAMES: ReadonlyArray<string> = [
-  'TelegramFilled',
-  'MastodonFilled',
-  'ThreadsFilled',
-  'SnapchatFilled',
   'AnthropicFilled',
   'ClaudeFilled',
   'GeminiFilled',
@@ -53,7 +49,13 @@ const NEW_ICON_NAMES: ReadonlyArray<string> = [
   'OllamaFilled',
   'ReplicateFilled',
   'ElevenLabsFilled',
+  'TelegramFilled',
+  'MastodonFilled',
+  'ThreadsFilled',
+  'SnapchatFilled',
 ];
+
+const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]));
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
@@ -115,9 +117,11 @@ const IconSearch: React.FC = () => {
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
     const matchedCategories = Object.values(merged)
       .map((item) => {
-        item.icons = item.icons
+        const icons = item.icons
           .map((iconName) => iconName + theme)
           .filter((iconName) => allIcons[iconName]);
+
+        item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
 
         return item;
       })
@@ -204,6 +208,25 @@ type MatchedCategory = {
   category: string;
   icons: string[];
 };
+
+function groupNewIcons(icons: string[]) {
+  const firstNewIconIndex = icons.findIndex((iconName) => NEW_ICON_ORDER.has(iconName));
+
+  if (firstNewIconIndex === -1) {
+    return icons;
+  }
+
+  const newIcons = icons
+    .filter((iconName) => NEW_ICON_ORDER.has(iconName))
+    .sort((a, b) => NEW_ICON_ORDER.get(a)! - NEW_ICON_ORDER.get(b)!);
+  const restIcons = icons.filter((iconName) => !NEW_ICON_ORDER.has(iconName));
+
+  return [
+    ...restIcons.slice(0, firstNewIconIndex),
+    ...newIcons,
+    ...restIcons.slice(firstNewIconIndex),
+  ];
+}
 
 function matchCategoriesFromTag(searchKey: string, metaInfo: IconsMeta) {
   if (!searchKey) {
