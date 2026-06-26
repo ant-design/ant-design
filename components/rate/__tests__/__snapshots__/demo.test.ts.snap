@@ -2175,32 +2175,12 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
         <div
           class="ant-rate-star-first"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
         <div
           class="ant-rate-star-second"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
       </div>
     </li>
@@ -2217,32 +2197,12 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
         <div
           class="ant-rate-star-first"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
         <div
           class="ant-rate-star-second"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
       </div>
     </li>
@@ -2259,32 +2219,12 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
         <div
           class="ant-rate-star-first"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
         <div
           class="ant-rate-star-second"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
       </div>
     </li>
@@ -2301,32 +2241,12 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
         <div
           class="ant-rate-star-first"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
         <div
           class="ant-rate-star-second"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
       </div>
     </li>
@@ -2343,32 +2263,127 @@ exports[`renders components/rate/demo/component-token.tsx correctly 1`] = `
         <div
           class="ant-rate-star-first"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
         </div>
         <div
           class="ant-rate-star-second"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"
-            />
-          </svg>
+          A
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul
+    class="ant-rate css-var-test-id"
+    tabindex="0"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="1"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        >
+          好
+        </div>
+        <div
+          class="ant-rate-star-second"
+        >
+          好
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="2"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        >
+          好
+        </div>
+        <div
+          class="ant-rate-star-second"
+        >
+          好
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-half ant-rate-star-active"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="3"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        >
+          好
+        </div>
+        <div
+          class="ant-rate-star-second"
+        >
+          好
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="4"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        >
+          好
+        </div>
+        <div
+          class="ant-rate-star-second"
+        >
+          好
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="5"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        >
+          好
+        </div>
+        <div
+          class="ant-rate-star-second"
+        >
+          好
         </div>
       </div>
     </li>

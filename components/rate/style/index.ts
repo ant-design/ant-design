@@ -95,6 +95,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         color: token.starBg,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
+        WebkitTextStroke: `${unit(token.starBorderWidthDefault)} ${token.starBorderColor}`,
 
         '> span svg, > svg': {
           stroke: token.starBorderColor,
@@ -119,6 +120,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
 
       [`&-half ${componentCls}-star-first, &-full ${componentCls}-star-second`]: {
         color: 'inherit',
+        WebkitTextStroke: `${unit(token.starBorderWidthSelected)} ${token.starBorderColorSelected}`,
 
         '> span svg, > svg': {
           stroke: token.starBorderColorSelected,
