@@ -1,4 +1,3 @@
-import { blue } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
@@ -69,14 +68,8 @@ const genPictureStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
         [`${itemCls}-error`]: {
           borderColor: token.colorError,
 
-          // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
-          [`${itemCls}-thumbnail ${iconCls}`]: {
-            [`svg path[fill='${blue[0]}']`]: {
-              fill: token.colorErrorBg,
-            },
-            [`svg path[fill='${blue.primary}']`]: {
-              fill: token.colorError,
-            },
+          [`${itemCls}-thumbnail${itemCls}-file ${iconCls}`]: {
+            color: token.colorError,
           },
         },
 

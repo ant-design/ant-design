@@ -1006,7 +1006,31 @@ describe('Upload List', () => {
     );
 
     expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file')).toBeTruthy();
+    expect(
+      wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file svg[data-icon="file"]'),
+    ).toBeTruthy();
     expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-picture')).toBeFalsy();
+
+    unmount();
+  });
+
+  it('when picture-card file upload fails, image file should render picture icon', () => {
+    const items = [{ status: 'error', uid: 'upload-list-item', name: 'picture.png' }];
+    const { container: wrapper, unmount } = render(
+      <UploadList
+        listType="picture-card"
+        items={items as UploadListProps['items']}
+        locale={{ uploadError: 'upload error' }}
+      />,
+    );
+
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-picture')).toBeTruthy();
+    expect(
+      wrapper.querySelector(
+        '.ant-upload-list-item-thumbnail .anticon-picture svg[data-icon="picture"]',
+      ),
+    ).toBeTruthy();
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file')).toBeFalsy();
 
     unmount();
   });
