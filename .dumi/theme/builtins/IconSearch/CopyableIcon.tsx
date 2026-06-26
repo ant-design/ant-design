@@ -23,7 +23,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       padding-inline-start: 0 !important;
       padding-inline-end: 0 !important;
       position: relative;
-      width: 200px;
+      width: 100%;
       height: 100px;
       overflow: hidden;
       color: #555;

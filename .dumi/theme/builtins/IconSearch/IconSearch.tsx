@@ -185,6 +185,7 @@ const IconSearch: React.FC = () => {
             allowClear
             autoFocus
             size="large"
+            variant="filled"
             onChange={handleSearchIcon}
           />
         </div>
