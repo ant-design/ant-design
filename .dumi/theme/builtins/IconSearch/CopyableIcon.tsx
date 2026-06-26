@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import { App, Badge } from 'antd';
+import { App } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/es/_util/copy';
 import { clsx } from 'clsx';
@@ -73,6 +73,19 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         opacity: 1;
       }
     `,
+    newIconVersion: css`
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      z-index: 1;
+      padding: 0 ${cssVar.paddingXXS};
+      color: ${cssVar.colorWhite};
+      font-size: ${cssVar.fontSizeSM};
+      line-height: ${cssVar.lineHeightSM};
+      background-color: ${cssVar.colorSuccess};
+      border-start-end-radius: ${cssVar.borderRadiusSM};
+      border-end-start-radius: ${cssVar.borderRadiusSM};
+    `,
     anticonCls: css`
       display: block;
       font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -123,10 +136,9 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
       onClick={() => onCopy(`<${name} />`)}
       style={{ cursor: 'pointer' }}
     >
+      {isNew && <span className={styles.newIconVersion}>6.5.0</span>}
       {React.createElement(allIcons[name])}
-      <span className={styles.anticonCls}>
-        <Badge dot={isNew}>{name}</Badge>
-      </span>
+      <span className={styles.anticonCls}>{name}</span>
     </li>
   );
 };
