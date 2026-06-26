@@ -50,6 +50,11 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderInlineStart: tableBorder,
           borderTop: tableBorder,
 
+          [`> ${componentCls}-header${componentCls}-sticky-holder`]: {
+            marginTop: calc(lineWidth).mul(-1).equal(),
+            borderTop: tableBorder,
+          },
+
           [`> ${componentCls}-content, > ${componentCls}-header, > ${componentCls}-body, > ${componentCls}-summary`]:
             {
               '> table': {
