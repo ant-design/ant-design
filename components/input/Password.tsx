@@ -18,6 +18,7 @@ const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
 
 interface VisibilityToggle {
+  tabIndex?: number;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
 }
@@ -118,12 +119,13 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     const iconTrigger = actionMap[action] || '';
     const iconRenderer = iconRender || contextIconRender || defaultIconRender;
     const icon = iconRenderer(visible);
+    const iconTabIndex = isPlainObject(visibilityToggle) ? visibilityToggle.tabIndex : undefined;
 
     return (
       <span
         key="passwordIcon"
         role="button"
-        tabIndex={mergedDisabled ? -1 : 0}
+        tabIndex={mergedDisabled ? -1 : (iconTabIndex ?? 0)}
         className={`${prefixCls}-icon`}
         aria-disabled={mergedDisabled}
         aria-pressed={visible}

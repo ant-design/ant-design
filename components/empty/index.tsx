@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -80,13 +80,16 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    EmptySemanticAllType['classNames'],
+    EmptySemanticAllType['styles'],
+    EmptyProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const [locale] = useLocale('Empty');
 
@@ -128,7 +131,7 @@ const Empty: CompoundedComponent = (props) => {
         rootClassName,
         mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       {...restProps}
     >
       <div

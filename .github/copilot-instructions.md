@@ -26,14 +26,12 @@ When in doubt, verify against `components/index.ts` (the source of truth for pub
 
 ```tsx
 // Components and types
-import { Button, Form, Input, type FormProps } from 'antd';
-
-// Locales live under antd/locale (not from the main entry)
-import enUS from 'antd/locale/en_US';
 
 // Icons live in a separate package
 import { SearchOutlined } from '@ant-design/icons';
-
+import { Button, Form, Input, type FormProps } from 'antd';
+// Locales live under antd/locale (not from the main entry)
+import enUS from 'antd/locale/en_US';
 // DatePicker / TimePicker / Calendar require a date library wrapper.
 // The default uses dayjs — moment is no longer the default since v5.
 import dayjs from 'dayjs';

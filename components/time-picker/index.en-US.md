@@ -85,6 +85,7 @@ dayjs.extend(customParseFormat)
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  | × |
+| onClear | Callback when click the clear button | () => void | - | 6.5.0 | × |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  | × |
 
 #### DisabledTime

@@ -3,7 +3,7 @@ import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -107,13 +107,16 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     loading,
     value,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    StatisticSemanticAllType['classNames'],
+    StatisticSemanticAllType['styles'],
+    StatisticProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -174,7 +177,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     <div
       {...restProps}
       className={rootClassNames}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       ref={internalRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

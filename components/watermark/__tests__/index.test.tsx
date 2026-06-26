@@ -57,6 +57,58 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('supports custom font for each content line', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const fonts: string[] = [];
+    const spyCanvas = spyElementPrototypes(CanvasRenderingContext2D, {
+      font: {
+        set(this: CanvasRenderingContext2D, ...args: any[]) {
+          const [originDescriptor, value] = args as [PropertyDescriptor, string];
+          fonts.push(value);
+          return originDescriptor.set?.call(this, value);
+        },
+      },
+    });
+
+    try {
+      render(
+        <Watermark
+          content={[
+            { text: 'Ant Design', font: { fontSize: 20, fontWeight: 'bold' } },
+            {
+              text: 'Happy Working',
+              font: { fontFamily: 'serif', fontSize: 12, fontStyle: 'italic' },
+            },
+            {
+              text: 'Fallback',
+              font: { fontFamily: 'monospace', fontSize: undefined },
+            },
+          ]}
+        />,
+      );
+      await waitFakeTimer();
+
+      expect(fonts).toEqual(
+        expect.arrayContaining([
+          'normal normal bold 20px sans-serif',
+          'italic normal normal 12px serif',
+          'normal normal normal 16px monospace',
+        ]),
+      );
+      const textCalls = fillText.mock.calls.filter(([text]) =>
+        ['Ant Design', 'Happy Working', 'Fallback'].includes(text as string),
+      );
+      expect(textCalls.map(([text]) => text)).toEqual(['Ant Design', 'Happy Working', 'Fallback']);
+      textCalls.forEach(([, x, y]) => {
+        expect(Number.isFinite(x)).toBeTruthy();
+        expect(Number.isFinite(y)).toBeTruthy();
+      });
+    } finally {
+      fillText.mockRestore();
+      spyCanvas.mockRestore();
+    }
+  });
+
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark
