@@ -60,7 +60,7 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
 
   deploy-to-pages:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     needs: build-site
     permissions:
       contents: write
@@ -108,7 +108,7 @@ jobs:
 
   # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
   upload-to-release:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     # 仅在 tag 的时候工作，因为我们要将内容发布到以 tag 为版本号的 release 里

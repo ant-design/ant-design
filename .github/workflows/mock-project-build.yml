@@ -17,7 +17,7 @@ permissions:
 jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     name: Build Project
     steps:
       - name: checkout

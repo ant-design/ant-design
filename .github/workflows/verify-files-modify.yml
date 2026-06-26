@@ -16,7 +16,7 @@ jobs:
     if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'Copilot'
     permissions:
       pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - name: verify-version
         uses: actions-cool/verify-files-modify@a54698778b0a8570ffc245c2a03ac80be849c9fb # pin to latest verified commit
@@ -37,7 +37,7 @@ jobs:
     if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'Copilot'
     permissions:
       pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - name: verify-readme
         uses: actions-cool/verify-files-modify@a54698778b0a8570ffc245c2a03ac80be849c9fb # pin to latest verified commit

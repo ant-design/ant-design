@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 2
+order: 3
 title: MCP Server
 tag: New
 ---
