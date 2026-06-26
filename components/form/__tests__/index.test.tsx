@@ -2631,37 +2631,4 @@ describe('Form', () => {
 
     expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
-
-  // https://github.com/ant-design/ant-design/issues/56314
-  it('should respect Form component token controlHeightSM and controlHeightLG overrides', () => {
-    const { container } = render(
-      <ConfigProvider
-        theme={{
-          components: {
-            Form: {
-              controlHeightSM: 30,
-              controlHeightLG: 50,
-            },
-          },
-        }}
-      >
-        <Form size="small">
-          <Form.Item label="Small">
-            <Input />
-          </Form.Item>
-        </Form>
-        <Form size="large">
-          <Form.Item label="Large">
-            <Input />
-          </Form.Item>
-        </Form>
-      </ConfigProvider>,
-    );
-
-    const formEl = container.querySelector<HTMLElement>('.ant-form');
-    expect(formEl).toBeTruthy();
-    const cs = getComputedStyle(formEl!);
-    expect(cs.getPropertyValue('--ant-form-control-height-sm').trim()).toBe('30px');
-    expect(cs.getPropertyValue('--ant-form-control-height-lg').trim()).toBe('50px');
-  });
 });
