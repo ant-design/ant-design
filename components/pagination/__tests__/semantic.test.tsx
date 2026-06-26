@@ -2,6 +2,11 @@ import React from 'react';
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Pagination.Semantic', () => {
   it('support classNames and styles', () => {
@@ -87,5 +92,23 @@ describe('Pagination.Semantic', () => {
     expect(disabledItem).toHaveClass('disabled-item');
     expect(disabledRoot).toHaveStyle('background-color: rgb(246, 255, 237)');
     expect(disabledItem).toHaveStyle('color: rgb(217, 217, 217)');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        pagination={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Pagination
+          total={50}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-pagination'));
   });
 });

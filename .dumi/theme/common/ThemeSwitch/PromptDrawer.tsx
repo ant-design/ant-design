@@ -20,7 +20,7 @@ import type { ThemeConfig } from 'antd';
 import copy from 'antd/lib/_util/copy';
 
 import useLocale from '../../../hooks/useLocale';
-import ComponentsBlock from '../../../pages/index/components/ThemePreview/ComponentsBlock';
+import ComponentsBlock from '../../../pages/index/components/PreviewPane/Simple';
 import { generateThemeCode } from '../../../pages/index/components/ThemePreview/themeCodeUtils';
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 import SiteContext from '../../../theme/slots/SiteContext';

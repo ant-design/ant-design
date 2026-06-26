@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { pickAttrs, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
@@ -114,9 +114,16 @@ const CheckableTagGroup = React.forwardRef<
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CheckableTagGroupSemanticAllType['classNames'],
+    CheckableTagGroupSemanticAllType['styles'],
+    CheckableTagGroupBaseProps<CheckableTagValue>
+  >(
     [contextClassNames as CheckableTagGroupProps['classNames'], classNames],
-    [contextStyles as CheckableTagGroupProps['styles'], styles],
+    [contextStyles as CheckableTagGroupProps['styles'], contextStyleRoot, styles, styleRoot],
     {
       props,
     },
@@ -184,11 +191,7 @@ const CheckableTagGroup = React.forwardRef<
         className,
         mergedClassNames.root,
       )}
-      style={{
-        ...contextStyle,
-        ...mergedStyles.root,
-        ...style,
-      }}
+      style={mergedStyles.root}
       id={id}
       ref={divRef}
     >

@@ -85,6 +85,7 @@ dayjs.extend(customParseFormat)
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |
+| onClear | 点击清除按钮时的回调 | () => void | - | 6.5.0 | × |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  | × |
 
 #### DisabledTime
