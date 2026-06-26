@@ -68,9 +68,10 @@ const ErrorList: React.FC<ErrorListProps> = ({
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
+  const hasHelp = isNonNullable(help) && help !== false;
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
-    if (isNonNullable(help)) {
+    if (hasHelp) {
       return [toErrorEntity(help, 'help', helpStatus)];
     }
     return [
@@ -79,7 +80,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
         toErrorEntity(warning, 'warning', 'warning', index),
       ),
     ];
-  }, [help, helpStatus, debounceErrors, debounceWarnings]);
+  }, [help, helpStatus, hasHelp, debounceErrors, debounceWarnings]);
 
   const filledKeyFullKeyList = React.useMemo<ErrorEntity[]>(() => {
     const keysCount: Record<string, number> = {};

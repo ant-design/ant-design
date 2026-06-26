@@ -1,13 +1,13 @@
 import type * as React from 'react';
 
-import { isFunction } from './is';
+import { isFunction, isReactRenderable } from './is';
 
 export type RenderFunction = () => React.ReactNode;
 
 export const getRenderPropValue = (
   propValue?: React.ReactNode | RenderFunction,
 ): React.ReactNode => {
-  if (!propValue) {
+  if (!isReactRenderable(propValue)) {
     return null;
   }
   return isFunction(propValue) ? propValue() : propValue;

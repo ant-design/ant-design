@@ -9,7 +9,7 @@ const App: React.FC = () => (
         {
           label: (
             <div style={{ padding: 4 }}>
-              <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" alt="User 1" />
+              <Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" alt="User 1" />
               <div>User 1</div>
             </div>
           ),

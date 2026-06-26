@@ -647,13 +647,13 @@ exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           disabled=""
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

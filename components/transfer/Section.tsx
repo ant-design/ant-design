@@ -34,7 +34,12 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter((data) => !data.disabled).map((data) => data.key);
+  return items.reduce<TransferKey[]>((keys, data) => {
+    if (!data.disabled) {
+      keys.push(data.key);
+    }
+    return keys;
+  }, []);
 }
 
 function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
@@ -305,10 +310,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       className={`${listPrefixCls}-checkbox`}
       onChange={() => {
         // Only select enabled items
-        onItemSelectAll?.(
-          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-          checkStatus !== 'all',
-        );
+        onItemSelectAll?.(getEnabledItemKeys(filteredItems), checkStatus !== 'all');
       }}
     />
   );

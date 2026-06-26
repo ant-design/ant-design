@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { ValidateMessages } from '@rc-component/form/lib/interface';
+import type { ValidateMessages } from '@rc-component/form';
 
 // ZombieJ: We export single file here since
 // ConfigProvider use this which will make loop deps

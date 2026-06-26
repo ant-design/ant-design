@@ -33,13 +33,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 </Empty>
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| description | 自定义描述内容 | ReactNode | - |  |
-| image | 设置显示图片，为 string 时表示自定义图片地址。 | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
-| ~~imageStyle~~ | 图片样式，请使用 `styles.image` 替代 | CSSProperties | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
+| description | 自定义描述内容 | ReactNode | - |  | × |
+| image | 设置显示图片，为 string 时表示自定义图片地址。 | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  | 5.27.0 |
+| ~~imageStyle~~ | 图片样式，请使用 `styles.image` 替代 | CSSProperties | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |
 
 ## 内置图片
 

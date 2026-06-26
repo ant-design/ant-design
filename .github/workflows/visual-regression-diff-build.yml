@@ -22,10 +22,10 @@ jobs:
     strategy:
       matrix:
         shard: [1/3, 2/3, 3/3]
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
       - run: ut
 
       - name: generate image snapshots
@@ -37,7 +37,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         name: artifact snapshot
         with:
           name: snapshot-artifacts-${{ strategy.job-index }}
@@ -47,14 +47,14 @@ jobs:
   ############################### Diff Images ##############################
   visual-diff-report:
     name: visual-diff report
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     needs: visual-diff-snapshot
     steps:
-      - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
       - run: ut
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
           pattern: snapshot-artifacts-*
           merge-multiple: true
@@ -66,12 +66,13 @@ jobs:
         env:
           EVENT_NUMBER: ${{ github.event.number }}
           BASE_REF: ${{ github.base_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+          ut test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --base-sha=$BASE_SHA --max-workers=2
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: ${{ always() }}
         with:
           name: visual-regression-report
@@ -85,7 +86,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: visual-regression-diff-ref
           path: ./visual-regression-pr-id.txt

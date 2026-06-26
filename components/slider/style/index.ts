@@ -133,6 +133,16 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
     motionDurationMid,
   } = token;
 
+  const disabledHandle = {
+    backgroundColor: token.colorBgElevated,
+    cursor: 'not-allowed',
+    width: handleSize,
+    height: handleSize,
+    boxShadow: `0 0 0 ${unit(handleLineWidth)} ${handleColorDisabled}`,
+    insetInlineStart: 0,
+    insetBlockStart: 0,
+  };
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -143,6 +153,9 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
       padding: 0,
       cursor: 'pointer',
       touchAction: 'none',
+      // https://github.com/ant-design/ant-design/issues/55686
+      // Prevent text selection on adjacent content when dragging the handle in Safari.
+      userSelect: 'none',
 
       '&-vertical': {
         margin: `${unit(marginFull)} ${unit(marginPart)}`,
@@ -184,7 +197,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
           borderColor: colorFillContentHover,
         },
 
-        [`${componentCls}-handle::after`]: {
+        [`${componentCls}-handle:not(${componentCls}-handle-disabled)::after`]: {
           boxShadow: `0 0 0 ${unit(handleLineWidth)} ${token.colorPrimaryBorderHover}`,
         },
 
@@ -241,7 +254,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
         },
 
         '&:hover, &:active, &:focus': {
-          '&::before': {
+          [`&:not(${componentCls}-handle-disabled)::before`]: {
             insetInlineStart: calc(handleSizeHover)
               .sub(handleSize)
               .div(2)
@@ -258,7 +271,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
             height: calc(handleSizeHover).add(calc(handleLineWidthHover).mul(2)).equal(),
           },
 
-          '&::after': {
+          [`&:not(${componentCls}-handle-disabled)::after`]: {
             boxShadow: `0 0 0 ${unit(handleLineWidthHover)} ${handleActiveColor}`,
             outline: `6px solid ${handleActiveOutlineColor}`,
             width: handleSizeHover,
@@ -337,13 +350,7 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-handle::after`]: {
-          backgroundColor: token.colorBgElevated,
-          cursor: 'not-allowed',
-          width: handleSize,
-          height: handleSize,
-          boxShadow: `0 0 0 ${unit(handleLineWidth)} ${handleColorDisabled}`,
-          insetInlineStart: 0,
-          insetBlockStart: 0,
+          ...disabledHandle,
         },
 
         [`
@@ -352,6 +359,10 @@ const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
         `]: {
           cursor: `not-allowed !important`,
         },
+      },
+
+      [`${componentCls}-handle-disabled::after`]: {
+        ...disabledHandle,
       },
 
       [`&-tooltip ${antCls}-tooltip-container`]: {

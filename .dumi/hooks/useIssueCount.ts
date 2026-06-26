@@ -22,12 +22,13 @@ const swrConfig: SWRConfiguration<number, Error> = {
 
 export interface UseIssueCountOptions {
   repo: string; // e.g. ant-design/ant-design
+  enabled?: boolean;
   proxyEndpoint?: string; // backend proxy endpoint to avoid GitHub rate limit
   titleKeywords?: string[]; // keywords to match in issue title
 }
 
 export const useIssueCount = (options: UseIssueCountOptions) => {
-  const { repo, proxyEndpoint, titleKeywords } = options;
+  const { repo, enabled = true, proxyEndpoint, titleKeywords } = options;
 
   // Note: current query only filters by title keywords. Filtering by component name can be added later if needed.
   const searchUrl = useMemo(() => {
@@ -38,7 +39,7 @@ export const useIssueCount = (options: UseIssueCountOptions) => {
     return `https://api.github.com/search/issues?q=${q}`;
   }, [repo, titleKeywords]);
 
-  const endpoint = proxyEndpoint || searchUrl;
+  const endpoint = enabled ? proxyEndpoint || searchUrl : null;
 
   const { data, error, isLoading } = useSWR<number, Error>(endpoint || null, fetcher, swrConfig);
 

@@ -1,10 +1,5 @@
 import * as React from 'react';
 import RcTooltip from '@rc-component/tooltip';
-import type { placements as Placements } from '@rc-component/tooltip/lib/placements';
-import type {
-  TooltipProps as RcTooltipProps,
-  TooltipRef as RcTooltipRef,
-} from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -32,6 +27,10 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
+
+type RcTooltipProps = React.ComponentPropsWithoutRef<typeof RcTooltip>;
+type RcTooltipRef = React.ComponentRef<typeof RcTooltip>;
+type Placements = NonNullable<RcTooltipProps['builtinPlacements']>;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -110,7 +109,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
-  builtinPlacements?: typeof Placements;
+  builtinPlacements?: Placements;
   openClassName?: string;
   arrow?: boolean | { pointAtCenter?: boolean };
   autoAdjustOverflow?: boolean | AdjustOverflow;

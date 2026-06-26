@@ -37,7 +37,7 @@ const App: React.FC = () => {
             disabled={
               !clientReady ||
               !form.isFieldsTouched(true) ||
-              !!form.getFieldsError().filter(({ errors }) => errors.length).length
+              form.getFieldsError().some(({ errors }) => errors.length)
             }
           >
             Log in

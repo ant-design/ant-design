@@ -59,7 +59,8 @@ const useStyle = createStyles(({ cssVar }) => ({
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    line-height: 40px;
+    user-select: none;
+    margin-bottom: ${cssVar.margin};
     gap: ${cssVar.marginXS};
   `,
   arrowIcon: css`
@@ -96,12 +97,12 @@ interface SubTokenTableProps {
 }
 
 const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
-  const { defaultOpen, tokens, title, helpText, helpLink, component, comment } = props;
+  const { defaultOpen = true, tokens, title, helpText, helpLink, component, comment } = props;
   const [, lang] = useLocale(locales);
   const token = useTheme();
   const columns = useColumns();
 
-  const [open, setOpen] = useState<boolean>(defaultOpen ?? process.env.NODE_ENV !== 'production');
+  const [open, setOpen] = useState<boolean>(defaultOpen);
 
   const { styles } = useStyle();
 
@@ -155,7 +156,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   return (
     <>
-      <div className={styles.tableTitle} onClick={() => setOpen(!open)}>
+      <div className={styles.tableTitle} onClick={() => setOpen((prev) => !prev)}>
         <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
         <Flex className={styles.tokenTitle} gap="small" justify="flex-start" align="center">
           {title}
@@ -205,23 +206,26 @@ export interface ComponentTokenTableProps {
 
 const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) => {
   const [locale] = useLocale(locales);
-  const [mergedGlobalTokens] = useMemo(() => {
-    const globalTokenSet = new Set<string>();
 
+  const memoizedComment = useMemo<SubTokenTableProps['comment']>(() => {
+    const { componentComment, globalComment } = locale;
+    return { componentComment, globalComment };
+  }, [locale]);
+
+  const mergedGlobalTokens = useMemo(() => {
+    const globalTokenSet = new Set<string>();
     component.split(',').forEach((comp) => {
       const { global: globalTokens = [] } = tokenData[comp] || {};
-
-      globalTokens.forEach((token: string) => {
+      globalTokens.forEach((token) => {
         globalTokenSet.add(token);
       });
     });
-
-    return [Array.from(globalTokenSet)] as const;
+    return Array.from<string>(globalTokenSet);
   }, [component]);
 
   return (
     <>
-      {tokenMeta.components[component] && (
+      {tokenMeta.components[component]?.length > 0 && (
         <SubTokenTable
           defaultOpen
           title={locale.componentToken}
@@ -229,22 +233,19 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
           helpLink={locale.customizeTokenLink}
           tokens={tokenMeta.components[component].map((item) => item.token)}
           component={component}
-          comment={{
-            componentComment: locale.componentComment,
-            globalComment: locale.globalComment,
-          }}
+          comment={memoizedComment}
         />
       )}
-      <SubTokenTable
-        title={locale.globalToken}
-        helpText={locale.help}
-        helpLink={locale.customizeComponentTokenLink}
-        tokens={mergedGlobalTokens}
-        comment={{
-          componentComment: locale.componentComment,
-          globalComment: locale.globalComment,
-        }}
-      />
+      {mergedGlobalTokens.length > 0 && (
+        <SubTokenTable
+          defaultOpen
+          title={locale.globalToken}
+          helpText={locale.help}
+          helpLink={locale.customizeComponentTokenLink}
+          tokens={mergedGlobalTokens}
+          comment={memoizedComment}
+        />
+      )}
     </>
   );
 };

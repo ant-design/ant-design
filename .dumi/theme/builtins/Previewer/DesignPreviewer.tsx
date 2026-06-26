@@ -107,7 +107,6 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {title}
       </a>
       {description && (
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: description is from markdown
         <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       )}
       <div className={styles.copy}>

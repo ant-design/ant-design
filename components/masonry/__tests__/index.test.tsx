@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Masonry from '..';
 import type { MasonryProps } from '..';

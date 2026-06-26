@@ -47,7 +47,7 @@ jobs:
       build-failure: ${{ steps.prep-summary.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: prep-summary
         with:
           script: |
@@ -82,14 +82,15 @@ jobs:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
+      statuses: write # for syncing preview deploy result back to the PR head commit
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 30
     needs: [check-trust, upstream-workflow-summary]
-    if: fromJSON(needs.check-trust.outputs.trusted)
+    if: ${{ always() && needs.check-trust.outputs.trusted == 'true' }}
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -108,8 +109,8 @@ jobs:
 
       # Download site artifact
       - name: download site artifact
-        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        if: ${{ needs.upstream-workflow-summary.outputs.build-success == 'true' }}
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -117,16 +118,25 @@ jobs:
 
       - name: upload surge service
         id: deploy
+        if: ${{ needs.upstream-workflow-summary.outputs.build-success == 'true' }}
         continue-on-error: true
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
+          set +e
           export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
+          deploy_output=$(npx surge --project ./ --domain "$DEPLOY_DOMAIN" --token "$SURGE_TOKEN" 2>&1)
+          deploy_exit_code=$?
+          printf '%s\n' "$deploy_output"
+          if printf '%s\n' "$deploy_output" | grep -qi 'invalid token'; then
+            echo "failure_reason=invalid-token" >> "$GITHUB_OUTPUT"
+          fi
+          exit "$deploy_exit_code"
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        id: success-comment
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         if: ${{ steps.deploy.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -138,18 +148,75 @@ jobs:
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            ${{ steps.deploy.outputs.failure_reason == 'invalid-token' && 'Surge returned `Invalid token`; please rotate `SURGE_TOKEN`.' || '' }}
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
+      - name: Sync preview deploy status
+        if: ${{ always() }}
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        env:
+          BUILD_SUCCESS: ${{ needs.upstream-workflow-summary.outputs.build-success }}
+          BUILD_FAILURE: ${{ needs.upstream-workflow-summary.outputs.build-failure }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          DEPLOY_FAILURE_REASON: ${{ steps.deploy.outputs.failure_reason }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          SUCCESS_COMMENT_OUTCOME: ${{ steps.success-comment.outcome }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prHeadSha = process.env.HEAD_SHA;
+            const buildSuccess = process.env.BUILD_SUCCESS === 'true';
+            const buildFailure = process.env.BUILD_FAILURE === 'true';
+            const deployOutcome = process.env.DEPLOY_OUTCOME;
+            const deployFailureReason = process.env.DEPLOY_FAILURE_REASON;
+            const successCommentOutcome = process.env.SUCCESS_COMMENT_OUTCOME;
+
+            let state = 'failure';
+            let description = 'Preview deploy failed';
+
+            if (buildFailure) {
+              description = 'Preview build failed';
+            } else if (deployFailureReason === 'invalid-token') {
+              description = 'Preview deploy failed: rotate SURGE_TOKEN';
+            } else if (deployOutcome === 'failure') {
+              description = 'Preview deploy failed';
+            } else if (
+              buildSuccess &&
+              deployOutcome === 'success' &&
+              successCommentOutcome === 'success'
+            ) {
+              state = 'success';
+              description = 'Preview deployed successfully';
+            }
+
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: prHeadSha,
+              state,
+              context: 'Preview Deploy',
+              description,
+              target_url: process.env.RUN_URL,
+            });
+
       - name: Check surge deploy result and exit if failed
+        env:
+          BUILD_SUCCESS: ${{ needs.upstream-workflow-summary.outputs.build-success }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
         run: |
-            if [ "${{ steps.deploy.outcome }}" != "success" ]; then
-              echo "Surge Deploy failed."
-              exit 1
-            fi
+          if [ "$BUILD_SUCCESS" != "true" ]; then
+            echo "Preview Build failed."
+            exit 1
+          fi
+          if [ "$DEPLOY_OUTCOME" != "success" ]; then
+            echo "Surge Deploy failed."
+            exit 1
+          fi

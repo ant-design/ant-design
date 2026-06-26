@@ -354,7 +354,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=9" />}
+              avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=9" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

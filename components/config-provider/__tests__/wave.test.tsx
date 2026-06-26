@@ -5,7 +5,13 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import { ConfigContext } from '../context';
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => true,
+  };
+});
 
 describe('ConfigProvider.Wave', () => {
   beforeEach(() => {

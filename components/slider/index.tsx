@@ -1,13 +1,12 @@
 import React from 'react';
-import type { SliderProps as RcSliderProps } from '@rc-component/slider';
+import type { SliderProps as RcSliderProps, SliderRef } from '@rc-component/slider';
 import RcSlider from '@rc-component/slider';
-import type { SliderRef } from '@rc-component/slider/lib/Slider';
 import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
@@ -78,7 +77,7 @@ export interface SliderBaseProps {
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;
-  disabled?: boolean;
+  disabled?: boolean | boolean[];
   keyboard?: boolean;
   orientation?: Orientation;
   vertical?: boolean;
@@ -183,13 +182,16 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     vertical: mergedVertical,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SliderSemanticAllType['classNames'],
+    SliderSemanticAllType['styles'],
+    SliderBaseProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ============================= Context ==============================
   const { handleRender: contextHandleRender, direction: internalContextDirection } =
@@ -351,7 +353,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             value={info.value}
             open={open}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
@@ -381,7 +383,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           <SliderTooltip
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
-            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : undefined}
             open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
             key="tooltip"
@@ -398,8 +400,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   // ============================== Render ==============================
   const rootStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

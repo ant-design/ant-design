@@ -1,5 +1,4 @@
 import React from 'react';
-import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -15,6 +14,8 @@ import Input from '../../input';
 import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
+
+type SingleValueType = (string | number)[];
 
 function toggleOpen(container: ReturnType<typeof render>['container']) {
   fireEvent.mouseDown(container.querySelector('.ant-select')!);
@@ -244,7 +245,7 @@ describe('Cascader', () => {
     );
     fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should change filtered item when options are changed', () => {
@@ -403,11 +404,11 @@ describe('Cascader', () => {
 
   it('placeholder works correctly', () => {
     const { container, rerender } = render(<Cascader options={[]} />);
-    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual('');
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe('');
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-placeholder')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe(
       customPlaceholder,
     );
   });
@@ -429,7 +430,7 @@ describe('Cascader', () => {
     toggleOpen(container);
 
     // Inject in tests/__mocks__/@rc-component/trigger.tsx
-    expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
+    expect((global as any)?.triggerProps.popupPlacement).toBe('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
@@ -546,7 +547,7 @@ describe('Cascader', () => {
     toggleOpen(container);
 
     // Inject in tests/__mocks__/@rc-component/trigger.tsx
-    expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
+    expect((global as any).triggerProps.popupPlacement).toBe('bottomRight');
   });
 
   describe('legacy props', () => {

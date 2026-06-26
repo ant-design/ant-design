@@ -47,8 +47,11 @@ const genBaseStyle: GenerateStyle<PopconfirmToken, CSSObject> = (token) => {
         flexWrap: 'nowrap',
         alignItems: 'start',
 
-        [`> ${componentCls}-message-icon ${iconCls}`]: {
+        [`> ${componentCls}-message-icon`]: {
           color: colorWarning,
+        },
+
+        [`> ${componentCls}-message-icon ${iconCls}`]: {
           fontSize,
           lineHeight: 1,
           marginInlineEnd: marginXS,

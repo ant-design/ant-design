@@ -116,18 +116,18 @@ const genBaseStyle: GenerateStyle<ResultToken, CSSObject> = (token) => {
 };
 
 const genStatusIconStyle: GenerateStyle<ResultToken, CSSObject> = (token) => {
-  const { componentCls, iconCls } = token;
+  const { componentCls } = token;
   return {
-    [`${componentCls}-success ${componentCls}-icon > ${iconCls}`]: {
+    [`${componentCls}-success ${componentCls}-icon`]: {
       color: token.resultSuccessIconColor,
     },
-    [`${componentCls}-error ${componentCls}-icon > ${iconCls}`]: {
+    [`${componentCls}-error ${componentCls}-icon`]: {
       color: token.resultErrorIconColor,
     },
-    [`${componentCls}-info ${componentCls}-icon > ${iconCls}`]: {
+    [`${componentCls}-info ${componentCls}-icon`]: {
       color: token.resultInfoIconColor,
     },
-    [`${componentCls}-warning ${componentCls}-icon > ${iconCls}`]: {
+    [`${componentCls}-warning ${componentCls}-icon`]: {
       color: token.resultWarningIconColor,
     },
   };

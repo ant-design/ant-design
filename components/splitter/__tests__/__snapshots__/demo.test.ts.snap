@@ -53,14 +53,16 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -101,14 +103,16 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="horizontal"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -228,14 +232,16 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="33"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="33"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -255,14 +261,16 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="67"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="67"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -310,14 +318,16 @@ exports[`renders components/splitter/demo/control.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -399,14 +409,16 @@ Array [
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="40"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="40"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
+        role="separator"
       >
         <div
           class="ant-splitter-bar-dragger-icon"
@@ -450,14 +462,16 @@ Array [
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="70"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="70"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize"
+        role="separator"
       >
         <div
           class="ant-splitter-bar-dragger-icon"
@@ -526,14 +540,16 @@ Array [
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="40"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="horizontal"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="40"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled ant-splitter-bar-dragger-customize acss-13lz4mh"
+        role="separator"
       >
         <div
           class="ant-splitter-bar-dragger-icon"
@@ -592,14 +608,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -621,14 +639,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -678,14 +698,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -707,14 +729,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -764,14 +788,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -821,14 +847,16 @@ exports[`renders components/splitter/demo/debug.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -875,14 +903,16 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="50"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div
@@ -909,14 +939,16 @@ exports[`renders components/splitter/demo/group.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        aria-valuemax="0"
-        aria-valuemin="0"
-        aria-valuenow="50"
         class="ant-splitter-bar"
-        role="separator"
       >
         <div
+          aria-disabled="false"
+          aria-orientation="horizontal"
+          aria-valuemax="0"
+          aria-valuemin="0"
+          aria-valuenow="50"
           class="ant-splitter-bar-dragger"
+          role="separator"
         />
       </div>
       <div
@@ -969,18 +1001,20 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        aria-valuemax="0"
-        aria-valuemin="0"
-        aria-valuenow="40"
         class="ant-splitter-bar"
-        role="separator"
       >
         <div
           class="ant-splitter-bar-preview"
           style="--ant-splitter-bar-preview-offset:0px"
         />
         <div
+          aria-disabled="true"
+          aria-orientation="vertical"
+          aria-valuemax="0"
+          aria-valuemin="0"
+          aria-valuenow="40"
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+          role="separator"
         />
       </div>
       <div
@@ -1025,18 +1059,20 @@ exports[`renders components/splitter/demo/lazy.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        aria-valuemax="0"
-        aria-valuemin="0"
-        aria-valuenow="40"
         class="ant-splitter-bar"
-        role="separator"
       >
         <div
           class="ant-splitter-bar-preview"
           style="--ant-splitter-bar-preview-offset:0px"
         />
         <div
+          aria-disabled="true"
+          aria-orientation="horizontal"
+          aria-valuemax="0"
+          aria-valuemin="0"
+          aria-valuenow="40"
           class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+          role="separator"
         />
       </div>
       <div
@@ -1084,14 +1120,16 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="33"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="33"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div
@@ -1113,14 +1151,16 @@ exports[`renders components/splitter/demo/multiple.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="67"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="67"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div
@@ -1226,14 +1266,14 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -1268,14 +1308,16 @@ exports[`renders components/splitter/demo/reset.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="30"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="30"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div
@@ -1297,14 +1339,16 @@ exports[`renders components/splitter/demo/reset.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="70"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="70"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div
@@ -1350,14 +1394,16 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="40"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="true"
+      aria-orientation="vertical"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="40"
       class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      role="separator"
     />
   </div>
   <div
@@ -1447,14 +1493,16 @@ Array [
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -1474,14 +1522,16 @@ Array [
       </div>
     </div>
     <div
-      aria-valuemax="9980"
-      aria-valuemin="0"
-      aria-valuenow="0"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="true"
+        aria-orientation="vertical"
+        aria-valuemax="9980"
+        aria-valuemin="0"
+        aria-valuenow="0"
         class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        role="separator"
       />
     </div>
     <div
@@ -1529,14 +1579,16 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger"
+        role="separator"
         style="background-color:rgba(194,223,252,0.4)"
       />
     </div>
@@ -1577,14 +1629,16 @@ exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
       class="ant-splitter-bar"
-      role="separator"
     >
       <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-splitter-bar-dragger"
+        role="separator"
       />
     </div>
     <div
@@ -1628,14 +1682,16 @@ exports[`renders components/splitter/demo/vertical.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    aria-valuemax="0"
-    aria-valuemin="0"
-    aria-valuenow="50"
     class="ant-splitter-bar"
-    role="separator"
   >
     <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
       class="ant-splitter-bar-dragger"
+      role="separator"
     />
   </div>
   <div

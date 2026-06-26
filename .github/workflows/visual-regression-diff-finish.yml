@@ -47,7 +47,7 @@ jobs:
       build-status: ${{ steps.visual_diff_build_job_status.outputs.build-status }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: visual_diff_build_job_status
         with:
           script: |
@@ -93,12 +93,12 @@ jobs:
     needs: [check-trust, upstream-workflow-summary]
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
-      - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -120,7 +120,7 @@ jobs:
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -153,7 +153,7 @@ jobs:
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         if: ${{ steps.report.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -165,7 +165,7 @@ jobs:
 
       - name: failed comment
         if: ${{ steps.download_report.outcome == 'failure' || steps.report.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@909842216bc8e8658364c572ec52100f4c2cc50a # v3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -182,7 +182,7 @@ jobs:
 
       # Resync commit status. This will be also reset by `visual-regression-diff-approver`
       - name: Reset Commit Status
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         if: ${{ steps.report.outcome == 'success' }}
         env:
           PR_ID: ${{ steps.pr.outputs.id }}

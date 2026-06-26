@@ -7,7 +7,7 @@ import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject, isReactRenderable, isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -30,7 +30,7 @@ export type BadgeSemanticType = {
 
 export type BadgeSemanticAllType = GenerateSemantic<BadgeSemanticType, BadgeProps>;
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'title'> {
   /** Number to show in badge */
   count?: React.ReactNode;
   showZero?: boolean;
@@ -51,7 +51,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
    */
   size?: Exclude<SizeType, 'large'> | 'default';
   offset?: [number | string, number | string];
-  title?: string;
+  title?: string | null | false;
   children?: React.ReactNode;
   classNames?: BadgeSemanticAllType['classNamesAndFn'];
   styles?: BadgeSemanticAllType['stylesAndFn'];
@@ -133,8 +133,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
   const isHidden = useMemo(() => {
-    const isEmpty =
-      (!isNonNullable(mergedCount) || mergedCount === '') && (!isNonNullable(text) || text === '');
+    const isEmpty = !isReactRenderable(mergedCount) && !isReactRenderable(text);
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
   }, [mergedCount, isZero, showZero, showAsDot, text]);
 
@@ -176,8 +175,9 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   // =============================== Render ===============================
   // >>> Title
-  const titleNode =
-    title ?? (typeof livingCount === 'string' || isNumber(livingCount) ? livingCount : undefined);
+  const fallbackTitleNode =
+    isString(livingCount) || isNumber(livingCount) ? livingCount : undefined;
+  const titleNode = title === null || title === false ? undefined : (title ?? fallbackTitleNode);
 
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);

@@ -2,6 +2,10 @@ export const isNonNullable = <T>(val: T): val is NonNullable<T> => {
   return val !== undefined && val !== null;
 };
 
+export const isReactRenderable = <T>(val: T): val is Exclude<NonNullable<T>, false | ''> => {
+  return isNonNullable(val) && val !== false && val !== '';
+};
+
 export const isNumber = (val: any): val is number => {
   return typeof val === 'number' && !Number.isNaN(val);
 };

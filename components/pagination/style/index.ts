@@ -83,9 +83,7 @@ export interface ComponentToken {
  * @descEN Token for Pagination component
  */
 export interface PaginationToken
-  extends FullToken<'Pagination'>,
-    SharedComponentToken,
-    SharedInputToken {
+  extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   /**
    * @desc 输入框轮廓偏移量
    * @descEN Outline offset of input
@@ -114,11 +112,13 @@ export interface PaginationToken
   /**
    * @desc 省略号字母间距
    * @descEN Letter spacing of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisLetterSpacing: number | string;
   /**
    * @desc 省略号文本缩进
    * @descEN Text indent of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisTextIndent: string;
   /**
@@ -339,8 +339,80 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
   };
 };
 
+const genPaginationInputVariantStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const inputSelector = `${componentCls}-options-quick-jumper input, ${componentCls}-simple-pager input`;
+
+  return {
+    [`&${componentCls}-filled`]: {
+      [inputSelector]: {
+        background: token.colorFillTertiary,
+        borderColor: 'transparent',
+
+        '&:hover': {
+          background: token.colorFillSecondary,
+        },
+
+        '&:focus': {
+          borderColor: token.activeBorderColor,
+          outline: 0,
+          backgroundColor: token.activeBg,
+        },
+
+        '&[disabled]': {
+          ...genDisabledStyle(token),
+        },
+      },
+    },
+
+    [`&${componentCls}-borderless`]: {
+      [inputSelector]: {
+        background: 'transparent',
+        border: 'none',
+
+        '&:focus': {
+          outline: 'none',
+          boxShadow: 'none',
+        },
+
+        '&[disabled]': {
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
+        },
+      },
+    },
+
+    [`&${componentCls}-underlined`]: {
+      [inputSelector]: {
+        background: token.colorBgContainer,
+        borderWidth: `${unit(token.lineWidth)} 0`,
+        borderStyle: `${token.lineType} none`,
+        borderColor: `transparent transparent ${token.colorBorder} transparent`,
+        borderRadius: 0,
+
+        '&:hover': {
+          borderColor: `transparent transparent ${token.hoverBorderColor} transparent`,
+          backgroundColor: token.hoverBg,
+        },
+
+        '&:focus': {
+          borderColor: `transparent transparent ${token.activeBorderColor} transparent`,
+          outline: 0,
+          backgroundColor: token.activeBg,
+        },
+
+        '&[disabled]': {
+          color: token.colorTextDisabled,
+          boxShadow: 'none',
+          cursor: 'not-allowed',
+        },
+      },
+    },
+  };
+};
+
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, iconCls, sizeLG, antCls } = token;
 
   const [, varRef] = genCssVar(antCls, 'pagination');
 
@@ -368,18 +440,19 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
         [`${componentCls}-item-ellipsis`]: {
           position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          display: 'block',
+          inset: 0,
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           margin: 'auto',
           color: token.colorTextDisabled,
-          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
+          [`${iconCls}-ellipsis > svg`]: {
+            width: sizeLG,
+            height: sizeLG,
+          },
         },
       },
 
@@ -634,6 +707,9 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
 
       // simple style
       ...genPaginationSimpleStyle(token),
+
+      // input variant style
+      ...genPaginationInputVariantStyle(token),
 
       // size style
       ...genPaginationSmallStyle(token),

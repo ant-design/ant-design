@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -358,9 +358,16 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ButtonSemanticAllType['classNames'],
+    ButtonSemanticAllType['styles'],
+    BaseButtonProps
+  >(
     [_skipSemantic ? undefined : contextClassNames, classNames],
-    [_skipSemantic ? undefined : contextStyles, styles],
+    [_skipSemantic ? undefined : contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
   );
 
@@ -394,12 +401,6 @@ const InternalCompoundedButton = React.forwardRef<
     contextClassName,
     mergedClassNames.root,
   );
-
-  const fullStyle: React.CSSProperties = {
-    ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
-  };
 
   const iconSharedProps = {
     className: mergedClassNames.icon,
@@ -442,7 +443,7 @@ const InternalCompoundedButton = React.forwardRef<
     iconNode = defaultLoadingIconElement;
   }
 
-  const contentNode = isNonNullable(children)
+  const contentNode = isReactRenderable(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,
@@ -457,7 +458,7 @@ const InternalCompoundedButton = React.forwardRef<
         {...linkButtonRestProps}
         className={clsx(classes, { [`${prefixCls}-disabled`]: mergedDisabled })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
-        style={fullStyle}
+        style={mergedStyles.root}
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
@@ -474,7 +475,7 @@ const InternalCompoundedButton = React.forwardRef<
       {...rest}
       type={htmlType}
       className={classes}
-      style={fullStyle}
+      style={mergedStyles.root}
       onClick={handleClick}
       disabled={mergedDisabled}
       ref={mergedRef as React.Ref<HTMLButtonElement>}

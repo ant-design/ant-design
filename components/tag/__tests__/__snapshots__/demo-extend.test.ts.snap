@@ -12,8 +12,8 @@ Array [
       <span
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -38,8 +38,8 @@ Array [
       <span
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -64,8 +64,8 @@ Array [
       <span
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -130,6 +130,7 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     class="ant-tag ant-tag-filled css-var-test-id"
   >
     <a
+      aria-label="Ant Design issue"
       href="https://github.com/ant-design/ant-design/issues/1862"
       rel="noopener noreferrer"
       target="_blank"
@@ -144,8 +145,8 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -170,8 +171,8 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -196,8 +197,8 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
     <span
       aria-label="Close Button"
       class="anticon anticon-delete ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -249,7 +250,10 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <span
+              aria-checked="true"
               class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-test-id"
+              role="checkbox"
+              tabindex="0"
             >
               <span>
                 Yes
@@ -289,28 +293,40 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
               class="ant-tag-checkable-group css-var-test-id"
             >
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Movies
                 </span>
               </span>
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Books
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Music
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Sports
@@ -351,28 +367,40 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
               class="ant-tag-checkable-group css-var-test-id"
             >
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Movies
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Books
                 </span>
               </span>
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Music
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+                role="checkbox"
+                tabindex="0"
               >
                 <span>
                   Sports
@@ -787,8 +815,8 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     <span
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -816,8 +844,8 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     <span
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -881,6 +909,8 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
     <span
       aria-label="Close"
       class="ant-tag-close-icon"
+      role="button"
+      tabindex="0"
     >
       关 闭
     </span>
@@ -892,8 +922,8 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
     <span
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1006,21 +1036,33 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
+      aria-checked="true"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-disabled css-var-test-id"
+      role="checkbox"
+      tabindex="-1"
     >
       <span>
         Books
       </span>
     </span>
     <span
+      aria-checked="false"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-test-id"
+      role="checkbox"
+      tabindex="-1"
     >
       <span>
         Movies
       </span>
     </span>
     <span
+      aria-checked="false"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-test-id"
+      role="checkbox"
+      tabindex="-1"
     >
       <span>
         Music
@@ -1035,9 +1077,10 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     >
       Closable Tag
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -1085,9 +1128,10 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
         Closable with Icon
       </span>
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -1111,9 +1155,10 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     >
       Closable with Custom Icon
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close-circle ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -1175,9 +1220,10 @@ exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] =
     >
       Borderless Closable
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -1397,7 +1443,10 @@ Array [
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
+      aria-checked="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-test-id"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="twitter"
@@ -1423,7 +1472,10 @@ Array [
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-test-id"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="youtube"
@@ -1449,7 +1501,10 @@ Array [
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-test-id"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="facebook"
@@ -1475,7 +1530,10 @@ Array [
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-test-id"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="linkedin"
@@ -2086,24 +2144,33 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         style="gap: 12px; padding: 8px 12px; background-color: rgba(82, 196, 26, 0.08); border-radius: 8px;"
       >
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <span>
             React
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <span>
             Vue
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <span>
             Angular
@@ -2115,16 +2182,22 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         style="gap: 16px; padding: 8px 12px; background-color: rgba(143, 135, 241, 0.08); border-radius: 8px;"
       >
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+          role="checkbox"
           style="background-color: rgba(143, 135, 241, 0.1); border-color: rgba(143, 135, 241, 0.3); color: rgb(143, 135, 241); font-weight: 500;"
+          tabindex="0"
         >
           <span>
             meet-student
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-test-id"
+          role="checkbox"
           style="background-color: rgba(143, 135, 241, 0.1); border-color: rgba(143, 135, 241, 0.3); color: rgb(143, 135, 241); font-weight: 500;"
+          tabindex="0"
         >
           <span>
             thinkasany

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { MenuProps } from 'antd';
+import type { MenuProps, TagProps } from 'antd';
 import { Flex, Tag, version } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
@@ -22,7 +22,7 @@ const locales = {
   },
 };
 
-const getTagColor = (val?: string) => {
+const getTagColor = (val?: string): TagProps['color'] => {
   switch (val?.toUpperCase()) {
     case 'UPDATED':
       return 'processing';
@@ -64,17 +64,17 @@ interface MenuItemLabelProps {
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
-  const [locale] = useLocale(locales);
+  const [locale] = useLocale<string>(locales);
 
   const getLocale = (name: string) => {
-    return (locale as any)[name.toLowerCase()] ?? name;
+    return locale[name.toLowerCase()] ?? name;
   };
 
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={clsx(className, { [styles.link]: tag })}>
         <Flex justify="flex-start" align="center">
-          <span>{title}</span>
+          {title && <span>{title}</span>}
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>
         {tag && (

@@ -22,6 +22,7 @@ export interface CheckableTagProps {
   icon?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  onKeyDown?: React.KeyboardEventHandler<HTMLSpanElement>;
   disabled?: boolean;
 }
 
@@ -35,6 +36,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     icon,
     onChange,
     onClick,
+    onKeyDown,
     disabled: customDisabled,
     ...restProps
   } = props;
@@ -49,6 +51,19 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     }
     onChange?.(!checked);
     onClick?.(e);
+  };
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
+    onKeyDown?.(e);
+
+    if (e.defaultPrevented || mergedDisabled) {
+      return;
+    }
+
+    if (e.key === ' ') {
+      e.preventDefault();
+      onChange?.(!checked);
+    }
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
@@ -73,9 +88,14 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     <span
       {...restProps}
       ref={ref}
+      role="checkbox"
+      aria-checked={checked}
+      aria-disabled={mergedDisabled || undefined}
+      tabIndex={mergedDisabled ? -1 : 0}
       style={{ ...style, ...tag?.style }}
       className={cls}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       {icon}
       <span>{children}</span>

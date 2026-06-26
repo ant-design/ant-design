@@ -4,9 +4,9 @@ import RcCheckbox from '@rc-component/checkbox';
 import { useComposeRef, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable } from '../_util/is';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -189,13 +189,16 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checked: mergedChecked,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CheckboxSemanticAllType['classNames'],
+    CheckboxSemanticAllType['styles'],
+    CheckboxProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     `${prefixCls}-wrapper`,
@@ -228,7 +231,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     <Wave component="Checkbox" disabled={mergedDisabled}>
       <label
         className={classString}
-        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        style={mergedStyles.root}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onLabelClick}
@@ -246,7 +249,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           ref={mergedRef}
           value={value}
         />
-        {isNonNullable(children) && (
+        {isReactRenderable(children) && (
           <span
             className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}

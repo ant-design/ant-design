@@ -174,6 +174,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             [`> ${componentCls}-inline-collapsed-noicon`]: {
               fontSize: fontSizeLG,
               textAlign: 'center',
+              width: '100%',
             },
           },
         },
@@ -184,7 +185,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           insetInlineStart: 0,
           paddingInline: `calc(50% - ${unit(token.calc(collapsedIconSize).div(2).equal())} - ${unit(
             itemMarginInline,

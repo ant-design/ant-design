@@ -29,7 +29,7 @@ jobs:
     # Return type: `success` or `failed` or `waiting`
     - name: Statistic Visual Diff Approval
       id: check_approval
-      uses: actions/github-script@v9
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
@@ -77,6 +77,7 @@ jobs:
           console.log('hasDiffSuccess:', hasDiffSuccess);
           console.log('hasDiffFailed:', hasDiffFailed);
           console.log('hasMemberApprove:', hasMemberApprove);
+          console.log('commentBody:', comments.map(comment => comment.body));
 
           const diffPassed = hasDiffSuccess || (hasDiffFailed && hasMemberApprove);
           const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';
