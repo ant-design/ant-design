@@ -36,9 +36,6 @@ const genAlertTypeStyle = (bgColor: string, iconColor: string, alertCls: string)
   },
 });
 
-const genTitleOnlyCls = (componentCls: string) =>
-  `&:not(${componentCls}-with-description):has(> ${componentCls}-section > ${componentCls}-title)`;
-
 export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -55,7 +52,6 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorTextHeading,
     withDescriptionPadding,
     defaultPadding,
-    controlHeightSM,
     lineWidth,
     lineType,
 
@@ -64,12 +60,13 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorErrorBorder,
     colorInfoBorder,
   } = token;
+
   return {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'flex',
-      alignItems: 'flex-start',
+      alignItems: 'center',
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
@@ -108,24 +105,6 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginXS,
         lineHeight: 0,
-      },
-
-      [`${genTitleOnlyCls(componentCls)} ${componentCls}-icon`]: {
-        marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
-      },
-
-      [`${genTitleOnlyCls(componentCls)}:has(> ${componentCls}-actions)`]: {
-        [`${componentCls}-section`]: {
-          marginBlockStart: token
-            .calc(controlHeightSM)
-            .sub(token.calc(fontSize).mul(lineHeight))
-            .div(2)
-            .equal(),
-        },
-
-        [`${componentCls}-icon`]: {
-          marginBlockStart: token.calc(controlHeightSM).sub(fontSize).div(2).equal(),
-        },
       },
 
       '&-description': {
@@ -225,13 +204,10 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     motionDurationMid,
     marginXS,
     fontSizeIcon,
-    fontSize,
-    lineHeight,
-    controlHeightSM,
-    lineWidth,
     colorIcon,
     colorIconHover,
   } = token;
+
   return {
     [componentCls]: {
       [`${componentCls}-actions`]: {
@@ -257,20 +233,6 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
           },
         },
       },
-
-      [`${genTitleOnlyCls(componentCls)} ${componentCls}-close-icon`]: {
-        marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
-      },
-
-      [`${genTitleOnlyCls(componentCls)}:has(> ${componentCls}-actions) ${componentCls}-close-icon`]:
-        {
-          marginBlockStart: token
-            .calc(controlHeightSM)
-            .sub(fontSizeIcon)
-            .div(2)
-            .sub(token.calc(lineWidth).div(2))
-            .equal(),
-        },
 
       '&-close-text': {
         color: colorIcon,

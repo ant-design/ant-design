@@ -31,7 +31,7 @@ group:
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>
 <code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
-<code src="./demo/vertical-align-debug.tsx" debug>Vertical alignment debug</code>
+<code src="./demo/custom-title-alignment.tsx">Custom title alignment</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 

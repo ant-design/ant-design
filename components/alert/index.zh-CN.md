@@ -32,7 +32,7 @@ group:
 <code src="./demo/error-boundary.tsx">React 错误处理</code>
 <code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
-<code src="./demo/vertical-align-debug.tsx" debug>垂直对齐调试</code>
+<code src="./demo/custom-title-alignment.tsx">自定义标题对齐</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
