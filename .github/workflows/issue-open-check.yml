@@ -17,7 +17,7 @@ jobs:
       contents: read  # for visiky/dingtalk-release-notify to get latest release
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions-cool/check-user-permission@c21884f3dda18dafc2f8b402fe807ccc9ec1aa5e # v2
