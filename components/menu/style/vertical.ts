@@ -58,12 +58,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
-    motionEaseOut,
     padding,
     paddingXL,
     itemMarginInline,
     fontSizeLG,
-    motionDurationFast,
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
@@ -121,15 +119,15 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
       [`${componentCls}-inline`]: {
         width: '100%',
 
-        // Motion enhance for first level
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu-title`]: {
             display: 'flex',
             alignItems: 'center',
+            // No `padding` transition on expand: the collapsed `calc(50%)` padding must
+            // settle at once, otherwise the icon overshoots and snaps back. #56196
             transition: [
               `border-color ${motionDurationSlow}`,
               `background-color ${motionDurationSlow}`,
-              `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {

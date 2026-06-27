@@ -1352,4 +1352,19 @@ describe('Menu', () => {
       }),
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/56196
+  it('should not transition padding on first-level inline items', () => {
+    const { unmount } = render(<Menu mode="inline" items={[{ key: '1', label: 'nav 1' }]} />);
+    const css = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    const rule = css.match(
+      /\.ant-menu-inline\.ant-menu-root[^{]*\.ant-menu-item[^{]*\{[^}]*transition:[^}]*\}/,
+    );
+    // Animating `padding` makes the icon overshoot and snap back while expanding
+    expect(rule).toBeTruthy();
+    expect(/transition:[^}]*padding/.test(rule?.[0] ?? '')).toBe(false);
+    unmount();
+  });
 });
