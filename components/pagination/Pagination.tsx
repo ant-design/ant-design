@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type {
@@ -11,12 +12,13 @@ import RcPagination from '@rc-component/pagination';
 import enUS from '@rc-component/pagination/locale/en_US';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import type { SelectProps } from '../select';
@@ -104,6 +106,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const mergedSize = useSize(customizeSize);
 
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+  const [inputVariant, enableInputVariantCls] = useVariant('input');
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: PaginationProps = {
@@ -112,13 +115,16 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PaginationSemanticAllType['classNames'],
+    PaginationSemanticAllType['styles'],
+    PaginationProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ============================= Locale =============================
   const [contextLocale] = useLocale('Pagination', enUS);
@@ -196,7 +202,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   // ============================= Render =============================
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
-    const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
+    const ellipsis = (
+      <span className={`${prefixCls}-item-ellipsis`}>
+        <EllipsisOutlined />
+      </span>
+    );
     const prevIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
         {direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />}
@@ -242,6 +252,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     {
       [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-${inputVariant}`]: enableInputVariantCls && inputVariant !== 'outlined',
       /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -257,8 +268,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

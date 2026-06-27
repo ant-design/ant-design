@@ -133,6 +133,17 @@ const localeValues: Locale = {
       },
     },
   },
+  QRCode: {
+    expired: 'Código QR expirado',
+    refresh: 'Atualizar',
+    scanned: 'Escaneado',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vazio',
+    transparent: 'Transparente',
+    singleColor: 'Único',
+    gradientColor: 'Gradiente',
+  },
 };
 
 export default localeValues;

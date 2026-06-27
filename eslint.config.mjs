@@ -157,7 +157,15 @@ export default antfu(
   },
   {
     // tests
-    files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
+    files: [
+      '**/*.test.ts',
+      'tests/**/*',
+      '**/__tests__/**/*',
+      'scripts/**/*',
+      '**/*.test.tsx',
+      'vitest.config.ts',
+      'vitest.setup.ts',
+    ],
     rules: {
       'react/use-state': 'off',
       'react/error-boundaries': 'off',

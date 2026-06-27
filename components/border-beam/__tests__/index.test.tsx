@@ -141,6 +141,108 @@ describe('BorderBeam', () => {
     );
   });
 
+  it('should support customizing the beam loop duration', async () => {
+    const { container, rerender } = render(
+      <BorderBeam duration={12}>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('12s');
+    });
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
+  });
+
+  it('should support customizing the beam size', async () => {
+    const { container, rerender } = render(
+      <BorderBeam size={160}>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('160px');
+    });
+
+    rerender(
+      <BorderBeam size="12em">
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('12em');
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('');
+  });
+
+  it('should support customizing line width with prop', async () => {
+    const { container, rerender } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            BorderBeam: {
+              lineWidth: 3,
+            },
+          },
+        }}
+      >
+        <BorderBeam lineWidth={5}>
+          <div>
+            <span>content</span>
+          </div>
+        </BorderBeam>
+      </ConfigProvider>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('5px');
+    });
+
+    rerender(
+      <BorderBeam lineWidth="0.25rem">
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('0.25rem');
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('');
+  });
+
   it('should infer child border radius from computed style', async () => {
     const { container } = render(
       <BorderBeam>

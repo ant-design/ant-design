@@ -1,64 +1,56 @@
 {
   "linkset": [
     {
-      "anchor": "https://ant.design/components/overview",
-      "service-doc": [
-        {
-          "href": "https://ant.design/components/overview",
-          "type": "text/html",
-          "title": "Ant Design Component Overview"
-        }
-      ],
+      "anchor": "/",
       "service-desc": [
         {
-          "href": "https://ant.design/llms-full.txt",
-          "type": "text/plain",
-          "title": "Ant Design Full Documentation (LLM-friendly)"
-        }
-      ]
-    },
-    {
-      "anchor": "https://ant.design/docs/spec/introduce",
-      "service-doc": [
-        {
-          "href": "https://ant.design/docs/spec/introduce",
-          "type": "text/html",
-          "title": "Ant Design Design Specifications"
-        }
-      ]
-    },
-    {
-      "anchor": "https://ant.design/docs/react/introduce",
-      "service-doc": [
-        {
-          "href": "https://ant.design/docs/react/introduce",
-          "type": "text/html",
-          "title": "Ant Design React Library Documentation"
+          "href": "/.well-known/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Ant Design public discovery OpenAPI description"
         },
         {
-          "href": "https://ant.design/llms-full.txt",
+          "href": "/llms-full.txt",
           "type": "text/plain",
-          "title": "Ant Design Full Documentation (LLM-friendly)"
+          "title": "Ant Design full documentation for LLMs"
         }
-      ]
-    },
-    {
-      "anchor": "https://ant.design/docs/react/customize-theme",
+      ],
       "service-doc": [
         {
-          "href": "https://ant.design/docs/react/customize-theme",
+          "href": "/docs/react/introduce",
           "type": "text/html",
-          "title": "Theme Customization Guide"
-        }
-      ]
-    },
-    {
-      "anchor": "https://ant.design/docs/react/migration-v5",
-      "service-doc": [
+          "title": "Ant Design React documentation"
+        },
         {
-          "href": "https://ant.design/docs/react/migration-v5",
+          "href": "/llms-full.txt",
+          "type": "text/plain",
+          "title": "Ant Design full documentation for LLMs"
+        },
+        {
+          "href": "/docs/spec/introduce",
           "type": "text/html",
-          "title": "Migration Guide to v5"
+          "title": "Ant Design Design Specifications"
+        },
+        {
+          "href": "/components/overview",
+          "type": "text/html",
+          "title": "Ant Design component overview"
+        },
+        {
+          "href": "/docs/react/customize-theme",
+          "type": "text/html",
+          "title": "Ant Design theme customization guide"
+        },
+        {
+          "href": "/docs/react/migration-v5",
+          "type": "text/html",
+          "title": "Ant Design migration guide to v5"
+        }
+      ],
+      "status": [
+        {
+          "href": "/",
+          "type": "text/html",
+          "title": "Ant Design homepage"
         }
       ]
     }

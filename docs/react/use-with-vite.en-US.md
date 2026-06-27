@@ -5,7 +5,7 @@ order: 2
 title: Usage with Vite
 ---
 
-[Vite](https://vitejs.dev/) is one of the best React application development tools. Let's use `antd` within it.
+[Vite](https://vite.dev/) is one of the best React application development tools. Let's use `antd` within it.
 
 ## Install and Initialization
 
@@ -64,6 +64,6 @@ const App = () => (
 export default App;
 ```
 
-OK, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `Vite` at its [User Guide](https://vitejs.dev/).
+OK, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `Vite` at its [User Guide](https://vite.dev/).
 
 We are successfully running antd components now, go build your own application!

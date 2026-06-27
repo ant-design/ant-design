@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { convertChildrenToColumns, INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
-import { omit } from '@rc-component/util';
+import { omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -67,6 +67,25 @@ import TableMeasureRowContext from './TableMeasureRowContext';
 export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
+
+type HeaderTableContextValue = {
+  ariaProps?: React.AriaAttributes;
+  component?: React.ElementType;
+};
+
+const HeaderTableContext = React.createContext<HeaderTableContextValue>({});
+
+const HeaderTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (props) => {
+  const { ariaProps, component = 'table' } = React.useContext(HeaderTableContext);
+  return React.createElement(component, {
+    ...ariaProps,
+    ...props,
+  });
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  HeaderTable.displayName = 'HeaderTable';
+}
 
 type ComponentsSemanticClassNames = {
   wrapper?: string;
@@ -233,6 +252,30 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     'columns',
   ]);
 
+  const components = tableProps.components as RcTableProps<RecordType>['components'];
+  const ariaProps = pickAttrs(tableProps, { aria: true }) as React.AriaAttributes;
+  const hasAriaProps = Object.keys(ariaProps).length > 0;
+  const headerTableContext = React.useMemo<HeaderTableContextValue>(
+    () => ({
+      ariaProps,
+      component: components?.header?.table as React.ElementType | undefined,
+    }),
+    [ariaProps, components?.header?.table],
+  );
+  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
+    if (!hasAriaProps) {
+      return components;
+    }
+
+    return {
+      ...components,
+      header: {
+        ...components?.header,
+        table: HeaderTable,
+      },
+    };
+  }, [components, hasAriaProps]);
+
   const { locale: contextLocale = defaultLocale, table } =
     React.useContext<ConfigConsumerProps>(ConfigContext);
 
@@ -258,9 +301,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     bordered,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TableSemanticAllType<RecordType>['classNames'],
+    TableSemanticAllType<RecordType>['styles'],
+    TableProps<RecordType>
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       pagination: {
@@ -420,6 +470,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
     mergedColumns,
+    // Pass `baseColumns` (pre-responsive) so `defaultSortOrder` and controlled
+    // `sortOrder` on a `responsive` column are still honored when the column
+    // is hidden at the current breakpoint.
+    // See: https://github.com/ant-design/ant-design/issues/32847
+    baseColumns,
     onSorterChange,
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
@@ -657,8 +712,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     hashId,
   );
 
-  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
-
   // ========== empty ==========
   const mergedEmptyNode = React.useMemo<RcTableProps['emptyText']>(() => {
     // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
@@ -701,48 +754,51 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   return (
-    <div ref={rootRef} className={wrappercls} style={mergedStyle}>
+    <div ref={rootRef} className={wrappercls} style={mergedStyles.root}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
-        <TableComponent
-          {...virtualProps}
-          {...tableProps}
-          scroll={mergedScroll}
-          classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
-          styles={mergedStyles as RcTableProps<RecordType>['styles']}
-          ref={tblRef}
-          columns={mergedColumns as RcTableProps<RecordType>['columns']}
-          direction={direction}
-          expandable={mergedExpandable}
-          prefixCls={prefixCls}
-          className={clsx(
-            {
-              [`${prefixCls}-medium`]: mergedSize === 'medium',
-              [`${prefixCls}-small`]: mergedSize === 'small',
-              [`${prefixCls}-bordered`]: bordered,
-              [`${prefixCls}-empty`]: rawData.length === 0,
-            },
-            cssVarCls,
-            rootCls,
-            hashId,
-          )}
-          data={pageData}
-          rowKey={getRowKey}
-          rowClassName={internalRowClassName}
-          emptyText={mergedEmptyNode}
-          // Internal
-          internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRef}
-          transformColumns={transformColumns as any}
-          getContainerWidth={getContainerWidth}
-          measureRowRender={(measureRow) => (
-            <TableMeasureRowContext.Provider value>
-              <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
-                {measureRow}
-              </ConfigProvider>
-            </TableMeasureRowContext.Provider>
-          )}
-        />
+        <HeaderTableContext.Provider value={headerTableContext}>
+          <TableComponent
+            {...virtualProps}
+            {...tableProps}
+            components={mergedComponents}
+            scroll={mergedScroll}
+            classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
+            styles={mergedStyles as RcTableProps<RecordType>['styles']}
+            ref={tblRef}
+            columns={mergedColumns as RcTableProps<RecordType>['columns']}
+            direction={direction}
+            expandable={mergedExpandable}
+            prefixCls={prefixCls}
+            className={clsx(
+              {
+                [`${prefixCls}-medium`]: mergedSize === 'medium',
+                [`${prefixCls}-small`]: mergedSize === 'small',
+                [`${prefixCls}-bordered`]: bordered,
+                [`${prefixCls}-empty`]: rawData.length === 0,
+              },
+              cssVarCls,
+              rootCls,
+              hashId,
+            )}
+            data={pageData}
+            rowKey={getRowKey}
+            rowClassName={internalRowClassName}
+            emptyText={mergedEmptyNode}
+            // Internal
+            internalHooks={INTERNAL_HOOKS}
+            internalRefs={internalRef}
+            transformColumns={transformColumns as any}
+            getContainerWidth={getContainerWidth}
+            measureRowRender={(measureRow) => (
+              <TableMeasureRowContext.Provider value>
+                <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+                  {measureRow}
+                </ConfigProvider>
+              </TableMeasureRowContext.Provider>
+            )}
+          />
+        </HeaderTableContext.Provider>
         {bottomPaginationNode}
       </Spin>
     </div>

@@ -1,4 +1,3 @@
-import os from 'node:os';
 import path from 'node:path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
@@ -63,12 +62,14 @@ export default defineConfig({
   ssr:
     process.env.NODE_ENV === 'production'
       ? {
-          builder: 'mako',
+          builder: 'utoopack',
         }
       : false,
   hash: true,
   mfsu: false,
-  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  utoopack: {
+    pluginRuntimeStrategy: 'childProcesses',
+  },
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
@@ -91,8 +92,6 @@ export default defineConfig({
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
     antd: path.join(__dirname, 'components'),
-    // https://github.com/ant-design/ant-design/issues/46628
-    '@ant-design/icons$': '@ant-design/icons/lib',
   },
   extraRehypePlugins: [rehypeAntd, rehypeChangelog],
   extraRemarkPlugins: [remarkAntd, remarkAnchor],

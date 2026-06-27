@@ -2,6 +2,11 @@ import React from 'react';
 
 import InputNumber from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('semantic', () => {
   it('should support classNames and styles', () => {
@@ -48,5 +53,22 @@ describe('semantic', () => {
     expect(suffix).toHaveStyle(testStyles.suffix);
     expect(actions).toHaveStyle(testStyles.actions);
     expect(action).toHaveStyle(testStyles.action);
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputNumber={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <InputNumber
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-number'));
   });
 });

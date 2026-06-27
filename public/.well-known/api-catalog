@@ -1,0 +1,58 @@
+{
+  "linkset": [
+    {
+      "anchor": "/",
+      "service-desc": [
+        {
+          "href": "/.well-known/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Ant Design public discovery OpenAPI description"
+        },
+        {
+          "href": "/llms-full.txt",
+          "type": "text/plain",
+          "title": "Ant Design full documentation for LLMs"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "/docs/react/introduce",
+          "type": "text/html",
+          "title": "Ant Design React documentation"
+        },
+        {
+          "href": "/llms-full.txt",
+          "type": "text/plain",
+          "title": "Ant Design full documentation for LLMs"
+        },
+        {
+          "href": "/docs/spec/introduce",
+          "type": "text/html",
+          "title": "Ant Design Design Specifications"
+        },
+        {
+          "href": "/components/overview",
+          "type": "text/html",
+          "title": "Ant Design component overview"
+        },
+        {
+          "href": "/docs/react/customize-theme",
+          "type": "text/html",
+          "title": "Ant Design theme customization guide"
+        },
+        {
+          "href": "/docs/react/migration-v5",
+          "type": "text/html",
+          "title": "Ant Design migration guide to v5"
+        }
+      ],
+      "status": [
+        {
+          "href": "/",
+          "type": "text/html",
+          "title": "Ant Design homepage"
+        }
+      ]
+    }
+  ]
+}

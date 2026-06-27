@@ -1,6 +1,7 @@
 const compileModules = [
   'react-sticky-box',
   'rc-tween-one',
+  'tween-one',
   '@babel',
   '@ant-design',
   'countup.js',
@@ -46,7 +47,7 @@ module.exports = {
   setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
-  modulePathIgnorePatterns: ['/_site/'],
+  modulePathIgnorePatterns: ['/_site/', '/__snapshots__/vitest/'],
   moduleNameMapper: {
     '/\\.(css|less)$/': 'identity-obj-proxy',
     '^antd$': '<rootDir>/components/index',

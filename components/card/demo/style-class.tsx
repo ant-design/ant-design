@@ -78,7 +78,7 @@ const App: React.FC = () => {
   };
 
   const sharedCardMetaProps: CardMetaProps = {
-    avatar: <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />,
+    avatar: <Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=1" />,
     description: 'This is the description',
   };
 

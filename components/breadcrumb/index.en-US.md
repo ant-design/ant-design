@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | path | Connected path. Each path will connect with prev one. Can not work with `href` | string | - |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
-| title | item name | ReactNode | - |  |
+| title | item name | ReactNode | - | 5.3.0 |
 
 ### SeparatorType
 

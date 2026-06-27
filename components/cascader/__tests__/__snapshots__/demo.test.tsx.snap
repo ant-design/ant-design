@@ -17,12 +17,12 @@ exports[`renders components/cascader/demo/basic.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -67,12 +67,12 @@ exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -119,12 +119,12 @@ exports[`renders components/cascader/demo/component-token.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -171,12 +171,12 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -237,12 +237,12 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -319,12 +319,12 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -393,12 +393,12 @@ exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -537,12 +537,12 @@ exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -587,12 +587,12 @@ exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -637,12 +637,12 @@ exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -697,12 +697,12 @@ exports[`renders components/cascader/demo/multiple.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1103,12 +1103,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1160,12 +1160,12 @@ exports[`renders components/cascader/demo/render-panel.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1213,11 +1213,11 @@ exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -1280,12 +1280,12 @@ Array [
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1371,12 +1371,12 @@ Array [
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1448,12 +1448,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1497,12 +1497,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1546,12 +1546,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1607,12 +1607,12 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1669,12 +1669,12 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1733,12 +1733,12 @@ exports[`renders components/cascader/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1789,12 +1789,12 @@ exports[`renders components/cascader/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1844,12 +1844,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1895,12 +1895,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1928,12 +1928,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1979,12 +1979,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2053,12 +2053,12 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2109,12 +2109,12 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2158,12 +2158,12 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2207,12 +2207,12 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2256,12 +2256,12 @@ exports[`renders components/cascader/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

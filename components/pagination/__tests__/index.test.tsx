@@ -94,6 +94,17 @@ describe('Pagination', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
       expect(container.querySelectorAll('.ant-select-lg').length).toBe(1);
     });
+
+    it('should follow ConfigProvider variant for quick jumper input', () => {
+      const { container } = render(
+        <ConfigProvider variant="filled">
+          <Pagination defaultCurrent={1} total={50} showQuickJumper />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-filled');
+      expect(container.querySelector('.ant-pagination-options-quick-jumper input')).toBeTruthy();
+    });
   });
 
   describe('should support align props', () => {

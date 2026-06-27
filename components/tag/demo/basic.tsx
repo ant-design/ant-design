@@ -15,6 +15,7 @@ const App: React.FC = () => (
         href="https://github.com/ant-design/ant-design/issues/1862"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Ant Design issue"
       >
         Link
       </a>

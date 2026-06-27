@@ -140,7 +140,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
 >
   <img
-    src="https://api.dicebear.com/7.x/pixel-art/svg"
+    src="https://api.dicebear.com/10.x/pixel-art/svg"
   />
 </span>
 `;
@@ -163,7 +163,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
 >
   <img
-    src="https://api.dicebear.com/7.x/pixel-art/svg"
+    src="https://api.dicebear.com/10.x/pixel-art/svg"
   />
 </span>
 `;

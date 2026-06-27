@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { FastColor } from '@ant-design/fast-color';
 
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
+import { getAsSolidColor } from './utils';
 
 const Simple: React.FC = () => {
   const [, token] = useToken();
@@ -13,9 +13,9 @@ const Simple: React.FC = () => {
 
   const { borderColor, shadowColor, contentColor } = useMemo(
     () => ({
-      borderColor: new FastColor(colorFill).onBackground(colorBgContainer).toHexString(),
-      shadowColor: new FastColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
-      contentColor: new FastColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
+      borderColor: getAsSolidColor(colorFill, colorBgContainer),
+      shadowColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
+      contentColor: getAsSolidColor(colorFillQuaternary, colorBgContainer),
     }),
     [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
   );

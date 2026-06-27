@@ -322,7 +322,7 @@ describe('Descriptions', () => {
       const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
-        expect(Number(td.getAttribute('colSpan'))).toEqual(spans[index]);
+        expect(Number(td.getAttribute('colSpan'))).toBe(spans[index]);
       });
     }
 
