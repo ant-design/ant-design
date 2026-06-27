@@ -120,7 +120,7 @@ jobs:
       - run: ut
 
       - name: restore cache from dist
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: dist
           key: dist-${{ github.run_id }}-${{ github.run_attempt }}
@@ -172,13 +172,13 @@ jobs:
       - run: ut
 
       - name: cache lib
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: lib
           key: lib-${{ github.sha }}
 
       - name: cache es
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: es
           key: es-${{ github.sha }}
@@ -189,7 +189,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
 
       - name: cache dist
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: dist
           key: dist-${{ github.run_id }}-${{ github.run_attempt }}
@@ -241,7 +241,7 @@ jobs:
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
