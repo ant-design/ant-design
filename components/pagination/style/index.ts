@@ -83,9 +83,7 @@ export interface ComponentToken {
  * @descEN Token for Pagination component
  */
 export interface PaginationToken
-  extends FullToken<'Pagination'>,
-    SharedComponentToken,
-    SharedInputToken {
+  extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   /**
    * @desc 输入框轮廓偏移量
    * @descEN Outline offset of input
