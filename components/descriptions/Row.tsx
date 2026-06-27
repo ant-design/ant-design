@@ -75,17 +75,27 @@ function renderCells(
         );
       }
 
+      const mergedStyles = {
+        label: {
+          ...rootLabelStyle,
+          ...rootStyles?.label,
+          ...labelStyle,
+          ...styles?.label,
+        },
+        content: {
+          ...rootContentStyle,
+          ...rootStyles?.content,
+          ...contentStyle,
+          ...styles?.content,
+        },
+      };
       return [
         <Cell
           key={`label-${key || index}`}
           className={className}
-          style={{
-            ...rootLabelStyle,
-            ...rootStyles?.label,
-            ...style,
-            ...labelStyle,
-            ...styles?.label,
-          }}
+          style={style}
+          classNames={classNames}
+          styles={mergedStyles}
           span={1}
           colon={colon}
           component={component[0]}
@@ -97,13 +107,9 @@ function renderCells(
         <Cell
           key={`content-${key || index}`}
           className={className}
-          style={{
-            ...rootContentStyle,
-            ...rootStyles?.content,
-            ...style,
-            ...contentStyle,
-            ...styles?.content,
-          }}
+          style={style}
+          classNames={classNames}
+          styles={mergedStyles}
           span={span * 2 - 1}
           component={component[1]}
           itemPrefixCls={itemPrefixCls}
