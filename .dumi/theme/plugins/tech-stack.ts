@@ -8,7 +8,7 @@ import { dependencies, devDependencies } from '../../../package.json';
 /**
  * extends dumi internal tech stack, for customize previewer props
  */
-class AntdReactTechStack extends ReactTechStack {
+export class AntdReactTechStack extends ReactTechStack {
   generatePreviewerProps(...[props, opts]: any) {
     props.pkgDependencyList = { ...devDependencies, ...dependencies };
     props.jsx ??= '';
