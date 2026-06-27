@@ -9,19 +9,19 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); height: 64px; padding-inline: 48px; line-height: 64px; background-color: rgb(64, 150, 255);"
     >
       Header
     </header>
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-test-id"
       style="text-align: center; min-height: 120px; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(9, 88, 217);"
     >
       Content
     </main>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(64, 150, 255);"
     >
       Footer
@@ -32,7 +32,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); height: 64px; padding-inline: 48px; line-height: 64px; background-color: rgb(64, 150, 255);"
     >
       Header
@@ -51,14 +51,14 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
         </div>
       </aside>
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="text-align: center; min-height: 120px; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(9, 88, 217);"
       >
         Content
       </main>
     </div>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(64, 150, 255);"
     >
       Footer
@@ -69,7 +69,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
     style="border-radius: 8px; overflow: hidden; width: calc(50% - 8px); max-width: calc(50% - 8px);"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); height: 64px; padding-inline: 48px; line-height: 64px; background-color: rgb(64, 150, 255);"
     >
       Header
@@ -78,7 +78,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       class="ant-layout ant-layout-has-sider css-var-test-id"
     >
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="text-align: center; min-height: 120px; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(9, 88, 217);"
       >
         Content
@@ -95,7 +95,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       </aside>
     </div>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(64, 150, 255);"
     >
       Footer
@@ -119,19 +119,19 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
       class="ant-layout css-var-test-id"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header css-var-test-id"
         style="text-align: center; color: rgb(255, 255, 255); height: 64px; padding-inline: 48px; line-height: 64px; background-color: rgb(64, 150, 255);"
       >
         Header
       </header>
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="text-align: center; min-height: 120px; line-height: 120px; color: rgb(255, 255, 255); background-color: rgb(9, 88, 217);"
       >
         Content
       </main>
       <footer
-        class="ant-layout-footer"
+        class="ant-layout-footer css-var-test-id"
         style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(64, 150, 255);"
       >
         Footer
@@ -148,7 +148,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
   class="ant-layout css-var-test-id"
 >
   <header
-    class="ant-layout-header"
+    class="ant-layout-header css-var-test-id"
     style="display: flex; align-items: center;"
   >
     <div
@@ -927,7 +927,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
         </ol>
       </nav>
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="padding: 24px; margin: 0px; min-height: 280px; background: rgb(245, 245, 245); border-radius: 8px;"
       >
         Content
@@ -1127,7 +1127,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
     class="ant-layout css-var-test-id"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="padding: 0px; background: rgb(255, 255, 255);"
     >
       <button
@@ -1161,7 +1161,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
       </button>
     </header>
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-test-id"
       style="margin: 24px 16px; padding: 24px; min-height: 280px; background: rgb(255, 255, 255); border-radius: 8px;"
     >
       Content
@@ -1177,7 +1177,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
   class="ant-layout css-var-test-id"
 >
   <header
-    class="ant-layout-header"
+    class="ant-layout-header css-var-test-id"
     style="position: sticky; top: 0px; z-index: 1; width: 100%; display: flex; align-items: center;"
   >
     <div
@@ -1341,7 +1341,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
     />
   </header>
   <main
-    class="ant-layout-content"
+    class="ant-layout-content css-var-test-id"
     style="padding: 0px 48px;"
   >
     <nav
@@ -1397,7 +1397,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
     </div>
   </main>
   <footer
-    class="ant-layout-footer"
+    class="ant-layout-footer css-var-test-id"
     style="text-align: center;"
   >
     Ant Design ©2016 Created by Ant UED
@@ -1846,11 +1846,11 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
     class="ant-layout css-var-test-id"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="padding: 0px; background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-test-id"
       style="margin: 24px 16px 0px; overflow: initial;"
     >
       <div
@@ -2062,7 +2062,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
       </div>
     </main>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center;"
     >
       Ant Design ©2016 Created by Ant UED
@@ -2339,11 +2339,11 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
     class="ant-layout css-var-test-id"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="padding: 0px; background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-test-id"
       style="margin: 24px 16px 0px;"
     >
       <div
@@ -2353,7 +2353,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       </div>
     </main>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center;"
     >
       Ant Design ©2016 Created by Ant UED
@@ -2843,11 +2843,11 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     class="ant-layout css-var-test-id"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-test-id"
       style="padding: 0px; background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-test-id"
       style="margin: 0px 16px;"
     >
       <nav
@@ -2888,7 +2888,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
       </div>
     </main>
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-test-id"
       style="text-align: center;"
     >
       Ant Design ©2016 Created by Ant UED
@@ -2904,7 +2904,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
   class="ant-layout css-var-test-id"
 >
   <header
-    class="ant-layout-header"
+    class="ant-layout-header css-var-test-id"
     style="display: flex; align-items: center;"
   >
     <div
@@ -3440,7 +3440,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
     />
   </header>
   <main
-    class="ant-layout-content"
+    class="ant-layout-content css-var-test-id"
     style="padding: 0px 48px;"
   >
     <nav
@@ -3496,7 +3496,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
     </div>
   </main>
   <footer
-    class="ant-layout-footer"
+    class="ant-layout-footer css-var-test-id"
     style="text-align: center;"
   >
     Ant Design ©2016 Created by Ant UED
@@ -3511,7 +3511,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
   class="ant-layout css-var-test-id"
 >
   <header
-    class="ant-layout-header"
+    class="ant-layout-header css-var-test-id"
     style="display: flex; align-items: center;"
   >
     <div
@@ -4433,7 +4433,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </div>
       </aside>
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="padding: 0px 24px; min-height: 280px;"
       >
         Content
@@ -4441,7 +4441,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
     </div>
   </div>
   <footer
-    class="ant-layout-footer"
+    class="ant-layout-footer css-var-test-id"
     style="text-align: center;"
   >
     Ant Design ©2016 Created by Ant UED
@@ -4456,7 +4456,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
   class="ant-layout css-var-test-id"
 >
   <header
-    class="ant-layout-header"
+    class="ant-layout-header css-var-test-id"
     style="display: flex; align-items: center;"
   >
     <div
@@ -5378,7 +5378,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </ol>
       </nav>
       <main
-        class="ant-layout-content"
+        class="ant-layout-content css-var-test-id"
         style="padding: 24px; margin: 0px; min-height: 280px; background: rgb(255, 255, 255); border-radius: 8px;"
       >
         Content

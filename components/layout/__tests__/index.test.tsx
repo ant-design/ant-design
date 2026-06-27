@@ -6,6 +6,7 @@ import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -302,6 +303,18 @@ describe('Layout', () => {
     expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55603
+  it('Header used standalone should apply cssVar class', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+        <Header className="standalone-header">Header</Header>
+      </ConfigProvider>,
+    );
+
+    const header = container.querySelector('.standalone-header')!;
+    expect(header).toHaveClass('foo');
   });
 });
 
