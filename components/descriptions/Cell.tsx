@@ -69,20 +69,22 @@ const Cell: React.FC<CellProps> = (props) => {
     // the per-type merged style via `styles` and pass the raw item `style`
     // separately, so `Cell` can unconditionally merge `typeStyle` onto the
     // cell here without needing to know which branch produced it.
-    const typeStyle =
-      type === 'label' ? mergedLabelStyle : type === 'content' ? mergedContentStyle : undefined;
-    const mergedCellStyle: React.CSSProperties | undefined = typeStyle
-      ? { ...style, ...typeStyle }
-      : style;
-
+    let typeStyle: React.CSSProperties | undefined;
+    if (type === 'label') {
+      typeStyle = mergedLabelStyle;
+    }
+    if (type === 'content') {
+      typeStyle = mergedContentStyle;
+    }
+    const mergedCellStyle = typeStyle ? { ...style, ...typeStyle } : style;
     return (
       <Component
         colSpan={span}
         style={mergedCellStyle}
         className={clsx(className, {
           [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
-          [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
-          [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
+          [mergedClassNames.label]: mergedClassNames.label && type === 'label',
+          [mergedClassNames.content]: mergedClassNames.content && type === 'content',
         })}
       >
         {isReactRenderable(label) && <span>{label}</span>}
