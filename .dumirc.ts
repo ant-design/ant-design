@@ -1,3 +1,4 @@
+import os from 'node:os';
 import path from 'node:path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
@@ -44,6 +45,8 @@ const alibabaSansFontFaceStyle = alibabaSansFonts
   )
   .join('\n');
 
+const isCloudflarePages = process.env.CF_PAGES === '1';
+
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
 
@@ -62,11 +65,13 @@ export default defineConfig({
   ssr:
     process.env.NODE_ENV === 'production'
       ? {
-          builder: 'utoopack',
+          // Cloudflare Pages may crash utoopack loader child processes with SIGBUS.
+          builder: isCloudflarePages ? 'mako' : 'utoopack',
         }
       : false,
   hash: true,
   mfsu: false,
+  mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
     pluginRuntimeStrategy: 'childProcesses',
   },

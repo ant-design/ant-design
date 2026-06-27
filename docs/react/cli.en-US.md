@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 3
+order: 4
 title: CLI
 tag: New
 ---

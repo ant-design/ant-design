@@ -15,7 +15,7 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         minWidth: token.iconSize,
         [`${itemCls}-rail`]: {
           [varName('horizontal-rail-margin')]:
-            `calc(${varRef('icon-size-max')} / 2 + ${varRef('item-wrapper-padding-top')})`,
+            `calc(${varRef('icon-size-max')} / 2 - ${varRef('rail-size')} / 2 + ${varRef('item-wrapper-padding-top')})`,
           position: 'static',
           marginTop: varRef('horizontal-rail-margin'),
           width: 'auto',
@@ -23,7 +23,6 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           flex: 1,
           minWidth: 0,
           alignSelf: 'flex-start',
-          transform: 'translateY(-50%)',
         },
       },
     },
