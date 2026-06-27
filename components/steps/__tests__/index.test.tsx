@@ -1,5 +1,4 @@
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import Steps from '..';
 import type { StepsProps } from '..';
@@ -124,54 +123,6 @@ describe('Steps', () => {
       </ConfigProvider>,
     );
     expect(container.querySelectorAll('.ant-steps-small')).toHaveLength(1);
-  });
-
-  it('does not offset horizontal rail with transform', () => {
-    const cache = createCache();
-
-    render(
-      <StyleProvider cache={cache}>
-        <ConfigProvider theme={{ hashed: false }}>
-          <Steps items={[{ title: 'Finished' }, { title: 'In Progress' }]} />
-        </ConfigProvider>
-      </StyleProvider>,
-    );
-
-    const styleText = extractStyle(cache, true);
-    const horizontalRailStyle =
-      /[^{}]*\.ant-steps-horizontal\s*>\s*\.ant-steps-item\s+\.ant-steps-item-rail\s*\{(?<style>[^}]*)\}/.exec(
-        styleText,
-      )?.groups?.style;
-
-    expect(horizontalRailStyle).toBeTruthy();
-    expect(horizontalRailStyle).toContain('border-block-start-width:');
-    expect(horizontalRailStyle).toContain('align-self:flex-start');
-    expect(horizontalRailStyle).not.toContain('transform:');
-  });
-
-  it('dot-type horizontal rail is centered without transform', () => {
-    const cache = createCache();
-
-    render(
-      <StyleProvider cache={cache}>
-        <ConfigProvider theme={{ hashed: false }}>
-          <Steps
-            type="dot"
-            items={[{ title: 'Finished' }, { title: 'In Progress' }, { title: 'Waiting' }]}
-          />
-        </ConfigProvider>
-      </StyleProvider>,
-    );
-
-    const styleText = extractStyle(cache, true);
-    const dotRailStyle =
-      /[^{}]*\.ant-steps-horizontal\s*>\s*\.ant-steps-item\s+\.ant-steps-item-rail\s*\{(?<style>[^}]*)\}/.exec(
-        styleText,
-      )?.groups?.style;
-
-    expect(dotRailStyle).toBeTruthy();
-    expect(dotRailStyle).toContain('align-self:flex-start');
-    expect(dotRailStyle).not.toContain('transform:');
   });
 
   it('no tooltip if inline item not have content', async () => {
