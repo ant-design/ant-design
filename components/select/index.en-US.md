@@ -33,6 +33,7 @@ demo:
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
 <code src="./demo/custom-tokenization.tsx" version="6.5.0">Custom tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
+<code src="./demo/infinite-scroll.tsx">Search with infinite scroll</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
