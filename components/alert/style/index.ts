@@ -11,7 +11,7 @@ export interface ComponentToken {
   /**
    * @desc 组件圆角
    * @descEN Border radius of alert
-   * @since 6.4.0
+   * @since 6.6.0
    */
   borderRadius: CSSProperties['borderRadius'];
   /**
