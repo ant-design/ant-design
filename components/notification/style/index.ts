@@ -5,6 +5,7 @@ import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
+import { MEASURED_WIDTH_VAR } from '../constants';
 import genNotificationStyle, { genPurePanelStyle } from './notification';
 import genNotificationPlacementStyle from './placement';
 
@@ -198,7 +199,6 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 ): CSSObject => {
   const { componentCls, notificationMarginEdge } = token;
   const notificationMarginEdgeVar = '--notification-margin-edge';
-  const measuredWidthVar = '--antd-notification-measured-width';
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
@@ -210,7 +210,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         .equal()
     : '100%';
   const holderWidth = config.listWidthKey
-    ? `max(${listWidth}, calc(var(${measuredWidthVar}, 0px) + (var(${notificationMarginEdgeVar}, 0px) * 2)))`
+    ? `max(${listWidth}, calc(var(${MEASURED_WIDTH_VAR}, 0px) + (var(${notificationMarginEdgeVar}, 0px) * 2)))`
     : listWidth;
   const stackVisibleCount = config.stackVisibleCount ?? DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT;
   const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${

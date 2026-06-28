@@ -18,6 +18,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { MEASURED_WIDTH_VAR } from './constants';
 import useStackConfig from './hooks/useStackConfig';
 import type {
   ArgsProps,
@@ -32,7 +33,6 @@ import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 const DEFAULT_STACK_CONFIG = { offset: 8 };
-const MEASURED_WIDTH_VAR = '--antd-notification-measured-width';
 
 const useInternalLayoutEffect =
   typeof window === 'undefined' ? React.useEffect : React.useLayoutEffect;
