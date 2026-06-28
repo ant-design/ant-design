@@ -129,7 +129,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             transition: [
               `border-color ${motionDurationSlow}`,
               `background-color ${motionDurationSlow}`,
-              // `padding ${motionDurationFast} ${motionEaseOut}`,
+              `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {
