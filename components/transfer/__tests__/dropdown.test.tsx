@@ -1,5 +1,6 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
+import { vi } from 'vitest';
 
 import Transfer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -30,36 +31,36 @@ describe('Transfer.Dropdown', () => {
   }
 
   it('select all', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const onSelectChange = jest.fn();
+    const onSelectChange = vi.fn();
     const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
 
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     clickItem(container, 0);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('select current page', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const onSelectChange = jest.fn();
+    const onSelectChange = vi.fn();
     const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     clickItem(container, 1);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd'], []);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should hide checkbox and dropdown icon when showSelectAll={false}', () => {
@@ -72,15 +73,15 @@ describe('Transfer.Dropdown', () => {
 
   describe('select invert', () => {
     it('with pagination', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
-      const onSelectChange = jest.fn();
+      const onSelectChange = vi.fn();
       const { container } = render(
         <Transfer {...listProps} selectedKeys={undefined} onSelectChange={onSelectChange} />,
       );
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       clickItem(container, 0);
@@ -88,31 +89,31 @@ describe('Transfer.Dropdown', () => {
 
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       clickItem(container, 2);
       expect(onSelectChange).toHaveBeenCalledWith(['e'], []);
 
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it('without pagination', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
-      const onSelectChange = jest.fn();
+      const onSelectChange = vi.fn();
       const { container } = render(
         <Transfer {...listProps} pagination={null as any} onSelectChange={onSelectChange} />,
       );
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       clickItem(container, 1);
       expect(onSelectChange).toHaveBeenCalledWith(['c', 'd', 'e'], []);
 
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
   });
 
@@ -122,9 +123,9 @@ describe('Transfer.Dropdown', () => {
       { name: 'without pagination', props: { ...listProps, pagination: null as any } },
     ].forEach(({ name, props }) => {
       it(name, () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
 
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { container } = render(
           <Transfer {...props} targetKeys={['b', 'c']} oneWay onChange={onChange} />,
         );
@@ -132,13 +133,13 @@ describe('Transfer.Dropdown', () => {
         // Right dropdown
         fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-trigger')[1]!);
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         clickItem(container, 0);
         expect(onChange).toHaveBeenCalledWith([], 'left', ['b', 'c']);
 
-        jest.useRealTimers();
+        vi.useRealTimers();
       });
     });
   });

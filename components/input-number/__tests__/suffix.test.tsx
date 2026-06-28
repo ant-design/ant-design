@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import InputNumber from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -12,7 +13,7 @@ describe('suffix', () => {
   it('should trigger focus when suffix is clicked', () => {
     const { container } = render(<InputNumber suffix={<i>antd</i>} />);
 
-    const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+    const mockFocus = vi.spyOn(container.querySelector('input')!, 'focus');
     fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });

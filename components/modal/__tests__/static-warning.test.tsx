@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { vi } from 'vitest';
 
 import Modal from '..';
 import { resetWarned } from '../../_util/warning';
@@ -6,12 +7,15 @@ import { render, waitFakeTimer, waitFakeTimer19 } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -19,7 +23,7 @@ jest.mock('react-dom', () => {
 
 describe('Modal.confirm warning', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     resetWarned();
   });
 
@@ -28,12 +32,12 @@ describe('Modal.confirm warning', () => {
 
     await waitFakeTimer();
     document.body.innerHTML = '';
-    jest.clearAllTimers();
+    vi.clearAllTimers();
   });
 
   // Follow test need keep order
   it('no warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     Modal.confirm({
       content: <div className="bamboo" />,
     });
@@ -46,7 +50,7 @@ describe('Modal.confirm warning', () => {
   });
 
   it('warning if use theme', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<ConfigProvider theme={{}} />);
 
     Modal.confirm({

@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import Select from '..';
 import type { SelectProps, SelectSemanticAllType } from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Select.Semantic', () => {
   const options = [
@@ -48,7 +48,7 @@ describe('Select.Semantic', () => {
       },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Select
         open
         options={options}
@@ -100,7 +100,7 @@ describe('Select.Semantic', () => {
       },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Select
         mode="multiple"
         open

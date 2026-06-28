@@ -1,8 +1,9 @@
+import { ReadableStream } from 'node:stream/web';
 import util from 'node:util';
+import { MessagePort } from 'node:worker_threads';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
-import { MessagePort } from 'node:worker_threads';
-import { ReadableStream } from 'node:stream/web';
+import { vi } from 'vitest';
 
 if (typeof globalThis.ReadableStream === 'undefined') {
   Object.defineProperty(
@@ -48,7 +49,7 @@ console.error = (...args) => {
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
-// This function can not move to external file since jest setup not support
+// This function can not move to external file since test setup not support
 export function fillWindowEnv(window: Window | DOMWindow) {
   const win = window as Writeable<Window> & typeof globalThis;
 
@@ -63,10 +64,10 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     Object.defineProperty(win, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: jest.fn((query) => ({
+      value: vi.fn((query) => ({
         matches: query.includes('max-width'),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
       })),
     });
   }
@@ -150,8 +151,8 @@ if (typeof MessageChannel === 'undefined') {
 }
 
 // Mock useId to return a stable id for snapshot testing
-jest.mock('react', () => {
-  const originReact = jest.requireActual('react');
+vi.mock('react', async () => {
+  const originReact = await vi.importActual<typeof import('react')>('react');
   let cloneReact = {
     ...originReact,
   };

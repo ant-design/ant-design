@@ -1,24 +1,28 @@
-import type React from 'react';
+import type * as React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import type { TourProps } from '../.';
 import { semanticDemoTest } from '../../../tests/shared/demoTest';
 
 // Mock Tour component to ensure it renders correctly in test environment
 // Similar to demo-extend.test.ts, but handle getPopupContainer issue
-jest.mock('../.', () => {
-  const OriReact: typeof React = jest.requireActual('react');
-  const OriTour = jest.requireActual('../.').default;
+vi.mock('../.', async () => {
+  const OriReact = await vi.importActual<typeof import('react')>('react');
+  const OriTourModule = await vi.importActual<typeof import('../.')>('../.');
+  const OriTour = OriTourModule.default as React.ComponentType<
+    TourProps & React.RefAttributes<any>
+  >;
 
   const ProxyTour = OriReact.forwardRef<any, TourProps>((props, ref) => {
     // Fix getPopupContainer: convert false to a function that returns body
     const getPopupContainerProp = props.getPopupContainer;
     const fixedGetPopupContainer =
       getPopupContainerProp === false
-        ? function getBody() {
+        ? function getBody(): HTMLElement {
             // Use function declaration to avoid Babel parsing issues
             const doc = global.document || global.window?.document;
-            return doc ? doc.body : null;
+            return doc.body;
           }
         : getPopupContainerProp;
 
@@ -30,7 +34,10 @@ jest.mock('../.', () => {
     });
   });
 
-  return ProxyTour;
+  return {
+    ...OriTourModule,
+    default: ProxyTour,
+  };
 });
 
 // Mock getBoundingClientRect for Tour component to calculate target position

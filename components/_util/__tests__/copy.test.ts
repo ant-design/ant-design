@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { fireEvent } from '../../../tests/utils';
 import copy from '../copy';
 
@@ -6,8 +8,8 @@ describe('Test copy', () => {
     Object.defineProperty(global, 'navigator', {
       value: {
         clipboard: {
-          writeText: jest.fn(),
-          write: jest.fn(),
+          writeText: vi.fn(),
+          write: vi.fn(),
         },
       },
       configurable: true,
@@ -15,14 +17,14 @@ describe('Test copy', () => {
     });
 
     Object.defineProperty(document, 'execCommand', {
-      value: jest.fn().mockImplementation(() => {
+      value: vi.fn().mockImplementation(() => {
         fireEvent.copy(document.body);
       }),
       configurable: true,
       writable: true,
     });
 
-    jest.spyOn(global.console, 'error');
+    vi.spyOn(global.console, 'error');
 
     (global as any).ClipboardItem = class {
       static supports(): boolean {
@@ -47,7 +49,7 @@ describe('Test copy', () => {
   });
 
   it('format!=text/html use navigator.clipboard.writeText', async () => {
-    const mockWriteText = jest.fn().mockImplementation(() => Promise.resolve());
+    const mockWriteText = vi.fn().mockImplementation(() => Promise.resolve());
 
     global.navigator.clipboard.writeText = mockWriteText;
 
@@ -58,7 +60,7 @@ describe('Test copy', () => {
   });
 
   it('format=text/html ,use navigator.clipboard.write', async () => {
-    const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
+    const mockWrite = vi.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
     const result = await copy('<div>Text</div>', {
       format: 'text/html',
@@ -89,7 +91,7 @@ describe('Test copy', () => {
   });
 
   it('copy failed, When the cutting object is not a string', async () => {
-    const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
+    const mockWrite = vi.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
     const result = await copy(0 as any);
     expect((console.error as any).mock.lastCall[0]).toContain(
@@ -102,6 +104,6 @@ describe('Test copy', () => {
     delete (global as any).navigator;
     delete (global as any).ClipboardItem;
 
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 });

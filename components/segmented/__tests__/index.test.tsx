@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import type { SegmentedValue } from '..';
 import Segmented from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 
 // Make CSSMotion working without transition
-jest.mock('@rc-component/motion/lib/util/motion', () => ({
-  ...jest.requireActual('@rc-component/motion/lib/util/motion'),
+vi.mock('@rc-component/motion/lib/util/motion', async () => ({
+  ...(await vi.importActual<typeof import('@rc-component/motion/lib/util/motion')>(
+    '@rc-component/motion/lib/util/motion',
+  )),
   supportTransition: false,
 }));
 
@@ -33,11 +36,11 @@ describe('Segmented', () => {
   rtlTest(() => <Segmented options={[]} />);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('render empty segmented', () => {
@@ -86,7 +89,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with string options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented options={['Daily', 'Weekly', 'Monthly']} onChange={handleValueChange} />,
     );
@@ -105,7 +108,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with numeric options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented options={[1, 2, 3, 4, 5]} onChange={(value) => handleValueChange(value)} />,
     );
@@ -119,7 +122,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with mixed options', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
@@ -136,7 +139,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with options: disabled', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
@@ -162,7 +165,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented: disabled', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         disabled
@@ -232,7 +235,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with options null/undefined', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={[null, undefined, ''] as any}
@@ -247,7 +250,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with thumb', () => {
-    const handleValueChange = jest.fn();
+    const handleValueChange = vi.fn();
     const { asFragment, container } = render(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
@@ -364,28 +367,35 @@ describe('Segmented', () => {
 
   describe('toolTip for optionItem ', () => {
     it('Configuring tooltip in the options should display the corresponding information', async () => {
-      const { container } = render(
-        <Segmented
-          orientation="vertical"
-          options={[
-            { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
-            'Weekly',
-            { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
-          ]}
-        />,
-      );
-      const itemList = container.querySelectorAll('.ant-segmented-item');
-      fireEvent.mouseEnter(itemList[0]);
-      fireEvent.mouseEnter(itemList[1]);
-      fireEvent.mouseEnter(itemList[2]);
-      await waitFor(() => {
-        const tooltipList = document.querySelectorAll('.ant-tooltip');
-        expect(tooltipList).toHaveLength(2);
-        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
-        expect(tooltipInnerList).toHaveLength(2);
-        expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
-        expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
-      });
+      vi.useFakeTimers();
+
+      try {
+        const { container } = render(
+          <Segmented
+            orientation="vertical"
+            options={[
+              { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
+              'Weekly',
+              { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
+            ]}
+          />,
+        );
+        const itemList = container.querySelectorAll('.ant-segmented-item');
+        fireEvent.mouseEnter(itemList[0]);
+        fireEvent.mouseEnter(itemList[1]);
+        fireEvent.mouseEnter(itemList[2]);
+        await waitFakeTimer();
+        await waitFor(() => {
+          const tooltipList = document.querySelectorAll('.ant-tooltip');
+          expect(tooltipList).toHaveLength(2);
+          const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
+          expect(tooltipInnerList).toHaveLength(2);
+          expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
+          expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
+        });
+      } finally {
+        vi.useRealTimers();
+      }
     });
   });
 });

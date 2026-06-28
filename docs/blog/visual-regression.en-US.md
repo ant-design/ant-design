@@ -8,7 +8,7 @@ Visual Regression Testing is a software testing technique that focuses on detect
 
 ## Baseline Screenshots
 
-The main goal of Ant Design's visual regression testing is to detect visual changes in components and avoid visual issues introduced by PR changes. We use [jest-puppeteer](https://jestjs.io/docs/puppeteer) as our testing framework. By combining Puppeteer with Jest, we take screenshots of each component demo and compare them with baseline screenshots.
+The main goal of Ant Design's visual regression testing is to detect visual changes in components and avoid visual issues introduced by PR changes. We use Vitest with Puppeteer to take screenshots of each component demo and compare them with baseline screenshots.
 
 You can find visual regression test code in `__tests__/image.test.ts` under each component. You can run visual screenshots in the antd repository using the following command:
 
@@ -24,7 +24,7 @@ Initially, we used [Argos](https://argos-ci.com/) as our visual regression testi
 
 ### Self-hosted
 
-We built our own visual regression testing solution using jest-puppeteer mentioned earlier. We take screenshots of each component demo using four themes: `dark`, `light`, `compact`, and `cssVar`, then upload these screenshots to [Alibaba Cloud OSS](https://www.aliyun.com/product/oss) as baseline screenshots.
+We built our own visual regression testing solution using Puppeteer mentioned earlier. We take screenshots of each component demo using four themes: `dark`, `light`, `compact`, and `cssVar`, then upload these screenshots to [Alibaba Cloud OSS](https://www.aliyun.com/product/oss) as baseline screenshots.
 
 Using GitHub Actions for continuous integration, we automatically capture and upload screenshots to OSS whenever the base branch code changes, ensuring the baseline screenshots stay up-to-date.
 

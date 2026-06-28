@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -12,7 +13,7 @@ describe('Watermark', () => {
   mountTest(Watermark);
   rtlTest(Watermark);
 
-  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
+  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
@@ -22,11 +23,11 @@ describe('Watermark', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   afterAll(() => {
@@ -58,7 +59,7 @@ describe('Watermark', () => {
   });
 
   it('supports custom font for each content line', async () => {
-    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const fillText = vi.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
     const fonts: string[] = [];
     const spyCanvas = spyElementPrototypes(CanvasRenderingContext2D, {
       font: {
@@ -235,7 +236,7 @@ describe('Watermark', () => {
   });
 
   it('should not crash if content is empty string', async () => {
-    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const spy = vi.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
     render(<Watermark content="" className="watermark" />);
     await waitFakeTimer();
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);
@@ -246,7 +247,7 @@ describe('Watermark', () => {
   });
 
   it('should call onRemove when watermark is hard removed', async () => {
-    const onRemove = jest.fn();
+    const onRemove = vi.fn();
     const { container } = render(<Watermark content="Ant" onRemove={onRemove} />);
     await waitFakeTimer();
 
@@ -258,7 +259,7 @@ describe('Watermark', () => {
   });
 
   it('should not call onRemove when unmount', async () => {
-    const onRemove = jest.fn();
+    const onRemove = vi.fn();
     const { unmount } = render(<Watermark content="Ant" onRemove={onRemove} />);
     await waitFakeTimer();
     unmount();

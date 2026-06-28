@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -13,12 +14,16 @@ import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return {
+      ...realReactDOM,
+      createRoot: realReactDOMClient.createRoot,
+    };
   }
 
   return realReactDOM;
@@ -46,12 +51,12 @@ describe('ConfigProvider.Locale', () => {
         setShowButton(true);
       }, []);
       const openConfirm = () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
-        jest.useRealTimers();
+        vi.useRealTimers();
       };
       return (
         <ConfigProvider locale={zhCN}>

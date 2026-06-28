@@ -11,13 +11,16 @@ import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import type { HTTPRequest, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
+vi.mock('../../components/grid/hooks/useBreakpoint', () => ({
+  default: () => ({}),
+}));
 
 const snapshotPath = path.join(process.cwd(), 'imageSnapshots');
 fse.ensureDirSync(snapshotPath);
@@ -35,9 +38,11 @@ interface ImageTestOptions {
   mobile?: boolean;
 }
 
+type ImageTestComponent = React.ReactElement<any> | Promise<React.ReactElement<any>>;
+
 // eslint-disable-next-line jest/no-export
 export default function imageTest(
-  component: React.ReactElement<any>,
+  component: ImageTestComponent,
   identifier: string,
   filename: string,
   options: ImageTestOptions,
@@ -94,8 +99,8 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
     })) as unknown as typeof matchMedia;
 
     // Fill window
@@ -122,10 +127,11 @@ export default function imageTest(
   const test = (
     name: string,
     suffix: string,
-    themedComponent: React.ReactElement<any>,
+    createThemedComponent: (resolvedComponent: React.ReactElement<any>) => React.ReactElement<any>,
     mobile = false,
   ) => {
     it(name, async () => {
+      const themedComponent = createThemedComponent(await component);
       const sharedViewportConfig: Partial<Viewport> = {
         isMobile: mobile,
         hasTouch: mobile,
@@ -287,18 +293,16 @@ export default function imageTest(
         },
       };
 
-      test(
-        `component image screenshot should correct ${key}`,
-        `.${key}`,
+      test(`component image screenshot should correct ${key}`, `.${key}`, (resolvedComponent) => (
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
-        </div>,
-      );
+          <ConfigProvider theme={configTheme}>{resolvedComponent}</ConfigProvider>
+        </div>
+      ));
     });
 
     // Mobile Snapshot
   } else {
-    test(identifier, `.mobile`, component, true);
+    test(identifier, `.mobile`, (resolvedComponent) => resolvedComponent, true);
   }
 }
 
@@ -323,7 +327,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
         (file) => !file.includes('_semantic'),
       );
 
-  const mobileDemos: [file: string, node: React.ReactElement<any>][] = [];
+  const mobileDemos: [file: string, node: ImageTestComponent][] = [];
 
   const getTestOption = (file: string) => ({
     onlyViewport:
@@ -340,10 +344,10 @@ export function imageDemoTest(component: string, options: Options = {}) {
     describeMethod(`Test ${file} image`, () => {
       // Only require the demo file if it's not skipped to avoid dependency issues
       if (!shouldSkip) {
-        let Demo = jest.requireActual(`../../${file}`).default;
-        if (typeof Demo === 'function') {
-          Demo = <Demo />;
-        }
+        const Demo = vi.importActual<{ default: any }>(`../../${file}`).then((mod) => {
+          const DemoComponent = mod.default;
+          return typeof DemoComponent === 'function' ? <DemoComponent /> : DemoComponent;
+        });
         imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
         // Check if need mobile test
@@ -357,7 +361,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
   if (mobileDemos.length) {
     describeMethod(`Test mobile image`, () => {
       beforeAll(async () => {
-        await jestPuppeteer.resetPage();
+        await vitestPuppeteer.resetPage();
       });
 
       mobileDemos.forEach(([file, Demo]) => {

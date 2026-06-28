@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Image from '..';
 import type { MaskType } from '../../_util/hooks';
@@ -271,7 +272,7 @@ describe('Image', () => {
 
   describe('Image mask closable', () => {
     it('should not trigger onOpenChange when Image preview.mask.closable is false', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <Image
           alt={alt}
@@ -287,7 +288,7 @@ describe('Image', () => {
     });
 
     it('should not trigger onOpenChange when Image.PreviewGroup preview.mask.closable is false', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <Image.PreviewGroup preview={{ open: true, mask: { closable: false }, onOpenChange }}>
           <Image alt={alt} src={src} />
@@ -301,7 +302,7 @@ describe('Image', () => {
     });
 
     it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
           <Image alt={alt} src={src} preview={{ open: true, onOpenChange }} />
@@ -315,7 +316,7 @@ describe('Image', () => {
     });
 
     it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image.PreviewGroup', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
           <Image.PreviewGroup preview={{ open: true, onOpenChange }}>
@@ -331,7 +332,7 @@ describe('Image', () => {
     });
 
     it('should use Image preview.mask.closable over ConfigProvider image.preview.mask.closable', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
           <Image
@@ -349,7 +350,7 @@ describe('Image', () => {
     });
 
     it('should use Image.PreviewGroup preview.mask.closable over ConfigProvider image.preview.mask.closable', () => {
-      const onOpenChange = jest.fn();
+      const onOpenChange = vi.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
           <Image.PreviewGroup preview={{ open: true, mask: { closable: true }, onOpenChange }}>

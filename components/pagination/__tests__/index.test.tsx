@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { PaginationProps } from '..';
 import Pagination from '..';
@@ -36,8 +37,8 @@ describe('Pagination', () => {
   // https://github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
   it('should onChange called when pageSize change', () => {
-    const onChange = jest.fn();
-    const onShowSizeChange = jest.fn();
+    const onChange = vi.fn();
+    const onShowSizeChange = vi.fn();
     const { container } = render(
       <Pagination
         defaultCurrent={1}
@@ -55,7 +56,7 @@ describe('Pagination', () => {
   });
 
   it('should support custom selectComponentClass', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const CustomSelect: React.FC<{ className?: string }> & { Option: typeof Select.Option } = ({
       className,

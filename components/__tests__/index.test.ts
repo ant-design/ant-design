@@ -1,13 +1,14 @@
+import { vi } from 'vitest';
+
 const OLD_NODE_ENV = process.env.NODE_ENV;
 process.env.NODE_ENV = 'development';
 
 describe('antd', () => {
   let antd: typeof import('..');
 
-  beforeAll(() => {
-    jest.isolateModules(() => {
-      antd = jest.requireActual('..');
-    });
+  beforeAll(async () => {
+    vi.resetModules();
+    antd = await import('..');
   });
 
   afterAll(() => {
@@ -19,7 +20,7 @@ describe('antd', () => {
   });
 
   it('unstableSetRender should show correct warning message', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     antd.unstableSetRender();
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { vi } from 'vitest';
 
 import Table from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Sorter.value.test.tsx', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   afterEach(() => {
     errorSpy.mockReset();
   });
@@ -60,7 +61,7 @@ describe('Sorter.value.test.tsx', () => {
   };
 
   it('should call onChange with correct sorter value when clicked', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const TableSorter: React.FC = () => {
       const [tableData, setTableData] = useState(data.data);
       const columns = [
@@ -169,7 +170,7 @@ describe('Sorter.value.test.tsx', () => {
   });
 
   it('onChange should be called with the correct sorter value when clicked when the column changes', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const TableSorter: React.FC = () => {
       const [tableData, setTableData] = useState<stateType>(data);
       const handleClick = () => {

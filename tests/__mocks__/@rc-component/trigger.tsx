@@ -1,11 +1,21 @@
+import { createRequire } from 'node:module';
 import * as React from 'react';
 import type { TriggerProps, TriggerRef } from '@rc-component/trigger';
 import MockTrigger from '@rc-component/trigger/lib/mock';
 
 import { TriggerMockContext } from '../../shared/demoTestContext';
 
-let OriginTrigger = jest.requireActual('@rc-component/trigger');
-OriginTrigger = OriginTrigger.default ?? OriginTrigger;
+const require = createRequire(import.meta.url);
+let OriginTrigger: React.ComponentType<TriggerProps> | undefined;
+
+function getOriginTrigger() {
+  if (!OriginTrigger) {
+    const TriggerModule = require('@rc-component/trigger/lib');
+    OriginTrigger = TriggerModule.default ?? TriggerModule;
+  }
+
+  return OriginTrigger;
+}
 
 const ForwardTrigger = React.forwardRef<TriggerRef, TriggerProps>((props, ref) => {
   const context = React.useContext(TriggerMockContext);
@@ -19,8 +29,12 @@ const ForwardTrigger = React.forwardRef<TriggerRef, TriggerProps>((props, ref) =
   };
 
   if (context?.mock === false) {
-    return <OriginTrigger ref={ref} {...mergedProps} />;
+    const Trigger = getOriginTrigger() as React.ComponentType<
+      TriggerProps & React.RefAttributes<TriggerRef>
+    >;
+    return <Trigger ref={ref} {...mergedProps} />;
   }
+
   return <MockTrigger ref={ref} {...mergedProps} />;
 });
 

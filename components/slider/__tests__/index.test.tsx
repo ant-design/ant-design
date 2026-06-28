@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -13,14 +14,17 @@ function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
 }
 
-jest.mock('../../tooltip', () => {
-  const ReactReal: typeof React = jest.requireActual('react');
-  const Tooltip = jest.requireActual('../../tooltip');
+vi.mock('../../tooltip', async () => {
+  const ReactReal = await vi.importActual<typeof import('react')>('react');
+  const Tooltip = await vi.importActual<typeof import('../../tooltip')>('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
-    (global as any).tooltipProps = props;
-    return <TooltipComponent {...props} ref={ref} />;
-  });
+  return {
+    ...Tooltip,
+    default: ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+      (global as any).tooltipProps = props;
+      return <TooltipComponent {...props} ref={ref} />;
+    }),
+  };
 });
 
 describe('Slider', () => {
@@ -29,12 +33,12 @@ describe('Slider', () => {
   focusTest(Slider);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should show tooltip when hovering slider handler', async () => {
@@ -68,19 +72,27 @@ describe('Slider', () => {
   });
 
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
-    const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
+    const { baseElement: tooltipContainer, container: container1 } = render(
+      <Slider defaultValue={30} tooltip={{ open: true }} />,
+    );
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      tooltipContainer
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.mouseEnter(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      tooltipContainer
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     fireEvent.click(container1.querySelector('.ant-slider-handle')!);
     expect(
-      container1.querySelector('.ant-tooltip-container')!.className.includes('ant-tooltip-hidden'),
+      tooltipContainer
+        .querySelector('.ant-tooltip-container')!
+        .className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
     const { container: container2 } = render(
@@ -146,9 +158,9 @@ describe('Slider', () => {
   it('should keepAlign by calling forceAlign', async () => {
     const ref = React.createRef<any>();
     render(<SliderTooltip title="30" open ref={ref} />);
-    ref.current.forceAlign = jest.fn();
+    ref.current.forceAlign = vi.fn();
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(ref.current.forceAlign).toHaveBeenCalled();
   });

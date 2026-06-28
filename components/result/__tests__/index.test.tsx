@@ -1,11 +1,11 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Result from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
-
 import type { AliasToken } from '../../theme/internal';
 import type { ComponentToken } from '../style';
 import { prepareComponentToken } from '../style';
@@ -89,7 +89,7 @@ describe('Result', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Result title="404" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();

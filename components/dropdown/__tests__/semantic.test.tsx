@@ -1,8 +1,9 @@
 import React from 'react';
-import type { MenuProps } from '../../menu';
-import Dropdown from '..';
 import { SaveOutlined } from '@ant-design/icons';
+
+import Dropdown from '..';
 import { render } from '../../../tests/utils';
+import type { MenuProps } from '../../menu';
 
 describe('Dropdown.Semantic', () => {
   it('support classNames and styles', () => {
@@ -54,7 +55,7 @@ describe('Dropdown.Semantic', () => {
       itemContent: { color: 'rgb(255, 255, 0)' },
       itemIcon: { fontSize: '20px' },
     };
-    const { container } = render(
+    const { baseElement: container } = render(
       <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
         <button type="button">button</button>
       </Dropdown>,

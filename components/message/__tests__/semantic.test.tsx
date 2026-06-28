@@ -1,16 +1,21 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import message, { actWrapper } from '..';
 import { act, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+// TODO: Remove this. Mock for React 19
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -22,7 +27,7 @@ describe('Message.semantic', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -35,7 +40,7 @@ describe('Message.semantic', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
     await awaitPromise();
   });
   it('should support classNames and styles', () => {

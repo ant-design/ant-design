@@ -1,5 +1,6 @@
 /* eslint-disable jest/no-export */
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
@@ -31,7 +32,6 @@ export default function rootPropsTest(
   const componentNames = Array.isArray(component) ? component : [component];
   const [componentName, subComponentName] = componentNames;
 
-  const Component = jest.requireActual(`../../components/${componentName}`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
@@ -39,7 +39,7 @@ export default function rootPropsTest(
 
     beforeEach(() => {
       passed = false;
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       document.body.innerHTML = '';
     });
 
@@ -47,11 +47,16 @@ export default function rootPropsTest(
       if (!passed || process.env.DEBUG === 'true') {
         console.log(document.body.innerHTML);
       }
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it(['rootClassName', subComponentName].filter((v) => v).join(' '), async () => {
       const rootClassName = 'TEST_ROOT_CLS';
+      const Component = (
+        await vi.importActual<{ default: React.ComponentType<any> & Record<string, any> }>(
+          `../../components/${componentName}`,
+        )
+      ).default;
 
       if (options?.beforeRender) {
         options?.beforeRender();

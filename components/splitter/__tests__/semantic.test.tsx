@@ -1,14 +1,15 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { SplitterProps } from '..';
 import Splitter from '..';
 import type { GetProps } from '../../_util/type';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -31,7 +32,7 @@ const resizeSplitter = async () => {
 
 describe('Splitter.Semantic', () => {
   it('should support classNames as function', async () => {
-    const classNamesFn: SplitterProps['classNames'] = jest.fn(({ props }) => ({
+    const classNamesFn: SplitterProps['classNames'] = vi.fn(({ props }) => ({
       root: `custom-root-${props.orientation}`,
       panel: 'custom-panel',
       dragger: 'custom-dragger',
@@ -62,7 +63,7 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support styles as function', async () => {
-    const stylesFn: SplitterProps['styles'] = jest.fn(({ props }) => ({
+    const stylesFn: SplitterProps['styles'] = vi.fn(({ props }) => ({
       root: {
         backgroundColor:
           props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
@@ -95,12 +96,12 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support both function and object classNames/styles', async () => {
-    const classNamesFn = jest.fn(() => ({
+    const classNamesFn = vi.fn(() => ({
       root: 'fn-root',
       panel: 'fn-panel',
     }));
 
-    const stylesFn = jest.fn(() => ({
+    const stylesFn = vi.fn(() => ({
       root: { color: 'rgb(255, 0, 0)' },
       panel: { margin: '5px' },
     }));
@@ -127,7 +128,7 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should work with complex dragger classNames as function', async () => {
-    const classNamesFn = jest.fn(() => ({
+    const classNamesFn = vi.fn(() => ({
       dragger: {
         default: 'custom-dragger-default',
         active: 'custom-dragger-active',

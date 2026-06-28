@@ -1,4 +1,5 @@
 import Dayjs from 'dayjs';
+import { vi } from 'vitest';
 
 import 'dayjs/locale/zh-cn';
 
@@ -13,16 +14,16 @@ const { resetWarned } = warning;
 describe('Calendar.onSelect', () => {
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers().setSystemTime(new Date('2000-02-01').getTime());
+    vi.useFakeTimers().setSystemTime(new Date('2000-02-01').getTime());
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('source of year select', async () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
@@ -35,7 +36,7 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of month select', async () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.mouseDown(container.querySelectorAll('.ant-select')[1]!);
@@ -48,7 +49,7 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of customize', async () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const { container } = render(
       <Calendar
         onSelect={onSelect}
@@ -73,7 +74,7 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of date', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     const { container } = render(<Calendar onSelect={onSelect} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
@@ -81,8 +82,8 @@ describe('Calendar.onSelect', () => {
   });
 
   it('source of date with month panel', async () => {
-    const onSelect = jest.fn();
-    const onPanelChange = jest.fn();
+    const onSelect = vi.fn();
+    const onPanelChange = vi.fn();
     const { container } = render(<Calendar onSelect={onSelect} onPanelChange={onPanelChange} />);
 
     // Default is month radio

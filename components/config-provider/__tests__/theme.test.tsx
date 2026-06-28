@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select, Space } from '../..';
@@ -12,7 +13,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
 describe('ConfigProvider.Theme', () => {
   it('ConfigProvider.config should work', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     ConfigProvider.config({
       theme: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Space from '..';
 import type { SpaceProps } from '..';
@@ -25,7 +26,7 @@ describe('Space.Semantic', () => {
   });
 
   it('should support classNames as function', () => {
-    const classNamesFn = jest.fn((info: { props: SpaceProps }) => {
+    const classNamesFn = vi.fn((info: { props: SpaceProps }) => {
       if (info.props.orientation === 'vertical') {
         return { root: 'space-vertical' };
       }
@@ -63,7 +64,7 @@ describe('Space.Semantic', () => {
   });
 
   it('should support styles as function', () => {
-    const stylesFn = jest.fn((info: { props: SpaceProps }) => {
+    const stylesFn = vi.fn((info: { props: SpaceProps }) => {
       if (info.props.size === 'large') {
         return { root: { backgroundColor: 'blue' } };
       }

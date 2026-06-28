@@ -1,5 +1,6 @@
 import React from 'react';
 import { warning } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Popover from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
@@ -78,9 +79,9 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const overlay = jest.fn();
+    const overlay = vi.fn();
     render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
@@ -109,7 +110,7 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const wrapper = render(
       <TriggerMockContext.Provider value={{ mock: false }}>
         <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
@@ -216,7 +217,7 @@ describe('Popover', () => {
 
   it('should warn when onOpenChange has more than one argument', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const onOpenChange = (_open: boolean, _e?: React.MouseEvent) => {};
     render(

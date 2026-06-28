@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { LoadingOutlined, SmileOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
@@ -163,8 +164,8 @@ describe('ConfigProvider', () => {
 
   it('warning support filter level', () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
     expect(errSpy).not.toHaveBeenCalled();

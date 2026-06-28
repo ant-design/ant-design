@@ -16,7 +16,7 @@ describe('Tooltip.Semantic', () => {
       container: { color: 'blue' },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Tooltip title="Test tooltip" classNames={classNames} styles={styles} open>
         Test
       </Tooltip>,
@@ -46,7 +46,7 @@ describe('Tooltip.Semantic', () => {
       return { container: { fontSize: '14px' } };
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Tooltip
         title="Test tooltip"
         color="blue"

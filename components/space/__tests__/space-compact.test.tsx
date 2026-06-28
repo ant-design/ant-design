@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -176,7 +177,7 @@ describe('Space.Compact', () => {
   });
 
   it('direction=vertical', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space.Compact size="small" direction="vertical">
         <Button type="primary">Button 1</Button>

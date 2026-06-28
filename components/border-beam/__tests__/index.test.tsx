@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -317,14 +318,14 @@ describe('BorderBeam', () => {
     expect(entry.default.displayName).toBe(BorderBeam.displayName);
 
     try {
-      jest.resetModules();
+      vi.resetModules();
       process.env.NODE_ENV = 'production';
       const ProductionBorderBeam = (await import('../BorderBeam')).default;
 
       expect(ProductionBorderBeam.displayName).toBeUndefined();
     } finally {
       process.env.NODE_ENV = originNodeEnv;
-      jest.resetModules();
+      vi.resetModules();
     }
   });
 });

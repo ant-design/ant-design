@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import notification, { actWrapper } from '..';
 import { act, render, waitFakeTimer, waitFakeTimer19 } from '../../../tests/utils';
@@ -6,12 +7,15 @@ import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -23,7 +27,7 @@ describe('notification static warning', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -31,14 +35,14 @@ describe('notification static warning', () => {
     notification.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
 
   // Follow test need keep order
   it('no warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     notification.open({
       title: <div className="bamboo" />,
@@ -53,7 +57,7 @@ describe('notification static warning', () => {
   });
 
   it('warning if use theme', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<ConfigProvider theme={{}} />);
 
     notification.open({

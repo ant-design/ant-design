@@ -1,6 +1,7 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
+import { vi } from 'vitest';
 
 import DatePicker from '..';
 
@@ -63,8 +64,8 @@ describe('DatePicker.typescript', () => {
 
   it('DatePicker should accept only single value if multiple is false', () => {
     const mockSingleValue = dayjs();
-    const mockOnChange = jest.fn<void, [Dayjs | null, string | null]>();
-    const mockOnOk = jest.fn<void, [Dayjs | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs | null, dateString: string | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs | null) => void>();
 
     const datePicker = (
       <DatePicker
@@ -81,8 +82,8 @@ describe('DatePicker.typescript', () => {
   // https://github.com/ant-design/ant-design/issues/49198
   it('DatePicker should accept only single value if multiple is explicitly false', () => {
     const mockSingleValue = dayjs();
-    const mockOnChange = jest.fn<void, [Dayjs | null, string | null]>();
-    const mockOnOk = jest.fn<void, [Dayjs | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs | null, dateString: string | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs | null) => void>();
 
     const datePicker = (
       <DatePicker
@@ -99,8 +100,8 @@ describe('DatePicker.typescript', () => {
 
   it('DatePicker should accept only array value if multiple is true', () => {
     const mockMultiValue = [dayjs()];
-    const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
-    const mockOnOk = jest.fn<void, [Dayjs[] | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs[] | null, dateString: string[] | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs[] | null) => void>();
 
     const datePicker = (
       <DatePicker
@@ -117,8 +118,8 @@ describe('DatePicker.typescript', () => {
 
   it('DatePicker should accept only array value if multiple is explicitly true', () => {
     const mockMultiValue = [dayjs()];
-    const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
-    const mockOnOk = jest.fn<void, [Dayjs[] | null]>();
+    const mockOnChange = vi.fn<(date: Dayjs[] | null, dateString: string[] | null) => void>();
+    const mockOnOk = vi.fn<(date: Dayjs[] | null) => void>();
 
     const datePicker = (
       <DatePicker

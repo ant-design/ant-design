@@ -1,17 +1,18 @@
 import React from 'react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import type { Location as ReactRouterLocation } from 'react-router-dom';
+import { vi } from 'vitest';
 
 import Breadcrumb from '..';
 import { render } from '../../../tests/utils';
 
 describe('react router', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('memoizes the current location', () => {

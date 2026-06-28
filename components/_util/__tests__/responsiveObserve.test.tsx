@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import { render } from '../../../tests/utils';
 import useResponsiveObserver from '../responsiveObserver';
@@ -12,7 +13,7 @@ describe('Test ResponsiveObserve', () => {
       return null;
     };
     render(<Demo />);
-    const subscribeFunc = jest.fn();
+    const subscribeFunc = vi.fn();
     const instance = responsiveRef.current;
     const token = instance?.subscribe(subscribeFunc);
     expect(instance?.matchHandlers[instance?.responsiveMap.xs].mql.matches).toBeTruthy();
@@ -34,7 +35,7 @@ describe('Test ResponsiveObserve', () => {
     };
     render(<Demo />);
 
-    const subscribeFunc = jest.fn();
+    const subscribeFunc = vi.fn();
     const instance = responsiveRef.current;
     const token = instance?.subscribe(subscribeFunc);
 

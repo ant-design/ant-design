@@ -1,5 +1,7 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import type { MockInstance } from 'vitest';
+import { vi } from 'vitest';
 
 import {
   act,
@@ -17,18 +19,18 @@ import Base from '../Base';
 import * as baseUtil from '../Base/util';
 
 type Locale = ConfigProviderProps['locale'];
-jest.mock('copy-to-clipboard');
+vi.mock('copy-to-clipboard');
 
-jest.mock('../../_util/styleChecker', () => ({
+vi.mock('../../_util/styleChecker', () => ({
   isStyleSupport: () => true,
 }));
 
 describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
   const LINE_HEIGHT = 16;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
-  let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
+  let computeSpy: MockInstance<typeof window.getComputedStyle>;
   let offsetWidth: number;
   let scrollWidth: number;
 
@@ -42,7 +44,7 @@ describe('Typography.Ellipsis', () => {
   }
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollWidth: {
         get: () => scrollWidth,
@@ -63,7 +65,7 @@ describe('Typography.Ellipsis', () => {
       },
     });
 
-    computeSpy = jest
+    computeSpy = vi
       .spyOn(window, 'getComputedStyle')
       .mockImplementation(() => ({ fontSize: 12 }) as unknown as CSSStyleDeclaration);
   });
@@ -78,7 +80,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
     computeSpy.mockRestore();
@@ -89,7 +91,7 @@ describe('Typography.Ellipsis', () => {
 
   it('should trigger update', async () => {
     const ref = React.createRef<HTMLElement>();
-    const onEllipsis = jest.fn();
+    const onEllipsis = vi.fn();
     const { container, rerender, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {fullStr}
@@ -143,7 +145,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('should skip native ellipsis measure when tooltip is not configured', async () => {
-    const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
+    const ellipsisSpy = vi.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
     const ref = React.createRef<HTMLElement>();
 
     render(
@@ -169,7 +171,7 @@ describe('Typography.Ellipsis', () => {
         Ant Design, a design language for background applications, is refined by
         Ant UED Team.`;
     const ref = React.createRef<HTMLElement>();
-    const onEllipsis = jest.fn();
+    const onEllipsis = vi.fn();
     const { container: wrapper, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {parenthesesStr}
@@ -219,9 +221,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toBe(
-      '...--The information is very important',
-    );
+    expect(wrapper.querySelector('p')?.textContent).toBe('...--The information is very important');
 
     rerender(
       <Base ellipsis={{ rows: 2, suffix }} component="p">
@@ -263,7 +263,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('should expandable work', async () => {
-    const onExpand = jest.fn();
+    const onExpand = vi.fn();
     const ref = React.createRef<HTMLElement>();
     const { container } = render(
       <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable ref={ref}>
@@ -333,8 +333,8 @@ describe('Typography.Ellipsis', () => {
       const originIntersectionObserver = global.IntersectionObserver;
 
       let elementChangeCallback: () => void;
-      const observeFn = jest.fn();
-      const disconnectFn = jest.fn();
+      const observeFn = vi.fn();
+      const disconnectFn = vi.fn();
 
       (global as any).IntersectionObserver = class MockIntersectionObserver {
         constructor(callback: () => IntersectionObserverCallback) {

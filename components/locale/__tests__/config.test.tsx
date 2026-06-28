@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { vi } from 'vitest';
 
 import { Modal } from '../..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -15,12 +16,16 @@ const Demo: React.FC<{ type: string }> = ({ type }) => {
 };
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return {
+      ...realReactDOM,
+      createRoot: realReactDOMClient.createRoot,
+    };
   }
 
   return realReactDOM;
@@ -28,7 +33,7 @@ jest.mock('react-dom', () => {
 
 describe('Locale Provider demo', () => {
   it('change type', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const BasicExample: React.FC = () => {
       const [type, setType] = React.useState<string>('');
@@ -65,6 +70,6 @@ describe('Locale Provider demo', () => {
 
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();
-    jest.useRealTimers();
+    vi.useRealTimers();
   }, 500000);
 });

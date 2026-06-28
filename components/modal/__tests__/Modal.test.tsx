@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { vi } from 'vitest';
 
 import type { ModalProps } from '..';
 import Modal from '..';
@@ -8,7 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-jest.mock('@rc-component/util/lib/Portal');
+vi.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -58,21 +59,21 @@ describe('Modal', () => {
   });
 
   it('onCancel should be called', () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     render(<Modal open onCancel={onCancel} />);
     fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onCancel should be called when pressing ESC', () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     render(<Modal open onCancel={onCancel} />);
     fireEvent.keyDown(document.querySelector('.ant-modal-wrap')!, { key: 'Escape', keyCode: 27 });
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
-    const onOk = jest.fn();
+    const onOk = vi.fn();
     render(<Modal open onOk={onOk} />);
     const btns = document.body.querySelectorAll('.ant-btn');
     fireEvent.click(btns[btns.length - 1]);
@@ -142,7 +143,7 @@ describe('Modal', () => {
   });
 
   it('should custom footer function second param work', () => {
-    const footerFn = jest.fn();
+    const footerFn = vi.fn();
     render(<Modal open footer={footerFn} />);
 
     expect(footerFn).toHaveBeenCalled();
@@ -274,7 +275,7 @@ describe('Modal', () => {
   });
 
   it('should not close when mask.closable is false from context', () => {
-    const onCancel = jest.fn();
+    const onCancel = vi.fn();
     render(
       <ConfigProvider modal={{ mask: { closable: false } }}>
         <Modal open onCancel={onCancel} />
@@ -286,7 +287,7 @@ describe('Modal', () => {
   });
 
   it('should support maskClosable prop over mask.closable global config', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {}, ...restProps }) => {
       const [open, setOpen] = React.useState<boolean>(false);
@@ -301,8 +302,8 @@ describe('Modal', () => {
       return <Modal open={open} onCancel={handleCancel} onOk={onOk} {...restProps} />;
     };
 
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
 
     render(
       <ConfigProvider modal={{ mask: { closable: false } }}>
@@ -320,11 +321,11 @@ describe('Modal', () => {
     });
     expect(onCancel).toHaveBeenCalled();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should not close modal when confirmLoading is loading', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
       const [loading, setLoading] = React.useState<boolean>(false);
@@ -342,8 +343,8 @@ describe('Modal', () => {
       return <Modal open confirmLoading={loading} onCancel={onCancel} onOk={handleOk} />;
     };
 
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
 
     render(<Demo onCancel={onCancel} onOk={onOk} />);
 
@@ -373,7 +374,7 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
     expect(onOk).toHaveBeenCalled();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('closable have aria', () => {
@@ -384,12 +385,12 @@ describe('Modal', () => {
 
   describe('closable onClose and afterClose ', () => {
     const mockFn = {
-      afterClose: jest.fn(),
-      closableAfterClose: jest.fn(),
-      onClose: jest.fn(),
+      afterClose: vi.fn(),
+      closableAfterClose: vi.fn(),
+      onClose: vi.fn(),
     };
 
-    beforeEach(() => jest.clearAllMocks());
+    beforeEach(() => vi.clearAllMocks());
 
     const ModalTester: React.FC<ModalProps> = (props) => {
       const [open, setOpen] = React.useState(true);
@@ -469,7 +470,7 @@ describe('Modal', () => {
   });
 
   it('focusable default config should pass to classNames', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <Modal open getContainer={false} classNames={classNames}>
@@ -490,7 +491,7 @@ describe('Modal', () => {
   });
 
   it('should support focusable global config', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
@@ -513,7 +514,7 @@ describe('Modal', () => {
   });
 
   it('should prefer focusable prop over global config', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
@@ -536,7 +537,7 @@ describe('Modal', () => {
   });
 
   it('should warning when using deprecated autoFocusButton', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Test = () => {
       const [modal, holder] = Modal.useModal();
@@ -561,7 +562,7 @@ describe('Modal', () => {
   });
 
   it('should warning when using deprecated focusTriggerAfterClose', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Modal open focusTriggerAfterClose={false} getContainer={false}>

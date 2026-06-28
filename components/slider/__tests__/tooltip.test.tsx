@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Slider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -8,24 +9,27 @@ function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
 }
 
-jest.mock('../../tooltip', () => {
-  const ReactReal: typeof React = jest.requireActual('react');
-  const Tooltip = jest.requireActual('../../tooltip');
+vi.mock('../../tooltip', async () => {
+  const ReactReal = await vi.importActual<typeof import('react')>('react');
+  const Tooltip = await vi.importActual<typeof import('../../tooltip')>('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
-    (global as any).tooltipProps = props;
-    return <TooltipComponent {...props} ref={ref} />;
-  });
+  return {
+    ...Tooltip,
+    default: ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+      (global as any).tooltipProps = props;
+      return <TooltipComponent {...props} ref={ref} />;
+    }),
+  };
 });
 
 describe('Slider.Tooltip', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('Correct show the tooltip', async () => {

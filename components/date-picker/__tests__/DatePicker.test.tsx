@@ -9,6 +9,7 @@ import dayJsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
+import { vi } from 'vitest';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -23,17 +24,25 @@ dayjs.extend(customParseFormat);
 
 let triggerProps: TriggerProps;
 
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
-  Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
+vi.mock('@rc-component/trigger', async () => {
+  const TriggerModule = await vi.importActual<typeof import('@rc-component/trigger/lib/mock')>(
+    '@rc-component/trigger/lib/mock',
+  );
+  const Trigger = TriggerModule.default;
+  const h = await vi.importActual<typeof import('react')>('react');
 
   return {
+    ...TriggerModule,
     default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
       triggerProps = props;
-      return h.createElement(Trigger, { ref, ...props });
+      return h.createElement(
+        Trigger as React.ComponentType<TriggerProps & React.RefAttributes<any>>,
+        {
+          ref,
+          ...props,
+        },
+      );
     }),
-    __esModule: true,
   };
 });
 
@@ -44,7 +53,7 @@ function getCell(text: string) {
 }
 
 describe('DatePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   focusTest(DatePicker, { refFocus: true });
 
@@ -443,7 +452,7 @@ describe('DatePicker', () => {
   it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container, rerender } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -462,7 +471,7 @@ describe('DatePicker', () => {
   it('legacy popupStyle', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
@@ -655,7 +664,7 @@ describe('DatePicker', () => {
     });
 
     it('should trigger onClear when click clear button', () => {
-      const onClear = jest.fn();
+      const onClear = vi.fn();
       const somePoint = dayjs('2023-08-01');
 
       render(<DatePicker defaultValue={somePoint} onClear={onClear} />);

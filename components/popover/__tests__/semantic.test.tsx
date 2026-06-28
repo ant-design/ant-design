@@ -5,7 +5,7 @@ import { render } from '../../../tests/utils';
 
 describe('Popover.Semantic', () => {
   it('should support static classNames and styles', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <Popover
         open
         title="Test"
@@ -27,7 +27,7 @@ describe('Popover.Semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <Popover
         open
         title="Test"

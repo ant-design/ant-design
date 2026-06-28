@@ -1,6 +1,8 @@
 import React from 'react';
 import { spyElementPrototypes, warning } from '@rc-component/util';
 import { createEvent, fireEvent, render } from '@testing-library/react';
+import type { Mock } from 'vitest';
+import { vi } from 'vitest';
 
 import Splitter from '..';
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
@@ -26,7 +28,7 @@ const resizeSplitter = async () => {
 };
 
 describe('Splitter lazy', () => {
-  const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   let containerSize = 100;
 
@@ -45,17 +47,17 @@ describe('Splitter lazy', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   const mockDrag = (
     draggerEle: HTMLElement,
-    onResize: jest.Mock,
+    onResize: Mock,
     offset: number,
     container?: HTMLElement,
   ) => {
@@ -82,7 +84,7 @@ describe('Splitter lazy', () => {
     fireEvent.mouseUp(window);
   };
 
-  const mockTouchDrag = (draggerEle: HTMLElement, onResize: jest.Mock, offset: number) => {
+  const mockTouchDrag = (draggerEle: HTMLElement, onResize: Mock, offset: number) => {
     const touchStart = createEvent.touchStart(draggerEle, {
       touches: [{ pageX: 0, pageY: 0 }],
     });
@@ -102,8 +104,8 @@ describe('Splitter lazy', () => {
   };
 
   it('should only update after mouse up when lazy is true', async () => {
-    const onResize = jest.fn();
-    const onResizeEnd = jest.fn();
+    const onResize = vi.fn();
+    const onResizeEnd = vi.fn();
 
     const { container } = render(
       <SplitterDemo
@@ -142,8 +144,8 @@ describe('Splitter lazy', () => {
   });
 
   it('should work with touch events when lazy', async () => {
-    const onResize = jest.fn();
-    const onResizeEnd = jest.fn();
+    const onResize = vi.fn();
+    const onResizeEnd = vi.fn();
 
     const { container } = render(
       <SplitterDemo
@@ -178,8 +180,8 @@ describe('Splitter lazy', () => {
   });
 
   it('should work with vertical splitter', async () => {
-    const onResize = jest.fn();
-    const onResizeEnd = jest.fn();
+    const onResize = vi.fn();
+    const onResizeEnd = vi.fn();
 
     const { container } = render(
       <SplitterDemo

@@ -2,6 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { vi } from 'vitest';
 
 import TimePicker from '..';
 import { resetWarned } from '../../_util/warning';
@@ -10,7 +11,7 @@ import { fireEvent, render } from '../../../tests/utils';
 dayjs.extend(customParseFormat);
 
 describe('TimePicker.Legacy', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     resetWarned();
@@ -22,7 +23,7 @@ describe('TimePicker.Legacy', () => {
   });
 
   it('compatible onSelect', () => {
-    const onSelect = jest.fn();
+    const onSelect = vi.fn();
     render(<TimePicker onSelect={onSelect} open />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `onSelect` is deprecated. Please use `onCalendarChange` instead.',

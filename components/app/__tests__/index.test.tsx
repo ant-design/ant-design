@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -15,12 +16,12 @@ describe('App', () => {
   rtlTest(App);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('single', () => {
@@ -218,7 +219,7 @@ describe('App', () => {
   });
 
   describe('component', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     afterEach(() => {
       errorSpy.mockReset();

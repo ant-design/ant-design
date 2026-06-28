@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { getTargetWaveColor, isValidWaveColor } from '../wave/util';
 
 describe('wave util', () => {
@@ -33,7 +35,7 @@ describe('wave util', () => {
     let mockElement: HTMLElement;
 
     const mockComputedStyle = (style: Partial<CSSStyleDeclaration>) => {
-      jest.spyOn(globalThis, 'getComputedStyle').mockReturnValue(style as CSSStyleDeclaration);
+      vi.spyOn(globalThis, 'getComputedStyle').mockReturnValue(style as CSSStyleDeclaration);
     };
 
     beforeEach(() => {
@@ -42,7 +44,7 @@ describe('wave util', () => {
     });
 
     afterEach(() => {
-      jest.restoreAllMocks();
+      vi.restoreAllMocks();
       document.body.removeChild(mockElement);
     });
 

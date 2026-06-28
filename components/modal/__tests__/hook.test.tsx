@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -9,15 +10,19 @@ import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
-jest.mock('@rc-component/util/lib/Portal');
+vi.mock('@rc-component/util/lib/Portal');
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return {
+      ...realReactDOM,
+      createRoot: realReactDOMClient.createRoot,
+    };
   }
 
   return realReactDOM;
@@ -29,7 +34,7 @@ describe('Modal.hook', () => {
   };
 
   it('hooks support context', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const Context = React.createContext('light');
     let instance: ReturnType<ModalFunc>;
 
@@ -80,11 +85,11 @@ describe('Modal.hook', () => {
     // Destroy
     act(() => {
       instance.destroy();
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(document.body.querySelectorAll('Modal')).toHaveLength(0);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('destroyAll works with contextHolder', () => {
@@ -125,7 +130,7 @@ describe('Modal.hook', () => {
   });
 
   it('context support config direction', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       return (
@@ -262,9 +267,7 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
-      'Little',
-    );
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe('Little');
   });
 
   it('support update config', () => {
@@ -295,9 +298,7 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
     expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
-      'Little',
-    );
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe('Little');
   });
 
   it('destroy before render', () => {
@@ -325,9 +326,9 @@ describe('Modal.hook', () => {
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
 
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
@@ -422,7 +423,7 @@ describe('Modal.hook', () => {
 
     expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('not block origin ConfigProvider config', () => {
@@ -444,7 +445,7 @@ describe('Modal.hook', () => {
   });
 
   it('it should call forwarded afterClose', () => {
-    const afterClose = jest.fn();
+    const afterClose = vi.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {
@@ -461,8 +462,8 @@ describe('Modal.hook', () => {
   });
 
   it('it should call afterClose in closable', () => {
-    const closableAfterClose = jest.fn();
-    const afterClose = jest.fn();
+    const closableAfterClose = vi.fn();
+    const afterClose = vi.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {
@@ -484,7 +485,7 @@ describe('Modal.hook', () => {
   });
 
   it('it should call onClose in closable', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {
@@ -500,7 +501,7 @@ describe('Modal.hook', () => {
   });
 
   it('should be applied correctly locale', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const Demo: React.FC<{ zh?: boolean }> = ({ zh }) => {
       const [modal, contextHolder] = Modal.useModal();
@@ -522,12 +523,12 @@ describe('Modal.hook', () => {
     await waitFakeTimer();
     expect(document.body.querySelector('.ant-btn-primary')!.textContent).toBe('OK');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   describe('support await', () => {
     it('click', async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       let notReady = true;
       let lastResult: boolean | null = null;
@@ -567,12 +568,12 @@ describe('Modal.hook', () => {
       await waitFakeTimer();
       expect(lastResult).toBeTruthy();
 
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
   });
 
   it('esc', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     let lastResult: boolean | null = null;
 

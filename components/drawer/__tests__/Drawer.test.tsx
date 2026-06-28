@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
@@ -22,16 +23,16 @@ describe('Drawer', () => {
   rtlTest(Drawer);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   function triggerMotion() {
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const mask = document.querySelector('.ant-drawer-mask');
@@ -45,7 +46,7 @@ describe('Drawer', () => {
     }
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
@@ -284,7 +285,7 @@ describe('Drawer', () => {
   });
 
   it('ConfigProvider should not warning', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <ConfigProvider virtual>
@@ -306,7 +307,7 @@ describe('Drawer', () => {
 
   describe('style migrate', () => {
     it('not warning with getContainer', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={() => document.body} />);
@@ -316,7 +317,7 @@ describe('Drawer', () => {
     });
 
     it('not warning with getContainer false', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} />);
@@ -326,7 +327,7 @@ describe('Drawer', () => {
     });
 
     it('warning with getContainer & style', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
@@ -338,7 +339,7 @@ describe('Drawer', () => {
     });
 
     it('warning with deprecated width prop', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer width={400} />);
@@ -350,7 +351,7 @@ describe('Drawer', () => {
     });
 
     it('warning with deprecated height prop', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       resetWarned();
 
       render(<Drawer height={400} />);
@@ -508,7 +509,7 @@ describe('Drawer', () => {
   });
 
   it('focusable default config should pass to classNames', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <Drawer open getContainer={false} classNames={classNames}>
@@ -529,7 +530,7 @@ describe('Drawer', () => {
   });
 
   it('should support focusable global config', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <ConfigProvider drawer={{ focusable: { trap: true, focusTriggerAfterClose: false } }}>
@@ -552,7 +553,7 @@ describe('Drawer', () => {
   });
 
   it('should prefer focusable prop over global config', () => {
-    const classNames = jest.fn(() => ({}));
+    const classNames = vi.fn(() => ({}));
 
     render(
       <ConfigProvider drawer={{ focusable: { trap: true, focusTriggerAfterClose: false } }}>

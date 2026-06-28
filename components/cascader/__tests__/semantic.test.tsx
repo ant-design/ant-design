@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import Cascader from '..';
 import type { CascaderProps } from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Cascader.Semantic', () => {
   const options = [
@@ -68,7 +68,7 @@ describe('Cascader.Semantic', () => {
       },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Cascader
         open
         options={options}
@@ -99,7 +99,7 @@ describe('Cascader.Semantic', () => {
       placeholder: { color: 'rgb(128, 128, 128)' },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <Cascader
         open
         options={options}

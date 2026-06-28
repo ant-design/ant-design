@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
@@ -7,12 +8,15 @@ import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -27,7 +31,7 @@ describe('message.config', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -35,7 +39,7 @@ describe('message.config', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -135,13 +139,13 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(4000);
+      vi.advanceTimersByTime(4000);
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(2000);
+      vi.advanceTimersByTime(2000);
     });
 
     await triggerMotionEnd();
@@ -242,9 +246,7 @@ describe('message.config', () => {
     const messageText2 = 'mounted in container2';
 
     message.info(messageText2);
-    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(
-      messageText2,
-    );
+    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(messageText2);
 
     removeContainer1();
     removeContainer2();

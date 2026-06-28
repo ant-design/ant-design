@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototype } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Popconfirm from '..';
 import { render } from '../../../tests/utils';
@@ -12,15 +13,15 @@ describe('Popconfirm.semantic', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
   it('should support static classNames and styles', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <Popconfirm
         title="Test"
         description="Content"
@@ -49,7 +50,7 @@ describe('Popconfirm.semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <Popconfirm
         title="Test"
         description="Content"

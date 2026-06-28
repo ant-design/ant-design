@@ -1,5 +1,6 @@
 import React from 'react';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import notification, { actWrapper } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
@@ -7,12 +8,15 @@ import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -24,7 +28,7 @@ describe('notification', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -37,7 +41,7 @@ describe('notification', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -57,7 +61,7 @@ describe('notification', () => {
     await awaitPromise();
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
@@ -208,7 +212,7 @@ describe('notification', () => {
   });
 
   it('trigger onClick', async () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
 
     notification.open({
       title: 'Notification Title',
@@ -299,8 +303,8 @@ describe('notification', () => {
   });
 
   it('should call both closable.onClose and onClose when close button clicked', async () => {
-    const handleClose = jest.fn();
-    const handleClosableClose = jest.fn();
+    const handleClose = vi.fn();
+    const handleClosableClose = vi.fn();
     notification.open({
       title: 'Test Notification',
       duration: 0,
@@ -485,7 +489,7 @@ describe('notification', () => {
   });
 
   it('message API compatibility test', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
       // @ts-ignore
       notification.warning({

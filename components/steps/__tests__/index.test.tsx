@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Steps from '..';
 import type { StepsProps } from '..';
@@ -15,12 +16,12 @@ describe('Steps', () => {
 
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   const description = 'This is a description.';
@@ -83,7 +84,7 @@ describe('Steps', () => {
   });
 
   it('deprecated warning', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Steps
@@ -155,7 +156,7 @@ describe('Steps', () => {
   it('iconRender', () => {
     let renderInfo: Parameters<GetProp<StepsProps, 'iconRender'>>[1];
 
-    const iconRender = jest.fn((node, info) => {
+    const iconRender = vi.fn((node, info) => {
       renderInfo = info;
       return <div className="bamboo">{node}</div>;
     });

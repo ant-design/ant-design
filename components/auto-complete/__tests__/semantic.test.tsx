@@ -29,7 +29,7 @@ describe('AutoComplete.Semantic', () => {
         listItem: { color: 'rgb(255, 255, 0)' },
       },
     };
-    const { container } = render(
+    const { baseElement: container } = render(
       <AutoComplete
         options={[{ label: '123', value: '123' }]}
         classNames={classNames}

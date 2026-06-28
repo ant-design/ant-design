@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { vi } from 'vitest';
 
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -7,7 +8,7 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
-jest.mock('../../grid/hooks/useBreakpoint');
+vi.mock('../../grid/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
@@ -122,7 +123,7 @@ describe('Avatar Render', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
 
@@ -147,7 +148,7 @@ describe('Avatar Render', () => {
   });
 
   it('support onMouseEnter', () => {
-    const onMouseEnter = jest.fn();
+    const onMouseEnter = vi.fn();
     const { container } = render(<Avatar {...{ onMouseEnter }}>TestString</Avatar>);
     fireEvent.mouseEnter(container.firstChild!);
     expect(onMouseEnter).toHaveBeenCalled();
@@ -186,7 +187,7 @@ describe('Avatar Render', () => {
   });
 
   it('clickable', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
@@ -224,9 +225,9 @@ describe('Avatar Render', () => {
   });
 
   it('Avatar.Group support max series props and prompt to deprecated', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    jest.useFakeTimers();
-    const { container } = render(
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.useFakeTimers();
+    const { baseElement, container } = render(
       <Avatar.Group maxCount={2} maxStyle={{ color: 'blue' }} maxPopoverPlacement="bottom">
         <Avatar>A</Avatar>
         <Avatar>B</Avatar>
@@ -247,7 +248,7 @@ describe('Avatar Render', () => {
     expect(avatars.length).toBe(3);
 
     /* check popover */
-    const popover = container.querySelector('.ant-avatar-group-popover');
+    const popover = baseElement.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveClass('ant-popover-placement-bottom');
 
@@ -265,7 +266,7 @@ describe('Avatar Render', () => {
     );
   });
   it('Avatar.Group support max object props', () => {
-    const { container } = render(
+    const { baseElement, container } = render(
       <Avatar.Group
         max={{
           count: 2,
@@ -292,11 +293,11 @@ describe('Avatar Render', () => {
     expect(container.querySelectorAll('.ant-avatar-group .ant-avatar')).toHaveLength(3);
 
     /* check popover */
-    const popover = container.querySelector('.ant-avatar-group-popover');
+    const popover = baseElement.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
     expect(popover).toHaveStyle('background: red');
     expect(popover).toHaveClass('wanpan-111 ant-popover-placement-bottomRight');
-    expect(container.querySelector('.ant-popover-container')).toHaveTextContent('Avatar.Group');
+    expect(baseElement.querySelector('.ant-popover-container')).toHaveTextContent('Avatar.Group');
 
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');

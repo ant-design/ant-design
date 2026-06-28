@@ -1,0 +1,1881 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] = `
+Array [
+  <div
+    aria-label="segmented control"
+    aria-orientation="horizontal"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    style="margin-bottom: 24px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Show"
+        >
+          Show
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Hide"
+        >
+          Hide
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Center"
+        >
+          Center
+        </div>
+      </label>
+    </div>
+  </div>,
+  <div
+    class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          TL
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          Top
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          TR
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topRight"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      style="width: 432px;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            LT
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftTop"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            Left
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-left"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute; top: 0px; right: 0px;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            LB
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            RT
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightTop"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            Right
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          aria-describedby="test-id"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <span>
+            RB
+          </span>
+        </button>
+        <div
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-popover-arrow"
+            style="position: absolute;"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
+          >
+            <div
+              class="ant-popover-title"
+            >
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          BL
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          Bottom
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottom"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          BR
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/arrow.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Hover me
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
+    style="width: 250px;"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+      style="width: 250px;"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/control.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Click me
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <a>
+          Close
+        </a>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/control.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Hover and click
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Click title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <div>
+            This is click content.
+          </div>
+          <a>
+            Close
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Hover title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          This is hover content.
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
+<div
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+    style="white-space: nowrap;"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        Top
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topRight"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+    style="width: 432px;"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+    >
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          LT
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftTop"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          Left
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-left"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; top: 0px; right: 0px;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          LB
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+    >
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          RT
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightTop"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          Right
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-right"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; top: 0px; left: 0px;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        aria-describedby="test-id"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <span>
+          RB
+        </span>
+      </button>
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute;"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          >
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+    style="white-space: nowrap;"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottom"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/placement.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/render-panel.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
+    style="width: 250px;"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+      style="width: 250px;"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-ven0qr"
+      id="test-id"
+      role="tooltip"
+      style="background: rgb(238, 238, 238); box-shadow: inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2);"
+    >
+      <div
+        class="ant-popover-content"
+        style="color: rgb(38, 38, 38);"
+      >
+        Object text
+      </div>
+    </div>
+  </div>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-ven0qr"
+      id="test-id"
+      role="tooltip"
+      style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; border-radius: 4px;"
+    >
+      <div
+        class="ant-popover-content"
+        style="color: rgb(255, 255, 255);"
+      >
+        Function text
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Hover me
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Focus me
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Click me
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/triggerType.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/wireframe.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
+    style="width: 250px;"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      role="tooltip"
+      style="width: 250px;"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/wireframe.tsx extend context correctly 2`] = `[]`;

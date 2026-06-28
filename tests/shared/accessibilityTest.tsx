@@ -3,6 +3,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { globSync } from 'glob';
 import { axe } from 'jest-axe';
+import type { Mock } from 'vitest';
+import { vi } from 'vitest';
 
 import { isFunction } from '../../components/_util/is';
 
@@ -56,27 +58,22 @@ const convertRulesToAxeFormat = (rules: string[]) => {
   return rules.reduce<Rules>((acc, rule) => ({ ...acc, [rule]: { enabled: false } }), {});
 };
 
-interface JestFakeTimerState {
-  isFakeTimers?: () => boolean;
-}
-
 interface FakeTimerClock {
   clock?: unknown;
 }
 
-const jestWithFakeTimerState = jest as typeof jest & JestFakeTimerState;
-
 const isUsingFakeTimers = () => {
-  const { isFakeTimers } = jestWithFakeTimerState;
   const timeoutWithClock = setTimeout as typeof setTimeout & FakeTimerClock;
 
-  return isFunction(isFakeTimers)
-    ? isFakeTimers()
-    : jest.isMockFunction(setTimeout) || !!timeoutWithClock.clock;
+  return isFunction(vi.isFakeTimers)
+    ? vi.isFakeTimers()
+    : vi.isMockFunction(setTimeout) || !!timeoutWithClock.clock;
 };
 
+type AccessibilityComponent = React.ComponentType | Promise<React.ComponentType>;
+
 // eslint-disable-next-line jest/no-export
-export const accessibilityTest = (Component: React.ComponentType, disabledRules?: string[]) => {
+export const accessibilityTest = (Component: AccessibilityComponent, disabledRules?: string[]) => {
   let originalResizeObserver: typeof global.ResizeObserver;
   let originalFetch: typeof global.fetch;
   let hadResizeObserver: boolean;
@@ -91,16 +88,16 @@ export const accessibilityTest = (Component: React.ComponentType, disabledRules?
     // Fake ResizeObserver — Vitest constructs the mock implementation with `new`,
     // so this must stay a function expression instead of an arrow.
     // eslint-disable-next-line prefer-arrow-callback
-    global.ResizeObserver = jest.fn().mockImplementation(function ResizeObserverMock() {
+    global.ResizeObserver = vi.fn().mockImplementation(function ResizeObserverMock() {
       return {
-        observe: jest.fn(),
-        unobserve: jest.fn(),
-        disconnect: jest.fn(),
+        observe: vi.fn(),
+        unobserve: vi.fn(),
+        disconnect: vi.fn(),
       };
-    }) as jest.Mock;
+    }) as unknown as typeof global.ResizeObserver;
 
     // fake fetch
-    global.fetch = jest.fn(() => {
+    global.fetch = vi.fn(() => {
       return {
         then() {
           return this;
@@ -112,7 +109,7 @@ export const accessibilityTest = (Component: React.ComponentType, disabledRules?
           return this;
         },
       };
-    }) as jest.Mock;
+    }) as unknown as typeof global.fetch;
   });
 
   afterAll(() => {
@@ -132,22 +129,23 @@ export const accessibilityTest = (Component: React.ComponentType, disabledRules?
   beforeEach(() => {
     // Reset all mocks
     if (global.fetch) {
-      (global.fetch as jest.Mock).mockClear();
+      (global.fetch as unknown as Mock).mockClear();
     }
   });
 
   afterEach(() => {
     // Clear all mocks
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
       const restoreFakeTimers = isUsingFakeTimers();
 
-      jest.useRealTimers();
+      vi.useRealTimers();
 
       try {
-        const { container } = render(<Component />);
+        const ResolvedComponent = await Component;
+        const { container } = render(<ResolvedComponent />);
 
         const rules = convertRulesToAxeFormat(disabledRules || []);
 
@@ -155,7 +153,7 @@ export const accessibilityTest = (Component: React.ComponentType, disabledRules?
         expect(results).toHaveNoViolations();
       } finally {
         if (restoreFakeTimers) {
-          jest.useFakeTimers();
+          vi.useFakeTimers();
         }
       }
     }, 50000);
@@ -198,7 +196,9 @@ export default function accessibilityDemoTest(component: string, options: Option
 
       testMethod(`Test ${file} accessibility`, () => {
         if (!shouldSkip) {
-          const Demo: React.ComponentType<any> = jest.requireActual(`../../${file}`).default;
+          const Demo = vi
+            .importActual<{ default: React.ComponentType<any> }>(`../../${file}`)
+            .then((mod) => mod.default);
           accessibilityTest(Demo, options.disabledRules);
         }
       });
