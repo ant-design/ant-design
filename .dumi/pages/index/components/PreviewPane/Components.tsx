@@ -381,15 +381,13 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       <Progress percent={70} status="exception" />
                     </Flex>
                   </div>
-
                   <div>
                     <Flex justify="space-between" gap={8}>
-                      {badgeList.map((badge) => (
-                        <Badge key={`item-${badge.status}`} {...badge} />
+                      {badgeList.map((badge, index) => (
+                        <Badge key={`item-${index}`} {...badge} />
                       ))}
                     </Flex>
                   </div>
-
                   <div className={styles.flexRow12}>
                     <div className={clsx(styles.blockCard, styles.blockCardQr)}>
                       <QRCode
