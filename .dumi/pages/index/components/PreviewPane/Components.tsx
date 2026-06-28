@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   AppleFilled,
   DownOutlined,
@@ -57,6 +57,7 @@ interface ComponentsBlockProps {
   containerClassName?: string;
   inherit?: boolean;
   isDark?: boolean;
+  isDarkTheme?: boolean;
 }
 
 const useStyle = createStyles(({ css, token, cssVar }) => {
@@ -273,7 +274,14 @@ const buttonList: ButtonProps[] = [
 const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
-  const { config, className, containerClassName, inherit = false, isDark = false } = props;
+  const {
+    config,
+    className,
+    containerClassName,
+    inherit = false,
+    isDark = false,
+    isDarkTheme = false,
+  } = props;
 
   const { styles } = useStyle();
 
@@ -287,6 +295,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     [theme, inherit],
   );
 
+  const genBackgroundColor = useMemo(() => {
+    if (isDarkTheme) {
+      return 'lab(14% 0 0)';
+    }
+    if (isDark && !isDarkTheme) {
+      return '#f5f5f5';
+    }
+    return 'transparent';
+  }, [isDark, isDarkTheme]);
+
   return (
     <ConfigProvider {...restConfig} theme={mergedTheme}>
       <div className={clsx(containerClassName, styles.container)}>
@@ -295,7 +313,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             <Card
               styles={{
                 root: {
-                  backgroundColor: isDark ? 'lab(14% 0 0)' : 'transparent',
+                  backgroundColor: genBackgroundColor,
                   backdropFilter: 'blur(12px)',
                   boxShadow: '0 4px 12px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08)',
                 },
