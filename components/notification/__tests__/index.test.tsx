@@ -6,6 +6,13 @@ import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
+const MEASURED_WIDTH_VAR = '--antd-notification-measured-width';
+
+const parsePixelWidth = (value: string) => {
+  const matched = value.match(/^(\d+(?:\.\d+)?)px$/);
+  return matched ? Number(matched[1]) : undefined;
+};
+
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
   const realReactDOM = jest.requireActual('react-dom');
@@ -19,8 +26,31 @@ jest.mock('react-dom', () => {
 });
 
 describe('notification', () => {
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth');
+
   beforeAll(() => {
     actWrapper(act);
+
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      get() {
+        if (!(this instanceof HTMLElement)) {
+          return 0;
+        }
+
+        const styleWidth = parsePixelWidth(this.style.width);
+
+        if (styleWidth !== undefined) {
+          return styleWidth;
+        }
+
+        if (this.classList.contains('ant-notification-notice')) {
+          return 384;
+        }
+
+        return 0;
+      },
+    });
   });
 
   beforeEach(() => {
@@ -41,6 +71,24 @@ describe('notification', () => {
 
     await awaitPromise();
   });
+
+  afterAll(() => {
+    if (originalOffsetWidth) {
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth);
+    } else {
+      Reflect.deleteProperty(HTMLElement.prototype, 'offsetWidth');
+    }
+  });
+
+  const getMeasuredWidth = (noticeNode?: Element | null) =>
+    (
+      noticeNode ||
+      document.querySelectorAll<HTMLElement>('.ant-notification-notice')[
+        document.querySelectorAll<HTMLElement>('.ant-notification-notice').length - 1
+      ]
+    )
+      ?.closest<HTMLElement>('.ant-notification-list')
+      ?.style.getPropertyValue(MEASURED_WIDTH_VAR);
 
   it('not duplicate create holder', async () => {
     notification.config({
@@ -433,6 +481,158 @@ describe('notification', () => {
     await awaitPromise();
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
   });
+
+  it('should track measured width from notice style width', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      return (
+        <>
+          {contextHolder}
+          <button
+            type="button"
+            onClick={() =>
+              api.open({
+                title: 'Wide Notification',
+                duration: 0,
+                className: 'with-custom-width',
+                style: {
+                  width: 520,
+                },
+              })
+            }
+          >
+            open
+          </button>
+        </>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    act(() => {
+      container.querySelector<HTMLButtonElement>('button')?.click();
+    });
+    await awaitPromise();
+
+    expect(getMeasuredWidth(document.querySelector('.with-custom-width'))).toBe('520px');
+  });
+
+  it('should keep the widest measured width and recalculate after removal', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      return (
+        <>
+          {contextHolder}
+          <button
+            type="button"
+            onClick={() => {
+              api.open({
+                key: 'narrow',
+                title: 'Narrow Notification',
+                duration: 0,
+                className: 'narrow',
+                style: {
+                  width: 520,
+                },
+              });
+              api.open({
+                key: 'wide',
+                title: 'Wide Notification',
+                duration: 0,
+                className: 'wide',
+                style: {
+                  width: 640,
+                },
+              });
+            }}
+          >
+            open
+          </button>
+          <button type="button" onClick={() => api.destroy('wide')}>
+            close wide
+          </button>
+          <button type="button" onClick={() => api.destroy()}>
+            close all
+          </button>
+        </>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+    const buttons = container.querySelectorAll('button');
+
+    act(() => {
+      buttons[0]?.click();
+    });
+    await awaitPromise();
+
+    const measuredList = document
+      .querySelector('.wide')
+      ?.closest<HTMLElement>('.ant-notification-list');
+
+    expect(getMeasuredWidth(document.querySelector('.wide'))).toBe('640px');
+
+    act(() => {
+      buttons[1]?.click();
+    });
+    await triggerMotionEnd();
+
+    expect(getMeasuredWidth(document.querySelector('.narrow'))).toBe('520px');
+
+    act(() => {
+      buttons[2]?.click();
+    });
+    await triggerMotionEnd();
+
+    expect(document.querySelectorAll('.narrow, .wide')).toHaveLength(0);
+    if (measuredList?.isConnected) {
+      expect(measuredList.style.getPropertyValue(MEASURED_WIDTH_VAR)).toBeFalsy();
+    }
+  });
+
+  it('should track measured width from ConfigProvider semantic root styles', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      return (
+        <ConfigProvider
+          notification={{
+            styles: {
+              root: {
+                width: 560,
+              },
+            },
+          }}
+        >
+          {contextHolder}
+          <button
+            type="button"
+            onClick={() =>
+              api.open({
+                title: 'Semantic Width Notification',
+                duration: 0,
+                className: 'config-width-notice',
+              })
+            }
+          >
+            open
+          </button>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    act(() => {
+      container.querySelector<HTMLButtonElement>('button')?.click();
+    });
+    await awaitPromise();
+
+    expect(getMeasuredWidth(document.querySelector('.config-width-notice'))).toBe('560px');
+  });
+
   it('support classnames', async () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();

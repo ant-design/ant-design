@@ -198,6 +198,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 ): CSSObject => {
   const { componentCls, notificationMarginEdge } = token;
   const notificationMarginEdgeVar = '--notification-margin-edge';
+  const measuredWidthVar = '--antd-notification-measured-width';
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
@@ -208,6 +209,9 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         .add(token.calc(notificationMarginEdge).mul(2))
         .equal()
     : '100%';
+  const holderWidth = config.listWidthKey
+    ? `max(${listWidth}, calc(var(${measuredWidthVar}, 0px) + (var(${notificationMarginEdgeVar}, 0px) * 2)))`
+    : listWidth;
   const stackVisibleCount = config.stackVisibleCount ?? DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT;
   const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${
     stackVisibleCount + 1
@@ -223,7 +227,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
       // ============================ Holder ============================
       position: 'fixed',
       zIndex: token.zIndexPopup,
-      width: listWidth,
+      width: holderWidth,
       maxWidth: '100vw',
       height: '100vh',
       overflow: 'hidden',
