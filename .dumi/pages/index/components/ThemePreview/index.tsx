@@ -3,11 +3,10 @@ import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
 import { App, ConfigProvider, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
-import { useLocation } from 'dumi';
+import { Link, useLocation } from 'dumi';
 
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
-import Link from '../../../../theme/common/Link';
 import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
 import * as utils from '../../../../theme/utils';
 import Group from '../Group';
@@ -221,7 +220,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                 </div>
               </Tooltip>
               <Tooltip placement="top" title={locale.editTheme}>
-                <Link to={editPath}>
+                <Link to={editPath} target="_blank" rel="noreferrer" title="editTheme">
                   <div className={styles.buttonBlock}>
                     <BgColorsOutlined />
                   </div>
@@ -237,6 +236,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           {/* ===== 组件预览区域 ===== */}
           <ComponentsBlock
             isDark={isDark}
+            isDarkTheme={activeTheme?.bgImgDark}
             key={activeName}
             config={activeTheme?.props}
             className={styles.componentsBlock}
