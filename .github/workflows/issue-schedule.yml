@@ -8,7 +8,7 @@ permissions: {}
 
 jobs:
   send-message:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - name: Send Unconfirmed Issues to DingTalk
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
