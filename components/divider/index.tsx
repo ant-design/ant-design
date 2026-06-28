@@ -34,7 +34,7 @@ export type DividerSemanticType = {
   };
 };
 
-export type CardSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
+export type DividerSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -57,8 +57,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: CardSemanticAllType['classNamesAndFn'];
-  styles?: CardSemanticAllType['stylesAndFn'];
+  classNames?: DividerSemanticAllType['classNamesAndFn'];
+  styles?: DividerSemanticAllType['stylesAndFn'];
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
@@ -131,8 +131,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardSemanticAllType['classNames'],
-    CardSemanticAllType['styles'],
+    DividerSemanticAllType['classNames'],
+    DividerSemanticAllType['styles'],
     DividerProps
   >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles], {
     props: mergedProps,
