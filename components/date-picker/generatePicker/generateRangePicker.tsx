@@ -86,16 +86,19 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       });
     }
 
+    const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
+
     const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
       pickerType,
       classNames,
       styles,
       popupClassName || dropdownClassName,
       popupStyle,
+      undefined,
+      rangePicker?.style ?? null,
     );
 
     const innerRef = React.useRef<PickerRef>(null);
-    const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
@@ -190,7 +193,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             className,
             rangePicker?.className,
           )}
-          style={{ ...rangePicker?.style, ...style }}
+          style={style}
           // Semantic Style
           classNames={mergedClassNames}
           styles={{
