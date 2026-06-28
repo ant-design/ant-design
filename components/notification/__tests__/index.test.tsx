@@ -587,7 +587,10 @@ describe('notification', () => {
       noticeNode?.setAttribute('data-natural-width', '548');
 
       act(() => {
-        resizeCallback?.([{ target: noticeNode } as ResizeObserverEntry], {} as ResizeObserver);
+        resizeCallback?.(
+          [{ target: noticeNode } as unknown as ResizeObserverEntry],
+          {} as ResizeObserver,
+        );
       });
 
       expect(getMeasuredWidth(noticeNode)).toBe('548px');
