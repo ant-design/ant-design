@@ -4,14 +4,21 @@ import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import notification, { actWrapper } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import { MEASURED_WIDTH_VAR } from '../constants';
 import { awaitPromise, triggerMotionEnd } from './util';
-
-const MEASURED_WIDTH_VAR = '--antd-notification-measured-width';
 
 const parsePixelWidth = (value: string) => {
   const matched = value.match(/^(\d+(?:\.\d+)?)px$/);
   return matched ? Number(matched[1]) : undefined;
 };
+
+const parseNaturalWidth = (element: HTMLElement) => {
+  const naturalWidth = element.dataset.naturalWidth;
+  return naturalWidth ? Number(naturalWidth) : undefined;
+};
+
+const isNoticeElement = (element: HTMLElement) =>
+  Array.from(element.classList).some((className) => className.endsWith('-notice'));
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -44,7 +51,13 @@ describe('notification', () => {
           return styleWidth;
         }
 
-        if (this.classList.contains('ant-notification-notice')) {
+        const naturalWidth = parseNaturalWidth(this);
+
+        if (naturalWidth !== undefined) {
+          return naturalWidth;
+        }
+
+        if (isNoticeElement(this)) {
           return 384;
         }
 
@@ -518,6 +531,71 @@ describe('notification', () => {
     expect(getMeasuredWidth(document.querySelector('.with-custom-width'))).toBe('520px');
   });
 
+  it('should track measured width from rendered max-content notice width', async () => {
+    const originResizeObserver = global.ResizeObserver;
+    let resizeCallback: ResizeObserverCallback | undefined;
+
+    global.ResizeObserver = class ResizeObserver {
+      constructor(callback: ResizeObserverCallback) {
+        resizeCallback = callback;
+      }
+
+      observe() {}
+
+      unobserve() {}
+
+      disconnect() {}
+    };
+
+    try {
+      const TestComponent: React.FC = () => {
+        const [api, contextHolder] = notification.useNotification();
+
+        return (
+          <>
+            {contextHolder}
+            <button
+              type="button"
+              onClick={() =>
+                api.open({
+                  title: 'Max Content Notification',
+                  duration: 0,
+                  className: 'with-max-content',
+                  style: {
+                    width: 'max-content',
+                  },
+                })
+              }
+            >
+              open
+            </button>
+          </>
+        );
+      };
+
+      const { container } = render(<TestComponent />);
+
+      act(() => {
+        container.querySelector<HTMLButtonElement>('button')?.click();
+      });
+      await awaitPromise();
+
+      const noticeNode = document.querySelector<HTMLElement>('.with-max-content');
+
+      expect(getMeasuredWidth(noticeNode)).toBe('384px');
+
+      noticeNode?.setAttribute('data-natural-width', '548');
+
+      act(() => {
+        resizeCallback?.([{ target: noticeNode } as ResizeObserverEntry], {} as ResizeObserver);
+      });
+
+      expect(getMeasuredWidth(noticeNode)).toBe('548px');
+    } finally {
+      global.ResizeObserver = originResizeObserver;
+    }
+  });
+
   it('should keep the widest measured width and recalculate after removal', async () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
@@ -592,6 +670,50 @@ describe('notification', () => {
     }
   });
 
+  it('should keep measured width syncing when ResizeObserver is unavailable', async () => {
+    const originResizeObserver = global.ResizeObserver;
+
+    Reflect.deleteProperty(global, 'ResizeObserver');
+
+    try {
+      const TestComponent: React.FC = () => {
+        const [api, contextHolder] = notification.useNotification();
+
+        return (
+          <>
+            {contextHolder}
+            <button
+              type="button"
+              onClick={() =>
+                api.open({
+                  title: 'Fallback Width Notification',
+                  duration: 0,
+                  className: 'without-resize-observer',
+                  style: {
+                    width: 528,
+                  },
+                })
+              }
+            >
+              open
+            </button>
+          </>
+        );
+      };
+
+      const { container } = render(<TestComponent />);
+
+      act(() => {
+        container.querySelector<HTMLButtonElement>('button')?.click();
+      });
+      await awaitPromise();
+
+      expect(getMeasuredWidth(document.querySelector('.without-resize-observer'))).toBe('528px');
+    } finally {
+      global.ResizeObserver = originResizeObserver;
+    }
+  });
+
   it('should track measured width from ConfigProvider semantic root styles', async () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
@@ -631,6 +753,51 @@ describe('notification', () => {
     await awaitPromise();
 
     expect(getMeasuredWidth(document.querySelector('.config-width-notice'))).toBe('560px');
+  });
+
+  it('should skip measured width syncing when MutationObserver is unavailable', async () => {
+    const originMutationObserver = global.MutationObserver;
+
+    Reflect.deleteProperty(global, 'MutationObserver');
+
+    try {
+      const TestComponent: React.FC = () => {
+        const [api, contextHolder] = notification.useNotification();
+
+        return (
+          <>
+            {contextHolder}
+            <button
+              type="button"
+              onClick={() =>
+                api.open({
+                  title: 'Without MutationObserver',
+                  duration: 0,
+                  className: 'without-mutation-observer',
+                  style: {
+                    width: 520,
+                  },
+                })
+              }
+            >
+              open
+            </button>
+          </>
+        );
+      };
+
+      const { container } = render(<TestComponent />);
+
+      act(() => {
+        container.querySelector<HTMLButtonElement>('button')?.click();
+      });
+      await awaitPromise();
+
+      expect(document.querySelector('.without-mutation-observer')).toBeTruthy();
+      expect(getMeasuredWidth(document.querySelector('.without-mutation-observer'))).toBeFalsy();
+    } finally {
+      global.MutationObserver = originMutationObserver;
+    }
   });
 
   it('support classnames', async () => {
