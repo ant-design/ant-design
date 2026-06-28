@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -128,11 +128,15 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: sizeFullName,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    { props: mergedProps },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardSemanticAllType['classNames'],
+    CardSemanticAllType['styles'],
+    DividerProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     prefixCls,
@@ -196,7 +200,6 @@ const Divider: React.FC<DividerProps> = (props) => {
     <div
       className={classString}
       style={{
-        ...contextStyle,
         ...mergedStyles.root,
         ...(children ? {} : mergedStyles.rail),
         ...style,
