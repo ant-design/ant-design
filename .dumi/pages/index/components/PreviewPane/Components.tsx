@@ -7,9 +7,10 @@ import {
   LoadingOutlined,
   MailOutlined,
   MessageOutlined,
-  TwitterOutlined,
+  XOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons';
+import type { StepItem } from '@rc-component/steps/es/Steps';
 import {
   App,
   Avatar,
@@ -48,6 +49,7 @@ import type {
   RadioGroupProps,
   SelectProps,
   TagProps,
+  ThemeConfig,
 } from 'antd';
 import { createStyles } from 'antd-style';
 import type { CheckboxGroupProps } from 'antd/es/checkbox';
@@ -117,11 +119,12 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       backgroundPosition: 'center',
     }),
     blockCard: css({
-      background: cssVar.colorBgContainer,
+      backgroundColor: cssVar.colorBgContainer,
       borderRadius: token.borderRadiusLG,
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
       border: `1px solid ${token.colorBorderSecondary}`,
       padding: token.paddingLG,
+      userSelect: 'none',
     }),
     avatarGroup: css({
       marginBlockEnd: 16,
@@ -259,7 +262,7 @@ const badgeList: BadgeProps[] = [
 ];
 
 const tagList: TagProps[] = [
-  { icon: <TwitterOutlined />, color: '#55acee', content: 'Twitter' },
+  { icon: <XOutlined />, color: '#55acee', content: 'Twitter' },
   { icon: <YoutubeOutlined />, color: '#cd201f', content: 'Youtube' },
   { icon: <FacebookOutlined />, color: '#3b5999', content: 'Facebook' },
 ];
@@ -280,7 +283,11 @@ const buttonList: ButtonProps[] = [
   { danger: true, shape: 'round', children: 'Round button' },
 ];
 
-const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
+const stepsItems: StepItem[] = [
+  { title: 'Finished' },
+  { title: 'In Process' },
+  { title: 'Waiting' },
+];
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const {
@@ -296,13 +303,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { theme, ...restConfig } = config || {};
 
-  const mergedTheme = React.useMemo(
-    () => ({
-      ...theme,
-      inherit,
-    }),
-    [theme, inherit],
-  );
+  const mergedTheme = useMemo<ThemeConfig>(() => ({ ...theme, inherit }), [theme, inherit]);
 
   const genBackgroundColor = useMemo(() => {
     if (isDarkTheme) {
@@ -368,13 +369,11 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         <Switch defaultChecked />
                         <Progress type="circle" percent={25} size={20} showInfo={false} />
                       </Flex>
-
                       <div className={styles.stepsWrapper}>
                         <Steps current={1} status="error" items={stepsItems} />
                       </div>
                     </Flex>
                   </div>
-
                   <div className={styles.progressWrapper}>
                     <Flex gap="middle" vertical>
                       <Progress percent={50} status="active" />
@@ -382,7 +381,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Flex>
                   </div>
                   <div>
-                    <Flex justify="space-between" gap={8}>
+                    <Flex justify="space-between" align="center" gap="small">
                       {badgeList.map((badge, index) => (
                         <Badge key={`item-${index}`} {...badge} />
                       ))}
@@ -452,15 +451,13 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Avatar.Group>
                     <Title level={5}>Verify account</Title>
                     <Text type="secondary">We've sent a code to a****@gmail.com</Text>
-
                     <div className={styles.otpWrapper}>
-                      <Input.OTP size="large" length={6} defaultValue="4320" />
+                      <Input.OTP size="large" length={6} defaultValue="4320" variant="filled" />
                     </div>
                     <Text type="secondary">
                       Didn't receive a code? <a>Resend</a>
                     </Text>
                   </div>
-
                   <Flex gap="large" vertical>
                     <Flex gap="middle" justify="center">
                       {buttonList.slice(0, 2).map((props, idx) => {
@@ -483,7 +480,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       })}
                     </Flex>
                   </Flex>
-
                   <div className={styles.blockCard}>
                     <Flex align="flex-start" gap="middle">
                       <Avatar
@@ -504,7 +500,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       </div>
                     </Flex>
                   </div>
-
                   <InternalPanel
                     styles={{ root: { width: '100%' } }}
                     title="Ant Design"
