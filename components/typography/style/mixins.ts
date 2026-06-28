@@ -269,6 +269,15 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 
       textarea: {
         margin: '0!important',
+        // Inherit the edited element's typography so the editing textarea
+        // matches the rendered text (including customized heading tokens such
+        // as `fontSizeHeading1` and the strong heading weight), keeping editing
+        // WYSIWYG. Browsers do not inherit font properties for form controls by
+        // default, so they are set explicitly here.
+        fontSize: 'inherit',
+        lineHeight: 'inherit',
+        fontFamily: 'inherit',
+        fontWeight: 'inherit',
         // Fix Editable Textarea flash in Firefox
         MozTransition: 'none',
         height: '1em',

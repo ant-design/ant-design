@@ -2,6 +2,7 @@ import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
 
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Base from '../Base';
 
 jest.mock('copy-to-clipboard');
@@ -101,5 +102,35 @@ describe('Typography.Editable', () => {
       </Base>,
     );
     expect(container.querySelector('.ant-typography-edit')?.getAttribute('tabIndex')).toBe('-1');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/56626
+  it('editing textarea inherits the edited element font size', () => {
+    const { container, unmount } = render(
+      <ConfigProvider theme={{ components: { Typography: { fontSizeHeading1: 40 } } }}>
+        <Base component="h1" editable>
+          Bamboo
+        </Base>
+      </ConfigProvider>,
+    );
+
+    fireEvent.click(container.querySelector('.ant-typography-edit')!);
+
+    // The editing wrapper carries the heading class, so its computed font size
+    // is the (customized) heading size; the textarea must inherit it instead of
+    // falling back to the user-agent form-control font.
+    expect(container.querySelector('.ant-typography-edit-content')).toHaveClass(
+      'ant-typography-h1',
+    );
+
+    const styleText = Array.from(document.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-size:inherit/);
+    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*line-height:inherit/);
+    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-family:inherit/);
+    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-weight:inherit/);
+
+    unmount();
   });
 });
