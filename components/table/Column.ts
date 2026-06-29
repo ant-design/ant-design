@@ -5,9 +5,8 @@ export interface ColumnProps<RecordType = AnyObject> extends ColumnType<RecordTy
   children?: null;
 }
 
-/* istanbul ignore next */
 /** This is a syntactic sugar for `columns` prop. So HOC will not work on this. */
-
+/* istanbul ignore next */
 const Column = <RecordType extends AnyObject>(_: ColumnProps<RecordType>) => null;
 
 export default Column;
