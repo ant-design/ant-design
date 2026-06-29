@@ -313,6 +313,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "overrides": {
+    "rollup": "^3.30.0"
+  },
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
