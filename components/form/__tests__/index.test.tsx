@@ -790,6 +790,24 @@ describe('Form', () => {
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('');
       expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
     });
+
+    // https://github.com/ant-design/ant-design/issues/58557
+    it('false', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item name="test" help={false} rules={[{ required: true, message: 'message' }]}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe('');
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/20706
