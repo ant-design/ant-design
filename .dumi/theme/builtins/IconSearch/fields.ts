@@ -1,8 +1,12 @@
-import * as AntdIcons from '@ant-design/icons/lib/icons';
+import * as AntdIcons from '@ant-design/icons/es/icons';
 
-const all = Object.keys(AntdIcons)
+export const all = Object.keys(AntdIcons)
   .map((n) => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
-  .filter((n, i, arr) => arr.indexOf(n) === i);
+  .filter(
+    (n, i, arr) =>
+      (`${n}Outlined` in AntdIcons || `${n}Filled` in AntdIcons || `${n}TwoTone` in AntdIcons) &&
+      arr.indexOf(n) === i,
+  );
 
 const direction = [
   'StepBackward',
@@ -165,9 +169,11 @@ const logo = [
   'Weibo',
   'Twitter',
   'Wechat',
+  'WhatsApp',
   'Youtube',
   'AlipayCircle',
   'Taobao',
+  'Dingtalk',
   'Skype',
   'Qq',
   'MediumWorkmark',
@@ -200,6 +206,40 @@ const logo = [
   'Yahoo',
   'Reddit',
   'Sketch',
+  'WechatWork',
+  'OpenAI',
+  'Anthropic',
+  'Claude',
+  'Gemini',
+  'Mistral',
+  'DeepSeek',
+  'Qwen',
+  'Perplexity',
+  'HuggingFace',
+  'Ollama',
+  'Replicate',
+  'ElevenLabs',
+  'Telegram',
+  'Mastodon',
+  'Threads',
+  'Snapchat',
+  'Discord',
+  'X',
+  'Bilibili',
+  'Pinterest',
+  'TikTok',
+  'Spotify',
+  'Twitch',
+  'Linux',
+  'Java',
+  'JavaScript',
+  'Python',
+  'Ruby',
+  'DotNet',
+  'Kubernetes',
+  'Docker',
+  'Baidu',
+  'HarmonyOS',
 ];
 
 const datum = [...direction, ...suggestion, ...editor, ...data, ...logo];

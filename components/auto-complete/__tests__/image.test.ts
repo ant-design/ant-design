@@ -1,5 +1,7 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('AutoComplete image', () => {
-  imageDemoTest('auto-complete');
+  imageDemoTest('auto-complete', {
+    skip: ['row-selection-debug.tsx'],
+  });
 });

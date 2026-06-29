@@ -1,6 +1,9 @@
 import * as React from 'react';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+/**
+ * Note: `middle` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type SizeType = 'small' | 'medium' | 'middle' | 'large' | undefined;
 
 const SizeContext = React.createContext<SizeType>(undefined);
 
@@ -9,12 +12,9 @@ export interface SizeContextProps {
   children?: React.ReactNode;
 }
 
-export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => (
-  <SizeContext.Consumer>
-    {(originSize) => (
-      <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>
-    )}
-  </SizeContext.Consumer>
-);
+export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => {
+  const originSize = React.useContext<SizeType>(SizeContext);
+  return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
+};
 
 export default SizeContext;

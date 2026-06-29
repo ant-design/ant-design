@@ -30,7 +30,7 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <Space wrap>
       <Dropdown menu={{ items }} placement="bottomLeft">
         <Button>bottomLeft</Button>
@@ -51,6 +51,28 @@ const App: React.FC = () => (
       </Dropdown>
       <Dropdown menu={{ items }} placement="topRight">
         <Button>topRight</Button>
+      </Dropdown>
+    </Space>
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="leftTop">
+        <Button>leftTop</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="left">
+        <Button>left</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="leftBottom">
+        <Button>leftBottom</Button>
+      </Dropdown>
+    </Space>
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="rightTop">
+        <Button>rightTop</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="right">
+        <Button>right</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="rightBottom">
+        <Button>rightBottom</Button>
       </Dropdown>
     </Space>
   </Space>

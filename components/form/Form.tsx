@@ -1,26 +1,68 @@
-import classNames from 'classnames';
-import FieldForm, { List, useWatch } from 'rc-field-form';
-import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import * as React from 'react';
-import { useMemo } from 'react';
-import type { Options } from 'scroll-into-view-if-needed';
-import { ConfigContext } from '../config-provider';
+import FieldForm, { List, useWatch } from '@rc-component/form';
+import type {
+  FormRef,
+  InternalNamePath,
+  FormProps as RcFormProps,
+  ValidateErrorEntity,
+} from '@rc-component/form';
+import { clsx } from 'clsx';
+
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
+import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext } from './context';
-import useForm, { type FormInstance } from './hooks/useForm';
-import type { FormLabelAlign } from './interface';
-
+import { FormContext, FormProvider, NoFormStyle, VariantContext } from './context';
+import type { FeedbackIcons } from './FormItem';
+import type { FormTooltipProps } from './FormItemLabel';
+import useForm from './hooks/useForm';
+import type { FormInstance } from './hooks/useForm';
+import useFormWarning from './hooks/useFormWarning';
+import type { FormLabelAlign, ScrollFocusOptions } from './interface';
 import useStyle from './style';
+import ValidateMessagesContext from './validateMessagesContext';
 
-export type RequiredMark = boolean | 'optional';
+export type RequiredMark =
+  | boolean
+  | 'optional'
+  | ((labelNode: React.ReactNode, info: { required: boolean }) => React.ReactNode);
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+export type FormItemLayout = 'horizontal' | 'vertical';
+
+export type { ScrollFocusOptions };
+
+export type FormSemanticType = {
+  classNames?: {
+    root?: string;
+    label?: string;
+    content?: string;
+    help?: string;
+    helpItem?: string;
+    extra?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+    help?: React.CSSProperties;
+    helpItem?: React.CSSProperties;
+    extra?: React.CSSProperties;
+  };
+};
+
+export type FormSemanticAllType = GenerateSemantic<FormSemanticType, FormProps>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
+  classNames?: FormSemanticAllType['classNamesAndFn'];
+  styles?: FormSemanticAllType['stylesAndFn'];
   prefixCls?: string;
   colon?: boolean;
   name?: string;
@@ -30,23 +72,38 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
+  feedbackIcons?: FeedbackIcons;
   size?: SizeType;
   disabled?: boolean;
-  scrollToFirstError?: Options | boolean;
+  scrollToFirstError?: ScrollFocusOptions | boolean;
   requiredMark?: RequiredMark;
-  /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
-  hideRequiredMark?: boolean;
+  rootClassName?: string;
+  variant?: Variant;
+  tooltip?: FormTooltipProps;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
-  const contextSize = React.useContext(SizeContext);
+const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props, ref) => {
   const contextDisabled = React.useContext(DisabledContext);
-  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    requiredMark: contextRequiredMark,
+    colon: contextColon,
+    scrollToFirstError: contextScrollToFirstError,
+    className: contextClassName,
+    style: contextStyle,
+    styles: contextStyles,
+    classNames: contextClassNames,
+    tooltip: contextTooltip,
+    labelAlign: contextLabelAlign,
+    labelWrap: contextLabelWrap,
+  } = useComponentConfig('form');
 
   const {
     prefixCls: customizePrefixCls,
-    className = '',
-    size = contextSize,
+    className,
+    rootClassName,
+    size,
     disabled = contextDisabled,
     form,
     colon,
@@ -54,107 +111,204 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     labelWrap,
     labelCol,
     wrapperCol,
-    hideRequiredMark,
     layout = 'horizontal',
     scrollToFirstError,
     requiredMark,
     onFinishFailed,
     name,
+    style,
+    feedbackIcons,
+    variant,
+    classNames,
+    styles,
+    tooltip,
     ...restFormProps
   } = props;
 
-  const mergedRequiredMark = useMemo(() => {
+  const mergedSize = useSize(size);
+
+  const contextValidateMessages = React.useContext(ValidateMessagesContext);
+
+  if (process.env.NODE_ENV !== 'production') {
+    useFormWarning(props);
+  }
+
+  const mergedRequiredMark = React.useMemo(() => {
     if (requiredMark !== undefined) {
       return requiredMark;
     }
 
-    if (contextForm && contextForm.requiredMark !== undefined) {
-      return contextForm.requiredMark;
-    }
-
-    if (hideRequiredMark) {
-      return false;
+    if (contextRequiredMark !== undefined) {
+      return contextRequiredMark;
     }
 
     return true;
-  }, [hideRequiredMark, requiredMark, contextForm]);
+  }, [requiredMark, contextRequiredMark]);
 
-  const mergedColon = colon ?? contextForm?.colon;
+  const mergedColon = colon ?? contextColon;
+
+  const mergedLabelAlign = labelAlign ?? contextLabelAlign;
+
+  const mergedLabelWrap = labelWrap ?? contextLabelWrap;
+
+  const mergedTooltip = { ...contextTooltip, ...tooltip };
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const formClassName = classNames(
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: FormProps = {
+    ...props,
+    size: mergedSize,
+    disabled,
+    layout,
+    colon: mergedColon,
+    requiredMark: mergedRequiredMark,
+    labelAlign: mergedLabelAlign,
+    labelWrap: mergedLabelWrap,
+  };
+
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FormSemanticAllType['classNames'],
+    FormSemanticAllType['styles'],
+    FormProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
+
+  const formClassName = clsx(
     prefixCls,
+    `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-${layout}`]: true,
-      [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
+      [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false, // todo: remove in next major version
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-large`]: mergedSize === 'large',
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
+    cssVarCls,
+    rootCls,
     hashId,
+    contextClassName,
     className,
+    rootClassName,
+    mergedClassNames.root,
   );
 
   const [wrapForm] = useForm(form);
   const { __INTERNAL__ } = wrapForm;
   __INTERNAL__.name = name;
 
-  const formContextValue = useMemo<FormContextProps>(
+  const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
-      labelAlign,
+      labelAlign: mergedLabelAlign,
       labelCol,
-      labelWrap,
+      labelWrap: mergedLabelWrap,
       wrapperCol,
-      vertical: layout === 'vertical',
+      layout,
       colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
       form: wrapForm,
+      feedbackIcons,
+      tooltip: mergedTooltip,
+      classNames: mergedClassNames,
+      styles: mergedStyles,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark, wrapForm],
+    [
+      name,
+      mergedLabelAlign,
+      mergedLabelWrap,
+      labelCol,
+      wrapperCol,
+      layout,
+      mergedColon,
+      mergedRequiredMark,
+      wrapForm,
+      feedbackIcons,
+      mergedClassNames,
+      mergedStyles,
+      mergedTooltip,
+    ],
   );
 
-  React.useImperativeHandle(ref, () => wrapForm);
+  const nativeElementRef = React.useRef<FormRef>(null);
+  React.useImperativeHandle(ref, () => ({
+    ...wrapForm,
+    nativeElement: nativeElementRef.current?.nativeElement,
+  }));
 
-  const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
-    onFinishFailed?.(errorInfo);
-
-    let defaultScrollToFirstError: Options = { block: 'nearest' };
-
-    if (scrollToFirstError && errorInfo.errorFields.length) {
-      if (typeof scrollToFirstError === 'object') {
-        defaultScrollToFirstError = scrollToFirstError;
+  const scrollToField = (options: ScrollFocusOptions | boolean, fieldName: InternalNamePath) => {
+    if (options) {
+      let defaultScrollToFirstError: ScrollFocusOptions = { block: 'nearest' };
+      if (isPlainObject(options)) {
+        defaultScrollToFirstError = { ...defaultScrollToFirstError, ...options };
       }
-      wrapForm.scrollToField(errorInfo.errorFields[0].name, defaultScrollToFirstError);
+      wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
     }
   };
 
-  return wrapSSR(
-    <DisabledContextProvider disabled={disabled}>
-      <SizeContextProvider size={size}>
-        <FormContext.Provider value={formContextValue}>
-          <FieldForm
-            id={name}
-            {...restFormProps}
-            name={name}
-            onFinishFailed={onInternalFinishFailed}
-            form={wrapForm}
-            className={formClassName}
-          />
-        </FormContext.Provider>
-      </SizeContextProvider>
-    </DisabledContextProvider>,
+  const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
+    onFinishFailed?.(errorInfo);
+    if (errorInfo.errorFields.length) {
+      const fieldName = errorInfo.errorFields[0].name;
+      if (scrollToFirstError !== undefined) {
+        scrollToField(scrollToFirstError, fieldName);
+        return;
+      }
+
+      if (contextScrollToFirstError !== undefined) {
+        scrollToField(contextScrollToFirstError, fieldName);
+      }
+    }
+  };
+
+  return (
+    <VariantContext.Provider value={variant}>
+      <DisabledContextProvider disabled={disabled}>
+        <SizeContext.Provider value={mergedSize}>
+          <FormProvider
+            {...{
+              // This is not list in API, we pass with spread
+              validateMessages: contextValidateMessages,
+            }}
+          >
+            <FormContext.Provider value={formContextValue}>
+              <NoFormStyle status>
+                <FieldForm
+                  id={name}
+                  {...restFormProps}
+                  name={name}
+                  onFinishFailed={onInternalFinishFailed}
+                  form={wrapForm}
+                  ref={nativeElementRef}
+                  style={mergedStyles?.root}
+                  className={formClassName}
+                />
+              </NoFormStyle>
+            </FormContext.Provider>
+          </FormProvider>
+        </SizeContext.Provider>
+      </DisabledContextProvider>
+    </VariantContext.Provider>
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
-  props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
-) => React.ReactElement;
+const Form = React.forwardRef<FormRef, FormProps>(InternalForm) as (<Values = any>(
+  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormRef<Values>>,
+) => React.ReactElement) &
+  Pick<React.FC, 'displayName'>;
 
-export { useForm, List, type FormInstance, useWatch };
+if (process.env.NODE_ENV !== 'production') {
+  Form.displayName = 'Form';
+}
+
+export { type FormInstance, List, useForm, useWatch };
 
 export default Form;

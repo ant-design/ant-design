@@ -1,20 +1,22 @@
-import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import copy from 'copy-to-clipboard';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
+import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import { KeyCode, warning } from '@rc-component/util';
+import userEvent from '@testing-library/user-event';
+
+import copy from '../../_util/copy';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFor, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
-import Typography from '../Typography';
 
-jest.mock('copy-to-clipboard');
+const { resetWarned } = warning;
+
+jest.mock('../../_util/copy');
 
 describe('Typography', () => {
   mountTest(Paragraph);
@@ -48,6 +50,7 @@ describe('Typography', () => {
       },
     });
     mockGetBoundingClientRect.mockImplementation(function fn() {
+      // @ts-ignore
       let html = this.innerHTML;
       html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
@@ -126,20 +129,20 @@ describe('Typography', () => {
           });
 
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1] === '') {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[0] === '' && (tooltips as any)[1]) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
-          } else if ((tooltips as any)[1] === '' && (tooltips as any)[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1] === '') {
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1]) {
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+          } else if (tooltips[1] === '' && tooltips[0]) {
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
             );
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-              (tooltips as any)[0],
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
             );
           }
 
@@ -147,8 +150,9 @@ describe('Typography', () => {
           fireEvent.click(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(1);
 
-          expect((copy as any).lastStr).toEqual(target);
-          expect((copy as any).lastOptions.format).toEqual(format);
+          expect((copy as any).mock.lastCall[0]).toBe(target);
+          expect((copy as any).mock.lastCall[1].format).toBe(format);
+
           expect(onCopy).toHaveBeenCalled();
 
           let copiedIcon = '.anticon-check';
@@ -165,17 +169,24 @@ describe('Typography', () => {
           await waitFakeTimer(15, 10);
 
           if (tooltips === undefined || tooltips === true) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
           } else if (tooltips === false) {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
+            expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[1],
+            );
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
+            // Tooltip will be hidden in this case, with content memoized
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[0],
+            );
           } else {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
+            expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe(
+              tooltips[1],
+            );
           }
 
           // Will set back when 3 seconds pass
@@ -242,7 +253,7 @@ describe('Typography', () => {
       function testStep(
         { name = '', icon, tooltip, triggerType, enterIcon }: EditableConfig,
         submitFunc?: (container: ReturnType<typeof render>['container']) => void,
-        expectFunc?: (callbake: jest.Mock) => void,
+        expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
           jest.useFakeTimers();
@@ -250,7 +261,7 @@ describe('Typography', () => {
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = { padding: 'unset' };
+          const style: React.CSSProperties = { padding: 'unset' };
 
           const { container: wrapper } = render(
             <Paragraph
@@ -280,30 +291,30 @@ describe('Typography', () => {
 
             if (tooltip === undefined || tooltip === true) {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe('Edit');
+                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe('Edit');
               });
             } else if (tooltip === false) {
               await waitFor(() => {
-                expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+                expect(wrapper.querySelectorAll('.ant-tooltip-container').length).toBe(0);
               });
             } else {
               await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltip);
+                expect(wrapper.querySelector('.ant-tooltip-container')?.textContent).toBe(tooltip);
               });
             }
 
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
             expect(onStart).toHaveBeenCalled();
-            if (triggerType !== undefined && triggerType.includes('text')) {
+            if (triggerType?.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               expect(onChange).not.toHaveBeenCalled();
             }
           }
 
-          if (triggerType !== undefined && triggerType.includes('text')) {
-            if (!triggerType.includes('icon')) {
+          if (triggerType?.includes('text')) {
+            if (!triggerType?.includes('icon')) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
             }
@@ -328,8 +339,8 @@ describe('Typography', () => {
             ).toBe(0);
           } else {
             expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
-            ).not.toContain('anticon-enter');
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0],
+            ).not.toHaveClass('anticon-enter');
           }
 
           if (submitFunc) {
@@ -366,7 +377,6 @@ describe('Typography', () => {
           fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
         },
         (onChange) => {
-          // eslint-disable-next-line jest/no-standalone-expect
           expect(onChange).not.toHaveBeenCalled();
         },
       );
@@ -426,14 +436,14 @@ describe('Typography', () => {
         });
 
         fireEvent.focus(editIcon);
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
 
         fireEvent.click(editIcon);
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
 
         fireEvent.change(wrapper.querySelector('textarea')!, { target: { value: 'good' } });
 
-        expect(triggerTimes).toEqual(1);
+        expect(triggerTimes).toBe(1);
       });
     });
 
@@ -444,14 +454,6 @@ describe('Typography', () => {
       expect(textareaNode?.selectionStart).toBe(7);
       expect(textareaNode?.selectionEnd).toBe(7);
     });
-  });
-
-  it('warning if use setContentRef', () => {
-    const setContentRef = { setContentRef() {} } as any;
-    render(<Typography {...setContentRef} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
-    );
   });
 
   it('no italic warning', () => {
@@ -476,5 +478,73 @@ describe('Typography', () => {
     const ref = React.createRef<HTMLSpanElement>();
     render(<Text ref={ref} />);
     expect(ref.current instanceof HTMLSpanElement).toBe(true);
+  });
+
+  it('should trigger callback when press {enter}', async () => {
+    const onCopy = jest.fn();
+    const onEditStart = jest.fn();
+    const { container: wrapper } = render(
+      <Paragraph copyable={{ onCopy }} editable={{ onStart: onEditStart }}>
+        test
+      </Paragraph>,
+    );
+    const copyButton = wrapper.querySelector('.ant-typography-copy') as HTMLButtonElement;
+    expect(copyButton).toBeTruthy();
+    // https://github.com/testing-library/user-event/issues/179#issuecomment-1125146667
+    copyButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onCopy).toHaveBeenCalledTimes(1));
+    const editButton = wrapper.querySelector('.ant-typography-edit') as HTMLButtonElement;
+    expect(editButton).toBeTruthy();
+    editButton.focus();
+    userEvent.keyboard('{enter}');
+    await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
+  });
+
+  // https://github.com/ant-design/ant-design/issues/53858
+  describe('decoration props can be changed dynamically', () => {
+    const decorationProps = [
+      { propName: 'delete', tagName: 'del' },
+      { propName: 'mark', tagName: 'mark' },
+      { propName: 'code', tagName: 'code' },
+      { propName: 'underline', tagName: 'u' },
+      { propName: 'strong', tagName: 'strong' },
+      { propName: 'keyboard', tagName: 'kbd' },
+      { propName: 'italic', tagName: 'i' },
+    ];
+
+    decorationProps.forEach(({ propName, tagName }) => {
+      it(`${propName} prop can be changed dynamically`, () => {
+        const DynamicPropsTestCase = () => {
+          const [propState, setPropState] = React.useState(false);
+          const textProps = { [propName]: propState };
+          return (
+            <div>
+              <Text {...textProps}>{`dynamic ${propName} text`}</Text>
+              <button type="button" onClick={() => setPropState(!propState)} data-testid="toggle">
+                Toggle
+              </button>
+            </div>
+          );
+        };
+
+        const { container, getByTestId } = render(<DynamicPropsTestCase />);
+
+        expect(container.querySelector(tagName)).toBeFalsy();
+
+        act(() => {
+          fireEvent.click(getByTestId('toggle'));
+        });
+
+        expect(container.querySelector(tagName)).toBeTruthy();
+        expect(container.querySelector(tagName)?.textContent).toBe(`dynamic ${propName} text`);
+
+        act(() => {
+          fireEvent.click(getByTestId('toggle'));
+        });
+
+        expect(container.querySelector(tagName)).toBeFalsy();
+      });
+    });
   });
 });

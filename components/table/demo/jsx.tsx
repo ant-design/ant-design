@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import { Flex, Space, Table, Tag } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -27,20 +27,20 @@ const data: DataType[] = [
     lastName: 'Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    tags: ['kawaii'],
   },
   {
     key: '3',
     firstName: 'Joe',
     lastName: 'Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
 ];
 
 const App: React.FC = () => (
-  <Table dataSource={data}>
+  <Table<DataType> dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
       <Column title="Last Name" dataIndex="lastName" key="lastName" />
@@ -52,20 +52,26 @@ const App: React.FC = () => (
       dataIndex="tags"
       key="tags"
       render={(tags: string[]) => (
-        <>
-          {tags.map((tag) => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </>
+        <Flex gap="small" align="center" wrap>
+          {tags.map((tag) => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'kawaii') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </Flex>
       )}
     />
     <Column
       title="Action"
       key="action"
       render={(_: any, record: DataType) => (
-        <Space size="middle">
+        <Space size="medium">
           <a>Invite {record.lastName}</a>
           <a>Delete</a>
         </Space>

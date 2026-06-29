@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <Space>
       <Switch checked={show} onChange={() => setShow(!show)} />
-      <Badge count={show ? 11 : 0} showZero color='#faad14' />
+      <Badge count={show ? 11 : 0} showZero color="#faad14" />
       <Badge count={show ? 25 : 0} />
       <Badge count={show ? <ClockCircleOutlined style={{ color: '#f5222d' }} /> : 0} />
       <Badge

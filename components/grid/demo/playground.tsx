@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Col, Row, Slider } from 'antd';
 
-const gutters: Record<string, number> = {};
-const vgutters: Record<string, number> = {};
-const colCounts: Record<string, number> = {};
+const gutters: Record<PropertyKey, number> = {};
+const vgutters: Record<PropertyKey, number> = {};
+const colCounts: Record<PropertyKey, number> = {};
 
 [8, 16, 24, 32, 40, 48].forEach((value, i) => {
   gutters[i] = value;
 });
+
 [8, 16, 24, 32, 40, 48].forEach((value, i) => {
   vgutters[i] = value;
 });
+
 [2, 3, 4, 6, 8, 12].forEach((value, i) => {
   colCounts[i] = value;
 });
@@ -43,7 +45,7 @@ const App: React.FC = () => {
           onChange={setGutterKey}
           marks={gutters}
           step={null}
-          tooltip={{ formatter: (value) => value && gutters[value] }}
+          tooltip={{ formatter: (value) => gutters[value as number] }}
         />
       </div>
       <span>Vertical Gutter (px): </span>
@@ -55,7 +57,7 @@ const App: React.FC = () => {
           onChange={setVgutterKey}
           marks={vgutters}
           step={null}
-          tooltip={{ formatter: (value) => value && vgutters[value] }}
+          tooltip={{ formatter: (value) => vgutters[value as number] }}
         />
       </div>
       <span>Column Count:</span>
@@ -67,7 +69,7 @@ const App: React.FC = () => {
           onChange={setColCountKey}
           marks={colCounts}
           step={null}
-          tooltip={{ formatter: (value) => value && colCounts[value] }}
+          tooltip={{ formatter: (value) => colCounts[value as number] }}
         />
       </div>
       <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>

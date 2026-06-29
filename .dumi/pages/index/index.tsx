@@ -1,42 +1,40 @@
-import React from 'react';
-import { useLocale as useDumiLocale } from 'dumi';
-import { css } from '@emotion/react';
+import React, { Suspense, useState } from 'react';
+import { theme } from 'antd';
+import { createStaticStyles } from 'antd-style';
+
 import useLocale from '../../hooks/useLocale';
-import Banner from './components/Banner';
-import Group from './components/Group';
-import { useSiteData } from './components/util';
-import useSiteToken from '../../hooks/useSiteToken';
-import Theme from './components/Theme';
+import { DarkContext } from './../../hooks/useDark';
 import BannerRecommends from './components/BannerRecommends';
-import ComponentsList from './components/ComponentsList';
-import DesignFramework from './components/DesignFramework';
-import { ConfigProvider } from 'antd';
+import Group from './components/Group';
+import PreviewBanner from './components/PreviewBanner';
+import ThemePreview from './components/ThemePreview';
+import PromptDrawer from '../../theme/common/ThemeSwitch/PromptDrawer';
+import SiteContext from '../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../theme/slots/SiteContext';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
+const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
+// const Theme = React.lazy(() => import('./components/Theme'));
 
-  return {
-    container: css`
-      // padding: 0 116px;
-
-      // background: url(https://gw.alipayobjects.com/zos/bmw-prod/5741382d-cc22-4ede-b962-aea287a1d1a1/l4nq43o8_w2646_h1580.png);
-      // background-size: 20% 10%;
-    `,
-  };
-};
+const classNames = createStaticStyles(({ css }) => ({
+  image: css`
+    position: absolute;
+    inset-inline-start: 0;
+    top: -50px;
+    height: 160px;
+  `,
+}));
 
 const locales = {
   cn: {
     assetsTitle: '组件丰富，选用自如',
     assetsDesc: '大量实用组件满足你的需求，灵活定制与拓展',
-
     designTitle: '设计语言与研发框架',
     designDesc: '配套生态，让你快速搭建网站应用',
   },
   en: {
     assetsTitle: 'Rich components',
     assetsDesc: 'Practical components to meet your needs, flexible customization and expansion',
-
     designTitle: 'Design and framework',
     designDesc: 'Supporting ecology, allowing you to quickly build website applications',
   },
@@ -44,50 +42,67 @@ const locales = {
 
 const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { id: localeId } = useDumiLocale();
-  const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
+  const { token } = theme.useToken();
 
-  const [siteData, loading] = useSiteData();
+  const isDark = React.use(DarkContext);
+  const [promptDrawerOpen, setPromptDrawerOpen] = useState(false);
+  const siteContext = React.use(SiteContext);
 
-  const style = useStyle();
+  const handlePromptDrawerOpen = () => setPromptDrawerOpen(true);
+  const handlePromptDrawerClose = () => setPromptDrawerOpen(false);
+  const handleThemeChange = (themeConfig: SiteContextProps['dynamicTheme']) => {
+    if (siteContext?.updateSiteConfig) {
+      siteContext.updateSiteConfig({ dynamicTheme: themeConfig });
+    }
+  };
 
   return (
-    <ConfigProvider theme={{ algorithm: undefined }}>
-      <section>
-        <Banner>
-          <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
-        </Banner>
+    <section>
+      <PreviewBanner>
+        <BannerRecommends />
+      </PreviewBanner>
 
-        <div css={style.container}>
-          <Theme />
-          <Group
-            background="#fff"
-            collapse
-            title={locale.assetsTitle}
-            description={locale.assetsDesc}
-            id="design"
-          >
-            <ComponentsList />
-          </Group>
-          <Group
-            title={locale.designTitle}
-            description={locale.designDesc}
-            background="#F5F8FF"
-            decoration={
-              <>
-                {/* Image Left Top */}
-                <img
-                  style={{ position: 'absolute', left: 0, top: -50, height: 160 }}
-                  src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-                />
-              </>
-            }
-          >
-            <DesignFramework />
-          </Group>
-        </div>
-      </section>
-    </ConfigProvider>
+      <ThemePreview onOpenPromptDrawer={handlePromptDrawerOpen} />
+
+      {/* AI 生成主题抽屉 */}
+      <PromptDrawer
+        open={promptDrawerOpen}
+        onClose={handlePromptDrawerClose}
+        onThemeChange={handleThemeChange}
+      />
+
+      {/* 组件列表 */}
+      <Group
+        background={token.colorBgElevated}
+        collapse
+        title={locale.assetsTitle}
+        description={locale.assetsDesc}
+        id="design"
+      >
+        <Suspense fallback={null}>
+          <ComponentsList />
+        </Suspense>
+      </Group>
+
+      {/* 设计语言 */}
+      <Group
+        title={locale.designTitle}
+        description={locale.designDesc}
+        background={isDark ? '#393F4A' : '#F5F8FF'}
+        decoration={
+          <img
+            draggable={false}
+            className={classNames.image}
+            src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+            alt="bg"
+          />
+        }
+      >
+        <Suspense fallback={null}>
+          <DesignFramework />
+        </Suspense>
+      </Group>
+    </section>
   );
 };
 

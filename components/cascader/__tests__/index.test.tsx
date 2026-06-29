@@ -1,19 +1,24 @@
 import React from 'react';
-import type { SingleValueType } from 'rc-cascader/lib/Cascader';
-import type { BaseOptionType, DefaultOptionType } from '..';
+
+import type { DefaultOptionType } from '..';
 import Cascader from '..';
+import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import ConfigProvider from '../../config-provider';
-import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
+import Input from '../../input';
+import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
+type SingleValueType = (string | number)[];
+
 function toggleOpen(container: ReturnType<typeof render>['container']) {
-  fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+  fireEvent.mouseDown(container.querySelector('.ant-select')!);
 }
 
 function isOpen(container: ReturnType<typeof render>['container']) {
@@ -39,10 +44,14 @@ const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
+    'aria-label': 'Zhejiang',
+    'data-title': 'Zhejiang',
     children: [
       {
         value: 'hangzhou',
         label: 'Hangzhou',
+        'aria-label': 'Hangzhou',
+        'data-title': 'Hangzhou',
         children: [
           {
             value: 'xihu',
@@ -70,11 +79,13 @@ const options = [
   },
 ];
 
-function filter<OptionType extends BaseOptionType = DefaultOptionType>(
+function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some((option) => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) =>
+    option.label?.toString().toLowerCase().includes(inputValue.toLowerCase()),
+  );
 }
 
 describe('Cascader', () => {
@@ -90,13 +101,11 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onPopupVisibleChange = jest.fn();
-    const { container } = render(
-      <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
-    );
+    const onOpenChange = jest.fn();
+    const { container } = render(<Cascader options={options} onOpenChange={onOpenChange} />);
     toggleOpen(container);
     expect(isOpen(container)).toBeTruthy();
-    expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
   });
 
   it('support controlled mode', () => {
@@ -113,21 +122,9 @@ describe('Cascader', () => {
     expect(getDropdown(container)).toMatchSnapshot();
   });
 
-  it('should support popupVisible', () => {
-    const { container, rerender } = render(
-      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
-    );
-    expect(isOpen(container)).toBeFalsy();
-    rerender(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} popupVisible />);
-    expect(isOpen(container)).toBeTruthy();
-  });
-
   it('can be selected', () => {
     const onChange = jest.fn();
-    const { container } = render(<Cascader options={options} onChange={onChange} />);
-
-    toggleOpen(container);
-    expect(isOpen(container)).toBeTruthy();
+    const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
@@ -142,7 +139,7 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
-  it('backspace should work with `Cascader[showSearch]`', () => {
+  it('backspace should work with `Cascader[showSearch]`', async () => {
     const { container } = render(<Cascader options={options} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '123' } });
     expect(isOpen(container)).toBeTruthy();
@@ -154,6 +151,7 @@ describe('Cascader', () => {
     expect(isOpen(container)).toBeTruthy();
 
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Backspace', keyCode: 8 });
+    await waitFakeTimer();
     expect(isOpen(container)).toBeFalsy();
   });
 
@@ -185,7 +183,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    function customFilter<OptionType extends BaseOptionType = DefaultOptionType>(
+    function customFilter<OptionType extends DefaultOptionType = DefaultOptionType>(
       inputValue: string,
       path: OptionType[],
     ): boolean {
@@ -212,15 +210,33 @@ describe('Cascader', () => {
     expect(getDropdown(container)).toMatchSnapshot();
   });
 
+  it('should render custom notFoundContent when search returns no results', () => {
+    const { container } = render(
+      <Cascader
+        options={options}
+        placeholder="Please select"
+        showSearch={{ filter }}
+        notFoundContent="no data"
+        optionRender={(option) => option?.label}
+      />,
+    );
+    fireEvent.change(container.querySelector('input')!, {
+      target: { value: '__notfoundkeyword__' },
+    });
+    const dropdown = getDropdown(container);
+    expect(dropdown).toBeTruthy();
+    const notFoundElement = dropdown?.querySelector('.ant-cascader-menu-item-content');
+    expect(notFoundElement?.textContent).toBe('no data');
+    expect(dropdown).toMatchSnapshot();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
-      'Zhejiang / Hangzhou',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('Zhejiang / Hangzhou');
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-selection-item')).toBeFalsy();
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('');
   });
 
   it('should clear search input when clear selection', () => {
@@ -229,7 +245,7 @@ describe('Cascader', () => {
     );
     fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should change filtered item when options are changed', () => {
@@ -305,7 +321,7 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -355,7 +371,7 @@ describe('Cascader', () => {
     });
   });
 
-  // FIXME: Move to `rc-tree-select` instead
+  // FIXME: Move to `@rc-component/tree-select` instead
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -376,7 +392,7 @@ describe('Cascader', () => {
           {
             value: 'hangzhou',
             label: 'Hangzhou',
-            children: null,
+            children: null as any,
           },
         ],
       },
@@ -388,11 +404,11 @@ describe('Cascader', () => {
 
   it('placeholder works correctly', () => {
     const { container, rerender } = render(<Cascader options={[]} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual('');
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe('');
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe(
       customPlaceholder,
     );
   });
@@ -413,8 +429,8 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
-    expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
+    expect((global as any)?.triggerProps.popupPlacement).toBe('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
@@ -468,20 +484,18 @@ describe('Cascader', () => {
           options={options2}
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
-          popupPlacement="bottomRight"
+          placement="bottomRight"
+          open
         />
       </ConfigProvider>,
     );
 
-    toggleOpen(container);
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 1, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 2, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
@@ -493,9 +507,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
-      'options1 / options2',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('options1 / options2');
   });
 
   it('can be selected when showSearch', () => {
@@ -508,11 +520,12 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
-  it('options should open after press esc and then search', () => {
+  it('options should open after press esc and then search', async () => {
     const { container } = render(<Cascader options={options} showSearch />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Esc', keyCode: 27 });
+    await waitFakeTimer();
     expect(isOpen(container)).toBeFalsy();
     fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
@@ -520,7 +533,7 @@ describe('Cascader', () => {
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
     const onChange = jest.fn();
-    const sameNames = { label: 'label', value: 'label' };
+    const sameNames = { label: 'label', value: 'label' } as const;
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
@@ -533,26 +546,134 @@ describe('Cascader', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
 
-    // Inject in tests/__mocks__/rc-trigger.js
-    expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
+    // Inject in tests/__mocks__/@rc-component/trigger.tsx
+    expect((global as any).triggerProps.popupPlacement).toBe('bottomRight');
   });
 
   describe('legacy props', () => {
-    it('popupPlacement', () => {
-      render(<Cascader open popupPlacement="bottomLeft" />);
-      // Inject in tests/__mocks__/rc-trigger.js
-      expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
-    });
-
     it('legacy dropdownClassName', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Cascader dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(<Cascader dropdownStyle={{ padding: 10 }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      expect(container.querySelector<HTMLElement>('.ant-select-dropdown')).toHaveStyle({
+        padding: '10px',
+      });
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customContent = <div className="custom-dropdown-content">Custom Content</div>;
+      const dropdownRender = (menu: React.ReactElement) => (
+        <>
+          {menu}
+          {customContent}
+        </>
+      );
+
+      const { container } = render(<Cascader dropdownRender={dropdownRender} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      expect(container.querySelector('.custom-dropdown-content')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          dropdownMenuColumnStyle={{ padding: 10 }}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn).toHaveStyle({ padding: '10px' });
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecated popupMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          popupMenuColumnStyle={{ padding: 10 }}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `popupMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn).toHaveStyle({ padding: '10px' });
+
+      errSpy.mockRestore();
+    });
+
+    it('styles.popup.listItem should override popupMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          popupMenuColumnStyle={{ padding: 10 }}
+          styles={{ popup: { listItem: { padding: 20 } } }}
+          open
+        />,
+      );
+
+      expect(getByRole('menuitemcheckbox')).toHaveStyle({ padding: '20px' });
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const onDropdownVisibleChange = jest.fn();
+      const { container } = render(<Cascader onDropdownVisibleChange={onDropdownVisibleChange} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
+
+      toggleOpen(container);
+      expect(onDropdownVisibleChange).toHaveBeenCalledWith(true);
 
       errSpy.mockRestore();
     });
@@ -684,6 +805,260 @@ describe('Cascader', () => {
 
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
+    });
+  });
+
+  it('should be correct expression with disableCheckbox', () => {
+    const { container } = render(
+      <Cascader
+        multiple
+        options={[
+          {
+            label: '台湾',
+            value: 'tw',
+            children: [
+              {
+                label: '福建',
+                value: 'fj',
+                disableCheckbox: true,
+              },
+              {
+                label: '兰州',
+                value: 'lz',
+              },
+              { label: '北京', value: 'bj' },
+            ],
+          },
+        ]}
+      />,
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
+    // disabled className
+    fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
+    // Check all children except disableCheckbox When the parent checkbox is checked
+    expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
+    fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+  it('Support aria-* and data-* in options', () => {
+    const { container } = render(
+      <Cascader options={options} open defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    const menuItems = container.querySelectorAll('.ant-cascader-menu-item');
+    expect(menuItems[0].getAttribute('aria-label')).toBe('Zhejiang');
+    expect(menuItems[0].getAttribute('data-title')).toBe('Zhejiang');
+    expect(menuItems[2].getAttribute('aria-label')).toBe('Hangzhou');
+    expect(menuItems[2].getAttribute('data-title')).toBe('Hangzhou');
+  });
+  it('Cascader ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Cascader
+          open
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('expandIcon', () => {
+    it('should support custom expandIcon', () => {
+      render(<Cascader open expandIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop expandIcon over ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} expandIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+  });
+
+  describe('loadingIcon', () => {
+    it('should support custom loadingIcon', () => {
+      render(<Cascader loading loadingIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop loadingIcon over ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} loadingIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support custom clearIcon', () => {
+      render(
+        <Cascader
+          open
+          allowClear={{ clearIcon: <div>bamboo</div> }}
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop clearIcon over ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader
+            allowClear={{ clearIcon: <div>bamboo</div> }}
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
+
+  describe('removeIcon', () => {
+    it('should support custom removeIcon', () => {
+      render(
+        <Cascader
+          multiple
+          removeIcon={<div>bamboo</div>}
+          options={options}
+          defaultValue={[
+            ['zhejiang', 'hangzhou'],
+            ['jiangsu', 'nanjing'],
+          ]}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop removeIcon over ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+            removeIcon={<div>bamboo</div>}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+  });
+
+  describe('searchIcon', () => {
+    it('should support custom searchIcon', () => {
+      render(<Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open options={options} showSearch />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
     });
   });
 });

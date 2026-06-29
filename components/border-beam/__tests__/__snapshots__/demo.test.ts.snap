@@ -1,0 +1,647 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/border-beam/demo/basic.tsx correctly 1`] = `
+<div
+  style="width:360px"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Workspace overview
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Review task status, deployment health, and recent automation activity in one panel.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap:24px"
+>
+  <div
+    style="width:320px"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default line width
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Uses the default global lineWidth token from the current theme.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width:320px"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Custom line width
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Override lineWidth from theme.token.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/custom-container.tsx correctly 1`] = `
+<div
+  style="position:relative;width:420px;background:#fff;border:1px solid #f0f0f0;border-radius:8px"
+>
+  <div
+    style="min-height:160px;padding:24px;color:rgba(0, 0, 0, 0.88);line-height:1.5715"
+  >
+    Review task status, deployment health, and recent automation activity in one custom container.
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="max-width:480px;gap:16px"
+>
+  <div
+    aria-label="segmented control"
+    aria-orientation="horizontal"
+    class="ant-segmented ant-segmented-block css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Ocean"
+        >
+          Ocean
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Sunset"
+        >
+          Sunset
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Aurora"
+        >
+          Aurora
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Forest"
+        >
+          Forest
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Ember"
+        >
+          Ember
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Nebula"
+        >
+          Nebula
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Ocean
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <span
+            class="ant-tag ant-tag-filled css-var-test-id"
+          >
+            Dashboard
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+      style="display:flex;flex-direction:column;gap:16px"
+    >
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        A calm blue-green accent that works well for data views and cloud tooling.
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+        style="gap:8px"
+      >
+        <span
+          class="ant-tag ant-tag-filled css-var-test-id"
+          style="background-color:#e5f0ff;color:#1677ff"
+        >
+          #1677ff
+          <!-- -->
+           · 
+          <!-- -->
+          0
+          <!-- -->
+          %
+        </span>
+        <span
+          class="ant-tag ant-tag-filled css-var-test-id"
+          style="background-color:#eafafa;color:#36cfc9"
+        >
+          #36cfc9
+          <!-- -->
+           · 
+          <!-- -->
+          52
+          <!-- -->
+          %
+        </span>
+        <span
+          class="ant-tag ant-tag-filled css-var-test-id"
+          style="background-color:#f1fbea;color:#95de64"
+        >
+          #95de64
+          <!-- -->
+           · 
+          <!-- -->
+          100
+          <!-- -->
+          %
+        </span>
+      </div>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Stop positions use the public 0-100 input range.
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/duration.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap:16px"
+>
+  <div
+    style="width:220px"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Fast
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              3
+              <!-- -->
+              s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          A quick loop for temporary highlights and active modules.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width:220px"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              6
+              <!-- -->
+              s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          The original pacing for most emphasized containers.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width:220px"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Slow
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              12
+              <!-- -->
+              s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          A calmer loop for persistent panels and ambient surfaces.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/line-width.tsx correctly 1`] = `
+<div
+  style="width:360px"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+    style="border-width:2px"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Custom line width
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set lineWidth to match the border width of this container.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/non-uniform-radius.tsx correctly 1`] = `
+<div
+  style="width:360px"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+    style="border-radius:20px 20px 0 0;overflow:hidden"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Activity stream
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+      style="display:flex;flex-direction:column;gap:16px"
+    >
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Use a multi-value \`borderRadius\` like \`20px 20px 0 0\` to keep the beam aligned with non-uniform corners.
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      >
+        <span
+          class="ant-typography css-var-test-id"
+        >
+          <strong>
+            12 running jobs
+          </strong>
+        </span>
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <span>
+            View queue
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/size.tsx correctly 1`] = `
+<div
+  style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:32px;max-width:960px"
+>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              100
+              <!-- -->
+              px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height:112px;display:flex;align-items:center"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Uses the default 100px visible beam segment.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Compact
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              56
+              <!-- -->
+              px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height:112px;display:flex;align-items:center"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Keeps the highlight shorter for dense card groups.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="grid-column:1 / -1"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Extended
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              160
+              <!-- -->
+              px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height:192px;display:flex;align-items:center"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Creates a longer highlight for wider feature panels.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

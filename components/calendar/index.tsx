@@ -1,8 +1,16 @@
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import type { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import generateCalendar, { type CalendarProps } from './generateCalendar';
+
+import generateCalendar from './generateCalendar';
+
+export type { CalendarMode, CalendarProps } from './generateCalendar';
 
 const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
-export type { CalendarProps };
-export default Calendar;
+export type CalendarType = typeof Calendar & {
+  generateCalendar: typeof generateCalendar;
+};
+
+(Calendar as CalendarType).generateCalendar = generateCalendar;
+
+export default Calendar as CalendarType;

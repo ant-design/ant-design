@@ -1,16 +1,15 @@
+import React, { useState } from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
-import React from 'react';
 
+import type { SegmentedValue } from '..';
+import Segmented from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-
-import type { SegmentedValue } from '../index';
-import Segmented from '../index';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 
 // Make CSSMotion working without transition
-jest.mock('rc-motion/lib/util/motion', () => ({
-  ...jest.requireActual('rc-motion/lib/util/motion'),
+jest.mock('@rc-component/motion/lib/util/motion', () => ({
+  ...jest.requireActual('@rc-component/motion/lib/util/motion'),
   supportTransition: false,
 }));
 
@@ -30,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented);
-  rtlTest(Segmented);
+  mountTest(() => <Segmented options={[]} />);
+  rtlTest(() => <Segmented options={[]} />);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -62,7 +61,7 @@ describe('Segmented', () => {
         options={[
           { label: 'Daily', value: 'Daily' },
           { label: <div id="weekly">Weekly</div>, value: 'Weekly' },
-          { label: <h2>Monthly</h2>, value: 'Monthly' },
+          { label: <div className="little">Monthly</div>, value: 'Monthly' },
         ]}
       />,
     );
@@ -72,7 +71,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false]);
 
     expect(container.querySelector('#weekly')?.textContent).toContain('Weekly');
-    expect(container.querySelectorAll('h2')[0].textContent).toContain('Monthly');
+    expect(container.querySelector('.little')?.textContent).toContain('Monthly');
   });
 
   it('render segmented with defaultValue', () => {
@@ -94,11 +93,10 @@ describe('Segmented', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
 
     expectMatchChecked(container, [true, false, false]);
-    expect(
-      container
-        .querySelectorAll(`label.${prefixCls}-item`)[0]
-        .classList.contains(`${prefixCls}-item-selected`),
-    ).toBeTruthy();
+
+    expect(container.querySelectorAll(`label.${prefixCls}-item`)[0]).toHaveClass(
+      `${prefixCls}-item-selected`,
+    );
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toHaveBeenCalledWith('Monthly');
@@ -146,11 +144,9 @@ describe('Segmented', () => {
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(
-      container
-        .querySelectorAll(`label.${prefixCls}-item`)[1]
-        .classList.contains(`${prefixCls}-item-disabled`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`label.${prefixCls}-item`)[1]).toHaveClass(
+      `${prefixCls}-item-disabled`,
+    );
     expect(container.querySelectorAll(`.${prefixCls}-item-input`)[1]).toHaveAttribute('disabled');
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
@@ -175,9 +171,7 @@ describe('Segmented', () => {
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(
-      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-disabled`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`.${prefixCls}`)[0]).toHaveClass(`${prefixCls}-disabled`);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).not.toHaveBeenCalled();
@@ -214,35 +208,21 @@ describe('Segmented', () => {
   });
 
   it('render segmented with controlled mode', async () => {
-    class Demo extends React.Component<{}, { value: SegmentedValue }> {
-      state = {
-        value: 'Map',
-      };
-
-      render() {
-        return (
-          <>
-            <Segmented
-              options={['Map', 'Transit', 'Satellite']}
-              value={this.state.value}
-              onChange={(value) =>
-                this.setState({
-                  value,
-                })
-              }
-            />
-            <div className="value">{this.state.value}</div>
-            <input
-              className="control"
-              onChange={(e) => {
-                this.setState({ value: e.target.value });
-              }}
-            />
-          </>
-        );
-      }
-    }
-
+    const Demo: React.FC = () => {
+      const [value, setValue] = useState<SegmentedValue>('Map');
+      return (
+        <>
+          <Segmented options={['Map', 'Transit', 'Satellite']} value={value} onChange={setValue} />
+          <div className="value">{value}</div>
+          <input
+            className="control"
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
+        </>
+      );
+    };
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[0]);
     expect(container.querySelector('.value')?.textContent).toBe('Map');
@@ -277,11 +257,9 @@ describe('Segmented', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
 
     expectMatchChecked(container, [true, false, false]);
-    expect(
-      container
-        .querySelectorAll(`label.${prefixCls}-item`)[0]
-        .classList.contains(`${prefixCls}-item-selected`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`label.${prefixCls}-item`)[0]).toHaveClass(
+      `${prefixCls}-item-selected`,
+    );
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toHaveBeenCalledWith('Satellite');
@@ -289,7 +267,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [false, false, true]);
 
     // thumb appeared
-    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
+    // expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
 
     // change selection again
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
@@ -298,7 +276,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [false, true, false]);
 
     // thumb appeared
-    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
+    // expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
   });
 
   it('render segmented with `block`', () => {
@@ -308,9 +286,7 @@ describe('Segmented', () => {
 
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(
-      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-block`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`.${prefixCls}`)[0]).toHaveClass(`${prefixCls}-block`);
   });
 
   it('render segmented with `size#small`', () => {
@@ -320,9 +296,7 @@ describe('Segmented', () => {
 
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(
-      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-sm`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`.${prefixCls}`)[0]).toHaveClass(`${prefixCls}-sm`);
   });
 
   it('render segmented with `size#large`', () => {
@@ -332,9 +306,7 @@ describe('Segmented', () => {
 
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(
-      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-lg`),
-    ).toBeTruthy();
+    expect(container.querySelectorAll(`.${prefixCls}`)[0]).toHaveClass(`${prefixCls}-lg`);
   });
 
   it('render with icons', () => {
@@ -360,5 +332,60 @@ describe('Segmented', () => {
         .querySelectorAll(`div.${prefixCls}-item-label`)[1]
         .textContent?.includes('KanbanYes'),
     ).toBeTruthy();
+  });
+
+  it('all children should have a name property', () => {
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(
+      <Segmented options={['iOS', 'Android', 'Web']} name={GROUP_NAME} />,
+    );
+
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
+      expect(el.name).toBe(GROUP_NAME);
+    });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Segmented vertical orientation="horizontal" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(
+        <Segmented orientation="vertical" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).not.toBeNull();
+    });
+  });
+
+  describe('toolTip for optionItem ', () => {
+    it('Configuring tooltip in the options should display the corresponding information', async () => {
+      const { container } = render(
+        <Segmented
+          orientation="vertical"
+          options={[
+            { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
+            'Weekly',
+            { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
+          ]}
+        />,
+      );
+      const itemList = container.querySelectorAll('.ant-segmented-item');
+      fireEvent.mouseEnter(itemList[0]);
+      fireEvent.mouseEnter(itemList[1]);
+      fireEvent.mouseEnter(itemList[2]);
+      await waitFor(() => {
+        const tooltipList = document.querySelectorAll('.ant-tooltip');
+        expect(tooltipList).toHaveLength(2);
+        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-container');
+        expect(tooltipInnerList).toHaveLength(2);
+        expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
+        expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
+      });
+    });
   });
 });

@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('tabs');
+extendTest('tabs', {
+  skip: ['custom-tab-bar-node.tsx'],
+});

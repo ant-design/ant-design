@@ -1,6 +1,9 @@
 import React from 'react';
+
 import FloatButton from '..';
+import type { FloatButtonGroupProps } from '..';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('FloatButtonGroup', () => {
   it('should correct render', () => {
@@ -57,5 +60,182 @@ describe('FloatButtonGroup', () => {
     fireEvent.mouseEnter(container.querySelector('.ant-float-btn-group')!);
     fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
     expect(onOpenChange).toHaveBeenCalled();
+  });
+  it('should not trigger open when hover menu is disabled', () => {
+    const onOpenChange = jest.fn();
+    const { container, rerender } = render(
+      <FloatButton.Group disabled trigger="hover" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    const group = container.querySelector('.ant-float-btn-group')!;
+
+    fireEvent.mouseEnter(group);
+    fireEvent.mouseLeave(group);
+    expect(onOpenChange).not.toHaveBeenCalled();
+
+    rerender(
+      <ConfigProvider componentDisabled>
+        <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
+          <FloatButton />
+          <FloatButton />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-float-btn-group')!);
+    fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
+    expect(onOpenChange).not.toHaveBeenCalled();
+  });
+  it('support click floatButtonGroup not close', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container.querySelector('.ant-float-btn-group')!);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+  });
+  it('support click out auto close', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container);
+    expect(onOpenChange).toHaveBeenCalledTimes(2);
+  });
+
+  it('support onClick for floatButtonGroup', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onClick={onClick}>
+        <FloatButton />
+        <FloatButton />
+
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    const floatButton = container
+      .querySelector('.ant-float-btn-group')!
+      .querySelector('.ant-float-btn');
+    fireEvent.click(floatButton!);
+    expect(onClick).toHaveBeenCalled();
+  });
+  it('support click floatButtonGroup when children has onClick', () => {
+    const onClick = jest.fn();
+    const onClick2 = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onClick={onClick}>
+        <FloatButton onClick={onClick2} />
+        <FloatButton onClick={onClick2} />
+        <FloatButton onClick={onClick2} />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container.querySelector('.ant-float-btn-group')!);
+    expect(onClick).toHaveBeenCalled();
+    expect(onClick2).not.toHaveBeenCalled();
+  });
+
+  it('warning if set `open` but not set `trigger`', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <FloatButton.Group open trigger="click">
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(warnSpy).not.toHaveBeenCalled();
+
+    render(
+      <FloatButton.Group open>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton.Group] `open` need to be used together with `trigger`',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('menu should support badge', () => {
+    const { container } = render(
+      <FloatButton.Group trigger="click" badge={{ dot: true }}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(container.querySelector('.ant-badge')).toBeTruthy();
+  });
+
+  it('FloatButton.Group should support placement', () => {
+    (['bottom', 'left', 'right', 'top'] as const).forEach((placement) => {
+      const { container } = render(
+        <FloatButton.Group placement={placement} trigger="click" open>
+          <FloatButton />
+        </FloatButton.Group>,
+      );
+      const element = container.querySelector<HTMLDivElement>('.ant-float-btn-group');
+      expect(element).toHaveClass(`ant-float-btn-group-${placement}`);
+    });
+  });
+
+  describe('semantic classNames/styles', () => {
+    it('should apply dynamic classNames and styles from props function', () => {
+      const classNames: FloatButtonGroupProps['classNames'] = (info) => {
+        if (info.props.placement === 'bottom') {
+          return { root: 'float-btn-group-bottom' };
+        }
+        return { root: 'float-btn-group-top' };
+      };
+      const styles: FloatButtonGroupProps['styles'] = (info) => {
+        if (info.props.shape === 'square') {
+          return { root: { opacity: 1 } };
+        }
+        return { root: { opacity: 0.5 } };
+      };
+
+      const { rerender, container } = render(
+        <FloatButton.Group placement="bottom" classNames={classNames} styles={styles}>
+          <FloatButton />
+        </FloatButton.Group>,
+      );
+      expect(container.querySelector('.float-btn-group-bottom')).toBeTruthy();
+      expect(container.querySelector('[style*="opacity: 0.5"]')).toBeTruthy();
+
+      rerender(
+        <FloatButton.Group placement="top" shape="square" classNames={classNames} styles={styles}>
+          <FloatButton />
+        </FloatButton.Group>,
+      );
+      expect(container.querySelector('.float-btn-group-top')).toBeTruthy();
+      expect(container.querySelector('[style*="opacity: 1"]')).toBeTruthy();
+    });
+
+    it('should apply object classNames and styles', () => {
+      const classNames = { root: 'float-btn-group-custom', list: 'float-btn-group-list-custom' };
+      const styles = { root: { border: '1px solid blue' }, list: { gap: '8px' } };
+
+      const { container } = render(
+        <FloatButton.Group classNames={classNames} styles={styles}>
+          <FloatButton />
+        </FloatButton.Group>,
+      );
+      expect(container.querySelector('.float-btn-group-custom')).toBeTruthy();
+      expect(container.querySelector('.float-btn-group-list-custom')).toBeTruthy();
+    });
   });
 });

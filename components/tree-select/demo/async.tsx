@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { TreeSelectProps } from 'antd';
+import type { GetProp, TreeSelectProps } from 'antd';
 import { TreeSelect } from 'antd';
-import type { DefaultOptionType } from 'antd/es/select';
+
+type DefaultOptionType = GetProp<TreeSelectProps, 'treeData'>[number];
 
 const App: React.FC = () => {
   const [value, setValue] = useState<string>();
@@ -42,7 +43,11 @@ const App: React.FC = () => {
       treeDataSimpleMode
       style={{ width: '100%' }}
       value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      styles={{
+        popup: {
+          root: { maxHeight: 400, overflow: 'auto' },
+        },
+      }}
       placeholder="Please select"
       onChange={onChange}
       loadData={onLoadData}

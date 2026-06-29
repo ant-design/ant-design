@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const testDist = process.env.LIB_DIR === 'dist' || process.env.CHANGELOG_TEST;
+
+// This test is used to ensure changelog includes related component
+describe('component changelog match snapshot', () => {
+  const testFn = testDist ? it : it.skip;
+
+  testFn('misc changelog snapshot', () => {
+    const changelog = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), '.dumi', 'preset', 'misc-changelog.json'), 'utf8'),
+    );
+    expect(changelog).toMatchSnapshot();
+  });
+});

@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
-import { Rate } from 'antd';
+import { Flex, Rate } from 'antd';
+import type { RateProps } from 'antd';
 
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const desc: RateProps['tooltips'] = [
+  'terrible',
+  { placement: 'top', title: 'bad', trigger: 'hover' },
+  'normal',
+  'good',
+  'wonderful',
+];
+
+function getDescTitle(value: number, desc: RateProps['tooltips']) {
+  const item = desc?.[value - 1];
+  return item && typeof item === 'object' ? item.title : item;
+}
 
 const App: React.FC = () => {
   const [value, setValue] = useState(3);
-
   return (
-    <span>
+    <Flex gap="medium" vertical>
       <Rate tooltips={desc} onChange={setValue} value={value} />
-      {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
-    </span>
+      {value ? <span>{getDescTitle(value, desc) as React.ReactNode}</span> : null}
+    </Flex>
   );
 };
 

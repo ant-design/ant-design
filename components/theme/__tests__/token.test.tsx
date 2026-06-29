@@ -1,13 +1,35 @@
-import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
-import genRadius from '../themes/shared/genRadius';
+import { Theme } from '@ant-design/cssinjs';
+
+import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import theme from '..';
+import type { ThemeConfig } from '../../config-provider/context';
+import Input from '../../input';
+import Row from '../../row';
+import genRadius from '../themes/shared/genRadius';
 
 const { useToken } = theme;
 
 describe('Theme', () => {
+  const getHookToken = (config?: ThemeConfig) => {
+    let token: any;
+    let cssVar: any;
+    const Demo: React.FC = () => {
+      ({ token, cssVar } = useToken());
+      return null;
+    };
+    render(
+      <ConfigProvider theme={config}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    delete token._hashId;
+    delete token._tokenKey;
+    delete token._themeKey;
+    return { token, cssVar };
+  };
+
   it('useTheme', () => {
     const { result } = renderHook(() => useToken());
 
@@ -16,23 +38,28 @@ describe('Theme', () => {
     expect(result.current!.token).toEqual(
       expect.objectContaining({
         colorPrimary: '#1677ff',
+        'blue-6': '#1677ff',
       }),
     );
   });
 
   it('ConfigProvider with seed', () => {
-    const Demo = React.forwardRef((_, ref: any) => {
+    const Demo = React.forwardRef<ReturnType<typeof useToken>, any>((_, ref) => {
       const themeObj = useToken();
-      ref.current = themeObj;
+      if (typeof ref === 'function') {
+        ref(themeObj);
+      } else if (ref) {
+        ref.current = themeObj;
+      }
       return null;
     });
-
     const themeRef = React.createRef<ReturnType<typeof useToken>>();
     render(
       <ConfigProvider
         theme={{
           token: {
             colorPrimary: '#ff0000',
+            orange: '#ff8800',
           },
         }}
       >
@@ -44,6 +71,8 @@ describe('Theme', () => {
       expect.objectContaining({
         colorPrimary: '#ff0000',
         colorPrimaryHover: '#ff3029', // It's safe to modify if theme logic changed
+        orange6: '#ff8800',
+        orange9: '#8c3d00', // It's safe to modify if theme logic changed
       }),
     );
   });
@@ -128,7 +157,7 @@ describe('Theme', () => {
         borderRadiusOuter: 6,
       },
       20: {
-        borderRadius: 16,
+        borderRadius: 20,
         borderRadiusLG: 16,
         borderRadiusSM: 8,
         borderRadiusXS: 2,
@@ -141,5 +170,217 @@ describe('Theme', () => {
         expect(genRadius(Number(base))).toMatchObject(result);
       });
     });
+  });
+
+  const rowShouldThrow = (screens: any, error: string) => {
+    const demoRender = () =>
+      render(
+        <ConfigProvider theme={{ token: screens }}>
+          <Row />
+        </ConfigProvider>,
+      );
+    expect(demoRender).toThrow(error);
+  };
+
+  describe('invalid breakpoints order values should raise an error', () => {
+    const tests: Array<[string, number, string]> = [
+      ['screenXS', 1000, 'screenXSMax<=screenSMMin fails : !(1010<=576)'],
+      ['screenSM', 1000, 'screenSMMax<=screenMDMin fails : !(1010<=768)'],
+      ['screenMD', 1000, 'screenMDMax<=screenLGMin fails : !(1010<=992)'],
+      ['screenLG', 2000, 'screenLGMax<=screenXLMin fails : !(2010<=1200)'],
+      ['screenXL', 2000, 'screenXLMax<=screenXXLMin fails : !(2010<=1600)'],
+    ];
+
+    tests.forEach(([screen, value, error]: any) => {
+      it(`Screen ${screen} is too big`, () => {
+        rowShouldThrow(
+          { [screen]: value, [`${screen}Min`]: value, [`${screen}Max`]: value + 10 },
+          error,
+        );
+      });
+    });
+  });
+
+  describe('invalid breakpoints MIN<=BP values should raise an error', () => {
+    const tests: Array<[string, number, string]> = [
+      ['screenXSMin', 1000, 'screenXSMin<=screenXS fails : !(1000<=480)'],
+      ['screenSMMin', 1000, 'screenSMMin<=screenSM fails : !(1000<=576)'],
+      ['screenMDMin', 1000, 'screenMDMin<=screenMD fails : !(1000<=768)'],
+      ['screenLGMin', 2000, 'screenLGMin<=screenLG fails : !(2000<=992)'],
+      ['screenXLMin', 2000, 'screenXLMin<=screenXL fails : !(2000<=1200)'],
+      ['screenXXLMin', 2000, 'screenXXLMin<=screenXXL fails : !(2000<=1600)'],
+    ];
+
+    tests.forEach(([screen, value, error]: any) => {
+      it(`Screen ${screen}Min is too big regarding ${screen}`, () => {
+        rowShouldThrow({ [screen]: value }, error);
+      });
+    });
+  });
+
+  describe('invalid breakpoints BP<=MAX values should raise an error', () => {
+    const tests: Array<[string, number, string]> = [
+      ['screenXS', 1000, 'screenXS<=screenXSMax fails : !(1000<=575)'],
+      ['screenSM', 1000, 'screenSM<=screenSMMax fails : !(1000<=767)'],
+      ['screenMD', 1000, 'screenMD<=screenMDMax fails : !(1000<=991)'],
+      ['screenLG', 2000, 'screenLG<=screenLGMax fails : !(2000<=1199)'],
+      ['screenXL', 2000, 'screenXL<=screenXLMax fails : !(2000<=1599)'],
+    ];
+
+    tests.forEach(([screen, value, error]: any) => {
+      it(`Screen ${screen} is too big regarding ${screen}Max`, () => {
+        rowShouldThrow({ [screen]: value }, error);
+      });
+    });
+  });
+
+  it('motion false token', () => {
+    const Shower = () => {
+      const { token } = useToken();
+
+      return <div className="duration">{token.motionDurationSlow}</div>;
+    };
+
+    const { container } = render(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Shower />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.duration')?.textContent).toBe('0s');
+  });
+
+  describe('getDesignToken', () => {
+    it('default', () => {
+      const token = theme.getDesignToken();
+      const { token: hookToken } = getHookToken();
+      expect(token).toEqual(hookToken);
+    });
+
+    it('with custom token', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#189cff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+      };
+      const token = theme.getDesignToken(config);
+      const { token: hookToken } = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toBe('#189cff');
+    });
+
+    it('with custom algorithm', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#1677ff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+        algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+      };
+      const token = theme.getDesignToken(config);
+      const { token: hookToken } = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toBe('#1668dc');
+    });
+  });
+
+  describe('colorLink', () => {
+    it('should follow colorPrimary by default', () => {
+      const { token } = getHookToken();
+      expect(token.colorLink).toBe(token.colorInfo);
+      expect(token.colorLinkHover).toBe(token.colorInfoHover);
+      expect(token.colorLinkActive).toBe(token.colorInfoActive);
+
+      const { token: token2 } = getHookToken({ token: { colorPrimary: '#189cff' } });
+      expect(token2.colorLink).toBe(token2.colorInfo);
+      expect(token2.colorLinkHover).toBe(token2.colorInfoHover);
+      expect(token2.colorLinkActive).toBe(token2.colorInfoActive);
+      // colorInfo should not follow colorPrimary
+      expect(token2.colorLink).not.toBe('#189cff');
+
+      const { token: token3 } = getHookToken({ algorithm: [theme.darkAlgorithm] });
+      expect(token3.colorLink).toBe(token3.colorInfo);
+      expect(token3.colorLinkHover).toBe(token3.colorInfoHover);
+      expect(token3.colorLinkActive).toBe(token3.colorInfoActive);
+    });
+
+    it('should be calculated correctly', () => {
+      const { token } = getHookToken({ token: { colorLink: '#189cff' } });
+      expect(token.colorLink).toBe('#189cff');
+      expect(token.colorLinkHover).toBe('#69c8ff');
+      expect(token.colorLinkActive).toBe('#0978d9');
+    });
+  });
+
+  it('shadow tokens should adapt to dark theme', () => {
+    const { token } = getHookToken();
+    const { token: darkToken } = getHookToken({
+      algorithm: [theme.darkAlgorithm],
+    });
+    const { token: darkCustomTextBaseToken } = getHookToken({
+      algorithm: [theme.darkAlgorithm],
+      token: { colorTextBase: '#ff0000' },
+    });
+
+    expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
+    expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
+    expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.016\)/);
+    expect(darkToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
+    expect(darkCustomTextBaseToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
+  });
+
+  it('component token should support algorithm', () => {
+    const Demo: React.FC<{ algorithm?: boolean | typeof theme.darkAlgorithm }> = (props) => {
+      const { algorithm } = props;
+      return (
+        <ConfigProvider theme={{ components: { Input: { colorPrimary: '#00B96B', algorithm } } }}>
+          <Input />
+        </ConfigProvider>
+      );
+    };
+
+    const { container, rerender } = render(<Demo />);
+    const inputElement = container.querySelector<HTMLInputElement>('input');
+
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#4096ff' });
+
+    rerender(<Demo algorithm />);
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#20c77c' });
+
+    rerender(<Demo algorithm={theme.darkAlgorithm} />);
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#1fb572' });
+  });
+
+  it('get cssVar from useToken', () => {
+    const { cssVar } = getHookToken();
+    expect(cssVar.colorLink).toBe('var(--ant-color-link)');
+    expect(cssVar.colorLinkHover).toBe('var(--ant-color-link-hover)');
+    expect(cssVar.colorLinkActive).toBe('var(--ant-color-link-active)');
+  });
+
+  it('should respect empty string cssVar prefix', () => {
+    const { cssVar: defaultCssVar } = getHookToken();
+    const { cssVar: emptyPrefixCssVar } = getHookToken({
+      cssVar: {
+        prefix: '',
+        key: '',
+      },
+    });
+
+    // Default behavior should still use "ant" prefix
+    expect(defaultCssVar.colorLink).toBe('var(--ant-color-link)');
+
+    // When cssVar.prefix is an empty string, it should not equal default value
+    expect(emptyPrefixCssVar.colorLink).not.toBe(defaultCssVar.colorLink);
+
+    // It should not start with "ant" prefix
+    expect(emptyPrefixCssVar.colorLink.startsWith('var(--ant-')).toBeFalsy();
+
+    // It should still be a valid CSS variable reference and contain "color-link"
+    expect(emptyPrefixCssVar.colorLink.startsWith('var(--')).toBeTruthy();
+    expect(emptyPrefixCssVar.colorLink).toContain('color-link');
   });
 });

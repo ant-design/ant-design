@@ -1,0 +1,22 @@
+import React from 'react';
+import { AutoComplete, Flex, Select } from 'antd';
+
+const AutoCompleteAndSelect = () => {
+  return (
+    <Flex vertical gap={16}>
+      {(['small', 'medium', 'large'] as const).map((size) => (
+        <Flex key={size}>
+          <Select
+            value="centered"
+            size={size}
+            style={{ width: 200 }}
+            showSearch={{ searchValue: 'centered' }}
+          />
+          <AutoComplete value="centered" size={size} style={{ width: 200 }} />
+        </Flex>
+      ))}
+    </Flex>
+  );
+};
+
+export default AutoCompleteAndSelect;

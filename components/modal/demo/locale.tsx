@@ -34,21 +34,28 @@ const LocalizedModal = () => {
   );
 };
 
-const confirm = () => {
-  Modal.confirm({
-    title: 'Confirm',
-    icon: <ExclamationCircleOutlined />,
-    content: 'Bla bla ...',
-    okText: '确认',
-    cancelText: '取消',
-  });
-};
+const App: React.FC = () => {
+  const [modal, contextHolder] = Modal.useModal();
 
-const App: React.FC = () => (
-  <Space>
-    <LocalizedModal />
-    <Button onClick={confirm}>Confirm</Button>
-  </Space>
-);
+  const confirm = () => {
+    modal.confirm({
+      title: 'Confirm',
+      icon: <ExclamationCircleOutlined />,
+      content: 'Bla bla ...',
+      okText: '确认',
+      cancelText: '取消',
+    });
+  };
+
+  return (
+    <>
+      <Space>
+        <LocalizedModal />
+        <Button onClick={confirm}>Confirm</Button>
+      </Space>
+      {contextHolder}
+    </>
+  );
+};
 
 export default App;

@@ -1,12 +1,14 @@
 const antd = require('./components');
 
-const req = require.context('./components', true, /^\.\/locale\/.+_.+\.tsx$/);
+const req = require.context('./components', true, /^\.\/locale\/[A-Za-z]+_[A-Za-z]+\.tsx?$/);
 
-antd.locales = {};
+const antdWithLocales = { ...antd };
+
+antdWithLocales.locales = {};
 
 req.keys().forEach((mod) => {
-  const matches = mod.match(/\/([^/]+).tsx$/);
-  antd.locales[matches[1]] = req(mod).default;
+  const matches = mod.match(/\/([^/]+).tsx?$/);
+  antdWithLocales.locales[matches[1]] = req(mod).default;
 });
 
-module.exports = antd;
+module.exports = antdWithLocales;

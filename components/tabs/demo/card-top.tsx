@@ -1,7 +1,39 @@
 import React from 'react';
 import { Tabs } from 'antd';
+import { createStyles } from 'antd-style';
 
-const items = new Array(3).fill(null).map((_, i) => {
+const useStyle = createStyles(({ token, css }) => {
+  const antdTabsCls = '.ant-tabs';
+
+  return css`
+    ${antdTabsCls}${antdTabsCls}-card {
+      ${antdTabsCls}-body {
+        padding: ${token.padding}px;
+        background: ${token.colorBgContainer};
+      }
+
+      ${antdTabsCls}-nav {
+        margin: 0;
+
+        ${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab {
+          background: transparent;
+          border-color: transparent;
+
+          &-active {
+            border-color: ${token.colorBorderBg};
+            background: ${token.colorBgContainer};
+          }
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  `;
+});
+
+const items = Array.from({ length: 3 }).map((_, i) => {
   const id = String(i + 1);
   return {
     label: `Tab Title ${id}`,
@@ -16,10 +48,14 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
-  <div className="card-container">
-    <Tabs type="card" items={items} />
-  </div>
-);
+const App = () => {
+  const { styles } = useStyle();
+
+  return (
+    <div className={styles}>
+      <Tabs type="card" items={items} />
+    </div>
+  );
+};
 
 export default App;

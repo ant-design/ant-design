@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, message, Upload } from 'antd';
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import type { GetProp, UploadFile, UploadProps } from 'antd';
+
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [uploading, setUploading] = useState(false);
 
   const handleUpload = () => {
     const formData = new FormData();
     fileList.forEach((file) => {
-      formData.append('files[]', file as RcFile);
+      formData.append('files[]', file as FileType);
     });
     setUploading(true);
     // You can use any AJAX library you like
-    fetch('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
+    fetch('https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload', {
       method: 'POST',
       body: formData,
     })
       .then((res) => res.json())
       .then(() => {
         setFileList([]);
-        message.success('upload successfully.');
+        messageApi.success('upload successfully.');
       })
       .catch(() => {
-        message.error('upload failed.');
+        messageApi.error('upload failed.');
       })
       .finally(() => {
         setUploading(false);
@@ -48,6 +51,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      {contextHolder}
       <Upload {...props}>
         <Button icon={<UploadOutlined />}>Select File</Button>
       </Upload>

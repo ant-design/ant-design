@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Masonry rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-masonry css-var-root ant-masonry-rtl"
+  style="height: 0px;"
+/>
+`;

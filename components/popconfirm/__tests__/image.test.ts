@@ -1,5 +1,7 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Popconfirm image', () => {
-  imageDemoTest('popconfirm');
+  imageDemoTest('popconfirm', {
+    onlyViewport: ['shift.tsx'],
+  });
 });

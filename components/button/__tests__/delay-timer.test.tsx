@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
-import { fireEvent, render } from '../../../tests/utils';
-import Button from '../button';
+
+import { act, fireEvent, render } from '../../../tests/utils';
+import Button from '../Button';
 
 const specialDelay = 9529;
 const Content = () => {
@@ -90,4 +90,9 @@ it('Delay loading timer in Button component', () => {
   expect(clearTimeoutCount()).toBe(2);
 
   jest.restoreAllMocks();
+});
+it('Delay loading while use loading delay at first time', () => {
+  const Demo = () => <Button loading={{ delay: specialDelay }} />;
+  const wrapper = render(<Demo />);
+  expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
 });

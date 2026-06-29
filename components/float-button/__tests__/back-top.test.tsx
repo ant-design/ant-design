@@ -1,10 +1,13 @@
 import React from 'react';
+
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { BackTop } = FloatButton;
+
 describe('BackTop', () => {
   beforeEach(() => {
     jest.useFakeTimers();
@@ -48,7 +51,26 @@ describe('BackTop', () => {
   });
 
   it('pass style to float button', () => {
-    const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
-    expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
+    const { container } = render(<BackTop style={{ padding: 20 }} visibilityHeight={0} />);
+    expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')).toHaveStyle({
+      padding: '20px',
+    });
+  });
+
+  it('no error when BackTop work', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<BackTop visibilityHeight={0} />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('supports ConfigProvider backTopIcon', () => {
+    const wrapper = render(
+      <ConfigProvider floatButton={{ backTopIcon: <span>666</span> }}>
+        <BackTop visibilityHeight={0} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.getByText('666')).toBeInTheDocument();
   });
 });

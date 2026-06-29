@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Space, Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.ReactNode;
@@ -71,14 +71,14 @@ const data: DataType[] = [
     key: 2,
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
 ];
 
 const App: React.FC = () => {
   const [fixed, setFixed] = useState(true);
 
-  const columns: ColumnsType<DataType> = [
+  const columns: TableColumnsType<DataType> = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -105,7 +105,7 @@ const App: React.FC = () => {
       <Space align="center" style={{ marginBottom: 16 }}>
         Fixed first column: <Switch checked={fixed} onChange={setFixed} />
       </Space>
-      <Table
+      <Table<DataType>
         columns={columns}
         rowSelection={{ columnWidth: 100 }}
         expandable={{ defaultExpandAllRows: true }}

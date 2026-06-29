@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Col, InputNumber, Row, Slider } from 'antd';
+import type { InputNumberProps } from 'antd';
+import { Col, InputNumber, Row, Slider, Space } from 'antd';
 
-const IntegerStep = () => {
+const IntegerStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(1);
 
-  const onChange = (newValue: number) => {
-    setInputValue(newValue);
+  const onChange: InputNumberProps['onChange'] = (newValue) => {
+    setInputValue(newValue as number);
   };
 
   return (
@@ -31,15 +32,14 @@ const IntegerStep = () => {
   );
 };
 
-const DecimalStep = () => {
+const DecimalStep: React.FC = () => {
   const [inputValue, setInputValue] = useState(0);
 
-  const onChange = (value: number) => {
-    if (isNaN(value)) {
+  const onChange: InputNumberProps['onChange'] = (value) => {
+    if (Number.isNaN(value)) {
       return;
     }
-
-    setInputValue(value);
+    setInputValue(value as number);
   };
 
   return (
@@ -68,10 +68,10 @@ const DecimalStep = () => {
 };
 
 const App: React.FC = () => (
-  <div>
+  <Space style={{ width: '100%' }} vertical>
     <IntegerStep />
     <DecimalStep />
-  </div>
+  </Space>
 );
 
 export default App;

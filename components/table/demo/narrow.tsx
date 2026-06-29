@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -9,7 +9,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -24,20 +24,21 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-
-for (let i = 0; i < 200; i += 1) {
-  data.push({
-    key: i,
-    name: 'Sample Name',
-    age: 30 + (i % 5),
-    address: `Sample Address ${i}`,
-  });
-}
+const dataSource = Array.from({ length: 200 }).map<DataType>((_, key) => ({
+  key,
+  name: 'Sample Name',
+  age: 30 + (key % 5),
+  address: `Sample Address ${key}`,
+}));
 
 const App: React.FC = () => (
   <div style={{ width: 300 }}>
-    <Table columns={columns} dataSource={data} size="small" pagination={{ defaultCurrent: 13 }} />
+    <Table<DataType>
+      columns={columns}
+      dataSource={dataSource}
+      size="small"
+      pagination={{ defaultCurrent: 13 }}
+    />
   </div>
 );
 

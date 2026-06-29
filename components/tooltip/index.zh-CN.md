@@ -1,62 +1,122 @@
 ---
 category: Components
-subtitle: 文字提示
 group: 数据展示
 title: Tooltip
-cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
+subtitle: 文字提示
+description: 简单的文字提示气泡框。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-简单的文字提示气泡框。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。
 
 可用来代替系统默认的 `title` 提示，提供一个 `按钮/文字/操作` 的文案解释。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/smooth-transition.tsx">平滑过渡</code>
 <code src="./demo/placement.tsx">位置</code>
-<code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
+<code src="./demo/arrow.tsx">箭头展示</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>自动调整位置</code>
-<code src="./demo/destroy-tooltip-on-hide.tsx" debug>隐藏后销毁</code>
+<code src="./demo/destroy-on-close.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
+<code src="./demo/wrap-custom-component.tsx">自定义子组件</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
 
-| 参数  | 说明     | 类型                         | 默认值 |
-| ----- | -------- | ---------------------------- | ------ |
-| title | 提示文字 | ReactNode \| () => ReactNode | -      |
+通用属性参考：[通用属性](/docs/react/common-props)
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| title | 提示文字 | ReactNode \| () => ReactNode | - | - | × |
+| color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | string | - | 5.27.0 | × |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 | 5.23.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.23.0 | 5.23.0 |
 
 ### 共同的 API
 
-以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。
+<embed src="./shared/sharedProps.zh-CN.md"></embed>
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
-| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | false |  |
-| autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
-| color | 背景颜色 | string | - | 4.3.0 |
-| defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
-| destroyTooltipOnHide | 关闭后是否销毁 Tooltip，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
-| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
-| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
-| overlayClassName | 卡片类名 | string | - |  |
-| overlayStyle | 卡片样式 | object | - |  |
-| overlayInnerStyle | 卡片内容区域的样式对象 | object | - |  |
-| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
-| open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | false | 4.23.0 |
-| zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
-| onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
+### ConfigProvider - tooltip.unique {#config-provider-tooltip-unique}
 
-## 注意
+可以通过 ConfigProvider 全局配置 Tooltip 的唯一性显示。当 `unique` 设置为 `true` 时，同一时间 ConfigProvider 下的 Tooltip 只会显示一个，提供更好的用户体验和平滑的过渡效果。
 
-请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+注意：配置后 `getContainer`、`arrow` 等属性将会失效。
+
+```tsx
+import { Button, ConfigProvider, Space, Tooltip } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    tooltip={{
+      unique: true,
+    }}
+  >
+    <Space>
+      <Tooltip title="第一个提示">
+        <Button>按钮 1</Button>
+      </Tooltip>
+      <Tooltip title="第二个提示">
+        <Button>按钮 2</Button>
+      </Tooltip>
+    </Space>
+  </ConfigProvider>
+);
+```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Tooltip"></ComponentTokenTable>
+
+## FAQ
+
+### 为何有时候 HOC 组件无法生效？ {#faq-hoc-component}
+
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
+
+请查看 https://github.com/ant-design/ant-design/issues/15909
+
+### 为何 Tooltip 的内容在关闭时不会更新？ {#faq-content-not-update}
+
+Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁：
+
+```jsx
+// `title` 不会因为 `user` 置空而闪烁置空
+<Tooltip open={user} title={user?.name} />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+如果需要在关闭时也更新内容，可以设置 `fresh` 属性（例如 [#44830](https://github.com/ant-design/ant-design/issues/44830) 中的场景）：
+
+```jsx
+<Tooltip open={user} title={user?.name} fresh />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+---
+
+<!-- 请确保在 FAQ 最后 -->
+
+<embed src="./shared/sharedFAQ.zh-CN.md"></embed>

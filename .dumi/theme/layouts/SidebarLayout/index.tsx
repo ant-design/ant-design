@@ -1,13 +1,26 @@
-import React, { FC, PropsWithChildren } from 'react';
-import Sidebar from '../../slots/Sidebar';
-import Content from '../../slots/Content';
-import CommonHelmet from '../../common/CommonHelmet';
+import type { PropsWithChildren } from 'react';
+import React from 'react';
+import { createStaticStyles } from 'antd-style';
+import { useSearchParams } from 'dumi';
 
-const SidebarLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
+import CommonHelmet from '../../common/CommonHelmet';
+import Content from '../../slots/Content';
+import Sidebar from '../../slots/Sidebar';
+
+const styles = createStaticStyles(({ css, cssVar }) => ({
+  main: css`
+    display: flex;
+    margin-top: ${cssVar.marginXL};
+  `,
+}));
+
+const SidebarLayout: React.FC<PropsWithChildren> = ({ children }) => {
+  const [searchParams] = useSearchParams();
+  const hideLayout = searchParams.get('layout') === 'false';
   return (
-    <main style={{ display: 'flex', marginTop: 40 }}>
+    <main className={styles.main}>
       <CommonHelmet />
-      <Sidebar />
+      {!hideLayout && <Sidebar />}
       <Content>{children}</Content>
     </main>
   );

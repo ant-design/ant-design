@@ -4,4 +4,4 @@
 
 ## en-US
 
-Configurate `disabled` and `readOnly`.
+Configure `disabled` and `readOnly`.

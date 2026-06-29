@@ -6,18 +6,12 @@ import type { Dayjs } from 'dayjs';
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;
 
-type DatePickerValue = Dayjs | null;
-type RangePickerValue = [Dayjs | null, Dayjs | null] | null;
-
-const onChange = (
-  date: DatePickerValue | RangePickerValue,
-  dateString: [string, string] | string,
-) => {
+const onChange = (date: Dayjs | (Dayjs | null)[] | null, dateString: string | string[] | null) => {
   console.log(date, dateString);
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
     <RangePicker suffixIcon={smileIcon} onChange={onChange} />
@@ -26,6 +20,10 @@ const App: React.FC = () => (
     <DatePicker suffixIcon="ab" onChange={onChange} picker="month" />
     <RangePicker suffixIcon="ab" onChange={onChange} />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
+    <DatePicker prefix={smileIcon} onChange={onChange} picker="week" />
+    <DatePicker prefix="Event Period" onChange={onChange} picker="week" />
+    <RangePicker prefix={smileIcon} onChange={onChange} picker="week" />
+    <RangePicker prefix="Event Period" onChange={onChange} picker="week" />
   </Space>
 );
 

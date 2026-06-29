@@ -34,7 +34,15 @@ const App: React.FC = () => {
       </Paragraph>
 
       <Text
-        style={ellipsis ? { width: 100 } : undefined}
+        style={ellipsis ? { width: 200 } : undefined}
+        ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
+      >
+        Ant Design, a design language for background applications, is refined by Ant UED Team.
+      </Text>
+
+      <Text
+        code
+        style={ellipsis ? { width: 200 } : undefined}
         ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
       >
         Ant Design, a design language for background applications, is refined by Ant UED Team.

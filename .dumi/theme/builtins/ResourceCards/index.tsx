@@ -1,62 +1,42 @@
 import React from 'react';
-import { Col, Row } from 'antd';
-import { css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Card, Col, Row, Tooltip, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { boxShadowSecondary } = token;
+import useLocale from '../../../hooks/useLocale';
 
-  return {
-    card: css`
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      color: inherit;
-      list-style: none;
-      border: 1px solid #e6e6e6;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: box-shadow 0.3s;
+const { Paragraph } = Typography;
 
-      &:hover {
-        box-shadow: ${boxShadowSecondary};
-      }
-    `,
-    image: css`
-      width: calc(100% + 2px);
-      max-width: none;
-      height: 184px;
-      margin: -1px -1px 0;
-      object-fit: cover;
-    `,
-    badge: css`
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      padding: 4px 8px;
-      color: #fff;
-      font-size: 12px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.65);
-      border-radius: 1px;
-      box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
-    `,
-    title: css`
-      margin: 16px 20px 8px;
-      color: #0d1a26;
-      font-size: 20px;
-      line-height: 28px;
-    `,
-    description: css`
-      margin: 0 20px 20px;
-      color: #697b8c;
-      font-size: 14px;
-      line-height: 22px;
-    `,
-  };
-};
+const useStyle = createStyles(({ cssVar, token, css }) => ({
+  card: css`
+    position: relative;
+    overflow: hidden;
+    ${token.antCls}-card-cover {
+      overflow: hidden;
+    }
+    img {
+      display: block;
+      transition: all ${cssVar.motionDurationSlow} ease-out;
+    }
+    &:hover img {
+      transform: scale(1.3);
+    }
+  `,
+  badge: css`
+    position: absolute;
+    top: 8px;
+    inset-inline-end: 8px;
+    padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
+    color: #fff;
+    font-size: ${cssVar.fontSizeSM};
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: ${cssVar.borderRadiusLG};
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    column-gap: ${cssVar.paddingXXS};
+  `,
+}));
 
 export type Resource = {
   title: string;
@@ -66,36 +46,58 @@ export type Resource = {
   official?: boolean;
 };
 
+const locales = {
+  cn: {
+    official: '官方',
+    thirdPart: '非官方',
+    thirdPartDesc: '非官方产品，请自行确认可用性',
+  },
+  en: {
+    official: 'Official',
+    thirdPart: 'Third Party',
+    thirdPartDesc: 'Unofficial product, please take care confirm availability',
+  },
+};
+
 export type ResourceCardProps = {
   resource: Resource;
 };
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
-  const styles = useStyle();
+  const { styles } = useStyle();
+  const [locale] = useLocale(locales);
 
-  const { title: titleStr, description, cover, src, official } = resource;
+  const { title, description, cover, src, official } = resource;
 
-  let coverColor: string | null = null;
-  let title: string = titleStr;
-  const titleMatch = titleStr.match(/(.*)(#[\dA-Fa-f]{6})/);
-  if (titleMatch) {
-    title = titleMatch[1].trim();
-    // eslint-disable-next-line prefer-destructuring
-    coverColor = titleMatch[2];
-  }
+  const badge = official ? (
+    <div className={styles.badge}>{locale.official}</div>
+  ) : (
+    <Tooltip title={locale.thirdPartDesc}>
+      <div className={styles.badge}>
+        <ExclamationCircleOutlined />
+        {locale.thirdPart}
+      </div>
+    </Tooltip>
+  );
 
   return (
-    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 12 }}>
-      <a css={styles.card} target="_blank" href={src}>
-        <img
-          css={styles.image}
-          src={cover}
-          alt={title}
-          style={coverColor ? { backgroundColor: coverColor } : {}}
-        />
-        {official && <div css={styles.badge}>Official</div>}
-        <p css={styles.title}>{title}</p>
-        <p css={styles.description}>{description}</p>
+    <Col xs={24} sm={12} md={8} lg={6}>
+      <a className={styles.card} target="_blank" href={src} rel="noopener noreferrer">
+        <Card
+          hoverable
+          className={styles.card}
+          cover={<img draggable={false} src={cover} alt={title} />}
+        >
+          <Card.Meta
+            title={title}
+            description={
+              <Paragraph style={{ marginBottom: 0 }} ellipsis={{ rows: 1 }} title={description}>
+                {description}
+              </Paragraph>
+            }
+          />
+          {badge}
+        </Card>
       </a>
     </Col>
   );
@@ -105,14 +107,12 @@ export type ResourceCardsProps = {
   resources: Resource[];
 };
 
-const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => {
-  return (
-    <Row style={{ margin: '-12px -12px 0 -12px' }}>
-      {resources.map((item) => (
-        <ResourceCard resource={item} key={item.title} />
-      ))}
-    </Row>
-  );
-};
+const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
+  <Row gutter={[24, 24]}>
+    {resources.map((item) => (
+      <ResourceCard resource={item} key={item?.title} />
+    ))}
+  </Row>
+);
 
 export default ResourceCards;

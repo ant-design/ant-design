@@ -1,16 +1,17 @@
+import React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
-import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import CSSMotion from '@rc-component/motion';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
+
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 
 export interface BackTopProps {
@@ -18,52 +19,53 @@ export interface BackTopProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
-  children?: React.ReactNode;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
 }
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+/**
+ * @deprecated Please use `FloatButton.BackTop` instead.
+ */
+const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     visibilityHeight = 400,
     target,
     onClick,
     duration = 450,
+    children,
   } = props;
+
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
-  const scrollEvent = React.useRef<ReturnType<typeof addEventListener> | null>(null);
 
-  const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+  const getDefaultTarget = () => ref.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
-      const scrollTop = getScroll(e.target, true);
+      const scrollTop = getScroll(e.target);
       setVisible(scrollTop >= visibilityHeight);
     },
   );
 
-  const bindScrollEvent = () => {
-    const getTarget = target || getDefaultTarget;
-    const container = getTarget();
-    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
-    handleScroll({ target: container });
-  };
-
   if (process.env.NODE_ENV !== 'production') {
-    warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
+    const warning = devUseWarning('BackTop');
+    warning.deprecated(false, 'BackTop', 'FloatButton.BackTop');
   }
 
   React.useEffect(() => {
-    bindScrollEvent();
+    const getTarget = target || getDefaultTarget;
+    const container = getTarget();
+    handleScroll({ target: container });
+    container?.addEventListener('scroll', handleScroll);
     return () => {
       handleScroll.cancel();
-      scrollEvent.current?.remove();
+      container?.removeEventListener('scroll', handleScroll);
     };
   }, [target]);
 
@@ -75,22 +77,29 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const classString = classNames(
+  const rootPrefixCls = getPrefixCls();
+
+  const rootCls = useCSSVarCls(prefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const classString = clsx(
     hashId,
+    cssVarCls,
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
   );
 
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(props, [
     'prefixCls',
     'className',
+    'rootClassName',
     'children',
     'visibilityHeight',
     'target',
@@ -104,17 +113,21 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     </div>
   );
 
-  return wrapSSR(
+  return (
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) =>
-          cloneElement(props.children || defaultElement, ({ className: cloneCls }) => ({
-            className: classNames(motionClassName, cloneCls),
+          cloneElement(children || defaultElement, ({ className: cloneCls }) => ({
+            className: clsx(motionClassName, cloneCls),
           }))
         }
       </CSSMotion>
-    </div>,
+    </div>
   );
 };
 
-export default React.memo(BackTop);
+if (process.env.NODE_ENV !== 'production') {
+  BackTop.displayName = 'Deprecated.BackTop';
+}
+
+export default BackTop;

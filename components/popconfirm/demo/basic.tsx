@@ -1,26 +1,35 @@
 import React from 'react';
-import { message, Popconfirm } from 'antd';
+import type { PopconfirmProps } from 'antd';
+import { Button, message, Popconfirm } from 'antd';
 
-const confirm = (e: React.MouseEvent<HTMLElement>) => {
-  console.log(e);
-  message.success('Click on Yes');
+const App: React.FC = () => {
+  const [messageApi, holder] = message.useMessage();
+
+  const confirm: PopconfirmProps['onConfirm'] = (e) => {
+    console.log(e);
+    messageApi.success('Click on Yes');
+  };
+
+  const cancel: PopconfirmProps['onCancel'] = (e) => {
+    console.log(e);
+    messageApi.error('Click on No');
+  };
+
+  return (
+    <>
+      {holder}
+      <Popconfirm
+        title="Delete the task"
+        description="Are you sure to delete this task?"
+        onConfirm={confirm}
+        onCancel={cancel}
+        okText="Yes"
+        cancelText="No"
+      >
+        <Button danger>Delete</Button>
+      </Popconfirm>
+    </>
+  );
 };
-
-const cancel = (e: React.MouseEvent<HTMLElement>) => {
-  console.log(e);
-  message.error('Click on No');
-};
-
-const App: React.FC = () => (
-  <Popconfirm
-    title="Are you sure to delete this task?"
-    onConfirm={confirm}
-    onCancel={cancel}
-    okText="Yes"
-    cancelText="No"
-  >
-    <a href="#">Delete</a>
-  </Popconfirm>
-);
 
 export default App;

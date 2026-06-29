@@ -5,7 +5,7 @@ const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Horizontal</Divider>
+    <Divider titlePlacement="start">Horizontal</Divider>
     <Row gutter={16}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
@@ -20,7 +20,7 @@ const App: React.FC = () => (
         <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Divider orientation="left">Responsive</Divider>
+    <Divider titlePlacement="start">Responsive</Divider>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
@@ -35,7 +35,7 @@ const App: React.FC = () => (
         <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Divider orientation="left">Vertical</Divider>
+    <Divider titlePlacement="start">Vertical</Divider>
     <Row gutter={[16, 24]}>
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
@@ -49,6 +49,21 @@ const App: React.FC = () => (
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
       </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+    </Row>
+    <Divider titlePlacement="start">Gutter(string)</Divider>
+    <Row gutter="2rem">
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>
       </Col>

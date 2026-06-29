@@ -1,6 +1,7 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
+
 import Space from '..';
+import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -23,7 +24,7 @@ describe('Space', () => {
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size="middle">
+        <Space size="medium">
           <span>1</span>
           <span>2</span>
         </Space>
@@ -37,6 +38,20 @@ describe('Space', () => {
     expect(container.children).toMatchSnapshot();
   });
 
+  it('should render width ConfigProvider support 0', () => {
+    const { container } = render(
+      <ConfigProvider space={{ size: 0 }}>
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector('.ant-space-gap-row-small.ant-space-gap-col-small');
+    expect(item).toBe(null);
+  });
+
   it('should render width rtl', () => {
     const { container } = render(
       <ConfigProvider direction="rtl">
@@ -44,7 +59,7 @@ describe('Space', () => {
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size="middle">
+        <Space size="medium">
           <span>1</span>
           <span>2</span>
         </Space>
@@ -66,48 +81,32 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '10px',
-    );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginRight,
-    ).toBe('');
-  });
-
-  it('should render width size 0', () => {
-    const { container } = render(
-      <Space size={NaN}>
-        <span>1</span>
-        <span>2</span>
-      </Space>,
-    );
-
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
-      '0px',
-    );
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]).toHaveStyle({ marginRight: '' });
+    expect(items[1]).toHaveStyle({ marginRight: '' });
   });
 
   it('should render vertical space width customize size', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,
     );
-
-    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginBottom).toBe(
-      '10px',
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead.',
     );
-    expect(
-      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginBottom,
-    ).toBe('');
+    warnSpy.mockRestore();
+    const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
+    expect(items[0]).toHaveStyle({ marginBottom: '' });
+    expect(items[1]).toHaveStyle({ marginBottom: '' });
   });
 
   it('should render correct with children', () => {
     const { container } = render(
       <Space>
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -167,11 +166,10 @@ describe('Space', () => {
     expect(container.querySelector('#demo')).toHaveTextContent('2');
   });
 
-  it('split', () => {
+  it('separator', () => {
     const { container } = render(
-      <Space split="-">
+      <Space separator="-">
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -179,9 +177,25 @@ describe('Space', () => {
     expect(container.children[0]).toMatchSnapshot();
   });
 
+  it('legacy split', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Space split="-">
+        text1<span>text1</span>
+        <>text3</>
+      </Space>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
   // https://github.com/ant-design/ant-design/issues/35305
   it('should not throw duplicated key warning', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Space>
         <div key="1" />
@@ -190,11 +204,109 @@ describe('Space', () => {
         <div />
       </Space>,
     );
-    expect(console.error).not.toHaveBeenCalledWith(
+    expect(spy).not.toHaveBeenCalledWith(
       expect.stringContaining('Encountered two children with the same key'),
       expect.anything(),
       expect.anything(),
     );
-    (console.error as any).mockRestore();
+    spy.mockRestore();
+  });
+
+  it('should render the hidden empty item wrapper', () => {
+    const Null: React.FC = () => null;
+    const { container } = render(
+      <Space>
+        <Null />
+      </Space>,
+    );
+    const element = container.querySelector<HTMLDivElement>('div.ant-space-item')!;
+    expect(element).toBeEmptyDOMElement();
+    expect(element).toHaveStyle({ display: 'none' });
+  });
+
+  it('should ref work', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Space ref={ref}>
+        <span>Text1</span>
+        <span>Text2</span>
+      </Space>,
+    );
+
+    expect(ref.current).toBe(container.firstChild);
+  });
+
+  it('should apply classNames and styles correctly', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      separator: 'custom-separator',
+    };
+
+    const customStyles = {
+      root: { color: 'rgb(0, 128, 0)' },
+      item: { color: 'rgb(255, 0, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
+    };
+
+    const { container } = render(
+      <Space classNames={customClassNames} styles={customStyles} separator="-">
+        <span>Text1</span>
+        <span>Text2</span>
+      </Space>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-space');
+    const itemElement = container.querySelector<HTMLElement>('.ant-space-item');
+    const separatorElement = container.querySelector<HTMLElement>('.ant-space-item-separator');
+
+    // Check classNames
+    expect(rootElement).toHaveClass('custom-root');
+    expect(itemElement).toHaveClass('custom-item');
+    expect(separatorElement).toHaveClass('custom-separator');
+
+    // Check styles
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(itemElement).toHaveStyle({ color: customStyles.item.color });
+    expect(separatorElement).toHaveStyle({ color: customStyles.separator.color });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    const testCases: Array<[params: [undefined | Orientation, undefined | Orientation], string]> = [
+      [[undefined, undefined], 'horizontal'],
+      [[undefined, 'vertical'], 'vertical'],
+      [['vertical', 'horizontal'], 'vertical'],
+      [['vertical', undefined], 'vertical'],
+      [['horizontal', 'vertical'], 'horizontal'],
+    ];
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space>,
+      );
+
+      expect(container.querySelector<HTMLDivElement>(`.ant-space-${expected}`)).toBeTruthy();
+    });
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space.Compact orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space.Compact>,
+      );
+      if (expected === 'vertical') {
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-${expected}`),
+        ).toBeTruthy();
+      } else {
+        expect(container.querySelector<HTMLDivElement>(`.ant-space-compact-vertical`)).toBeFalsy();
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-horizontal`),
+        ).toBeFalsy();
+      }
+    });
   });
 });

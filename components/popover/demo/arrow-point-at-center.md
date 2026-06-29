@@ -1,7 +1,7 @@
 ## zh-CN
 
-设置了 `arrowPointAtCenter` 后，箭头将指向目标元素的中心。
+`arrow={{ pointAtCenter: true }}` 属性可以让箭头指向目标元素的中心。
 
 ## en-US
 
-The arrow points to the center of the target element, which set `arrowPointAtCenter`.
+`arrow={{ pointAtCenter: true }}` property can make the arrow point at the center of the target element.

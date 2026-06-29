@@ -1,21 +1,21 @@
 ---
 category: Components
-subtitle: 多选框
 group: 数据录入
 title: Checkbox
-cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
+subtitle: 多选框
+description: 收集用户的多项选择。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-多选框。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 在一组可选项中进行多项选择时；
 - 单独使用可以表示两种状态之间的切换，和 `switch` 类似。区别在于切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
@@ -24,33 +24,43 @@ demo:
 <code src="./demo/group.tsx">Checkbox 组</code>
 <code src="./demo/check-all.tsx">全选</code>
 <code src="./demo/layout.tsx">布局</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/debug-line.tsx" debug>同行布局</code>
+<code src="./demo/debug-disable-popover.tsx" debug>禁用下的 Tooltip</code>
+<code src="./demo/debug-group-width.tsx" debug>Group 内勾选框等宽</code>
+<code src="./demo/custom-line-width.tsx" debug>自定义 lineWidth</code>
 
 ## API
 
-### 属性
+通用属性参考：[通用属性](/docs/react/common-props)
 
 #### Checkbox
 
-| 参数           | 说明                                    | 类型              | 默认值 | 版本 |
-| -------------- | --------------------------------------- | ----------------- | ------ | ---- |
-| autoFocus      | 自动获取焦点                            | boolean           | false  |      |
-| checked        | 指定当前是否选中                        | boolean           | false  |      |
-| defaultChecked | 初始是否选中                            | boolean           | false  |      |
-| disabled       | 失效状态                                | boolean           | false  |      |
-| indeterminate  | 设置 indeterminate 状态，只负责样式控制 | boolean           | false  |      |
-| onChange       | 变化时的回调函数                        | function(e:Event) | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | 指定当前是否选中 | boolean | false |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultChecked | 初始是否选中 | boolean | false |  | × |
+| disabled | 失效状态 | boolean | false |  | × |
+| indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  | × |
+| onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  | × |
+| onBlur | 失去焦点时的回调 | function() | - |  | × |
+| onFocus | 获得焦点时的回调 | function() | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
-#### Checkbox Group
+#### Checkbox.Group
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认选中的选项 | string\[] | \[] |  |
+| defaultValue | 默认选中的选项 | (string \| number)\[] | \[] |  |
 | disabled | 整组失效 | boolean | false |  |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
-| value | 指定选中的选项 | string\[] | \[] |  |
-| onChange | 变化时的回调函数 | function(checkedValue) | - |  |
+| value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
+| title | 选项的 title | `string` | - |  |
+| className | 选项的类名 | `string` | - | 5.25.0 |
+| style | 选项的样式 | `React.CSSProperties` | - |  |
+| onChange | 变化时的回调函数 | (checkedValue: T[]) => void | - |  |
 
 ##### Option
 
@@ -62,11 +72,32 @@ interface Option {
 }
 ```
 
-### 方法
+### 方法 {#methods}
 
 #### Checkbox
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称          | 描述                      | 版本   |
+| ------------- | ------------------------- | ------ |
+| blur()        | 移除焦点                  |        |
+| focus()       | 获取焦点                  |        |
+| nativeElement | 返回 Checkbox 的 DOM 节点 | 5.17.3 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Checkbox"></ComponentTokenTable>
+
+## FAQ
+
+### 为什么在 Form.Item 下不能绑定数据？ {#faq-form-item-limitations}
+
+Form.Item 默认绑定值属性到 `value` 上，而 Checkbox 的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Checkbox />
+</Form.Item>
+```

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
-import { Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
 import { DotChartOutlined } from '@ant-design/icons';
+import type { RadioChangeEvent } from 'antd';
+import { Divider, Flex, Form, Radio, Skeleton, Space, Switch } from 'antd';
 
-type SizeType = 'default' | 'small' | 'large';
+type SizeType = 'large' | 'medium' | 'small';
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
 type AvatarShapeType = 'circle' | 'square';
 
 const App: React.FC = () => {
   const [active, setActive] = useState(false);
   const [block, setBlock] = useState(false);
-  const [size, setSize] = useState<SizeType>('default');
+  const [size, setSize] = useState<SizeType>('medium');
   const [buttonShape, setButtonShape] = useState<ButtonShapeType>('default');
   const [avatarShape, setAvatarShape] = useState<AvatarShapeType>('circle');
 
@@ -35,57 +35,54 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Flex gap="medium" vertical>
       <Space>
         <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
         <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
         <Skeleton.Input active={active} size={size} />
       </Space>
-      <br />
-      <br />
       <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
-      <br />
-      <br />
       <Skeleton.Input active={active} size={size} block={block} />
-      <br />
-      <br />
       <Space>
         <Skeleton.Image active={active} />
+        <Skeleton.Node active={active} style={{ width: 160 }} />
         <Skeleton.Node active={active}>
           <DotChartOutlined style={{ fontSize: 40, color: '#bfbfbf' }} />
         </Skeleton.Node>
       </Space>
       <Divider />
       <Form layout="inline" style={{ margin: '16px 0' }}>
-        <Form.Item label="Active">
-          <Switch checked={active} onChange={handleActiveChange} />
-        </Form.Item>
-        <Form.Item label="Button and Input Block">
-          <Switch checked={block} onChange={handleBlockChange} />
-        </Form.Item>
-        <Form.Item label="Size">
-          <Radio.Group value={size} onChange={handleSizeChange}>
-            <Radio.Button value="default">Default</Radio.Button>
-            <Radio.Button value="large">Large</Radio.Button>
-            <Radio.Button value="small">Small</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="Button Shape">
-          <Radio.Group value={buttonShape} onChange={handleShapeButton}>
-            <Radio.Button value="default">Default</Radio.Button>
-            <Radio.Button value="square">Square</Radio.Button>
-            <Radio.Button value="round">Round</Radio.Button>
-            <Radio.Button value="circle">Circle</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="Avatar Shape">
-          <Radio.Group value={avatarShape} onChange={handleAvatarShape}>
-            <Radio.Button value="square">Square</Radio.Button>
-            <Radio.Button value="circle">Circle</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
+        <Space size={16} wrap>
+          <Form.Item label="Active">
+            <Switch checked={active} onChange={handleActiveChange} />
+          </Form.Item>
+          <Form.Item label="Button and Input Block">
+            <Switch checked={block} onChange={handleBlockChange} />
+          </Form.Item>
+          <Form.Item label="Size">
+            <Radio.Group value={size} onChange={handleSizeChange}>
+              <Radio.Button value="large">Large</Radio.Button>
+              <Radio.Button value="medium">Medium</Radio.Button>
+              <Radio.Button value="small">Small</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Button Shape">
+            <Radio.Group value={buttonShape} onChange={handleShapeButton}>
+              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="square">Square</Radio.Button>
+              <Radio.Button value="round">Round</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Avatar Shape">
+            <Radio.Group value={avatarShape} onChange={handleAvatarShape}>
+              <Radio.Button value="square">Square</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+        </Space>
       </Form>
-    </>
+    </Flex>
   );
 };
 

@@ -1,19 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 1`] = `
 <label
-  class="ant-radio-wrapper ant-radio-wrapper-rtl"
+  class="ant-radio-wrapper ant-radio-wrapper-rtl css-var-root ant-radio-css-var"
 >
   <span
-    class="ant-radio"
+    class="ant-radio ant-wave-target"
   >
     <input
       class="ant-radio-input"
       type="radio"
-      value=""
-    />
-    <span
-      class="ant-radio-inner"
     />
   </span>
 </label>
@@ -21,13 +17,14 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl"
+  class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl css-var-root ant-radio-css-var"
+  role="radiogroup"
 />
 `;
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 3`] = `
 <label
-  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
+  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
 >
   <span
     class="ant-radio-button"
@@ -35,10 +32,6 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
     <input
       class="ant-radio-button-input"
       type="radio"
-      value=""
-    />
-    <span
-      class="ant-radio-button-inner"
     />
   </span>
 </label>
@@ -46,21 +39,19 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 
 exports[`Radio should render correctly 1`] = `
 <label
-  class="ant-radio-wrapper customized"
+  class="ant-radio-wrapper customized css-var-root ant-radio-css-var"
 >
   <span
-    class="ant-radio"
+    class="ant-radio ant-wave-target"
   >
     <input
       class="ant-radio-input"
       type="radio"
-      value=""
-    />
-    <span
-      class="ant-radio-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-label"
+  >
     Test
   </span>
 </label>

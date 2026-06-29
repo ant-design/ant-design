@@ -5,7 +5,7 @@ import Marquee from 'react-fast-marquee';
 const App: React.FC = () => (
   <Alert
     banner
-    message={
+    title={
       <Marquee pauseOnHover gradient={false}>
         I can be a React component, multiple React components, or just some text.
       </Marquee>

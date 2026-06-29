@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "antd-component-lookup",
+      "type": "skill-md",
+      "description": "Look up Ant Design React component documentation, props, and usage examples. Use when working with Ant Design (antd) components and needing API details, default values, or usage patterns.",
+      "url": "/.well-known/agent-skills/antd-component-lookup/SKILL.md",
+      "digest": "sha256:ca99d0e611e007bec3c7125e94ba19f17f7cc30d5b3cbf0dcc3e5fe912264d6c"
+    },
+    {
+      "name": "antd-theme-customization",
+      "type": "skill-md",
+      "description": "Customize Ant Design theme using Design Tokens and ConfigProvider. Use when adjusting visual styles, colors, spacing, or other theme properties in an Ant Design project.",
+      "url": "/.well-known/agent-skills/antd-theme-customization/SKILL.md",
+      "digest": "sha256:207f95d760606ba17001dbeedbe14a03b1b663c9f75d632fd7c7caad91caa470"
+    },
+    {
+      "name": "antd-migration",
+      "type": "skill-md",
+      "description": "Migrate between Ant Design major versions. Use when upgrading from antd v4 to v5 or addressing breaking changes in component APIs.",
+      "url": "/.well-known/agent-skills/antd-migration/SKILL.md",
+      "digest": "sha256:336ab371fcb981dea5b4c4dc455a899b884d6fe814fc1dcf7686e715007885b9"
+    }
+  ]
+}

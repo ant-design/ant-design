@@ -12,8 +12,6 @@ import {
   TreeSelect,
 } from 'antd';
 
-const { Option } = Select;
-
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -26,7 +24,7 @@ const formItemLayout = {
 };
 
 const App: React.FC = () => (
-  <Form {...formItemLayout}>
+  <Form {...formItemLayout} style={{ maxWidth: 600 }}>
     <Form.Item
       label="Fail"
       validateStatus="error"
@@ -78,11 +76,16 @@ const App: React.FC = () => (
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Select placeholder="I'm Select" allowClear>
-        <Option value="1">Option 1</Option>
-        <Option value="2">Option 2</Option>
-        <Option value="3">Option 3</Option>
-      </Select>
+      <Select
+        allowClear
+        placeholder="I'm Select"
+        defaultValue={'1'}
+        options={[
+          { label: 'Option 1', value: '1' },
+          { label: 'Option 2', value: '2' },
+          { label: 'Option 3', value: '3' },
+        ]}
+      />
     </Form.Item>
 
     <Form.Item
@@ -134,6 +137,17 @@ const App: React.FC = () => (
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
       <Input.Password allowClear placeholder="with input password and allowClear" />
+    </Form.Item>
+
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input.OTP />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input.OTP />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Input.OTP />
     </Form.Item>
 
     <Form.Item label="Fail" validateStatus="error" hasFeedback>

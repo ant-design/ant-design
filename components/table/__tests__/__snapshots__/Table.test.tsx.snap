@@ -1,17 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table renders JSX correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -22,7 +24,6 @@ exports[`Table renders JSX correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -30,12 +31,14 @@ exports[`Table renders JSX correctly 1`] = `
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Age
                   </th>
@@ -43,11 +46,13 @@ exports[`Table renders JSX correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     First Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Last Name
                   </th>
@@ -108,16 +113,18 @@ exports[`Table renders JSX correctly 1`] = `
 
 exports[`Table rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-table-wrapper ant-table-wrapper-rtl"
+  class="css-var-root ant-table-css-var ant-table-wrapper ant-table-wrapper-rtl"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-rtl css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-rtl"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var ant-table-rtl"
       >
         <div
           class="ant-table-container"
@@ -128,7 +135,6 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -148,7 +154,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-empty ant-empty-normal ant-empty-rtl"
+                      class="css-var-root ant-empty ant-empty-normal ant-empty-rtl"
                     >
                       <div
                         class="ant-empty-image"
@@ -159,6 +165,9 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                           width="64"
                           xmlns="http://www.w3.org/2000/svg"
                         >
+                          <title>
+                            No data
+                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -176,10 +185,10 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -207,16 +216,18 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
 exports[`Table should render title 1`] = `
 <div>
   <div
-    class="ant-table-wrapper"
+    class="css-var-root ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-root"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-empty"
+          class="ant-table ant-table-empty css-var-root ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -227,14 +238,15 @@ exports[`Table should render title 1`] = `
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
                   <tr>
                     <th
-                      aria-label="this column is sortable"
+                      aria-description="sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -256,12 +268,13 @@ exports[`Table should render title 1`] = `
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -280,7 +293,7 @@ exports[`Table should render title 1`] = `
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -301,8 +314,10 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column is sortable"
+                      aria-description="sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -319,12 +334,13 @@ exports[`Table should render title 1`] = `
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -343,7 +359,7 @@ exports[`Table should render title 1`] = `
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -364,8 +380,10 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column is sortable"
+                      aria-description="sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -387,12 +405,13 @@ exports[`Table should render title 1`] = `
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -411,7 +430,7 @@ exports[`Table should render title 1`] = `
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -432,8 +451,10 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is color,this column is sortable"
+                      aria-description="sortable"
+                      aria-label="color"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -448,12 +469,13 @@ exports[`Table should render title 1`] = `
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -472,7 +494,7 @@ exports[`Table should render title 1`] = `
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -493,8 +515,10 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is sex,this column is sortable"
+                      aria-description="sortable"
+                      aria-label="sex"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -509,12 +533,13 @@ exports[`Table should render title 1`] = `
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -533,7 +558,7 @@ exports[`Table should render title 1`] = `
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -566,7 +591,7 @@ exports[`Table should render title 1`] = `
                       colspan="5"
                     >
                       <div
-                        class="ant-empty ant-empty-normal"
+                        class="css-var-root ant-empty ant-empty-normal"
                       >
                         <div
                           class="ant-empty-image"
@@ -577,6 +602,9 @@ exports[`Table should render title 1`] = `
                             width="64"
                             xmlns="http://www.w3.org/2000/svg"
                           >
+                            <title>
+                              No data
+                            </title>
                             <g
                               fill="none"
                               fill-rule="evenodd"
@@ -594,10 +622,10 @@ exports[`Table should render title 1`] = `
                                 stroke="#d9d9d9"
                               >
                                 <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                  d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                                 />
                                 <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                   fill="#fafafa"
                                 />
                               </g>
@@ -623,9 +651,115 @@ exports[`Table should render title 1`] = `
 </div>
 `;
 
+exports[`Table support wireframe 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-empty css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-placeholder"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="css-var-test-id ant-empty ant-empty-normal"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                              />
+                              <path
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Table title should support ReactNode 1`] = `
 <th
   class="ant-table-cell"
+  scope="col"
 >
   <div>
     <strong>

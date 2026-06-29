@@ -1,21 +1,21 @@
 import InternalCard from './Card';
-import Grid from './Grid';
-import Meta from './Meta';
+import CardGrid from './CardGrid';
+import CardMeta from './CardMeta';
 
 export type { CardProps, CardTabListType } from './Card';
-export type { CardGridProps } from './Grid';
-export type { CardMetaProps } from './Meta';
+export type { CardGridProps } from './CardGrid';
+export type { CardMetaProps } from './CardMeta';
 
 type InternalCardType = typeof InternalCard;
 
 export interface CardInterface extends InternalCardType {
-  Grid: typeof Grid;
-  Meta: typeof Meta;
+  Grid: typeof CardGrid;
+  Meta: typeof CardMeta;
 }
 
 const Card = InternalCard as CardInterface;
 
-Card.Grid = Grid;
-Card.Meta = Meta;
+Card.Grid = CardGrid;
+Card.Meta = CardMeta;
 
 export default Card;

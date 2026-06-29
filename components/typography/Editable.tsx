@@ -1,18 +1,21 @@
-import EnterOutlined from '@ant-design/icons/EnterOutlined';
-import classNames from 'classnames';
-import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
-import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
-import type { DirectionType } from '../config-provider';
-import TextArea from '../input/TextArea';
-import type { TextAreaRef } from '../input/TextArea';
+import EnterOutlined from '@ant-design/icons/EnterOutlined';
+import type { TextAreaProps } from '@rc-component/input';
+import { KeyCode } from '@rc-component/util';
+import { clsx } from 'clsx';
+
 import { cloneElement } from '../_util/reactNode';
+import type { GetProp } from '../_util/type';
+import type { DirectionType } from '../config-provider';
+import type { TextAreaRef } from '../input/TextArea';
+import TextArea from '../input/TextArea';
 import useStyle from './style';
+import type { TypographyProps } from './Typography';
 
 interface EditableProps {
   prefixCls: string;
   value: string;
-  ['aria-label']?: string;
+  'aria-label'?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
   onEnd?: () => void;
@@ -20,30 +23,35 @@ interface EditableProps {
   style?: React.CSSProperties;
   direction?: DirectionType;
   maxLength?: number;
-  autoSize?: boolean | AutoSizeType;
+  autoSize?: TextAreaProps['autoSize'];
   enterIcon?: React.ReactNode;
   component?: string;
+  classNames: NonNullable<GetProp<TypographyProps, 'classNames', 'Return'>>;
+  styles: NonNullable<GetProp<TypographyProps, 'styles', 'Return'>>;
 }
 
-const Editable: React.FC<EditableProps> = ({
-  prefixCls,
-  'aria-label': ariaLabel,
-  className,
-  style,
-  direction,
-  maxLength,
-  autoSize = true,
-  value,
-  onSave,
-  onCancel,
-  onEnd,
-  component,
-  enterIcon = <EnterOutlined />,
-}) => {
+const Editable: React.FC<EditableProps> = (props) => {
+  const {
+    prefixCls,
+    'aria-label': ariaLabel,
+    className,
+    style,
+    classNames,
+    styles,
+    direction,
+    maxLength,
+    autoSize = true,
+    value,
+    onSave,
+    onCancel,
+    onEnd,
+    component,
+    enterIcon = <EnterOutlined />,
+  } = props;
   const ref = React.useRef<TextAreaRef>(null);
 
-  const inComposition = React.useRef(false);
-  const lastKeyCode = React.useRef<number>();
+  const inCompositionRef = React.useRef(false);
+  const lastKeyCodeRef = React.useRef<number>(null);
 
   const [current, setCurrent] = React.useState(value);
 
@@ -52,7 +60,7 @@ const Editable: React.FC<EditableProps> = ({
   }, [value]);
 
   React.useEffect(() => {
-    if (ref.current && ref.current.resizableTextArea) {
+    if (ref.current?.resizableTextArea) {
       const { textArea } = ref.current.resizableTextArea;
       textArea.focus();
       const { length } = textArea.value;
@@ -65,18 +73,19 @@ const Editable: React.FC<EditableProps> = ({
   };
 
   const onCompositionStart = () => {
-    inComposition.current = true;
+    inCompositionRef.current = true;
   };
 
   const onCompositionEnd = () => {
-    inComposition.current = false;
+    inCompositionRef.current = false;
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
     // We don't record keyCode when IME is using
-    if (inComposition.current) return;
-
-    lastKeyCode.current = keyCode;
+    if (inCompositionRef.current) {
+      return;
+    }
+    lastKeyCodeRef.current = keyCode;
   };
 
   const confirmChange = () => {
@@ -92,19 +101,20 @@ const Editable: React.FC<EditableProps> = ({
   }) => {
     // Check if it's a real key
     if (
-      lastKeyCode.current === keyCode &&
-      !inComposition.current &&
-      !ctrlKey &&
-      !altKey &&
-      !metaKey &&
-      !shiftKey
+      lastKeyCodeRef.current !== keyCode ||
+      inCompositionRef.current ||
+      ctrlKey ||
+      altKey ||
+      metaKey ||
+      shiftKey
     ) {
-      if (keyCode === KeyCode.ENTER) {
-        confirmChange();
-        onEnd?.();
-      } else if (keyCode === KeyCode.ESC) {
-        onCancel();
-      }
+      return;
+    }
+    if (keyCode === KeyCode.ENTER) {
+      confirmChange();
+      onEnd?.();
+    } else if (keyCode === KeyCode.ESC) {
+      onCancel();
     }
   };
 
@@ -112,23 +122,29 @@ const Editable: React.FC<EditableProps> = ({
     confirmChange();
   };
 
-  const textClassName = component ? `${prefixCls}-${component}` : '';
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-
-  const textAreaClassName = classNames(
+  const textAreaClassName = clsx(
     prefixCls,
     `${prefixCls}-edit-content`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${component}`]: !!component,
     },
     className,
-    textClassName,
+    classNames.root,
     hashId,
+    cssVarCls,
   );
 
-  return wrapSSR(
-    <div className={textAreaClassName} style={style}>
+  return (
+    <div
+      className={textAreaClassName}
+      style={{
+        ...styles.root,
+        ...style,
+      }}
+    >
       <TextArea
         ref={ref}
         maxLength={maxLength}
@@ -142,11 +158,13 @@ const Editable: React.FC<EditableProps> = ({
         aria-label={ariaLabel}
         rows={1}
         autoSize={autoSize}
+        className={classNames.textarea}
+        style={styles.textarea}
       />
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
         : null}
-    </div>,
+    </div>
   );
 };
 

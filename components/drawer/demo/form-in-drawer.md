@@ -9,19 +9,12 @@ Use a form in Drawer with a submit button.
 ```css
 .site-form-in-drawer-wrapper {
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  inset-inline-end: 0;
+  bottom: 0;
   width: 100%;
   padding: 10px 16px;
-  text-align: right;
-  background: #fff;
+  text-align: end;
+  background-color: #fff;
   border-top: 1px solid #e9e9e9;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-form-in-drawer-wrapper {
-  border-top: 1px solid #303030;
-  background: #1f1f1f;
-}
-</style>

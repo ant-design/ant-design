@@ -1,54 +1,79 @@
-import * as React from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
-import { COLOR_IMAGES, DEFAULT_COLOR, getClosetColor } from './colorUtil';
+import React, { useMemo, useState } from 'react';
+import { CSSMotionList } from '@rc-component/motion';
+import { createStaticStyles } from 'antd-style';
+import { clsx } from 'clsx';
+
+import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
   colorPrimary?: string;
   isLight?: boolean;
 }
 
-export default function BackgroundImage({ colorPrimary, isLight }: BackgroundImageProps) {
-  const { token } = useSiteToken();
+const styles = createStaticStyles(({ css, cssVar }) => ({
+  image: css`
+    transition: all ${cssVar.motionDurationSlow};
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right top;
+  `,
+}));
 
-  const activeColor = React.useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
+const onShow = () => ({ opacity: 1 });
 
-  const sharedStyle: React.CSSProperties = {
-    transition: `all ${token.motionDurationSlow}`,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    height: '100%',
-    width: '100%',
-  };
+const onHide = () => ({ opacity: 0 });
+
+const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
+  const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
+
+  const [keyList, setKeyList] = useState<string[]>([]);
+
+  React.useLayoutEffect(() => {
+    setKeyList([activeColor as string]);
+  }, [activeColor]);
 
   return (
-    <>
-      {COLOR_IMAGES.map(({ color, url }) => {
-        if (!url) {
-          return null;
+    <CSSMotionList
+      keys={keyList}
+      motionName="transition"
+      onEnterStart={onHide}
+      onAppearStart={onHide}
+      onEnterActive={onShow}
+      onAppearActive={onShow}
+      onLeaveStart={onShow}
+      onLeaveActive={onHide}
+      motionDeadline={500}
+    >
+      {({ key: color, className, style }) => {
+        const cls = clsx(styles.image, className);
+        const entity = COLOR_IMAGES.find((ent) => ent.color === color);
+
+        if (!entity || !entity.url) {
+          return null as unknown as React.ReactElement;
         }
 
-        return (
-          <img
-            key={color}
-            style={{
-              ...sharedStyle,
-              opacity: isLight && activeColor === color ? 1 : 0,
-              objectFit: 'cover',
-              objectPosition: 'right top',
-            }}
-            src={url}
-          />
-        );
-      })}
+        const { opacity } = style || {};
 
-      {/* <div
-        style={{
-          ...sharedStyle,
-          opacity: isLight || !activeColor || activeColor === DEFAULT_COLOR ? 0 : 1,
-          background: 'rgba(0,0,0,0.79)',
-        }}
-      /> */}
-    </>
+        return (
+          <picture>
+            <source srcSet={entity.webp} type="image/webp" />
+            <source srcSet={entity.url} type="image/jpeg" />
+            <img
+              draggable={false}
+              className={cls}
+              style={{ ...style, opacity: isLight ? opacity : 0 }}
+              src={entity.url}
+              alt="bg"
+            />
+          </picture>
+        );
+      }}
+    </CSSMotionList>
   );
-}
+};
+
+export default BackgroundImage;

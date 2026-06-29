@@ -1,49 +1,146 @@
-import * as React from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import { Badge, message } from 'antd';
-import classNames from 'classnames';
+import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import type { ThemeType } from './index';
+import { App } from 'antd';
+import { createStyles } from 'antd-style';
+import copy from 'antd/es/_util/copy';
+import { clsx } from 'clsx';
 
-const allIcons: {
-  [key: string]: any;
-} = AntdIcons;
+import useLocale from '../../../hooks/useLocale';
+import type { ThemeType } from './IconSearch';
+
+const allIcons: { [key: PropertyKey]: any } = AntdIcons;
+
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { antCls, iconCls } = token;
+  return {
+    iconItem: css`
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-inline-start: 0 !important;
+      margin-inline-end: 0 !important;
+      padding-inline-start: 0 !important;
+      padding-inline-end: 0 !important;
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      color: #555;
+      text-align: center;
+      list-style: none;
+      background-color: inherit;
+      border-radius: ${cssVar.borderRadiusSM};
+      cursor: pointer;
+      transition: all ${cssVar.motionDurationSlow} ease-in-out;
+      ${token.iconCls} {
+        margin: ${cssVar.marginXS} 0;
+        font-size: 36px;
+        transition: transform ${cssVar.motionDurationSlow} ease-in-out;
+        will-change: transform;
+      }
+      &:hover {
+        color: ${cssVar.colorWhite};
+        background-color: ${cssVar.colorPrimary};
+        ${iconCls} {
+          transform: scale(1.3);
+        }
+        ${antCls}-badge {
+          color: ${cssVar.colorWhite};
+        }
+      }
+      &.TwoTone:hover {
+        background-color: #8ecafe;
+      }
+      &.copied:hover {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      &::after {
+        content: 'Copied!';
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 100px;
+        color: ${cssVar.colorTextLightSolid};
+        text-align: center;
+        background-color: ${cssVar.colorPrimary};
+        opacity: 0;
+        transition: all ${cssVar.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      }
+      &.copied::after {
+        opacity: 1;
+      }
+    `,
+    newIconVersion: css`
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      z-index: 1;
+      padding: 0 ${cssVar.paddingXXS};
+      color: ${cssVar.colorWhite};
+      font-size: ${cssVar.fontSizeSM};
+      line-height: ${cssVar.lineHeightSM};
+      background-color: ${cssVar.colorSuccess};
+      border-start-end-radius: ${cssVar.borderRadiusSM};
+      border-end-start-radius: ${cssVar.borderRadiusSM};
+    `,
+    anticonCls: css`
+      display: block;
+      font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      white-space: nowrap;
+      text-align: center;
+      transform: scale(0.8);
+      ${antCls}-badge {
+        transition: color ${cssVar.motionDurationSlow} ease-in-out;
+      }
+    `,
+  };
+});
+
+const locales = {
+  cn: {
+    errMessage: '复制名称失败，请重试',
+  },
+  en: {
+    errMessage: 'Copy icon name failed, please try again.',
+  },
+};
 
 export interface CopyableIconProps {
   name: string;
   isNew: boolean;
+  newIconVersion: string;
   theme: ThemeType;
   justCopied: string | null;
-  onCopied: (type: string, text: string) => any;
+  onCopied: (type: string, text: string) => void;
 }
 
-const CopyableIcon: React.FC<CopyableIconProps> = ({
-  name,
-  isNew,
-  justCopied,
-  onCopied,
-  theme,
-}) => {
-  const className = classNames({
-    copied: justCopied === name,
-    [theme]: !!theme,
-  });
-  const onCopy = (text: string, result: boolean) => {
+const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
+  const { message } = App.useApp();
+  const { name, isNew, newIconVersion, justCopied, theme, onCopied } = props;
+  const [locale] = useLocale(locales);
+  const { styles } = useStyle();
+
+  const onCopy = async (text: string) => {
+    const result = await copy(text);
     if (result) {
       onCopied(name, text);
     } else {
-      message.error('Copy icon name failed, please try again.');
+      message.error(locale.errMessage);
     }
   };
   return (
-    <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
-      <li className={className}>
-        {React.createElement(allIcons[name])}
-        <span className="anticon-class">
-          <Badge dot={isNew}>{name}</Badge>
-        </span>
-      </li>
-    </CopyToClipboard>
+    <li
+      className={clsx(theme, styles.iconItem, { copied: justCopied === name })}
+      onClick={() => onCopy(`<${name} />`)}
+      style={{ cursor: 'pointer' }}
+    >
+      {isNew && <span className={styles.newIconVersion}>{newIconVersion}</span>}
+      {React.createElement(allIcons[name])}
+      <span className={styles.anticonCls}>{name}</span>
+    </li>
   );
 };
 

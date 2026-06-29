@@ -1,8 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Segmented render empty segmented 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -12,7 +16,11 @@ exports[`Segmented render empty segmented 1`] = `
 
 exports[`Segmented render label with ReactNode 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -23,6 +31,7 @@ exports[`Segmented render label with ReactNode 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -37,6 +46,7 @@ exports[`Segmented render label with ReactNode 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -54,14 +64,17 @@ exports[`Segmented render label with ReactNode 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
         class="ant-segmented-item-label"
       >
-        <h2>
+        <div
+          class="little"
+        >
           Monthly
-        </h2>
+        </div>
       </div>
     </label>
   </div>
@@ -70,7 +83,11 @@ exports[`Segmented render label with ReactNode 1`] = `
 
 exports[`Segmented render segmented ok 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -81,6 +98,7 @@ exports[`Segmented render segmented ok 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -95,6 +113,7 @@ exports[`Segmented render segmented ok 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -109,6 +128,7 @@ exports[`Segmented render segmented ok 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -124,7 +144,11 @@ exports[`Segmented render segmented ok 1`] = `
 
 exports[`Segmented render segmented with \`block\` 1`] = `
 <div
-  class="ant-segmented ant-segmented-block"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-block css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -135,6 +159,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -149,6 +174,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -163,6 +189,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -178,7 +205,11 @@ exports[`Segmented render segmented with \`block\` 1`] = `
 
 exports[`Segmented render segmented with \`size#large\` 1`] = `
 <div
-  class="ant-segmented ant-segmented-lg"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-lg css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -189,6 +220,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -203,6 +235,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -217,6 +250,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -232,7 +266,11 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
 
 exports[`Segmented render segmented with \`size#small\` 1`] = `
 <div
-  class="ant-segmented ant-segmented-sm"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-sm css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -243,6 +281,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -257,6 +296,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -271,6 +311,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -286,7 +327,11 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
 
 exports[`Segmented render segmented with mixed options 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -297,6 +342,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -311,6 +357,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -325,6 +372,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -340,7 +388,11 @@ exports[`Segmented render segmented with mixed options 1`] = `
 
 exports[`Segmented render segmented with numeric options 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -351,6 +403,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -365,6 +418,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -379,6 +433,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -393,6 +448,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -407,6 +463,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -422,7 +479,10 @@ exports[`Segmented render segmented with numeric options 1`] = `
 
 exports[`Segmented render segmented with options null/undefined 1`] = `
 <div
-  class="ant-segmented ant-segmented-disabled"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-disabled css-var-root"
+  role="radiogroup"
 >
   <div
     class="ant-segmented-group"
@@ -434,6 +494,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
         checked=""
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -446,6 +507,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
       <input
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -458,6 +520,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
       <input
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -471,7 +534,11 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
 
 exports[`Segmented render segmented with options: disabled 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -482,6 +549,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -497,6 +565,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
       <input
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -511,6 +580,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -526,7 +596,11 @@ exports[`Segmented render segmented with options: disabled 1`] = `
 
 exports[`Segmented render segmented with string options 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -537,6 +611,7 @@ exports[`Segmented render segmented with string options 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -551,6 +626,7 @@ exports[`Segmented render segmented with string options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -565,6 +641,7 @@ exports[`Segmented render segmented with string options 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -580,7 +657,11 @@ exports[`Segmented render segmented with string options 1`] = `
 
 exports[`Segmented render segmented with thumb 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -591,6 +672,7 @@ exports[`Segmented render segmented with thumb 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -605,6 +687,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -619,6 +702,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -634,7 +718,10 @@ exports[`Segmented render segmented with thumb 1`] = `
 
 exports[`Segmented render segmented: disabled 1`] = `
 <div
-  class="ant-segmented ant-segmented-disabled"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-disabled css-var-root"
+  role="radiogroup"
 >
   <div
     class="ant-segmented-group"
@@ -646,6 +733,7 @@ exports[`Segmented render segmented: disabled 1`] = `
         checked=""
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -661,6 +749,7 @@ exports[`Segmented render segmented: disabled 1`] = `
       <input
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -676,6 +765,7 @@ exports[`Segmented render segmented: disabled 1`] = `
       <input
         class="ant-segmented-item-input"
         disabled=""
+        name="test-id"
         type="radio"
       />
       <div
@@ -691,7 +781,11 @@ exports[`Segmented render segmented: disabled 1`] = `
 
 exports[`Segmented render with icons 1`] = `
 <div
-  class="ant-segmented"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"
@@ -702,6 +796,7 @@ exports[`Segmented render with icons 1`] = `
       <input
         checked=""
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -737,6 +832,7 @@ exports[`Segmented render with icons 1`] = `
     >
       <input
         class="ant-segmented-item-input"
+        name="test-id"
         type="radio"
       />
       <div
@@ -776,7 +872,11 @@ exports[`Segmented render with icons 1`] = `
 
 exports[`Segmented rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-segmented ant-segmented-rtl"
+  aria-label="segmented control"
+  aria-orientation="horizontal"
+  class="ant-segmented ant-segmented-rtl css-var-root"
+  role="radiogroup"
+  tabindex="0"
 >
   <div
     class="ant-segmented-group"

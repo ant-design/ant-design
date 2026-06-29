@@ -1,14 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`antd exports modules correctly 1`] = `
 [
   "Affix",
   "Alert",
   "Anchor",
+  "App",
   "AutoComplete",
   "Avatar",
   "BackTop",
   "Badge",
+  "BorderBeam",
   "Breadcrumb",
   "Button",
   "Calendar",
@@ -18,6 +20,7 @@ exports[`antd exports modules correctly 1`] = `
   "Checkbox",
   "Col",
   "Collapse",
+  "ColorPicker",
   "ConfigProvider",
   "DatePicker",
   "Descriptions",
@@ -25,6 +28,7 @@ exports[`antd exports modules correctly 1`] = `
   "Drawer",
   "Dropdown",
   "Empty",
+  "Flex",
   "FloatButton",
   "Form",
   "Grid",
@@ -33,6 +37,7 @@ exports[`antd exports modules correctly 1`] = `
   "InputNumber",
   "Layout",
   "List",
+  "Masonry",
   "Mentions",
   "Menu",
   "Modal",
@@ -40,6 +45,7 @@ exports[`antd exports modules correctly 1`] = `
   "Popconfirm",
   "Popover",
   "Progress",
+  "QRCode",
   "Radio",
   "Rate",
   "Result",
@@ -50,6 +56,7 @@ exports[`antd exports modules correctly 1`] = `
   "Slider",
   "Space",
   "Spin",
+  "Splitter",
   "Statistic",
   "Steps",
   "Switch",
@@ -65,9 +72,11 @@ exports[`antd exports modules correctly 1`] = `
   "TreeSelect",
   "Typography",
   "Upload",
+  "Watermark",
   "message",
   "notification",
   "theme",
+  "unstableSetRender",
   "version",
 ]
 `;

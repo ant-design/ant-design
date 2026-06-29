@@ -1,79 +1,60 @@
-import { kebabCase } from 'lodash';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import ConfigProvider from '..';
-import { InputNumber } from '../..';
-import { render } from '../../../tests/utils';
-import { useToken } from '../../theme/internal';
+import { Button, InputNumber, Select, Space } from '../..';
+import { render, waitFakeTimer } from '../../../tests/utils';
+import Modal from '../../modal';
 import theme from '../../theme';
-import { resetWarned } from '../../_util/warning';
+import type { GlobalToken } from '../../theme/internal';
+import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-let mockCanUseDom = true;
-
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
-
 describe('ConfigProvider.Theme', () => {
-  beforeEach(() => {
-    mockCanUseDom = true;
-  });
-
-  const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
-
-  colorList.forEach((colorName) => {
-    it(colorName, () => {
-      ConfigProvider.config({
-        prefixCls: 'bamboo',
-        theme: {
-          [colorName]: '#0000FF',
-        },
-      });
-
-      const styles: any[] = Array.from(document.querySelectorAll('style'));
-      const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key').includes('-dynamic-theme'),
-      );
-      expect(themeStyle).toBeTruthy();
-
-      expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
-    });
-  });
-
-  it('warning for SSR', () => {
-    resetWarned();
-
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mockCanUseDom = false;
-    expect(canUseDom()).toBeFalsy();
+  it('ConfigProvider.config should work', async () => {
+    jest.useFakeTimers();
 
     ConfigProvider.config({
-      theme: {},
+      theme: {
+        token: {
+          colorPrimary: '#00B96B',
+        },
+      },
     });
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: ConfigProvider] SSR do not support dynamic theme with css variables.',
-    );
-    errorSpy.mockRestore();
+    const Demo: React.FC = () => {
+      useEffect(() => {
+        Modal.confirm({ title: 'Hello World!' });
+      }, []);
+      return null;
+    };
+
+    render(<Demo />);
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-css-var')).toHaveStyle({
+      '--ant-color-primary': '#00b96b',
+    });
   });
 
   it('algorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
       return null;
     };
     render(
-      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: darkAlgorithm }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#1677ff' }, algorithm: darkAlgorithm }}>
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#1668dc');
   });
 
   it('compactAlgorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -95,12 +76,14 @@ describe('ConfigProvider.Theme', () => {
         sizeSM: 8,
         sizeXS: 4,
         sizeXXS: 4,
+        controlHeight: 28,
+        controlHeightSM: 21,
       }),
     );
   });
 
   it('should support algorithm array', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -108,12 +91,12 @@ describe('ConfigProvider.Theme', () => {
     };
     render(
       <ConfigProvider
-        theme={{ token: { colorPrimary: '#1890ff' }, algorithm: [defaultAlgorithm, darkAlgorithm] }}
+        theme={{ token: { colorPrimary: '#1677ff' }, algorithm: [defaultAlgorithm, darkAlgorithm] }}
       >
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#1668dc');
   });
 
   it('overriding component token should work', () => {
@@ -122,14 +105,29 @@ describe('ConfigProvider.Theme', () => {
         <InputNumber />
       </ConfigProvider>,
     );
-    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
-      (item) => item?.innerHTML ?? '',
-    );
+    const dynamicStyles = Array.from(
+      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
+    ).map((item) => item?.innerHTML ?? '');
     expect(
       dynamicStyles.some(
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
       ),
     ).toBeTruthy();
+  });
+
+  it('should support Addon component token', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ components: { Addon: { colorText: '#0000FF', algorithm: true } } }}>
+        <Space.Compact>
+          <Space.Addon className="test-addon">Addon Content</Space.Addon>
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    const addon = container.querySelector('.test-addon')!;
+    expect(addon).toHaveStyle({
+      '--ant-color-text': '#0000FF',
+    });
   });
 
   it('hashed should be true if not changed', () => {
@@ -155,7 +153,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('The order does not affect the result', () => {
-    const tokens = {
+    const tokens: Record<'a' | 'b', Partial<GlobalToken>> = {
       a: {},
       b: {},
     };
@@ -177,20 +175,187 @@ describe('ConfigProvider.Theme', () => {
     expect(tokens.a).toMatchObject(tokens.b);
   });
 
-  it('theme seperated should work', () => {
-    let tokenRef: any;
+  it('theme separated should work', () => {
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
       return null;
     };
     render(
-      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' } }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#1677ff' } }}>
         <ConfigProvider theme={{ inherit: false }}>
           <Demo />
         </ConfigProvider>
       </ConfigProvider>,
     );
     expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
+  });
+
+  it('theme inherit should not affect hashed and cssVar', () => {
+    let hashId = 'hashId';
+    let cssVar: any;
+
+    const Demo = () => {
+      const [, , hash, , cssVarConfig] = useToken();
+      hashId = hash;
+      cssVar = cssVarConfig;
+      return null;
+    };
+
+    render(
+      <ConfigProvider theme={{ hashed: true }}>
+        <ConfigProvider theme={{ inherit: false }}>
+          <Demo />
+        </ConfigProvider>
+      </ConfigProvider>,
+    );
+
+    expect(hashId).toBeTruthy();
+    expect(cssVar).toBeTruthy();
+  });
+
+  describe('cssVar', () => {
+    it('should work', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+          <Button>Button</Button>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+
+      expect(button).toHaveClass('foo');
+      expect(button).toHaveStyle({
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
+        '--ant-btn-shadow': 'var(--ant-button-default-shadow)',
+        'border-radius': 'var(--ant-border-radius)',
+      });
+    });
+
+    it('prefix', () => {
+      const { container } = render(
+        <>
+          <ConfigProvider theme={{ cssVar: { key: 'foo' }, hashed: true }}>
+            <Button className="button-foo">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider theme={{ cssVar: { key: 'bar', prefix: 'bar' }, hashed: true }}>
+            <Button className="button-bar">Button</Button>
+          </ConfigProvider>
+        </>,
+      );
+
+      const fooBtn = container.querySelector('.button-foo')!;
+      const barBtn = container.querySelector('.button-bar')!;
+
+      expect(fooBtn).toHaveClass('foo');
+      expect(fooBtn).toHaveStyle({
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
+        '--ant-btn-shadow': 'var(--ant-button-default-shadow)',
+        'border-radius': 'var(--ant-border-radius)',
+      });
+
+      expect(barBtn).toHaveClass('bar');
+      expect(barBtn).toHaveStyle({
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
+        '--ant-btn-shadow': 'var(--bar-button-default-shadow)',
+        'border-radius': 'var(--bar-border-radius)',
+      });
+    });
+
+    it('prefix follow prefixCls by default', () => {
+      const { container } = render(
+        <>
+          <ConfigProvider prefixCls="ak">
+            <Button className="button-ak">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider prefixCls="foo" theme={{ cssVar: { key: 'foo' }, hashed: true }}>
+            <Button className="button-foo">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider prefixCls="bar">
+            <ConfigProvider theme={{ cssVar: { key: 'bar' }, hashed: true }}>
+              <Button className="button-bar">Button</Button>
+            </ConfigProvider>
+          </ConfigProvider>
+          <ConfigProvider prefixCls="apple">
+            <ConfigProvider prefixCls="banana" theme={{ cssVar: { key: 'banana' }, hashed: true }}>
+              <Button className="button-banana">Button</Button>
+            </ConfigProvider>
+          </ConfigProvider>
+          <ConfigProvider
+            prefixCls="apple"
+            theme={{ cssVar: { key: 'apple', prefix: 'cat' }, hashed: true }}
+          >
+            <Button className="button-cat">Button</Button>
+          </ConfigProvider>
+        </>,
+      );
+
+      const akBtn = container.querySelector('.button-ak')!;
+      expect(akBtn).toHaveClass('css-var-root');
+      expect(akBtn).toHaveStyle({
+        '--ak-btn-shadow': 'var(--ak-button-default-shadow)',
+        'border-radius': 'var(--ak-border-radius)',
+      });
+      expect(
+        Array.from(document.querySelectorAll('style[data-css-hash]')).some(({ innerHTML }) =>
+          innerHTML.includes('--ak-color-text'),
+        ),
+      ).toBeTruthy();
+
+      const fooBtn = container.querySelector('.button-foo')!;
+      expect(fooBtn).toHaveClass('foo');
+      expect(fooBtn).toHaveStyle({
+        '--foo-color-text': 'rgba(0,0,0,0.88)',
+        '--foo-btn-shadow': 'var(--foo-button-default-shadow)',
+        'border-radius': 'var(--foo-border-radius)',
+      });
+
+      const barBtn = container.querySelector('.button-bar')!;
+      expect(barBtn).toHaveClass('bar');
+      expect(barBtn).toHaveStyle({
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
+        '--bar-btn-shadow': 'var(--bar-button-default-shadow)',
+        'border-radius': 'var(--bar-border-radius)',
+      });
+
+      const bananaBtn = container.querySelector('.button-banana')!;
+      expect(bananaBtn).toHaveClass('banana');
+      expect(bananaBtn).toHaveStyle({
+        '--banana-color-text': 'rgba(0,0,0,0.88)',
+        '--banana-btn-shadow': 'var(--banana-button-default-shadow)',
+        'border-radius': 'var(--banana-border-radius)',
+      });
+
+      const catBtn = container.querySelector('.button-cat')!;
+      expect(catBtn).toHaveClass('apple');
+      expect(catBtn).toHaveStyle({
+        '--cat-color-text': 'rgba(0,0,0,0.88)',
+        '--apple-btn-shadow': 'var(--cat-button-default-shadow)',
+        'border-radius': 'var(--cat-border-radius)',
+      });
+    });
+
+    it('component token should work', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            cssVar: { key: 'foo' },
+            hashed: true,
+            components: { Select: { colorPrimary: '#1890ff', optionSelectedColor: '#000' } },
+          }}
+        >
+          <Select className="select-foo" />
+        </ConfigProvider>,
+      );
+
+      const select = container.querySelector('.select-foo')!;
+      expect(select).toHaveStyle({
+        '--ant-color-primary': '#1890ff',
+        '--ant-select-option-selected-color': '#000',
+        '--ant-select-option-selected-font-weight': '600',
+        '--ant-select-z-index-popup': '1050',
+      });
+    });
   });
 });

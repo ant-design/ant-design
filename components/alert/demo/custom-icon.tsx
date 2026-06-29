@@ -1,45 +1,53 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
 const icon = <SmileOutlined />;
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
-    <Alert icon={icon} message="showIcon = false" type="success" />
-    <Alert icon={icon} message="Success Tips" type="success" showIcon />
-    <Alert icon={icon} message="Informational Notes" type="info" showIcon />
-    <Alert icon={icon} message="Warning" type="warning" showIcon />
-    <Alert icon={icon} message="Error" type="error" showIcon />
+  <>
+    <Alert icon={icon} title="showIcon = false" type="success" />
+    <br />
+    <Alert icon={icon} title="Success Tips" type="success" showIcon />
+    <br />
+    <Alert icon={icon} title="Informational Notes" type="info" showIcon />
+    <br />
+    <Alert icon={icon} title="Warning" type="warning" showIcon />
+    <br />
+    <Alert icon={icon} title="Error" type="error" showIcon />
+    <br />
     <Alert
       icon={icon}
-      message="Success Tips"
-      description="Detailed description and advices about successful copywriting."
+      title="Success Tips"
+      description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
-      message="Informational Notes"
-      description="Additional description and informations about copywriting."
+      title="Informational Notes"
+      description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
-      message="Warning"
+      title="Warning"
       description="This is a warning notice about copywriting."
       type="warning"
       showIcon
     />
+    <br />
     <Alert
       icon={icon}
-      message="Error"
+      title="Error"
       description="This is an error message about copywriting."
       type="error"
       showIcon
     />
-  </Space>
+  </>
 );
 
 export default App;

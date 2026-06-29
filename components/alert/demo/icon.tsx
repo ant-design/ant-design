@@ -1,38 +1,45 @@
 import React from 'react';
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
-    <Alert message="Success Tips" type="success" showIcon />
-    <Alert message="Informational Notes" type="info" showIcon />
-    <Alert message="Warning" type="warning" showIcon closable />
-    <Alert message="Error" type="error" showIcon />
+  <>
+    <Alert title="Success Tips" type="success" showIcon />
+    <br />
+    <Alert title="Informational Notes" type="info" showIcon />
+    <br />
+    <Alert title="Warning" type="warning" showIcon closable />
+    <br />
+    <Alert title="Error" type="error" showIcon />
+    <br />
     <Alert
-      message="Success Tips"
+      title="Success Tips"
       description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
     />
+    <br />
     <Alert
-      message="Informational Notes"
+      title="Informational Notes"
       description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
+    <br />
     <Alert
-      message="Warning"
+      title="Warning"
       description="This is a warning notice about copywriting."
       type="warning"
       showIcon
       closable
     />
+    <br />
     <Alert
-      message="Error"
+      title="Error"
       description="This is an error message about copywriting."
       type="error"
       showIcon
     />
-  </Space>
+  </>
 );
 
 export default App;

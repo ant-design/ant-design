@@ -1,32 +1,16 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+
 import Transfer from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 const listProps = {
   dataSource: [
-    {
-      key: 'a',
-      title: 'a',
-      disabled: true,
-    },
-    {
-      key: 'b',
-      title: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-    },
-    {
-      key: 'd',
-      title: 'd',
-    },
-    {
-      key: 'e',
-      title: 'e',
-    },
+    { key: 'a', title: 'a', disabled: true },
+    { key: 'b', title: 'b' },
+    { key: 'c', title: 'c' },
+    { key: 'd', title: 'd' },
+    { key: 'e', title: 'e' },
   ],
   selectedKeys: ['b'],
   targetKeys: [],
@@ -51,7 +35,7 @@ describe('Transfer.Dropdown', () => {
     const onSelectChange = jest.fn();
     const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
 
-    fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -67,7 +51,7 @@ describe('Transfer.Dropdown', () => {
 
     const onSelectChange = jest.fn();
     const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
-    fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -80,37 +64,55 @@ describe('Transfer.Dropdown', () => {
 
   it('should hide checkbox and dropdown icon when showSelectAll={false}', () => {
     const { container } = render(<Transfer {...listProps} showSelectAll={false} />);
-    expect(container.querySelector('.ant-transfer-list-header-dropdown')).toBeFalsy();
+    expect(container.querySelector('.ant-dropdown-trigger')).toBeFalsy();
     expect(
       container.querySelector('.ant-transfer-list-header .ant-transfer-list-checkbox'),
     ).toBeFalsy();
   });
 
   describe('select invert', () => {
-    [
-      { name: 'with pagination', props: listProps, index: 2, keys: ['c', 'd'] },
-      {
-        name: 'without pagination',
-        props: { ...listProps, pagination: null as any },
-        index: 1,
-        keys: ['c', 'd', 'e'],
-      },
-    ].forEach(({ name, props, index, keys }) => {
-      it(name, () => {
-        jest.useFakeTimers();
+    it('with pagination', () => {
+      jest.useFakeTimers();
 
-        const onSelectChange = jest.fn();
-        const { container } = render(<Transfer {...props} onSelectChange={onSelectChange} />);
-        fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
-        act(() => {
-          jest.runAllTimers();
-        });
-
-        clickItem(container, index);
-        expect(onSelectChange).toHaveBeenCalledWith(keys, []);
-
-        jest.useRealTimers();
+      const onSelectChange = jest.fn();
+      const { container } = render(
+        <Transfer {...listProps} selectedKeys={undefined} onSelectChange={onSelectChange} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
       });
+
+      clickItem(container, 0);
+      expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
+
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      clickItem(container, 2);
+      expect(onSelectChange).toHaveBeenCalledWith(['e'], []);
+
+      jest.useRealTimers();
+    });
+
+    it('without pagination', () => {
+      jest.useFakeTimers();
+
+      const onSelectChange = jest.fn();
+      const { container } = render(
+        <Transfer {...listProps} pagination={null as any} onSelectChange={onSelectChange} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      clickItem(container, 1);
+      expect(onSelectChange).toHaveBeenCalledWith(['c', 'd', 'e'], []);
+
+      jest.useRealTimers();
     });
   });
 
@@ -128,7 +130,7 @@ describe('Transfer.Dropdown', () => {
         );
 
         // Right dropdown
-        fireEvent.mouseEnter(container.querySelectorAll('.ant-transfer-list-header-dropdown')[1]!);
+        fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-trigger')[1]!);
         act(() => {
           jest.runAllTimers();
         });

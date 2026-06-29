@@ -1,38 +1,34 @@
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
-import getDataOrAriaProps from '../_util/getDataOrAriaProps';
-import { RadioGroupContextProvider } from './context';
-import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
-import Radio from './radio';
+import { pickAttrs, useControlledState, useId } from '@rc-component/util';
+import { clsx } from 'clsx';
 
+import { useOrientation } from '../_util/hooks';
+import { isNumber } from '../_util/is';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useSize from '../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../form/context';
+import { toNamePathStr } from '../form/hooks/useForm';
+import { RadioGroupContextProvider } from './context';
+import type {
+  RadioChangeEvent,
+  RadioGroupButtonStyle,
+  RadioGroupContextProps,
+  RadioGroupProps,
+} from './interface';
+import Radio from './radio';
 import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
+  const { name: formItemName } = React.useContext(FormItemInputContext);
 
-  const [value, setValue] = useMergedState(props.defaultValue, {
-    value: props.value,
-  });
-
-  const onRadioChange = (ev: RadioChangeEvent) => {
-    const lastValue = value;
-    const val = ev.target.value;
-    if (!('value' in props)) {
-      setValue(val);
-    }
-    const { onChange } = props;
-    if (onChange && val !== lastValue) {
-      onChange(ev);
-    }
-  };
+  const defaultName = useId(toNamePathStr(formItemName));
 
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     options,
     buttonStyle = 'outline' as RadioGroupButtonStyle,
     disabled,
@@ -40,22 +36,49 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     size: customizeSize,
     style,
     id,
+    optionType,
+    name = defaultName,
+    defaultValue,
+    value: customizedValue,
+    block = false,
+    onChange,
     onMouseEnter,
     onMouseLeave,
     onFocus,
     onBlur,
+    orientation,
+    vertical,
+    role = 'radiogroup',
   } = props;
+
+  const [value, setValue] = useControlledState(defaultValue, customizedValue);
+
+  const onRadioChange = React.useCallback(
+    (event: RadioChangeEvent) => {
+      const lastValue = value;
+      const val = event.target.value;
+      if (!('value' in props)) {
+        setValue(val);
+      }
+      if (val !== lastValue) {
+        onChange?.(event);
+      }
+    },
+    [value, setValue, onChange],
+  );
+
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let childrenToRender = children;
   // 如果存在 options, 优先使用
   if (options && options.length > 0) {
     childrenToRender = options.map((option) => {
-      if (typeof option === 'string' || typeof option === 'number') {
+      if (typeof option === 'string' || isNumber(option)) {
         // 此处类型自动推导为 string
         return (
           <Radio
@@ -77,7 +100,11 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
           disabled={option.disabled || disabled}
           value={option.value}
           checked={value === option.value}
+          title={option.title}
           style={option.style}
+          className={option.className} // 👈 5.25.0+
+          id={option.id}
+          required={option.required}
         >
           {option.label}
         </Radio>
@@ -85,21 +112,34 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     });
   }
 
-  const mergedSize = customizeSize || size;
-  const classString = classNames(
+  const mergedSize = useSize(customizeSize);
+  const [, mergedVertical] = useOrientation(orientation, vertical);
+  const classString = clsx(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
     {
-      [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
+      [`${groupPrefixCls}-large`]: mergedSize === 'large',
+      [`${groupPrefixCls}-small`]: mergedSize === 'small',
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-block`]: block,
     },
     className,
+    rootClassName,
     hashId,
+    cssVarCls,
+    rootCls,
   );
-  return wrapSSR(
+
+  const memoizedValue = React.useMemo<RadioGroupContextProps>(
+    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
+    [onRadioChange, value, disabled, name, optionType, block],
+  );
+
+  return (
     <div
-      {...getDataOrAriaProps(props)}
-      className={classString}
+      {...pickAttrs(props, { aria: true, data: true })}
+      role={role}
+      className={clsx(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
       style={style}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -108,18 +148,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       id={id}
       ref={ref}
     >
-      <RadioGroupContextProvider
-        value={{
-          onChange: onRadioChange,
-          value,
-          disabled: props.disabled,
-          name: props.name,
-          optionType: props.optionType,
-        }}
-      >
+      <RadioGroupContextProvider value={memoizedValue}>
         {childrenToRender}
       </RadioGroupContextProvider>
-    </div>,
+    </div>
   );
 });
 

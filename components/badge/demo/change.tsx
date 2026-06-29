@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Button, Switch, Space } from 'antd';
-
-const ButtonGroup = Button.Group;
+import { Avatar, Badge, Button, Space, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [count, setCount] = useState(5);
@@ -30,16 +28,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Space size="large">
         <Badge count={count}>
           <Avatar shape="square" size="large" />
         </Badge>
-        <ButtonGroup>
+        <Space.Compact>
           <Button onClick={decline} icon={<MinusOutlined />} />
           <Button onClick={increase} icon={<PlusOutlined />} />
           <Button onClick={random} icon={<QuestionOutlined />} />
-        </ButtonGroup>
+        </Space.Compact>
       </Space>
       <Space size="large">
         <Badge dot={show}>

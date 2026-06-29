@@ -1,28 +1,27 @@
 import React from 'react';
-import type { RefAttributes } from 'react';
+
 import type { RadioGroupProps } from '..';
-import { render, fireEvent } from '../../../tests/utils';
 import Radio from '..';
+import { fireEvent, render, screen } from '../../../tests/utils';
+import Form from '../../form';
 
 describe('Radio Group', () => {
-  function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
-    return (
-      <Radio.Group {...props}>
-        <Radio value="A">A</Radio>
-        <Radio value="B">B</Radio>
-        <Radio value="C">C</Radio>
-      </Radio.Group>
-    );
-  }
+  const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => (
+    <Radio.Group {...props}>
+      <Radio value="A">A</Radio>
+      <Radio value="B">B</Radio>
+      <Radio value="C">C</Radio>
+    </Radio.Group>
+  );
 
-  function createRadioGroupByOption(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
+  const RadioGroupByOptions = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     const options = [
       { label: 'A', value: 'A' },
       { label: 'B', value: 'B' },
       { label: 'C', value: 'C' },
     ];
-    return <Radio.Group {...props} options={options} />;
-  }
+    return <Radio.Group {...props} options={options} ref={ref} />;
+  });
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
@@ -44,20 +43,11 @@ describe('Radio Group', () => {
   it('fire change events when value changes', () => {
     const onChange = jest.fn();
 
-    const { container, rerender } = render(
-      createRadioGroup({
-        onChange,
-      }),
-    );
+    const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
     const radios = container.querySelectorAll('input');
 
     // controlled component
-    rerender(
-      createRadioGroup({
-        onChange,
-        value: 'A',
-      }),
-    );
+    rerender(<RadioGroupComponent value="A" onChange={onChange} />);
     fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
   });
@@ -126,26 +116,17 @@ describe('Radio Group', () => {
   it("won't fire change events when value not changes", () => {
     const onChange = jest.fn();
 
-    const { container, rerender } = render(
-      createRadioGroup({
-        onChange,
-      }),
-    );
+    const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
     const radios = container.querySelectorAll('input');
 
     // controlled component
-    rerender(
-      createRadioGroup({
-        onChange,
-        value: 'A',
-      }),
-    );
+    rerender(<RadioGroupComponent value="A" onChange={onChange} />);
     fireEvent.click(radios[0]);
     expect(onChange.mock.calls.length).toBe(0);
   });
 
   it('optional should correct render', () => {
-    const { container } = render(createRadioGroupByOption());
+    const { container } = render(<RadioGroupByOptions />);
     const radios = container.querySelectorAll('input');
 
     expect(radios.length).toBe(3);
@@ -153,10 +134,10 @@ describe('Radio Group', () => {
 
   it('all children should have a name property', () => {
     const GROUP_NAME = 'GROUP_NAME';
-    const { container } = render(createRadioGroup({ name: GROUP_NAME }));
+    const { container } = render(<RadioGroupComponent name={GROUP_NAME} />);
 
     container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
-      expect(el.name).toEqual(GROUP_NAME);
+      expect(el.name).toBe(GROUP_NAME);
     });
   });
 
@@ -172,11 +153,11 @@ describe('Radio Group', () => {
   it('should forward ref', () => {
     let radioGroupRef: HTMLDivElement;
     const { container } = render(
-      createRadioGroupByOption({
-        ref(ref: HTMLDivElement) {
+      <RadioGroupByOptions
+        ref={(ref: HTMLDivElement) => {
           radioGroupRef = ref;
-        },
-      }),
+        }}
+      />,
     );
 
     expect(radioGroupRef!).toBe(container.querySelector<HTMLDivElement>('.ant-radio-group'));
@@ -184,17 +165,10 @@ describe('Radio Group', () => {
 
   it('should support data-* or aria-* props', () => {
     const { container } = render(
-      createRadioGroup({
-        'data-radio-group-id': 'radio-group-id',
-        'aria-label': 'radio-group',
-      } as RadioGroupProps),
+      <RadioGroupComponent data-radio-group-id="radio-group-id" aria-label="radio-group" />,
     );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('data-radio-group-id')).toBe(
-      'radio-group-id',
-    );
-    expect((container.firstChild as HTMLDivElement)?.getAttribute('aria-label')).toBe(
-      'radio-group',
-    );
+    expect(container.firstChild).toHaveAttribute('data-radio-group-id', 'radio-group-id');
+    expect(container.firstChild).toHaveAttribute('aria-label', 'radio-group');
   });
 
   it('Radio type should not be override', () => {
@@ -251,5 +225,189 @@ describe('Radio Group', () => {
     expect(handleFocus).toHaveBeenCalledTimes(1);
     fireEvent.blur(container.firstChild!);
     expect(handleBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Radio.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
+  });
+
+  it('options support title', () => {
+    const { container } = render(
+      <Radio.Group options={[{ label: 'bamboo', title: 'bamboo', value: 'bamboo' }]} />,
+    );
+
+    const select = container.querySelector('.ant-radio-group label > span');
+    expect(select).toBeTruthy();
+    // https://github.com/ant-design/ant-design/issues/46739
+    expect(select!.getAttribute('title')).toBeFalsy();
+    // fix 46739 solution
+    expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
+  });
+
+  it('should use FormItem name', () => {
+    const RadioForm: React.FC = () => (
+      <Form name="preference-form">
+        <Form.Item name="preference" initialValue="option2">
+          <Radio.Group>
+            <Radio value="option1">Option 1</Radio>
+            <Radio value="option2">Option 2</Radio>
+            <Radio value="option3">Option 3</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<RadioForm />);
+
+    const radioInputs = screen.getAllByRole('radio');
+    radioInputs.forEach((input) => {
+      expect(input).toHaveAttribute('name', 'preference');
+    });
+
+    const preferenceOption2 = screen.getByRole('radio', { name: 'Option 2' });
+    expect(preferenceOption2).toBeChecked();
+  });
+
+  it('should prioritize FormItem name over RadioGroup name prop', () => {
+    const RadioForm: React.FC = () => (
+      <Form>
+        <Form.Item name="form-item-name">
+          <Radio.Group name="radio-group-name">
+            <Radio value="A">A</Radio>
+            <Radio value="B">B</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<RadioForm />);
+    const radioInputs = screen.getAllByRole('radio');
+
+    // when both FormItem name and RadioGroup name are provided, the RadioGroup name should be used
+    radioInputs.forEach((input) => {
+      expect(input).toHaveAttribute('name', 'radio-group-name');
+    });
+  });
+
+  describe('FormItem complex NamePath conversion', () => {
+    it('should convert array NamePath to valid HTML name attribute', () => {
+      const RadioForm: React.FC = () => (
+        <Form>
+          <Form.Item name={['user', 'profile', 'preference']}>
+            <Radio.Group>
+              <Radio value="A">A</Radio>
+              <Radio value="B">B</Radio>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      );
+
+      render(<RadioForm />);
+      const radioInputs = screen.getAllByRole('radio');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', 'user_profile_preference');
+      });
+    });
+
+    it('should convert number NamePath to valid HTML name attribute', () => {
+      const RadioForm: React.FC = () => (
+        <Form>
+          <Form.Item name={0}>
+            <Radio.Group>
+              <Radio value="option1">Option 1</Radio>
+              <Radio value="option2">Option 2</Radio>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      );
+
+      const { container } = render(<RadioForm />);
+      const radioInputs = container.querySelectorAll('input');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', '0');
+      });
+    });
+
+    it('should work with Form.List dynamic fields', () => {
+      const DynamicForm: React.FC = () => {
+        const [form] = Form.useForm();
+
+        return (
+          <Form form={form} initialValues={{ users: [{ preferences: 'A' }] }}>
+            <Form.List name="users">
+              {(fields) => (
+                <>
+                  {fields.map((field) => (
+                    <Form.Item key={field.key} name={[field.name, 'preferences']}>
+                      <Radio.Group>
+                        <Radio value="A">Preference A</Radio>
+                        <Radio value="B">Preference B</Radio>
+                      </Radio.Group>
+                    </Form.Item>
+                  ))}
+                </>
+              )}
+            </Form.List>
+          </Form>
+        );
+      };
+
+      render(<DynamicForm />);
+      const radioInputs = screen.getAllByRole('radio');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', '0_preferences');
+      });
+    });
+  });
+
+  describe('orientation attribute and vertical', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group')).toBeTruthy();
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeNull();
+    });
+
+    it('vertical=true, result orientation=vertical', () => {
+      const { container } = render(
+        <Radio.Group vertical>
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeTruthy();
+    });
+  });
+
+  describe('role prop', () => {
+    it('should set default role', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'radiogroup');
+    });
+
+    it('should set passed role', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal" role="radio">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'radio');
+    });
   });
 });

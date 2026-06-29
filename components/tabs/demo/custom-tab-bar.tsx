@@ -1,17 +1,9 @@
 import React from 'react';
 import type { TabsProps } from 'antd';
-import { Tabs } from 'antd';
-import { Sticky, StickyContainer } from 'react-sticky';
+import { Tabs, theme } from 'antd';
+import StickyBox from 'react-sticky-box';
 
-const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
-  <Sticky bottomOffset={80}>
-    {({ style }) => (
-      <DefaultTabBar {...props} className="site-custom-tab-bar" style={{ ...style }} />
-    )}
-  </Sticky>
-);
-
-const items = new Array(3).fill(null).map((_, i) => {
+const items = Array.from({ length: 3 }).map((_, i) => {
   const id = String(i + 1);
   return {
     label: `Tab ${id}`,
@@ -21,10 +13,16 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
-  <StickyContainer>
-    <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} items={items} />
-  </StickyContainer>
-);
+const App: React.FC = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
+    <StickyBox offsetTop={64} offsetBottom={20} style={{ zIndex: 1 }}>
+      <DefaultTabBar {...props} style={{ background: colorBgContainer }} />
+    </StickyBox>
+  );
+  return <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} items={items} />;
+};
 
 export default App;

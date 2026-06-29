@@ -1,0 +1,132 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!.dumi/tmp*",
+      "!report.html",
+      "!.dumi/scripts/clarity.js",
+      "!coverage/**/*",
+      "!dist/*",
+      "!es/**/*",
+      "!lib/**/*",
+      "!_site/**/*",
+      "!node_modules",
+      "!server",
+      "!scripts/previewEditor/**/*",
+      "!**/*.tmp",
+      "!package.json",
+      "!components/style/antd.css",
+      "!components/style/~antd.layer.css",
+      "!scripts/visual-regression/report-template.html",
+      "!.claude/skills",
+      "!.agents/skills",
+      "!.worktrees/*"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 100,
+    "indentWidth": 2
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+      "complexity": {
+        "useDateNow": "off",
+        "noImportantStyles": "off",
+        "useOptionalChain": "off"
+      },
+      "correctness": {
+        "useUniqueElementIds": "off",
+        "useExhaustiveDependencies": "off"
+      },
+      "suspicious": {
+        "noTsIgnore": "off",
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+        "noConfusingVoidType": "off",
+        "noNonNullAssertedOptionalChain": "off",
+        "noThenProperty": "off",
+        "noTemplateCurlyInString": "off",
+        "noPrototypeBuiltins": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off",
+        "noDynamicNamespaceImportAccess": "off"
+      },
+      "a11y": {
+        "noLabelWithoutControl": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off",
+        "noStaticElementInteractions": "off",
+        "useAriaPropsSupportedByRole": "off",
+        "useAriaPropsForRole": "off"
+      }
+    }
+  },
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["renovate.json"],
+      "json": {
+        "parser": {
+          "allowComments": true
+        }
+      }
+    },
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noImplicitAnyLet": "off"
+          },
+          "complexity": {
+            "noUselessFragments": "off"
+          },
+          "a11y": {
+            "useValidAnchor": "off",
+            "useAnchorContent": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["components/*/demo/*"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noVoidTypeReturn": "off"
+          },
+          "a11y": {
+            "useValidAnchor": "off",
+            "useAnchorContent": "off"
+          }
+        }
+      }
+    }
+  ]
+}

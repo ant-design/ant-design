@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MenuProps } from 'antd';
-import { Dropdown } from 'antd';
+import { Dropdown, theme } from 'antd';
 
 const items: MenuProps['items'] = [
   {
@@ -17,19 +17,26 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Dropdown menu={{ items }} trigger={['contextMenu']}>
-    <div
-      className="site-dropdown-context-menu"
-      style={{
-        textAlign: 'center',
-        height: 200,
-        lineHeight: '200px',
-      }}
-    >
-      Right Click on here
-    </div>
-  </Dropdown>
-);
+const App: React.FC = () => {
+  const {
+    token: { colorBgLayout, colorTextTertiary },
+  } = theme.useToken();
+
+  return (
+    <Dropdown menu={{ items }} trigger={['contextMenu']}>
+      <div
+        style={{
+          color: colorTextTertiary,
+          background: colorBgLayout,
+          height: 200,
+          textAlign: 'center',
+          lineHeight: '200px',
+        }}
+      >
+        Right Click on here
+      </div>
+    </Dropdown>
+  );
+};
 
 export default App;

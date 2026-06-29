@@ -1,14 +1,43 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import classNames from 'classnames';
-import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import Button from '../button';
-import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
-import { useCompactItemContext } from '../space/Compact';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { composeRef, omit, pickAttrs } from '@rc-component/util';
+import { clsx } from 'clsx';
+
+import fallbackProp from '../_util/fallbackProp';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
+import Button from '../button/Button';
+import type { ButtonSemanticType } from '../button/Button';
+import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import Compact, { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
+import useStyle from './style/search';
+
+export type InputSearchSemanticType = {
+  classNames?: {
+    root?: string;
+    input?: string;
+    prefix?: string;
+    suffix?: string;
+    clear?: string;
+    count?: string;
+    button?: ButtonSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    input?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    count?: React.CSSProperties;
+    button?: ButtonSemanticType['styles'];
+  };
+};
+
+export type InputSearchSemanticAllType = GenerateSemantic<InputSearchSemanticType, SearchProps>;
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -18,9 +47,16 @@ export interface SearchProps extends InputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.MouseEvent<HTMLElement>
       | React.KeyboardEvent<HTMLInputElement>,
+    info?: {
+      source?: 'clear' | 'input';
+    },
   ) => void;
+  searchIcon?: React.ReactNode;
   enterButton?: React.ReactNode;
   loading?: boolean;
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  classNames?: InputSearchSemanticAllType['classNamesAndFn'];
+  styles?: InputSearchSemanticAllType['stylesAndFn'];
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -29,8 +65,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     inputPrefixCls: customizeInputPrefixCls,
     className,
     size: customizeSize,
-    suffix,
+    style,
     enterButton = false,
+    searchIcon: customizeSearchIcon,
     addonAfter,
     loading,
     disabled,
@@ -38,28 +75,58 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
+    variant,
+    onPressEnter: customOnPressEnter,
+    classNames,
+    styles,
+    hidden,
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const contextSize = React.useContext(SizeContext);
+  const {
+    direction,
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    searchIcon: contextSearchIcon,
+  } = useComponentConfig('inputSearch');
+
+  const mergedProps: SearchProps = {
+    ...props,
+    enterButton,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+    {
+      button: {
+        _default: 'root',
+      },
+    },
+  );
+
   const composedRef = React.useRef<boolean>(false);
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
-  const size = compactSize || customizeSize || contextSize;
+  const size = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const inputRef = React.useRef<InputRef>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e && e.target && e.type === 'click' && customOnSearch) {
-      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+    if (e?.target && e.type === 'click' && customOnSearch) {
+      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e, {
+        source: 'clear',
+      });
     }
-    if (customOnChange) {
-      customOnChange(e);
-    }
+    customOnChange?.(e);
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = (e) => {
@@ -70,7 +137,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     if (customOnSearch) {
-      customOnSearch(inputRef.current?.input?.value!, e);
+      customOnSearch(inputRef.current?.input?.value!, e, {
+        source: 'input',
+      });
     }
   };
 
@@ -78,36 +147,46 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (composedRef.current || loading) {
       return;
     }
+    customOnPressEnter?.(e);
     onSearch(e);
   };
 
-  const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
-  const btnClassName = `${prefixCls}-button`;
+  const searchIcon =
+    typeof enterButton === 'boolean'
+      ? fallbackProp(customizeSearchIcon, contextSearchIcon, <SearchOutlined />)
+      : null;
+  const btnPrefixCls = `${prefixCls}-btn`;
+  const btnClassName = clsx(btnPrefixCls, {
+    [`${btnPrefixCls}-${variant}`]: variant,
+  });
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
   const isAntdButton =
     enterButtonAsElement.type && (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
   if (isAntdButton || enterButtonAsElement.type === 'button') {
+    const enterButtonProps = enterButtonAsElement.props as { className?: string };
+
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-        enterButtonAsElement?.props?.onClick?.(e);
+        (
+          enterButtonAsElement as React.ReactElement<{
+            onClick?: React.MouseEventHandler<HTMLButtonElement>;
+          }>
+        )?.props?.onClick?.(e);
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton
-        ? {
-            className: btnClassName,
-            size,
-          }
-        : {}),
+      ...(isAntdButton ? { className: clsx(btnClassName, enterButtonProps.className), size } : {}),
     });
   } else {
     button = (
       <Button
+        classNames={mergedClassNames.button}
+        styles={mergedStyles.button}
         className={btnClassName}
-        type={enterButton ? 'primary' : undefined}
+        color={enterButton ? 'primary' : 'default'}
         size={size}
         disabled={disabled}
         key="enterButton"
@@ -115,6 +194,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onClick={onSearch}
         loading={loading}
         icon={searchIcon}
+        variant={
+          variant === 'borderless' || variant === 'filled' || variant === 'underlined'
+            ? 'text'
+            : enterButton
+              ? 'solid'
+              : undefined
+        }
       >
         {enterButton}
       </Button>
@@ -122,22 +208,21 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   }
 
   if (addonAfter) {
-    button = [
-      button,
-      cloneElement(addonAfter, {
-        key: 'addonAfter',
-      }),
-    ];
+    button = [button, cloneElement(addonAfter, { key: 'addonAfter' })];
   }
 
-  const cls = classNames(
+  const mergedClassName = clsx(
     prefixCls,
+    cssVarCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-with-button`]: !!enterButton,
     },
     className,
+    contextClassName,
+    hashId,
+    mergedClassNames.root,
   );
 
   const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
@@ -150,23 +235,43 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd?.(e);
   };
 
+  // ========================== Render ==========================
+  // >>> Root Props
+  const rootProps = pickAttrs(restProps, {
+    data: true,
+  });
+
+  const inputProps: InputProps = omit(
+    {
+      ...restProps,
+      classNames: omit(mergedClassNames, ['button', 'root']),
+      styles: omit(mergedStyles, ['button', 'root']),
+      prefixCls: inputPrefixCls,
+      type: 'search',
+      size,
+      variant,
+      onPressEnter,
+      onCompositionStart: handleOnCompositionStart,
+      onCompositionEnd: handleOnCompositionEnd,
+      onChange,
+      disabled,
+    },
+    Object.keys(rootProps) as Array<keyof typeof rootProps>,
+  );
+
   return (
-    <Input
-      ref={composeRef<InputRef>(inputRef, ref)}
-      onPressEnter={onPressEnter}
-      {...restProps}
-      size={size}
-      onCompositionStart={handleOnCompositionStart}
-      onCompositionEnd={handleOnCompositionEnd}
-      prefixCls={inputPrefixCls}
-      addonAfter={button}
-      suffix={suffix}
-      onChange={onChange}
-      className={cls}
-      disabled={disabled}
-    />
+    <Compact
+      className={mergedClassName}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      {...rootProps}
+      hidden={hidden}
+    >
+      <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
+      {button}
+    </Compact>
   );
 });
+
 if (process.env.NODE_ENV !== 'production') {
   Search.displayName = 'Search';
 }

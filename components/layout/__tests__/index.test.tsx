@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { UserOutlined } from '@ant-design/icons';
+import { renderToString } from 'react-dom/server';
+
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Menu from '../../menu';
-import { fireEvent, render } from '../../../tests/utils';
 
 const { Sider, Content, Footer, Header } = Layout;
 
@@ -109,8 +111,10 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.width).toBe('50%');
-    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.flex).toBe('0 0 50%');
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')).toHaveStyle({
+      width: '50%',
+      flex: '0 0 50%',
+    });
   });
 
   describe('zeroWidth', () => {
@@ -202,6 +206,57 @@ describe('Layout', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should customize root and body with semantic classNames and styles', () => {
+    const { container } = render(
+      <Sider
+        classNames={{ root: 'custom-sider-root', body: 'custom-sider-body' }}
+        styles={{
+          root: { backgroundColor: 'rgb(1, 2, 3)' },
+          body: { display: 'flex', flexDirection: 'column' },
+        }}
+      >
+        Sider
+      </Sider>,
+    );
+    const sider = container.querySelector<HTMLElement>('.ant-layout-sider')!;
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+
+    expect(sider).toHaveClass('custom-sider-root');
+    expect(sider).toHaveStyle({ backgroundColor: 'rgb(1, 2, 3)' });
+    expect(sider).not.toHaveClass('custom-sider-body');
+    expect(body).toHaveClass('custom-sider-body');
+    expect(body).toHaveStyle({
+      display: 'flex',
+      flexDirection: 'column',
+    });
+  });
+
+  it('should pass merged state to semantic classNames and styles callbacks', () => {
+    const { container } = render(
+      <Sider
+        collapsible
+        classNames={({ props }) => ({
+          body: props.collapsed ? 'body-collapsed' : 'body-expanded',
+        })}
+        styles={({ props }) => ({
+          body: { opacity: props.collapsed ? 0.5 : 1 },
+        })}
+      >
+        Sider
+      </Sider>,
+    );
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+
+    expect(body).toHaveClass('body-expanded');
+    expect(body).toHaveStyle({ opacity: '1' });
+
+    fireEvent.click(trigger);
+
+    expect(body).toHaveClass('body-collapsed');
+    expect(body).toHaveStyle({ opacity: '0.5' });
+  });
+
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
     const { container } = render(
       <Layout hasSider={false}>
@@ -230,7 +285,7 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
@@ -245,9 +300,21 @@ describe('Layout', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55603
+  it('Header used standalone should apply cssVar class', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+        <Header className="standalone-header">Header</Header>
+      </ConfigProvider>,
+    );
+
+    const header = container.querySelector('.standalone-header')!;
+    expect(header).toHaveClass('foo');
   });
 });
 
@@ -273,15 +340,54 @@ describe('Sider', () => {
     expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 
-  it('should warning if use `inlineCollapsed` with menu', () => {
-    render(
-      <Sider collapsible>
-        <Menu mode="inline" inlineCollapsed />
-      </Sider>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Menu] `inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-    );
+  it('should controlled collapse work when using with Layout.Sider', () => {
+    const Demo = () => {
+      const [collapsed, setCollapsed] = useState(false);
+
+      const toggleCollapsed = () => {
+        setCollapsed(!collapsed);
+      };
+
+      return (
+        <Layout style={{ minHeight: '100vh' }}>
+          <Layout.Sider collapsed={collapsed}>
+            <button type="button" onClick={toggleCollapsed}>
+              "trigger"
+            </button>
+            <Menu
+              theme="dark"
+              inlineCollapsed={collapsed}
+              defaultSelectedKeys={['1']}
+              mode="inline"
+            >
+              <Menu.SubMenu key="sub1" icon={<UserOutlined />} title="User">
+                <Menu.Item key="3">Tom</Menu.Item>
+                <Menu.Item key="4">Bill</Menu.Item>
+                <Menu.Item key="5">Alex</Menu.Item>
+              </Menu.SubMenu>
+            </Menu>
+          </Layout.Sider>
+        </Layout>
+      );
+    };
+
+    const { getByRole, queryByRole } = render(<Demo />);
+
+    const menu = queryByRole('menu');
+    expect(menu).toHaveClass('ant-menu-inline');
+
+    const button = getByRole('button');
+    fireEvent.click(button);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(menu).toHaveClass('ant-menu-inline-collapsed');
+
+    fireEvent.click(button);
+
+    expect(menu).not.toHaveClass('ant-menu-inline-collapsed');
   });
 
   it('zeroWidthTriggerStyle should work', () => {
@@ -298,7 +404,7 @@ describe('Sider', () => {
     expect(
       container.querySelector<HTMLDivElement>('.ant-layout-sider-zero-width-trigger')?.style
         .background,
-    ).toEqual('rgb(255, 153, 102)');
+    ).toBe('rgb(255, 153, 102)');
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {
@@ -319,6 +425,7 @@ describe('Sider', () => {
 
   (['Layout', 'Header', 'Footer', 'Sider'] as const).forEach((tag) => {
     const ComponentMap = { Layout, Header, Footer, Sider };
+
     it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef<HTMLDivElement>();
       const onSelect = jest.fn();
@@ -330,5 +437,17 @@ describe('Sider', () => {
       );
       expect(ref.current instanceof HTMLElement).toBe(true);
     });
+  });
+
+  it('auto check hasSider', () => {
+    const htmlContent = renderToString(
+      <Layout>
+        <div />
+        <Sider />
+        <div />
+      </Layout>,
+    );
+
+    expect(htmlContent).toContain('ant-layout-has-sider');
   });
 });

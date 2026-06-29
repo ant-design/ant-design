@@ -1,17 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -23,10 +25,10 @@ exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] =
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                 />
               </span>
             </div>
@@ -60,10 +62,10 @@ exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] =
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                 />
               </span>
             </div>
@@ -97,10 +99,10 @@ exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] =
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                 />
               </span>
             </div>
@@ -134,10 +136,10 @@ exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] =
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
                 />
               </span>
             </div>
@@ -167,32 +169,1102 @@ exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Default Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography css-var-test-id"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography css-var-test-id"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography css-var-test-id"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography css-var-test-id"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography css-var-test-id"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Large Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Meta
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-split css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Vertical
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-vertical ant-list-split css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Empty Text
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-list ant-list-split css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-list-empty-text"
+        >
+          <div
+            class="css-var-test-id ant-empty ant-empty-normal"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  No data
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                    />
+                    <path
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/drag-sorting.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                0 Racing car sprays burning fuel into crowd.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                1 Japanese princess to wed commoner.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                2 Australian walks 100km after outback crash.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                3 Man charged over missing wedding girl.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                4 Los Angeles battles huge wildfires.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-drag-sorting"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-4"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/drag-sorting.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             0 Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             1 Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             2 Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             3 Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             4 Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-drag-sorting-handler"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-6"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/drag-sorting-handler.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
+        style="margin-inline: -8px;"
       >
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -217,17 +1289,17 @@ exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = 
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -252,17 +1324,17 @@ exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = 
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -287,17 +1359,17 @@ exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = 
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -327,7 +1399,13 @@ exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid-test.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-list ant-list-split ant-list-grid"
@@ -340,17 +1418,23 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -378,14 +1462,20 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -413,14 +1503,20 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -448,14 +1544,20 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -483,14 +1585,20 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -518,14 +1626,20 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
                 class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -557,6 +1671,28 @@ Array [
     </div>
   </div>,
   <div
+    id="list-grid-drag-sorting"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-0"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/grid-drag-sorting-handler.tsx extend context correctly 1`] = `
+Array [
+  <div
     class="ant-list ant-list-split ant-list-grid"
   >
     <div
@@ -567,20 +1703,704 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
                   class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-grid-drag-sorting-handler"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-2"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting-handler.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/grid-test.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
+          style="margin-inline: -8px;"
+        >
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
+          style="margin-inline: -8px;"
+        >
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -605,17 +2425,17 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -640,17 +2460,17 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -675,17 +2495,17 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -710,17 +2530,17 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -745,17 +2565,17 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -784,30 +2604,32 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-grid"
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
+          style="margin-inline: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -833,17 +2655,17 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -869,17 +2691,17 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -905,17 +2727,17 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -941,17 +2763,17 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -977,17 +2799,17 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -1019,23 +2841,31 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/infinite-load.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/grid-test.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/infinite-load.tsx extend context correctly 1`] = `
 <div
   id="scrollableDiv"
-  style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
+  style="height: 400px; overflow: auto; padding: 0px 16px; border: 1px solid rgba(140, 140, 140, 0.35);"
 >
   <div
     class="infinite-scroll-component__outerdiv"
   >
     <div
-      class="infinite-scroll-component "
-      style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch"
+      class="infinite-scroll-component"
+      style="height: auto; overflow: auto; -webkit-overflow-scrolling: touch;"
     >
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split css-var-test-id"
       >
         <div
-          class="ant-spin-nested-loading"
+          aria-busy="false"
+          aria-live="polite"
+          class="ant-spin css-var-test-id"
         >
           <div
             class="ant-spin-container"
@@ -1044,7 +2874,7 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
               class="ant-list-empty-text"
             >
               <div
-                class="ant-empty ant-empty-normal"
+                class="css-var-test-id ant-empty ant-empty-normal"
               >
                 <div
                   class="ant-empty-image"
@@ -1055,6 +2885,9 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
                     width="64"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <title>
+                      No data
+                    </title>
                     <g
                       fill="none"
                       fill-rule="evenodd"
@@ -1072,10 +2905,10 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -1093,7 +2926,7 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
         </div>
       </div>
       <div
-        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
       >
         <div
           class="ant-skeleton-header"
@@ -1103,11 +2936,11 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
           />
         </div>
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <h3
             class="ant-skeleton-title"
-            style="width:50%"
+            style="width: 50%;"
           />
           <ul
             class="ant-skeleton-paragraph"
@@ -1116,23 +2949,34 @@ exports[`renders ./components/list/demo/infinite-load.tsx extend context correct
           </ul>
         </div>
       </div>
+      <div
+        style="height: 1px;"
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/list/demo/loadmore.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/infinite-load.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
+  class="ant-list ant-list-split ant-list-loading demo-loadmore-list css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
-    <div>
-      <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+    <div
+      class="ant-spin-section"
+    >
+      <span
+        class="ant-spin-dot-holder"
       >
         <span
           class="ant-spin-dot ant-spin-dot-spin"
@@ -1150,43 +2994,482 @@ exports[`renders ./components/list/demo/loadmore.tsx extend context correctly 1`
             class="ant-spin-dot-item"
           />
         </span>
-      </div>
+      </span>
     </div>
     <div
-      class="ant-spin-container ant-spin-blur"
+      class="ant-spin-container"
     >
       <div
-        style="min-height:53px"
+        style="min-height: 53px;"
       />
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/list/demo/responsive.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/pagination.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
+    style="margin-bottom: 20px;"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Pagination Position:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
+          >
+            <label
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="top"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                top
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="bottom"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                bottom
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="both"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                both
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Pagination Align:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
+          >
+            <label
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="start"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                start
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="center"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                center
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="end"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                end
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-something-after-last-item css-var-test-id"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items ant-list-container css-var-test-id"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+                >
+                  <img
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-pagination"
+    >
+      <ul
+        class="ant-pagination ant-pagination-center css-var-test-id"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/pagination.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/responsive.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
+        style="margin-inline: -8px;"
       >
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1210,16 +3493,18 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1243,16 +3528,18 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1276,16 +3563,18 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1309,16 +3598,18 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1342,16 +3633,18 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1381,20 +3674,32 @@ exports[`renders ./components/list/demo/responsive.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/list/demo/simple.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/responsive.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/simple.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Default Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -1404,78 +3709,75 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
               </mark>
             </span>
-            <!-- -->
-            Racing car sprays burning fuel into crowd.
+             Racing car sprays burning fuel into crowd.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
               </mark>
             </span>
-            <!-- -->
-            Japanese princess to wed commoner.
+             Japanese princess to wed commoner.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
               </mark>
             </span>
-            <!-- -->
-            Australian walks 100km after outback crash.
+             Australian walks 100km after outback crash.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
               </mark>
             </span>
-            <!-- -->
-            Man charged over missing wedding girl.
+             Man charged over missing wedding girl.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
               </mark>
             </span>
-            <!-- -->
-            Los Angeles battles huge wildfires.
+             Los Angeles battles huge wildfires.
           </li>
         </ul>
       </div>
@@ -1489,17 +3791,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -1509,13 +3817,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -1554,17 +3864,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Large Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -1574,13 +3890,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -1621,18 +3939,90 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`] = `
+exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/spin-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+              >
+                <img
+                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/spin-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
+exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] = `
+<div
+  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item css-var-test-id"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -1647,10 +4037,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
                   />
                 </span>
               </div>
@@ -1679,11 +4069,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -1717,11 +4106,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -1755,11 +4143,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -1795,6 +4182,7 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -1813,10 +4201,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
                   />
                 </span>
               </div>
@@ -1845,11 +4233,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -1883,11 +4270,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -1921,11 +4307,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -1961,6 +4346,7 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -1979,10 +4365,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
                   />
                 </span>
               </div>
@@ -2011,11 +4397,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2049,11 +4434,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2087,11 +4471,10 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2127,6 +4510,7 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -2149,7 +4533,7 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination"
+      class="ant-pagination ant-pagination-end css-var-test-id"
     >
       <li
         aria-disabled="true"
@@ -2271,7 +4655,25 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
             <span
               class="ant-pagination-item-ellipsis"
             >
-              •••
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
             </span>
           </div>
         </a>
@@ -2324,33 +4726,8 @@ exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/list/demo/virtual-list.tsx extend context correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="rc-virtual-list"
-        style="position:relative"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="height:400px;overflow-y:auto;overflow-anchor:none"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display:flex;flex-direction:column"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
 `;

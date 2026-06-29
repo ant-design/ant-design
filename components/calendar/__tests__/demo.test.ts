@@ -1,3 +1,10 @@
+import dayjs from 'dayjs';
+
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('calendar');
+demoTest('calendar', {
+  testRootProps: {
+    value: dayjs(),
+  },
+  skip: ['lunar.tsx'],
+});

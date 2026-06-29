@@ -1,6 +1,8 @@
-import { render } from 'rc-util/lib/React/render';
-import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import React, { useContext } from 'react';
+import { render } from '@rc-component/util';
+
+import { AppConfigContext } from '../app/context';
+import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -9,17 +11,16 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
+import PureList from './PureList';
 import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export { ArgsProps };
-
-const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
+export type { ArgsProps };
 
 let message: GlobalMessage | null = null;
 
-let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
+let act: (callback: VoidFunction) => Promise<void> | void = (callback) => callback();
 
 interface GlobalMessage {
   fragment: DocumentFragment;
@@ -43,37 +44,17 @@ interface TypeTask {
   skipped?: boolean;
 }
 
-type Task =
-  | OpenTask
-  | TypeTask
-  | {
-      type: 'destroy';
-      key: React.Key;
-      skipped?: boolean;
-    };
+type Task = OpenTask | TypeTask | { type: 'destroy'; key?: React.Key; skipped?: boolean };
 
 let taskQueue: Task[] = [];
 
 let defaultGlobalConfig: ConfigOptions = {};
 
 function getGlobalContext() {
-  const {
-    prefixCls: globalPrefixCls,
-    getContainer: globalGetContainer,
-    rtl,
-    maxCount,
-    top,
-  } = defaultGlobalConfig;
-  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('message');
-  const mergedContainer = globalGetContainer?.() || document.body;
+  const { getContainer, duration, rtl, maxCount, top, stack } = defaultGlobalConfig;
+  const mergedContainer = getContainer?.() || document.body;
 
-  return {
-    prefixCls: mergedPrefixCls,
-    container: mergedContainer,
-    rtl,
-    maxCount,
-    top,
-  };
+  return { getContainer: () => mergedContainer, duration, rtl, maxCount, top, stack };
 }
 
 interface GlobalHolderRef {
@@ -81,48 +62,23 @@ interface GlobalHolderRef {
   sync: () => void;
 }
 
-const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number | undefined>();
-  const [rtl, setRTL] = React.useState<boolean | undefined>();
-  const [top, setTop] = React.useState<number | undefined>();
+const GlobalHolder = React.forwardRef<
+  GlobalHolderRef,
+  { messageConfig: ConfigOptions; sync: () => void }
+>((props, ref) => {
+  const { messageConfig, sync } = props;
 
-  const [api, holder] = useInternalMessage({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
-    top,
-  });
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('message');
+  const appConfig = useContext(AppConfigContext);
 
-  const global = globalConfig();
-  const rootPrefixCls = global.getRootPrefixCls();
-  const rootIconPrefixCls = global.getIconPrefixCls();
-
-  const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-      top: nextTop,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-    setTop(nextTop);
-  };
-
-  React.useEffect(sync, []);
+  const [api, holder] = useInternalMessage({ ...messageConfig, prefixCls, ...appConfig.message });
 
   React.useImperativeHandle(ref, () => {
-    const instance: any = { ...api };
+    const instance: MessageInstance = { ...api };
 
     Object.keys(instance).forEach((method) => {
-      instance[method] = (...args: any[]) => {
+      instance[method as keyof MessageInstance] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
       };
@@ -133,15 +89,32 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
       sync,
     };
   });
+  return holder;
+});
 
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
+
+  const sync = () => {
+    setMessageConfig(getGlobalContext);
+  };
+
+  React.useEffect(sync, []);
+
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
+
+  const dom = <GlobalHolder ref={ref} sync={sync} messageConfig={messageConfig} />;
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
-      {holder}
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
+      {global.holderRender ? global.holderRender(dom) : dom}
     </ConfigProvider>
   );
 });
 
-function flushNotice() {
+const flushMessageQueue = () => {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -154,16 +127,15 @@ function flushNotice() {
     // Delay render to avoid sync issue
     act(() => {
       render(
-        <GlobalHolder
+        <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             // React 18 test env will throw if call immediately in ref
             Promise.resolve().then(() => {
               if (!newMessage.instance && instance) {
                 newMessage.instance = instance;
                 newMessage.sync = sync;
-                flushNotice();
+                flushMessageQueue();
               }
             });
           }}
@@ -222,12 +194,11 @@ function flushNotice() {
 
   // Clean up
   taskQueue = [];
-}
+};
 
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-type MethodType = typeof methods[number];
 
 function setMessageGlobalConfig(config: ConfigOptions) {
   defaultGlobalConfig = {
@@ -266,12 +237,18 @@ function open(config: ArgsProps): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
+    warnContext('message');
+  }
+
   const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 
@@ -297,38 +274,49 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
 
-function destroy(key: React.Key) {
-  taskQueue.push({
-    type: 'destroy',
-    key,
-  });
-  flushNotice();
-}
+const destroy: BaseMethods['destroy'] = (key) => {
+  taskQueue.push({ type: 'destroy', key });
+  flushMessageQueue();
+};
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
   config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList;
+}
+
+interface MessageMethods {
+  info: TypeOpen;
+  success: TypeOpen;
+  error: TypeOpen;
+  warning: TypeOpen;
+  loading: TypeOpen;
+}
+
+const methods: (keyof MessageMethods)[] = ['success', 'info', 'warning', 'error', 'loading'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setMessageGlobalConfig,
   useMessage,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;
 
-methods.forEach((type) => {
+methods.forEach((type: keyof MessageMethods) => {
   staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
 });
 
@@ -337,24 +325,22 @@ methods.forEach((type) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
-export let actWrapper: (wrapper: any) => void = noop;
-
+let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
-  actWrapper = (wrapper) => {
+  _actWrapper = (wrapper) => {
     act = wrapper;
   };
 }
+const actWrapper = _actWrapper;
+export { actWrapper };
 
-/** @private Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
-export let actDestroy = noop;
-
+let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
-  actDestroy = () => {
+  _actDestroy = () => {
     message = null;
   };
 }
+const actDestroy = _actDestroy;
+export { actDestroy };
 
 export default staticMethods;

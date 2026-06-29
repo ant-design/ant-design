@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Radio, Select } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { SelectProps, RadioChangeEvent } from 'antd';
+import { Radio, Select, Space } from 'antd';
+import type { ConfigProviderProps, RadioChangeEvent, SelectProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const options: SelectProps['options'] = [];
+
 for (let i = 10; i < 36; i++) {
   options.push({
     value: i.toString(36) + i,
@@ -16,7 +18,7 @@ const handleChange = (value: string | string[]) => {
 };
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('middle');
+  const [size, setSize] = useState<SizeType>('medium');
 
   const handleSizeChange = (e: RadioChangeEvent) => {
     setSize(e.target.value);
@@ -26,38 +28,38 @@ const App: React.FC = () => {
     <>
       <Radio.Group value={size} onChange={handleSizeChange}>
         <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="default">Default</Radio.Button>
+        <Radio.Button value="medium">Medium</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
       <br />
       <br />
-      <Select
-        size={size}
-        defaultValue="a1"
-        onChange={handleChange}
-        style={{ width: 200 }}
-        options={options}
-      />
-      <br />
-      <Select
-        mode="multiple"
-        size={size}
-        placeholder="Please select"
-        defaultValue={['a10', 'c12']}
-        onChange={handleChange}
-        style={{ width: '100%' }}
-        options={options}
-      />
-      <br />
-      <Select
-        mode="tags"
-        size={size}
-        placeholder="Please select"
-        defaultValue={['a10', 'c12']}
-        onChange={handleChange}
-        style={{ width: '100%' }}
-        options={options}
-      />
+      <Space vertical style={{ width: '100%' }}>
+        <Select
+          size={size}
+          defaultValue="a1"
+          onChange={handleChange}
+          style={{ width: 200 }}
+          options={options}
+        />
+        <Select
+          mode="multiple"
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+          options={options}
+        />
+        <Select
+          mode="tags"
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+          options={options}
+        />
+      </Space>
     </>
   );
 };

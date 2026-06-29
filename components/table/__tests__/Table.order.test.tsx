@@ -1,8 +1,9 @@
 import React from 'react';
+
 import type { TableProps } from '..';
 import Table from '..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 describe('Table.order', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
@@ -72,7 +73,7 @@ describe('Table.order', () => {
 
     expect(container.querySelectorAll('tr')[1].querySelectorAll('td')).toHaveLength(3);
     expect(
-      container.querySelectorAll('tr')[1].querySelectorAll('td.ant-table-cell-fix-left'),
+      container.querySelectorAll('tr')[1].querySelectorAll('td.ant-table-cell-fix-start'),
     ).toHaveLength(2);
   });
 });

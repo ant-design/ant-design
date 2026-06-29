@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Timeline } from 'antd';
+import { Button, Flex, Timeline } from 'antd';
 
 const App: React.FC = () => {
   const [reverse, setReverse] = useState(false);
@@ -9,16 +9,29 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <Timeline pending="Recording..." reverse={reverse}>
-        <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-        <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-        <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-      </Timeline>
-      <Button type="primary" style={{ marginTop: 16 }} onClick={handleClick}>
+    <Flex vertical gap="medium" align="flex-start">
+      <Timeline
+        reverse={reverse}
+        items={[
+          {
+            content: 'Create a services site 2015-09-01',
+          },
+          {
+            content: 'Solve initial network problems 2015-09-01',
+          },
+          {
+            content: 'Technical testing 2015-09-01',
+          },
+          {
+            loading: true,
+            content: 'Recording...',
+          },
+        ]}
+      />
+      <Button type="primary" onClick={handleClick}>
         Toggle Reverse
       </Button>
-    </div>
+    </Flex>
   );
 };
 

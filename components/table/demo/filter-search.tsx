@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import type { TableColumnsType, TableProps } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -9,7 +9,7 @@ interface DataType {
   address: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -29,7 +29,7 @@ const columns: ColumnsType<DataType> = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value: string, record) => record.name.startsWith(value),
+    onFilter: (value, record) => record.name.startsWith(value as string),
     width: '30%',
   },
   {
@@ -50,7 +50,7 @@ const columns: ColumnsType<DataType> = [
         value: 'New York',
       },
     ],
-    onFilter: (value: string, record) => record.address.startsWith(value),
+    onFilter: (value, record) => record.address.startsWith(value as string),
     filterSearch: true,
     width: '40%',
   },
@@ -73,7 +73,7 @@ const data: DataType[] = [
     key: '3',
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
@@ -87,6 +87,8 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
   console.log('params', pagination, filters, sorter, extra);
 };
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+const App: React.FC = () => (
+  <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />
+);
 
 export default App;

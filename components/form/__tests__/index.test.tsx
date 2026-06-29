@@ -1,30 +1,41 @@
 import type { ChangeEventHandler } from 'react';
-import React, { useState } from 'react';
+import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import { AlertFilled } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import classNames from 'classnames';
-import type { ColProps } from 'antd/es/grid';
+
 import type { FormInstance } from '..';
 import Form from '..';
-import * as Util from '../util';
-import Button from '../../button';
-import Input from '../../input';
-import Select from '../../select';
-import Upload from '../../upload';
-import Cascader from '../../cascader';
-import Checkbox from '../../checkbox';
-import DatePicker from '../../date-picker';
-import InputNumber from '../../input-number';
-import Radio from '../../radio';
-import Switch from '../../switch';
-import TreeSelect from '../../tree-select';
+import { isNumber } from '../../_util/is';
+import { responsiveArrayReversed } from '../../_util/responsiveObserver';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, screen, pureRender, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
+import ColorPicker from '../../color-picker';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import type { ColProps } from '../../grid';
+import Input from '../../input';
+import type { InputProps } from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Popover from '../../popover';
+import Radio from '../../radio';
+import Segmented from '../../segmented';
+import Select from '../../select';
+import Slider from '../../slider';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
 import type { NamePath } from '../interface';
+import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -42,25 +53,6 @@ describe('Form', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-  // const change = async (
-  //   container: ReturnType<typeof render>['container'],
-  //   index: number,
-  //   value: string,
-  //   executeMockTimer: boolean,
-  // ) => {
-  //   fireEvent.change(container.querySelectorAll('input')?.[index], { target: { value } });
-  //   await sleep(200);
-
-  //   if (executeMockTimer) {
-  //     for (let i = 0; i < 10; i += 1) {
-  //       act(() => {
-  //         jest.runAllTimers();
-  //       });
-  //     }
-  //     await sleep(1);
-  //   }
-  // };
-
   const changeValue = async (
     input: HTMLElement | null | number,
     value: string,
@@ -68,7 +60,7 @@ describe('Form', () => {
   ) => {
     let element: HTMLElement;
 
-    if (typeof input === 'number') {
+    if (isNumber(input)) {
       element = document.querySelectorAll('input')[input];
     }
 
@@ -104,7 +96,7 @@ describe('Form', () => {
   });
 
   describe('noStyle Form.Item', () => {
-    it('should show alert when form field is required but empty', async () => {
+    it('should show error when form field is required but empty', async () => {
       const onChange = jest.fn();
 
       const { container } = render(
@@ -120,8 +112,8 @@ describe('Form', () => {
       // user type something and clear
       await changeValue(0, 'test');
       await changeValue(0, '');
-
-      // should show alert with correct message and show correct styles
+      // should show error with correct message and show correct styles
+      expect(container.querySelector('.ant-form-item-explain')).not.toHaveAttribute('role');
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
         "'test' is required",
       );
@@ -139,11 +131,13 @@ describe('Form', () => {
           // Wait a while and then some logic to validate
           await waitFakeTimer();
 
-          try {
-            await form.validateFields();
-          } catch (err) {
-            // do nothing
-          }
+          await act(async () => {
+            try {
+              await form.validateFields();
+            } catch {
+              // do nothing
+            }
+          });
         };
 
         return (
@@ -189,6 +183,43 @@ describe('Form', () => {
       await changeValue(0, '1');
       await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
+    });
+
+    // https://github.com/ant-design/ant-design/issues/41620
+    it('should not throw error when `help=false` and `noStyle=true`', async () => {
+      const App: React.FC<{ help?: React.ReactNode }> = (props) => {
+        const { help = false } = props || {};
+        return (
+          <Form>
+            <Form.Item name="list" label="List" rules={[{ required: true }]}>
+              <Form.Item name={['list', 0]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+              <Form.Item name={['list', 1]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+            <Form.Item>
+              <button type="submit">submit</button>
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { container, getByRole, rerender } = render(<App />);
+
+      // click submit to trigger validate
+      fireEvent.click(getByRole('button'));
+
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(1);
+
+      // When noStyle=true but help is not false, help will be displayed
+      rerender(<App help="help" />);
+      await waitFakeTimer();
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
     });
   });
 
@@ -423,32 +454,244 @@ describe('Form', () => {
         getForm: () => form,
       };
     });
+
+    it('should work with id', () => {
+      const MyComponent = ({ id }: { id?: string }) => <input type="text" id={id} />;
+
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <MyComponent />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
+
+      expect(input.id).toBe('test');
+      formInstance.scrollToField('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(input, expect.any(Object));
+    });
   });
 
-  it('scrollToFirstError', async () => {
-    const onFinishFailed = jest.fn();
+  describe('scrollToField with focus', () => {
+    it('focusField should work', () => {
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form>
+            <Form.Item name="test">
+              <input type="text" />
+            </Form.Item>
+          </Form>
+        );
+      };
 
-    const { container } = render(
-      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-        <Form.Item name="test" rules={[{ required: true }]}>
-          <input />
-        </Form.Item>
-        <Form.Item>
-          <Button htmlType="submit">Submit</Button>
-        </Form.Item>
-      </Form>,
-    );
+      const { getByRole } = render(<Demo />);
+      const input = getByRole('textbox');
 
-    expect(scrollIntoView).not.toHaveBeenCalled();
-    fireEvent.submit(container.querySelector('form')!);
-    await waitFakeTimer();
-
-    const inputNode = document.getElementById('test');
-    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-      block: 'center',
-      scrollMode: 'if-needed',
+      formInstance.focusField('test');
+      expect(input).toHaveFocus();
     });
-    expect(onFinishFailed).toHaveBeenCalled();
+
+    // https://github.com/ant-design/ant-design/pull/52712#issuecomment-2646831569
+    it('focusField should work with Select', () => {
+      let formInstance: any;
+
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return (
+          <Form form={form}>
+            <Form.Item name="test">
+              <Select
+                options={[
+                  { label: 'afc163', value: 'A' },
+                  { label: 'Wxh16144', value: 'B' },
+                ]}
+              />
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { getByRole } = render(<Demo />);
+      const select = getByRole('combobox');
+
+      formInstance.focusField('test');
+      expect(select).toHaveFocus();
+    });
+  });
+
+  describe('scrollToFirstError', () => {
+    it('should work with scrollToFirstError', async () => {
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
+    });
+
+    it('should work with scrollToFirstError with ref', async () => {
+      const ForwardRefInput = React.forwardRef<HTMLInputElement, any>(({ id, ...props }, ref) => (
+        <input {...props} ref={ref} />
+      ));
+
+      const NativeInput = React.forwardRef<any, any>(({ id, ...props }, ref) => {
+        const internalRef = React.useRef<HTMLInputElement>(null);
+        React.useImperativeHandle(ref, () => ({
+          nativeElement: internalRef.current,
+        }));
+        return <input {...props} ref={internalRef} />;
+      });
+
+      const NormalInput: React.FC<Readonly<React.DOMAttributes<HTMLInputElement>>> = (props) => (
+        <input {...props} />
+      );
+
+      const { getByRole, getAllByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="foo" rules={[{ required: true }]}>
+            <ForwardRefInput />
+          </Form.Item>
+          <Form.Item name="bar" rules={[{ required: true }]}>
+            <NativeInput />
+          </Form.Item>
+          <Form.Item name="baz" rules={[{ required: true }]}>
+            <NormalInput />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      // click submit to trigger validate
+      const allInputs = getAllByRole('textbox');
+      const button = getByRole('button');
+      expect(allInputs).toHaveLength(3);
+
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, allInputs[0], expect.any(Object));
+
+      // change the value of the first input
+      fireEvent.change(allInputs[0], { target: { value: '123' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(2, allInputs[1], expect.any(Object));
+
+      // change the value of the second input
+      fireEvent.change(allInputs[1], { target: { value: 'abc' } });
+      fireEvent.click(button);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenNthCalledWith(3, allInputs[2], expect.any(Object));
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(3);
+    });
+
+    it('should scrollToFirstError work with focus', async () => {
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <Form scrollToFirstError={{ block: 'center', focus: true }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+
+      expect(inputNode).toHaveFocus();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/28869
+    it('should work with Upload', async () => {
+      const uploadRef = React.createRef<any>();
+
+      const { getByRole } = render(
+        <Form scrollToFirstError>
+          <Form.Item
+            name="demo-form_dragger"
+            valuePropName="fileList"
+            getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
+            rules={[{ required: true }]}
+          >
+            <Upload name="files" action="/upload.do" ref={uploadRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(uploadRef.current.nativeElement);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/48981
+    it('should not throw error when use InputNumber', async () => {
+      const inputNumberRef = React.createRef<any>();
+
+      const { getByText } = render(
+        <Form scrollToFirstError>
+          <Form.Item name="demo-form_input-number" rules={[{ required: true }]}>
+            <InputNumber ref={inputNumberRef} />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(getByText('Submit'));
+      await waitFakeTimer();
+      expect(scrollIntoView).toHaveBeenCalled();
+      expect((scrollIntoView as any).mock.calls[0][0]).toBe(inputNumberRef.current?.nativeElement);
+    });
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
@@ -472,6 +715,15 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
     );
+  });
+
+  it('No warning when use noStyle and children is empty', () => {
+    render(
+      <Form>
+        <Form.Item name="noWarning" noStyle />
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('dynamic change required', async () => {
@@ -538,13 +790,24 @@ describe('Form', () => {
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('');
       expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
     });
-  });
 
-  it('warning when use v3 function', () => {
-    Form.create();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
-    );
+    // https://github.com/ant-design/ant-design/issues/58557
+    it('false', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item name="test" help={false} rules={[{ required: true, message: 'message' }]}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe('');
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/20706
@@ -571,30 +834,28 @@ describe('Form', () => {
       </Form>,
     );
 
-    /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
       await changeValue(0, 'bamboo');
       await changeValue(0, '');
-      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual(
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe(
         "'name' is required",
       );
 
       await changeValue(0, 'p');
-      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('not a p');
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe('not a p');
     }
-    /* eslint-enable */
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
     const App: React.FC = () => {
-      const [message, updateMessage] = React.useState('');
+      const [message, setMessage] = React.useState('');
       return (
         <Form>
           <Form.Item label="hello" help={message}>
             <Input />
           </Form.Item>
-          <Button onClick={() => updateMessage('bamboo')} />
+          <Button onClick={() => setMessage('bamboo')} />
         </Form>
       );
     };
@@ -639,36 +900,41 @@ describe('Form', () => {
       value = '',
       id,
     }) => {
-      shouldRender();
+      shouldRender(value);
       return <input id={id} value={value} />;
     };
 
-    const formRef = React.createRef<FormInstance>();
+    const Demo = () => {
+      const [form] = Form.useForm();
 
-    const { container } = pureRender(
-      <Form ref={formRef}>
-        <Form.Item>
-          <StaticInput />
-        </Form.Item>
-        <Form.Item name="light">
-          <DynamicInput id="changed" />
-        </Form.Item>
-      </Form>,
-    );
+      return (
+        <Form form={form}>
+          <Form.Item>
+            <StaticInput />
+          </Form.Item>
+          <Form.Item name="light">
+            <DynamicInput id="changed" />
+          </Form.Item>
+          <Button id="fill-btn" onClick={() => form.setFieldValue('light', 'bamboo')}>
+            fill
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = pureRender(<Demo />);
 
     await waitFakeTimer();
 
-    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('');
+    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toBe('');
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
-    formRef.current!.setFieldsValue({ light: 'bamboo' });
-    await waitFakeTimer(100, 100);
+    fireEvent.click(container.querySelector('#fill-btn')!);
+    await waitFakeTimer();
 
-    expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
-
-    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('bamboo');
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenLastCalledWith('bamboo');
     expect(shouldRender).toHaveBeenCalledTimes(2);
   });
 
@@ -698,7 +964,7 @@ describe('Form', () => {
 
     await changeValue(0, '');
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
-    expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('help');
+    expect(container.querySelector('.ant-form-item-explain')!.textContent).toBe('help');
   });
 
   it('clear validation message when', async () => {
@@ -878,10 +1144,9 @@ describe('Form', () => {
     );
   });
 
-  it('validation message should has alert role', async () => {
+  it('validation message should have correct error', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const { container } = render(
-      // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
@@ -895,6 +1160,7 @@ describe('Form', () => {
     fireEvent.submit(container.querySelector('form')!);
     await waitFakeTimer();
 
+    expect(container.querySelector('.ant-form-item-explain')).not.toHaveAttribute('role');
     expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
       'name is good!',
     );
@@ -923,7 +1189,7 @@ describe('Form', () => {
 
     for (let i = 0; i < 5; i += 1) {
       fireEvent.click(container.querySelector('button')!);
-      // eslint-disable-next-line no-await-in-loop
+
       await waitFakeTimer();
     }
 
@@ -950,7 +1216,7 @@ describe('Form', () => {
 
     await changeValue(0, 'a');
 
-    expect(renderTimes).toEqual(1);
+    expect(renderTimes).toBe(1);
     expect(container.querySelector('input')).toHaveValue('a');
   });
 
@@ -1014,7 +1280,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('input')!.id).toEqual('bamboo');
+    expect(container.querySelector('input')!.id).toBe('bamboo');
   });
 
   it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
@@ -1061,18 +1327,6 @@ describe('Form', () => {
     });
   });
 
-  it('legacy hideRequiredMark', () => {
-    const { container } = render(
-      <Form hideRequiredMark role="form">
-        <Form.Item name="light" label="light" required>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
-
-    expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
-  });
-
   it('form should support disabled', () => {
     const App: React.FC = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
@@ -1089,9 +1343,7 @@ describe('Form', () => {
           <Input />
         </Form.Item>
         <Form.Item label="Select">
-          <Select>
-            <Select.Option value="demo">Demo</Select.Option>
-          </Select>
+          <Select options={[{ value: 'demo', label: 'Demo' }]} />
         </Form.Item>
         <Form.Item label="TreeSelect">
           <TreeSelect
@@ -1136,10 +1388,192 @@ describe('Form', () => {
         <Form.Item label="Button">
           <Button>Button</Button>
         </Form.Item>
+        <Form.Item label="Slider">
+          <Slider />
+        </Form.Item>
+        <Form.Item label="ColorPicker">
+          <ColorPicker />
+        </Form.Item>
       </Form>
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096
+  it('Segmented should not be disabled even Form is disabled', () => {
+    const { container } = render(
+      <Form disabled>
+        <Form.Item name="segmented">
+          <Segmented options={['Daily', 'Weekly', 'Monthly']} />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('.ant-segmented')).not.toHaveClass('ant-segmented-disabled');
+  });
+
+  it('form.item should support layout', () => {
+    const App: React.FC = () => (
+      <Form layout="horizontal">
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="horizontal"
+          name="horizontal"
+          layout="horizontal"
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical2" name="vertical2" layout="vertical">
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55523
+  it('should apply custom labelHeight token in vertical layout across themes', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <>
+          <Form layout="vertical">
+            <Form.Item label="Username">
+              <Input />
+            </Form.Item>
+          </Form>
+          <ConfigProvider
+            theme={{
+              components: {
+                Form: {
+                  labelHeight: 100,
+                },
+              },
+            }}
+          >
+            <Form layout="vertical">
+              <Form.Item label="Username">
+                <Input />
+              </Form.Item>
+            </Form>
+          </ConfigProvider>
+        </>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('--ant-form-vertical-label-height:100px;');
+    expect(styleText).toContain(
+      '.ant-form-item-vertical .ant-form-item-label>label{height:var(--ant-form-vertical-label-height);}',
+    );
+  });
+
+  it('form.item should support label = null', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-4');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-14');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
+
+    // more size
+    const list = responsiveArrayReversed;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-4`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-14');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-14 ant-col-${size}-offset-4`);
+    });
+  });
+
+  it('form.item should support label = null and labelCol.span = 24', () => {
+    // base size
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+        <Form.Item label="name" name="name">
+          <Input />
+        </Form.Item>
+        <Form.Item label={null}>
+          <Button>Submit</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+
+    const items = container.querySelectorAll('.ant-form-item');
+    const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+    expect(oneItems?.[0]).toHaveClass('ant-col-24');
+    expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+    expect(oneItems?.[1]).toHaveClass('ant-col-24');
+    expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+    const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+    expect(twoItem).toHaveClass('ant-col-24');
+    expect(twoItem?.className.includes('offset')).toBeFalsy();
+
+    // more size
+    const list = responsiveArrayReversed;
+    list.forEach((size) => {
+      const { container } = render(
+        <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
+          <Form.Item label="name" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label={null}>
+            <Button>Submit</Button>
+          </Form.Item>
+        </Form>,
+      );
+
+      const items = container.querySelectorAll('.ant-form-item');
+      const oneItems = items[0].querySelector('.ant-row')?.querySelectorAll('.ant-col');
+      expect(oneItems?.[0]).toHaveClass(`ant-col-${size}-24`);
+      expect(oneItems?.[0].className.includes('offset')).toBeFalsy();
+      expect(oneItems?.[1]).toHaveClass('ant-col-24');
+      expect(oneItems?.[1].className.includes('offset')).toBeFalsy();
+      const twoItem = items[1].querySelector('.ant-row')?.querySelector('.ant-col');
+      expect(twoItem).toHaveClass(`ant-col-24`);
+      expect(twoItem?.className.includes('offset')).toBeFalsy();
+    });
   });
 
   it('_internalItemRender api test', () => {
@@ -1152,7 +1586,7 @@ describe('Form', () => {
             mark: 'pro_table_render',
             render: (_: any, doms: any) => (
               <div>
-                <h1>warning title</h1>
+                <div className="bamboo">warning title</div>
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -1165,15 +1599,17 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('h1')!).toHaveTextContent(/warning title/i);
+    expect(container.querySelector('.bamboo')!).toHaveTextContent(/warning title/i);
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
-    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    // mock getFieldId old logic
+    // if form name is empty and item name is parentNode
+    // will get parentNode
     mockFn.mockImplementation(() => itemName);
-    const { Option } = Select;
+
     const Demo: React.FC = () => {
       const [open, setOpen] = useState(false);
       return (
@@ -1185,11 +1621,12 @@ describe('Form', () => {
                 defaultValue="lucy"
                 open={open}
                 style={{ width: 120 }}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
+                options={[
+                  { value: 'jack', label: 'Jack' },
+                  { value: 'lucy', label: 'Lucy' },
+                  { value: 'Yiminghe', label: 'yiminghe' },
+                ]}
+              />
             </Form.Item>
           </Form>
           <button
@@ -1235,10 +1672,10 @@ describe('Form', () => {
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
-    it('config tooltip should show when hover on icon', async () => {
+    it('TooltipProps', async () => {
       const { container } = render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
@@ -1248,9 +1685,28 @@ describe('Form', () => {
       );
 
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
+      fireEvent.click(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
-      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+    });
+
+    it('ConfigProvider', async () => {
+      const { container } = render(
+        <ConfigProvider form={{ tooltip: { icon: <span className="foobar">Foobar</span> } }}>
+          <Form>
+            <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.foobar')!);
+      fireEvent.click(container.querySelector('.foobar')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
   });
 
@@ -1351,8 +1807,8 @@ describe('Form', () => {
   });
 
   it('useFormInstance', () => {
-    let formInstance;
-    let subFormInstance;
+    let formInstance: any;
+    let subFormInstance: any;
 
     const Sub = () => {
       const formSub = Form.useFormInstance();
@@ -1376,38 +1832,101 @@ describe('Form', () => {
     expect(subFormInstance).toBe(formInstance);
   });
 
-  it('noStyle should not affect status', () => {
-    const Demo: React.FC = () => (
-      <Form>
-        <Form.Item validateStatus="error" noStyle>
-          <Select className="custom-select" />
-        </Form.Item>
-        <Form.Item validateStatus="error">
+  describe('noStyle with status', () => {
+    it('noStyle should not affect status', async () => {
+      const Demo: React.FC = () => (
+        <Form>
+          {/* should change status */}
+          <Form.Item validateStatus="error" noStyle>
+            <Select className="custom-select" />
+          </Form.Item>
+
+          {/* should follow parent status */}
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle>
+              <Select className="custom-select-b" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle validateStatus="warning" hasFeedback={false}>
+              <Select className="custom-select-c" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
           <Form.Item noStyle>
-            <Select className="custom-select-b" />
+            <Form.Item validateStatus="warning">
+              <Select className="custom-select-d" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item validateStatus="error">
-          <Form.Item noStyle validateStatus="warning">
-            <Select className="custom-select-c" />
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="">
+              <Select className="custom-select-e" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item noStyle>
-          <Form.Item validateStatus="warning">
-            <Select className="custom-select-d" />
+        </Form>
+      );
+      const { container } = render(<Demo />);
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-b')
+          ?.querySelector('.ant-form-item-feedback-icon-error'),
+      ).toBeTruthy();
+
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-c')
+          ?.querySelector('.ant-form-item-feedback-icon-warning'),
+      ).toBeFalsy();
+
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-e')).not.toHaveClass(
+        'ant-select-status-error',
+      );
+      expect(container.querySelector('.custom-select-e')).toHaveClass('ant-select-in-form-item');
+    });
+
+    it('parent pass status', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="name">
+            <Form.Item name="first" noStyle rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="last" noStyle>
+              <Input />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-      </Form>
-    );
-    const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+        </Form>,
+      );
+
+      // Input and set back to empty
+      await changeValue(0, 'Once');
+      await changeValue(0, '');
+
+      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toBe(
+        "'first' is required",
+      );
+
+      expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
+      expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
+    });
   });
 
   it('should not affect Popup children style', () => {
@@ -1423,13 +1942,38 @@ describe('Form', () => {
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
+        <Form.Item validateStatus="error">
+          <Popover open content={<Input className="custom-popup-input" />}>
+            <span>issue#56615</span>
+          </Popover>
+        </Form.Item>
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
-    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
+    expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
+
+    // https://github.com/ant-design/ant-design/issues/56615
+    expect(container.querySelector('.custom-popup-input')).not.toHaveClass(
+      'ant-input-status-error',
+    );
+  });
+
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('should be set up correctly marginBottom', () => {
+    render(
+      <Modal open>
+        <Form>
+          <Form.Item help="This is a help message">
+            <Input />
+          </Form.Item>
+        </Form>
+      </Modal>,
+    );
+
+    expect(document.querySelector('.ant-form-item-margin-offset')).toBeTruthy();
   });
 
   it('Form.Item.useStatus should work', async () => {
@@ -1442,7 +1986,7 @@ describe('Form', () => {
       value,
     }) => {
       const { status } = useStatus();
-      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+      return <div className={clsx(className, `custom-input-status-${status}`)}>{value}</div>;
     };
 
     const Demo: React.FC = () => {
@@ -1469,14 +2013,12 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
-      'custom-input-status-',
-    );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input')).toHaveClass('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1486,8 +2028,55 @@ describe('Form', () => {
     fireEvent.click(container.querySelector('.submit-button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
+    );
+  });
+
+  it('Form.Item.useStatus should supports get error messages and warning messages', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const ErrorItem: React.FC = () => {
+      const { errors } = useStatus();
+      return <div className="test-error">{errors[0]}</div>;
+    };
+
+    const WarningItem: React.FC = () => {
+      const { warnings } = useStatus();
+      return <div className="test-warning">{warnings[0]}</div>;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="test-form">
+          <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
+            <ErrorItem />
+          </Form.Item>
+          <Form.Item
+            name="warning"
+            rules={[{ required: true, message: 'This is a warning message.', warningOnly: true }]}
+          >
+            <WarningItem />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.test-error')).toHaveTextContent('This is a error message.');
+    expect(container.querySelector('.test-warning')).toHaveTextContent(
+      'This is a warning message.',
     );
   });
 
@@ -1512,10 +2101,11 @@ describe('Form', () => {
       marginBottom: -24,
     });
   });
+
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
-      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
       headers: {
         authorization: 'authorization-text',
       },
@@ -1535,6 +2125,7 @@ describe('Form', () => {
           { label: 'female', value: 1 },
         ]}
       />,
+      <ColorPicker key="ColorPicker" disabled={disabled} />,
       <InputNumber key="InputNumber" disabled={disabled} />,
       <Input key="Input" disabled={disabled} />,
       <Select key="Select" disabled={disabled} />,
@@ -1551,32 +2142,551 @@ describe('Form', () => {
       <DatePicker.YearPicker key="DatePicker.YearPicker" disabled={disabled} />,
       <DatePicker.TimePicker key="DatePicker.TimePicker" disabled={disabled} />,
     ];
-    const App = () => <Form disabled>{renderComps(false)}</Form>;
+    const App: React.FC = () => <Form disabled>{renderComps(false)}</Form>;
 
     const wrapper = render(<App />);
     expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 
     const wrapper2 = render(<App2 />);
-    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
-    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
+    // 时间范围组件中会有两个 input 框，Upload 为叠加
+    // 因此虽然上述只有 18 个组件，但实际有 20 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App3 = () => <Form disabled>{renderComps(true)}</Form>;
 
     const wrapper3 = render(<App3 />);
 
-    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App4 = () => <Form>{renderComps(true)}</Form>;
 
     const wrapper4 = render(<App4 />);
 
-    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App5 = () => <Form>{renderComps()}</Form>;
 
     const wrapper5 = render(<App5 />);
 
     expect(wrapper5.container.querySelectorAll('[disabled]').length).toBe(0);
+  });
+
+  it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const formRef = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) {
+          return;
+        }
+        formRef.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form ref={formRef}>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name2"
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
+  });
+
+  it('feedback should automatically derive the correct state', async () => {
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form}>
+          <Form.Item name="success" initialValue="test" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="validating"
+            hasFeedback
+            rules={[
+              {
+                validator: () =>
+                  new Promise((resolve) => {
+                    setTimeout(() => resolve(true), 2000);
+                  }),
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="warning" hasFeedback rules={[{ required: true, warningOnly: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="error" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+
+    await waitFakeTimer(50);
+
+    expect(container.querySelector('.ant-form-item-has-success')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-is-validating')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
+  });
+
+  it('custom feedback icons should display when pass hasFeedback prop', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const formRef = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) {
+          return;
+        }
+        formRef.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form
+          ref={formRef}
+          feedbackIcons={() => ({
+            error: <AlertFilled id="custom-error-icon" />,
+          })}
+        >
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback={{
+              icons: () => ({
+                error: <AlertFilled id="custom-error-icon2" />,
+              }),
+            }}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value 3',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(2);
+    expect(container.querySelectorAll('#custom-error-icon, #custom-error-icon2').length).toBe(2);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/41621
+  it('should not override value when pass `undefined` to require', async () => {
+    // When require is `undefined`, the `isRequire` calculation logic should be preserved
+    const { container } = render(
+      <Form>
+        <Form.Item label="test" name="success" required={undefined} rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('.ant-form-item-required')).toBeTruthy();
+  });
+
+  it('validate status should be change in order', async () => {
+    const onChange = jest.fn();
+
+    const CustomInput: React.FC<Readonly<InputProps>> = (props) => {
+      const { status } = Form.Item.useStatus();
+      useEffect(() => {
+        onChange(status);
+      }, [status]);
+      return <Input {...props} />;
+    };
+
+    const App: React.FC = () => (
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
+            <CustomInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<App />);
+    await waitFakeTimer();
+
+    // initial validate
+    const initTriggerTime = ReactVersion.startsWith('18') || ReactVersion.startsWith('19') ? 2 : 1;
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
+    let idx = 1;
+    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    if (initTriggerTime === 2) {
+      expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    }
+
+    // change trigger
+    await changeValue(0, '1');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 2);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '11');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 4);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '111');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 6);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
+  });
+
+  describe('requiredMark', () => {
+    // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+    it('should not render `requiredMark` when Form.Item has no required prop', () => {
+      // Escaping TypeScript error
+      const genProps = (value: any) => ({ ...value });
+
+      const { container } = render(
+        <Form name="basic" requiredMark="optional">
+          <Form.Item
+            label="First Name"
+            name="firstName"
+            required
+            {...genProps({ requiredMark: false })}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Last Name"
+            name="lastName"
+            required
+            {...genProps({ requiredMark: true })}
+          >
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+    });
+
+    it('customize logic', () => {
+      const { container } = render(
+        <Form name="basic" requiredMark={(label, info) => `${label}: ${info.required}`}>
+          <Form.Item label="Required" required>
+            <Input />
+          </Form.Item>
+          <Form.Item label="Optional">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toBe(
+        'Required: true',
+      );
+      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toBe(
+        'Optional: false',
+      );
+    });
+  });
+
+  it('children support comment', () => {
+    resetWarned();
+
+    const { container } = render(
+      <Form initialValues={{ name: 'bamboo', age: '14' }}>
+        <Form.Item name="name">
+          {/* Comment here */}
+          <Input />
+        </Form.Item>
+        <Form.Item name="age">{[null, <Input key="input" />]}</Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('input')[0].value).toBe('bamboo');
+    expect(container.querySelectorAll('input')[1].value).toBe('14');
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('duplicated form name', () => {
+    resetWarned();
+
+    render(
+      <>
+        <Form name="same" />
+        <Form name="same" />
+      </>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] There exist multiple Form with same `name`.',
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/43044
+  it('should not pass disabled to modal footer button', () => {
+    render(
+      // <FormDemo formProps={{ disabled: true }} modalProps={{ open: true }} />,
+      <Form disabled>
+        <Form.Item label="label">
+          <Modal open />
+        </Form.Item>
+      </Form>,
+    );
+
+    const footerBts = document.querySelectorAll('.ant-modal-footer > button');
+    expect(footerBts).toBeTruthy();
+
+    footerBts.forEach((bt) => {
+      expect(bt).not.toHaveAttribute('disabled');
+    });
+  });
+
+  it('InputNumber with hasFeedback should keep dom stable', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item
+          name="light"
+          hasFeedback
+          rules={[{ required: true, message: 'Please input a entry price' }]}
+        >
+          <InputNumber />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />);
+
+    const input = container.querySelector('input')!;
+
+    expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
+
+    fireEvent.focus(input);
+
+    expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
+
+    fireEvent.change(input, {
+      target: { value: '1' },
+    });
+
+    expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
+    expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20803#issuecomment-601626759
+  it('without explicitly passing `valuePropName`', async () => {
+    const submit = jest.fn();
+    const Demo = () => (
+      <Form
+        initialValues={{
+          foo: true,
+        }}
+        onFinish={submit}
+      >
+        <Form.Item label="Switch" name="foo">
+          <Switch />
+        </Form.Item>
+        <button type="submit">Submit</button>
+      </Form>
+    );
+
+    const { getByRole } = render(<Demo />);
+
+    await waitFakeTimer();
+
+    const switchNode = getByRole('switch');
+
+    expect(switchNode).toBeTruthy();
+    expect(switchNode).toBeChecked();
+
+    fireEvent.click(switchNode);
+    expect(switchNode).not.toBeChecked();
+
+    const submitButton = getByRole('button');
+    expect(submitButton).toBeTruthy();
+    fireEvent.click(submitButton);
+
+    await waitFakeTimer();
+
+    expect(submit).toHaveBeenCalledWith({
+      foo: false,
+    });
+  });
+
+  it('getValueProps should trigger update', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item
+          name="remember"
+          getValueProps={(val) => ({ checked: val })}
+          getValueFromEvent={(e) => e.target.checked}
+        >
+          <Checkbox />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')?.checked).toBeFalsy();
+
+    fireEvent.click(container.querySelector('input')!);
+    expect(container.querySelector('input')?.checked).toBeTruthy();
+  });
+
+  it('not warning for react key', async () => {
+    const MockInput = (props: { onChange?: (value: number[]) => void }) => (
+      <Input
+        onChange={({ target: { value } }) => {
+          props.onChange?.(value.split(',').map(Number));
+        }}
+      />
+    );
+
+    const { container } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            name="test"
+            rules={[
+              {
+                type: 'array',
+                defaultField: {
+                  type: 'number',
+                  min: 10,
+                  message: 'LESS_THAN_10',
+                },
+              },
+            ]}
+          >
+            <MockInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    function expectErrors(errors: string[]) {
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(
+        errors.length,
+      );
+      errors.forEach((error, index) => {
+        expect(container.querySelectorAll('.ant-form-item-explain-error')[index]).toHaveTextContent(
+          error,
+        );
+      });
+    }
+
+    // user type something and clear
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '1,1');
+    expectErrors(['LESS_THAN_10', 'LESS_THAN_10']);
+
+    await changeValue(0, '1');
+    expectErrors(['LESS_THAN_10']);
+
+    await changeValue(0, '100');
+    expectErrors([]);
+  });
+
+  it('Nest Form.Item should not pass style to child Form', async () => {
+    const formRef = React.createRef<FormInstance<any>>();
+    const subFormRef = React.createRef<FormInstance<any>>();
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Form.Item name="root" rules={[{ required: true }]}>
+          <Form component={false} ref={subFormRef}>
+            <Form.Item noStyle name="child" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </Form.Item>
+      </Form>,
+    );
+
+    // Parent validation
+    await formRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
+
+    // Child validation
+    await subFormRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
 });

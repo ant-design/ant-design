@@ -1,6 +1,8 @@
-import type { CSSMotionProps } from 'rc-motion';
-import type { AnimatedConfig } from 'rc-tabs/lib/interface';
+import type { CSSMotionProps } from '@rc-component/motion';
+import type { AnimatedConfig } from '@rc-component/tabs';
+
 import type { TabsProps } from '..';
+import { isPlainObject } from '../../_util/is';
 import { getTransitionName } from '../../_util/motion';
 
 const motion: CSSMotionProps = {
@@ -31,7 +33,7 @@ export default function useAnimateConfig(
   } else {
     mergedAnimated = {
       inkBar: true,
-      ...(typeof animated === 'object' ? animated : {}),
+      ...(isPlainObject(animated) ? animated : {}),
     };
   }
 

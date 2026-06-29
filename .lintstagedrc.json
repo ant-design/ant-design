@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx,js,jsx,css,mjs,json}": ["biome check --write --no-errors-on-unmatched", "eslint"],
+  "*.{md,yml}": ["prettier --ignore-unknown --write"]
+}

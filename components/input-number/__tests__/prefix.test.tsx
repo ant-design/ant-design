@@ -1,11 +1,18 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
+
+import type { InputNumberProps } from '..';
 import InputNumber from '..';
+import type { GetRef } from '../../_util/type';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 
+type InputNumberRef = GetRef<typeof InputNumber>;
+
 describe('prefix', () => {
   focusTest(
-    forwardRef((props, ref) => <InputNumber {...props} prefix="A" ref={ref} />),
+    React.forwardRef<InputNumberRef, InputNumberProps>((props, ref) => (
+      <InputNumber {...props} prefix="A" ref={ref} />
+    )),
     { refFocus: true },
   );
   it('should support className when has prefix', () => {
@@ -18,7 +25,7 @@ describe('prefix', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
     const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-    fireEvent.mouseUp(container.querySelector('i')!);
+    fireEvent.mouseDown(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });
 });

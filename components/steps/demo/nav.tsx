@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Steps } from 'antd';
+import { Flex, Steps } from 'antd';
 
 const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -10,39 +10,38 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Flex vertical gap="large">
       <Steps
         type="navigation"
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             title: 'Step 1',
             subTitle: '00:00:05',
             status: 'finish',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 2',
             subTitle: '00:01:02',
             status: 'process',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 3',
             subTitle: 'waiting for longlong time',
             status: 'wait',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
         ]}
       />
+
       <Steps
         type="navigation"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',
@@ -62,12 +61,12 @@ const App: React.FC = () => {
           },
         ]}
       />
+
       <Steps
         type="navigation"
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',
@@ -88,7 +87,7 @@ const App: React.FC = () => {
           },
         ]}
       />
-    </>
+    </Flex>
   );
 };
 

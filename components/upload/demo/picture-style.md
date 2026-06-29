@@ -5,16 +5,3 @@
 ## en-US
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
-
-```css
-/* tile uploaded pictures */
-.upload-list-inline .ant-upload-list-item {
-  float: left;
-  width: 200px;
-  margin-inline-end: 8px;
-}
-
-.ant-upload-rtl.upload-list-inline .ant-upload-list-item {
-  float: right;
-}
-```

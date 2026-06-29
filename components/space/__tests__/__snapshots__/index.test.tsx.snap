@@ -1,20 +1,52 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`Space should render correct with children 1`] = `
+exports[`Space separator 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+  >
+    text1
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      text1
+    </span>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    text3
+  </div>
+</div>
+`;
+
+exports[`Space should render correct with children 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
   >
     text1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span>
       text1
@@ -29,13 +61,12 @@ exports[`Space should render correct with children 1`] = `
 `;
 
 exports[`Space should render width ConfigProvider 1`] = `
-HTMLCollection [
+Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 24px;"
     >
       <span>
         1
@@ -50,11 +81,10 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 16px;"
     >
       <span>
         1
@@ -69,11 +99,10 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 24px;"
     >
       <span>
         1
@@ -91,13 +120,12 @@ HTMLCollection [
 `;
 
 exports[`Space should render width rtl 1`] = `
-HTMLCollection [
+Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-left: 8px;"
     >
       <span>
         1
@@ -112,11 +140,10 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-left: 16px;"
     >
       <span>
         1
@@ -131,11 +158,10 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
-      style="margin-left: 24px;"
     >
       <span>
         1
@@ -150,42 +176,4 @@ HTMLCollection [
     </div>
   </div>,
 ]
-`;
-
-exports[`Space split 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
-  <div
-    class="ant-space-item"
-    style="margin-right: 4px;"
-  >
-    text1
-  </div>
-  <span
-    class="ant-space-item-split"
-    style="margin-right: 4px;"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-    style="margin-right: 4px;"
-  >
-    <span>
-      text1
-    </span>
-  </div>
-  <span
-    class="ant-space-item-split"
-    style="margin-right: 4px;"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    text3
-  </div>
-</div>
 `;

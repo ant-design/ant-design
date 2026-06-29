@@ -1,12 +1,30 @@
 import * as React from 'react';
+
 import type { UploadProps } from './interface';
+import type { UploadRef } from './Upload';
 import Upload from './Upload';
 
-export type DraggerProps = UploadProps & { height?: number };
+export type DraggerProps<T = any> = UploadProps<T> & { height?: number };
 
-const Dragger = React.forwardRef<unknown, DraggerProps>(({ style, height, ...restProps }, ref) => (
-  <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />
-));
+type DraggerType = (<T = any>(
+  props: DraggerProps<T> & React.RefAttributes<UploadRef<T>>,
+) => React.ReactElement | null) & { displayName?: string };
+
+const Dragger = React.forwardRef<UploadRef, DraggerProps<any>>((props, ref) => {
+  const { style, height, hasControlInside = false, children, ...restProps } = props;
+  const mergedStyle: React.CSSProperties = { ...style, height };
+  return (
+    <Upload
+      ref={ref}
+      hasControlInside={hasControlInside}
+      {...restProps}
+      style={mergedStyle}
+      type="drag"
+    >
+      {children}
+    </Upload>
+  );
+}) as unknown as DraggerType;
 
 if (process.env.NODE_ENV !== 'production') {
   Dragger.displayName = 'Dragger';

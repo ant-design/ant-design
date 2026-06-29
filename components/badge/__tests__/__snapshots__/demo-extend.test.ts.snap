@@ -1,22 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`renders ./components/badge/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -24,32 +23,33 @@ exports[`renders ./components/badge/demo/basic.tsx extend context correctly 1`] 
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -65,21 +65,21 @@ exports[`renders ./components/badge/demo/basic.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <span
         aria-label="clock-circle"
         class="anticon anticon-clock-circle ant-scroll-number-custom-component"
         role="img"
-        style="color:#f5222d"
+        style="color: rgb(245, 34, 45);"
       >
         <svg
           aria-hidden="true"
@@ -103,30 +103,30 @@ exports[`renders ./components/badge/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/change.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
     >
       <div
         class="ant-space-item"
-        style="margin-right:24px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -134,16 +134,18 @@ exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`]
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition: none;"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
@@ -151,84 +153,93 @@ exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`]
         class="ant-space-item"
       >
         <div
-          class="ant-btn-group"
+          class="ant-space-compact"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
             type="button"
           >
             <span
-              aria-label="minus"
-              class="anticon anticon-minus"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="minus"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="minus"
+                class="anticon anticon-minus"
+                role="img"
               >
-                <path
-                  d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="minus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
             type="button"
           >
             <span
-              aria-label="plus"
-              class="anticon anticon-plus"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="plus"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
               >
-                <defs>
-                  <style />
-                </defs>
-                <path
-                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                />
-                <path
-                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
             type="button"
           >
             <span
-              aria-label="question"
-              class="anticon anticon-question"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="question"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="question"
+                class="anticon anticon-question"
+                role="img"
               >
-                <path
-                  d="M764 280.9c-14-30.6-33.9-58.1-59.3-81.6C653.1 151.4 584.6 125 512 125s-141.1 26.4-192.7 74.2c-25.4 23.6-45.3 51-59.3 81.7-14.6 32-22 65.9-22 100.9v27c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-27c0-99.5 88.6-180.4 197.6-180.4s197.6 80.9 197.6 180.4c0 40.8-14.5 79.2-42 111.2-27.2 31.7-65.6 54.4-108.1 64-24.3 5.5-46.2 19.2-61.7 38.8a110.85 110.85 0 00-23.9 68.6v31.4c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-31.4c0-15.7 10.9-29.5 26-32.9 58.4-13.2 111.4-44.7 149.3-88.7 19.1-22.3 34-47.1 44.3-74 10.7-27.9 16.1-57.2 16.1-87 0-35-7.4-69-22-100.9zM512 787c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="question"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M764 280.9c-14-30.6-33.9-58.1-59.3-81.6C653.1 151.4 584.6 125 512 125s-141.1 26.4-192.7 74.2c-25.4 23.6-45.3 51-59.3 81.7-14.6 32-22 65.9-22 100.9v27c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-27c0-99.5 88.6-180.4 197.6-180.4s197.6 80.9 197.6 180.4c0 40.8-14.5 79.2-42 111.2-27.2 31.7-65.6 54.4-108.1 64-24.3 5.5-46.2 19.2-61.7 38.8a110.85 110.85 0 00-23.9 68.6v31.4c0 6.2 5 11.2 11.2 11.2h54c6.2 0 11.2-5 11.2-11.2v-31.4c0-15.7 10.9-29.5 26-32.9 58.4-13.2 111.4-44.7 149.3-88.7 19.1-22.3 34-47.1 44.3-74 10.7-27.9 16.1-57.2 16.1-87 0-35-7.4-69-22-100.9zM512 787c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56z"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
         </div>
@@ -239,21 +250,20 @@ exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
     >
       <div
         class="ant-space-item"
-        style="margin-right:24px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -267,7 +277,7 @@ exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`]
       >
         <button
           aria-checked="true"
-          class="ant-switch ant-switch-checked"
+          class="ant-switch css-var-test-id ant-switch-checked"
           role="switch"
           type="button"
         >
@@ -291,30 +301,37 @@ exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/badge/demo/colorful.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/change.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Presets
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-pink"
+          class="ant-badge-status-dot ant-badge-color-pink"
         />
         <span
           class="ant-badge-status-text"
@@ -325,13 +342,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-red"
+          class="ant-badge-status-dot ant-badge-color-red"
         />
         <span
           class="ant-badge-status-text"
@@ -342,13 +358,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-yellow"
+          class="ant-badge-status-dot ant-badge-color-yellow"
         />
         <span
           class="ant-badge-status-text"
@@ -359,13 +374,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-orange"
+          class="ant-badge-status-dot ant-badge-color-orange"
         />
         <span
           class="ant-badge-status-text"
@@ -376,13 +390,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-cyan"
+          class="ant-badge-status-dot ant-badge-color-cyan"
         />
         <span
           class="ant-badge-status-text"
@@ -393,13 +406,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-green"
+          class="ant-badge-status-dot ant-badge-color-green"
         />
         <span
           class="ant-badge-status-text"
@@ -410,13 +422,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-blue"
+          class="ant-badge-status-dot ant-badge-color-blue"
         />
         <span
           class="ant-badge-status-text"
@@ -427,13 +438,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-purple"
+          class="ant-badge-status-dot ant-badge-color-purple"
         />
         <span
           class="ant-badge-status-text"
@@ -444,13 +454,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-geekblue"
+          class="ant-badge-status-dot ant-badge-color-geekblue"
         />
         <span
           class="ant-badge-status-text"
@@ -461,13 +470,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-magenta"
+          class="ant-badge-status-dot ant-badge-color-magenta"
         />
         <span
           class="ant-badge-status-text"
@@ -478,13 +486,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-volcano"
+          class="ant-badge-status-dot ant-badge-color-volcano"
         />
         <span
           class="ant-badge-status-text"
@@ -495,13 +502,12 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-gold"
+          class="ant-badge-status-dot ant-badge-color-gold"
         />
         <span
           class="ant-badge-status-text"
@@ -514,10 +520,10 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-lime"
+          class="ant-badge-status-dot ant-badge-color-lime"
         />
         <span
           class="ant-badge-status-text"
@@ -528,28 +534,33 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Custom
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
-          style="background:#f50"
+          style="color: rgb(255, 85, 0); background: rgb(255, 85, 0);"
         />
         <span
           class="ant-badge-status-text"
@@ -560,14 +571,13 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
-          style="background:rgb(45, 183, 245)"
+          style="color: rgb(45, 183, 245); background: rgb(45, 183, 245);"
         />
         <span
           class="ant-badge-status-text"
@@ -578,14 +588,13 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hsl(102, 53%, 61%)"
+          style="color: rgb(135, 208, 103); background: rgb(135, 208, 103);"
         />
         <span
           class="ant-badge-status-text"
@@ -598,11 +607,11 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hwb(205 6% 9%)"
+          style="color: rgb(15, 142, 232); background: rgb(15, 142, 232);"
         />
         <span
           class="ant-badge-status-text"
@@ -615,550 +624,850 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-16px"
->
+exports[`renders components/badge/demo/colorful.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
+Array [
   <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-large css-var-test-id"
+    style="flex-wrap: wrap;"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
+      <span
+        class="ant-badge css-var-test-id"
       >
-        pink
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-pink"
-        data-show="true"
-        title="44"
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          pink
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-pink"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          red
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-red"
+          data-show="true"
+          title="44"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
-      </sup>
-    </span>
-  </div>
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          yellow
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-yellow"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          orange
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-orange"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          cyan
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-cyan"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          green
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-green"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          blue
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-blue"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          purple
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-purple"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          geekblue
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-geekblue"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          magenta
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-magenta"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          volcano
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-volcano"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          gold
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-gold"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <div
+          style="width: 90px; height: 90px; line-height: 90px; background: rgb(204, 204, 204); text-align: center;"
+        >
+          lime
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-lime"
+          data-show="true"
+          title="44"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                4
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+  </div>,
   <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-large css-var-test-id"
+    style="flex-wrap: wrap;"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        red
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-red"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-pink"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        yellow
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-yellow"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-red"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        orange
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-orange"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-yellow"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        cyan
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-cyan"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-orange"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        green
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-green"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-cyan"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        blue
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-blue"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-green"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        purple
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-purple"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-blue"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        geekblue
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-geekblue"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-purple"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        magenta
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-magenta"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-geekblue"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        volcano
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-volcano"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-magenta"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:24px;padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        gold
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-gold"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-volcano"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom:16px"
-  >
-    <span
-      class="ant-badge"
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
-      >
-        lime
-      </div>
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-lime"
-        data-show="true"
-        title="44"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
-        </span>
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-gold"
+        />
         <span
-          class="ant-scroll-number-only"
-          style="transition:none"
+          class="ant-badge-status-text"
         >
-          <span
-            class="ant-scroll-number-only-unit current"
-          >
-            4
-          </span>
+          loading
         </span>
-      </sup>
-    </span>
-  </div>
-</div>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-processing ant-badge-color-lime"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          loading
+        </span>
+      </span>
+    </div>
+  </div>,
+]
 `;
 
-exports[`renders ./components/badge/demo/dot.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
+    >
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+      >
+        <span
+          class="ant-avatar-string"
+          style="-webkit-transform: scale(1); transform: scale(1);"
+        />
+      </span>
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="5"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
+    >
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+        data-show="true"
+        title="26"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              2
+            </span>
+          </span>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              6
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge css-var-test-id"
     >
       <span
         aria-label="notification"
         class="anticon anticon-notification"
         role="img"
-        style="font-size:16px"
       >
         <svg
           aria-hidden="true"
@@ -1184,7 +1493,79 @@ exports[`renders ./components/badge/demo/dot.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+    >
+      <span
+        class="ant-badge-status-dot ant-badge-status-success"
+      />
+      <span
+        class="ant-badge-status-text"
+      >
+        Success
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
+    >
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+        data-show="true"
+        title="0"
+      >
+        0
+      </sup>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/badge/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/dot.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge css-var-test-id"
+    >
+      <span
+        aria-label="notification"
+        class="anticon anticon-notification"
+        role="img"
+        style="font-size: 16px;"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="notification"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
+          />
+        </svg>
+      </span>
+      <sup
+        class="ant-scroll-number ant-badge-dot"
+        data-show="true"
+      />
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge css-var-test-id"
     >
       <a
         href="#"
@@ -1200,19 +1581,21 @@ exports[`renders ./components/badge/demo/dot.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/dot.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/link.tsx extend context correctly 1`] = `
 <a
   href="#"
 >
   <span
-    class="ant-badge"
+    class="ant-badge css-var-test-id"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       />
     </span>
     <sup
@@ -1220,47 +1603,49 @@ exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] =
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
 </a>
 `;
 
-exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/link.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-16px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-16px"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
+      style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1268,32 +1653,33 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition: none;"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1301,99 +1687,102 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition: none;"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition: none;"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
-            style="background:#fa541c"
+            style="background: rgb(250, 84, 28);"
             title="5"
           >
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
+            <bdi>
               <span
-                class="ant-scroll-number-only-unit current"
+                class="ant-scroll-number-only"
+                style="transition: none;"
               >
-                5
+                <span
+                  class="ant-scroll-number-only-unit current"
+                >
+                  5
+                </span>
               </span>
-            </span>
+            </bdi>
           </sup>
         </span>
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1404,17 +1793,16 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1425,44 +1813,62 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-dot ant-badge-status-processing"
             data-show="true"
           />
         </span>
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-status"
+          class="ant-badge ant-badge-status css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
+            />
+          </span>
+          <sup
+            class="ant-scroll-number ant-badge-dot ant-badge-color-blue"
+            data-show="true"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status css-var-test-id"
+        >
+          <span
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+          >
+            <span
+              class="ant-avatar-string"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
-            style="background:#fa541c"
+            style="background: rgb(250, 84, 28);"
           />
         </span>
       </div>
@@ -1470,18 +1876,16 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:16px"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-16px"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
+      style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
             class="ant-scroll-number ant-badge-count"
@@ -1494,13 +1898,12 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="0"
           >
@@ -1510,15 +1913,14 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
         >
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
-            style="background:#f0f"
+            style="background: rgb(255, 0, 255);"
             title="0"
           >
             0
@@ -1527,17 +1929,16 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
@@ -1551,26 +1952,59 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:16px"
       >
         <span
-          class="ant-badge"
+          class="ant-badge css-var-test-id"
         >
           <span
-            class="ant-avatar ant-avatar-lg ant-avatar-square"
+            class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
           >
             <span
               class="ant-avatar-string"
-              style="opacity:0"
+              style="-webkit-transform: scale(1); transform: scale(1);"
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="0"
           >
             0
           </sup>
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+        >
+          <span
+            class="ant-badge-status-dot ant-badge-status-success"
+          />
+          <span
+            class="ant-badge-status-text"
+          >
+            0
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
+        >
+          <span
+            class="ant-badge-status-dot ant-badge-status-warning"
+          />
         </span>
       </div>
     </div>
@@ -1578,17 +2012,18 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/mix.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -1609,87 +2044,88 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
-        style="background:#faad14"
+        style="background: rgb(250, 173, 20);"
         title="11"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            1
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            1
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              1
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
         title="25"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            2
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              2
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper"
+      class="ant-badge ant-badge-not-a-wrapper css-var-test-id"
     >
       <span
         aria-label="clock-circle"
         class="anticon anticon-clock-circle ant-scroll-number-custom-component"
         role="img"
-        style="color:#f5222d"
+        style="color: rgb(245, 34, 45);"
       >
         <svg
           aria-hidden="true"
@@ -1714,12 +2150,12 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109"
+      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109 css-var-test-id"
     >
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
-        style="background-color:#52c41a"
+        style="background-color: rgb(82, 196, 26);"
         title="109"
       >
         99+
@@ -1729,55 +2165,60 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/badge/demo/offset.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/no-wrapper.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/offset.tsx extend context correctly 1`] = `
 <span
-  class="ant-badge"
+  class="ant-badge css-var-test-id"
 >
   <span
-    class="ant-avatar ant-avatar-lg ant-avatar-square"
+    class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
   >
     <span
       class="ant-avatar-string"
-      style="opacity:0"
+      style="-webkit-transform: scale(1); transform: scale(1);"
     />
   </span>
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top:10px;right:-10px"
+    style="margin-top: 10px; inset-inline-end: -10px;"
     title="5"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition:none"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        5
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
 
-exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/offset.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/overflow.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:24px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -1785,42 +2226,43 @@ exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1
         data-show="true"
         title="99"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            9
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              9
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            9
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              9
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:24px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -1834,17 +2276,16 @@ exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:24px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -1860,14 +2301,14 @@ exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -1882,20 +2323,21 @@ exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/overflow.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -1920,7 +2362,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -1932,13 +2374,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -1963,7 +2404,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -1975,13 +2416,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2006,7 +2446,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-red"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2018,13 +2458,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2049,7 +2488,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-cyan"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2061,13 +2500,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2092,7 +2530,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-green"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2104,13 +2542,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2135,7 +2572,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2147,13 +2584,12 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2178,7 +2614,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-volcano"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2192,10 +2628,10 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered ant-card-small"
+        class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       >
         <div
           class="ant-card-head"
@@ -2220,7 +2656,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-magenta"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           Hippies
         </span>
@@ -2233,20 +2669,21 @@ exports[`renders ./components/badge/demo/ribbon.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/ribbon.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2258,7 +2695,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
         class="ant-ribbon ant-ribbon-placement-end"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2270,13 +2707,12 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2288,7 +2724,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
         class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
@@ -2300,13 +2736,12 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2316,29 +2751,28 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-end"
-        style="background:#2db7f5"
+        style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color:#2db7f5"
+          style="color: rgb(45, 183, 245);"
         />
       </div>
     </div>
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2348,16 +2782,16 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-start"
-        style="background:#2db7f5"
+        style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color:#2db7f5"
+          style="color: rgb(45, 183, 245);"
         />
       </div>
     </div>
@@ -2366,10 +2800,10 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="ant-ribbon-wrapper css-var-test-id"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="ant-card ant-card-bordered css-var-test-id"
       >
         <div
           class="ant-card-body"
@@ -2379,16 +2813,16 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-end"
-        style="background:#2db7f5"
+        style="background: rgb(45, 183, 245);"
       >
         <span
-          class="ant-ribbon-text"
+          class="ant-ribbon-content"
         >
           啦啦啦啦
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color:#2db7f5"
+          style="color: rgb(45, 183, 245);"
         />
       </div>
     </div>
@@ -2396,23 +2830,24 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/badge/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/ribbon-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2420,16 +2855,18 @@ exports[`renders ./components/badge/demo/size.tsx extend context correctly 1`] =
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2437,14 +2874,14 @@ exports[`renders ./components/badge/demo/size.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2452,33 +2889,36 @@ exports[`renders ./components/badge/demo/size.tsx extend context correctly 1`] =
         data-show="true"
         title="5"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
 </div>
 `;
 
-exports[`renders ./components/badge/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-success"
@@ -2487,10 +2927,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-error"
@@ -2499,10 +2938,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-default"
@@ -2511,10 +2949,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing"
@@ -2525,7 +2962,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-warning"
@@ -2535,14 +2972,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-success"
@@ -2556,10 +2992,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-error"
@@ -2573,10 +3008,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-default"
@@ -2590,10 +3024,9 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom:8px"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-processing"
@@ -2609,7 +3042,7 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
       >
         <span
           class="ant-badge-status-dot ant-badge-status-warning"
@@ -2625,23 +3058,191 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/title.tsx extend context correctly 1`] = `
+exports[`renders components/badge/demo/status.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:24px"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-medium"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-badge css-var-test-id"
+        style="border-radius: 8px;"
+      >
+        <span
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number acss-14ziq9w ant-badge-count ant-badge-count-sm"
+          data-show="true"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+      <span
+        class="ant-badge css-var-test-id"
+      >
+        <span
+          class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
+        >
+          <span
+            class="ant-avatar-string"
+            style="-webkit-transform: scale(1); transform: scale(1);"
+          />
+        </span>
+        <sup
+          class="ant-scroll-number acss-14ziq9w ant-badge-count"
+          data-show="true"
+          style="font-size: 14px; background-color: rgb(105, 111, 199);"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
+    >
+      <div
+        class="ant-ribbon-wrapper css-var-test-id acss-15qh5u5"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        >
+          <div
+            class="ant-card-head"
+          >
+            <div
+              class="ant-card-head-wrapper"
+            >
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
+          </div>
+        </div>
+        <div
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        >
+          <span
+            class="ant-ribbon-content"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-ribbon-wrapper css-var-test-id acss-15qh5u5"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-test-id"
+        >
+          <div
+            class="ant-card-head"
+          >
+            <div
+              class="ant-card-head-wrapper"
+            >
+              <div
+                class="ant-card-head-title"
+              >
+                Card with custom ribbon
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            This card has a customized ribbon with semantic classNames and styles.
+          </div>
+        </div>
+        <div
+          class="ant-ribbon ant-ribbon-placement-end"
+          style="background: rgb(105, 111, 199); box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+        >
+          <span
+            class="ant-ribbon-content"
+            style="font-weight: bold;"
+          >
+            Custom Ribbon
+          </span>
+          <div
+            class="ant-ribbon-corner"
+            style="color: rgb(105, 111, 199);"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/badge/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/badge/demo/title.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-badge css-var-test-id"
+    >
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2649,16 +3250,18 @@ exports[`renders ./components/badge/demo/title.tsx extend context correctly 1`] 
         data-show="true"
         title="Custom hover text"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
@@ -2666,14 +3269,14 @@ exports[`renders ./components/badge/demo/title.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-square"
+        class="ant-avatar ant-avatar-lg ant-avatar-square css-var-test-id ant-avatar-css-var"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         />
       </span>
       <sup
@@ -2681,28 +3284,32 @@ exports[`renders ./components/badge/demo/title.tsx extend context correctly 1`] 
         data-show="true"
         title="Negative"
       >
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
+        <bdi>
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            -
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              -
+            </span>
           </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="ant-scroll-number-only"
+            style="transition: none;"
           >
-            5
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
           </span>
-        </span>
+        </bdi>
       </sup>
     </span>
   </div>
 </div>
 `;
+
+exports[`renders components/badge/demo/title.tsx extend context correctly 2`] = `[]`;

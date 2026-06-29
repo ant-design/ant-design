@@ -1,3 +1,6 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('notification');
+demoTest('notification', {
+  testRootProps: false,
+  nameCheckPathOnly: true,
+});

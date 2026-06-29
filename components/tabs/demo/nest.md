@@ -1,7 +1,7 @@
 ## zh-CN
 
-默认选中第一项。
+调试专用
 
 ## en-US
 
-Default activate first tab.
+debug only

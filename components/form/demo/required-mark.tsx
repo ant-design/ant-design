@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Radio } from 'antd';
+import { Button, Form, Input, Radio, Tag } from 'antd';
+import type { FormProps } from 'antd';
 
-type RequiredMark = boolean | 'optional';
+type RequiredMark = boolean | 'optional' | 'customize';
+
+const customizeRequiredMark = (label: React.ReactNode, { required }: { required: boolean }) => (
+  <>
+    {required ? <Tag color="error">Required</Tag> : <Tag color="warning">optional</Tag>}
+    {label}
+  </>
+);
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
+  const [requiredMark, setRequiredMark] = useState<RequiredMark>('optional');
 
-  const onRequiredTypeChange = ({ requiredMarkValue }: { requiredMarkValue: RequiredMark }) => {
-    setRequiredMarkType(requiredMarkValue);
+  const onRequiredTypeChange: FormProps<any>['onValuesChange'] = ({ requiredMarkValue }) => {
+    setRequiredMark(requiredMarkValue);
   };
 
   return (
@@ -18,13 +26,14 @@ const App: React.FC = () => {
       layout="vertical"
       initialValues={{ requiredMarkValue: requiredMark }}
       onValuesChange={onRequiredTypeChange}
-      requiredMark={requiredMark}
+      requiredMark={requiredMark === 'customize' ? customizeRequiredMark : requiredMark}
     >
       <Form.Item label="Required Mark" name="requiredMarkValue">
         <Radio.Group>
+          <Radio.Button value>Default</Radio.Button>
           <Radio.Button value="optional">Optional</Radio.Button>
-          <Radio.Button value>Required</Radio.Button>
           <Radio.Button value={false}>Hidden</Radio.Button>
+          <Radio.Button value="customize">Customize</Radio.Button>
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Field A" required tooltip="This is a required field">

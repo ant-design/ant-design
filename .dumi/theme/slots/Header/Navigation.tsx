@@ -1,114 +1,92 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { Link, useLocation, FormattedMessage } from 'dumi';
-import type { MenuProps } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import { getEcosystemGroup } from './More';
+import type { MenuProps } from 'antd';
+import { ConfigProvider, Menu } from 'antd';
+import { createStyles } from 'antd-style';
+import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
+
+import useLocale from '../../../hooks/useLocale';
+import Link from '../../common/Link';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
-import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+// ============================= Theme =============================
+const locales = {
+  cn: {
+    design: '设计',
+    development: '研发',
+    components: '组件',
+    resources: '资源',
+    blog: '博客',
+  },
+  en: {
+    design: 'Design',
+    development: 'Development',
+    components: 'Components',
+    resources: 'Resources',
+    blog: 'Blog',
+  },
+};
 
-  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary } = token;
-
+// ============================= Style =============================
+const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     nav: css`
       height: 100%;
-      font-size: 14px;
-      font-family: Avenir, ${fontFamily}, sans-serif;
-      border: 0;
+      font-size: ${cssVar.fontSize};
+      font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
+      border: 0 !important;
 
-      &${antCls}-menu-horizontal {
+      &${token.antCls}-menu-horizontal {
         border-bottom: none;
 
-        & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
-          min-width: (40px + 12px * 2);
-          height: ${headerHeight}px;
-          padding-right: 12px;
-          padding-left: 12px;
-          line-height: ${headerHeight}px;
-
-          &::after {
-            top: 0;
-            right: 12px;
-            bottom: auto;
-            left: 12px;
-            border-width: ${menuItemBorder}px;
-          }
+        & > ${token.antCls}-menu-item, & > ${token.antCls}-menu-submenu {
+          min-width: ${40 + 8 * 2}px;
+          height: ${token.headerHeight}px;
+          padding-inline-end: 8px;
+          padding-inline-start: 8px;
+          line-height: ${token.headerHeight}px;
         }
 
-        & ${antCls}-menu-submenu-title ${iconCls} {
+        & ${token.antCls}-menu-submenu-title ${token.iconCls} {
           margin: 0;
         }
 
-        & > ${antCls}-menu-item-selected {
+        & > ${token.antCls}-menu-item-selected {
           a {
-            color: ${colorPrimary};
+            color: ${cssVar.colorPrimary};
           }
         }
       }
 
-      & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
+      & > ${token.antCls}-menu-item, & > ${token.antCls}-menu-submenu {
         text-align: center;
       }
     `,
-    popoverMenuNav: css`
-      ${antCls}-menu-item,
-      ${antCls}-menu-submenu {
-        text-align: left;
-      }
-
-      ${antCls}-menu-item-group-title {
-        padding-left: 24px;
-      }
-
-      ${antCls}-menu-item-group-list {
-        padding: 0 16px;
-      }
-
-      ${antCls}-menu-item,
-      a {
-        color: #333;
-      }
-    `,
   };
-};
+});
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  isClient: boolean;
   responsive: null | 'narrow' | 'crowded';
   directionText: string;
-  showTechUIButton: boolean;
   onLangChange: () => void;
   onDirectionChange: () => void;
 }
 
-export default ({
-  isZhCN,
-  isClient,
-  isMobile,
-  responsive,
-  directionText,
-  showTechUIButton,
-  onLangChange,
-  onDirectionChange,
-}: NavigationProps) => {
+const HeaderNavigation: React.FC<NavigationProps> = (props) => {
+  const { isZhCN, isMobile, responsive, directionText, onLangChange, onDirectionChange } = props;
   const { pathname, search } = useLocation();
+  const [locale] = useLocale(locales);
 
-  const style = useStyle();
+  const sidebarData = useFullSidebarData();
+  const blogList = sidebarData['/docs/blog']?.[0]?.children || [];
+
+  const { styles } = useStyle();
 
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
-  const module = pathname
-    .split('/')
-    .filter((path) => path)
-    .slice(0, -1)
-    .join('/');
+  const module = pathname.split('/').filter(Boolean).slice(0, -1).join('/');
   let activeMenuItem = module || 'home';
   if (pathname.startsWith('/changelog')) {
     activeMenuItem = 'docs/react';
@@ -116,7 +94,7 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
-  let additional: MenuProps['items'];
+  let additional: MenuProps['items'] = [];
 
   const additionalItems: MenuProps['items'] = [
     {
@@ -126,7 +104,7 @@ export default ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Github
+          GitHub
         </a>
       ),
       key: 'github',
@@ -141,7 +119,6 @@ export default ({
       onClick: onDirectionChange,
       key: 'switch-direction',
     },
-    ...getEcosystemGroup(),
   ];
 
   if (isMobile) {
@@ -160,7 +137,7 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.spec" />
+          {locale.design}
         </Link>
       ),
       key: 'docs/spec',
@@ -168,7 +145,7 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.development" />
+          {locale.development}
         </Link>
       ),
       key: 'docs/react',
@@ -176,75 +153,67 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.components" />
+          {locale.components}
         </Link>
       ),
       key: 'components',
     },
+    blogList.length
+      ? {
+          label: (
+            <Link
+              to={utils.getLocalizedPathname(
+                blogList.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1))[0]
+                  .link,
+                isZhCN,
+                search,
+              )}
+            >
+              {locale.blog}
+            </Link>
+          ),
+          key: 'docs/blog',
+        }
+      : null,
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.resource" />
+          {locale.resources}
         </Link>
       ),
       key: 'docs/resources',
     },
-    showTechUIButton
+    isZhCN
       ? {
+          key: 'mirror',
           label: (
-            <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-              TechUI
+            <a href="https://ant-design.antgroup.com" target="_blank" rel="noopener noreferrer">
+              国内镜像
             </a>
           ),
-          key: 'tech-ui',
-        }
-      : null,
-    isZhCN &&
-    isClient &&
-    window.location.host !== 'ant-design.antgroup.com' &&
-    window.location.host !== 'ant-design.gitee.io'
-      ? {
-          label: '国内镜像',
-          key: 'mirror',
-          children: [
-            {
-              label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
-              icon: (
-                <img
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'antgroup',
-            },
-            {
-              label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
-              icon: (
-                <img
-                  alt="gitee"
-                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'gitee',
-            },
-          ],
         }
       : null,
     ...(additional ?? []),
-  ];
+  ].filter(Boolean);
 
   return (
-    <Menu
-      className={classNames('menu-site')}
-      mode={menuMode}
-      selectedKeys={[activeMenuItem]}
-      css={style.nav}
-      disabledOverflow
-      items={items}
-    />
+    // Use `transparent` style since the header already has background
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgContainer: 'transparent',
+        },
+      }}
+    >
+      <Menu
+        mode={menuMode}
+        selectedKeys={[activeMenuItem]}
+        className={styles.nav}
+        disabledOverflow
+        items={items}
+      />
+    </ConfigProvider>
   );
 };
+
+export default HeaderNavigation;

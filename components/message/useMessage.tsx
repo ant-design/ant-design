@@ -1,24 +1,39 @@
 import * as React from 'react';
-import { useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import {
+  NotificationProvider,
+  useNotification as useRcNotification,
+} from '@rc-component/notification';
 import type {
-  MessageInstance,
+  NotificationAPI,
+  NotificationConfig as RcNotificationConfig,
+  NotificationProps as RcNotificationProps,
+} from '@rc-component/notification';
+import { clsx } from 'clsx';
+
+import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
+import type { MessageConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useStackConfig from '../notification/hooks/useStackConfig';
+import { getPlacementOffsetStyle } from '../notification/util';
+import type {
   ArgsProps,
-  MessageType,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
 } from './interface';
+import { getMessageIcon } from './PurePanel';
+import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import warning from '../_util/warning';
-import { PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
+const DEFAULT_STACK_CONFIG = false;
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -29,43 +44,80 @@ type HolderProps = ConfigOptions & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  hashId: string;
+  message?: MessageConfig;
 }
+
+const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
+  children,
+  prefixCls,
+}) => {
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  return (
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
+      {children}
+    </NotificationProvider>
+  );
+};
+
+const renderNotifications: RcNotificationConfig['renderNotifications'] = (
+  node,
+  { prefixCls, key },
+) => (
+  <Wrapper prefixCls={prefixCls} key={key}>
+    {node}
+  </Wrapper>
+);
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
+    // Placement
     top,
+
+    // Config
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
+    duration = DEFAULT_DURATION,
+
+    // Style
     rtl,
+    classNames,
+    styles,
+
+    // Motion
     transitionName,
+
+    // UI
+    pauseOnHover = true,
+    stack,
+
+    // Life Cycle
     onAllRemoved,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
+  const { message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
-  const [, hashId] = useStyle(prefixCls);
-
+  // Use useMergeSemantic to merge classNames and styles
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [message?.classNames, classNames],
+    [message?.styles, styles],
+    {
+      props: props as unknown as ArgsProps,
+    },
+  );
   // =============================== Style ===============================
-  const getStyle = () => ({
-    left: '50%',
-    transform: 'translateX(-50%)',
-    top: top ?? DEFAULT_OFFSET,
-  });
+  const getStyle = (): React.CSSProperties => getPlacementOffsetStyle(top ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
-  // ============================ Close Icon =============================
-  const mergedCloseIcon = (
-    <span className={`${prefixCls}-close-x`}>
-      <CloseOutlined className={`${prefixCls}-close-icon`} />
-    </span>
-  );
+  // =============================== Stack ===============================
+  const stackConfig = useStackConfig(stack, DEFAULT_STACK_CONFIG);
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
@@ -73,19 +125,25 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
+
+    // closable=false requires-no closeIcon
     closable: false,
-    closeIcon: mergedCloseIcon,
-    duration: DEFAULT_DURATION,
+    duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+    renderNotifications,
+    pauseOnHover,
+    stack: stackConfig,
   });
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
-    hashId,
+    message,
   }));
 
   return holder;
@@ -97,9 +155,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 let keyIndex = 0;
 
 export function useInternalMessage(
-  notificationConfig?: HolderProps,
-): [MessageInstance, React.ReactElement] {
+  messageConfig?: HolderProps,
+): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
+
+  const warning = devUseWarning('Message');
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<MessageInstance>(() => {
@@ -115,37 +175,62 @@ export function useInternalMessage(
       if (!holderRef.current) {
         warning(
           false,
-          'Message',
+          'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
-
         const fakeResult: any = () => {};
         fakeResult.then = () => {};
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls, hashId } = holderRef.current;
+      const { open: originOpen, prefixCls, message } = holderRef.current;
+
+      const contextClassName = message?.className || {};
+      const contextStyle = message?.style || {};
+
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { content, icon, type, key, className, onClose, ...restConfig } = config;
+      const {
+        content,
+        icon,
+        type,
+        key,
+        className,
+        style,
+        onClose,
+        classNames: configClassNames = {},
+        styles = {},
+        ...restConfig
+      } = config;
 
       let mergedKey: React.Key = key!;
-      if (mergedKey === undefined || mergedKey === null) {
+      if (!isNonNullable(mergedKey)) {
         keyIndex += 1;
         mergedKey = `antd-message-${keyIndex}`;
       }
+
+      const contextConfig: HolderProps = { ...messageConfig, ...config };
+
+      const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig });
+      const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
+      const iconNode = getMessageIcon(type, icon);
+      const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
           key: mergedKey,
-          content: (
-            <PureContent prefixCls={prefixCls} type={type} icon={icon}>
-              {content}
-            </PureContent>
-          ),
+          icon: iconNode,
+          title: content,
+          classNames: {
+            ...semanticClassNames,
+            wrapper: clsx(type && `${prefixCls}-${type}`, semanticClassNames.wrapper),
+            icon: clsx(typeIconCls, semanticClassNames.icon),
+          } satisfies RcNotificationProps['classNames'],
+          styles: semanticStyles satisfies RcNotificationProps['styles'],
           placement: 'top',
-          className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+          className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
+          style: { ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();
@@ -177,18 +262,16 @@ export function useInternalMessage(
     keys.forEach((type) => {
       const typeOpen: TypeOpen = (jointContent, duration, onClose) => {
         let config: ArgsProps;
-        if (jointContent && typeof jointContent === 'object' && 'content' in jointContent) {
+        if (isPlainObject(jointContent) && 'content' in jointContent) {
           config = jointContent;
         } else {
-          config = {
-            content: jointContent,
-          };
+          config = { content: jointContent };
         }
 
         // Params
         let mergedDuration: number | undefined;
         let mergedOnClose: VoidFunction | undefined;
-        if (typeof duration === 'function') {
+        if (isFunction(duration)) {
           mergedOnClose = duration;
         } else {
           mergedDuration = duration;
@@ -212,9 +295,9 @@ export function useInternalMessage(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+  return [wrapAPI, <Holder key="message-holder" {...messageConfig} ref={holderRef} />] as const;
 }
 
-export default function useMessage(notificationConfig?: ConfigOptions) {
-  return useInternalMessage(notificationConfig);
+export default function useMessage(messageConfig?: ConfigOptions) {
+  return useInternalMessage(messageConfig);
 }

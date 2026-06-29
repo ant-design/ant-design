@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   refuse:
     permissions:
@@ -14,15 +18,18 @@ jobs:
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-welcome@v1
+      - uses: actions-cool/pr-welcome@9bbddff4f05191c4e7efe2b1d380c580d84b5aed
         with:
-          refuse-issue-label: '🎱 Collaborate PR only'
-          need-creator-authority: 'write'
+          refuse-issue-label: 🎱 Collaborate PR only
+          need-creator-authority: write
           comment: |
-            Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. This PR is temporarily not accepted. Thank you again for your contribution! 😊
+            Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. Thank you for your contribution! 😊
 
-            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认，暂时不接受 PR，再次感谢你的贡献！😊
-          close: true
+            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认！感谢您的贡献！😊
+          close: false
+          reviewers: |
+            MadCcc
+            zombieJ
 
   check-changelog:
     permissions:
@@ -30,20 +37,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check fill
-        uses: actions-cool/pr-check-fill@v1
+        uses: actions-cool/pr-check-fill@18b3dfd7f633f77b28f31b0a89ec9e8996fdbf5c
         with:
           filter-start: '|'
           require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
           comment-body: |
-            - 🚨 Please fill changelog in the PR
-              - Write with a **developer-oriented perspective** and **narrative method**, without describing the details of the repair
-              - **Describing the problem and the impact on the developer**
-              - **describing the user-first site problem**, not your solution
-              - Refer: https://ant.design/changelog#4.9.0
+            - 🚨 @${{ github.event.pull_request.user.login }}, Please fill changelog in PR content
+              > - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.
+              > - Describe the impact of the changes on developers, not the solution approach.
+              > - Reference: https://ant.design/changelog
 
-            - 🚨 请填写 PR 中的 changelog
-              - 请用**面向开发者的角度**和**叙述方式撰写**，不描述修复细节
-              - **描述问题和对开发者的影响**
-              - **描述用户第一现场的问题**，而非你的解决方式
-              - 参考：https://ant.design/changelog-cn#4.9.0
+            - 🚨 @${{ github.event.pull_request.user.login }}, 请填写 PR 中的 changelog
+              > - 郑重地阅读 [如何维护更新日志](https://keepachangelog.com/zh-CN/1.1.0/)
+              > - 描述改动对开发者有哪些影响，而非解决方式
+              > - 可参考：https://ant.design/changelog-cn
+
+            ![](https://github.com/ant-design/ant-design/assets/507615/14c767db-e40f-42a1-9aab-553037eb1ab6)
           skip-title-start: 'docs, chore, test, ci'

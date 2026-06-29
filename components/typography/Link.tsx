@@ -1,5 +1,7 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+
+import { isPlainObject } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
 import type { BlockProps } from './Base';
 import Base from './Base';
 
@@ -9,22 +11,31 @@ export interface LinkProps
   ellipsis?: boolean;
 }
 
-const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restProps }, ref) => {
-  warning(
-    typeof ellipsis !== 'object',
-    'Typography.Link',
-    '`ellipsis` only supports boolean value.',
-  );
+const Link = React.forwardRef<HTMLElement, LinkProps>((props, ref) => {
+  const {
+    ellipsis,
+    rel,
+    children,
+    // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
+    navigate: _navigate,
+    ...restProps
+  } = props;
 
-  const mergedProps = {
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Typography.Link');
+    warning(!isPlainObject(ellipsis), 'usage', '`ellipsis` only supports boolean value.');
+  }
+
+  const mergedProps: LinkProps = {
     ...restProps,
     rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
   };
 
-  // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
-  delete mergedProps.navigate;
-
-  return <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a" />;
+  return (
+    <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a">
+      {children}
+    </Base>
+  );
 });
 
 export default Link;

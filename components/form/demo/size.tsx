@@ -11,13 +11,14 @@ import {
   Switch,
   TreeSelect,
 } from 'antd';
+import type { FormProps } from 'antd';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 
 const App: React.FC = () => {
-  const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
+  const [componentSize, setComponentSize] = useState<SizeType>('medium');
 
-  const onFormLayoutChange = ({ size }: { size: SizeType }) => {
+  const onFormLayoutChange: FormProps<any>['onValuesChange'] = ({ size }) => {
     setComponentSize(size);
   };
 
@@ -29,11 +30,12 @@ const App: React.FC = () => {
       initialValues={{ size: componentSize }}
       onValuesChange={onFormLayoutChange}
       size={componentSize as SizeType}
+      style={{ maxWidth: 600 }}
     >
       <Form.Item label="Form Size" name="size">
         <Radio.Group>
           <Radio.Button value="small">Small</Radio.Button>
-          <Radio.Button value="default">Default</Radio.Button>
+          <Radio.Button value="medium">Medium</Radio.Button>
           <Radio.Button value="large">Large</Radio.Button>
         </Radio.Group>
       </Form.Item>
@@ -41,9 +43,7 @@ const App: React.FC = () => {
         <Input />
       </Form.Item>
       <Form.Item label="Select">
-        <Select>
-          <Select.Option value="demo">Demo</Select.Option>
-        </Select>
+        <Select options={[{ label: 'Demo', value: 'demo' }]} />
       </Form.Item>
       <Form.Item label="TreeSelect">
         <TreeSelect
@@ -58,12 +58,7 @@ const App: React.FC = () => {
             {
               value: 'zhejiang',
               label: 'Zhejiang',
-              children: [
-                {
-                  value: 'hangzhou',
-                  label: 'Hangzhou',
-                },
-              ],
+              children: [{ value: 'hangzhou', label: 'Hangzhou' }],
             },
           ]}
         />

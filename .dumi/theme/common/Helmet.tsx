@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'dumi';
 
-type HelmetProps = Helmet['props'];
-export interface WrapHelmetProps extends HelmetProps {
-  children?: React.ReactNode;
-}
+type WrapHelmetProps = React.ComponentProps<typeof Helmet>;
 
-export default function WrapHelmet(props: WrapHelmetProps) {
-  return <Helmet {...props} />;
-}
+const WrapHelmet: React.FC<React.PropsWithChildren<WrapHelmetProps>> = (props) => {
+  const { children, ...rest } = props;
+  return <Helmet {...rest}>{children}</Helmet>;
+};
+
+export default WrapHelmet;

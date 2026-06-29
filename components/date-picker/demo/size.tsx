@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
 import { DatePicker, Radio, Space } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const { RangePicker } = DatePicker;
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('middle');
+  const [size, setSize] = useState<SizeType>('medium');
 
   const handleSizeChange = (e: RadioChangeEvent) => {
     setSize(e.target.value);
   };
 
   return (
-    <Space direction="vertical" size={12}>
+    <Space vertical size={12}>
       <Radio.Group value={size} onChange={handleSizeChange}>
         <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="middle">middle</Radio.Button>
+        <Radio.Button value="medium">Medium</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
       <DatePicker size={size} />

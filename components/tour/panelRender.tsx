@@ -1,18 +1,32 @@
-import React from 'react';
 import type { ReactNode } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import type { TourStepProps } from './interface';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import Button from '../button';
-import type { ButtonProps } from '../button';
-import defaultLocale from '../locale/en_US';
+import { pickAttrs } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-const panelRender = (
-  props: TourStepProps,
-  current: number,
-  type: TourStepProps['type'],
-): ReactNode => {
+import { isReactRenderable } from '../_util/is';
+import type { ButtonProps } from '../button/Button';
+import Button from '../button/Button';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
+import type { TourProps, TourSemanticAllType, TourStepProps } from './interface';
+
+interface TourPanelProps {
+  stepProps: Omit<TourStepProps, 'closable'> & {
+    closable?: Exclude<TourStepProps['closable'], boolean>;
+  };
+  current: number;
+  type: TourProps['type'];
+  indicatorsRender?: TourProps['indicatorsRender'];
+  classNames?: TourSemanticAllType['classNames'];
+  styles?: TourSemanticAllType['styles'];
+  actionsRender?: TourProps['actionsRender'];
+}
+
+// Due to the independent design of Panel, it will be too coupled to put in rc-tour,
+// so a set of Panel logic is implemented separately in antd.
+const TourPanel: React.FC<TourPanelProps> = (props) => {
+  const { stepProps, current, type, indicatorsRender, actionsRender } = props;
   const {
     prefixCls,
     total = 1,
@@ -25,16 +39,37 @@ const panelRender = (
     description,
     nextButtonProps,
     prevButtonProps,
-    stepRender,
-  } = props;
+    type: stepType,
+    closable,
+    classNames = {},
+    styles = {},
+  } = stepProps;
+
+  const mergedType = stepType ?? type;
+
+  const ariaProps = pickAttrs(closable ?? {}, true);
+
+  const [contextLocaleGlobal] = useLocale('global', defaultLocale.global);
+  const [contextLocaleTour] = useLocale('Tour', defaultLocale.Tour);
+
+  const mergedCloseIcon = (
+    <button
+      type="button"
+      onClick={onClose}
+      className={clsx(`${prefixCls}-close`, classNames.close)}
+      style={styles.close}
+      aria-label={contextLocaleGlobal?.close}
+      {...ariaProps}
+    >
+      {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </button>
+  );
 
   const isLastStep = current === total - 1;
 
   const prevBtnClick = () => {
     onPrev?.();
-    if (typeof prevButtonProps?.onClick === 'function') {
-      prevButtonProps?.onClick();
-    }
+    prevButtonProps?.onClick?.();
   };
 
   const nextBtnClick = () => {
@@ -43,87 +78,110 @@ const panelRender = (
     } else {
       onNext?.();
     }
-    if (typeof nextButtonProps?.onClick === 'function') {
-      nextButtonProps?.onClick();
-    }
+    nextButtonProps?.onClick?.();
   };
 
-  let headerNode: ReactNode;
-  if (title) {
-    headerNode = (
-      <div className={`${prefixCls}-header`}>
-        <div className={`${prefixCls}-title`}>{title}</div>
+  const headerNode = isReactRenderable(title) ? (
+    <div className={clsx(`${prefixCls}-header`, classNames.header)} style={styles.header}>
+      <div className={clsx(`${prefixCls}-title`, classNames.title)} style={styles.title}>
+        {title}
       </div>
+    </div>
+  ) : null;
+
+  const descriptionNode = isReactRenderable(description) ? (
+    <div
+      className={clsx(`${prefixCls}-description`, classNames.description)}
+      style={styles.description}
+    >
+      {description}
+    </div>
+  ) : null;
+
+  const coverNode = isReactRenderable(cover) ? (
+    <div className={clsx(`${prefixCls}-cover`, classNames.cover)} style={styles.cover}>
+      {cover}
+    </div>
+  ) : null;
+
+  let mergedIndicatorNode: ReactNode;
+
+  if (indicatorsRender) {
+    mergedIndicatorNode = indicatorsRender(current, total);
+  } else {
+    mergedIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
+      (stepItem, index) => (
+        <span
+          key={stepItem}
+          className={clsx(
+            index === current && `${prefixCls}-indicator-active`,
+            `${prefixCls}-indicator`,
+            classNames.indicator,
+          )}
+          style={styles.indicator}
+        />
+      ),
     );
   }
 
-  let descriptionNode: ReactNode;
-  if (description) {
-    descriptionNode = <div className={`${prefixCls}-description`}>{description}</div>;
-  }
+  const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
 
-  let coverNode: ReactNode;
-  if (cover) {
-    coverNode = <div className={`${prefixCls}-cover`}>{cover}</div>;
-  }
-
-  const mergedSlickNode =
-    (typeof stepRender === 'function' && stepRender(current, total)) ||
-    [...Array.from({ length: total }).keys()].map((stepItem, index) => (
-      <span
-        key={stepItem}
-        className={classNames(
-          index === current && `${prefixCls}-slider-active`,
-          `${prefixCls}-slider`,
-        )}
-      />
-    ));
-  const slickNode: ReactNode = total > 1 ? mergedSlickNode : null;
-
-  const mainBtnType = type === 'primary' ? 'default' : 'primary';
   const secondaryBtnProps: ButtonProps = {
     type: 'default',
-    ghost: type === 'primary',
+    ghost: mergedType === 'primary',
   };
 
+  const defaultActionsNode = (
+    <>
+      {current !== 0 ? (
+        <Button
+          size="small"
+          {...secondaryBtnProps}
+          {...prevButtonProps}
+          onClick={prevBtnClick}
+          className={clsx(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+        >
+          {prevButtonProps?.children ?? contextLocaleTour?.Previous}
+        </Button>
+      ) : null}
+      <Button
+        size="small"
+        type={mainBtnType}
+        {...nextButtonProps}
+        onClick={nextBtnClick}
+        className={clsx(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+      >
+        {nextButtonProps?.children ??
+          (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
+      </Button>
+    </>
+  );
+
   return (
-    <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
-      {(contextLocale) => (
-        <>
-          <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
-          {coverNode}
-          {headerNode}
-          {descriptionNode}
-          <div className={`${prefixCls}-footer`}>
-            <div className={`${prefixCls}-sliders`}>{slickNode}</div>
-            <div className={`${prefixCls}-buttons`}>
-              {current !== 0 ? (
-                <Button
-                  {...secondaryBtnProps}
-                  {...prevButtonProps}
-                  onClick={prevBtnClick}
-                  size="small"
-                  className={`${prefixCls}-prev-btn`}
-                >
-                  {prevButtonProps?.children ?? contextLocale.Previous}
-                </Button>
-              ) : null}
-              <Button
-                type={mainBtnType}
-                {...nextButtonProps}
-                onClick={nextBtnClick}
-                size="small"
-                className={`${prefixCls}-next-btn`}
-              >
-                {nextButtonProps?.children ??
-                  (isLastStep ? contextLocale.Finish : contextLocale.Next)}
-              </Button>
+    <div className={`${prefixCls}-panel`}>
+      <div className={clsx(`${prefixCls}-section`, classNames.section)} style={styles.section}>
+        {closable && mergedCloseIcon}
+        {coverNode}
+        {headerNode}
+        {descriptionNode}
+        <div className={clsx(`${prefixCls}-footer`, classNames.footer)} style={styles.footer}>
+          {total > 1 && (
+            <div
+              className={clsx(`${prefixCls}-indicators`, classNames.indicators)}
+              style={styles.indicators}
+            >
+              {mergedIndicatorNode}
             </div>
+          )}
+          <div className={clsx(`${prefixCls}-actions`, classNames.actions)} style={styles.actions}>
+            {actionsRender
+              ? actionsRender(defaultActionsNode, { current, total })
+              : defaultActionsNode}
           </div>
-        </>
-      )}
-    </LocaleReceiver>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default panelRender;
+export default TourPanel;

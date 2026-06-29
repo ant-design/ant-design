@@ -1,11 +1,14 @@
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import * as React from 'react';
-import { globalConfig } from '../config-provider';
+import React, { useContext } from 'react';
+import { render, unmount } from '@rc-component/util';
+
+import { isFunction } from '../_util/is';
 import warning from '../_util/warning';
+import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
+import type { ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';
-import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 
@@ -13,39 +16,89 @@ function getRootPrefixCls() {
   return defaultRootPrefixCls;
 }
 
-type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
+export type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
 };
 
-export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+export type ModalStaticFunctions = {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
+  /** @deprecated Please use `warning` instead */
+  warn: ModalFunc;
+};
+
+const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
+  const { prefixCls: customizePrefixCls, getContainer, direction } = props;
+  const runtimeLocale = getConfirmLocale();
+
+  const config = useContext(ConfigContext);
+  const rootPrefixCls = getRootPrefixCls() || config.getPrefixCls();
+  // because Modal.config set rootPrefixCls, which is different from other components
+  const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+
+  let mergedGetContainer = getContainer;
+  if (mergedGetContainer === false) {
+    mergedGetContainer = undefined;
+
+    if (process.env.NODE_ENV !== 'production') {
+      warning(
+        false,
+        'Modal',
+        'Static method not support `getContainer` to be `false` since it do not have context env.',
+      );
+    }
+  }
+
+  return (
+    <ConfirmDialog
+      {...props}
+      rootPrefixCls={rootPrefixCls}
+      prefixCls={prefixCls}
+      iconPrefixCls={config.iconPrefixCls}
+      theme={config.theme}
+      direction={direction ?? config.direction}
+      locale={config.locale?.Modal ?? runtimeLocale}
+      getContainer={mergedGetContainer}
+    />
+  );
+};
 
 export default function confirm(config: ModalFuncProps) {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
+    warnContext('Modal');
+  }
+
   const container = document.createDocumentFragment();
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
-  let timeoutId: NodeJS.Timeout;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some((param) => param && param.triggerCancel);
-    if (config.onCancel && triggerCancel) {
-      config.onCancel(() => {}, ...args.slice(1));
+    const triggerCancel = args.some((param) => param?.triggerCancel);
+    if (triggerCancel) {
+      config.onCancel?.(() => {}, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (fn === close) {
         destroyFns.splice(i, 1);
         break;
       }
     }
 
-    reactUnmount(container);
+    unmount(container).then(() => {
+      // Do nothing
+    });
   }
 
-  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
+  const scheduleRender = (props: ConfirmDialogProps) => {
     clearTimeout(timeoutId);
 
     /**
@@ -54,62 +107,47 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
-      const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls, getIconPrefixCls } = globalConfig();
-      // because Modal.config  set rootPrefixCls, which is different from other components
-      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
-      const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
-      const iconPrefixCls = getIconPrefixCls();
+      const rootPrefixCls = global.getPrefixCls(undefined, getRootPrefixCls());
+      const iconPrefixCls = global.getIconPrefixCls();
+      const theme = global.getTheme();
 
-      reactRender(
-        <ConfirmDialog
-          {...props}
-          prefixCls={prefixCls}
-          rootPrefixCls={rootPrefixCls}
-          iconPrefixCls={iconPrefixCls}
-          okText={okText}
-          locale={runtimeLocale}
-          cancelText={cancelText || runtimeLocale.cancelText}
-        />,
+      const dom = <ConfirmDialogWrapper {...props} />;
+
+      render(
+        <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
+          {isFunction(global.holderRender) ? global.holderRender(dom) : dom}
+        </ConfigProvider>,
         container,
       );
     });
-  }
+  };
 
   function close(...args: any[]) {
     currentConfig = {
       ...currentConfig,
       open: false,
       afterClose: () => {
-        if (typeof config.afterClose === 'function') {
+        if (isFunction(config.afterClose)) {
           config.afterClose();
         }
-
+        // @ts-ignore
         destroy.apply(this, args);
       },
     };
 
-    // Legacy support
-    if (currentConfig.visible) {
-      delete currentConfig.visible;
-    }
-
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
   function update(configUpdate: ConfigUpdate) {
-    if (typeof configUpdate === 'function') {
+    if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
+      currentConfig = { ...currentConfig, ...configUpdate };
     }
-    render(currentConfig);
+    scheduleRender(currentConfig);
   }
 
-  render(currentConfig);
+  scheduleRender(currentConfig);
 
   destroyFns.push(close);
 

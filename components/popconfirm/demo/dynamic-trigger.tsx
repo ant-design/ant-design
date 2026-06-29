@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { message, Popconfirm, Switch } from 'antd';
+import { Button, message, Popconfirm, Switch } from 'antd';
 
 const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const [open, setOpen] = useState(false);
   const [condition, setCondition] = useState(true);
 
@@ -11,12 +12,12 @@ const App: React.FC = () => {
 
   const confirm = () => {
     setOpen(false);
-    message.success('Next step.');
+    messageApi.success('Next step.');
   };
 
   const cancel = () => {
     setOpen(false);
-    message.error('Click on cancel.');
+    messageApi.error('Click on cancel.');
   };
 
   const handleOpenChange = (newOpen: boolean) => {
@@ -34,23 +35,27 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <Popconfirm
-        title="Are you sure delete this task?"
-        open={open}
-        onOpenChange={handleOpenChange}
-        onConfirm={confirm}
-        onCancel={cancel}
-        okText="Yes"
-        cancelText="No"
-      >
-        <a href="#">Delete a task</a>
-      </Popconfirm>
-      <br />
-      <br />
-      Whether directly execute：
-      <Switch defaultChecked onChange={changeCondition} />
-    </div>
+    <>
+      {contextHolder}
+      <div>
+        <Popconfirm
+          title="Delete the task"
+          description="Are you sure to delete this task?"
+          open={open}
+          onOpenChange={handleOpenChange}
+          onConfirm={confirm}
+          onCancel={cancel}
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button danger>Delete a task</Button>
+        </Popconfirm>
+        <br />
+        <br />
+        Whether directly execute：
+        <Switch defaultChecked onChange={changeCondition} />
+      </div>
+    </>
   );
 };
 

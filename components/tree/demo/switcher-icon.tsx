@@ -1,9 +1,9 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
+import type { TreeDataNode, TreeProps } from 'antd';
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -62,7 +62,11 @@ const App: React.FC = () => {
   return (
     <Tree
       showLine
-      switcherIcon={<DownOutlined />}
+      switcherIcon={({ expanded }) => (
+        <DownOutlined
+          style={{ transform: `rotate(${expanded ? 0 : -90}deg)`, transition: 'transform 0.3s' }}
+        />
+      )}
       defaultExpandedKeys={['0-0-0']}
       onSelect={onSelect}
       treeData={treeData}

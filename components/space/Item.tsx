@@ -1,44 +1,28 @@
 import * as React from 'react';
-import { SpaceContext } from '.';
+import { clsx } from 'clsx';
+
+import type { SpaceSemanticAllType } from '.';
+import { isReactRenderable } from '../_util/is';
+import { SpaceContext } from './context';
+import type { SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
+  prefix: string;
   index: number;
-  direction?: 'horizontal' | 'vertical';
-  marginDirection: 'marginLeft' | 'marginRight';
-  split?: string | React.ReactNode;
-  wrap?: boolean;
+  separator?: React.ReactNode;
+  style?: React.CSSProperties;
+  classNames?: SpaceSemanticAllType['classNames'];
+  styles?: SpaceSemanticAllType['styles'];
 }
 
-export default function Item({
-  className,
-  direction,
-  index,
-  marginDirection,
-  children,
-  split,
-  wrap,
-}: ItemProps) {
-  const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
-    React.useContext(SpaceContext);
+const Item: React.FC<ItemProps> = (props) => {
+  const { className, prefix, index, children, separator, style, classNames, styles } = props;
 
-  let style: React.CSSProperties = {};
+  const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
-  if (!supportFlexGap) {
-    if (direction === 'vertical') {
-      if (index < latestIndex) {
-        style = { marginBottom: horizontalSize / (split ? 2 : 1) };
-      }
-    } else {
-      style = {
-        ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
-        ...(wrap && { paddingBottom: verticalSize }),
-      };
-    }
-  }
-
-  if (children === null || children === undefined) {
+  if (!isReactRenderable(children)) {
     return null;
   }
 
@@ -47,11 +31,16 @@ export default function Item({
       <div className={className} style={style}>
         {children}
       </div>
-      {index < latestIndex && split && (
-        <span className={`${className}-split`} style={style}>
-          {split}
+      {index < latestIndex && separator && (
+        <span
+          className={clsx(`${prefix}-item-separator`, classNames?.separator)}
+          style={styles?.separator}
+        >
+          {separator}
         </span>
       )}
     </>
   );
-}
+};
+
+export default Item;

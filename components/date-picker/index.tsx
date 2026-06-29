@@ -1,25 +1,42 @@
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import type { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import genPurePanel from '../_util/PurePanel';
-import type {
-  PickerDateProps,
-  PickerProps,
-  RangePickerProps as BaseRangePickerProps,
-} from './generatePicker';
-import generatePicker from './generatePicker';
 
-export type DatePickerProps = PickerProps<Dayjs>;
-export type MonthPickerProps = Omit<PickerDateProps<Dayjs>, 'picker'>;
-export type WeekPickerProps = Omit<PickerDateProps<Dayjs>, 'picker'>;
+import genPurePanel from '../_util/PurePanel';
+import generatePicker from './generatePicker';
+import type {
+  RangePickerProps as BaseRangePickerProps,
+  DatePickerSemanticType,
+  PickerProps,
+  PickerPropsWithMultiple,
+} from './generatePicker/interface';
+
+export type DatePickerProps<
+  ValueType = Dayjs,
+  IsMultiple extends boolean = boolean,
+> = PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType, IsMultiple>;
+export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
+  DatePickerProps<ValueType>,
+  'picker'
+>;
+export type WeekPickerProps<ValueType = Dayjs | Dayjs> = Omit<DatePickerProps<ValueType>, 'picker'>;
 export type RangePickerProps = BaseRangePickerProps<Dayjs>;
+
+export type { DatePickerSemanticType };
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 
+export type DatePickerType = typeof DatePicker & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  _InternalRangePanelDoNotUseOrYouWillBeFired: typeof PureRangePanel;
+  generatePicker: typeof generatePicker;
+};
+
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(DatePicker, 'picker');
-(DatePicker as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+const PurePanel = genPurePanel(DatePicker, 'popupAlign', undefined, 'picker');
+(DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'popupAlign', undefined, 'picker');
+(DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
+(DatePicker as DatePickerType).generatePicker = generatePicker;
 
-export default DatePicker as typeof DatePicker & {
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-};
+export default DatePicker as DatePickerType;

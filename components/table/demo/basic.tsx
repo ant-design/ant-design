@@ -1,6 +1,6 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Flex, Space, Table, Tag } from 'antd';
+import type { TableProps } from 'antd';
 
 interface DataType {
   key: string;
@@ -10,7 +10,7 @@ interface DataType {
   tags: string[];
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableProps<DataType>['columns'] = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -32,10 +32,10 @@ const columns: ColumnsType<DataType> = [
     key: 'tags',
     dataIndex: 'tags',
     render: (_, { tags }) => (
-      <>
+      <Flex gap="small" align="center" wrap>
         {tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
+          if (tag === 'kawaii') {
             color = 'volcano';
           }
           return (
@@ -44,14 +44,14 @@ const columns: ColumnsType<DataType> = [
             </Tag>
           );
         })}
-      </>
+      </Flex>
     ),
   },
   {
     title: 'Action',
     key: 'action',
     render: (_, record) => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Invite {record.name}</a>
         <a>Delete</a>
       </Space>
@@ -72,17 +72,17 @@ const data: DataType[] = [
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    tags: ['kawaii'],
   },
   {
     key: '3',
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
+const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} />;
 
 export default App;

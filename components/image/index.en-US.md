@@ -2,11 +2,11 @@
 category: Components
 group: Data Display
 title: Image
+description: Preview-able image.
 cols: 2
-cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Previewable image.
 
 ## When To Use
 
@@ -17,43 +17,209 @@ Previewable image.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
-<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/preview-group.tsx">Multiple image preview</code>
 <code src="./demo/preview-group-visible.tsx">Preview from one image</code>
 <code src="./demo/previewSrc.tsx">Custom preview image</code>
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
+<code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
+<code src="./demo/imageRender.tsx">Custom preview render</code>
+<code src="./demo/mask.tsx">preview mask</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
+<code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
+<code src="./demo/component-token.tsx" debug>Custom component token</code>
+<code src="./demo/preview-imgInfo.tsx" debug>Gets image info in the render function</code>
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
+### Image
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| alt | Image description | string | - |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| fallback | Fallback URL when load fails | string | - |  | 5.28.0 |
+| height | Image height | string \| number | - |  | × |
+| placeholder | Loading placeholder, supports ReactNode or config object | [PlaceholderType](#placeholdertype) | - |  | × |
+| preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0, `preview.mask`: 6.0.0, `preview.mask.closable`: 6.4.0 |
+| src | Image URL | string | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| width | Image width | string \| number | - |  | × |
+| onError | Callback when loading error occurs | (event: Event) => void | - |  | × |
+
+Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+### PlaceholderType
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| alt | Image description | string | - | 4.6.0 |
-| fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
-| height | Image height | string \| number | - | 4.6.0 |
-| placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
-| preview | preview config, disabled when `false` | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
-| src | Image path | string | - | 4.6.0 |
-| width | Image width | string \| number | - | 4.6.0 |
-| onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
-| rootClassName | add custom className for image root DOM and preview mode root DOM | string | - | 4.20.0 |
+| progress | Progress config, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `render` for custom rendering | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
 
-### previewType
+### ImageProgressConfig
 
-```js
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| percent | Progress value | number | - |  |
+| render | Custom rendering, receives default progress UI and percentage | (progress: React.ReactNode, percent: number) => React.ReactNode | - |  |
+
+### PreviewType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| closeIcon | Custom close icon | React.ReactNode | - |  |
+| cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | 6.4.0 |
+| ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
+| ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
+| getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
+| ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
+| maxScale | Maximum zoom scale | number | 50 |  |
+| minScale | Minimum zoom scale | number | 1 |  |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true |  |
+| open | Whether to display preview | boolean | - |  |
+| rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
+| scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
+| src | Custom preview src | string | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
+| ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
+| onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - |  |
+| onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean) => void | - |  |
+
+### PreviewGroup
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| fallback | Fallback URL for load error | string | - |  |
+| items | Array of preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - |  |
+| preview | Preview configuration; disable by setting to false | boolean \| [PreviewGroupType](#previewgrouptype) | true |  |
+
+### PreviewGroupType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| closeIcon | Custom close icon | React.ReactNode | - |  |
+| countRender | Custom preview count render | (current: number, total: number) => React.ReactNode | - |  |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | 6.4.0 |
+| current | Index of the current preview image | number | - |  |
+| ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
+| getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
+| ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
+| minScale | Minimum zoom scale | number | 1 |  |
+| maxScale | Maximum zoom scale | number | 50 |  |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true |  |
+| open | Whether to display preview | boolean | - |  |
+| ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
+| styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
+| ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
+| ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
+| onOpenChange | Callback when preview open state changes, includes current preview index | (visible: boolean, info: { current: number }) => void | - |  |
+| onChange | Callback when changing preview image | (current: number, prevCurrent: number) => void | - |  |
+| onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
+| ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
+
+## Interface
+
+### TransformType
+
+```typescript
 {
-  visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
-  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
-  src?: string; // v4.10.0
-  mask?: ReactNode; // v4.9.0
-  maskClassName?: string; // v4.11.0
-  current?: number; // v4.12.0 Only support PreviewGroup
-  countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
-  scaleStep?: number;
+  x: number;
+  y: number;
+  rotate: number;
+  scale: number;
+  flipX: boolean;
+  flipY: boolean;
 }
 ```
 
-Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+### TransformAction
+
+```typescript
+type TransformAction =
+  | 'flipY'
+  | 'flipX'
+  | 'rotateLeft'
+  | 'rotateRight'
+  | 'zoomIn'
+  | 'zoomOut'
+  | 'close'
+  | 'prev'
+  | 'next'
+  | 'wheel'
+  | 'doubleClick'
+  | 'move'
+  | 'dragRebound';
+```
+
+### ToolbarRenderInfoType
+
+```typescript
+{
+  icons: {
+    flipYIcon: React.ReactNode;
+    flipXIcon: React.ReactNode;
+    rotateLeftIcon: React.ReactNode;
+    rotateRightIcon: React.ReactNode;
+    zoomOutIcon: React.ReactNode;
+    zoomInIcon: React.ReactNode;
+  };
+  actions: {
+    onActive?: (index: number) => void; // support after 5.21.0
+    onFlipY: () => void;
+    onFlipX: () => void;
+    onRotateLeft: () => void;
+    onRotateRight: () => void;
+    onZoomOut: () => void;
+    onZoomIn: () => void;
+    onReset: () => void; // support after 5.17.3
+    onClose: () => void;
+  };
+  transform: TransformType,
+  current: number;
+  image: ImgInfo
+}
+```
+
+### ImgInfo
+
+```typescript
+{
+  url: string;
+  alt: string;
+  width: string | number;
+  height: string | number;
+}
+```
+
+### CoverConfig
+
+```typescript
+type CoverConfig = {
+  coverNode?: React.ReactNode; // The custom node of preview mask
+  placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
+};
+```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

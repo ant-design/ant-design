@@ -1,4 +1,5 @@
 import { generate } from '@ant-design/colors';
+
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 
@@ -15,22 +16,22 @@ export const generateColorPalettes: GenerateColorMap = (baseColor: string) => {
     8: colors[4],
     9: colors[5],
     10: colors[6],
-    // 8: colors[7],
-    // 9: colors[8],
-    // 10: colors[9],
   };
 };
 
 export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
   bgBaseColor: string,
   textBaseColor: string,
+  shadowColor?: string,
 ) => {
   const colorBgBase = bgBaseColor || '#fff';
   const colorTextBase = textBaseColor || '#000';
+  const colorShadow = shadowColor || '#000';
 
   return {
     colorBgBase,
     colorTextBase,
+    colorShadow,
 
     colorText: getAlphaColor(colorTextBase, 0.88),
     colorTextSecondary: getAlphaColor(colorTextBase, 0.65),
@@ -42,12 +43,18 @@ export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
     colorFillTertiary: getAlphaColor(colorTextBase, 0.04),
     colorFillQuaternary: getAlphaColor(colorTextBase, 0.02),
 
+    colorBgSolid: getAlphaColor(colorTextBase, 1),
+    colorBgSolidHover: getAlphaColor(colorTextBase, 0.75),
+    colorBgSolidActive: getAlphaColor(colorTextBase, 0.95),
+
     colorBgLayout: getSolidColor(colorBgBase, 4),
     colorBgContainer: getSolidColor(colorBgBase, 0),
     colorBgElevated: getSolidColor(colorBgBase, 0),
     colorBgSpotlight: getAlphaColor(colorTextBase, 0.85),
+    colorBgBlur: 'transparent',
 
     colorBorder: getSolidColor(colorBgBase, 15),
+    colorBorderDisabled: getSolidColor(colorBgBase, 15),
     colorBorderSecondary: getSolidColor(colorBgBase, 6),
   };
 };

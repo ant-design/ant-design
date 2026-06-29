@@ -1,17 +1,18 @@
 import * as React from 'react';
-import { Popup } from 'rc-tooltip';
-import classNames from 'classnames';
-import type { TooltipProps } from '.';
-import { ConfigContext } from '../config-provider';
+import { Popup } from '@rc-component/tooltip';
+import { clsx } from 'clsx';
 
+import type { TooltipProps } from '.';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 import { parseColor } from './util';
 
 export interface PurePanelProps extends Omit<TooltipProps, 'children'> {}
 
-// ant-tooltip css-dev-only-do-not-override-w2s56n ant-tooltip-placement-top  ant-tooltip-hidden
-
-export default function PurePanel(props: PurePanelProps) {
+/** @private Internal Component. Do not use in your production. */
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -19,37 +20,66 @@ export default function PurePanel(props: PurePanelProps) {
     title,
     color,
     overlayInnerStyle,
+    classNames,
+    styles,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, true);
+
+  const rootPrefixCls = getPrefixCls();
+
+  const rootCls = useCSSVarCls(prefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
-  const formattedOverlayInnerStyle = { ...overlayInnerStyle, ...colorInfo.overlayStyle };
-  const arrowContentStyle = colorInfo.arrowStyle;
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
 
-  return wrapSSR(
-    <div
-      className={classNames(
-        hashId,
-        prefixCls,
-        `${prefixCls}-pure`,
-        `${prefixCls}-placement-${placement}`,
-        className,
-        colorInfo.className,
-      )}
-      style={arrowContentStyle}
-    >
+  const arrowContentStyle: React.CSSProperties = colorInfo.arrowStyle;
+
+  const innerStyles = React.useMemo(() => {
+    const mergedStyle: React.CSSProperties = {
+      ...overlayInnerStyle,
+      ...colorInfo.overlayStyle,
+    };
+    return { container: mergedStyle };
+  }, [overlayInnerStyle, colorInfo.overlayStyle]);
+
+  const mergedProps: TooltipProps = {
+    ...props,
+    placement,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles], {
+    props: mergedProps,
+  });
+
+  const rootClassName = clsx(
+    rootCls,
+    hashId,
+    cssVarCls,
+    prefixCls,
+    `${prefixCls}-pure`,
+    `${prefixCls}-placement-${placement}`,
+    className,
+    colorInfo.className,
+  );
+
+  return (
+    <div className={rootClassName} style={arrowContentStyle}>
+      <div className={`${prefixCls}-arrow`} />
       <Popup
         {...props}
         className={hashId}
         prefixCls={prefixCls}
-        overlayInnerStyle={formattedOverlayInnerStyle}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
       >
         {title}
       </Popup>
-    </div>,
+    </div>
   );
-}
+};
+
+export default PurePanel;

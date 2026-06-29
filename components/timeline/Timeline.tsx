@@ -1,110 +1,299 @@
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
 import * as React from 'react';
+import { UnstableContext } from '@rc-component/steps';
+import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
-import type { TimelineItemProps } from './TimelineItem';
-import TimelineItem from './TimelineItem';
-
-// CSSINJS
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNonNullable, isNumber } from '../_util/is';
+import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
+import Steps from '../steps';
+import type { StepsProps, StepsSemanticType } from '../steps';
+import { InternalContext } from '../steps/context';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import useStyle from './style';
+import useItems from './useItems';
+
+const stepInternalContext = {
+  rootComponent: 'ol',
+  itemComponent: 'li',
+};
+
+export type ItemPosition = 'left' | 'right' | 'start' | 'end';
+
+export type ItemPlacement = 'start' | 'end';
+
+export type TimelineMode = ItemPosition | 'alternate';
+
+type Color = 'blue' | 'red' | 'green' | 'gray';
+
+export interface TimelineItemType {
+  // Style
+  color?: LiteralUnion<Color>;
+  className?: string;
+  style?: React.CSSProperties;
+  classNames?: GetProp<StepsProps, 'items'>[number]['classNames'];
+  styles?: GetProp<StepsProps, 'items'>[number]['styles'];
+
+  // Design
+  placement?: ItemPlacement;
+  /** @deprecated please use `placement` instead */
+  position?: ItemPosition;
+  loading?: boolean;
+
+  // Data
+  key?: React.Key;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  label?: React.ReactNode;
+  /** @deprecated Please use `content` instead */
+  children?: React.ReactNode;
+
+  // Icon
+  icon?: React.ReactNode;
+  /** @deprecated Please use `icon` instead */
+  dot?: React.ReactNode;
+}
+
+export type TimelineSemanticType = {
+  classNames?: Omit<StepsSemanticType['classNames'], 'itemSubtitle'>;
+  styles?: Omit<StepsSemanticType['styles'], 'itemSubtitle'>;
+};
+
+export type TimelineSemanticAllType = GenerateSemantic<TimelineSemanticType, TimelineProps>;
 
 export interface TimelineProps {
+  // Style
   prefixCls?: string;
   className?: string;
-  /** 指定最后一个幽灵节点是否存在或内容 */
-  pending?: React.ReactNode;
-  pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
-  reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right';
+  classNames?: TimelineSemanticAllType['classNamesAndFn'];
+  styles?: TimelineSemanticAllType['stylesAndFn'];
+  rootClassName?: string;
+
+  // Design
+  variant?: StepsProps['variant'];
+  mode?: TimelineMode;
+  orientation?: 'horizontal' | 'vertical';
+  titleSpan?: string | number;
+
+  // Data
+  items?: TimelineItemType[];
   children?: React.ReactNode;
+
+  /** @deprecated Please add pending item in `items` directly */
+  pending?: React.ReactNode;
+  /** @deprecated Please add pending item in `items` directly */
+  pendingDot?: React.ReactNode;
+  reverse?: boolean;
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
-  Item: React.FC<TimelineItemProps>;
+  Item: React.FC<TimelineItemType>;
 };
 
 const Timeline: CompoundedComponent = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('timeline');
+
   const {
     prefixCls: customizePrefixCls,
-    pending = null,
-    pendingDot,
-    children,
+
+    // Style
     className,
-    reverse = false,
-    mode = '' as TimelineProps['mode'],
+    style,
+    classNames,
+    styles,
+
+    // Design
+    variant = 'outlined',
+    mode,
+    orientation = 'vertical',
+    titleSpan,
+
+    // Data
+    items,
+    children,
+    reverse,
+
+    // Legacy Pending
+    pending,
+    pendingDot,
+
     ...restProps
   } = props;
+
+  // ===================== MISC =======================
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
-  const pendingNode = typeof pending === 'boolean' ? null : pending;
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  // ==================== Styles ======================
+  // This will be duplicated with Steps's hashId & cssVarCls when they have same token
+  // But this is safe to keep here since web will do nothing
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const pendingItem = pending ? (
-    <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
-      {pendingNode}
-    </TimelineItem>
-  ) : null;
+  const [varName] = genCssVar(rootPrefixCls, 'timeline');
 
-  const timeLineItems = React.Children.toArray(children);
-  timeLineItems.push(pendingItem!);
-  if (reverse) {
-    timeLineItems.reverse();
-  }
-
-  const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
-    if (mode === 'alternate') {
-      if (ele.props.position === 'right') return `${prefixCls}-item-right`;
-      if (ele.props.position === 'left') return `${prefixCls}-item-left`;
-      return idx % 2 === 0 ? `${prefixCls}-item-left` : `${prefixCls}-item-right`;
-    }
-    if (mode === 'left') return `${prefixCls}-item-left`;
-    if (mode === 'right') return `${prefixCls}-item-right`;
-    if (ele.props.position === 'right') return `${prefixCls}-item-right`;
-    return '';
-  };
-
-  // Remove falsy items
-  const truthyItems = timeLineItems.filter((item) => !!item);
-  const itemsCount = React.Children.count(truthyItems);
-  const lastCls = `${prefixCls}-item-last`;
-  const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
-    const pendingClass = idx === itemsCount - 2 ? lastCls : '';
-    const readyClass = idx === itemsCount - 1 ? lastCls : '';
-    return cloneElement(ele, {
-      className: classNames([
-        ele.props.className,
-        !reverse && !!pending ? pendingClass : readyClass,
-        getPositionCls(ele, idx),
-      ]),
-    });
-  });
-
-  const hasLabelItem = timeLineItems.some((item: React.ReactElement<any>) => !!item?.props?.label);
-
-  const classString = classNames(
-    prefixCls,
-    {
-      [`${prefixCls}-pending`]: !!pending,
-      [`${prefixCls}-reverse`]: !!reverse,
-      [`${prefixCls}-${mode}`]: !!mode && !hasLabelItem,
-      [`${prefixCls}-label`]: hasLabelItem,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
+  const stepsClassNames = React.useMemo<StepsProps['classNames']>(
+    () => ({
+      item: `${prefixCls}-item`,
+      itemTitle: `${prefixCls}-item-title`,
+      itemIcon: `${prefixCls}-item-icon`,
+      itemContent: `${prefixCls}-item-content`,
+      itemRail: `${prefixCls}-item-rail`,
+      itemWrapper: `${prefixCls}-item-wrapper`,
+      itemSection: `${prefixCls}-item-section`,
+      itemHeader: `${prefixCls}-item-header`,
+    }),
+    [prefixCls],
   );
 
-  return wrapSSR(
-    <ul {...restProps} className={classNames(classString, hashId)}>
-      {items}
-    </ul>,
+  // ===================== Mode =======================
+  const mergedMode = React.useMemo(() => {
+    // Deprecated
+    if (mode === 'left') {
+      return 'start';
+    }
+
+    if (mode === 'right') {
+      return 'end';
+    }
+
+    // Fill
+    const modeList: (string | undefined)[] = ['alternate', 'start', 'end'];
+    return (modeList.includes(mode) ? mode : 'start') as TimelineMode;
+  }, [mode]);
+
+  // ===================== Data =======================
+  const rawItems = useItems(
+    rootPrefixCls,
+    prefixCls,
+    mergedMode,
+    items,
+    children,
+    pending,
+    pendingDot,
+  );
+
+  const mergedItems = React.useMemo(
+    () => (reverse ? [...rawItems].reverse() : rawItems),
+    [reverse, rawItems],
+  );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TimelineProps = {
+    ...props,
+    variant,
+    mode: mergedMode,
+    orientation,
+    items: mergedItems,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [stepsClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
+
+  const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
+    () => ({ railFollowPrevStatus: reverse }),
+    [reverse],
+  );
+
+  // ==================== Design ======================
+  const layoutAlternate = React.useMemo(
+    () =>
+      mergedMode === 'alternate' ||
+      (orientation === 'vertical' && mergedItems.some((item) => item.title)),
+    [mergedItems, mergedMode, orientation],
+  );
+
+  // ===================== Warn =======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Timeline');
+
+    // Item
+    warning.deprecated(!children, 'Timeline.Item', 'items');
+
+    // Pending
+    const pendingWarning = 'You can create a `item` as pending node directly.';
+    warning.deprecated(!pending, 'pending', 'items', pendingWarning);
+    warning.deprecated(!pendingDot, 'pendingDot', 'items', pendingWarning);
+
+    // Mode
+    warning.deprecated(mode !== 'left' && mode !== 'right', 'mode=left|right', 'mode=start|end');
+
+    // Item Props
+    const warnItems = items || [];
+
+    (
+      [
+        ['label', 'title'],
+        ['children', 'content'],
+        ['dot', 'icon'],
+        ['position', 'placement'],
+      ] as const
+    ).forEach(([oldProp, newProp]) => {
+      warning.deprecated(
+        warnItems.every((item) => !item[oldProp]),
+        `items.${oldProp}`,
+        `items.${newProp}`,
+      );
+    });
+  }
+
+  // ==================== Render ======================
+  const stepStyle: React.CSSProperties = { ...contextStyle, ...style };
+
+  if (isNonNullable(titleSpan) && mergedMode !== 'alternate') {
+    if (isNumber(titleSpan)) {
+      stepStyle[varName('head-span')] = titleSpan;
+    } else {
+      stepStyle[varName('head-span-ptg')] = titleSpan;
+    }
+  }
+
+  return (
+    <InternalContext.Provider value={stepInternalContext}>
+      <UnstableContext.Provider value={stepContext}>
+        <Steps
+          {...restProps}
+          // Style
+          className={clsx(prefixCls, contextClassName, className, hashId, cssVarCls, {
+            [`${prefixCls}-${orientation}`]: orientation === 'horizontal',
+            [`${prefixCls}-layout-alternate`]: layoutAlternate,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          })}
+          style={stepStyle}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
+          // Design
+          variant={variant}
+          orientation={orientation}
+          // Layout
+          type="dot"
+          items={mergedItems}
+          current={mergedItems.length - 1}
+        />
+      </UnstableContext.Provider>
+    </InternalContext.Provider>
   );
 };
 
-Timeline.Item = TimelineItem;
+Timeline.Item = (() => {}) as React.FC<TimelineItemType>;
+
+if (process.env.NODE_ENV !== 'production') {
+  Timeline.displayName = 'Timeline';
+}
 
 export default Timeline;

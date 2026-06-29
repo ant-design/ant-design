@@ -1,9 +1,12 @@
 import React from 'react';
-import Mentions from '..';
+
+import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const { getMentions } = Mentions;
 
@@ -85,6 +88,64 @@ describe('Mentions', () => {
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
+  it('allowClear', () => {
+    const wrapper = render(<Mentions allowClear defaultValue="111" />);
+    const textareaInstance = wrapper.container.querySelector('textarea')!;
+    expect(textareaInstance.value).toBe('111');
+    fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);
+    expect(textareaInstance.value).toBe('');
+  });
+
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <Mentions allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<Mentions allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();
+  });
+
+  it('should support custom clearIcon', () => {
+    const { container } = render(<Mentions allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
+  });
+
+  describe('allowClear with ConfigProvider', () => {
+    it('should inherit allowClear from ConfigProvider when prop is undefined', () => {
+      const { container } = render(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions defaultValue="111" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-mentions-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is false', () => {
+      const { container } = render(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions defaultValue="111" allowClear={false} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-mentions-clear-icon')).toBeFalsy();
+    });
+  });
+
+  it('warning if use Mentions.Option', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Mentions style={{ width: '100%' }} defaultValue="@afc163">
+        <Option value="afc163">afc163</Option>
+        <Option value="zombieJ">zombieJ</Option>
+        <Option value="yesmeck">yesmeck</Option>
+      </Mentions>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Mentions] `Mentions.Option` is deprecated. Please use `options` instead.',
+    );
+  });
+
   it('do not lose label when use children Option', () => {
     const wrapper = render(
       <Mentions style={{ width: '100%' }}>
@@ -103,5 +164,65 @@ describe('Mentions', () => {
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
+  });
+
+  describe('form disabled', () => {
+    it('set Input enabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="textarea1" label="启用">
+              <Mentions />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="textarea" label="禁用">
+            <Mentions />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('#textarea1[disabled]')).toBeFalsy();
+      expect(container.querySelector('#textarea[disabled]')).toBeTruthy();
+    });
+  });
+
+  describe('Custom Style', () => {
+    it('support classNames and styles', () => {
+      const customClassNames = {
+        root: 'test-root',
+        popup: 'test-popup',
+        textarea: 'test-textarea',
+      };
+      const styles = {
+        root: { background: 'red' },
+        popup: { background: 'green' },
+        textarea: { background: 'blue' },
+      };
+      const wrapper = render(
+        <Mentions styles={styles} classNames={customClassNames}>
+          <Mentions.Option value="afc163">Afc163</Mentions.Option>
+          <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+          <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+        </Mentions>,
+      );
+      simulateInput(wrapper, '@');
+      const { container } = wrapper;
+      fireEvent.mouseEnter(
+        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+      );
+      fireEvent.focus(container.querySelector('textarea')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+      const root = container.querySelector('.ant-mentions');
+      const popup = container.querySelector('.ant-mentions-dropdown');
+      const textarea = container.querySelector('.rc-textarea');
+      expect(root).toHaveClass(customClassNames.root);
+      expect(popup).toHaveClass(customClassNames.popup);
+      expect(textarea).toHaveClass(customClassNames.textarea);
+      expect(root).toHaveStyle(styles.root);
+      expect(popup).toHaveStyle(styles.popup);
+      expect(textarea).toHaveStyle(styles.textarea);
+    });
   });
 });

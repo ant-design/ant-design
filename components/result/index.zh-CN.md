@@ -3,16 +3,16 @@ group: 反馈
 category: Components
 title: Result
 subtitle: 结果
-cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
+description: 用于反馈一系列操作任务的处理结果。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-e2IRroDJyEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-用于反馈一系列操作任务的处理结果。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/success.tsx">Success</code>
@@ -23,13 +23,27 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
 <code src="./demo/500.tsx">500</code>
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">自定义 icon</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| extra | 操作区 | ReactNode | - |
-| icon | 自定义 icon | ReactNode | - |
-| status | 结果的状态，决定图标和颜色 | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| subTitle | subTitle 文字 | ReactNode | - |
-| title | title 文字 | ReactNode | - |
+通用属性参考：[通用属性](/docs/react/common-props)
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| extra | 操作区 | ReactNode | - |  | × |
+| icon | 自定义 icon | ReactNode | - |  | × |
+| status | 结果的状态，决定图标和颜色 | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |  | × |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| subTitle | subTitle 文字 | ReactNode | - |  | × |
+| title | title 文字 | ReactNode | - |  | × |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Result"></ComponentTokenTable>

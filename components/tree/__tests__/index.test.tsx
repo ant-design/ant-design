@@ -1,6 +1,10 @@
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
+
+import Tree from '..';
 import { render, screen } from '../../../tests/utils';
-import Tree from '../index';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;
@@ -113,6 +117,29 @@ describe('Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('support switcherLoadingIcon prop when loadData', () => {
+    const onLoadData = () =>
+      new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      });
+    const { asFragment } = render(
+      <Tree
+        switcherIcon="switcherIcon"
+        loadData={onLoadData}
+        defaultExpandedKeys={['0-0-2', '0-0-3']}
+        switcherLoadingIcon={<div>loading...</div>}
+      >
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
   it('switcherIcon in Tree could be render prop function', () => {
     const { container } = render(
       <Tree
@@ -183,6 +210,133 @@ describe('Tree', () => {
       const nodeDraggable = jest.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+  });
+
+  describe('hidden switcherIcon', () => {
+    it('use `switcherIcon={() => null}`', () => {
+      const { container } = render(
+        <Tree defaultExpandAll switcherIcon={() => null}>
+          <TreeNode icon="icon">
+            <TreeNode title="node1" icon="icon" key="0-0-2" />
+            <TreeNode title="node2" key="0-0-3" />
+          </TreeNode>
+        </Tree>,
+      );
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
+    });
+    it('use `switcherIcon={null}`', () => {
+      const { container } = render(
+        <Tree defaultExpandAll switcherIcon={null}>
+          <TreeNode icon="icon">
+            <TreeNode title="node1" icon="icon" key="0-0-2" />
+            <TreeNode title="node2" key="0-0-3" />
+          </TreeNode>
+        </Tree>,
+      );
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
+    });
+  });
+  it('customize classNames and styles', () => {
+    const data = [
+      {
+        title: 'parent 1',
+        key: '0-0',
+        icon: <SmileOutlined />,
+        children: [
+          {
+            title: 'leaf',
+            key: '0-0-0',
+            icon: <SmileOutlined />,
+          },
+          {
+            title: 'leaf',
+            key: '0-0-1',
+            icon: <SmileOutlined />,
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      item: 'test-item',
+      itemIcon: 'test-icon',
+      itemTitle: 'test-title',
+      root: 'test-root',
+    };
+    const testStyles = {
+      item: { background: 'rgb(255, 0, 0)' },
+      itemIcon: { color: 'rgb(0, 0, 255)' },
+      itemTitle: { color: 'rgb(255, 255, 0)' },
+      root: { color: 'rgb(0, 255, 0)' },
+    };
+    const { container } = render(
+      <Tree
+        treeData={data}
+        showIcon
+        defaultExpandAll
+        styles={testStyles}
+        classNames={testClassNames}
+      />,
+    );
+    const root = container.querySelector('.ant-tree');
+    const title = container.querySelector('.ant-tree-title');
+    const item = container.querySelector(`.${testClassNames.item}`);
+    const icon = container.querySelector('.ant-tree-iconEle');
+
+    expect(root).toHaveStyle(testStyles.root);
+    expect(root).toHaveClass(testClassNames.root);
+    expect(icon).toHaveStyle(testStyles.itemIcon);
+    expect(icon).toHaveClass(testClassNames.itemIcon);
+    expect(title).toHaveStyle(testStyles.itemTitle);
+    expect(title).toHaveClass(testClassNames.itemTitle);
+    expect(item).toHaveStyle(testStyles.item);
+  });
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="tree1" label="禁用">
+            <Tree>
+              <TreeNode title="parent 1" key="0-0">
+                <TreeNode title="child 1" key="0-0-0" />
+              </TreeNode>
+            </Tree>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-tree.ant-tree-disabled')).toBeTruthy();
+    });
+
+    it('set Tree enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="tree1" label="启用">
+              <Tree>
+                <TreeNode title="parent 1" key="0-0">
+                  <TreeNode title="child 1" key="0-0-0" />
+                </TreeNode>
+              </Tree>
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="tree2" label="禁用">
+            <Tree>
+              <TreeNode title="parent 2" key="1-0">
+                <TreeNode title="child 2" key="1-0-0" />
+              </TreeNode>
+            </Tree>
+          </Form.Item>
+        </Form>,
+      );
+
+      const trees = container.querySelectorAll('.ant-tree');
+      expect(trees[0]).not.toHaveClass('ant-tree-disabled');
+      expect(trees[1]).toHaveClass('ant-tree-disabled');
     });
   });
 });

@@ -1,19 +1,22 @@
-import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import classNames from 'classnames';
 import * as React from 'react';
-import type { KeyWiseTransferItem } from '.';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
+import { clsx } from 'clsx';
+
+import type { KeyWiseTransferItem, TransferSemanticAllType } from '.';
+import { isNumber } from '../_util/is';
 import Checkbox from '../checkbox';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import TransButton from '../_util/transButton';
 
 type ListItemProps<RecordType> = {
+  prefixCls: string;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
   checked?: boolean;
-  prefixCls: string;
-  onClick: (item: RecordType) => void;
+  onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
   showRemove?: boolean;
@@ -21,67 +24,76 @@ type ListItemProps<RecordType> = {
 
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
+    prefixCls,
+    classNames,
+    styles,
     renderedText,
     renderedEl,
     item,
     checked,
     disabled,
-    prefixCls,
     onClick,
     onRemove,
     showRemove,
   } = props;
-
-  const className = classNames({
-    [`${prefixCls}-content-item`]: true,
-    [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
-    [`${prefixCls}-content-item-checked`]: checked,
+  const mergedDisabled = disabled || item?.disabled;
+  const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
+    [`${prefixCls}-content-item-disabled`]: mergedDisabled,
+    [`${prefixCls}-content-item-checked`]: checked && !mergedDisabled,
   });
 
   let title: string | undefined;
-  if (typeof renderedText === 'string' || typeof renderedText === 'number') {
+  if (typeof renderedText === 'string' || isNumber(renderedText)) {
     title = String(renderedText);
   }
 
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
+
+  const liProps: React.HTMLAttributes<HTMLLIElement> = {
+    className: classes,
+    style: styles.item,
+    title,
+  };
+
+  const labelNode = (
+    <span
+      className={clsx(`${prefixCls}-content-item-text`, classNames.itemContent)}
+      style={styles.itemContent}
+    >
+      {renderedEl}
+    </span>
+  );
+
+  if (showRemove) {
+    return (
+      <li {...liProps}>
+        {labelNode}
+        <button
+          type="button"
+          disabled={mergedDisabled}
+          className={`${prefixCls}-content-item-remove`}
+          aria-label={contextLocale?.remove}
+          onClick={() => onRemove?.(item)}
+        >
+          <DeleteOutlined />
+        </button>
+      </li>
+    );
+  }
+
+  // Default click to select
+  liProps.onClick = mergedDisabled ? undefined : (event) => onClick(item, event);
+
   return (
-    <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {(contextLocale) => {
-        const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
-        const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
-
-        // Show remove
-        if (showRemove) {
-          return (
-            <li {...liProps}>
-              {labelNode}
-              <TransButton
-                disabled={disabled || item.disabled}
-                className={`${prefixCls}-content-item-remove`}
-                aria-label={contextLocale.remove}
-                onClick={() => {
-                  onRemove?.(item);
-                }}
-              >
-                <DeleteOutlined />
-              </TransButton>
-            </li>
-          );
-        }
-
-        // Default click to select
-        liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
-        return (
-          <li {...liProps}>
-            <Checkbox
-              className={`${prefixCls}-checkbox`}
-              checked={checked}
-              disabled={disabled || item.disabled}
-            />
-            {labelNode}
-          </li>
-        );
-      }}
-    </LocaleReceiver>
+    <li {...liProps}>
+      <Checkbox
+        className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
+        style={styles.itemIcon}
+        checked={checked}
+        disabled={mergedDisabled}
+      />
+      {labelNode}
+    </li>
   );
 };
 

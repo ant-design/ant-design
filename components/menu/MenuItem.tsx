@@ -1,13 +1,15 @@
-import classNames from 'classnames';
-import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
-import { Item } from 'rc-menu';
-import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
+import { Item } from '@rc-component/menu';
+import { omit, toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
+
+import { isFunction } from '../_util/is';
+import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import type { TooltipProps } from '../tooltip';
+import type { TooltipProps, TooltipSemanticType } from '../tooltip';
 import Tooltip from '../tooltip';
-import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
 
@@ -17,88 +19,158 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   title?: React.ReactNode;
 }
 
-export default class MenuItem extends React.Component<MenuItemProps> {
-  static contextType = MenuContext;
+type MenuItemComponent = React.FC<MenuItemProps>;
 
-  context: MenuContextProps;
+type RestArgs<T> = T extends (arg: any, ...args: infer P) => any ? P : never;
 
-  renderItemChildren(inlineCollapsed: boolean) {
-    const { prefixCls, firstLevel } = this.context;
-    const { icon, children } = this.props;
+type GenericProps<T = unknown> = T extends infer U extends MenuItemProps
+  ? unknown extends U
+    ? MenuItemProps
+    : U
+  : MenuItemProps;
 
-    const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
+type GenericComponent = Omit<MenuItemComponent, ''> &
+  (<T extends MenuItemProps>(
+    props: GenericProps<T>,
+    ...args: RestArgs<MenuItemComponent>
+  ) => ReturnType<MenuItemComponent>);
+
+const MenuItem: GenericComponent = (props) => {
+  const { className, children, icon, title, danger, extra } = props;
+  const {
+    prefixCls,
+    firstLevel,
+    direction,
+    disableMenuItemTitleTooltip,
+    tooltip,
+    inlineCollapsed: isInlineCollapsed,
+    styles,
+    classNames,
+  } = React.useContext<MenuContextProps>(MenuContext);
+  const renderItemChildren = (inlineCollapsed: boolean) => {
+    const label = (children as React.ReactNode[])?.[0];
+    const wrapNode = (
+      <span
+        className={clsx(
+          `${prefixCls}-title-content`,
+          firstLevel ? classNames?.itemContent : classNames?.subMenu?.itemContent,
+          {
+            [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
+          },
+        )}
+        style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
+      >
+        {children}
+      </span>
+    );
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (isValidElement(children) && children.type === 'span')) {
-      if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
-        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
+    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && firstLevel && typeof label === 'string') {
+        return <div className={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>;
       }
     }
     return wrapNode;
-  }
-
-  renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { prefixCls, firstLevel, inlineCollapsed, direction, disableMenuItemTitleTooltip } =
-      this.context;
-    const { className, children } = this.props;
-    const { title, icon, danger, ...rest } = this.props;
-
-    let tooltipTitle = title;
-    if (typeof title === 'undefined') {
-      tooltipTitle = firstLevel ? children : '';
-    } else if (title === false) {
-      tooltipTitle = '';
-    }
-    const tooltipProps: TooltipProps = {
-      title: tooltipTitle,
-    };
-
-    if (!siderCollapsed && !inlineCollapsed) {
-      tooltipProps.title = null;
-      // Reset `open` to fix control mode tooltip display not correct
-      // ref: https://github.com/ant-design/ant-design/issues/16742
-      tooltipProps.open = false;
-    }
-    const childrenLength = toArray(children).length;
-
-    let returnNode = (
-      <Item
-        {...rest}
-        className={classNames(
-          {
-            [`${prefixCls}-item-danger`]: danger,
-            [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
-          },
-          className,
-        )}
-        title={typeof title === 'string' ? title : undefined}
-      >
-        {cloneElement(icon, {
-          className: classNames(
-            isValidElement(icon) ? icon.props?.className : '',
-            `${prefixCls}-item-icon`,
-          ),
-        })}
-        {this.renderItemChildren(inlineCollapsed)}
-      </Item>
-    );
-
-    if (!disableMenuItemTitleTooltip) {
-      returnNode = (
-        <Tooltip
-          {...tooltipProps}
-          placement={direction === 'rtl' ? 'left' : 'right'}
-          overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
-        >
-          {returnNode}
-        </Tooltip>
-      );
-    }
-
-    return returnNode;
   };
 
-  render() {
-    return <SiderContext.Consumer>{this.renderItem}</SiderContext.Consumer>;
+  const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
+
+  let tooltipTitle = title;
+
+  if (typeof title === 'undefined') {
+    tooltipTitle = firstLevel ? children : '';
+  } else if (title === false) {
+    tooltipTitle = '';
   }
-}
+
+  const tooltipConfig = tooltip === false ? undefined : tooltip;
+  const mergedTooltipTitle =
+    tooltipConfig && tooltipConfig.title !== undefined ? tooltipConfig.title : tooltipTitle;
+
+  const tooltipProps: TooltipProps = {
+    ...(tooltipConfig ?? null),
+    title: mergedTooltipTitle,
+  };
+
+  if (!siderCollapsed && !isInlineCollapsed) {
+    tooltipProps.title = null;
+    // Reset `open` to fix control mode tooltip display not correct
+    // ref: https://github.com/ant-design/ant-design/issues/16742
+    tooltipProps.open = false;
+  }
+
+  const childrenLength = toArray(children).length;
+
+  let returnNode = (
+    <Item
+      {...omit(props, ['title', 'icon', 'danger'])}
+      className={clsx(
+        firstLevel ? classNames?.item : classNames?.subMenu?.item,
+        {
+          [`${prefixCls}-item-danger`]: danger,
+          [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
+        },
+        className,
+      )}
+      style={{
+        ...(firstLevel ? styles?.item : styles?.subMenu?.item),
+        ...props.style,
+      }}
+      title={typeof title === 'string' ? title : undefined}
+      itemData={props?.itemData ?? { ...props, key: props.eventKey }}
+    >
+      {cloneElement(icon, (oriProps) => ({
+        className: clsx(
+          `${prefixCls}-item-icon`,
+          firstLevel ? classNames?.itemIcon : classNames?.subMenu?.itemIcon,
+          oriProps.className,
+        ),
+        style: {
+          ...(firstLevel ? styles?.itemIcon : styles?.subMenu?.itemIcon),
+          ...oriProps.style,
+        },
+      }))}
+      {renderItemChildren(isInlineCollapsed)}
+    </Item>
+  );
+
+  if (!disableMenuItemTitleTooltip && tooltip !== false) {
+    const mergedTooltipPlacement =
+      tooltipConfig && tooltipConfig.placement
+        ? tooltipConfig.placement
+        : direction === 'rtl'
+          ? 'left'
+          : 'right';
+
+    const baseTooltipClassName = `${prefixCls}-inline-collapsed-tooltip`;
+
+    const mergeTooltipRootClassName = (classNames?: TooltipSemanticType['classNames']) => ({
+      ...classNames,
+      root: clsx(baseTooltipClassName, classNames?.root),
+    });
+
+    const mergedTooltipClassNames = isFunction(tooltipConfig?.classNames)
+      ? (info: { props: TooltipProps }) => {
+          const resolvedClassNames = (
+            tooltipConfig.classNames as (info: {
+              props: TooltipProps;
+            }) => TooltipSemanticType['classNames']
+          )(info);
+          return mergeTooltipRootClassName(resolvedClassNames);
+        }
+      : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticType['classNames']);
+
+    returnNode = (
+      <Tooltip
+        {...tooltipProps}
+        placement={mergedTooltipPlacement}
+        classNames={mergedTooltipClassNames}
+      >
+        {returnNode}
+      </Tooltip>
+    );
+  }
+  return returnNode;
+};
+
+export default MenuItem;

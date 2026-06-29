@@ -1,0 +1,80 @@
+---
+category: Components
+group: Layout
+title: Splitter
+description: Resizable split panel layout
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*f0SISaETY0wAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*y92yRYhObU8AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 1
+---
+
+## When To Use
+
+Can be used to separate areas horizontally or vertically. When you need to freely drag and adjust the size of each area. When you need to specify the maximum and minimum width and height of an area.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/size.tsx">Basic</code>
+<code src="./demo/control.tsx">Control mode</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/collapsible.tsx">Collapsible</code>
+<code src="./demo/collapsibleIcon.tsx" version="5.27.0">
+  Control collapsible icons
+</code>
+<code src="./demo/multiple.tsx">Multiple panels</code>
+<code src="./demo/group.tsx">Complex combination</code>
+<code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
+<code src="./demo/customize.tsx" version="6.0.0">Customize</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/reset.tsx" version="6.3.0">Double-clicked reset</code>
+<code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
+<code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/size-mix.tsx" debug>Size Mix</code>
+
+## API
+
+Common props ref：[Common props](/docs/react/common-props)
+
+> The Splitter component needs to calculate the panel size through its child elements, so its child elements only support `Splitter.Panel`.
+
+### Splitter
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 | × |
+| ~~collapsibleIcon~~ | custom collapsible icon | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
+| destroyOnHidden | Destroy panel content when collapsed (size is 0). Applies to all panels, can be overridden per panel | `boolean` | `false` | 6.4.0 | × |
+| draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 | × |
+| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - | × |
+| lazy | Lazy mode | `boolean` | `false` | 5.23.0 | × |
+| onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 | × |
+| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  | × |
+| onDraggerDoubleClick | Callback triggered when the dragger is double-clicked | `(index: number) => void` | - | 6.3.0 | × |
+| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - | × |
+| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - | × |
+| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - | × |
+
+### Panel
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
+| defaultSize | Initial panel size support number for px or 'percent%' usage | `number \| string` | - | - |
+| destroyOnHidden | Destroy panel content when collapsed (size is 0). Overrides Splitter's `destroyOnHidden` | `boolean` | - | 6.4.0 |
+| max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
+| min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
+| resizable | Whether to enable drag and drop | `boolean` | `true` | - |
+| size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component='Splitter'></ComponentTokenTable>

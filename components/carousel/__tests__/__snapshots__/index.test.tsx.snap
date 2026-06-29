@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-carousel ant-carousel-rtl"
+  class="ant-carousel ant-carousel-rtl css-var-root"
 >
   <div
     class="slick-slider slick-initialized"
@@ -12,7 +12,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       />
     </div>
   </div>
@@ -21,7 +21,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
 
 exports[`Carousel should works for dotPosition bottom 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-root"
 >
   <div
     class="slick-slider slick-initialized"
@@ -31,7 +31,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -55,7 +55,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 
 exports[`Carousel should works for dotPosition left 1`] = `
 <div
-  class="ant-carousel ant-carousel-vertical"
+  class="ant-carousel ant-carousel-vertical css-var-root"
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
@@ -65,7 +65,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -89,7 +89,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
 
 exports[`Carousel should works for dotPosition right 1`] = `
 <div
-  class="ant-carousel ant-carousel-vertical"
+  class="ant-carousel ant-carousel-vertical css-var-root"
 >
   <div
     class="slick-slider slick-vertical slick-initialized"
@@ -99,7 +99,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -123,7 +123,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
 
 exports[`Carousel should works for dotPosition top 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-root"
 >
   <div
     class="slick-slider slick-initialized"
@@ -133,7 +133,7 @@ exports[`Carousel should works for dotPosition top 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"

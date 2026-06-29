@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`WeekPicker should support style prop 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
   style="width: 400px;"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"

@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `oneWay` to makes Transfer to one way style.
+Use `oneWay` to make Transfer the one way style.

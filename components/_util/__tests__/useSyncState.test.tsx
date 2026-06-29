@@ -1,6 +1,7 @@
 import React from 'react';
-import useSyncState from '../hooks/useSyncState';
-import { render, fireEvent } from '../../../tests/utils';
+
+import { fireEvent, render } from '../../../tests/utils';
+import { useSyncState } from '../hooks';
 
 describe('Table', () => {
   it('useSyncState', () => {

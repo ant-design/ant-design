@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Avatar, Button } from 'antd';
+import { Avatar, Button, Space } from 'antd';
 
-type SizeType = 'large' | 'small' | 'default' | number;
+type SizeType = 'large' | 'small' | 'medium' | number;
 
 const App: React.FC = () => {
   const [hide, setHide] = useState(true);
@@ -13,7 +13,7 @@ const App: React.FC = () => {
   };
 
   const toggleSize = () => {
-    const sizes = ['small', 'default', 'large'] as SizeType[];
+    const sizes = ['small', 'medium', 'large'] as SizeType[];
     let current = sizes.indexOf(size) + 1;
     if (current > 2) {
       current = 0;
@@ -27,11 +27,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button onClick={toggle}>Toggle Avatar visibility</Button>
-      <Button onClick={toggleSize}>Toggle Avatar size</Button>
-      <Button onClick={changeScale}>Change Avatar scale</Button>
-      <br />
-      <br />
+      <Space wrap>
+        <Button onClick={toggle}>Toggle Avatar visibility</Button>
+        <Button onClick={toggleSize}>Toggle Avatar size</Button>
+        <Button onClick={changeScale}>Change Avatar scale</Button>
+      </Space>
       <div style={{ textAlign: 'center', transform: `scale(${scale})`, marginTop: 24 }}>
         <Avatar size={size} style={{ background: '#7265e6', display: hide ? 'none' : '' }}>
           Avatar

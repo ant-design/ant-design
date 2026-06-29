@@ -1,14 +1,15 @@
-import assert from 'assert';
-import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
+import assert from 'node:assert';
+import type { HastRoot, UnifiedTransformer } from 'dumi';
+import { unistUtilVisit } from 'dumi';
 
 /**
  * plugin for modify hast tree when docs compiling
  */
 function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
-    const filename = (vFile.data.frontmatter as any).filename;
+    const { filename } = vFile.data.frontmatter as any;
 
-    unistUtilVisit.visit(tree, 'element', (node) => {
+    unistUtilVisit.visit(tree, 'element', (node, i, parent) => {
       if (node.tagName === 'DumiDemoGrid') {
         // replace DumiDemoGrid to DemoWrapper, to implement demo toolbar
         node.tagName = 'DemoWrapper';
@@ -57,9 +58,46 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         node.tagName === 'Table' &&
         /^components/.test(filename)
       ) {
-        if (!node.properties) return;
+        if (!node.properties) {
+          return;
+        }
         node.properties.className ??= [];
         (node.properties.className as string[]).push('component-api-table');
+      } else if (node.type === 'element' && (node.tagName === 'Link' || node.tagName === 'a')) {
+        const { tagName } = node;
+        node.properties!.sourceType = tagName;
+        node.tagName = 'LocaleLink';
+      } else if (node.type === 'element' && node.tagName === 'video') {
+        node.tagName = 'VideoPlayer';
+      } else if (node.tagName === 'SourceCode') {
+        const { lang } = node.properties!;
+
+        if (typeof lang === 'string' && lang.startsWith('sandpack')) {
+          const code = (node.children[0] as any).value as string;
+          const configRegx = /^const sandpackConfig = ([\s\S]*?});/;
+          const [configString] = code.match(configRegx) || [];
+          /* biome-ignore lint/security/noGlobalEval: used in documentation */ /* eslint-disable-next-line no-eval */
+          const config = configString && eval(`(${configString.replace(configRegx, '$1')})`);
+          Object.keys(config || {}).forEach((key) => {
+            if (typeof config[key] === 'object') {
+              config[key] = JSON.stringify(config[key]);
+            }
+          });
+
+          parent!.children.splice(i!, 1, {
+            type: 'element',
+            tagName: 'Sandpack',
+            properties: {
+              ...config,
+            },
+            children: [
+              {
+                type: 'text',
+                value: code.replace(configRegx, '').trim(),
+              },
+            ],
+          });
+        }
       }
     });
   };

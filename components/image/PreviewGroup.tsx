@@ -1,17 +1,23 @@
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RotateLeftOutlined from '@ant-design/icons/RotateLeftOutlined';
 import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
+import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
-import RcImage from 'rc-image';
-import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { getTransitionName } from '../_util/motion';
+import RcImage from '@rc-component/image';
+import { clsx } from 'clsx';
 
-// CSSINJS
+import type { DeprecatedPreviewConfig, ImageProps, ImageSemanticAllType } from '.';
+import type { MaskType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GetProps } from '../_util/type';
+import { useComponentConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePreviewConfig from './hooks/usePreviewConfig';
 import useStyle from './style';
 
 export const icons = {
@@ -22,41 +28,132 @@ export const icons = {
   close: <CloseOutlined />,
   left: <LeftOutlined />,
   right: <RightOutlined />,
+  flipX: <SwapOutlined />,
+  flipY: <SwapOutlined rotate={90} />,
 };
 
-const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
+type RcPreviewGroupProps = GetProps<typeof RcImage.PreviewGroup>;
+
+type OriginPreviewConfig = Omit<
+  NonNullable<Exclude<RcPreviewGroupProps['preview'], boolean>>,
+  'maskClosable'
+>;
+
+export type GroupPreviewConfig = OriginPreviewConfig &
+  DeprecatedPreviewConfig & {
+    /** @deprecated Use `onOpenChange` instead */
+    onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
+    mask?: MaskType;
+  };
+
+export interface PreviewGroupProps
+  extends Omit<RcPreviewGroupProps, 'preview' | 'styles' | 'classNames'> {
+  preview?: boolean | GroupPreviewConfig;
+  classNames?: ImageSemanticAllType['classNamesAndFn'];
+  styles?: ImageSemanticAllType['stylesAndFn'];
+}
+
+const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
-  ...props
+  classNames,
+  styles,
+  ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  // =============================== MISC ===============================
+  // Context
+  const {
+    getPrefixCls,
+    getPopupContainer: getContextPopupContainer,
+    direction,
+    preview: contextPreview,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('image');
+
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;
-  const rootPrefixCls = getPrefixCls();
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  // ============================== Style ===============================
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedPreview = React.useMemo(() => {
-    if (preview === false) {
-      return preview;
-    }
-    const _preview = typeof preview === 'object' ? preview : {};
+  const mergedRootClassName = clsx(hashId, cssVarCls, rootCls);
 
-    return {
-      ..._preview,
-      transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
-      maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
-      rootClassName: hashId,
-    };
-  }, [preview]);
+  // ============================= Preview ==============================
+  const [previewConfig, previewRootClassName, previewMaskClassName] = usePreviewConfig(preview);
+  const [contextPreviewConfig, contextPreviewRootClassName, contextPreviewMaskClassName] =
+    usePreviewConfig(contextPreview);
 
-  return wrapSSR(
+  // ============================ Semantics =============================
+
+  const memoizedIcons = React.useMemo(
+    () => ({
+      ...icons,
+      left: direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />,
+      right: direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />,
+    }),
+    [direction],
+  );
+
+  const mergedPreview = useMergedPreviewConfig(
+    // Preview config
+    previewConfig,
+    contextPreviewConfig,
+
+    // MISC
+    prefixCls,
+    mergedRootClassName,
+    getContextPopupContainer,
+    icons,
+  );
+
+  const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: PreviewGroupProps = {
+    ...otherProps,
+    classNames,
+    styles,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [
+      contextClassNames,
+      classNames,
+      {
+        cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+        popup: {
+          root: clsx(contextPreviewRootClassName, previewRootClassName),
+          mask: clsx(
+            {
+              [`${prefixCls}-preview-mask-hidden`]: !mergedMask,
+            },
+            blurClassName,
+          ),
+        },
+      },
+    ],
+    [contextStyles, styles],
+    {
+      props: mergedProps as unknown as ImageProps,
+    },
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
+  return (
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
-      icons={icons}
-      {...props}
-    />,
+      icons={memoizedIcons}
+      {...otherProps}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
+    />
   );
 };
 

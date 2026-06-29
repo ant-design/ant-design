@@ -1,0 +1,115 @@
+import React, { useState } from 'react';
+import { Button, Drawer, Flex } from 'antd';
+import type { DrawerProps, GetProp } from 'antd';
+import { createStaticStyles } from 'antd-style';
+
+const lineStyle: React.CSSProperties = {
+  lineHeight: '28px',
+};
+
+const sharedContent = (
+  <>
+    <div style={lineStyle}>
+      Following the Ant Design specification, we developed a React UI library antd that contains a
+      set of high quality components and demos for building rich, interactive user interfaces.
+    </div>
+    <div style={lineStyle}>🌈 Enterprise-class UI designed for web applications.</div>
+    <div style={lineStyle}>📦 A set of high-quality React components out of the box.</div>
+    <div style={lineStyle}>🛡 Written in TypeScript with predictable static types.</div>
+    <div style={lineStyle}>⚙️ Whole package of design resources and development tools.</div>
+    <div style={lineStyle}>🌍 Internationalization support for dozens of languages.</div>
+    <div style={lineStyle}>🎨 Powerful theme customization in every detail.</div>
+  </>
+);
+
+const classNames = createStaticStyles(
+  ({ css }): NonNullable<GetProp<DrawerProps, 'classNames', 'Return'>> => ({
+    root: css`
+      border-radius: 10px;
+      padding: 10px;
+    `,
+  }),
+);
+
+const styles: DrawerProps['styles'] = {
+  mask: {
+    backgroundImage: `linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%)`,
+  },
+};
+
+const stylesFn: DrawerProps['styles'] = (info): GetProp<DrawerProps, 'styles', 'Return'> => {
+  if (info.props.footer) {
+    return {
+      header: {
+        padding: 16,
+      },
+      body: {
+        padding: 16,
+      },
+      footer: {
+        padding: '16px 10px',
+        backgroundColor: '#fafafa',
+      },
+    };
+  }
+};
+
+const App: React.FC = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerFnOpen, setDrawerFnOpen] = useState(false);
+
+  const sharedProps: DrawerProps = {
+    classNames,
+    size: 500,
+  };
+
+  const footer: React.ReactNode = (
+    <Flex gap="medium" justify="flex-end">
+      <Button
+        onClick={() => setDrawerFnOpen(false)}
+        styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
+      >
+        Cancel
+      </Button>
+      <Button
+        type="primary"
+        styles={{ root: { backgroundColor: '#171717' } }}
+        onClick={() => setDrawerOpen(true)}
+      >
+        Submit
+      </Button>
+    </Flex>
+  );
+
+  return (
+    <Flex gap="medium">
+      <Button onClick={() => setDrawerOpen(true)}>Open Style Drawer</Button>
+      <Button type="primary" onClick={() => setDrawerFnOpen(true)}>
+        Open Function Drawer
+      </Button>
+      <Drawer
+        {...sharedProps}
+        footer={null}
+        title="Custom Style Drawer"
+        styles={styles}
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        {sharedContent}
+      </Drawer>
+      <Drawer
+        {...sharedProps}
+        footer={footer}
+        title="Custom Function drawer"
+        styles={stylesFn}
+        mask={{ enabled: true, blur: true }}
+        open={drawerFnOpen}
+        onClose={() => setDrawerFnOpen(false)}
+      >
+        {sharedContent}
+      </Drawer>
+    </Flex>
+  );
+};
+
+export default App;

@@ -10,6 +10,7 @@ on:
       - 3.x-stable
       - 4.x-stable
   create:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,8 +24,8 @@ jobs:
     steps:
       - name: mirror
         continue-on-error: true
-        if: github.event_name == 'push' || (github.event_name == 'create' && github.event.ref_type == 'tag')
-        uses: wearerequired/git-mirror-action@v1
+        if: github.event_name == 'push' || (github.event_name == 'create' && github.event.ref_type == 'tag') || github.event_name == 'workflow_dispatch'
+        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:

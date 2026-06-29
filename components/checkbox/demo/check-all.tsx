@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox, Divider } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import type { CheckboxProps } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -9,20 +8,17 @@ const plainOptions = ['Apple', 'Pear', 'Orange'];
 const defaultCheckedList = ['Apple', 'Orange'];
 
 const App: React.FC = () => {
-  const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
-  const [indeterminate, setIndeterminate] = useState(true);
-  const [checkAll, setCheckAll] = useState(false);
+  const [checkedList, setCheckedList] = useState<string[]>(defaultCheckedList);
 
-  const onChange = (list: CheckboxValueType[]) => {
+  const checkAll = plainOptions.length === checkedList.length;
+  const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
+
+  const onChange = (list: string[]) => {
     setCheckedList(list);
-    setIndeterminate(!!list.length && list.length < plainOptions.length);
-    setCheckAll(list.length === plainOptions.length);
   };
 
-  const onCheckAllChange = (e: CheckboxChangeEvent) => {
+  const onCheckAllChange: CheckboxProps['onChange'] = (e) => {
     setCheckedList(e.target.checked ? plainOptions : []);
-    setIndeterminate(false);
-    setCheckAll(e.target.checked);
   };
 
   return (

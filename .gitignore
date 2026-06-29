@@ -36,29 +36,54 @@ config/base.yaml
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
+bun.lock*
 .pnpm-debug.log
+.pnpm-store
 components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/**/*.js
 !components/**/__tests__/**/*.js.snap
 /.history
 *.tmp
+artifacts.zip
+oss-artifacts.zip
 server/
 
 # Docs templates
 scripts/previewEditor/index.html
+components/version/version.ts
 components/version/version.tsx
 components/version/token.json
 components/version/token-meta.json
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+.dumi/preset/components-changelog*
+.dumi/preset/misc-changelog.json
 
 # Image snapshot diff
 __diff_output__/
 __image_snapshots__/
 /jest-stare
-/imageSnapshots
+/imageSnapshots*
 /imageDiffSnapshots
+/visualRegressionReport*
 
-.devcontainer*
+.husky/prepare-commit-msg
+
+.eslintcache
+.node-version
+.node
+
+.env
+examples/
+.neocoder/
+.claude/*
+!.claude/skills/
+!.claude/skills/*
+.superpowers/
+docs/superpowers/
+
+# generated css
+components/style/antd.css
+.turbopack

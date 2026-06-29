@@ -1,15 +1,28 @@
-import React from 'react';
-import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
+import React, { useEffect, useState } from 'react';
+
 import ConfigProvider from '..';
+import { act, fireEvent, render } from '../../../tests/utils';
 import DatePicker from '../../date-picker';
-import type { Locale } from '../../locale-provider';
-import LocaleProvider from '../../locale-provider';
+import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
+import type { Locale } from '../../locale';
+import LocaleProvider from '../../locale';
 import enUS from '../../locale/en_US';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
-import { act, render, fireEvent } from '../../../tests/utils';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('ConfigProvider.Locale', () => {
   function $$(selector: string): NodeListOf<Element> {
@@ -27,15 +40,12 @@ describe('ConfigProvider.Locale', () => {
 
   // https://github.com/ant-design/ant-design/issues/18731
   it('should not reset locale for Modal', () => {
-    class App extends React.Component {
-      state = { showButton: false };
-
-      componentDidMount() {
-        this.setState({ showButton: true });
-      }
-
-      // eslint-disable-next-line class-methods-use-this
-      openConfirm = () => {
+    const App: React.FC = () => {
+      const [showButton, setShowButton] = useState<boolean>(false);
+      useEffect(() => {
+        setShowButton(true);
+      }, []);
+      const openConfirm = () => {
         jest.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
@@ -43,22 +53,18 @@ describe('ConfigProvider.Locale', () => {
         });
         jest.useRealTimers();
       };
-
-      render() {
-        return (
-          <ConfigProvider locale={zhCN}>
-            {this.state.showButton ? (
-              <ConfigProvider locale={enUS}>
-                <button type="button" onClick={this.openConfirm}>
-                  open
-                </button>
-              </ConfigProvider>
-            ) : null}
-          </ConfigProvider>
-        );
-      }
-    }
-
+      return (
+        <ConfigProvider locale={zhCN}>
+          {showButton ? (
+            <ConfigProvider locale={enUS}>
+              <button type="button" onClick={openConfirm}>
+                open
+              </button>
+            </ConfigProvider>
+          ) : null}
+        </ConfigProvider>
+      );
+    };
     const wrapper = render(<App />);
     fireEvent.click(wrapper.container.querySelector('button')!);
     expect($$('.ant-btn-primary')[0].textContent).toBe('OK');
@@ -76,7 +82,8 @@ describe('ConfigProvider.Locale', () => {
     const datepicke = wrapper.container.querySelector<HTMLInputElement>('.ant-picker-input input');
     expect(datepicke?.value).toBe('');
     expect(datepicke?.placeholder).toBe('请选择日期');
-    expect(wrapper.container.querySelector('.ant-pagination-item-1')?.className).toContain(
+
+    expect(wrapper.container.querySelector<HTMLElement>('.ant-pagination-item-1')).toHaveClass(
       'ant-pagination-item-active',
     );
 
@@ -87,6 +94,7 @@ describe('ConfigProvider.Locale', () => {
     expect(
       wrapper.container.querySelector<HTMLInputElement>('.ant-picker-input input')?.value,
     ).not.toBe('');
+
     wrapper.rerender(
       <ConfigProvider locale={{} as Locale}>
         <DatePicker />
@@ -102,9 +110,28 @@ describe('ConfigProvider.Locale', () => {
     expect(datepicker?.value).not.toBe('');
     expect(datepicker?.value).toContain('-10');
 
-    expect(wrapper.container.querySelector('.ant-pagination-item-3')?.className).toContain(
+    expect(wrapper.container.querySelector('.ant-pagination-item-3')).toHaveClass(
       'ant-pagination-item-active',
     );
+  });
+
+  it('should unwrap nested default locale object automatically caused by ESM/CJS interop', () => {
+    const mockLocale: Locale = {
+      locale: 'test-locale',
+      Pagination: { items_per_page: '/ test page' },
+    } as Locale;
+
+    const wrappedLocale = { default: mockLocale };
+
+    const { container } = render(
+      <ConfigProvider locale={wrappedLocale as any}>
+        <Pagination total={50} showSizeChanger />
+      </ConfigProvider>,
+    );
+
+    expect(container.textContent).toContain('/ test page');
+
+    expect(container.textContent).not.toContain('/ page');
   });
 
   describe('support legacy LocaleProvider', () => {

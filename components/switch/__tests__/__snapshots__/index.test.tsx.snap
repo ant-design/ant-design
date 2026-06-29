@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Switch rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
   aria-checked="false"
-  class="ant-switch ant-switch-rtl"
+  class="ant-switch ant-switch-rtl css-var-root"
   role="switch"
   type="button"
 >

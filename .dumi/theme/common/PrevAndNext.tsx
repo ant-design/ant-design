@@ -1,15 +1,18 @@
-import React, { ReactElement, useMemo } from 'react';
-import { ClassNames, css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
-import { Menu, MenuProps, Typography } from 'antd';
-import useMenu from '../../hooks/useMenu';
-import { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { ReactElement } from 'react';
+import React, { useMemo } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import type { GetProp, MenuProps } from 'antd';
+import { createStyles } from 'antd-style';
+import { clsx } from 'clsx';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+import useMenu from '../../hooks/useMenu';
+import SiteContext from '../slots/SiteContext';
 
-  const { colorSplit, iconCls, fontSizeIcon } = token;
+type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
+
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { iconCls } = token;
+  const { colorSplit, fontSizeIcon } = cssVar;
 
   return {
     prevNextNav: css`
@@ -17,27 +20,31 @@ const useStyle = () => {
       margin-inline-end: 170px;
       margin-inline-start: 64px;
       overflow: hidden;
-      font-size: 14px;
+      font-size: ${cssVar.fontSize};
       border-top: 1px solid ${colorSplit};
       display: flex;
     `,
-    pageNav: `
+    pageNav: css`
       flex: 1;
       height: 72px;
       line-height: 72px;
       text-decoration: none;
 
       ${iconCls} {
-        font-size: ${fontSizeIcon}px;
-        transition: all 0.3s;
+        color: #999;
+        font-size: ${fontSizeIcon};
+        transition: all ${cssVar.motionDurationSlow};
       }
 
       .chinese {
-        margin-inline-start: 4px;
+        margin-inline-start: ${cssVar.marginXXS};
       }
     `,
-    prevNav: `
+    prevNav: css`
       text-align: start;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
       .footer-nav-icon-after {
         display: none;
@@ -45,19 +52,22 @@ const useStyle = () => {
 
       .footer-nav-icon-before {
         position: relative;
-        margin-inline-end: 1em;
-        vertical-align: middle;
         line-height: 0;
-        right: 0;
-        transition: right 0.3s;
+        vertical-align: middle;
+        transition: inset-inline-end ${cssVar.motionDurationSlow};
+        margin-inline-end: 1em;
+        inset-inline-end: 0;
       }
 
       &:hover .footer-nav-icon-before {
-        right: 0.2em;
+        inset-inline-end: 0.2em;
       }
     `,
-    nextNav: `
+    nextNav: css`
       text-align: end;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
       .footer-nav-icon-before {
         display: none;
@@ -65,20 +75,20 @@ const useStyle = () => {
 
       .footer-nav-icon-after {
         position: relative;
-        margin-inline-start: 1em;
         margin-bottom: 1px;
-        vertical-align: middle;
         line-height: 0;
-        left: 0;
-        transition: left 0.3s;
+        vertical-align: middle;
+        transition: inset-inline-start ${cssVar.motionDurationSlow};
+        margin-inline-start: 1em;
+        inset-inline-start: 0;
       }
 
       &:hover .footer-nav-icon-after {
-        left: 0.2em;
+        inset-inline-start: 0.2em;
       }
     `,
   };
-};
+});
 
 const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
@@ -95,13 +105,17 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
   return null;
 };
 
-const PrevAndNext = () => {
-  const styles = useStyle();
+const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
+  const { styles } = useStyle();
+  const beforeProps = { className: 'footer-nav-icon-before' };
+  const afterProps = { className: 'footer-nav-icon-after' };
 
-  const [menuItems, selectedKey] = useMenu({
-    before: <LeftOutlined className="footer-nav-icon-before" />,
-    after: <RightOutlined className="footer-nav-icon-after" />,
-  });
+  const before = rtl ? <RightOutlined {...beforeProps} /> : <LeftOutlined {...beforeProps} />;
+  const after = rtl ? <LeftOutlined {...afterProps} /> : <RightOutlined {...afterProps} />;
+
+  const [menuItems, selectedKey] = useMenu({ before, after });
+
+  const { isMobile } = React.use(SiteContext);
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);
@@ -114,27 +128,26 @@ const PrevAndNext = () => {
         activeMenuItemIndex = i;
       }
     });
-    const prev = flatMenu[activeMenuItemIndex - 1];
-    const next = flatMenu[activeMenuItemIndex + 1];
-    return [prev as MenuItemType, next as MenuItemType];
+    return [
+      flatMenu[activeMenuItemIndex - 1] as MenuItemType,
+      flatMenu[activeMenuItemIndex + 1] as MenuItemType,
+    ];
   }, [menuItems, selectedKey]);
 
+  if (isMobile) {
+    return null;
+  }
+
   return (
-    <section css={styles.prevNextNav}>
-      <ClassNames>
-        {({ css: classCss, cx }) => (
-          <>
-            {prev &&
-              React.cloneElement(prev.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.prevNav)),
-              })}
-            {next &&
-              React.cloneElement(next.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.nextNav)),
-              })}
-          </>
-        )}
-      </ClassNames>
+    <section className={styles.prevNextNav}>
+      {prev &&
+        React.cloneElement(prev.label as ReactElement<{ className: string }>, {
+          className: clsx(styles.pageNav, styles.prevNav, prev.className),
+        })}
+      {next &&
+        React.cloneElement(next.label as ReactElement<{ className: string }>, {
+          className: clsx(styles.pageNav, styles.nextNav, next.className),
+        })}
     </section>
   );
 };

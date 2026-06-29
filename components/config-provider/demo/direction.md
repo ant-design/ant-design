@@ -7,17 +7,6 @@
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
 ```css
-.button-demo .ant-btn,
-.button-demo .ant-btn-group {
-  margin-right: 8px;
-  margin-bottom: 12px;
-}
-.button-demo .ant-btn-group > .ant-btn,
-.button-demo .ant-btn-group > span > .ant-btn {
-  margin-right: 0;
-  margin-left: 0;
-}
-
 .head-example {
   display: inline-block;
   width: 42px;
@@ -26,18 +15,4 @@ Components which support rtl direction are listed here, you can toggle the direc
   background: #eee;
   border-radius: 4px;
 }
-
-.ant-badge:not(.ant-badge-not-a-wrapper) {
-  margin-right: 20px;
-}
-.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
-}
 ```
-
-<style>
-[data-theme="dark"] .head-example {
-  background: rgba(255,255,255,.12);
-}
-</style>

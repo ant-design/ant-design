@@ -1,18 +1,18 @@
 import React from 'react';
-import { Progress } from 'antd';
+import { Flex, Progress } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Flex align="center" gap="small">
     <Progress
       type="circle"
-      trailColor="#e6f4ff"
+      railColor="#e6f4ff"
       percent={60}
       strokeWidth={20}
-      width={14}
+      size={14}
       format={(number) => `进行中，已完成${number}%`}
     />
-    <span style={{ marginLeft: 8 }}>代码发布</span>
-  </>
+    <span>代码发布</span>
+  </Flex>
 );
 
 export default App;

@@ -1,18 +1,18 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import * as React from 'react';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
-import Input from '../input';
+import Input from '../input/Input';
 
 export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
-  onChange?: (e: React.FormEvent<HTMLElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleClear?: () => void;
   value?: string;
   disabled?: boolean;
 }
 
-export default function Search(props: TransferSearchProps) {
+const Search: React.FC<TransferSearchProps> = (props) => {
   const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
 
   const handleChange = React.useCallback(
@@ -36,4 +36,10 @@ export default function Search(props: TransferSearchProps) {
       prefix={<SearchOutlined />}
     />
   );
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Search.displayName = 'Search';
 }
+
+export default Search;

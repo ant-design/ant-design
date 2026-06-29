@@ -1,24 +1,24 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select date"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -44,23 +44,23 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select month"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -86,23 +86,23 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
-      readonly=""
       size="12"
-      title=""
       value=""
     />
     <span
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -128,15 +128,16 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-rtl"
+  class="ant-picker ant-picker-range ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
-    class="ant-picker-input ant-picker-input-active"
+    class="ant-picker-input ant-picker-input-start"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="start"
       placeholder="Start date"
-      readonly=""
       size="12"
       value=""
     />
@@ -170,24 +171,26 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     </span>
   </div>
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-end"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="end"
       placeholder="End date"
-      readonly=""
       size="12"
       value=""
     />
   </div>
   <div
     class="ant-picker-active-bar"
-    style="right: 0px; width: 0px; position: absolute;"
+    style="position: absolute; width: 0px;"
   />
   <span
     class="ant-picker-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="calendar"
       class="anticon anticon-calendar"
       role="img"

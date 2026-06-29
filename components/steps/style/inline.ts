@@ -1,124 +1,82 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
-const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, inlineDotSize, inlineTitleColor, inlineTailColor } = token;
-  const containerPaddingTop = token.paddingXS + token.lineWidth;
-  const titleStyle = {
-    [`${componentCls}-item-container ${componentCls}-item-content ${componentCls}-item-title`]: {
-      color: inlineTitleColor,
-    },
-  };
+const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, inlineDotSize, paddingXS, lineWidth, antCls, calc } = token;
+  const containerPaddingTop = calc(paddingXS).add(lineWidth).equal();
+
+  const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
 
   return {
-    [`&${componentCls}-inline`]: {
-      width: 'auto',
+    [`${componentCls}-inline`]: {
+      [varName('items-offset')]: '0',
+      [varName('item-wrapper-padding-top')]: containerPaddingTop,
+
       display: 'inline-flex',
 
-      [`${componentCls}-item`]: {
-        flex: 'none',
+      '&:before': {
+        content: '""',
+        flex: varRef('items-offset'),
+      },
 
-        '&-container': {
-          padding: `${containerPaddingTop}px ${token.paddingXXS}px 0`,
-          margin: `0 ${token.marginXXS / 2}px`,
+      [itemCls]: {
+        // ========================= Variable =========================
+        // Item
+        [varName('title-vertical-row-gap')]: paddingXS,
+
+        // Icon
+        [varName('icon-size')]: inlineDotSize,
+        [varName('icon-size-active')]: inlineDotSize,
+        // Title
+        [varName('title-font-size')]: token.fontSizeSM,
+        [varName('title-line-height')]: token.lineHeightSM,
+        [varName('item-title-color')]: token.colorTextSecondary,
+        [varName('subtitle-font-size')]: token.fontSizeSM,
+        [varName('subtitle-line-height')]: token.lineHeightSM,
+        [varName('item-subtitle-color')]: token.colorTextQuaternary,
+
+        // Rail
+        [varName('rail-size')]: token.lineWidth,
+        [varName('title-horizontal-rail-gap')]: '0px',
+        // ========================== Styles ==========================
+        flex: 1,
+
+        '&-wrapper': {
+          paddingInline: token.paddingXXS,
+          marginInline: token.calc(token.marginXXS).div(2).equal(),
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
           transition: `background-color ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },
-          [`&[role='button']:hover`]: {
-            opacity: 1,
-          },
         },
 
+        // Icon
         '&-icon': {
-          width: inlineDotSize,
-          height: inlineDotSize,
-          marginInlineStart: `calc(50% - ${inlineDotSize / 2}px)`,
-          [`> ${componentCls}-icon`]: {
-            top: 0,
-          },
-          [`${componentCls}-icon-dot`]: {
-            borderRadius: token.fontSizeSM / 4,
-          },
-        },
-
-        '&-content': {
-          width: 'auto',
-          marginTop: token.marginXS - token.lineWidth,
-        },
-        '&-title': {
-          color: inlineTitleColor,
-          fontSize: token.fontSizeSM,
-          lineHeight: token.lineHeightSM,
-          fontWeight: 'normal',
-          marginBottom: token.marginXXS / 2,
-        },
-        '&-description': {
-          display: 'none',
-        },
-
-        '&-tail': {
-          marginInlineStart: 0,
-          top: containerPaddingTop + inlineDotSize / 2,
-          transform: `translateY(-50%)`,
-          '&:after': {
-            width: '100%',
-            height: token.lineWidth,
-            borderRadius: 0,
-            marginInlineStart: 0,
-            background: inlineTailColor,
-          },
-        },
-
-        [`&:first-child ${componentCls}-item-tail`]: {
-          width: '50%',
-          marginInlineStart: '50%',
-        },
-        [`&:last-child ${componentCls}-item-tail`]: {
-          display: 'block',
-          width: '50%',
-        },
-
-        '&-wait': {
-          [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
-            backgroundColor: token.colorBorderBg,
-            border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
-          },
-          ...titleStyle,
-        },
-        '&-finish': {
-          [`${componentCls}-item-tail::after`]: {
-            backgroundColor: inlineTailColor,
-          },
-          [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
-            backgroundColor: inlineTailColor,
-            border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
-          },
-          ...titleStyle,
-        },
-        '&-error': titleStyle,
-        '&-active, &-process': {
-          [`${componentCls}-item-icon`]: {
-            width: inlineDotSize,
-            height: inlineDotSize,
-            marginInlineStart: `calc(50% - ${inlineDotSize / 2}px)`,
-            top: 0,
-          },
-          ...titleStyle,
-        },
-
-        [`&:not(${componentCls}-item-active) > ${componentCls}-item-container[role='button']:hover`]:
-          {
-            [`${componentCls}-item-title`]: {
-              color: inlineTitleColor,
+          [`${itemCls}-icon-dot`]: {
+            '&:after': {
+              display: 'none',
             },
           },
+        },
+
+        // Header
+        '&-title': {
+          fontWeight: 'normal',
+          whiteSpace: 'nowrap',
+        },
+        '&-content': {
+          display: 'none',
+        },
       },
     },
   };
 };
 
-export default genStepsInlineStyle;
+export default genInlineStyle;

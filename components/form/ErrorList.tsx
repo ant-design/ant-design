@@ -1,12 +1,14 @@
-import classNames from 'classnames';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
-import { useMemo } from 'react';
+import type { CSSMotionProps } from '@rc-component/motion';
+import CSSMotion, { CSSMotionList } from '@rc-component/motion';
+import { clsx } from 'clsx';
+
+import { isNonNullable } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
-import { FormItemPrefixContext } from './context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { FormContext, FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
-
 import useStyle from './style';
 
 const EMPTY_LIST: React.ReactNode[] = [];
@@ -19,9 +21,9 @@ interface ErrorEntity {
 
 function toErrorEntity(
   error: React.ReactNode,
-  errorStatus: ValidateStatus | undefined,
   prefix: string,
-  index: number = 0,
+  errorStatus?: ValidateStatus,
+  index = 0,
 ): ErrorEntity {
   return {
     key: typeof error === 'string' ? error : `${prefix}-${index}`,
@@ -40,7 +42,7 @@ export interface ErrorListProps {
   onVisibleChanged?: (visible: boolean) => void;
 }
 
-export default function ErrorList({
+const ErrorList: React.FC<ErrorListProps> = ({
   help,
   helpStatus,
   errors = EMPTY_LIST,
@@ -48,32 +50,48 @@ export default function ErrorList({
   className: rootClassName,
   fieldId,
   onVisibleChanged,
-}: ErrorListProps) {
+}) => {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
+  const { classNames: contextClassNames, styles: contextStyles } = React.useContext(FormContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
-  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+  const collapseMotion = React.useMemo<CSSMotionProps>(
+    () => initCollapseMotion(prefixCls),
+    [prefixCls],
+  );
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
+  const hasHelp = isNonNullable(help);
 
-  const fullKeyList = React.useMemo(() => {
-    if (help !== undefined && help !== null) {
-      return [toErrorEntity(help, helpStatus, 'help')];
+  const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
+    if (hasHelp) {
+      return [toErrorEntity(help, 'help', helpStatus)];
     }
-
     return [
       ...debounceErrors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
       ...debounceWarnings.map((warning, index) =>
         toErrorEntity(warning, 'warning', 'warning', index),
       ),
     ];
-  }, [help, helpStatus, debounceErrors, debounceWarnings]);
+  }, [help, helpStatus, hasHelp, debounceErrors, debounceWarnings]);
+
+  const filledKeyFullKeyList = React.useMemo<ErrorEntity[]>(() => {
+    const keysCount: Record<string, number> = {};
+    fullKeyList.forEach(({ key }) => {
+      keysCount[key] = (keysCount[key] || 0) + 1;
+    });
+    return fullKeyList.map((entity, index) => ({
+      ...entity,
+      key: keysCount[entity.key] > 1 ? `${entity.key}-fallback-${index}` : entity.key,
+    }));
+  }, [fullKeyList]);
 
   const helpProps: { id?: string } = {};
 
@@ -85,7 +103,7 @@ export default function ErrorList({
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
-      visible={!!fullKeyList.length}
+      visible={!!filledKeyFullKeyList.length}
       onVisibleChanged={onVisibleChanged}
     >
       {(holderProps) => {
@@ -94,12 +112,19 @@ export default function ErrorList({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
-            style={holderStyle}
-            role="alert"
+            className={clsx(
+              baseClassName,
+              holderClassName,
+              contextClassNames?.help,
+              cssVarCls,
+              rootCls,
+              rootClassName,
+              hashId,
+            )}
+            style={{ ...contextStyles?.help, ...holderStyle }}
           >
             <CSSMotionList
-              keys={fullKeyList}
+              keys={filledKeyFullKeyList}
               {...initCollapseMotion(prefixCls)}
               motionName={`${prefixCls}-show-help-item`}
               component={false}
@@ -112,14 +137,13 @@ export default function ErrorList({
                   className: itemClassName,
                   style: itemStyle,
                 } = itemProps;
-
                 return (
                   <div
                     key={key}
-                    className={classNames(itemClassName, {
+                    className={clsx(itemClassName, contextClassNames?.helpItem, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
-                    style={itemStyle}
+                    style={{ ...contextStyles?.helpItem, ...itemStyle }}
                   >
                     {error}
                   </div>
@@ -131,4 +155,6 @@ export default function ErrorList({
       }}
     </CSSMotion>
   );
-}
+};
+
+export default ErrorList;

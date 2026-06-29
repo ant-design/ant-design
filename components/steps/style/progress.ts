@@ -1,48 +1,62 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { antCls, componentCls } = token;
+  const { calc, antCls, componentCls, lineWidthBold, motionDurationSlow } = token;
+
+  const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
+  const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
 
   return {
-    [`&${componentCls}-with-progress`]: {
-      [`${componentCls}-item`]: {
-        paddingTop: token.paddingXXS,
+    [`${componentCls}${componentCls}-with-progress`]: {
+      [varName('item-wrapper-padding-top')]: enhanceSize,
 
-        [`&-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon`]:
-          {
-            color: token.processIconColor,
-          },
-      },
-
-      [`&${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          top: token.marginXXS,
-        },
-
-      [`&${componentCls}-horizontal`]: {
-        [`${componentCls}-item:first-child`]: {
-          paddingBottom: token.paddingXXS,
-          paddingInlineStart: token.paddingXXS,
+      [`${itemCls}${itemCls}-process`]: {
+        [`${itemCls}-icon`]: {
+          position: 'relative',
         },
       },
 
-      [`&${componentCls}-label-vertical`]: {
-        [`${componentCls}-item ${componentCls}-item-tail`]: {
-          top: token.margin - 2 * token.lineWidth,
-        },
-      },
+      [`${itemCls}-progress-icon`]: {
+        '&-svg': {
+          [varName('svg-size')]: calc(enhanceSize).mul(2).add(varRef('icon-size')).equal(),
+          [varName('icon-size-ptg-unitless')]: `calc(100 / tan(atan2(${varRef('svg-size')}, 1px)))`,
+          fontSize: varRef('svg-size'),
+          lineHeight: varRef('icon-size-ptg-unitless'),
 
-      [`${componentCls}-item-icon`]: {
-        position: 'relative',
-
-        [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
-          insetInlineStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          inset: calc(enhanceSize).mul(-1).equal(),
+          width: 'auto',
+          height: 'auto',
+        },
+
+        '&-circle': {
+          lineHeight: varRef('icon-size-ptg-unitless'),
+          strokeWidth: calc(varRef('icon-size-ptg-unitless')).mul(lineWidthBold).equal(),
+          [varName('progress-radius')]: calc(varRef('svg-size'))
+            .sub(lineWidthBold)
+            .mul(varRef('icon-size-ptg-unitless'))
+            .div(2)
+            .equal(),
+          r: varRef('progress-radius'),
+          fill: 'none',
+          cx: 50,
+          cy: 50,
+          transition: `all ${motionDurationSlow} ease-in-out`,
+
+          '&-rail': {
+            stroke: token.colorSplit,
+          },
+
+          '&-ptg': {
+            stroke: token.colorPrimary,
+          },
         },
       },
     },

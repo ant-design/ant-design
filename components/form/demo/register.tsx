@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { CascaderProps, FormItemProps, FormProps } from 'antd';
 import {
   AutoComplete,
   Button,
@@ -10,11 +11,17 @@ import {
   InputNumber,
   Row,
   Select,
+  Space,
 } from 'antd';
+import type { DefaultOptionType } from 'antd/es/select';
 
-const { Option } = Select;
+interface FormCascaderOption {
+  value: string;
+  label: string;
+  children?: FormCascaderOption[];
+}
 
-const residences = [
+const residences: CascaderProps<FormCascaderOption>['options'] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -49,7 +56,7 @@ const residences = [
   },
 ];
 
-const formItemLayout = {
+const formItemLayout: FormProps = {
   labelCol: {
     xs: { span: 24 },
     sm: { span: 8 },
@@ -59,7 +66,8 @@ const formItemLayout = {
     sm: { span: 16 },
   },
 };
-const tailFormItemLayout = {
+
+const tailFormItemLayout: FormItemProps = {
   wrapperCol: {
     xs: {
       span: 24,
@@ -72,6 +80,113 @@ const tailFormItemLayout = {
   },
 };
 
+interface PhoneValue {
+  prefix?: string;
+  phone?: string;
+}
+
+interface PhoneInputProps {
+  id?: string;
+  value?: PhoneValue;
+  onChange?: (value: PhoneValue) => void;
+}
+
+const PhoneInput: React.FC<PhoneInputProps> = ({ id, value = {}, onChange }) => {
+  const [prefix, setPrefix] = useState('86');
+  const [phone, setPhone] = useState('');
+
+  const triggerChange = (changedValue: PhoneValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onPrefixChange = (newPrefix: string) => {
+    if (!('prefix' in value)) {
+      setPrefix(newPrefix);
+    }
+    triggerChange({ prefix: newPrefix });
+  };
+
+  const onPhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPhone = e.target.value;
+    if (!('phone' in value)) {
+      setPhone(newPhone);
+    }
+    triggerChange({ phone: newPhone });
+  };
+
+  return (
+    <span id={id}>
+      <Space.Compact block>
+        <Select
+          value={value.prefix || prefix}
+          onChange={onPrefixChange}
+          style={{ width: 70 }}
+          options={[
+            { label: '+86', value: '86' },
+            { label: '+87', value: '87' },
+          ]}
+        />
+        <Input value={value.phone || phone} onChange={onPhoneChange} style={{ width: '100%' }} />
+      </Space.Compact>
+    </span>
+  );
+};
+
+interface DonationValue {
+  amount?: number;
+  currency?: string;
+}
+
+interface DonationInputProps {
+  id?: string;
+  value?: DonationValue;
+  onChange?: (value: DonationValue) => void;
+}
+
+const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange }) => {
+  const [amount, setAmount] = useState<number>();
+  const [currency, setCurrency] = useState('USD');
+
+  const triggerChange = (changedValue: DonationValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onAmountChange = (newAmount: number | null) => {
+    if (!('amount' in value)) {
+      setAmount(newAmount ?? undefined);
+    }
+    triggerChange({ amount: newAmount ?? undefined });
+  };
+
+  const onCurrencyChange = (newCurrency: string) => {
+    if (!('currency' in value)) {
+      setCurrency(newCurrency);
+    }
+    triggerChange({ currency: newCurrency });
+  };
+
+  return (
+    <span id={id}>
+      <Space.Compact block>
+        <InputNumber
+          value={value.amount ?? amount}
+          onChange={onAmountChange}
+          style={{ width: '100%' }}
+        />
+        <Select
+          value={value.currency || currency}
+          onChange={onCurrencyChange}
+          style={{ width: 70 }}
+          options={[
+            { label: '$', value: 'USD' },
+            { label: '¥', value: 'CNY' },
+          ]}
+        />
+      </Space.Compact>
+    </span>
+  );
+};
+
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
@@ -79,35 +194,15 @@ const App: React.FC = () => {
     console.log('Received values of form: ', values);
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
-
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
-    </Form.Item>
-  );
-
   const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
   const onWebsiteChange = (value: string) => {
-    if (!value) {
-      setAutoCompleteResult([]);
-    } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
-    }
+    setAutoCompleteResult(
+      value ? ['.com', '.org', '.net'].map((domain) => `${value}${domain}`) : [],
+    );
   };
 
-  const websiteOptions = autoCompleteResult.map((website) => ({
+  const websiteOptions = autoCompleteResult.map<DefaultOptionType>((website) => ({
     label: website,
     value: website,
   }));
@@ -120,8 +215,10 @@ const App: React.FC = () => {
       onFinish={onFinish}
       initialValues={{
         residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
+        phone: { prefix: '86' },
+        donation: { currency: 'USD' },
       }}
+      style={{ maxWidth: 600 }}
       scrollToFirstError
     >
       <Form.Item
@@ -170,7 +267,7 @@ const App: React.FC = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              return Promise.reject(new Error('The new password that you entered do not match!'));
             },
           }),
         ]}
@@ -202,7 +299,7 @@ const App: React.FC = () => {
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        <PhoneInput />
       </Form.Item>
 
       <Form.Item
@@ -210,7 +307,7 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
+        <DonationInput />
       </Form.Item>
 
       <Form.Item
@@ -236,11 +333,15 @@ const App: React.FC = () => {
         label="Gender"
         rules={[{ required: true, message: 'Please select gender!' }]}
       >
-        <Select placeholder="select your gender">
-          <Option value="male">Male</Option>
-          <Option value="female">Female</Option>
-          <Option value="other">Other</Option>
-        </Select>
+        <Select
+          placeholder="select your gender"
+          defaultValue={'male'}
+          options={[
+            { label: 'Male', value: 'male' },
+            { label: 'Female', value: 'female' },
+            { label: 'Other', value: 'other' },
+          ]}
+        />
       </Form.Item>
 
       <Form.Item label="Captcha" extra="We must make sure that your are a human.">

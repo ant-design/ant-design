@@ -1,20 +1,20 @@
 ---
 category: Components
-subtitle: 徽标数
 title: Badge
-cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
+subtitle: 徽标数
+description: 图标右上角的圆形徽标数字。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示
 ---
 
-图标右上角的圆形徽标数字。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -28,32 +28,54 @@ group: 数据展示
 <code src="./demo/status.tsx">状态点</code>
 <code src="./demo/colorful.tsx">多彩徽标</code>
 <code src="./demo/ribbon.tsx">缎带</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
 <code src="./demo/mix.tsx" debug>各种混用的情况</code>
 <code src="./demo/title.tsx" debug>自定义标题</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>多彩徽标支持 count 显示 Debug</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Badge
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| color | 自定义小圆点的颜色 | string | - |  |
-| count | 展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏 | ReactNode | - |  |
-| dot | 不展示数字，只有一个小红点 | boolean | false |  |
-| offset | 设置状态点的位置偏移 | \[number, number] | - |  |
-| overflowCount | 展示封顶的数字值 | number | 99 |  |
-| showZero | 当数值为 0 时，是否展示 Badge | boolean | false |  |
-| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | 4.6.0 |
-| status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
-| text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  |
-| title | 设置鼠标放在状态点上时显示的文字 | string | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| color | 自定义小圆点的颜色 | string | - |  | × |
+| count | 展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏 | ReactNode | - |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.7.0 |
+| dot | 不展示数字，只有一个小红点 | boolean | false |  | × |
+| offset | 设置状态点的位置偏移 | \[number, number] | - |  | × |
+| overflowCount | 展示封顶的数字值 | number | 99 |  | × |
+| showZero | 当数值为 0 时，是否展示 Badge | boolean | false |  | × |
+| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `medium` \| `small` | - | - | × |
+| status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.7.0 |
+| text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  | × |
+| title | 设置鼠标放在状态点上时显示的文字。设置为 `null` 或 `false` 时移除原生 tooltip | string \| null \| false | - | 6.5.0 | × |
 
-### Badge.Ribbon (4.5.0+)
+### Badge.Ribbon
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| color | 自定义缎带的颜色 | string | - |  |
-| placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
-| text | 缎带中填入的内容 | ReactNode | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| color | 自定义缎带的颜色 | string | - |  | × |
+| placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| text | 缎带中填入的内容 | ReactNode | - |  | × |
+
+## Semantic DOM
+
+### Badge
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Badge.Ribbon
+
+<code src="./demo/_semantic_ribbon.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Badge"></ComponentTokenTable>

@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { triggerMotionEnd } from './util';
-import type { ArgsProps } from '..';
+import React, { useEffect } from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
 import message from '..';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { fireEvent, render } from '../../../tests/utils';
+import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {
@@ -49,7 +48,7 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should work with success', () => {
@@ -86,7 +85,7 @@ describe('message.hooks', () => {
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should work with onClose', (done) => {
@@ -148,7 +147,7 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              hide = api.open({ ontent: 'nice', duration: 0 } as unknown as ArgsProps);
+              hide = api.open({ content: 'nice', duration: 0 });
             }}
           >
             test
@@ -166,7 +165,7 @@ describe('message.hooks', () => {
     act(() => {
       hide!();
     });
-    await triggerMotionEnd('.my-test-message-move-up-leave');
+    await triggerMotionEnd('.my-test-message-fade-leave');
 
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
@@ -226,7 +225,7 @@ describe('message.hooks', () => {
 
     expect(div.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(div.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(div.querySelector('.hook-content')!.textContent).toEqual('happy');
+    expect(div.querySelector('.hook-content')!.textContent).toBe('happy');
     expect(document.querySelectorAll(`#${containerId}`)).toHaveLength(1);
   });
 
@@ -255,5 +254,142 @@ describe('message.hooks', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('not export style in SSR', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [, holder] = message.useMessage();
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).not.toContain('.ant-message');
+  });
+
+  it('component fontSize should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          className: 'fontSize',
+        });
+      }, []);
+
+      return (
+        <ConfigProvider theme={{ components: { Message: { fontSize: 20 } } }}>
+          {holder}
+        </ConfigProvider>
+      );
+    };
+
+    render(<Demo />);
+
+    const msg = document.querySelector('.ant-message-css-var');
+
+    expect(msg).toBeTruthy();
+    expect(msg).toHaveStyle({
+      '--ant-font-size': '20px',
+    });
+  });
+
+  it('classNames and styles should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          classNames: {
+            root: 'custom-root',
+            icon: 'custom-icon',
+            wrapper: 'custom-wrapper',
+          },
+          styles: {
+            root: { color: 'rgb(255, 0, 0)' },
+            icon: { fontSize: 20 },
+            wrapper: { backgroundColor: 'rgb(0, 255, 0)' },
+          },
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(<Demo />);
+
+    const root = document.querySelector('.custom-root');
+    const icon = document.querySelector('.custom-icon');
+    const wrapper = document.querySelector('.custom-wrapper');
+
+    expect(root).toBeTruthy();
+    expect(icon).toBeTruthy();
+    expect(wrapper).toBeTruthy();
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(icon).toHaveStyle({ fontSize: '20px' });
+    expect(wrapper).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+  });
+
+  describe('Message component with pauseOnHover', () => {
+    beforeEach(() => {
+      message.destroy();
+      jest.spyOn(global, 'clearTimeout');
+      jest.spyOn(global, 'setTimeout');
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+    const Demo = ({ pauseOnHover }: { pauseOnHover: boolean }) => {
+      const [api, holder] = message.useMessage();
+      return (
+        <div>
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              api.info({
+                content: <span>test pauseOnHover</span>,
+                duration: 3,
+                pauseOnHover,
+              });
+            }}
+          >
+            open
+          </button>
+        </div>
+      );
+    };
+
+    it('should pause the timer when pauseOnHover is true', async () => {
+      render(<Demo pauseOnHover />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 188);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 187);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      await waitFakeTimer(16, 1);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
+    });
+
+    it('should not pause the timer when pauseOnHover is false', async () => {
+      render(<Demo pauseOnHover={false} />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
+      await waitFakeTimer(16, 187);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      await waitFakeTimer(16, 1);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
+    });
   });
 });

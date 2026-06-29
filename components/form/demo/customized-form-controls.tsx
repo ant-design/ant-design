@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select } from 'antd';
 
-const { Option } = Select;
-
 type Currency = 'rmb' | 'dollar';
 
 interface PriceValue {
@@ -11,11 +9,13 @@ interface PriceValue {
 }
 
 interface PriceInputProps {
+  id?: string;
   value?: PriceValue;
   onChange?: (value: PriceValue) => void;
 }
 
-const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
+const PriceInput: React.FC<PriceInputProps> = (props) => {
+  const { id, value = {}, onChange } = props;
   const [number, setNumber] = useState(0);
   const [currency, setCurrency] = useState<Currency>('rmb');
 
@@ -24,7 +24,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   };
 
   const onNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newNumber = parseInt(e.target.value || '0', 10);
+    const newNumber = Number.parseInt(e.target.value || '0', 10);
     if (Number.isNaN(number)) {
       return;
     }
@@ -42,7 +42,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   };
 
   return (
-    <span>
+    <span id={id}>
       <Input
         type="text"
         value={value.number || number}
@@ -53,10 +53,11 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
         value={value.currency || currency}
         style={{ width: 80, margin: '0 8px' }}
         onChange={onCurrencyChange}
-      >
-        <Option value="rmb">RMB</Option>
-        <Option value="dollar">Dollar</Option>
-      </Select>
+        options={[
+          { label: 'RMB', value: 'rmb' },
+          { label: 'Dollar', value: 'dollar' },
+        ]}
+      />
     </span>
   );
 };
@@ -79,10 +80,7 @@ const App: React.FC = () => {
       layout="inline"
       onFinish={onFinish}
       initialValues={{
-        price: {
-          number: 0,
-          currency: 'rmb',
-        },
+        price: { number: 0, currency: 'rmb' },
       }}
     >
       <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>

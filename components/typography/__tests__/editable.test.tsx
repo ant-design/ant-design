@@ -1,8 +1,8 @@
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Base from '../Base';
-// eslint-disable-next-line no-unused-vars
 
 jest.mock('copy-to-clipboard');
 
@@ -19,14 +19,14 @@ describe('Typography.Editable', () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       offsetHeight: {
         get() {
-          let html = this.innerHTML;
+          let html = (this as any).innerHTML;
           html = html.replace(/<[^>]*>/g, '');
           const lines = Math.ceil(html.length / LINE_STR_COUNT);
           return lines * 16;
         },
       },
       getBoundingClientRect() {
-        let html = this.innerHTML;
+        let html: any = this.innerHTML;
         html = html.replace(/<[^>]*>/g, '');
         const lines = Math.ceil(html.length / LINE_STR_COUNT);
         return { height: lines * 16 };
@@ -58,7 +58,7 @@ describe('Typography.Editable', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
 
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr + suffix);
+    expect(wrapper.querySelector('textarea')?.textContent).toBe(fullStr + suffix);
 
     unmount();
   });
@@ -74,8 +74,32 @@ describe('Typography.Editable', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
 
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr);
+    expect(wrapper.querySelector('textarea')?.textContent).toBe(fullStr);
 
     unmount();
+  });
+
+  it('dynamic set editable', () => {
+    const { container, rerender } = render(<Base component="p">test</Base>);
+    expect(container.querySelector('.ant-typography-edit')).toBeFalsy();
+
+    rerender(
+      <Base component="p" editable>
+        test
+      </Base>,
+    );
+    expect(container.querySelector('.ant-typography-edit')).toBeTruthy();
+  });
+
+  it('tabIndex of edit button', () => {
+    const { container, rerender } = render(<Base component="p">test</Base>);
+    expect(container.querySelector('.ant-typography-edit')).toBeFalsy();
+
+    rerender(
+      <Base component="p" editable={{ tabIndex: -1 }}>
+        test
+      </Base>,
+    );
+    expect(container.querySelector('.ant-typography-edit')?.getAttribute('tabIndex')).toBe('-1');
   });
 });

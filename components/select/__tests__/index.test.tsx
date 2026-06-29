@@ -1,14 +1,18 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+
 import type { SelectProps } from '..';
 import Select from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
-
-const { Option } = Select;
+import { act, fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
+import Input from '../../input';
+import Space from '../../space';
 
 describe('Select', () => {
   focusTest(Select, { refFocus: true });
@@ -16,7 +20,7 @@ describe('Select', () => {
   rtlTest(Select);
 
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -64,38 +68,32 @@ describe('Select', () => {
   });
 
   it('should be controlled by open prop', () => {
-    const onDropdownVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
-        onDropdownVisibleChange(value);
+      const handleChange: SelectProps['onOpenChange'] = (value) => {
+        onOpenChange(value);
         setOpen(value);
       };
       return (
-        <Select open={open} onDropdownVisibleChange={handleChange}>
-          <Option value="1">1</Option>
-        </Select>
+        <Select open={open} onOpenChange={handleChange} options={[{ label: '1', value: '1' }]} />
       );
     };
     const { container } = render(<TestComponent />);
     expect(container.querySelector('.ant-select-dropdown')).toBeFalsy();
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
-    expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
-    const { container } = render(
-      <Select showSearch>
-        <Option value="1">1</Option>
-      </Select>,
-    );
-    expect(container.querySelectorAll('.anticon-down').length).toBe(1);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(0);
+    const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
+    expect(container.querySelector('.anticon-down')).toBeTruthy();
+    expect(container.querySelector('.anticon-search')).toBeFalsy();
     toggleOpen(container);
-    expect(container.querySelectorAll('.anticon-down').length).toBe(0);
-    expect(container.querySelectorAll('.anticon-search').length).toBe(1);
+    expect(container.querySelector('.anticon-down')).toBeFalsy();
+    expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
   describe('Select Custom Icons', () => {
@@ -103,20 +101,18 @@ describe('Select', () => {
       const { rerender, asFragment } = render(
         <Select
           removeIcon={<CloseOutlined />}
-          clearIcon={<CloseOutlined />}
+          allowClear={{ clearIcon: <CloseOutlined /> }}
           menuItemSelectedIcon={<CloseOutlined />}
-        >
-          <Option value="1">1</Option>
-        </Select>,
+          options={[{ label: '1', value: '1' }]}
+        />,
       );
       rerender(
         <Select
           removeIcon={<CloseOutlined />}
-          clearIcon={<CloseOutlined />}
+          allowClear={{ clearIcon: <CloseOutlined /> }}
           menuItemSelectedIcon={<CloseOutlined />}
-        >
-          <Option value="1">1</Option>
-        </Select>,
+          options={[{ label: '1', value: '1' }]}
+        />,
       );
       act(() => {
         jest.runAllTimers();
@@ -125,27 +121,488 @@ describe('Select', () => {
     });
   });
 
+  describe('Select allowClear with ConfigProvider', () => {
+    const SelectWithValue = (props: SelectProps) => (
+      <Select defaultValue="value" options={[{ value: 'value', label: 'Label' }]} {...props} />
+    );
+    it('should inherit allowClear from ConfigProvider when prop is undefined', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <SelectWithValue />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is false', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <SelectWithValue allowClear={false} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeFalsy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is true (context is false)', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: false }}>
+          <SelectWithValue allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('should inherit custom clearIcon from ConfigProvider', () => {
+      const CustomIcon = () => <span className="custom-clear-icon">X</span>;
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: <CustomIcon /> } }}>
+          <SelectWithValue />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('props custom icon should override ConfigProvider custom icon', () => {
+      const ContextIcon = () => <span className="context-icon">Ctx</span>;
+      const PropIcon = () => <span className="prop-icon">Prop</span>;
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: <ContextIcon /> } }}>
+          <SelectWithValue allowClear={{ clearIcon: <PropIcon /> }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.context-icon')).toBeFalsy();
+      expect(container.querySelector('.prop-icon')).toBeTruthy();
+    });
+  });
+
+  describe('clear icon position', () => {
+    it('normal', () => {
+      const { container } = render(
+        <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+      );
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
+    });
+
+    it('hasFeedback, has validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
+        );
+      }
+    });
+
+    it('hasFeedback, no validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      const ele = container.querySelector<HTMLElement>('.ant-select-clear');
+      if (ele) {
+        expect(getComputedStyle(ele).insetInlineEnd).toBe(
+          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
+        );
+      }
+    });
+  });
+
   describe('Deprecated', () => {
     it('should ignore mode="combobox"', () => {
       const { asFragment } = render(
-        <Select mode={'combobox' as SelectProps['mode']}>
-          <Option value="1">1</Option>
-        </Select>,
+        <Select mode={'combobox' as SelectProps['mode']} options={[{ label: '1', value: '1' }]} />,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
-    it('dropdownClassName', () => {
+    it('legacy popupClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select popupClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownClassName', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      const dropdown = container.querySelector('.ant-select-dropdown');
+      expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Select
+          open
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          options={[{ label: '1', value: '1' }]}
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      const customDropdown = container.querySelector('.custom-dropdown');
+      expect(customDropdown).toBeTruthy();
+      expect(customDropdown?.textContent).toContain('custom render');
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select onDropdownVisibleChange={() => {}} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
+      errSpy.mockRestore();
+    });
+
+    it('warning for legacy dropdownMatchSelectWidth', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select dropdownMatchSelectWidth open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate showArrow', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select showArrow />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      );
+      expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate bordered', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select bordered={false} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
+      );
+      expect(container.querySelector('.ant-select-borderless')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('Select maxCount warning', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select maxCount={10} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',
+      );
+      errSpy.mockRestore();
+    });
+  });
+
+  it('Select ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Select
+          open
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('clearIcon', () => {
+    const props = {
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: 'jack',
+    };
+
+    it('should support clearIcon prop', () => {
+      const { container } = render(<Select {...props} allowClear clearIcon="clear" />);
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support clearIcon prop in allowClear', () => {
+      const { container } = render(<Select {...props} allowClear={{ clearIcon: 'clear' }} />);
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should prefer clearIcon from allowClear over clearIcon prop', () => {
+      const { container } = render(
+        <Select {...props} allowClear={{ clearIcon: 'allow' }} clearIcon="clear" />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+
+    it('should support clearIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true, clearIcon: 'clear' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support clearIcon prop in allowClear in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: 'clear' } }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should prefer clearIcon from allowClear over clearIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: 'allow' }, clearIcon: 'clear' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+
+    it('should prefer clearIcon from allowClear in config provider over config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          select={{ allowClear: { clearIcon: 'contextAllow' }, clearIcon: 'contextClear' }}
+        >
+          <Select {...props} allowClear={{ clearIcon: 'allow' }} clearIcon="clear" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+  });
+
+  describe('loadingIcon', () => {
+    const props = { loading: true };
+
+    it('should support loadingIcon prop', () => {
+      const { container } = render(<Select {...props} loadingIcon="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support loadingIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ loadingIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer loadingIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ loadingIcon: 'foobar' }}>
+          <Select {...props} loadingIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('menuItemSelectedIcon', () => {
+    const props = {
+      open: true,
+      mode: 'multiple' as const,
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: ['jack'],
+    };
+
+    it('should support menuItemSelectedIcon prop', () => {
+      const { container } = render(<Select {...props} menuItemSelectedIcon="foobar" />);
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('foobar');
+    });
+
+    it('should support menuItemSelectedIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ menuItemSelectedIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer menuItemSelectedIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ menuItemSelectedIcon: 'foobar' }}>
+          <Select {...props} menuItemSelectedIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('removeIcon', () => {
+    const props = {
+      mode: 'multiple' as const,
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: ['jack'],
+    };
+
+    it('should support removeIcon prop', () => {
+      const { container } = render(<Select {...props} removeIcon="foobar" />);
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'foobar',
+      );
+    });
+
+    it('should support removeIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ removeIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'foobar',
+      );
+    });
+
+    it('should prefer removeIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ removeIcon: 'foobar' }}>
+          <Select {...props} removeIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'bamboo',
+      );
+    });
+  });
+
+  describe('searchIcon', () => {
+    const props = {
+      open: true,
+      showSearch: true,
+    };
+
+    it('should support searchIcon prop in showSearch', () => {
+      const { container } = render(<Select {...props} showSearch={{ searchIcon: 'foobar' }} />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support searchIcon prop in showSearch in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ showSearch: { searchIcon: 'foobar' } }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer searchIcon from showSearch in config provider over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ showSearch: { searchIcon: 'foobar' } }}>
+          <Select {...props} showSearch={{ searchIcon: 'bamboo' }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<Select suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
     });
   });
 });

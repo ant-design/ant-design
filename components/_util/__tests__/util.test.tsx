@@ -1,13 +1,7 @@
-/* eslint-disable class-methods-use-this */
-import KeyCode from 'rc-util/lib/KeyCode';
-import raf from 'rc-util/lib/raf';
-import React from 'react';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
-import getDataOrAriaProps from '../getDataOrAriaProps';
-import delayRaf from '../raf';
+import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
-import TransButton from '../transButton';
+import toList from '../toList';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -15,12 +9,12 @@ describe('Test utils function', () => {
       jest.useFakeTimers();
     });
 
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
     afterEach(() => {
       jest.clearAllTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
     });
 
     it('throttle function should work', async () => {
@@ -46,111 +40,19 @@ describe('Test utils function', () => {
 
       expect(callback).not.toHaveBeenCalled();
     });
-  });
+    it('should work with different argument types', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
 
-  describe('getDataOrAriaProps', () => {
-    it('returns all data-* properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'data-test': 'test-id',
-        'data-id': 1234,
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({
-        'data-test': 'test-id',
-        'data-id': 1234,
-      });
-    });
+      const obj = { key: 'value' };
+      const arr = [1, 2, 3];
+      const fn = () => {};
 
-    it('does not return data-__ properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'data-__test': 'test-id',
-        'data-__id': 1234,
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({});
-    });
+      throttled(obj, arr, fn, null, undefined, 0, false, '');
 
-    it('returns all aria-* properties from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        'aria-labelledby': 'label-id',
-        'aria-label': 'some-label',
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({
-        'aria-labelledby': 'label-id',
-        'aria-label': 'some-label',
-      });
-    });
+      await waitFakeTimer();
 
-    it('returns role property from an object', () => {
-      const props = {
-        onClick: () => {},
-        isOpen: true,
-        role: 'search',
-      };
-      const results = getDataOrAriaProps(props);
-      expect(results).toEqual({ role: 'search' });
-    });
-  });
-
-  it('delayRaf', (done) => {
-    jest.useRealTimers();
-
-    let bamboo = false;
-    delayRaf(() => {
-      bamboo = true;
-    }, 3);
-
-    // Do nothing, but insert in the frame
-    // https://github.com/ant-design/ant-design/issues/16290
-    delayRaf(() => {}, 3);
-
-    // Variable bamboo should be false in frame 2 but true in frame 4
-    raf(() => {
-      expect(bamboo).toBe(false);
-
-      // Frame 2
-      raf(() => {
-        expect(bamboo).toBe(false);
-
-        // Frame 3
-        raf(() => {
-          // Frame 4
-          raf(() => {
-            expect(bamboo).toBe(true);
-            done();
-          });
-        });
-      });
-    });
-  });
-
-  describe('TransButton', () => {
-    it('can be focus/blur', () => {
-      const ref = React.createRef<HTMLDivElement>();
-      render(<TransButton ref={ref}>TransButton</TransButton>);
-      expect(typeof ref.current?.focus).toBe('function');
-      expect(typeof ref.current?.blur).toBe('function');
-    });
-
-    it('should trigger onClick when press enter', () => {
-      const onClick = jest.fn();
-
-      const { container } = render(<TransButton onClick={onClick}>TransButton</TransButton>);
-
-      // callback should trigger
-      fireEvent.keyUp(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
-
-      // callback should not trigger
-      fireEvent.keyDown(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(callback).toHaveBeenCalledWith(obj, arr, fn, null, undefined, 0, false, '');
     });
   });
 
@@ -167,6 +69,15 @@ describe('Test utils function', () => {
       expect(isStyleSupport('color')).toBe(false);
       expect(isStyleSupport('not-existed')).toBe(false);
       spy.mockRestore();
+    });
+  });
+  describe('toList', () => {
+    it('toList should work', () => {
+      expect(toList(123)).toEqual([123]);
+      expect(toList([123])).toEqual([123]);
+      expect(toList(false)).toEqual([false]);
+      expect(toList(null, { skipEmpty: true })).toEqual([]);
+      expect(toList(undefined, { skipEmpty: true })).toEqual([]);
     });
   });
 });

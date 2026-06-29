@@ -1,7 +1,7 @@
 ## zh-CN
 
-你可以通过 `shape` 设置不同的形状
+通过 `shape` 设置不同的形状。
 
 ## en-US
 
-Change the shape of the FloatButton with `shape`.
+Change the shape of the FloatButton with the `shape` property.

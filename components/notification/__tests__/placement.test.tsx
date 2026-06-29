@@ -3,10 +3,25 @@ import { act, fireEvent } from '../../../tests/utils';
 import type { ArgsProps, GlobalConfigProps } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 describe('Notification.placement', () => {
+  const getPlacementInset = (placement: 'top' | 'bottom') =>
+    `calc(var(--notification-${placement}, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))`;
+
   function open(args?: Partial<ArgsProps>) {
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description: 'This is the content of the notification.',
       ...args,
     });
@@ -36,8 +51,8 @@ describe('Notification.placement', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: undefined,
+      getContainer: undefined,
     });
 
     jest.useRealTimers();
@@ -56,9 +71,11 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-topLeft')).toHaveStyle({
-        top: '50px',
+        top: getPlacementInset('top'),
         left: '0px',
-        bottom: '',
+        bottom: 'auto',
+        '--notification-top': '50px',
+        '--notification-bottom': '50px',
       });
 
       // topRight
@@ -69,9 +86,11 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-topRight')).toHaveStyle({
-        top: '100px',
+        top: getPlacementInset('top'),
         right: '0px',
-        bottom: '',
+        bottom: 'auto',
+        '--notification-top': '100px',
+        '--notification-bottom': '50px',
       });
 
       // bottomRight
@@ -82,9 +101,11 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-bottomRight')).toHaveStyle({
-        top: '',
+        top: 'auto',
         right: '0px',
-        bottom: '100px',
+        bottom: getPlacementInset('bottom'),
+        '--notification-top': '50px',
+        '--notification-bottom': '100px',
       });
 
       // bottomLeft
@@ -95,9 +116,11 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
-        top: '',
+        top: 'auto',
         left: '0px',
-        bottom: '50px',
+        bottom: getPlacementInset('bottom'),
+        '--notification-top': '100px',
+        '--notification-bottom': '50px',
       });
 
       // top
@@ -109,9 +132,11 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-top')).toHaveStyle({
-        top: '50px',
+        top: getPlacementInset('top'),
         left: '50%',
-        bottom: '',
+        bottom: 'auto',
+        '--notification-top': '50px',
+        '--notification-bottom': '60px',
       });
 
       // bottom
@@ -123,9 +148,11 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-bottom')).toHaveStyle({
-        top: '',
+        top: 'auto',
         left: '50%',
-        bottom: '60px',
+        bottom: getPlacementInset('bottom'),
+        '--notification-top': '50px',
+        '--notification-bottom': '60px',
       });
     });
   });

@@ -12,14 +12,25 @@
   "timezone": "UTC",
   "packageRules": [
     {
-      "groupName": "react-component",
-      "matchPackagePatterns": "rc-*",
-      "minor": {
-        "enabled": false
-      },
-      "major": {
-        "enabled": false
-      }
+      "groupName": "self-maintained",
+      "matchPackageNames": ["@rc-component/*", "rc-*", "@ant-design/*"],
+      "enabled": false
+    },
+    // https://github.com/ant-design/ant-design/pull/57888
+    {
+      "groupName": "jest dependencies",
+      "matchPackageNames": [
+        "jest",
+        "jest-*",
+        "@types/jest*",
+        "@testing-library/jest-dom",
+        "eslint-plugin-jest"
+      ]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["actions/upload-artifact", "dawidd6/action-download-artifact"],
+      "enabled": false
     }
   ]
 }

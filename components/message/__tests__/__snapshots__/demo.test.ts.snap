@@ -1,19 +1,101 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`renders ./components/message/demo/custom-style.tsx correctly 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    Customized style
-  </span>
-</button>
+exports[`renders components/message/demo/component-token.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
+  >
+    <div
+      class="ant-message-notice"
+      data-notification-index="0"
+      role="alert"
+      style="--notification-index:0"
+    >
+      <div
+        class="ant-message-notice-wrapper ant-message-error"
+      >
+        <div
+          class="ant-message-notice-icon ant-message-notice-icon-error"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-message-notice-title"
+        >
+          Hello World!
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
+  >
+    <div
+      class="ant-message-notice"
+      data-notification-index="0"
+      role="alert"
+      style="--notification-index:0"
+    >
+      <div
+        class="ant-message-notice-wrapper ant-message-error"
+      >
+        <div
+          class="ant-message-notice-icon ant-message-notice-icon-error"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-message-notice-title"
+        >
+          Hello World!
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
-exports[`renders ./components/message/demo/duration.tsx correctly 1`] = `
+exports[`renders components/message/demo/duration.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -22,9 +104,9 @@ exports[`renders ./components/message/demo/duration.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/message/demo/hooks.tsx correctly 1`] = `
+exports[`renders components/message/demo/hooks.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -33,20 +115,20 @@ exports[`renders ./components/message/demo/hooks.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/message/demo/info.tsx correctly 1`] = `
+exports[`renders components/message/demo/info.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
-    Display normal message
+    Static Method
   </span>
 </button>
 `;
 
-exports[`renders ./components/message/demo/loading.tsx correctly 1`] = `
+exports[`renders components/message/demo/loading.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -55,16 +137,15 @@ exports[`renders ./components/message/demo/loading.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/message/demo/other.tsx correctly 1`] = `
+exports[`renders components/message/demo/other.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -74,10 +155,9 @@ exports[`renders ./components/message/demo/other.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -89,7 +169,7 @@ exports[`renders ./components/message/demo/other.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -100,46 +180,262 @@ exports[`renders ./components/message/demo/other.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/message/demo/render-panel.tsx correctly 1`] = `
+exports[`renders components/message/demo/render-panel.tsx correctly 1`] = `
 <div
-  class="ant-message-notice ant-message-notice-pure-panel"
+  class="ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
 >
   <div
-    class="ant-message-notice-content"
+    class="ant-message-notice"
+    data-notification-index="0"
+    role="alert"
+    style="--notification-index:0"
   >
     <div
-      class="ant-message-custom-content ant-message-error"
+      class="ant-message-notice-wrapper ant-message-error"
     >
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
+      <div
+        class="ant-message-notice-icon ant-message-notice-icon-error"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
-      <span>
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-message-notice-title"
+      >
         Hello World!
-      </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/message/demo/thenable.tsx correctly 1`] = `
+exports[`renders components/message/demo/stack.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="width:100%"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Enabled: 
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-checked="true"
+            aria-label="Enable message stack"
+            class="ant-switch css-var-test-id ant-switch-checked"
+            role="switch"
+            type="button"
+          >
+            <div
+              class="ant-switch-handle"
+            />
+            <span
+              class="ant-switch-inner"
+            >
+              <span
+                class="ant-switch-inner-checked"
+              />
+              <span
+                class="ant-switch-inner-unchecked"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="width:100%"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Threshold: 
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
+          >
+            <input
+              aria-label="Stack threshold"
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="1"
+              value="3"
+            />
+            <div
+              class="ant-input-number-actions"
+            >
+              <span
+                aria-disabled="false"
+                aria-label="Increase Value"
+                class="ant-input-number-action ant-input-number-action-up"
+                role="button"
+                unselectable="on"
+              >
+                <span
+                  aria-label="up"
+                  class="anticon anticon-up"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="up"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
+                class="ant-input-number-action ant-input-number-action-down"
+                role="button"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Open the message box
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Destroy all
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/message/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Object style
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Function style
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/message/demo/thenable.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -148,9 +444,9 @@ exports[`renders ./components/message/demo/thenable.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders ./components/message/demo/update.tsx correctly 1`] = `
+exports[`renders components/message/demo/update.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>

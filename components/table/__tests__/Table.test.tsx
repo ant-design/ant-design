@@ -1,9 +1,12 @@
-import React from 'react';
-import type { TableProps } from '..';
+import React, { useRef, useState } from 'react';
+
+import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Popover from '../../popover';
 
 const { Column, ColumnGroup } = Table;
 
@@ -40,7 +43,6 @@ describe('Table', () => {
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
         </ColumnGroup>
         <Column title="Age" dataIndex="age" key="age" />
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         {'invalid child'}
       </Table>,
     );
@@ -66,25 +68,19 @@ describe('Table', () => {
       },
     ];
     rerender(<Table columns={newColumns} />);
-    expect(container.querySelector('th')?.textContent).toEqual('Title');
+    expect(container.querySelector('th')?.textContent).toBe('Title');
   });
 
   it('loading with Spin', async () => {
     jest.useFakeTimers();
-    const loading = {
-      spinning: false,
-      delay: 500,
-    };
-    const { container, rerender } = render(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toEqual('');
-
-    loading.spinning = true;
-    rerender(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
+    const { container, rerender } = render(<Table loading={{ spinning: false, delay: 500 }} />);
+    expect(container.querySelector('.ant-spin-section')).toBeFalsy();
+    expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toBe('');
+    rerender(<Table loading={{ spinning: true, delay: 500 }} />);
+    expect(container.querySelector('.ant-spin-section')).toBeFalsy();
     await waitFakeTimer();
     rerender(<Table loading />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    expect(container.querySelector('.ant-spin-section')).toBeTruthy();
     jest.clearAllTimers();
     jest.useRealTimers();
   });
@@ -108,8 +104,6 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
@@ -119,7 +113,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalledWith(
+    expect(warnSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
@@ -138,7 +132,7 @@ describe('Table', () => {
 
   it('should not crash when column children is empty', () => {
     render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -153,11 +147,7 @@ describe('Table', () => {
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
-        columns={[
-          {
-            title: 'name',
-          },
-        ]}
+        columns={[{ title: 'name' }]}
         dataSource={['1', 2, undefined, {}, null, true, false, 0] as TableProps<any>['dataSource']}
       />,
     );
@@ -167,7 +157,7 @@ describe('Table', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
     const touchmove = jest.fn();
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             dataIndex: 'name',
@@ -243,31 +233,108 @@ describe('Table', () => {
       });
   });
 
+  it('supports column align with per-column override and special columns', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Name', dataIndex: 'name' },
+          Table.EXPAND_COLUMN,
+          {
+            title: 'Info',
+            children: [{ title: 'Age', dataIndex: 'age', align: 'right' }],
+          },
+          Table.SELECTION_COLUMN,
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Jack',
+            age: 20,
+          },
+        ]}
+        column={{ align: 'center' }}
+        expandable={{ expandedRowRender: () => null }}
+        rowSelection={{}}
+        pagination={false}
+      />,
+    );
+
+    const cells = container.querySelectorAll('tbody tr')[0].querySelectorAll('td');
+
+    expect(cells).toHaveLength(4);
+    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
+    expect(cells[0].textContent).toBe('Jack');
+    expect(cells[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+    expect(cells[2]).toHaveStyle({ textAlign: 'right' });
+    expect(cells[2].textContent).toBe('20');
+    expect(cells[3].querySelector('.ant-checkbox-input')).toBeTruthy();
+  });
+
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => `${record.key}${index}`} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
+
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         key: 'name',
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record) => record.key} />);
+    render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
+  });
+
+  it('use global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      '666',
+    );
+  });
+
+  it('prefer rowKey prop over global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          rowKey="name"
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      'Foobar',
+    );
   });
 
   it('should support ref', () => {
@@ -280,7 +347,7 @@ describe('Table', () => {
       },
     ];
     const Wrapper: React.FC = () => {
-      const ref = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<any>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
@@ -336,7 +403,7 @@ describe('Table', () => {
 
   it('title should support ReactNode', () => {
     const { container } = render(
-      <Table
+      <Table<{ name?: string }>
         columns={[
           {
             title: (
@@ -352,5 +419,235 @@ describe('Table', () => {
     );
 
     expect(container.querySelector('thead th')).toMatchSnapshot();
+  });
+
+  // https://github.com/react-component/table/pull/855
+  it('support aria-* and data-*', async () => {
+    const { container } = render(<Table aria-label="label" data-number="123" />);
+    expect(container.querySelector('table')?.getAttribute('aria-label')).toBe('label');
+    expect(container.querySelector('.ant-table')?.getAttribute('data-number')).toBe('123');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/44802
+  it('passes aria-* props to all tables with scroll', () => {
+    const { container } = render(
+      <Table
+        aria-label="label"
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[{ key: '1', name: 'Bamboo' }]}
+        pagination={false}
+        scroll={{ x: 400, y: 100 }}
+      />,
+    );
+
+    const tables = Array.from(container.querySelectorAll('table'));
+    expect(tables.length).toBeGreaterThan(1);
+    tables.forEach((table) => {
+      expect(table).toHaveAttribute('aria-label', 'label');
+    });
+  });
+
+  it('support wireframe', () => {
+    const columns = [{ title: 'Name', key: 'name', dataIndex: 'name' }];
+    const { container } = render(
+      <ConfigProvider theme={{ token: { wireframe: true } }}>
+        <Table columns={columns} />
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('support getPopupContainer inject by ConfigProvider', async () => {
+    const columns = [
+      {
+        title: 'title',
+        key: 'title',
+        dataIndex: 'title',
+        filters: [
+          {
+            text: 'filter',
+            value: 'filter',
+          },
+        ],
+      },
+    ];
+    const Demo = () => {
+      const wrapRef = useRef(null);
+      return (
+        <ConfigProvider getPopupContainer={wrapRef.current!}>
+          <div ref={wrapRef}>
+            <Table columns={columns} />
+          </div>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('should not render duplicated controlled Popover in column title when scroll is enabled', async () => {
+    jest.useFakeTimers();
+
+    try {
+      const Demo = () => {
+        const [open, setOpen] = useState(false);
+
+        return (
+          <Table
+            pagination={false}
+            scroll={{ y: 200 }}
+            columns={[
+              {
+                key: 'name',
+                dataIndex: 'name',
+                title: (
+                  <Popover
+                    open={open}
+                    onOpenChange={setOpen}
+                    trigger="click"
+                    content={<button type="button">Popover Content</button>}
+                  >
+                    <button type="button">Name</button>
+                  </Popover>
+                ),
+              },
+            ]}
+            dataSource={[{ key: '1', name: 'Bamboo' }]}
+          />
+        );
+      };
+
+      const { container } = render(<Demo />);
+
+      fireEvent.click(container.querySelector('thead button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+
+      fireEvent.click(document.body.querySelector('.ant-popover button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+    } finally {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+    }
+  });
+
+  it('support reference', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(<Table ref={tblRef} />);
+
+    const wrapDom = container.querySelector('.ant-table-wrapper')!;
+
+    expect(tblRef.current).toHaveClass('ant-table-wrapper');
+    expect(tblRef.current?.nativeElement).toBe(wrapDom);
+    expect(typeof tblRef.current?.scrollTo === 'function').toBeTruthy();
+  });
+
+  it('support hidden columns', () => {
+    const columns = [
+      {
+        key: 1,
+        title: 'title1',
+      },
+      {
+        key: 2,
+        title: 'title2',
+        hidden: true,
+      },
+      {
+        key: 3,
+        title: 'title3',
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(container.querySelectorAll('.ant-table-thead th')[1].innerHTML).toBe('title3');
+    expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(2);
+  });
+
+  it('support hidden columns in Group table head', () => {
+    const columns = [
+      {
+        key: '1',
+        title: 'title1',
+      },
+      {
+        key: '2',
+        title: 'title2',
+        hidden: true,
+        children: [
+          { key: '2-1', title: 'title2-1' },
+          { key: '2-2', title: 'title2-2' },
+          { key: '2-3', title: 'title2-3' },
+        ],
+      },
+      {
+        key: '3',
+        title: 'title3',
+        children: [
+          { key: '3-1', title: 'title3-1', hidden: true },
+          { key: '3-2', title: 'title3-2' },
+          { key: '3-3', title: 'title3-3', hidden: true },
+        ],
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th')[1].innerHTML,
+    ).toBe('title3');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th'),
+    ).toHaveLength(2);
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th')[0].innerHTML,
+    ).toBe('title3-2');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
+    ).toHaveLength(1);
+  });
+
+  it('support disable row hover', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'name1',
+          },
+        ]}
+        rowHoverable={false}
+      />,
+    );
+    const cell = container.querySelector('.ant-table-row .ant-table-cell')!;
+
+    fireEvent.mouseEnter(cell);
+    expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
+  });
+
+  it('rowSelection should support align', () => {
+    const wrapper = render(
+      <Table
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[{ key: 1, name: 'Jack' }]}
+        rowSelection={{ align: 'right' }}
+      />,
+    );
+
+    expect(wrapper.container.querySelector('.ant-table-selection-column')).toHaveStyle({
+      textAlign: 'right',
+    });
   });
 });

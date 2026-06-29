@@ -11,7 +11,7 @@ const data = [
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Default Size</Divider>
+    <Divider titlePlacement="start">Default Size</Divider>
     <List
       header={<div>Header</div>}
       footer={<div>Footer</div>}
@@ -23,7 +23,7 @@ const App: React.FC = () => (
         </List.Item>
       )}
     />
-    <Divider orientation="left">Small Size</Divider>
+    <Divider titlePlacement="start">Small Size</Divider>
     <List
       size="small"
       header={<div>Header</div>}
@@ -32,7 +32,7 @@ const App: React.FC = () => (
       dataSource={data}
       renderItem={(item) => <List.Item>{item}</List.Item>}
     />
-    <Divider orientation="left">Large Size</Divider>
+    <Divider titlePlacement="start">Large Size</Divider>
     <List
       size="large"
       header={<div>Header</div>}

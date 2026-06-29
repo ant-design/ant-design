@@ -11,14 +11,9 @@ const onSearch = (value: string) => {
 
 const App: React.FC = () => (
   <Select
-    showSearch
+    showSearch={{ optionFilterProp: 'label', onSearch }}
     placeholder="Select a person"
-    optionFilterProp="children"
     onChange={onChange}
-    onSearch={onSearch}
-    filterOption={(input, option) =>
-      (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-    }
     options={[
       {
         value: 'jack',

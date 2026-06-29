@@ -1,8 +1,9 @@
 import React from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
+
 import type { ColumnsType } from '..';
 import Table from '..';
-import { render, triggerResize, waitFor } from '../../../tests/utils';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
 const columns: ColumnsType<any> = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
@@ -21,14 +22,14 @@ const columnsFixed: ColumnsType<any> = [
     width: 100,
     dataIndex: 'name',
     key: 'name',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
     key: 'age',
-    fixed: 'left',
+    fixed: 'start',
   },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -41,7 +42,7 @@ const columnsFixed: ColumnsType<any> = [
   {
     title: 'Action',
     key: 'address',
-    fixed: 'right',
+    fixed: 'end',
     width: 100,
   },
 ];
@@ -62,6 +63,15 @@ describe('Table', () => {
         },
       });
     });
+
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
     afterAll(() => {
       domSpy.mockRestore();
     });
@@ -73,12 +83,23 @@ describe('Table', () => {
 
       triggerResize(container.querySelector('.ant-table')!);
 
-      await waitFor(() => {
-        expect(container.querySelector('.ant-empty')).toBeTruthy();
-      });
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-empty')).toBeTruthy();
 
       expect(asFragment().firstChild).toMatchSnapshot();
     });
+  });
+
+  it('renders empty table when emptyText is null', () => {
+    const { container, asFragment } = render(
+      <Table dataSource={[]} columns={columns} pagination={false} locale={{ emptyText: null }} />,
+    );
+
+    expect(container.querySelector('.ant-table-placeholder>.ant-table-cell')?.hasChildNodes()).toBe(
+      false,
+    );
+
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders empty table with custom emptyText', () => {
@@ -95,6 +116,14 @@ describe('Table', () => {
 
   it('renders empty table without emptyText when loading', () => {
     const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
+  it('should not render empty when loading', () => {
+    const { asFragment } = render(<Table columns={columns} loading />);
+    expect(asFragment().querySelector('.ant-spin-spinning')).toBeTruthy();
+    expect(asFragment().querySelectorAll('*[class^="ant-empty"]').length).toBeFalsy();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

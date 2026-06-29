@@ -3,7 +3,7 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import { Avatar, Badge, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Space size="middle">
+  <Space size="medium">
     <Badge count={5}>
       <Avatar shape="square" size="large" />
     </Badge>

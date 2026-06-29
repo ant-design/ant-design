@@ -1,7 +1,8 @@
 import React, { memo, useContext } from 'react';
+
+import { fireEvent, pureRender } from '../../../tests/utils';
 import Row from '../row';
 import RowContext from '../RowContext';
-import { fireEvent, pureRender } from '../../../tests/utils';
 
 let innerCount = 0;
 let outerCount = 0;
@@ -10,13 +11,13 @@ const handleClick = () => {
   outerCount++;
 };
 
-const CacheInner: React.FC = memo(() => {
+const CacheInner = memo(() => {
   innerCount++;
   useContext(RowContext);
   return null;
 });
 
-const CacheOuter: React.FC = memo(() => (
+const CacheOuter = memo(() => (
   <>
     <button type="button" onClick={handleClick} id="parent_btn">
       Click

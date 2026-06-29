@@ -1,6 +1,7 @@
 import React from 'react';
+import { EllipsisOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Dropdown, Space } from 'antd';
+import { Button, Dropdown, Flex, Space } from 'antd';
 
 const onMenuClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);
@@ -22,11 +23,16 @@ const items = [
 ];
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Flex align="flex-start" gap="small" vertical>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
-    <Dropdown.Button menu={{ items, onClick: onMenuClick }}>Actions</Dropdown.Button>
-  </Space>
+    <Space.Compact>
+      <Button>Actions</Button>
+      <Dropdown menu={{ items, onClick: onMenuClick }} placement="bottomRight">
+        <Button icon={<EllipsisOutlined />} />
+      </Dropdown>
+    </Space.Compact>
+  </Flex>
 );
 
 export default App;

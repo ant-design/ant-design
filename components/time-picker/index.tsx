@@ -1,10 +1,63 @@
-import type { Dayjs } from 'dayjs';
 import * as React from 'react';
-import DatePicker from '../date-picker';
-import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import type { PickerRef } from '@rc-component/picker';
+import type { Dayjs } from 'dayjs';
+
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import type { AnyObject } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import DatePicker from '../date-picker';
+import type {
+  GenericTimePickerProps,
+  PickerPropsWithMultiple,
+  RangePickerProps,
+} from '../date-picker/generatePicker/interface';
+import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
+import useVariant from '../form/hooks/useVariants';
+
+export type TimePickerSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    popup?:
+      | string
+      | {
+          root?: string;
+          content?: string;
+          item?: string;
+          footer?: string;
+          container?: string;
+        };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
+  };
+};
+
+export type TimePickerSemanticAllType = GenerateSemantic<TimePickerSemanticType, TimePickerProps>;
+
+export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
+  DateType,
+  GenericTimePickerProps<DateType>
+>;
+
+export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
+  RangePickerProps<DateType>,
+  'showTime' | 'picker'
+>;
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -14,47 +67,91 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
+  /** @deprecated Please use `styles.popup` instead */
+  popupStyle?: React.CSSProperties;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
+export interface TimePickerProps
+  extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
   addon?: () => React.ReactNode;
   status?: InputStatus;
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
+  /** @deprecated Please use `styles.popup` instead */
+  popupStyle?: React.CSSProperties;
+  rootClassName?: string;
+
+  classNames?: TimePickerSemanticAllType['classNamesAndFn'];
+  styles?: TimePickerSemanticAllType['stylesAndFn'];
 }
 
-const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
-    const internalRenderExtraFooter = React.useMemo(() => {
-      if (renderExtraFooter) {
-        return renderExtraFooter;
-      }
+const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => {
+  const {
+    addon,
+    renderExtraFooter,
+    variant,
+    bordered,
+    classNames,
+    styles,
+    popupClassName,
+    popupStyle,
+    ...restProps
+  } = props;
+  // ====================== Warning =======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('TimePicker');
 
-      if (addon) {
-        warning(
-          false,
-          'TimePicker',
-          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
-        );
-        return addon;
-      }
-      return undefined;
-    }, [addon, renderExtraFooter]);
+    warning.deprecated(!addon, 'addon', 'renderExtraFooter');
+  }
 
-    return (
-      <InternalTimePicker
-        {...restProps}
-        mode={undefined}
-        ref={ref}
-        renderExtraFooter={internalRenderExtraFooter}
-      />
-    );
-  },
-);
+  const [mergedVariant] = useVariant('timePicker', variant, bordered);
+
+  const internalRenderExtraFooter = React.useMemo<TimePickerProps['renderExtraFooter']>(() => {
+    if (renderExtraFooter) {
+      return renderExtraFooter;
+    }
+
+    if (addon) {
+      return addon;
+    }
+    return undefined;
+  }, [addon, renderExtraFooter]);
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TimePickerProps = {
+    ...props,
+    variant: mergedVariant,
+  };
+  // =========== Merged Semantic ===========
+  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+    'timePicker',
+    classNames,
+    styles,
+    popupClassName,
+    popupStyle,
+    mergedProps,
+  ) as [
+    NonNullable<TimePickerSemanticAllType['classNames']>,
+    NonNullable<TimePickerSemanticAllType['styles']>,
+  ];
+
+  return (
+    <InternalTimePicker
+      {...restProps}
+      mode={undefined}
+      ref={ref}
+      renderExtraFooter={internalRenderExtraFooter}
+      variant={mergedVariant}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
+    />
+  );
+});
 
 if (process.env.NODE_ENV !== 'production') {
   TimePicker.displayName = 'TimePicker';
@@ -62,7 +159,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TimePicker, 'picker');
+const PurePanel = genPurePanel(TimePicker, 'popupAlign', undefined, 'picker');
 (TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 type MergedTimePicker = typeof TimePicker & {

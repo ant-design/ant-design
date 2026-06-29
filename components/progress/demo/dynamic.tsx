@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Progress } from 'antd';
+import { Button, Flex, Progress, Space } from 'antd';
 
 const App: React.FC = () => {
   const [percent, setPercent] = useState<number>(0);
@@ -26,13 +26,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <Progress percent={percent} />
-      <Button.Group>
+    <Flex vertical gap="small">
+      <Flex vertical gap="small">
+        <Progress percent={percent} type="line" />
+        <Progress percent={percent} type="circle" />
+      </Flex>
+      <Space.Compact>
         <Button onClick={decline} icon={<MinusOutlined />} />
         <Button onClick={increase} icon={<PlusOutlined />} />
-      </Button.Group>
-    </>
+      </Space.Compact>
+    </Flex>
   );
 };
 

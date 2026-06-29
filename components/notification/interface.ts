@@ -1,53 +1,108 @@
 import type * as React from 'react';
 
+import type { ClosableType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
 }
 
-export type NotificationPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+export const NotificationPlacements = [
+  'top',
+  'topLeft',
+  'topRight',
+  'bottom',
+  'bottomLeft',
+  'bottomRight',
+] as const;
+
+export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
+export type NotificationSemanticType = {
+  classNames?: {
+    list?: string;
+    listContent?: string;
+    wrapper?: string;
+    root?: string;
+    title?: string;
+    description?: string;
+    actions?: string;
+    icon?: string;
+    section?: string;
+    close?: string;
+    progress?: string;
+  };
+  styles?: {
+    list?: React.CSSProperties;
+    listContent?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    root?: React.CSSProperties;
+    title?: React.CSSProperties;
+    description?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    section?: React.CSSProperties;
+    close?: React.CSSProperties;
+    progress?: React.CSSProperties;
+  };
+};
+
+export type NotificationSemanticAllType = GenerateSemantic<NotificationSemanticType, ArgsProps>;
+
 export interface ArgsProps {
-  message: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  message?: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
+  /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
+  actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
-  duration?: number | null;
+  duration?: number | false;
+  showProgress?: boolean;
+  pauseOnHover?: boolean;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: NotificationSemanticAllType['classNamesAndFn'];
+  styles?: NotificationSemanticAllType['stylesAndFn'];
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
+  closable?:
+    | boolean
+    | null
+    | (Exclude<NonNullable<ClosableType>, boolean> & { onClose?: () => void });
   props?: DivProps;
+  role?: 'alert' | 'status';
 }
 
+type StaticFn = (args: ArgsProps) => void;
+
 export interface NotificationInstance {
-  success(args: ArgsProps): void;
-  error(args: ArgsProps): void;
-  info(args: ArgsProps): void;
-  warning(args: ArgsProps): void;
-  open(args: ArgsProps): void;
-  destroy(key?: React.Key): void;
+  success: StaticFn;
+  error: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  open: StaticFn;
+  destroy: (key?: React.Key) => void;
 }
 
 export interface GlobalConfigProps {
   top?: number;
   bottom?: number;
-  duration?: number;
+  duration?: number | false;
+  showProgress?: boolean;
+  pauseOnHover?: boolean;
   prefixCls?: string;
-  getContainer?: () => HTMLElement;
+  getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
+  closable?: ClosableType;
   rtl?: boolean;
   maxCount?: number;
   props?: DivProps;
@@ -57,7 +112,15 @@ export interface NotificationConfig {
   top?: number;
   bottom?: number;
   prefixCls?: string;
-  getContainer?: () => HTMLElement;
+  getContainer?: () => HTMLElement | ShadowRoot;
+  placement?: NotificationPlacement;
   maxCount?: number;
   rtl?: boolean;
+  stack?: boolean | { threshold?: number };
+  duration?: number | false;
+  showProgress?: boolean;
+  pauseOnHover?: boolean;
+  closeIcon?: React.ReactNode;
+  classNames?: NotificationSemanticAllType['classNamesAndFn'];
+  styles?: NotificationSemanticAllType['stylesAndFn'];
 }

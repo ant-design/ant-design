@@ -1,10 +1,9 @@
 import React from 'react';
-import { Segmented } from 'antd';
+import { Flex, Segmented } from 'antd';
 
-export default () => (
-  <>
+const App: React.FC = () => (
+  <Flex gap="small" align="flex-start" vertical>
     <Segmented options={['Map', 'Transit', 'Satellite']} disabled />
-    <br />
     <Segmented
       options={[
         'Daily',
@@ -14,5 +13,7 @@ export default () => (
         'Yearly',
       ]}
     />
-  </>
+  </Flex>
 );
+
+export default App;

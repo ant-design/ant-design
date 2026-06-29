@@ -1,19 +1,31 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototype, warning } from '@rc-component/util';
+
 import Popconfirm from '..';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
+
+const { resetWarned } = warning;
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('Popconfirm', () => {
-  mountTest(Popconfirm);
-  rtlTest(Popconfirm);
-
-  const eventObject = expect.objectContaining({
-    target: expect.anything(),
-    preventDefault: expect.any(Function),
-  });
+  mountTest(() => <Popconfirm title="test" />);
+  rtlTest(() => <Popconfirm title="test" />);
 
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
@@ -48,16 +60,16 @@ describe('Popconfirm', () => {
 
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
     expect(wrapper.container.querySelectorAll('.popconfirm-test').length).toBe(1);
 
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title="code">
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -70,11 +82,10 @@ describe('Popconfirm', () => {
     await waitFakeTimer(100);
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBeNull();
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).toHaveClass(
       'ant-popover-placement-top',
     );
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('shows content for render functions', async () => {
@@ -94,7 +105,7 @@ describe('Popconfirm', () => {
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
     expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toContain('some-title');
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('should be controlled by open', () => {
@@ -113,7 +124,7 @@ describe('Popconfirm', () => {
     );
 
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
-    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toHaveClass(
       'ant-popover-hidden',
     );
 
@@ -129,12 +140,21 @@ describe('Popconfirm', () => {
     jest.useRealTimers();
   });
 
+  it('should render title when it is the number 0', () => {
+    const { container } = render(
+      <Popconfirm title={0} open>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const titleNode = container.querySelector('.ant-popconfirm-title');
+    expect(titleNode).not.toBe(null);
+    expect(titleNode?.textContent).toContain('0');
+  });
+
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();
-    const onOpenChange = jest.fn((_, e) => {
-      e?.persist?.();
-    });
+    const onOpenChange = jest.fn();
     const popconfirm = render(
       <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onOpenChange={onOpenChange}>
         <span>show me your code</span>
@@ -146,14 +166,14 @@ describe('Popconfirm', () => {
 
     fireEvent.click(popconfirm.container.querySelector('.ant-btn-primary')!);
     expect(confirm).toHaveBeenCalled();
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
 
     fireEvent.click(triggerNode);
     await waitFakeTimer();
 
     fireEvent.click(popconfirm.container.querySelector('.ant-btn')!);
     expect(cancel).toHaveBeenCalled();
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it('should support onConfirm to return Promise', async () => {
@@ -161,9 +181,7 @@ describe('Popconfirm', () => {
       new Promise((res) => {
         setTimeout(res, 300);
       });
-    const onOpenChange = jest.fn((_, e) => {
-      e?.persist?.();
-    });
+    const onOpenChange = jest.fn();
     const popconfirm = render(
       <Popconfirm title="code" onConfirm={confirm} onOpenChange={onOpenChange}>
         <span>show me your code</span>
@@ -176,7 +194,7 @@ describe('Popconfirm', () => {
 
     fireEvent.click(popconfirm.container.querySelectorAll('.ant-btn')[0]);
     await waitFakeTimer();
-    expect(onOpenChange).toHaveBeenCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenCalledWith(false);
   });
 
   it('should support customize icon', () => {
@@ -230,19 +248,24 @@ describe('Popconfirm', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
-      e?.persist?.();
-    });
+    const onOpenChange = jest.fn();
     const wrapper = render(
-      <Popconfirm title="title" mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
-        <span>Delete</span>
-      </Popconfirm>,
+      <TriggerMockContext.Provider value={{ mock: false }}>
+        <Popconfirm
+          title="title"
+          mouseEnterDelay={0}
+          mouseLeaveDelay={0}
+          onOpenChange={onOpenChange}
+        >
+          <span>Delete</span>
+        </Popconfirm>
+      </TriggerMockContext.Provider>,
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
-    fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {
@@ -277,7 +300,7 @@ describe('Popconfirm', () => {
       </div>,
     );
 
-    expect(container.textContent).toEqual('Test');
+    expect(container.textContent).toBe('Test');
 
     fireEvent.click(container.querySelector('.clickTarget')!);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);
@@ -285,5 +308,166 @@ describe('Popconfirm', () => {
     await waitFakeTimer(500);
     // expect(container.textContent).toEqual('Unmounted');
     expect(error).not.toHaveBeenCalled();
+  });
+
+  it('should trigger onPopupClick', async () => {
+    const onPopupClick = jest.fn();
+
+    const popconfirm = render(
+      <Popconfirm title={<div className="bamboo" />} onPopupClick={onPopupClick}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const triggerNode = popconfirm.container.querySelector('span')!;
+    fireEvent.click(triggerNode);
+    await waitFakeTimer();
+    fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
+    expect(onPopupClick).toHaveBeenCalled();
+  });
+
+  it('okText & cancelText could be empty', () => {
+    render(
+      <Popconfirm title="" okText="" cancelText="" open>
+        <span />
+      </Popconfirm>,
+    );
+
+    expect(document.body.querySelectorAll('.ant-btn')[0].textContent).toBe('Cancel');
+    expect(document.body.querySelectorAll('.ant-btn')[1].textContent).toBe('OK');
+  });
+
+  it('should apply custom styles to Popconfirm', () => {
+    const customClassNames = {
+      container: 'custom-container',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      container: { padding: 10 },
+      root: { padding: 20 },
+    };
+
+    const { container } = render(
+      <Popconfirm classNames={customClassNames} title="" styles={customStyles} open>
+        <span />
+      </Popconfirm>,
+    );
+
+    const popconfirmElement = container.querySelector('.ant-popconfirm');
+    const popconfirmBodyElement = container.querySelector('.ant-popover-container');
+
+    // 验证 classNames
+    expect(popconfirmElement).toHaveClass('custom-root');
+    expect(popconfirmBodyElement).toHaveClass('custom-container');
+
+    // 验证 styles
+    expect(popconfirmElement).toHaveStyle({ padding: '20px' });
+    expect(popconfirmBodyElement).toHaveStyle({ padding: '10px' });
+  });
+  it('ConfigProvider support arrow props', () => {
+    const TooltipTestComponent = () => {
+      const [configArrow, setConfigArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popconfirm={{
+            arrow: configArrow,
+          }}
+        >
+          <button onClick={() => setConfigArrow(false)} className="configArrow" type="button">
+            showconfigArrow
+          </button>
+          <Popconfirm open title>
+            <div className="target">target</div>
+          </Popconfirm>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<TooltipTestComponent />);
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    const configbtn = container.querySelector('.configArrow');
+
+    expect(getTooltipArrow()).not.toBeNull();
+    fireEvent.click(configbtn!);
+    expect(getTooltipArrow()).toBeNull();
+  });
+  it('ConfigProvider with arrow set to false, Tooltip arrow controlled by prop', () => {
+    const TooltipTestComponent = () => {
+      const [arrow, setArrow] = React.useState(true);
+
+      return (
+        <ConfigProvider
+          popover={{
+            arrow: false,
+          }}
+        >
+          <button onClick={() => setArrow(!arrow)} className="toggleArrow" type="button">
+            toggleArrow
+          </button>
+          <Popconfirm open arrow={arrow} title>
+            <div className="target">target</div>
+          </Popconfirm>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<TooltipTestComponent />);
+
+    const getTooltipArrow = () => container.querySelector('.ant-popover-arrow');
+    const toggleArrowBtn = container.querySelector('.toggleArrow');
+
+    // Initial render, arrow should be visible because Tooltip's arrow prop is true
+    expect(getTooltipArrow()).not.toBeNull();
+
+    // Click the toggleArrow button to hide the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).toBeNull();
+
+    // Click the toggleArrow button again to show the arrow
+    fireEvent.click(toggleArrowBtn!);
+    expect(getTooltipArrow()).not.toBeNull();
+  });
+
+  it('should warn when onOpenChange has more than one argument', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpenChange = (_open: boolean, _e?: React.MouseEvent) => {};
+    render(
+      <Popconfirm title="test" onOpenChange={onOpenChange}>
+        <span>Delete</span>
+      </Popconfirm>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Popconfirm] The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  // Test `styles` (useMergeSemantic path) and `className` (direct injection path)
+  // to cover both ConfigProvider tooltip injection mechanisms
+  it('ConfigProvider tooltip config should not leak into Popconfirm', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          className: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        }}
+      >
+        <Popconfirm title="Are you sure?" open>
+          <span>Delete</span>
+        </Popconfirm>
+      </ConfigProvider>,
+    );
+
+    const popconfirm = container.querySelector('.ant-popover');
+    expect(popconfirm).not.toHaveClass('custom-tooltip-root');
+
+    const arrow = container.querySelector('.ant-popover-arrow');
+    expect(arrow).not.toHaveStyle({ background: 'red' });
   });
 });

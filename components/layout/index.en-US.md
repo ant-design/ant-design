@@ -2,10 +2,10 @@
 category: Components
 group: Layout
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+description: Handling the overall layout of a page.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Handling the overall layout of a page.
 
 ## Specification
 
@@ -13,8 +13,8 @@ Handling the overall layout of a page.
 
 The first level navigation is left aligned near a logo, and the secondary menu is right aligned.
 
-- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation is `64px`, and the second level navigation is `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation is `80px`, and the second level navigation is `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 
@@ -31,11 +31,11 @@ Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
-  When background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
+  When the background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
 
 - **The highlight match stick**
 
-  When background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
+  When the background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
 
 - **Highlighted font**
 
@@ -59,15 +59,16 @@ Style of a navigation should conform to its level.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Structure</code>
-<code src="./demo/top.tsx">Header-Content-Footer</code>
-<code src="./demo/top-side-2.tsx">Header Sider 2</code>
-<code src="./demo/top-side.tsx">Header-Sider</code>
+<code src="./demo/top.tsx" compact background="grey">Header-Content-Footer</code>
+<code src="./demo/top-side.tsx" compact background="grey">Header-Sider</code>
+<code src="./demo/top-side-2.tsx" compact background="grey">Header Sider 2</code>
 <code src="./demo/side.tsx" iframe="360">Sider</code>
-<code src="./demo/custom-trigger.tsx">Custom trigger</code>
-<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/custom-trigger.tsx" compact background="grey">Custom trigger</code>
+<code src="./demo/responsive.tsx" compact background="grey">Responsive</code>
 <code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
-<code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
+<code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>Custom trigger debug</code>
+<code src="./demo/component-token.tsx" compact background="grey" debug>Component Token</code>
 
 ## API
 
@@ -85,34 +86,38 @@ Style of a navigation should conform to its level.
 
 ### Layout
 
+Common props ref：[Common props](/docs/react/common-props)
+
 The wrapper.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| className | Container className | string | - |
-| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
-| style | To customize the styles | CSSProperties | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |  | × |
 
 ### Layout.Sider
 
 The sidebar.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
-| className | Container className | string | - |
-| collapsed | To set the current status | boolean | - |
-| collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
-| collapsible | Whether can be collapsed | boolean | false |
-| defaultCollapsed | To set the initial status | boolean | false |
-| reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |
-| style | To customize the styles | CSSProperties | - |
-| theme | Color theme of the sidebar | `light` \| `dark` | `dark` |
-| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |
-| width | Width of the sidebar | number \| string | 200 |
-| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |
-| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#API) changed | (broken) => {} | - |
-| onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 6.3.0 |
+| classNames | Customize class for each semantic structure inside the Sider component, supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| collapsed | To set the current status | boolean | - |  |
+| collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  |
+| collapsible | Whether can be collapsed | boolean | false |  |
+| defaultCollapsed | To set the initial status | boolean | false |  |
+| reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
+| styles | Customize inline style for each semantic structure inside the Sider component, supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |
+| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  |
+| width | Width of the sidebar | number \| string | 200 |  |
+| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |  |
+| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |  |
+| onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 #### breakpoint width
 
@@ -124,14 +129,10 @@ The sidebar.
   lg: '992px',
   xl: '1200px',
   xxl: '1600px',
+  xxxl: '1920px',
 }
 ```
 
-<style>
-  [data-theme="dark"] .site-layout-background {
-    background: #141414;
-  }
-  [data-theme="dark"] .site-layout-header-background {
-    background: #1f1f1f;
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>

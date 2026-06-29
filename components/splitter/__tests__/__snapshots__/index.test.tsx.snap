@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Splitter rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-splitter ant-splitter-horizontal ant-splitter-rtl css-var-root ant-splitter-css-var"
+/>
+`;

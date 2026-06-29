@@ -1,21 +1,31 @@
-import MockDate from 'mockdate';
-import Dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
-import { type PickerPanelProps } from 'rc-picker';
 import React from 'react';
+import type { PickerPanelProps } from '@rc-component/picker';
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
+import type { Locale } from '@rc-component/picker/interface';
+import { warning } from '@rc-component/util';
+import Dayjs from 'dayjs';
+import MockDate from 'mockdate';
+
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import enUS from '../../locale/en_US';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
-import Header, { type CalendarHeaderProps } from '../Header';
+import type { DefaultOptionType } from '../../select';
+import Header from '../Header';
+import type { CalendarHeaderProps } from '../Header';
+import zhCN from '../locale/zh_CN';
+
+import 'dayjs/locale/zh-cn';
+
+const { resetWarned } = warning;
 
 const ref: {
-  calendarProps?: PickerPanelProps<unknown>;
+  calendarProps?: PickerPanelProps;
   calendarHeaderProps?: CalendarHeaderProps<unknown>;
 } = {};
 
@@ -28,12 +38,12 @@ jest.mock('../Header', () => {
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+jest.mock('@rc-component/picker', () => {
+  const RcPicker = jest.requireActual('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
-    PickerPanel: (props: PickerPanelProps<unknown>) => {
+    PickerPanel: (props: PickerPanelProps) => {
       ref.calendarProps = props;
       return <PickerPanelComponent {...props} />;
     },
@@ -42,10 +52,12 @@ jest.mock('rc-picker', () => {
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, { mockDate: true });
+  rtlTest(Calendar, true);
 
   function openSelect(wrapper: HTMLElement, className: string) {
-    fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
+    let target = wrapper.querySelector(className)!;
+    target = target.querySelector('.ant-select') || target;
+    fireEvent.mouseDown(target);
   }
 
   function findSelectItem(wrapper: HTMLElement) {
@@ -75,7 +87,7 @@ describe('Calendar', () => {
     const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything());
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
 
     const value = onSelect.mock.calls[0][0];
     expect(Dayjs.isDayjs(value)).toBe(true);
@@ -106,7 +118,7 @@ describe('Calendar', () => {
     const elem = container
       .querySelector('[title="2018-02-20"]')!
       .className.includes('ant-picker-cell-disabled');
-    expect(elem).toEqual(true);
+    expect(elem).toBe(true);
     expect(onSelect.mock.calls.length).toBe(0);
   });
 
@@ -148,8 +160,8 @@ describe('Calendar', () => {
   it('getDateRange should returns a disabledDate function', () => {
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     render(<Calendar validRange={validRange} defaultValue={Dayjs('2018-02-02')} />);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'), {} as any)).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
@@ -161,11 +173,11 @@ describe('Calendar', () => {
       />,
     );
 
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'))).toBe(true);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'))).toBe(false);
-    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'), {} as any)).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'), {} as any)).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'), {} as any)).toBe(true);
   });
 
   it('Calendar MonthSelect should display correct label', () => {
@@ -178,9 +190,9 @@ describe('Calendar', () => {
     const monthMode = 'month';
     const yearMode = 'year';
     const wrapper = render(<Calendar />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(monthMode);
     wrapper.rerender(<Calendar mode={yearMode} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(yearMode);
   });
 
   it('Calendar should switch mode', () => {
@@ -188,18 +200,31 @@ describe('Calendar', () => {
     const yearMode = 'year';
     const onPanelChangeStub = jest.fn();
     const wrapper = render(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(yearMode);
     wrapper.rerender(<Calendar mode={monthMode} onPanelChange={onPanelChangeStub} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
   it('Calendar should support locale', () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
-    // eslint-disable-next-line global-require
-    const zhCN = require('../locale/zh_CN').default;
+
     const wrapper = render(<Calendar locale={zhCN} />);
     expect(wrapper.container.children[0]).toMatchSnapshot();
+    MockDate.reset();
+  });
+
+  it('Calendar locale support should override ConfigProvider locale', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+
+    const wrapper = render(
+      <ConfigProvider locale={enUS}>
+        <Calendar locale={zhCN} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.container.querySelector('.ant-picker-content thead')?.textContent).toBe(
+      '一二三四五六日',
+    );
     MockDate.reset();
   });
 
@@ -209,10 +234,10 @@ describe('Calendar', () => {
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell')).at(0)!);
+      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell'))[0]!);
 
       expect(onPanelChange).toHaveBeenCalled();
-      expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+      expect(onPanelChange.mock.calls[0][0].month()).toBe(date.month() - 1);
     });
 
     it('not trigger when in same month', () => {
@@ -220,7 +245,7 @@ describe('Calendar', () => {
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell')).at(10)!);
+      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell'))[10]!);
 
       expect(onPanelChange).not.toHaveBeenCalled();
     });
@@ -239,7 +264,7 @@ describe('Calendar', () => {
     expect(wrapper.container.querySelectorAll('.ant-picker-month-panel').length).toBe(1);
 
     expect(onPanelChange).toHaveBeenCalled();
-    expect(onPanelChange.mock.calls[0][1]).toEqual('year');
+    expect(onPanelChange.mock.calls[0][1]).toBe('year');
   });
 
   const createWrapper = (
@@ -269,7 +294,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-11-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3), 'year');
   });
 
   it('if start.month > value.month, set value.month to start.month', () => {
@@ -278,7 +303,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-03-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10), 'year');
   });
 
   it('if change year and month > end month, set value.month to end.month', () => {
@@ -286,7 +311,7 @@ describe('Calendar', () => {
     const start = Dayjs('2000-01-01');
     const end = Dayjs('2019-03-01');
     const onValueChange = jest.fn();
-    const wrapper = render(
+    const { container } = render(
       <Header
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
@@ -297,11 +322,11 @@ describe('Calendar', () => {
         locale={{ year: '年' }}
       />,
     );
-    openSelect(wrapper.container, '.ant-picker-calendar-year-select');
-    fireEvent.click(
-      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(-1)!,
-    );
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2));
+    openSelect(container, '.ant-picker-calendar-year-select');
+    const elements = Array.from(container.querySelectorAll<HTMLElement>('.ant-select-item-option'));
+    const lastIndex = elements.length - 1;
+    fireEvent.click(elements[lastIndex]);
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2), 'year');
   });
 
   it('onMonthChange should work correctly', () => {
@@ -323,14 +348,14 @@ describe('Calendar', () => {
     );
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     clickSelectItem(wrapper.container);
-    expect(onValueChange).toHaveBeenCalledWith(value.month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.month(10), 'month');
   });
 
   it('onTypeChange should work correctly', () => {
     const onTypeChange = jest.fn();
     const value = Dayjs('2018-12-03');
     const wrapper = render(
-      <Header
+      <Header<Dayjs.Dayjs>
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}
@@ -340,9 +365,7 @@ describe('Calendar', () => {
         type="date"
       />,
     );
-    fireEvent.click(
-      Array.from(wrapper.container.querySelectorAll(`.ant-radio-button-input`)).at(1)!,
-    );
+    fireEvent.click(Array.from(wrapper.container.querySelectorAll(`.ant-radio-button-input`))[1]!);
     expect(onTypeChange).toHaveBeenCalledWith('year');
   });
 
@@ -354,25 +377,19 @@ describe('Calendar', () => {
     // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
-      const options = [];
+      const options: DefaultOptionType[] = [];
       for (let i = year - 100; i < year + 100; i += 1) {
-        options.push(
-          <Select.Option className="year-item" key={i} value={i}>
-            {i}
-          </Select.Option>,
-        );
+        options.push({ label: i, value: i });
       }
-
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
-        >
-          {options}
-        </Select>
+          options={options}
+        />
       );
     });
     const uiWithYear = <Calendar fullscreen={false} headerRender={headerRender} />;
@@ -381,7 +398,9 @@ describe('Calendar', () => {
     openSelect(wrapperWithYear.container, '.ant-select');
     wrapperWithYear.rerender(uiWithYear);
 
-    fireEvent.click(Array.from(findSelectItem(wrapperWithYear.container)).at(-1)!);
+    const elements = Array.from(findSelectItem(wrapperWithYear.container));
+    const lastIndex = elements.length - 1;
+    fireEvent.click(elements[lastIndex]);
 
     expect(onYearChange).toHaveBeenCalled();
 
@@ -389,34 +408,27 @@ describe('Calendar', () => {
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
-      const monthOptions = [];
+      const months: string[] = [];
+      const monthOptions: DefaultOptionType[] = [];
       const current = value.clone();
       const localeData = value.localeData();
-      const months = [];
       for (let i = 0; i < 12; i += 1) {
         current.month(i);
         months.push(localeData.monthsShort(current));
       }
-
       for (let index = start; index < end; index += 1) {
-        monthOptions.push(
-          <Select.Option className="month-item" key={`${index}`} value={index}>
-            {months[index]}
-          </Select.Option>,
-        );
+        monthOptions.push({ label: months[index], value: index });
       }
-
       const month = value.month();
       return (
         <Select
           size="small"
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
-        >
-          {monthOptions}
-        </Select>
+          options={monthOptions}
+        />
       );
     });
     const uiWithMonth = <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />;
@@ -424,7 +436,9 @@ describe('Calendar', () => {
     openSelect(wrapperWithMonth.container, '.ant-select');
     wrapperWithMonth.rerender(uiWithMonth);
 
-    fireEvent.click(Array.from(findSelectItem(wrapperWithMonth.container)).at(-1)!);
+    const monthElements = Array.from(findSelectItem(wrapperWithMonth.container));
+    const lastIdx = monthElements.length - 1;
+    fireEvent.click(monthElements[lastIdx]);
 
     expect(onMonthChange).toHaveBeenCalled();
 
@@ -440,11 +454,12 @@ describe('Calendar', () => {
       <Calendar fullscreen={false} headerRender={headerRenderWithTypeChange} />,
     );
 
-    fireEvent.click(
-      Array.from(wrapperWithTypeChange.container.querySelectorAll('.ant-radio-button-input')).at(
-        -1,
-      )!,
+    const _elements = Array.from(
+      wrapperWithTypeChange.container.querySelectorAll<HTMLElement>('.ant-radio-button-input'),
     );
+    const _lastIndex = _elements.length - 1;
+    fireEvent.click(_elements[_lastIndex]);
+
     expect(onTypeChange).toHaveBeenCalled();
   });
 
@@ -452,14 +467,28 @@ describe('Calendar', () => {
     const { container } = render(
       <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
     );
-    expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
+    expect(container.querySelectorAll('.light')[0].innerHTML).toBe('Bamboo');
   });
 
   it('monthFullCellRender', () => {
     const { container } = render(
       <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
     );
-    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toBe('Light');
+  });
+
+  it('fullCellRender in date', () => {
+    const { container } = render(
+      <Calendar fullCellRender={() => <div className="light">Bamboo</div>} />,
+    );
+    expect(container.querySelectorAll('.light')[0].innerHTML).toBe('Bamboo');
+  });
+
+  it('fullCellRender in month', () => {
+    const { container } = render(
+      <Calendar mode="year" fullCellRender={() => <div className="bamboo">Light</div>} />,
+    );
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toBe('Light');
   });
 
   it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
@@ -476,5 +505,113 @@ describe('Calendar', () => {
     );
     fireEvent.click(container.querySelectorAll('.bamboo')[0]);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('deprecated dateCellRender and monthCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateCellRender={() => <div className="bamboo">Light</div>}
+        monthCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`))[1]!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dateFullCellRender and monthFullCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateFullCellRender={() => <div className="bamboo">Light</div>}
+        monthFullCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`))[1]!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    errSpy.mockRestore();
+  });
+
+  it('support Calendar.generateCalendar', () => {
+    jest.useFakeTimers().setSystemTime(new Date('2000-01-01').getTime());
+
+    const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
+    const { container } = render(<MyCalendar />);
+    expect(container.firstChild).toMatchSnapshot();
+
+    jest.useRealTimers();
+  });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      content: 'custom-content',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
+      body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
+      content: { backgroundColor: 'rgba(255, 149, 0, 0.8)' },
+      item: { backgroundColor: 'rgba(255, 81, 0, 0.8)' },
+    };
+    const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
+    const root = container.querySelector('.ant-picker-calendar');
+    const header = container.querySelector('.ant-picker-calendar-header');
+    const item = container.querySelector('.ant-picker-cell');
+    const body = container.querySelector('.ant-picker-body');
+    const content = container.querySelector('.ant-picker-content');
+    expect(root).toHaveStyle(customStyles.root);
+    expect(header).toHaveStyle(customStyles.header);
+    expect(body).toHaveStyle(customStyles.body);
+    expect(content).toHaveStyle(customStyles.content);
+    expect(item).toHaveStyle(customStyles.item);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(header).toHaveClass(customClassNames.header);
+    expect(body).toHaveClass(customClassNames.body);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(item).toHaveClass(customClassNames.item);
+  });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+
+    const { container } = render(
+      <Calendar
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
+      />,
+    );
+
+    expect(container.querySelector('.ant-picker-content thead')).toHaveTextContent(
+      '一二三四五六日',
+    );
+
+    expect(container.querySelector('.ant-radio-group .ant-radio-button-label')).toHaveTextContent(
+      'Month',
+    );
+
+    MockDate.reset();
   });
 });

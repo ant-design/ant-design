@@ -9,7 +9,7 @@ You can add an icon beside the slider to make it meaningful.
 ```css
 .icon-wrapper {
   position: relative;
-  padding: 0px 30px;
+  padding: 0 30px;
 }
 
 .icon-wrapper .anticon {
@@ -27,19 +27,10 @@ You can add an icon beside the slider to make it meaningful.
 }
 
 .icon-wrapper .anticon:first-child {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .icon-wrapper .anticon:last-child {
-  right: 0;
+  inset-inline-end: 0;
 }
 ```
-
-<style>
-  [data-theme="dark"] .icon-wrapper .anticon {
-    color: rgba(255, 255, 255, 0.25);
-  }
-  [data-theme="dark"] .icon-wrapper .icon-wrapper-active {
-    color: rgba(255, 255, 255, .45);
-  }
-</style>

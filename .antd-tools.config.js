@@ -1,21 +1,31 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const restCssPath = path.join(process.cwd(), 'components', 'style', 'reset.css');
+const antdCssPath = path.join(process.cwd(), 'components', 'style', 'antd.css');
+const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');
+const tokenMetaPath = path.join(process.cwd(), 'components', 'version', 'token-meta.json');
 
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './es'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'es', 'style', 'reset.css'));
+    fs.copyFileSync(antdCssPath, path.join(process.cwd(), 'es', 'style', 'antd.css'));
+    fs.copyFileSync(tokenStatisticPath, path.join(process.cwd(), 'es', 'version', 'token.json'));
+    fs.copyFileSync(tokenMetaPath, path.join(process.cwd(), 'es', 'version', 'token-meta.json'));
   }
 
   if (fs.existsSync(path.join(__dirname, './lib'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'lib', 'style', 'reset.css'));
+    fs.copyFileSync(antdCssPath, path.join(process.cwd(), 'lib', 'style', 'antd.css'));
+    fs.copyFileSync(tokenStatisticPath, path.join(process.cwd(), 'lib', 'version', 'token.json'));
+    fs.copyFileSync(tokenMetaPath, path.join(process.cwd(), 'lib', 'version', 'token-meta.json'));
   }
 }
 
 function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, './dist'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'dist', 'reset.css'));
+    fs.copyFileSync(antdCssPath, path.join(process.cwd(), 'dist', 'antd.css'));
   }
 }
 

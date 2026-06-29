@@ -1,10 +1,12 @@
 import React from 'react';
 import { Tree } from 'antd';
-import type { DataNode, DirectoryTreeProps } from 'antd/es/tree';
+import type { GetProps, TreeDataNode } from 'antd';
+
+type DirectoryTreeProps = GetProps<typeof Tree.DirectoryTree>;
 
 const { DirectoryTree } = Tree;
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: 'parent 0',
     key: '0-0',
@@ -35,6 +37,7 @@ const App: React.FC = () => {
   return (
     <DirectoryTree
       multiple
+      draggable
       defaultExpandAll
       onSelect={onSelect}
       onExpand={onExpand}

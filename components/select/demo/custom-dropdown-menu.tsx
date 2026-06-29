@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Divider, Input, Select, Space, Button } from 'antd';
+import { Button, Divider, Input, Select, Space } from 'antd';
 import type { InputRef } from 'antd';
 
 let index = 0;
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     setName(event.target.value);
   };
 
-  const addItem = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const addItem = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
     setItems([...items, name || `New item ${index++}`]);
     setName('');
@@ -27,7 +27,7 @@ const App: React.FC = () => {
     <Select
       style={{ width: 300 }}
       placeholder="custom dropdown render"
-      dropdownRender={(menu) => (
+      popupRender={(menu) => (
         <>
           {menu}
           <Divider style={{ margin: '8px 0' }} />
@@ -37,6 +37,7 @@ const App: React.FC = () => {
               ref={inputRef}
               value={name}
               onChange={onNameChange}
+              onKeyDown={(e) => e.stopPropagation()}
             />
             <Button type="text" icon={<PlusOutlined />} onClick={addItem}>
               Add item

@@ -44,12 +44,12 @@ const options: Option[] = [
 ];
 
 const App: React.FC = () => {
-  const [placement, SetPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
+  const [placement, setPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
     'topLeft',
   );
 
   const placementChange = (e: RadioChangeEvent) => {
-    SetPlacement(e.target.value);
+    setPlacement(e.target.value);
   };
 
   return (

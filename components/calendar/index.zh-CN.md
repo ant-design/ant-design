@@ -1,27 +1,34 @@
 ---
 category: Components
 group: 数据展示
-subtitle: 日历
 title: Calendar
-cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
+subtitle: 日历
+description: 按照日历形式展示数据的容器。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6_To7pDSAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-按照日历形式展示数据的容器。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。目前支持年/月切换。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/notice-calendar.tsx">通知事项日历</code>
-<code src="./demo/card.tsx">卡片模式</code>
-<code src="./demo/select.tsx">选择功能</code>
-<code src="./demo/customize-header.tsx">自定义头部</code>
+<code src="./demo/basic.tsx" clientOnly>基本</code>
+<code src="./demo/notice-calendar.tsx" clientOnly>通知事项日历</code>
+<code src="./demo/event-range.tsx" clientOnly>跨日期事件</code>
+<code src="./demo/card.tsx" clientOnly>卡片模式</code>
+<code src="./demo/select.tsx" clientOnly>选择功能</code>
+<code src="./demo/lunar.tsx" clientOnly>农历日历</code>
+<code src="./demo/week.tsx" clientOnly version="5.23.0">周数</code>
+<code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
+<code src="./demo/style-class.tsx" clientOnly version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 **注意**：Calendar 部分 locale 是从 value 中读取，所以请先正确设置 dayjs 的 locale。
 
@@ -31,42 +38,61 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 // import 'dayjs/locale/zh-cn';
 // dayjs.locale('zh-cn');
 
-<Calendar
-  dateCellRender={dateCellRender}
-  monthCellRender={monthCellRender}
-  onPanelChange={onPanelChange}
-  onSelect={onSelect}
-/>
+<Calendar cellRender={cellRender} onPanelChange={onPanelChange} onSelect={onSelect} />
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| dateCellRender | 自定义渲染日期单元格，返回内容会被追加到单元格 | function(date: Dayjs): ReactNode | - |  |
-| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格 | function(date: Dayjs): ReactNode | - |  |
-| defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  |
-| disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
-| fullscreen | 是否全屏显示 | boolean | true |  |
-| headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
-| locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
-| mode | 初始模式 | `month` \| `year` | `month` |  |
-| monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格 | function(date: Dayjs): ReactNode | - |  |
-| monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格 | function(date: Dayjs): ReactNode | - |  |
-| validRange | 设置可以显示的日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
-| value | 展示日期 | [dayjs](https://day.js.org/) | - |  |
-| onChange | 日期变化回调 | function(date: Dayjs) | - |  |
-| onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
-| onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| cellRender | 自定义单元格的内容 | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| ~~dateFullCellRender~~ | 自定义渲染日期单元格，返回内容覆盖单元格，>= 5.4.0 请用 `fullCellRender` | function(date: Dayjs): ReactNode | - | < 5.4.0 | × |
+| fullCellRender | 自定义单元格的内容 | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
+| defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  | × |
+| disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  | × |
+| fullscreen | 是否全屏显示 | boolean | true |  | × |
+| showWeek | 是否显示周数列 | boolean | false | 5.23.0 | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| headerRender | 自定义头部内容 | function(object:{value: Dayjs, type: 'year' \| 'month', onChange: f(), onTypeChange: f()}) | - |  | × |
+| locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  | × |
+| mode | 初始模式 | `month` \| `year` | `month` |  | × |
+| validRange | 设置可以显示的日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
+| value | 展示日期 | [dayjs](https://day.js.org/) | - |  | × |
+| onChange | 日期变化回调 | function(date: Dayjs) | - |  | × |
+| onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  | × |
+| onSelect | 选择日期回调，包含来源信息 | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 | × |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Calendar"></ComponentTokenTable>
 
 ## FAQ
 
-### 如何在 Calendar 中使用自定义日期库
+### 如何在 Calendar 中使用自定义日期库 {#faq-customize-date-library}
 
-参考 [使用自定义日期库](/docs/react/use-custom-date-library#Calendar)。
+参考 [使用自定义日期库](/docs/react/use-custom-date-library#calendar)。
 
-### 如何给日期类组件配置国际化？
+### 如何给日期类组件配置国际化？ {#faq-set-locale-date-components}
 
-参考 [如何给日期类组件配置国际化](/components/date-picker/#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
+参考 [如何给日期类组件配置国际化](/components/date-picker-cn#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
 
-### 为什么时间类组件的国际化 locale 设置不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-working}
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+
+### 如何仅获取来自面板点击的日期？ {#faq-get-date-panel-click}
+
+`onSelect` 事件提供额外的来源信息，你可以通过 `info.source` 来判断来源：
+
+```tsx
+<Calendar
+  onSelect={(date, { source }) => {
+    if (source === 'date') {
+      console.log('Panel Select:', source);
+    }
+  }}
+/>
+```

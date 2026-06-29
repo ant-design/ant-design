@@ -1,71 +1,134 @@
-# When publish a release. This workflow will trigger and deploy to site.
+# When pushing a tag. this workflow will trigger site deployment and fixed version address comments
 
 name: Deploy website
 on:
-  create
+  push:
+    tags:
+      - '6.*'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  setup:
+  build-site:
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
+    if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
+
+    # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-defining-outputs-for-a-job
+    outputs:
+      formatted_version: ${{ steps.shared-formatted_version.outputs.VERSION }}
+
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
-      - name: cache package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
 
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+      - run: ut
 
-      - name: hack for single file
+      - name: build site
+        run: ut predeploy
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: build dist and bundle analyzer report
+        run: ut dist
+        env:
+          ANALYZER: 1
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      - name: move report.html to _site
         run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
+          if [ -f report.html ]; then
+            mv report.html _site && echo "report.html moved to _site"
           fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v3
+
+      - name: upload site artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+          name: real-site
+          path: _site/
+          retention-days: 1 # Not need to keep for too long
 
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+      - name: Format version
+        if: ${{ always() }}
+        id: shared-formatted_version
+        run: echo "VERSION=$(echo ${REF_NAME} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+        env:
+          REF_NAME: ${{ github.ref_name }}
 
-  build-and-deploy:
+  deploy-to-pages:
     runs-on: ubuntu-latest
-    needs: setup
+    needs: build-site
+    permissions:
+      contents: write
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
 
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+      - name: download site artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
+          name: real-site
+          path: _site
 
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: build
-        run: npm run predeploy
-
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
+          exclude_assets: ./_site/report.html
           force_orphan: true
+
+      # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
+
+      - name: Deploy to Surge (with TAG)
+        if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
+        run: |
+          export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
+
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      - name: Create Commit Comment
+        if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
+        uses: peter-evans/commit-comment@f6d60c65d05bb59f750fa51ad3de1d443ba0eb52 # v4
+        with:
+          body: |
+            - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
+            - Webpack bundle analyzer report page: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh/report.html
+
+  # https://github.com/ant-design/ant-design/pull/49213/files#r1625446496
+  upload-to-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    # 仅在 tag 的时候工作，因为我们要将内容发布到以 tag 为版本号的 release 里
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build-site
+    steps:
+      - name: download site artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: real-site
+          path: _site
+
+      - name: Tarball site
+        run: |
+          cd ./_site
+          tar -czf ../website.tar.gz --transform 's|^|antd-${{ needs.build-site.outputs.formatted_version }}-website/|' .
+          cd ..
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
+        with:
+          fail_on_unmatched_files: true
+          files: website.tar.gz

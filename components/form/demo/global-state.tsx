@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input, Typography } from 'antd';
+
+const { Paragraph } = Typography;
 
 interface FieldData {
   name: string | number | (string | number)[];
-  value?: any;
+  value?: unknown;
   touched?: boolean;
   validating?: boolean;
   errors?: string[];
@@ -30,11 +32,17 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
     >
       <Input />
     </Form.Item>
+    <Form.Item name={['profile', 'email']} label="Email">
+      <Input />
+    </Form.Item>
   </Form>
 );
 
 const App: React.FC = () => {
-  const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
+  const [fields, setFields] = useState<FieldData[]>([
+    { name: ['username'], value: 'Ant Design' },
+    { name: ['profile', 'email'], value: 'antd@example.com' },
+  ]);
 
   return (
     <>
@@ -44,7 +52,9 @@ const App: React.FC = () => {
           setFields(newFields);
         }}
       />
-      <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
+      <Paragraph style={{ maxWidth: 440, marginTop: 24 }}>
+        <pre style={{ border: 'none' }}>{JSON.stringify(fields, null, 2)}</pre>
+      </Paragraph>
     </>
   );
 };

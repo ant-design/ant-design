@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+
+import type { CheckboxGroupProps } from '..';
+import Checkbox from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import Checkbox from '../index';
-import type { CheckboxValueType } from '../Group';
-import type { CheckboxGroupProps } from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -64,7 +64,7 @@ describe('CheckboxGroup', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
       (el) => {
-        expect(el.getAttribute('name')).toEqual('checkboxgroup');
+        expect(el.getAttribute('name')).toBe('checkboxgroup');
       },
     );
   });
@@ -88,7 +88,7 @@ describe('CheckboxGroup', () => {
     const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' as unknown as CheckboxValueType[] }));
+    rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
@@ -102,7 +102,7 @@ describe('CheckboxGroup', () => {
     );
     fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalled();
-    expect(onChange.mock.calls[0][0].target.value).toEqual('my');
+    expect(onChange.mock.calls[0][0].target.value).toBe('my');
   });
 
   // https://github.com/ant-design/ant-design/issues/16376
@@ -167,13 +167,20 @@ describe('CheckboxGroup', () => {
   it('should work when checkbox is wrapped by other components', () => {
     const { container } = render(
       <Checkbox.Group>
-        <Collapse bordered={false}>
-          <Collapse.Panel key="test panel" header="test panel">
-            <div>
-              <Checkbox value="1">item</Checkbox>
-            </div>
-          </Collapse.Panel>
-        </Collapse>
+        <Collapse
+          items={[
+            {
+              key: 'test panel',
+              label: 'test panel',
+              children: (
+                <div>
+                  <Checkbox value="1">item</Checkbox>
+                </div>
+              ),
+            },
+          ]}
+          bordered={false}
+        />
       </Checkbox.Group>,
     );
 
@@ -214,17 +221,9 @@ describe('CheckboxGroup', () => {
   });
 
   it('should get div ref', () => {
-    const refCalls: HTMLDivElement[] = [];
-    render(
-      <Checkbox.Group
-        options={['Apple', 'Pear', 'Orange']}
-        ref={(node) => {
-          refCalls.push(node!);
-        }}
-      />,
-    );
-    const [mountCall] = refCalls;
-    expect(mountCall.nodeName).toBe('DIV');
+    const ref = React.createRef<HTMLDivElement>();
+    render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} ref={ref} />);
+    expect(ref.current?.nodeName).toBe('DIV');
   });
 
   it('should support number option', () => {
@@ -268,5 +267,26 @@ describe('CheckboxGroup', () => {
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '' } });
     fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['A']);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Checkbox.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
+  });
+
+  describe('role prop', () => {
+    it('should set default role', () => {
+      const { container } = render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} />);
+      expect(container.firstChild).toHaveAttribute('role', 'group');
+    });
+
+    it('should set passed role', () => {
+      const { container } = render(
+        <Checkbox.Group options={['Apple', 'Pear', 'Orange']} role="checkbox" />,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'checkbox');
+    });
   });
 });

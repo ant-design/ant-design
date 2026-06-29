@@ -1,14 +1,18 @@
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import { clsx } from 'clsx';
+
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import type { SkeletonElementProps } from './Element';
 import Element from './Element';
-
 import useStyle from './style';
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
-  size?: 'large' | 'small' | 'default';
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default';
   block?: boolean;
 }
 
@@ -16,30 +20,44 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
+    classNames,
     active,
+    style,
+    styles,
     block = false,
-    size = 'default',
+    size: customSize,
+    ...rest
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+  const mergedSize = useSize((ctx) => customSize ?? ctx);
 
-  const otherProps = omit(props, ['prefixCls']);
-  const cls = classNames(
+  const cls = clsx(
     prefixCls,
     `${prefixCls}-element`,
     {
       [`${prefixCls}-active`]: active,
       [`${prefixCls}-block`]: block,
     },
+    classNames?.root,
     className,
+    rootClassName,
     hashId,
+    cssVarCls,
   );
 
-  return wrapSSR(
-    <div className={cls}>
-      <Element prefixCls={`${prefixCls}-button`} size={size} {...otherProps} />
-    </div>,
+  return (
+    <div className={cls} style={styles?.root}>
+      <Element
+        prefixCls={`${prefixCls}-button`}
+        className={classNames?.content}
+        style={{ ...styles?.content, ...style }}
+        size={mergedSize}
+        {...rest}
+      />
+    </div>
   );
 };
 

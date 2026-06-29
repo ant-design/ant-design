@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Radio, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Flex, Radio, Space, Table, Tag } from 'antd';
+import type { TableProps } from 'antd';
+
+type ColumnsType<T extends object> = TableProps<T>['columns'];
+type TablePagination<T extends object> = NonNullable<Exclude<TableProps<T>['pagination'], boolean>>;
+type TablePaginationPlacement<T extends object> = NonNullable<
+  TablePagination<T>['placement']
+>[number];
 
 interface DataType {
   key: string;
@@ -10,25 +16,17 @@ interface DataType {
   tags: string[];
 }
 
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
-
 const topOptions = [
-  { label: 'topLeft', value: 'topLeft' },
+  { label: 'topStart', value: 'topStart' },
   { label: 'topCenter', value: 'topCenter' },
-  { label: 'topRight', value: 'topRight' },
+  { label: 'topEnd', value: 'topEnd' },
   { label: 'none', value: 'none' },
 ];
 
 const bottomOptions = [
-  { label: 'bottomLeft', value: 'bottomLeft' },
+  { label: 'bottomStart', value: 'bottomStart' },
   { label: 'bottomCenter', value: 'bottomCenter' },
-  { label: 'bottomRight', value: 'bottomRight' },
+  { label: 'bottomEnd', value: 'bottomEnd' },
   { label: 'none', value: 'none' },
 ];
 
@@ -54,10 +52,10 @@ const columns: ColumnsType<DataType> = [
     key: 'tags',
     dataIndex: 'tags',
     render: (tags: string[]) => (
-      <span>
+      <Flex gap="small" align="center" wrap>
         {tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
+          if (tag === 'kawaii') {
             color = 'volcano';
           }
           return (
@@ -66,14 +64,14 @@ const columns: ColumnsType<DataType> = [
             </Tag>
           );
         })}
-      </span>
+      </Flex>
     ),
   },
   {
     title: 'Action',
     key: 'action',
     render: (_, record) => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Invite {record.name}</a>
         <a>Delete</a>
       </Space>
@@ -94,21 +92,20 @@ const data: DataType[] = [
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    tags: ['kawaii'],
   },
   {
     key: '3',
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
 ];
 
 const App: React.FC = () => {
-  const [top, setTop] = useState<TablePaginationPosition>('topLeft');
-  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
-
+  const [top, setTop] = useState<TablePaginationPlacement<DataType>>('topStart');
+  const [bottom, setBottom] = useState<TablePaginationPlacement<DataType>>('bottomEnd');
   return (
     <div>
       <div>
@@ -129,7 +126,11 @@ const App: React.FC = () => {
           setBottom(e.target.value);
         }}
       />
-      <Table columns={columns} pagination={{ position: [top, bottom] }} dataSource={data} />
+      <Table<DataType>
+        columns={columns}
+        pagination={{ placement: [top, bottom] }}
+        dataSource={data}
+      />
     </div>
   );
 };

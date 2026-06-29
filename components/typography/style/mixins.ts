@@ -1,0 +1,323 @@
+/*
+.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom;) {
+ margin-bottom: @headingMarginBottom;
+ color: @headingColor;
+ font-weight: @fontWeight;
+ fontSize: @fontSize;
+ line-height: @lineHeight;
+}
+*/
+import { gold } from '@ant-design/colors';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
+import type { TypographyToken } from '.';
+import { operationUnit, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
+
+const getTitleStyle = (
+  fontSize: number | string,
+  lineHeight: number,
+  color: string,
+  token: TypographyToken,
+) => {
+  const { titleMarginBottom, fontWeightStrong } = token;
+
+  return {
+    marginBottom: titleMarginBottom,
+    color,
+    fontWeight: fontWeightStrong,
+    fontSize,
+    lineHeight,
+  };
+};
+
+export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
+  const headings = [1, 2, 3, 4, 5] as const;
+
+  const styles: CSSObject = {};
+  headings.forEach((headingLevel) => {
+    styles[
+      `
+      h${headingLevel}&,
+      div&-h${headingLevel},
+      div&-h${headingLevel} > textarea,
+      h${headingLevel}
+    `
+    ] = getTitleStyle(
+      token[`fontSizeHeading${headingLevel}`],
+      token[`lineHeightHeading${headingLevel}`],
+      token.colorTextHeading,
+      token,
+    );
+  });
+  return styles;
+};
+
+export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const linkCls = `${componentCls}-link`;
+
+  return {
+    [`&${linkCls}`]: {
+      ...operationUnit(token),
+      userSelect: 'text',
+
+      [`&[disabled], &${componentCls}-disabled`]: {
+        color: token.colorTextDisabled,
+        cursor: 'not-allowed',
+
+        '&:active, &:hover': {
+          color: token.colorTextDisabled,
+        },
+
+        '&:active': {
+          pointerEvents: 'none',
+
+          // Action buttons (copy, edit, expand) must remain interactive even when
+          // the disabled link is being clicked, otherwise their click events get
+          // swallowed by the parent's pointer-events: none during :active.
+          [`${componentCls}-actions`]: {
+            pointerEvents: 'auto',
+          },
+        },
+      },
+    },
+  };
+};
+
+export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
+  code: {
+    margin: '0 0.2em',
+    paddingInline: '0.4em',
+    paddingBlock: '0.2em 0.1em',
+    fontSize: '85%',
+    fontFamily: token.fontFamilyCode,
+    background: 'rgba(150, 150, 150, 0.1)',
+    border: '1px solid rgba(100, 100, 100, 0.2)',
+    borderRadius: 3,
+  },
+
+  kbd: {
+    margin: '0 0.2em',
+    paddingInline: '0.4em',
+    paddingBlock: '0.15em 0.1em',
+    fontSize: '90%',
+    fontFamily: token.fontFamilyCode,
+    background: 'rgba(150, 150, 150, 0.06)',
+    border: '1px solid rgba(100, 100, 100, 0.2)',
+    borderBottomWidth: 2,
+    borderRadius: 3,
+  },
+
+  mark: {
+    padding: 0,
+    // FIXME hardcode in v4
+    backgroundColor: gold[2],
+  },
+
+  'u, ins': {
+    textDecoration: 'underline',
+    textDecorationSkipInk: 'auto',
+  },
+
+  's, del': {
+    textDecoration: 'line-through',
+  },
+
+  strong: {
+    fontWeight: token.fontWeightStrong,
+  },
+
+  // list
+  'ul, ol': {
+    marginInline: 0,
+    marginBlock: '0 1em',
+    padding: 0,
+
+    li: {
+      marginInline: '20px 0',
+      marginBlock: 0,
+      paddingInline: '4px 0',
+      paddingBlock: 0,
+    },
+  },
+
+  ul: {
+    listStyleType: 'circle',
+
+    ul: {
+      listStyleType: 'disc',
+    },
+  },
+
+  ol: {
+    listStyleType: 'decimal',
+  },
+
+  // pre & block
+  'pre, blockquote': {
+    margin: '1em 0',
+  },
+
+  pre: {
+    padding: '0.4em 0.6em',
+    whiteSpace: 'pre-wrap',
+    wordWrap: 'break-word',
+    background: 'rgba(150, 150, 150, 0.1)',
+    border: '1px solid rgba(100, 100, 100, 0.2)',
+    borderRadius: 3,
+    fontFamily: token.fontFamilyCode,
+
+    // Compatible for marked
+    code: {
+      display: 'inline',
+      margin: 0,
+      padding: 0,
+      fontSize: 'inherit',
+      fontFamily: 'inherit',
+      background: 'transparent',
+      border: 0,
+    },
+  },
+
+  blockquote: {
+    paddingInline: '0.6em 0',
+    paddingBlock: 0,
+    borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
+    opacity: 0.85,
+  },
+
+  // table - Follow Table component default style
+  table: {
+    width: '100%',
+    textAlign: 'start',
+    borderCollapse: 'separate',
+    borderSpacing: 0,
+    marginBlock: '1em',
+
+    'th, td': {
+      padding: unit(token.padding),
+      overflowWrap: 'break-word',
+      borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+    },
+
+    'thead > tr:first-child > th:first-child': {
+      borderStartStartRadius: token.borderRadiusLG,
+    },
+
+    'thead > tr:first-child > th:last-child': {
+      borderStartEndRadius: token.borderRadiusLG,
+    },
+
+    'thead > tr > th': {
+      textAlign: 'start',
+      position: 'relative',
+      color: token.colorTextHeading,
+      fontWeight: token.fontWeightStrong,
+      backgroundColor: token.colorFillAlter,
+      transition: `background-color ${token.motionDurationMid} ease`,
+
+      '&:not(:last-child)::before': {
+        position: 'absolute',
+        top: '50%',
+        insetInlineEnd: 0,
+        width: 1,
+        height: '1.6em',
+        backgroundColor: token.colorSplit,
+        transform: 'translateY(-50%)',
+        content: '""',
+      },
+    },
+
+    'tbody > tr': {
+      '> th, > td': {
+        transition: `background-color ${token.motionDurationMid} ease`,
+      },
+      '&:hover > th, &:hover > td': {
+        backgroundColor: token.colorFillAlter,
+      },
+    },
+  },
+});
+
+export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
+  const { componentCls, paddingSM } = token;
+
+  const inputShift = paddingSM;
+  return {
+    '&-edit-content': {
+      position: 'relative',
+
+      'div&': {
+        insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
+        insetBlockStart: token.calc(inputShift).div(-2).add(1).equal(),
+        marginBottom: token.calc(inputShift).div(2).sub(2).equal(),
+      },
+
+      [`${componentCls}-edit-content-confirm`]: {
+        position: 'absolute',
+        insetInlineEnd: token.calc(token.marginXS).add(2).equal(),
+        insetBlockEnd: token.marginXS,
+        color: token.colorIcon,
+        // default style
+        fontWeight: 'normal',
+        fontSize: token.fontSize,
+        fontStyle: 'normal',
+        pointerEvents: 'none',
+      },
+
+      textarea: {
+        margin: '0!important',
+        // Fix Editable Textarea flash in Firefox
+        MozTransition: 'none',
+        height: '1em',
+      },
+    },
+  };
+};
+
+export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
+  [`${token.componentCls}-copy-success`]: {
+    '&, &:hover, &:focus': {
+      color: token.colorSuccess,
+    },
+  },
+  [`${token.componentCls}-copy-icon-only`]: {
+    marginInlineStart: 0,
+  },
+});
+
+export const getEllipsisStyles = (): CSSObject => ({
+  'a&-ellipsis, span&-ellipsis': {
+    display: 'inline-block',
+    maxWidth: '100%',
+  },
+
+  '&-ellipsis-single-line': {
+    ...textEllipsis,
+
+    // https://blog.csdn.net/iefreer/article/details/50421025
+    'a&, span&': {
+      verticalAlign: 'bottom',
+    },
+
+    '> code': {
+      paddingBlock: 0,
+      maxWidth: 'calc(100% - 1.2em)',
+      display: 'inline-block',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      verticalAlign: 'bottom',
+      // https://github.com/ant-design/ant-design/issues/45953
+      boxSizing: 'content-box',
+    },
+  },
+
+  '&-ellipsis-multiple-line': {
+    display: '-webkit-box',
+    overflow: 'hidden',
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: 'vertical',
+  },
+});

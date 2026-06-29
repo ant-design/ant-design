@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { fireEvent, render } from '../../../tests/utils';
-// eslint-disable-next-line import/no-unresolved
+
 import type { InputProps, InputRef } from '..';
 import Input from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import { triggerFocus } from '../Input';
 
@@ -39,7 +41,7 @@ describe('Input', () => {
 
   it('should support size', () => {
     const { asFragment, container } = render(<Input size="large" />);
-    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('input')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -51,7 +53,7 @@ describe('Input', () => {
         </Form.Item>
       </Form>,
     );
-    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(container.querySelector('input')).toHaveClass('ant-input-lg');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -114,8 +116,17 @@ describe('Input', () => {
     const ref = React.createRef<InputRef>();
     const { container } = render(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
     ref.current?.setSelectionRange(valLength, valLength);
-    expect(container.querySelector('input')?.selectionStart).toEqual(5);
-    expect(container.querySelector('input')?.selectionEnd).toEqual(5);
+    expect(container.querySelector('input')?.selectionStart).toBe(5);
+    expect(container.querySelector('input')?.selectionEnd).toBe(5);
+  });
+
+  it('warning for Input.Group', () => {
+    resetWarned();
+    render(<Input.Group />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Input.Group] `Input.Group` is deprecated. Please use `Space.Compact` instead.',
+    );
   });
 });
 
@@ -142,6 +153,67 @@ describe('prefix and suffix', () => {
 
     expect(container.querySelector('.prefix-with-hidden')?.getAttribute('hidden')).toBe('');
     expect(container.querySelector('.suffix-with-hidden')?.getAttribute('hidden')).toBe('');
+  });
+
+  it('should apply colorText token to filled variant without affix', async () => {
+    const colorText = '#445566';
+
+    const { container } = render(
+      <ConfigProvider theme={{ token: { colorText } }}>
+        <Input variant="filled" placeholder="Filled" defaultValue="Default" />
+      </ConfigProvider>,
+    );
+
+    const input = container.querySelector('input') as HTMLInputElement;
+
+    await waitFor(() => {
+      const computed = getComputedStyle(input).color;
+      expect(computed).toBe('var(--ant-color-text)');
+    });
+  });
+
+  it('should support colorErrorAffix token for error status affix', async () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorErrorAffix: '#12abcd',
+          },
+        }}
+      >
+        <Input status="error" prefix="prefix" suffix="suffix" />
+      </ConfigProvider>,
+    );
+
+    const prefix = container.querySelector('.ant-input-prefix') as HTMLSpanElement;
+    const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
+
+    await waitFor(() => {
+      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-error-affix)');
+      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+    });
+  });
+
+  it('should support colorWarningAffix token for warning status affix', async () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorWarningAffix: '#12abcd',
+          },
+        }}
+      >
+        <Input status="warning" prefix="prefix" suffix="suffix" />
+      </ConfigProvider>,
+    );
+
+    const prefix = container.querySelector('.ant-input-prefix') as HTMLSpanElement;
+    const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
+
+    await waitFor(() => {
+      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-warning-affix)');
+      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+    });
   });
 });
 
@@ -251,23 +323,6 @@ describe('should support showCount', () => {
     expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('8 / 5');
   });
 
-  describe('emoji', () => {
-    it('should minimize value between emoji length and maxLength', () => {
-      const { container } = render(<Input maxLength={1} showCount value="👀" />);
-      expect(container.querySelector('input')?.getAttribute('value')).toBe('👀');
-      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 1');
-
-      const { container: container1 } = render(<Input maxLength={2} showCount value="👀" />);
-      expect(container1.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 2');
-    });
-
-    it('slice emoji', () => {
-      const { container } = render(<Input maxLength={5} showCount value="1234😂" />);
-      expect(container.querySelector('input')?.getAttribute('value')).toBe('1234😂');
-      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
-    });
-  });
-
   it('count formatter', () => {
     const { container } = render(
       <Input
@@ -281,24 +336,48 @@ describe('should support showCount', () => {
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
     expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
   });
+
+  it('count', () => {
+    const { container } = render(
+      <Input
+        count={{
+          show: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+          max: 5,
+        }}
+        value="12345"
+      />,
+    );
+    expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
+  });
 });
 
 describe('Input allowClear', () => {
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <Input allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<Input allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input allowClear />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
-    expect(container.querySelector('input')?.value).toEqual('111');
+    expect(container.querySelector('input')?.value).toBe('111');
     expect(asFragment().firstChild).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
     const wrappers = [null, undefined, ''].map((val) => render(<Input allowClear value={val} />));
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('input')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -310,7 +389,7 @@ describe('Input allowClear', () => {
       render(<Input allowClear defaultValue={val} />),
     );
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('input')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -388,7 +467,7 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31927
   it('should correctly when useState', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [query, setQuery] = useState('');
       return (
         <Input
@@ -405,10 +484,10 @@ describe('Input allowClear', () => {
 
     container.querySelector('input')?.focus();
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
-    expect(container.querySelector('input')?.value).toEqual('111');
+    expect(container.querySelector('input')?.value).toBe('111');
 
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
 
     unmount();
   });
@@ -430,6 +509,107 @@ describe('Input allowClear', () => {
   it('should support custom clearIcon', () => {
     const { container } = render(<Input allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
+  });
+
+  it('semantic dom snapshot', () => {
+    const { container } = render(
+      <>
+        <Input
+          value="123"
+          showCount
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          addonAfter="addon"
+          showCount
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+        <Input
+          value="123"
+          className="custom-class"
+          addonAfter="addon"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+      </>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('background should not be transparent', () => {
+    const { container } = render(<Input />);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // hover
+    fireEvent.mouseEnter(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // focus
+    fireEvent.focus(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+  });
+
+  it('legacy bordered should work', () => {
+    const errSpy = jest.spyOn(console, 'error');
+    const { container } = render(<Input bordered={false} />);
+    expect(container.querySelector('input')).toHaveClass('ant-input-borderless');
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
+    errSpy.mockRestore();
+  });
+
+  it('legacy addon should work', () => {
+    const errSpy = jest.spyOn(console, 'error');
+    render(<Input addonAfter="addonAfter" addonBefore="addonBefore" />);
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`addonAfter` is deprecated'));
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`addonBefore` is deprecated'));
+    errSpy.mockRestore();
   });
 });
 

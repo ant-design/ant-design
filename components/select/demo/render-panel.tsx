@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Switch, Space } from 'antd';
+import { Flex, Select, Switch } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalSelect } = Select;
 
@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const [open, setOpen] = React.useState(true);
 
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
+    <Flex vertical gap="small" align="start">
       <Switch checked={open} onChange={() => setOpen(!open)} />
       <InternalSelect
         defaultValue="lucy"
@@ -19,8 +19,9 @@ const App: React.FC = () => {
           { label: 'Disabled', value: 'disabled' },
           { label: 'Bamboo', value: 'bamboo' },
         ]}
+        virtual={false}
       />
-    </Space>
+    </Flex>
   );
 };
 

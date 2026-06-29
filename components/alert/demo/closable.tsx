@@ -1,26 +1,36 @@
 import React from 'react';
-import { Alert, Space } from 'antd';
+import { Alert } from 'antd';
 
-const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+const onClose: React.MouseEventHandler<HTMLButtonElement> = (e) => {
   console.log(e, 'I was closed.');
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
+  <>
     <Alert
-      message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+      title="Warning Title"
       type="warning"
-      closable
-      onClose={onClose}
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
     />
+    <br />
     <Alert
-      message="Error Text"
-      description="Error Description Error Description Error Description Error Description Error Description Error Description"
-      type="error"
-      closable
-      onClose={onClose}
+      title="Success Title"
+      type="success"
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
     />
-  </Space>
+    <br />
+    <Alert
+      title="Info Title"
+      type="info"
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
+    />
+    <br />
+    <Alert
+      title="Error Title"
+      type="error"
+      closable={{ closeIcon: true, onClose, 'aria-label': 'close' }}
+    />
+  </>
 );
 
 export default App;

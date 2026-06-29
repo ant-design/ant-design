@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import type { DropdownProps, MenuProps } from 'antd';
 import { Dropdown, Space } from 'antd';
 
 const App: React.FC = () => {
@@ -12,8 +12,10 @@ const App: React.FC = () => {
     }
   };
 
-  const handleOpenChange = (flag: boolean) => {
-    setOpen(flag);
+  const handleOpenChange: DropdownProps['onOpenChange'] = (nextOpen, info) => {
+    if (info.source === 'trigger' || nextOpen) {
+      setOpen(nextOpen);
+    }
   };
 
   const items: MenuProps['items'] = [

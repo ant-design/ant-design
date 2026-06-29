@@ -1,0 +1,52 @@
+import React from 'react';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
+
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
+import useLocale from '../../../.dumi/hooks/useLocale';
+
+const locales = {
+  cn: {
+    root: '根元素',
+    input: '输入框元素',
+    prefix: '前缀的包裹元素',
+    suffix: '后缀的包裹元素',
+    clear: '清除按钮元素',
+    count: '文字计数元素',
+  },
+  en: {
+    root: 'root element',
+    input: 'input element',
+    prefix: 'prefix element',
+    suffix: 'suffix element',
+    clear: 'clear button element',
+    count: 'count element',
+  },
+};
+
+const App: React.FC = () => {
+  const [locale] = useLocale(locales);
+  return (
+    <SemanticPreview
+      componentName="Input.Password"
+      semantics={[
+        { name: 'root', desc: locale.root },
+        { name: 'prefix', desc: locale.prefix },
+        { name: 'input', desc: locale.input },
+        { name: 'suffix', desc: locale.suffix },
+        { name: 'clear', desc: locale.clear, version: '6.4.0' },
+        { name: 'count', desc: locale.count },
+      ]}
+    >
+      <Input.Password
+        allowClear
+        showCount
+        prefix={<UserOutlined />}
+        suffix={<EditOutlined />}
+        defaultValue="Hello, Ant Design"
+      />
+    </SemanticPreview>
+  );
+};
+
+export default App;

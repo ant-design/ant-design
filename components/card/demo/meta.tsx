@@ -9,6 +9,7 @@ const App: React.FC = () => (
     style={{ width: 300 }}
     cover={
       <img
+        draggable={false}
         alt="example"
         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
       />
@@ -20,7 +21,7 @@ const App: React.FC = () => (
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+      avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
       title="Card title"
       description="This is the description"
     />

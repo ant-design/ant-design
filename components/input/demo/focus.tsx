@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import type { InputRef } from 'antd';
-
 import { Button, Input, Space, Switch } from 'antd';
 
 const App: React.FC = () => {
@@ -14,7 +13,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space vertical style={{ width: '100%' }}>
       <Space wrap>
         <Button
           onClick={() => {

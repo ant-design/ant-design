@@ -1,83 +1,29 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
-import { Panel } from 'rc-dialog';
-import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
 import * as React from 'react';
-import Button from '../button';
-import { convertLegacyProps } from '../button/button';
+import { Panel } from '@rc-component/dialog';
+import { clsx } from 'clsx';
+
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { useComponentConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
-import { getConfirmLocale } from './locale';
-import type { ModalProps, ModalFuncProps } from './Modal';
+import type { ModalFuncProps, ModalSemanticAllType } from './interface';
+import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
+type PanelProps = React.ComponentPropsWithoutRef<typeof Panel>;
+
 export interface PurePanelProps
-  extends Omit<PanelProps, 'prefixCls'>,
-    Pick<ModalFuncProps, 'type'> {
+  extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
+    Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;
+  classNames?: ModalSemanticAllType['classNames'];
+  styles?: ModalSemanticAllType['styles'];
 }
 
-export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
-  return (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
-}
-
-export function renderFooter(
-  props: Pick<
-    ModalProps,
-    | 'footer'
-    | 'okText'
-    | 'okType'
-    | 'cancelText'
-    | 'confirmLoading'
-    | 'okButtonProps'
-    | 'cancelButtonProps'
-  > & {
-    onOk?: React.MouseEventHandler;
-    onCancel?: React.MouseEventHandler;
-  },
-) {
-  const {
-    okText,
-    okType = 'primary',
-    cancelText,
-    confirmLoading,
-    onOk,
-    onCancel,
-    okButtonProps,
-    cancelButtonProps,
-    footer,
-  } = props;
-
-  return footer === undefined ? (
-    <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {(locale) => (
-        <>
-          <Button onClick={onCancel} {...cancelButtonProps}>
-            {cancelText || locale!.cancelText}
-          </Button>
-          <Button
-            {...convertLegacyProps(okType)}
-            loading={confirmLoading}
-            onClick={onOk}
-            {...okButtonProps}
-          >
-            {okText || locale!.okText}
-          </Button>
-        </>
-      )}
-    </LocaleReceiver>
-  ) : (
-    footer
-  );
-}
-
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -86,14 +32,31 @@ export default function PurePanel(props: PurePanelProps) {
     type,
     title,
     children,
+    footer,
+    classNames,
+    styles,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
+  const {
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('modal');
 
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
+  const rootCls = useCSSVarCls(rootPrefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [, hashId] = useStyle(prefixCls);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 
@@ -107,6 +70,7 @@ export default function PurePanel(props: PurePanelProps) {
       children: (
         <ConfirmContent
           {...props}
+          prefixCls={prefixCls}
           confirmPrefixCls={confirmPrefixCls}
           rootPrefixCls={rootPrefixCls}
           content={children}
@@ -117,7 +81,7 @@ export default function PurePanel(props: PurePanelProps) {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: renderFooter(props),
+      footer: footer !== null && <Footer {...props} />,
       children,
     };
   }
@@ -125,17 +89,26 @@ export default function PurePanel(props: PurePanelProps) {
   return (
     <Panel
       prefixCls={prefixCls}
-      className={classNames(
+      className={clsx(
         hashId,
         `${prefixCls}-pure-panel`,
         type && confirmPrefixCls,
         type && `${confirmPrefixCls}-${type}`,
         className,
+        contextClassName,
+        cssVarCls,
+        rootCls,
+        mergedClassNames.root,
       )}
+      style={{ ...contextStyle, ...mergedStyles.root }}
       {...restProps}
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
       closable={closable}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       {...additionalProps}
     />
   );
-}
+};
+
+export default withPureRenderTheme(PurePanel);

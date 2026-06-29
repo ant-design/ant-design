@@ -1,108 +1,138 @@
 import * as React from 'react';
 import { Typography } from 'antd';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { createStaticStyles, useTheme } from 'antd-style';
+import { clsx } from 'clsx';
 
-export interface GroupMaskProps {
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-  disabled?: boolean;
-}
+import SiteContext from '../../../theme/slots/SiteContext';
+import GroupMaskLayer from './GroupMaskLayer';
 
-export function GroupMask({ children, style, disabled }: GroupMaskProps) {
-  const additionalStyle: React.CSSProperties = disabled
-    ? {}
-    : {
-        position: 'relative',
-        background: `rgba(255,255,255,0.1)`,
-        backdropFilter: `blur(25px)`,
-        zIndex: 1,
-      };
-
-  return (
-    <div
-      className="site-mask"
-      style={{
-        position: 'relative',
-        ...style,
-        ...additionalStyle,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
+const styles = createStaticStyles(({ css, cssVar }) => ({
+  box: css`
+    position: relative;
+    transition: all ${cssVar.motionDurationSlow};
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+  `,
+  container: css`
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  `,
+  typographyWrapper: css`
+    text-align: center;
+  `,
+  marginStyle: css`
+    max-width: 1208px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding-inline: ${cssVar.marginXXL};
+  `,
+  withoutChildren: css`
+    min-height: 300px;
+    border-radius: ${cssVar.borderRadiusLG};
+    background-color: '#e9e9e9';
+  `,
+}));
 
 export interface GroupProps {
   id?: string;
   title?: React.ReactNode;
   titleColor?: string;
   description?: React.ReactNode;
-  children?: React.ReactNode;
   background?: string;
-
   /** 是否不使用两侧 margin */
   collapse?: boolean;
-
   decoration?: React.ReactNode;
+  /** 预加载的背景图片列表 */
+  backgroundPrefetchList?: string[];
+  /** 标题右侧的操作按钮 */
+  extra?: React.ReactNode;
 }
 
-export default function Group(props: GroupProps) {
-  const { id, title, titleColor, description, children, decoration, background, collapse } = props;
-  const { token } = useSiteToken();
+const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
+  const {
+    id,
+    title,
+    titleColor,
+    description,
+    children,
+    decoration,
+    background,
+    collapse,
+    backgroundPrefetchList,
+    extra,
+  } = props;
 
-  const marginStyle: React.CSSProperties = collapse
-    ? {}
-    : {
-        maxWidth: 1208,
-        marginInline: 'auto',
-        boxSizing: 'border-box',
-        paddingInline: token.marginXXL,
-      };
-  let childNode = (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <Typography.Title
-          id={id}
-          level={1}
-          style={{
-            fontWeight: 900,
-            color: titleColor,
-            // Special for the title
-            fontFamily: `AliPuHui, ${token.fontFamily}`,
-          }}
-        >
-          {title}
-        </Typography.Title>
-        <Typography.Paragraph style={{ marginBottom: token.marginFarXS, color: titleColor }}>
-          {description}
-        </Typography.Paragraph>
-      </div>
+  // 预加载背景图片
+  React.useEffect(() => {
+    if (backgroundPrefetchList && backgroundPrefetchList.length > 0) {
+      backgroundPrefetchList.forEach((url) => {
+        if (url && url.startsWith('https')) {
+          const img = new Image();
+          img.src = url;
+        }
+      });
+    }
+  }, [backgroundPrefetchList]);
 
-      <div style={marginStyle}>
-        {children ? (
-          <div>{children}</div>
-        ) : (
-          <div
-            style={{ borderRadius: token.borderRadiusLG, minHeight: 300, background: '#e9e9e9' }}
-          />
-        )}
-      </div>
-    </>
-  );
-
+  const token = useTheme();
+  const { isMobile } = React.use(SiteContext);
   return (
     <div
-      style={{ position: 'relative', background, transition: `all ${token.motionDurationSlow}` }}
+      style={
+        background?.startsWith('https') || background?.startsWith('linear-gradient')
+          ? {
+              backgroundImage: background?.startsWith('linear-gradient')
+                ? background
+                : `url(${background})`,
+            }
+          : { backgroundColor: background }
+      }
+      className={styles.box}
     >
-      <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
-      <GroupMask
-        disabled={!!background}
-        style={{
-          paddingBlock: token.marginFarSM,
-        }}
-      >
-        {childNode}
-      </GroupMask>
+      <div className={styles.container}>{decoration}</div>
+      <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>
+        <div className={styles.typographyWrapper}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: token.paddingXS,
+            }}
+          >
+            <Typography.Title
+              id={id}
+              level={1}
+              style={{
+                fontWeight: 900,
+                color: titleColor,
+                margin: 0,
+                // Special for the title
+                fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+              }}
+            >
+              {title}
+            </Typography.Title>
+            {extra}
+          </div>
+          <Typography.Paragraph
+            style={{
+              color: titleColor,
+              marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
+              marginTop: token.marginSM,
+            }}
+          >
+            {description}
+          </Typography.Paragraph>
+        </div>
+        <div className={clsx({ [styles.marginStyle]: !collapse })}>
+          {children ? <div>{children}</div> : <div className={styles.withoutChildren} />}
+        </div>
+      </GroupMaskLayer>
     </div>
   );
-}
+};
+
+export default Group;

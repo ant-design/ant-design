@@ -1,71 +1,67 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`react router react router 3 1`] = `
+exports[`react router react router legacy 1`] = `
 <nav
-  class="ant-breadcrumb"
+  class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li>
-      <span
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
         class="ant-breadcrumb-link"
+        href="#/"
       >
-        <a
-          href="#/"
-        >
-          Home
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Home
+      </a>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/apps"
-        >
-          Application List
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
-    <li>
-      <span
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps"
       >
-        <a
-          href="#/apps/1"
-        >
-          Application1
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+        Application List
+      </a>
     </li>
-    <li>
-      <span
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps/1"
       >
-        <span>
-          Detail
-        </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
+        Application1
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
+        class="ant-breadcrumb-link"
+        href="#//apps/1/detail"
       >
-        /
-      </span>
+        Detail
+      </a>
     </li>
   </ol>
 </nav>

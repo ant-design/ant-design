@@ -4,4 +4,4 @@
 
 ## en-US
 
-Customized description content.
+Customize the description text.

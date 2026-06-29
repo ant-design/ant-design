@@ -1,7 +1,8 @@
-import type { Dayjs } from 'dayjs';
 import * as React from 'react';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
+
 import DatePicker from '..';
-import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
 
 describe('DatePicker.typescript', () => {
   it('DatePicker ref methods', () => {
@@ -18,11 +19,8 @@ describe('DatePicker.typescript', () => {
 
   // https://github.com/ant-design/ant-design/issues/33417
   it('DatePicker ref methods with forwardRef', () => {
-    const MyDatePicker = React.forwardRef((props, ref: DatePickRef<Dayjs>) => (
-      <DatePicker {...props} ref={ref} />
-    ));
     const datePicker = (
-      <MyDatePicker
+      <DatePicker
         ref={(picker) => {
           picker?.focus();
           picker?.blur();
@@ -45,11 +43,8 @@ describe('DatePicker.typescript', () => {
   });
 
   it('RangePicker ref methods with forwardRef', () => {
-    const MyRangePicker = React.forwardRef((props, ref: RangePickerRef<Dayjs>) => (
-      <DatePicker.RangePicker {...props} ref={ref} />
-    ));
     const datePicker = (
-      <MyRangePicker
+      <DatePicker.RangePicker
         ref={(picker) => {
           picker?.focus();
           picker?.blur();
@@ -64,5 +59,100 @@ describe('DatePicker.typescript', () => {
     expect(datePicker).toBeTruthy();
     const rangePicker = <DatePicker.RangePicker popupClassName="popupClassName" />;
     expect(rangePicker).toBeTruthy();
+  });
+
+  it('DatePicker should accept only single value if multiple is false', () => {
+    const mockSingleValue = dayjs();
+    const mockOnChange = jest.fn<void, [Dayjs | null, string | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs | null]>();
+
+    const datePicker = (
+      <DatePicker
+        defaultValue={mockSingleValue}
+        value={mockSingleValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/49198
+  it('DatePicker should accept only single value if multiple is explicitly false', () => {
+    const mockSingleValue = dayjs();
+    const mockOnChange = jest.fn<void, [Dayjs | null, string | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs | null]>();
+
+    const datePicker = (
+      <DatePicker
+        multiple={false}
+        defaultValue={mockSingleValue}
+        value={mockSingleValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
+  it('DatePicker should accept only array value if multiple is true', () => {
+    const mockMultiValue = [dayjs()];
+    const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs[] | null]>();
+
+    const datePicker = (
+      <DatePicker
+        multiple
+        defaultValue={mockMultiValue}
+        value={mockMultiValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
+  it('DatePicker should accept only array value if multiple is explicitly true', () => {
+    const mockMultiValue = [dayjs()];
+    const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs[] | null]>();
+
+    const datePicker = (
+      <DatePicker
+        multiple={true}
+        defaultValue={mockMultiValue}
+        value={mockMultiValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
+  it('DatePicker should support tagRender when multiple is true', () => {
+    const datePicker = (
+      <DatePicker
+        multiple
+        tagRender={({ label, value, closable, disabled, onClose }) => {
+          value.format('YYYY-MM-DD');
+          const isClosable: boolean = closable;
+          const isDisabled: boolean = disabled;
+          void isClosable;
+          void isDisabled;
+
+          return (
+            <button type="button" onClick={onClose}>
+              {label}
+            </button>
+          );
+        }}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
   });
 });

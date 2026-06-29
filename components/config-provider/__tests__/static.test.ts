@@ -1,12 +1,12 @@
-import ConfigProvider, { globalConfig } from '..';
+import ConfigProvider, { defaultPrefixCls, globalConfig } from '..';
 
 describe('ConfigProvider.config', () => {
   it('rootPrefixCls', () => {
-    expect(globalConfig().getRootPrefixCls()).toEqual('ant');
+    expect(globalConfig().getRootPrefixCls()).toBe(defaultPrefixCls);
 
     ConfigProvider.config({
       prefixCls: 'light',
     });
-    expect(globalConfig().getRootPrefixCls()).toEqual('light');
+    expect(globalConfig().getRootPrefixCls()).toBe('light');
   });
 });

@@ -1,11 +1,12 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
+
 import AutoComplete from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
-import { resetWarned } from '../../_util/warning';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -49,7 +50,7 @@ describe('AutoComplete', () => {
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       // @ts-ignore
@@ -68,7 +69,7 @@ describe('AutoComplete', () => {
     expect(screen.getByTitle(/reactnode/i)).toBeInTheDocument();
   });
 
-  it('legacy AutoComplete.Option should be compatiable', async () => {
+  it('legacy AutoComplete.Option should be compatible', async () => {
     render(
       <AutoComplete>
         <AutoComplete.Option value="111">111</AutoComplete.Option>
@@ -77,18 +78,15 @@ describe('AutoComplete', () => {
     );
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     await userEvent.type(screen.getByRole('combobox'), '1');
-    expect(screen.getByTitle(/111/i)).toBeInTheDocument();
-    expect(screen.getByTitle(/222/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/111/)).toBeInTheDocument();
+    expect(screen.getByTitle(/222/)).toBeInTheDocument();
   });
 
   it('should not warning when getInputElement is null', () => {
-    jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     render(<AutoComplete placeholder="input here" allowClear />);
-    // eslint-disable-next-line no-console
-    expect(console.warn).not.toHaveBeenCalled();
-    // @ts-ignore
-    // eslint-disable-next-line no-console
-    console.warn.mockRestore();
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 
   it('should not override custom input className', () => {
@@ -100,22 +98,93 @@ describe('AutoComplete', () => {
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 
-  it('deprecated dropdownClassName', () => {
+  it('deprecated popupClassName', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <AutoComplete
-        dropdownClassName="legacy"
+        popupClassName="legacy"
         open
         options={[{ label: 'little', value: 'little' }]}
         searchValue="l"
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated, please use `popupClassName` instead.',
+      'Warning: [antd: AutoComplete] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dropdownMatchSelectWidth', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownMatchSelectWidth
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dropdownStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownStyle={{ color: 'rgb(255, 0, 0)' }}
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dropdownRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        dropdownRender={(menu) => <div>{menu}</div>}
+        open
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('deprecated onDropdownVisibleChange', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete
+        onDropdownVisibleChange={() => {}}
+        options={[{ label: 'little', value: 'little' }]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+    );
 
     errSpy.mockRestore();
   });

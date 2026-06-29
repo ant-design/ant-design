@@ -1,0 +1,202 @@
+import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
+import Upload from '..';
+import type { UploadProps } from '..';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+
+describe('Upload.Semantic', () => {
+  it('should work with classNames object', () => {
+    const { container } = render(
+      <Upload
+        classNames={{
+          root: 'test-upload-root',
+          list: 'test-upload-list',
+          item: 'test-upload-item',
+          trigger: 'test-upload-button',
+        }}
+        defaultFileList={[
+          {
+            uid: '1',
+            name: 'test.txt',
+            status: 'done',
+          },
+        ]}
+      >
+        <button type="button">Upload</button>
+      </Upload>,
+    );
+
+    expect(container.querySelector('.test-upload-root')).toBeTruthy();
+    expect(container.querySelector('.test-upload-list')).toBeTruthy();
+    expect(container.querySelector('.test-upload-item')).toBeTruthy();
+    expect(container.querySelector('.test-upload-button')).toBeTruthy();
+  });
+
+  it('should work with classNames function', () => {
+    const classNamesFn: UploadProps['classNames'] = (info) => {
+      if (info.props.disabled) {
+        return {
+          root: 'test-upload-root--disabled',
+        };
+      }
+      return {
+        root: 'test-upload-root--enabled',
+      };
+    };
+
+    const { container } = render(
+      <Upload disabled classNames={classNamesFn}>
+        <button type="button">Upload</button>
+      </Upload>,
+    );
+
+    expect(container.querySelector('.test-upload-root--disabled')).toBeTruthy();
+    expect(container.querySelector('.test-upload-root--enabled')).toBeFalsy();
+  });
+
+  it('should work with styles object', () => {
+    const { container } = render(
+      <Upload
+        styles={{
+          root: { backgroundColor: 'rgb(255, 0, 0)' },
+          list: { backgroundColor: 'rgb(0, 0, 255)' },
+          item: { backgroundColor: 'rgb(0, 128, 0)' },
+          trigger: { backgroundColor: 'rgb(255, 255, 0)' },
+        }}
+        defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
+      >
+        <button type="button">Upload</button>
+      </Upload>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-upload-wrapper');
+    expect(rootElement).toBeTruthy();
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+
+    const listElement = container.querySelector<HTMLElement>('.ant-upload-list');
+    expect(listElement).toBeTruthy();
+    expect(listElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
+
+    const itemElement = container.querySelector<HTMLElement>('.ant-upload-list-item');
+    expect(itemElement).toBeTruthy();
+    expect(itemElement).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
+
+    const uploadButtonElement = container.querySelector<HTMLElement>('.ant-upload-select');
+    expect(uploadButtonElement).toBeTruthy();
+    expect(uploadButtonElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+  });
+
+  it('should work with styles function', () => {
+    const stylesFn: UploadProps['styles'] = (info) => {
+      if (info.props.multiple) {
+        return {
+          root: { backgroundColor: 'yellow' },
+        };
+      }
+      return {
+        root: { backgroundColor: 'gray' },
+      };
+    };
+
+    const { container } = render(
+      <Upload multiple styles={stylesFn}>
+        <button type="button">Upload</button>
+      </Upload>,
+    );
+
+    const rootElement = container.querySelector('.ant-upload-wrapper');
+    expect(rootElement).toBeTruthy();
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+  });
+
+  it('should merge context and component classNames', () => {
+    const { container } = render(
+      <ConfigProvider
+        upload={{
+          classNames: {
+            root: 'context-upload-root',
+            list: 'context-upload-list',
+          },
+        }}
+      >
+        <Upload
+          classNames={{
+            root: 'component-upload-root',
+            item: 'component-upload-item',
+          }}
+          defaultFileList={[
+            {
+              uid: '1',
+              name: 'test.txt',
+              status: 'done',
+            },
+          ]}
+        >
+          <button type="button">Upload</button>
+        </Upload>
+      </ConfigProvider>,
+    );
+
+    const rootElement = container.querySelector('.ant-upload-wrapper');
+    expect(rootElement).toHaveClass('context-upload-root', 'component-upload-root');
+
+    expect(container.querySelector('.context-upload-list')).toBeTruthy();
+    expect(container.querySelector('.component-upload-item')).toBeTruthy();
+  });
+
+  it('should merge context and component styles', () => {
+    const { container } = render(
+      <ConfigProvider
+        upload={{
+          styles: {
+            root: { borderWidth: '2px' },
+            list: { padding: '10px' },
+          },
+        }}
+      >
+        <Upload
+          styles={{
+            root: { backgroundColor: 'red' },
+            item: { color: 'blue' },
+          }}
+          defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
+        >
+          <button type="button">Upload</button>
+        </Upload>
+      </ConfigProvider>,
+    );
+
+    const rootElement = container.querySelector('.ant-upload-wrapper');
+    expect(rootElement).toBeTruthy();
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', borderWidth: '2px' });
+
+    const listElement = container.querySelector('.ant-upload-list');
+    expect(listElement).toBeTruthy();
+    expect(listElement).toHaveStyle({ padding: '10px' });
+
+    const itemElement = container.querySelector('.ant-upload-list-item');
+    expect(itemElement).toBeTruthy();
+    expect(itemElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+  });
+
+  it('should use error color for picture placeholder icon in error status', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Upload
+          listType="picture-card"
+          defaultFileList={[{ uid: '1', name: 'test.png', status: 'error' }]}
+        />
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain(
+      '.ant-upload-list-item-error .ant-upload-list-item-thumbnail.ant-upload-list-item-file .anticon{color:var(--ant-color-error);}',
+    );
+  });
+});

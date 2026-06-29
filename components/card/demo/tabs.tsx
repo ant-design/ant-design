@@ -20,15 +20,15 @@ const contentList: Record<string, React.ReactNode> = {
 const tabListNoTitle = [
   {
     key: 'article',
-    tab: 'article',
+    label: 'article',
   },
   {
     key: 'app',
-    tab: 'app',
+    label: 'app',
   },
   {
     key: 'project',
-    tab: 'project',
+    label: 'project',
   },
 ];
 
@@ -57,9 +57,7 @@ const App: React.FC = () => {
         extra={<a href="#">More</a>}
         tabList={tabList}
         activeTabKey={activeTabKey1}
-        onTabChange={(key) => {
-          onTab1Change(key);
-        }}
+        onTabChange={onTab1Change}
       >
         {contentList[activeTabKey1]}
       </Card>
@@ -70,9 +68,8 @@ const App: React.FC = () => {
         tabList={tabListNoTitle}
         activeTabKey={activeTabKey2}
         tabBarExtraContent={<a href="#">More</a>}
-        onTabChange={(key) => {
-          onTab2Change(key);
-        }}
+        onTabChange={onTab2Change}
+        tabProps={{ size: 'medium' }}
       >
         {contentListNoTitle[activeTabKey2]}
       </Card>

@@ -2,12 +2,12 @@
 category: Components
 group: Data Display
 title: Tooltip
-cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
+description: Simple text popup box.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A simple text popup tip.
 
 ## When To Use
 
@@ -18,43 +18,103 @@ A simple text popup tip.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/smooth-transition.tsx">Smooth Transition</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/arrow-point-at-center.tsx">Arrow pointing at the center</code>
+<code src="./demo/arrow.tsx">Arrow</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
-<code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
+<code src="./demo/destroy-on-close.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/disabled-children.tsx" debug>Disabled children</code>
+<code src="./demo/wrap-custom-component.tsx">Wrap custom component</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
-| Property | Description                   | Type                         | Default |
-| -------- | ----------------------------- | ---------------------------- | ------- |
-| title    | The text shown in the tooltip | ReactNode \| () => ReactNode | -       |
+Common props ref：[Common props](/docs/react/common-props)
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| title | The text shown in the tooltip | ReactNode \| () => ReactNode | - | - | × |
+| color | The background color. After using this attribute, the internal text color will adapt automatically | string | - | 5.27.0 | × |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 | 5.23.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.23.0 | 5.23.0 |
 
 ### Common API
 
-The following APIs are shared by Tooltip, Popconfirm, Popover.
+<embed src="./shared/sharedProps.en-US.md"></embed>
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | This value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
-| arrowPointAtCenter | Whether the arrow is pointed at the center of target | boolean | false |  |
-| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
-| color | The background color | string | - | 4.3.0 |
-| defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
-| destroyTooltipOnHide | Whether destroy tooltip when hidden, parent container of tooltip will be destroyed when `keepParent` is false | boolean \| { keepParent?: boolean } | false |  |
-| getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
-| mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
-| overlayClassName | Class name of the tooltip card | string | - |  |
-| overlayStyle | Style of the tooltip card | object | - |  |
-| overlayInnerStyle | Style of the tooltip inner content | object | - |  |
-| placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
-| open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
-| zIndex | Config `z-index` of Tooltip | number | - |  |
-| onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |
+### ConfigProvider - tooltip.unique {#config-provider-tooltip-unique}
 
-## Note
+You can configure global unique display for Tooltip through ConfigProvider. When `unique` is set to `true`, only one Tooltip under the ConfigProvider will be displayed at the same time, providing better user experience and smooth transition effects.
 
-Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+Note: After configuration, properties like `getContainer`, `arrow` etc. will be ignored.
+
+```tsx
+import { Button, ConfigProvider, Space, Tooltip } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    tooltip={{
+      unique: true,
+    }}
+  >
+    <Space>
+      <Tooltip title="First tooltip">
+        <Button>Button 1</Button>
+      </Tooltip>
+      <Tooltip title="Second tooltip">
+        <Button>Button 2</Button>
+      </Tooltip>
+    </Space>
+  </ConfigProvider>
+);
+```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component="Tooltip"></ComponentTokenTable>
+
+## FAQ
+
+### Why doesn't HOC work sometimes? {#faq-hoc-component}
+
+Please ensure that the child elements of `Tooltip` can accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
+
+Please refer to https://github.com/ant-design/ant-design/issues/15909
+
+### Why Tooltip not update content when close? {#faq-content-not-update}
+
+Tooltip will cache content when it is closed to avoid flicker when content is updated:
+
+```jsx
+// `title` will not blink when `user` is empty
+<Tooltip open={user} title={user?.name} />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+If need update content when close, you can set `fresh` property ([#44830](https://github.com/ant-design/ant-design/issues/44830)):
+
+```jsx
+<Tooltip open={user} title={user?.name} fresh />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+---
+
+<!-- 请确保在 FAQ 最后 -->
+
+<embed src="./shared/sharedFAQ.en-US.md"></embed>

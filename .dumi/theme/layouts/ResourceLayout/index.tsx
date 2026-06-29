@@ -1,33 +1,31 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { useRouteMeta, FormattedMessage } from 'dumi';
-import Footer from 'dumi/theme/slots/Footer';
-import { Layout, Typography, ConfigProvider } from 'antd';
-import { css } from '@emotion/react';
-import AffixTabs from './AffixTabs';
-import EditButton from '../../common/EditButton';
-import useSiteToken from '../../../hooks/useSiteToken';
+import type { PropsWithChildren } from 'react';
+import React from 'react';
+import { ConfigProvider, Layout, Typography } from 'antd';
+import { createStyles } from 'antd-style';
+import { FormattedMessage, useRouteMeta } from 'dumi';
+
 import CommonHelmet from '../../common/CommonHelmet';
+import EditButton from '../../common/EditButton';
+import Footer from '../../slots/Footer';
+import { DarkContext } from './../../../hooks/useDark';
+import AffixTabs from './AffixTabs';
 
-export type ResourceLayoutProps = PropsWithChildren<{}>;
+export type ResourceLayoutProps = PropsWithChildren<NonNullable<any>>;
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { antCls } = token;
+const resourcePadding = 40;
+const articleMaxWidth = 1208;
+const resourcePaddingXS = 24;
 
-  const resourcePadding = 40;
-  const articleMaxWidth = 1208;
-  const resourcePaddingXS = 24;
-
+const useStyle = createStyles(({ cssVar, token, css }, isDark: boolean) => {
   return {
     resourcePage: css`
       footer {
         margin-top: 176px;
-
         .rc-footer-container {
           max-width: ${articleMaxWidth}px;
           margin: 0 auto;
-          padding-right: 0;
-          padding-left: 0;
+          padding-inline-end: 0;
+          padding-inline-start: 0;
         }
       }
     `,
@@ -36,45 +34,16 @@ const useStyle = () => {
       max-width: ${articleMaxWidth}px;
       margin: 0 auto;
       box-sizing: content-box;
-
-      > .markdown {
-        > p {
-          margin-bottom: 56px;
-        }
-
-        h2 {
-          margin-top: 124px;
-          color: #314659;
-          font-weight: lighter;
-          font-size: 30px;
-          line-height: 38px;
-
-          &:first-child {
-            margin-top: 88px;
-          }
-        }
-
-        h3 {
-          margin-top: 56px;
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 32px;
-        }
-
-        p {
-          color: #697b8c;
-        }
-      }
+      min-height: 100vh;
 
       @media only screen and (max-width: 767.99px) {
         & {
           article {
             padding: 0 ${resourcePaddingXS}px;
           }
-
-          ${antCls}-col {
-            padding-top: 16px !important;
-            padding-bottom: 16px !important;
+          ${token.antCls}-col {
+            padding-top: ${cssVar.padding} !important;
+            padding-bottom: ${cssVar.padding} !important;
           }
         }
       }
@@ -82,7 +51,11 @@ const useStyle = () => {
     banner: css`
       padding: 0 ${resourcePadding}px;
       overflow: hidden;
-      background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');
+      ${
+        isDark
+          ? ``
+          : `background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');`
+      }
       background-size: cover;
 
       h1 {
@@ -95,7 +68,7 @@ const useStyle = () => {
         max-width: ${articleMaxWidth}px;
         margin: 0 auto 56px;
         font-weight: 200;
-        font-size: 16px;
+        font-size: ${cssVar.fontSizeLG};
         line-height: 24px;
       }
 
@@ -107,34 +80,38 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
-const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
-  const styles = useStyle();
+const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
+  const isDark = React.use(DarkContext);
+  const { styles } = useStyle(isDark);
   const meta = useRouteMeta();
-
-  return (
-    <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>
-      <Layout>
-        <CommonHelmet />
-        <div id="resources-page" css={styles.resourcePage}>
-          <AffixTabs />
-          <div css={styles.banner}>
-            <Typography.Title style={{ fontSize: 30 }}>
-              {meta.frontmatter.title}
-              <EditButton
-                title={<FormattedMessage id="app.content.edit-page" />}
-                filename={meta.frontmatter.filename}
-              />
-            </Typography.Title>
-            <section>{meta.frontmatter.description}</section>
-          </div>
-          <div css={styles.resourceContent}>{children}</div>
-          <Footer />
+  const node = (
+    <Layout>
+      <CommonHelmet />
+      <div id="resources-page" className={styles.resourcePage}>
+        <AffixTabs />
+        <div className={styles.banner}>
+          <Typography.Title style={{ fontSize: 30 }}>
+            {meta.frontmatter?.title}
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={meta.frontmatter.filename}
+            />
+          </Typography.Title>
+          <section>{meta.frontmatter.description}</section>
         </div>
-      </Layout>
-    </ConfigProvider>
+        <div className={styles.resourceContent}>{children}</div>
+        <Footer />
+      </div>
+    </Layout>
   );
+
+  if (!isDark) {
+    return <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>{node}</ConfigProvider>;
+  }
+
+  return node;
 };
 
 export default ResourceLayout;

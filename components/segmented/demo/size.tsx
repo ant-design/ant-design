@@ -1,12 +1,12 @@
 import React from 'react';
-import { Segmented } from 'antd';
+import { Flex, Segmented } from 'antd';
 
-export default () => (
-  <>
+const App: React.FC = () => (
+  <Flex gap="small" align="flex-start" vertical>
     <Segmented size="large" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-    <br />
     <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-    <br />
     <Segmented size="small" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-  </>
+  </Flex>
 );
+
+export default App;

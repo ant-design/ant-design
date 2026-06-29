@@ -1,40 +1,65 @@
 import React, { useState } from 'react';
-import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Row, Select } from 'antd';
-
-const { Option } = Select;
+import { DownOutlined } from '@ant-design/icons';
+import { Button, Col, Form, Input, Row, Select, Space, theme } from 'antd';
 
 const AdvancedSearchForm = () => {
-  const [expand, setExpand] = useState(false);
+  const { token } = theme.useToken();
   const [form] = Form.useForm();
+  const [expand, setExpand] = useState(false);
+
+  const formStyle: React.CSSProperties = {
+    maxWidth: 'none',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    padding: 24,
+  };
 
   const getFields = () => {
     const count = expand ? 10 : 6;
-    const children = [];
+    const children: React.ReactNode[] = [];
     for (let i = 0; i < count; i++) {
       children.push(
         <Col span={8} key={i}>
-          <Form.Item
-            name={`field-${i}`}
-            label={`Field ${i}`}
-            rules={[
-              {
-                required: true,
-                message: 'Input something!',
-              },
-            ]}
-          >
-            {i % 3 !== 1 ? (
+          {i % 3 !== 1 ? (
+            <Form.Item
+              name={`field-${i}`}
+              label={`Field ${i}`}
+              rules={[
+                {
+                  required: true,
+                  message: 'Input something!',
+                },
+              ]}
+            >
               <Input placeholder="placeholder" />
-            ) : (
-              <Select defaultValue="2">
-                <Option value="1">1</Option>
-                <Option value="2">
-                  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                </Option>
-              </Select>
-            )}
-          </Form.Item>
+            </Form.Item>
+          ) : (
+            <Form.Item
+              name={`field-${i}`}
+              label={`Field ${i}`}
+              rules={[
+                {
+                  required: true,
+                  message: 'Select something!',
+                },
+              ]}
+              initialValue="1"
+            >
+              <Select
+                options={[
+                  {
+                    value: '1',
+                    label:
+                      'longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong',
+                  },
+                  {
+                    value: '2',
+                    label: '222',
+                  },
+                ]}
+              />
+            </Form.Item>
+          )}
         </Col>,
       );
     }
@@ -46,20 +71,14 @@ const AdvancedSearchForm = () => {
   };
 
   return (
-    <Form
-      form={form}
-      name="advanced_search"
-      className="ant-advanced-search-form"
-      onFinish={onFinish}
-    >
+    <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
-      <Row>
-        <Col span={24} style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: 'end' }}>
+        <Space size="small">
           <Button type="primary" htmlType="submit">
             Search
           </Button>
           <Button
-            style={{ margin: '0 8px' }}
             onClick={() => {
               form.resetFields();
             }}
@@ -72,19 +91,31 @@ const AdvancedSearchForm = () => {
               setExpand(!expand);
             }}
           >
-            {expand ? <UpOutlined /> : <DownOutlined />} Collapse
+            <DownOutlined rotate={expand ? 180 : 0} /> Collapse
           </a>
-        </Col>
-      </Row>
+        </Space>
+      </div>
     </Form>
   );
 };
 
-const App: React.FC = () => (
-  <div>
-    <AdvancedSearchForm />
-    <div className="search-result-list">Search Result List</div>
-  </div>
-);
+const App: React.FC = () => {
+  const { token } = theme.useToken();
+
+  const listStyle: React.CSSProperties = {
+    lineHeight: '200px',
+    textAlign: 'center',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    marginTop: 16,
+  };
+
+  return (
+    <>
+      <AdvancedSearchForm />
+      <div style={listStyle}>Search Result List</div>
+    </>
+  );
+};
 
 export default App;

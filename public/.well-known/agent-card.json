@@ -1,0 +1,40 @@
+{
+  "name": "Ant Design",
+  "version": "1.0.0",
+  "description": "Ant Design is a React UI library providing 80+ enterprise-class components for building web applications. Access component documentation, design tokens, theme customization, and migration guides.",
+  "provider": {
+    "organization": "Ant Design Team",
+    "url": "https://ant.design"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "supportedInterfaces": [
+    {
+      "protocol": "https",
+      "url": "https://ant.design",
+      "version": "1.0"
+    }
+  ],
+  "skills": [
+    {
+      "id": "component-lookup",
+      "name": "Component Lookup",
+      "description": "Look up Ant Design React component documentation, props, default values, and usage examples.",
+      "tags": ["components", "documentation", "react"]
+    },
+    {
+      "id": "theme-customization",
+      "name": "Theme Customization",
+      "description": "Customize Ant Design theme using Design Tokens and ConfigProvider.",
+      "tags": ["theme", "design-tokens", "customization"]
+    },
+    {
+      "id": "migration",
+      "name": "Version Migration",
+      "description": "Migrate between Ant Design major versions, especially v4 to v5.",
+      "tags": ["migration", "upgrade", "breaking-changes"]
+    }
+  ]
+}

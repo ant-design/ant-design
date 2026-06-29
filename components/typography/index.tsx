@@ -4,14 +4,16 @@ import Text from './Text';
 import Title from './Title';
 import OriginTypography from './Typography';
 
-export type TypographyProps = typeof OriginTypography & {
+export type { TypographyProps } from './Typography';
+
+type CompoundedComponent = typeof OriginTypography & {
   Text: typeof Text;
   Link: typeof Link;
   Title: typeof Title;
   Paragraph: typeof Paragraph;
 };
 
-const Typography = OriginTypography as TypographyProps;
+const Typography = OriginTypography as CompoundedComponent;
 Typography.Text = Text;
 Typography.Link = Link;
 Typography.Title = Title;

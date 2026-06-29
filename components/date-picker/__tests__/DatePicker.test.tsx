@@ -1,32 +1,47 @@
+import type { TriggerProps } from '@rc-component/trigger';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
+
+import React from 'react';
+import { CloseCircleFilled } from '@ant-design/icons';
+import dayJsGenerateConfig from '@rc-component/picker/generate/dayjs';
+import { warning } from '@rc-component/util';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
-import React from 'react';
-import type { TriggerProps } from 'rc-trigger';
-import { fireEvent, render } from '../../../tests/utils';
+
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { PickerLocale } from '../generatePicker';
-import { resetWarned } from '../../_util/warning';
+import { getClearButton } from './utils';
+
+const { resetWarned } = warning;
 
 dayjs.extend(customParseFormat);
 
 let triggerProps: TriggerProps;
 
-jest.mock('rc-trigger', () => {
-  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+jest.mock('@rc-component/trigger', () => {
+  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
   const h: typeof React = jest.requireActual('react');
 
   return {
-    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+    default: h.forwardRef<HTMLElement, TriggerProps>((props, ref) => {
       triggerProps = props;
       return h.createElement(Trigger, { ref, ...props });
     }),
     __esModule: true,
   };
 });
+
+function getCell(text: string) {
+  const cells = Array.from(document.querySelectorAll('.ant-picker-cell'));
+
+  return cells.find((cell) => cell.textContent === text);
+}
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -89,13 +104,52 @@ describe('DatePicker', () => {
 
   it('disabled date', () => {
     const disabledDate = (current: any) => current && current < dayjs().endOf('day');
-    const wrapper = render(<DatePicker disabledDate={disabledDate} open />);
-    expect(Array.from(wrapper.container.children)).toMatchSnapshot();
+    render(<DatePicker disabledDate={disabledDate} open />);
+
+    expect(getCell('21')).toHaveClass('ant-picker-cell-disabled');
+    expect(getCell('23')).not.toHaveClass('ant-picker-cell-disabled');
   });
 
   it('placeholder', () => {
     const wrapper = render(<DatePicker placeholder={undefined} />);
-    expect(wrapper.container.querySelector('input')?.placeholder).toEqual('Select date');
+    expect(wrapper.container.querySelector('input')?.placeholder).toBe('Select date');
+  });
+
+  it('multiple tagRender should support custom remove logic', () => {
+    const Demo = () => {
+      const [value, setValue] = React.useState([dayjs('2016-11-20'), dayjs('2016-11-23')]);
+
+      return (
+        <DatePicker
+          multiple
+          value={value}
+          onChange={(nextValue) => setValue(nextValue ?? [])}
+          tagRender={({ label, onClose, value: tagValue }) => {
+            const locked = tagValue.isBefore(dayjs('2016-11-22'), 'day');
+
+            return (
+              <span data-testid={`tag-${tagValue.format('YYYY-MM-DD')}`}>
+                <span>{label}</span>
+                {!locked && (
+                  <button type="button" onClick={onClose}>
+                    remove
+                  </button>
+                )}
+              </span>
+            );
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"] button')).toBeNull();
+
+    fireEvent.click(container.querySelector('[data-testid="tag-2016-11-23"] button')!);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-testid="tag-2016-11-23"]')).not.toBeInTheDocument();
   });
 
   it('showTime={{ showHour: true, showMinute: true }}', () => {
@@ -103,28 +157,6 @@ describe('DatePicker', () => {
       <DatePicker
         defaultValue={dayjs()}
         showTime={{ showHour: true, showMinute: true }}
-        format="YYYY-MM-DD"
-        open
-      />,
-    );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
-    expect(
-      container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
-        .querySelectorAll('.ant-picker-time-panel-cell').length,
-    ).toBe(24);
-    expect(
-      container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
-        .querySelectorAll('.ant-picker-time-panel-cell').length,
-    ).toBe(60);
-  });
-
-  it('showTime={{ showHour: true, showSecond: true }}', () => {
-    const { container } = render(
-      <DatePicker
-        defaultValue={dayjs()}
-        showTime={{ showHour: true, showSecond: true }}
         format="YYYY-MM-DD"
         open
       />,
@@ -163,6 +195,109 @@ describe('DatePicker', () => {
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(60);
   });
+
+  it('showTime={{ showHour: true, showMinute: true, showSecond: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showHour: true, showMinute: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(3);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[2]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showHour: true, showSecond: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showHour: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showSecond: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showMinute: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showMinute: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showHour: true }}', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} showTime={{ showHour: true }} format="YYYY-MM-DD" open />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+  });
+
+  it('showTime={{ }} (no true args)', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} showTime={{}} format="YYYY-MM-DD" open />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(3);
+  });
+
   it('showTime should work correctly when format is custom function', () => {
     const { container } = render(
       <DatePicker
@@ -171,6 +306,20 @@ describe('DatePicker', () => {
         format={(val) => val.format('YYYY-MM-DD')}
         open
       />,
+    );
+    const focusEvent = () => {
+      fireEvent.focus(container.querySelector('input')!);
+    };
+    const mouseDownEvent = () => {
+      fireEvent.mouseDown(container.querySelector('input')!);
+    };
+    expect(focusEvent).not.toThrow();
+    expect(mouseDownEvent).not.toThrow();
+  });
+
+  it('showTime should work correctly when format is Array', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} showTime format={['YYYY-MM-DD HH:mm']} open />,
     );
     const fuousEvent = () => {
       fireEvent.focus(container.querySelector('input')!);
@@ -231,12 +380,12 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
+  it('DatePicker.RangePicker with defaultValue and showTime', () => {
     const startDate = dayjs('1982-02-12');
     const endDate = dayjs('1982-02-22');
 
     const { container } = render(
-      <DatePicker.RangePicker defaultPickerValue={[startDate, endDate]} showTime open />,
+      <DatePicker.RangePicker defaultValue={[startDate, endDate]} showTime open />,
     );
 
     const m = container.querySelector('.ant-picker-header-view .ant-picker-month-btn')?.innerHTML;
@@ -246,13 +395,25 @@ describe('DatePicker', () => {
     expect(container.querySelectorAll('.ant-picker-time-panel').length).toBe(1);
   });
 
-  it('placement api work correctly', () => {
+  it('DatePicker placement api work correctly', () => {
+    const { rerender } = render(<DatePicker open placement="topLeft" />);
+    expect(triggerProps?.popupPlacement).toBe('topLeft');
+    rerender(<DatePicker open placement="topRight" />);
+    expect(triggerProps?.popupPlacement).toBe('topRight');
+    rerender(<DatePicker open placement="bottomLeft" />);
+    expect(triggerProps?.popupPlacement).toBe('bottomLeft');
+    rerender(<DatePicker open placement="bottomRight" />);
+    expect(triggerProps?.popupPlacement).toBe('bottomRight');
+  });
+
+  it('RangePicker placement api work correctly', () => {
     const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toBe('topLeft');
 
     rerender(<DatePicker.RangePicker open placement="topRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -260,6 +421,7 @@ describe('DatePicker', () => {
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toBe('topRight');
 
     rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -267,6 +429,7 @@ describe('DatePicker', () => {
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toBe('bottomLeft');
 
     rerender(<DatePicker.RangePicker open placement="bottomRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -274,18 +437,271 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toBe('bottomRight');
   });
 
-  it('legacy dropdownClassName', () => {
+  it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker dropdownClassName="legacy" open />);
+    const { container, rerender } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    rerender(<DatePicker popupClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('legacy popupStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle(
+      'background-color: rgb(255, 0, 0)',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('support DatePicker.generatePicker', () => {
+    const MyDatePicker = DatePicker.generatePicker(dayJsGenerateConfig);
+    const { container } = render(<MyDatePicker />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('kk:mm format', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} format="kk:mm" showTime open />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(2);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('allows or prohibits clearing as applicable', async () => {
+    const somePoint = dayjs('2023-08-01');
+    const { rerender, container } = render(<DatePicker value={somePoint} />);
+    expect(getClearButton()).toBeTruthy();
+
+    rerender(<DatePicker value={somePoint} allowClear={false} />);
+    expect(getClearButton()).toBeFalsy();
+
+    rerender(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />);
+    expect(getClearButton()).toBeTruthy();
+
+    rerender(
+      <DatePicker
+        value={somePoint}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+      />,
+    );
+    expect(getClearButton()).toBeTruthy();
+    expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+
+    rerender(<DatePicker value={somePoint} allowClear={{}} />);
+    expect(getClearButton()).toBeTruthy();
+  });
+
+  it('suffixIcon', () => {
+    const { rerender, container } = render(<DatePicker />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon />);
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
+
+    rerender(<DatePicker suffixIcon={false} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={null} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
+
+    rerender(<DatePicker suffixIcon={'123'} />);
+    expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
+    expect(container.children).toMatchSnapshot();
+  });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(dayjs('2018-10-19').valueOf());
+
+    const { container } = render(
+      <DatePicker
+        open
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
+      />,
+    );
+
+    expect(container.querySelector('.ant-picker-content thead')).toHaveTextContent(
+      '一二三四五六日',
+    );
+
+    expect(container.querySelector<HTMLInputElement>('input')).toHaveAttribute(
+      'placeholder',
+      'Select date',
+    );
+
+    MockDate.reset();
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<DatePicker suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+
+    it('should support global colorErrorAffix token for error status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorErrorAffix: '#12abcd' } }}>
+          <DatePicker status="error" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      });
+    });
+
+    it('should support global colorWarningAffix token for warning status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorWarningAffix: '#12abcd' } }}>
+          <DatePicker status="warning" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+      });
+    });
+  });
+
+  describe('allowClear', () => {
+    it('should support allowClear prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(<DatePicker value={somePoint} allowClear={false} />);
+      expect(getClearButton()).toBeFalsy();
+
+      render(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />, {
+        container,
+      });
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should support allowClear prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeFalsy();
+
+      render(
+        <ConfigProvider datePicker={{ allowClear: { clearIcon: <CloseCircleFilled /> } }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+        { container },
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should prefer allowClear prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should trigger onClear when click clear button', () => {
+      const onClear = jest.fn();
+      const somePoint = dayjs('2023-08-01');
+
+      render(<DatePicker defaultValue={somePoint} onClear={onClear} />);
+
+      fireEvent.click(getClearButton()!);
+
+      expect(onClear).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support clearIcon prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <DatePicker
+          value={somePoint}
+          allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+        />,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should support clearIcon prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="custom-clear" /> } }}
+        >
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should prefer clearIcon prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="config-clear" /> } }}
+        >
+          <DatePicker
+            value={somePoint}
+            allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="config-clear"]')).toBeFalsy();
+    });
   });
 });

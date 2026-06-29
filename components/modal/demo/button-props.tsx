@@ -8,13 +8,11 @@ const App: React.FC = () => {
     setOpen(true);
   };
 
-  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e);
+  const handleOk = () => {
     setOpen(false);
   };
 
-  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e);
+  const handleCancel = () => {
     setOpen(false);
   };
 

@@ -42,7 +42,7 @@ const options: Option[] = [
   },
 ];
 
-const dropdownRender = (menus: React.ReactNode) => (
+const popupRender = (menus: React.ReactNode) => (
   <div>
     {menus}
     <Divider style={{ margin: 0 }} />
@@ -51,7 +51,7 @@ const dropdownRender = (menus: React.ReactNode) => (
 );
 
 const App: React.FC = () => (
-  <Cascader options={options} dropdownRender={dropdownRender} placeholder="Please select" />
+  <Cascader options={options} popupRender={popupRender} placeholder="Please select" />
 );
 
 export default App;

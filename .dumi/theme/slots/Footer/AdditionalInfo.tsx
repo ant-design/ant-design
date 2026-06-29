@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { updateCSS, removeCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { removeCSS, updateCSS } from '@rc-component/util';
+import { createStaticStyles } from 'antd-style';
+
 import useLocale from '../../../hooks/useLocale';
 
 const whereCls = 'ant-where-checker';
@@ -18,9 +20,38 @@ const locales = {
   },
 };
 
+const styles = createStaticStyles(({ css, cssVar }) => ({
+  container: css`
+    position: fixed;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99999999;
+    background-color: ${cssVar.colorTextSecondary};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  alertBox: css`
+    border: 1px solid ${cssVar.colorWarningBorder};
+    background-color: ${cssVar.colorWarningBg};
+    color: ${cssVar.colorTextHeading};
+    padding: ${cssVar.paddingXS} ${cssVar.paddingSM};
+    border-radius: ${cssVar.borderRadiusLG};
+    z-index: 9999999999;
+    line-height: 22px;
+    width: 520px;
+    a {
+      color: ${cssVar.colorPrimary};
+      text-decoration-line: none;
+    }
+  `,
+}));
+
 // Check for browser support `:where` or not
 // Warning user if not support to modern browser
-export default function InfoNewVersion() {
+const InfoNewVersion: React.FC = () => {
   const [location] = useLocale(locales);
   const [supportWhere, setSupportWhere] = React.useState(true);
 
@@ -30,59 +61,36 @@ export default function InfoNewVersion() {
     p.style.position = 'fixed';
     p.style.pointerEvents = 'none';
     p.style.visibility = 'hidden';
-    p.style.opacity = '0';
+    p.style.width = '0';
     document.body.appendChild(p);
     updateCSS(
       `
 :where(.${whereCls}) {
-  opacity: 0.3 !important;
+  content: "__CHECK__";
 }
     `,
       whereCls,
     );
 
     // Check style
-    const { opacity } = getComputedStyle(p);
-    setSupportWhere(String(opacity) === '0.3');
+    const { content } = getComputedStyle(p);
+    setSupportWhere(String(content).includes('CHECK'));
 
-    return () => {
-      document.body.removeChild(p);
-      removeCSS(whereCls);
-    };
+    document.body.removeChild(p);
+    removeCSS(whereCls);
   }, []);
 
-  return supportWhere ? null : (
-    <div
-      style={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        zIndex: 99999999,
-        background: 'rgba(0,0,0,0.65)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          border: `1px solid #ffe58f`,
-          background: '#fffbe6',
-          color: 'rgba(0,0,0,0.88)',
-          padding: '8px 12px',
-          borderRadius: '8px',
-          zIndex: 9999999999,
-          lineHeight: '22px',
-          width: 520,
-        }}
-      >
-        {location.whereNotSupport}{' '}
-        <a style={{ color: '#1677ff', textDecoration: 'none' }} href={location.whereDocUrl}>
-          {location.whereDocTitle}
-        </a>
+  if (supportWhere) {
+    return null;
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.alertBox}>
+        {location.whereNotSupport} <a href={location.whereDocUrl}>{location.whereDocTitle}</a>
       </div>
     </div>
   );
-}
+};
+
+export default InfoNewVersion;

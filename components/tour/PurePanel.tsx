@@ -1,9 +1,13 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
+
+import { useClosable } from '../_util/hooks';
+import { withPureRenderTheme } from '../_util/PurePanel';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
-import type { TourStepProps } from './interface';
-import panelRender from './panelRender';
 import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
+import type { TourStepProps } from './interface';
+import TourPanel from './panelRender';
 import useStyle from './style';
 
 export interface PurePanelProps extends TourStepProps {}
@@ -16,36 +20,43 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     className,
     style,
     type,
+    closable,
+    closeIcon,
     ...restProps
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const node = panelRender(
-    {
-      ...restProps,
-      prefixCls,
-      total,
-    },
-    current,
-    type,
-  );
+  const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
+    closable: true,
+    closeIconRender: (icon) =>
+      React.isValidElement<{ className?: string }>(icon)
+        ? cloneElement(icon, { className: clsx(icon.props?.className, `${prefixCls}-close-icon`) })
+        : icon,
+  });
 
-  return wrapSSR(
+  return (
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`)}
+      className={clsx(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`, cssVarCls)}
       style={style}
     >
-      {node}
-    </PopoverRawPurePanel>,
+      <TourPanel
+        stepProps={{
+          ...restProps,
+          prefixCls,
+          total,
+          closable: mergedClosable ? { closeIcon: mergedCloseIcon } : undefined,
+        }}
+        current={current}
+        type={type}
+      />
+    </PopoverRawPurePanel>
   );
-
-  // return node as React.ReactElement;
 };
 
-export default PurePanel;
+export default withPureRenderTheme(PurePanel);

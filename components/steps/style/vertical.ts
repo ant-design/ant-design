@@ -1,72 +1,55 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
-const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
-
+const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, marginXXS, paddingSM, controlHeight, antCls, calc } = token;
+  const itemCls = `${componentCls}-item`;
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
   return {
-    [`&${componentCls}-vertical`]: {
-      display: 'flex',
+    [`${componentCls}-vertical`]: {
+      [varName('vertical-rail-margin')]: calc(marginXXS).mul(1.5).equal(),
+
       flexDirection: 'column',
+      alignItems: 'stretch',
 
-      [`> ${componentCls}-item`]: {
-        display: 'block',
-        flex: '1 0 auto',
-        paddingInlineStart: 0,
-        overflow: 'visible',
+      // Item
+      [`> ${itemCls}`]: {
+        minHeight: calc(controlHeight).mul(1.5).equal(),
+        paddingBottom: paddingSM,
 
-        [`${componentCls}-item-icon`]: {
-          float: 'left',
-          marginInlineEnd: token.margin,
+        '&:last-child': {
+          paddingBottom: 0,
         },
-        [`${componentCls}-item-content`]: {
-          display: 'block',
-          minHeight: token.controlHeight * 1.5,
-          overflow: 'hidden',
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsIconSize}px`,
-        },
-        [`${componentCls}-item-description`]: {
-          paddingBottom: token.paddingSM,
-        },
-      },
-      [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineStart: token.stepsIconSize / 2 - token.lineWidth,
-        width: token.lineWidth,
-        height: '100%',
-        padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
 
-        '&::after': {
-          width: token.lineWidth,
-          height: '100%',
+        // Icon
+        [`${itemCls}-icon`]: {
+          marginInlineStart: `calc((${varRef('icon-size-max')} - ${varRef('icon-size')}) / 2)`,
         },
-      },
-      [`> ${componentCls}-item:not(:last-child) > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          display: 'block',
-        },
-      [` > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-content > ${componentCls}-item-title`]:
-        {
-          '&::after': {
-            display: 'none',
-          },
-        },
-      [`&${componentCls}-small ${componentCls}-item-container`]: {
-        [`${componentCls}-item-tail`]: {
+
+        // >>> Rail
+        [`${itemCls}-rail`]: {
+          [varName('rail-offset')]: calc(varRef('heading-height'))
+            .sub(varRef('icon-size'))
+            .div(2)
+            .equal(),
+
+          borderInlineStartWidth: varRef('rail-size'),
           position: 'absolute',
-          top: 0,
-          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth,
-          padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsSmallIconSize}px`,
+          top: calc(varRef('icon-size'))
+            .add(varRef('item-wrapper-padding-top'))
+            .add(varRef('rail-offset'))
+            .add(varRef('vertical-rail-margin'))
+            .equal(),
+          insetInlineStart: calc(varRef('icon-size-max')).div(2).equal(),
+          bottom: calc(varRef('vertical-rail-margin')).sub(varRef('rail-offset')).equal(),
+          marginInlineStart: `calc(${varRef('rail-size')} / -2)`,
         },
       },
     },
   };
 };
-export default genStepsVerticalStyle;
+
+export default genVerticalStyle;

@@ -1,0 +1,973 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Tree checkable node align (debug) RTL: checkbox still uses block-axis margin (not swapped with inline) 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-rtl css-var-root"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 480px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Single-line parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Single-line parent
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-a"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-a"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Leaf A"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Leaf A
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) RTL: checkbox still uses block-axis margin (not swapped with inline) 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "24px",
+  },
+}
+`;
+
+exports[`Tree checkable node align (debug) blockNode + checkable + wrapping parent (flex stretch on content) 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-block-node css-var-root"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 200px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Parent with a deliberately long title so it wraps to several lines when the tree has a narrow width"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Parent with a deliberately long title so it wraps to several lines when the tree has a narrow width
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-c"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-c"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Child whose label is also long enough to verify multi-line rows under a wrapping parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Child whose label is also long enough to verify multi-line rows under a wrapping parent
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) blockNode + checkable + wrapping parent (flex stretch on content) 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "24px",
+  },
+}
+`;
+
+exports[`Tree checkable node align (debug) custom component token titleHeight (larger row): margin offset scales 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 480px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Single-line parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Single-line parent
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-a"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-a"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Leaf A"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Leaf A
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) custom component token titleHeight (larger row): margin offset scales 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "40px",
+  },
+}
+`;
+
+exports[`Tree checkable node align (debug) custom component token titleHeight (tight row) 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 480px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Single-line parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Single-line parent
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-a"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-a"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Leaf A"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Leaf A
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) custom component token titleHeight (tight row) 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "20px",
+  },
+}
+`;
+
+exports[`Tree checkable node align (debug) default token: multi-line parent and child 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide css-var-root"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 200px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Parent with a deliberately long title so it wraps to several lines when the tree has a narrow width"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Parent with a deliberately long title so it wraps to several lines when the tree has a narrow width
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-c"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-c"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Child whose label is also long enough to verify multi-line rows under a wrapping parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Child whose label is also long enough to verify multi-line rows under a wrapping parent
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) default token: multi-line parent and child 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "24px",
+  },
+}
+`;
+
+exports[`Tree checkable node align (debug) default token: single-line parent 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide css-var-root"
+>
+  <div
+    aria-hidden="true"
+    class="ant-tree-treenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+  >
+    <div
+      class="ant-tree-indent"
+    >
+      <div
+        class="ant-tree-indent-unit"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-tree-list"
+    role="tree"
+    style="width: 480px; position: relative;"
+    tabindex="0"
+  >
+    <div
+      class="ant-tree-list-holder"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-expanded="true"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            draggable="false"
+            id="test-id-p"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            />
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="Single-line parent"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Single-line parent
+              </span>
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+            draggable="false"
+            id="test-id-p-a"
+            role="treeitem"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              aria-checked="false"
+              aria-labelledby="test-id-p-a"
+              class="ant-tree-checkbox"
+              role="checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="Leaf A"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                Leaf A
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree checkable node align (debug) default token: single-line parent 2`] = `
+{
+  "checkboxRows": [
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 0,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+    {
+      "alignSelf": "flex-start",
+      "flexShrink": "0",
+      "index": 1,
+      "marginBlockStart": "calc((var(--ant-tree-title-height) - var(--ant-control-interactive-size)) / 2)",
+      "marginTop": "0px",
+    },
+  ],
+  "treeVars": {
+    "controlInteractiveSize": "16px",
+    "titleHeight": "24px",
+  },
+}
+`;

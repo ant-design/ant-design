@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
+import type { AutoCompleteProps } from 'antd';
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
@@ -7,13 +8,11 @@ const mockVal = (str: string, repeat = 1) => ({
 
 const App: React.FC = () => {
   const [value, setValue] = useState('');
-  const [options, setOptions] = useState<{ value: string }[]>([]);
+  const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
+  const [anotherOptions, setAnotherOptions] = useState<AutoCompleteProps['options']>([]);
 
-  const onSearch = (searchText: string) => {
-    setOptions(
-      !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)],
-    );
-  };
+  const getPanelValue = (searchText: string) =>
+    !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
 
   const onSelect = (data: string) => {
     console.log('onSelect', data);
@@ -29,17 +28,19 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         onSelect={onSelect}
-        onSearch={onSearch}
+        showSearch={{
+          onSearch: (text) => setOptions(getPanelValue(text)),
+        }}
         placeholder="input here"
       />
       <br />
       <br />
       <AutoComplete
         value={value}
-        options={options}
+        showSearch={{ onSearch: (text) => setAnotherOptions(getPanelValue(text)) }}
+        options={anotherOptions}
         style={{ width: 200 }}
         onSelect={onSelect}
-        onSearch={onSearch}
         onChange={onChange}
         placeholder="control mode"
       />

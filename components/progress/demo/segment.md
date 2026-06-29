@@ -1,7 +1,7 @@
 ## zh-CN
 
-标准的进度条。`type="circle|dashboard"` 时不支持分段颜色。
+分段展示进度，可以用于细化进度语义。
 
 ## en-US
 
-A standard progress bar. Doesn't support trail color when `type="circle|dashboard"`.
+Show several parts of progress with different status.

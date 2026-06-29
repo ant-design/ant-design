@@ -4,4 +4,4 @@
 
 ## en-US
 
-Allow only select parent options.
+Allows the selection of only parent options.

@@ -1,0 +1,56 @@
+# 当 PR 被合并时，留言欢迎加入共建群
+name: PullRequest Contributor Welcome
+
+on:
+  pull_request_target:
+    types:
+      - closed
+    paths:
+      - 'components/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  comment:
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    # Only run for merged PRs on the main repo
+    if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: get commit count
+        id: get_commit_count
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Validate username format (GitHub usernames: alphanumeric and hyphens, max 39 chars)
+          if ! [[ "$PR_AUTHOR" =~ ^[a-zA-Z0-9-]{1,39}$ ]]; then
+            echo "Invalid username format, skipping"
+            echo "COUNT=999" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          RESULT_DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/${{ github.repository }}/commits?author=${PR_AUTHOR}&per_page=5")
+          DATA_LENGTH=$(echo $RESULT_DATA | jq 'if type == "array" then length else 0 end')
+          echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
+      - name: Comment on PR
+        if: steps.get_commit_count.outputs.COUNT < 3
+        uses: actions-cool/maintain-one-comment-backup@fbbc22ad1809c1bcf46f19b58397b6254773588c
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            🎉 Thank you for your contribution! If you have not yet joined our DingTalk community group, please feel free to join us (when joining, please provide the link to this PR).
+
+            🎉 感谢您的贡献！如果您还没有加入钉钉社区群，请扫描下方二维码加入我们（加群时请提供此 PR 链接）。
+
+            <img alt="钉钉社区群二维码" src="https://github.com/user-attachments/assets/bb99df70-b3aa-40d3-958a-cb6822a3c584" height="200" />
+
+            <!-- WELCOME_CONTRIBUTION -->
+          body-include: <!-- WELCOME_CONTRIBUTION -->

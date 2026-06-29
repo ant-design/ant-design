@@ -1,146 +1,147 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { textEllipsis } from '../../style';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
-const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    stepsNavContentMaxWidth,
-    stepsNavArrowColor,
-    stepsNavActiveColor,
+    fontSizeIcon,
+    navContentMaxWidth,
+    navArrowColor,
+    colorPrimary,
     motionDurationSlow,
+    antCls,
+    calc,
   } = token;
 
+  const itemCls = `${componentCls}-item`;
+
+  const stepsNavActiveColor = colorPrimary;
+
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
   return {
-    [`&${componentCls}-navigation`]: {
-      paddingTop: token.paddingSM,
+    [`${componentCls}${componentCls}-navigation`]: {
+      // ==========================================================
+      // ==                        Shared                        ==
+      // ==========================================================
+      // ========================== Item ==========================
+      [itemCls.repeat(4)]: {
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'relative',
+        flex: 1,
+        marginInlineStart: 0,
 
-      [`&${componentCls}-small`]: {
-        [`${componentCls}-item`]: {
-          '&-container': {
-            marginInlineStart: -token.marginSM,
-          },
-        },
-      },
-
-      [`${componentCls}-item`]: {
-        overflow: 'visible',
-        textAlign: 'center',
-
-        '&-container': {
-          display: 'inline-block',
-          height: '100%',
-          marginInlineStart: -token.margin,
-          paddingBottom: token.paddingSM,
-          textAlign: 'start',
-          transition: `opacity ${motionDurationSlow}`,
-
-          [`${componentCls}-item-content`]: {
-            maxWidth: stepsNavContentMaxWidth,
-          },
-
-          [`${componentCls}-item-title`]: {
-            maxWidth: '100%',
-            paddingInlineEnd: 0,
-            ...textEllipsis,
-
-            '&::after': {
-              display: 'none',
-            },
-          },
+        [`${itemCls}-wrapper`]: {
+          paddingBlock: token.paddingSM,
         },
 
-        [`&:not(${componentCls}-item-active)`]: {
-          [`${componentCls}-item-container[role='button']`]: {
-            cursor: 'pointer',
-
-            '&:hover': {
-              opacity: 0.85,
-            },
-          },
+        // Section
+        [`${itemCls}-section`]: {
+          maxWidth: navContentMaxWidth,
         },
 
-        '&:last-child': {
-          flex: 1,
-
-          '&::after': {
-            display: 'none',
-          },
+        // Rail
+        [`${itemCls}-rail`]: {
+          display: 'none',
         },
 
-        '&::after': {
+        // ======================== Active ========================
+        '&:before': {
           position: 'absolute',
-          top: `calc(50% - ${token.paddingSM / 2}px)`,
-          insetInlineStart: '100%',
-          display: 'inline-block',
-          width: token.fontSizeIcon,
-          height: token.fontSizeIcon,
-          borderTop: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
-          borderBottom: 'none',
-          borderInlineStart: 'none',
-          borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
-          transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
-          content: '""',
-        },
-
-        '&::before': {
-          position: 'absolute',
-          bottom: 0,
-          insetInlineStart: '50%',
-          display: 'inline-block',
-          width: 0,
-          height: token.lineWidthBold,
+          display: 'block',
           backgroundColor: stepsNavActiveColor,
-          transition: `width ${motionDurationSlow}, inset-inline-start ${motionDurationSlow}`,
+          transition: `all ${motionDurationSlow}`,
           transitionTimingFunction: 'ease-out',
           content: '""',
         },
-      },
 
-      [`${componentCls}-item${componentCls}-item-active::before`]: {
-        insetInlineStart: 0,
-        width: '100%',
-      },
-    },
-
-    [`&${componentCls}-navigation${componentCls}-vertical`]: {
-      [`> ${componentCls}-item`]: {
-        marginInlineEnd: 0,
-
-        '&::before': {
-          display: 'none',
-        },
-        [`&${componentCls}-item-active::before`]: {
-          top: 0,
-          insetInlineEnd: 0,
-          insetInlineStart: 'unset',
+        '&:not(:last-child):after': {
+          position: 'absolute',
           display: 'block',
-          width: token.lineWidth * 3,
-          height: `calc(100% - ${token.marginLG}px)`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${navArrowColor}`,
+          borderBottom: 'none',
+          borderInlineStart: 'none',
+          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${navArrowColor}`,
+          content: '""',
         },
 
-        '&::after': {
-          position: 'relative',
-          insetInlineStart: '50%',
-          display: 'block',
-          width: token.controlHeight * 0.25,
-          height: token.controlHeight * 0.25,
-          marginBottom: token.marginXS,
-          textAlign: 'center',
-          transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
-        },
-        [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          visibility: 'hidden',
+        // Reset active item style to same as default
+        [`&${itemCls}-active`]: {
+          [varName('item-content-active-color')]: varRef('item-content-color'),
+          [varName('item-icon-active-bg-color')]: varRef('item-icon-bg-color'),
+          [varName('item-icon-active-border-color')]: varRef('item-icon-border-color'),
+          [varName('item-icon-active-text-color')]: varRef('item-icon-text-color'),
         },
       },
-    },
 
-    [`&${componentCls}-navigation${componentCls}-horizontal`]: {
-      [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        visibility: 'hidden',
+      // ==========================================================
+      // ==                       Horizontal                     ==
+      // ==========================================================
+      [`&${componentCls}-horizontal`]: {
+        [itemCls]: {
+          '&:before': {
+            bottom: 0,
+            insetInlineStart: '50%',
+            width: 0,
+            height: token.lineWidthBold,
+          },
+
+          [`&${itemCls}-active:before`]: {
+            insetInlineStart: 0,
+            width: '100%',
+          },
+
+          '&:not(:last-child):after': {
+            top: `50%`,
+            insetInlineStart: calc(fontSizeIcon).div(2).mul(-1).add('100%').equal(),
+            width: fontSizeIcon,
+            height: fontSizeIcon,
+            transform: 'translateY(-50%) rotate(45deg)',
+          },
+        },
       },
+
+      // ==========================================================
+      // ==                        Vertical                      ==
+      // ==========================================================
+      [`&${componentCls}-vertical`]: {
+        [itemCls.repeat(4)]: {
+          [`${itemCls}-content`]: {
+            padding: 0,
+          },
+
+          '&:before': {
+            insetInlineEnd: 0,
+            top: '50%',
+            width: token.lineWidthBold,
+            height: 0,
+          },
+
+          [`&${itemCls}-active::before`]: {
+            top: 0,
+            height: '100%',
+          },
+
+          '&:not(:last-child):after': {
+            left: {
+              _skip_check_: true,
+              value: '50%',
+            },
+            top: '100%',
+            width: calc(fontSizeIcon).div(3).mul(2).equal(),
+            height: calc(fontSizeIcon).div(3).mul(2).equal(),
+            transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
+          },
+        },
+      },
+
+      // ========================= Legacy =========================
     },
   };
 };
-export default genStepsNavStyle;
+export default genLegacyNavStyle;

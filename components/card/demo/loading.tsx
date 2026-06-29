@@ -1,45 +1,43 @@
 import React, { useState } from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Skeleton, Switch } from 'antd';
+import { Avatar, Card, Flex, Switch } from 'antd';
 
-const { Meta } = Card;
+const actions: React.ReactNode[] = [
+  <EditOutlined key="edit" />,
+  <SettingOutlined key="setting" />,
+  <EllipsisOutlined key="ellipsis" />,
+];
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  const onChange = (checked: boolean) => {
-    setLoading(!checked);
-  };
-
+  const [loading, setLoading] = useState<boolean>(true);
   return (
-    <>
-      <Switch checked={!loading} onChange={onChange} />
-
-      <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
-        <Meta
-          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+    <Flex gap="medium" align="start" vertical>
+      <Switch checked={!loading} onChange={(checked) => setLoading(!checked)} />
+      <Card loading={loading} actions={actions} style={{ minWidth: 300 }}>
+        <Card.Meta
+          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=1" />}
           title="Card title"
-          description="This is the description"
+          description={
+            <>
+              <p>This is the description</p>
+              <p>This is the description</p>
+            </>
+          }
         />
       </Card>
-
-      <Card
-        style={{ width: 300, marginTop: 16 }}
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
-      >
-        <Skeleton loading={loading} avatar active>
-          <Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-            title="Card title"
-            description="This is the description"
-          />
-        </Skeleton>
+      <Card loading={loading} actions={actions} style={{ minWidth: 300 }}>
+        <Card.Meta
+          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=2" />}
+          title="Card title"
+          description={
+            <>
+              <p>This is the description</p>
+              <p>This is the description</p>
+            </>
+          }
+        />
       </Card>
-    </>
+    </Flex>
   );
 };
 

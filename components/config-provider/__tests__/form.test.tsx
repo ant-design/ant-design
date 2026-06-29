@@ -1,19 +1,32 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import type { ValidateMessages } from '@rc-component/form';
+import scrollIntoView from 'scroll-into-view-if-needed';
+
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 
+jest.mock('scroll-into-view-if-needed');
+
 describe('ConfigProvider.Form', () => {
+  (scrollIntoView as any).mockImplementation(() => {});
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
+  beforeEach(() => {
+    (scrollIntoView as any).mockReset();
+  });
+
   afterAll(() => {
     jest.useRealTimers();
+    (scrollIntoView as any).mockRestore();
   });
 
   describe('form validateMessages', () => {
@@ -40,7 +53,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -63,7 +76,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -81,6 +94,95 @@ describe('ConfigProvider.Form', () => {
 
       expect(explains[0]).toHaveTextContent('必须');
       expect(explains[explains.length - 1]).toHaveTextContent('年龄必须等于17');
+    });
+
+    it('nested description should use the default value of this warehouse first', async () => {
+      const validateMessages: ValidateMessages = {
+        number: {
+          // eslint-disable-next-line no-template-curly-in-string
+          max: '${label} 最大值为 ${max}',
+          /**
+           * Intentionally not filling `range` to test default message
+           * default: https://github.com/ant-design/ant-design/blob/12596a06f2ff88d8a27e72f6f9bac7c63a0b2ece/components/locale/en_US.ts#L123
+           */
+          // range:
+        },
+      };
+
+      const formRef = React.createRef<FormInstance>();
+      const { container } = render(
+        <ConfigProvider form={{ validateMessages }}>
+          <Form ref={formRef} initialValues={{ age: 1, rate: 6 }}>
+            <Form.Item name="rate" rules={[{ type: 'number', max: 5 }]}>
+              <InputNumber />
+            </Form.Item>
+            <Form.Item name="age" rules={[{ type: 'number', max: 99, min: 18 }]}>
+              <InputNumber />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      await act(async () => {
+        try {
+          await formRef.current?.validateFields();
+        } catch {
+          // Do nothing
+        }
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+        await Promise.resolve();
+      });
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(container.querySelectorAll('.ant-form-item-explain')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-explain')[0]).toHaveTextContent(
+        'rate 最大值为 5',
+      );
+      expect(container.querySelectorAll('.ant-form-item-explain')[1]).toHaveTextContent(
+        'age must be between 18-99',
+      );
+    });
+
+    // https://github.com/ant-design/ant-design/issues/43210
+    it('should merge parent ConfigProvider validateMessages', async () => {
+      const MyForm = () => (
+        <Form>
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form>
+      );
+
+      const { container, getAllByRole, getAllByText } = render(
+        <ConfigProvider>
+          <MyForm />
+          <ConfigProvider form={{ validateMessages: { required: 'Required' } }}>
+            <MyForm />
+            <ConfigProvider>
+              <MyForm />
+            </ConfigProvider>
+          </ConfigProvider>
+        </ConfigProvider>,
+      );
+
+      const submitButtons = getAllByRole('button');
+      expect(submitButtons).toHaveLength(3);
+      submitButtons.forEach(fireEvent.click);
+
+      await waitFakeTimer();
+
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
+      expect(getAllByText('Please enter Name')).toHaveLength(1);
+      expect(getAllByText('Required')).toHaveLength(2);
     });
   });
 
@@ -127,6 +229,62 @@ describe('ConfigProvider.Form', () => {
     });
   });
 
+  describe('form labelAlign', () => {
+    it('set labelAlign left', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeTruthy();
+    });
+
+    it('form labelAlign should override ConfigProvider labelAlign', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form labelAlign="right">
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeFalsy();
+    });
+  });
+
+  describe('form labelWrap', () => {
+    it('set labelWrap true', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelWrap: true }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-wrap')).toBeTruthy();
+    });
+
+    it('form labelWrap should override ConfigProvider labelWrap', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelWrap: true }}>
+          <Form labelWrap={false}>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-wrap')).toBeFalsy();
+    });
+  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(
@@ -144,6 +302,91 @@ describe('ConfigProvider.Form', () => {
 
       expect(container.querySelector('#input1[disabled]')).toBeFalsy();
       expect(container.querySelector('#input[disabled]')).toBeTruthy();
+    });
+  });
+
+  describe('form scrollToFirstError', () => {
+    it('set object, form not set', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+          <Form onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
+    });
+
+    it('not set, form set object', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider>
+          <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
+    });
+
+    it('set object, form set false', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+          <Form scrollToFirstError={false} onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(onFinishFailed).toHaveBeenCalled();
     });
   });
 });

@@ -15,74 +15,26 @@ permissions:
   contents: read
 
 jobs:
-  # Prepare node modules. Reuse cache if available
-  setup:
-    name: prepare preview
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: cache package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
-
   build-site:
     name: build preview
     runs-on: ubuntu-latest
-    needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: npm run site
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
+      - run: ut
+      - name: ut site
         id: site
-        run: npm run site
+        run: ut site
         env:
-          SITE_ENV: development
           NODE_OPTIONS: --max_old_space_size=4096
-
+      - name: run e2e test
+        run: ut test:site
       - name: upload site artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: site
           path: _site/
           retention-days: 5
-
       # Upload PR id for next workflow use
       - name: Save PR number
         if: ${{ always() }}
@@ -90,7 +42,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: pr
           path: ./pr-id.txt

@@ -1,8 +1,15 @@
 import React from 'react';
-import type { FloatButtonShape } from './interface';
 
-const FloatButtonGroupContext = React.createContext<FloatButtonShape | undefined>(undefined);
+import type { FloatButtonProps, FloatButtonShape } from './FloatButton';
 
-export const { Provider: FloatButtonGroupProvider } = FloatButtonGroupContext;
+export interface GroupContextProps {
+  shape: FloatButtonShape;
+  /** Current Buttons are in same container or individual */
+  individual: boolean;
+  /** FloatButton classNames */
+  classNames?: FloatButtonProps['classNames'];
+  /** FloatButton styles */
+  styles?: FloatButtonProps['styles'];
+}
 
-export default FloatButtonGroupContext;
+export const GroupContext = React.createContext<GroupContextProps | null>(null);

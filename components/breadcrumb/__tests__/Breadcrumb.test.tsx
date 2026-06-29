@@ -1,10 +1,13 @@
 import React from 'react';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+
+import Breadcrumb from '..';
+import type { GetProp } from '../../_util/type';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
-import type { Route } from '../Breadcrumb';
-import Breadcrumb from '../index';
+import { render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
@@ -33,16 +36,57 @@ describe('Breadcrumb', () => {
     );
   });
 
-  it('overlay deprecation warning', () => {
+  it('warns on routes', () => {
+    render(
+      <Breadcrumb
+        routes={[
+          {
+            breadcrumbName: 'yyy',
+          } as any,
+        ]}
+      />,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb] `routes` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('should render correct', () => {
+    const { asFragment } = render(
+      <Breadcrumb
+        items={[
+          {
+            path: '',
+            title: <span>xxx</span>,
+          },
+          {
+            title: 'yyy',
+          },
+        ]}
+      />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('Breadcrumb.Item deprecation warning', () => {
     render(
       <Breadcrumb>
-        <Breadcrumb.Item overlay={<div>menu</div>}>
-          <a href="">General</a>
-        </Breadcrumb.Item>
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
       </Breadcrumb>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('Breadcrumb.separator deprecation warning', () => {
+    render(
+      <Breadcrumb>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+      </Breadcrumb>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
     );
   });
 
@@ -55,18 +99,23 @@ describe('Breadcrumb', () => {
         {undefined}
       </Breadcrumb>,
     );
-    expect(errorSpy).not.toHaveBeenCalled();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/5542
   it('should not display Breadcrumb Item when its children is falsy', () => {
     const { asFragment } = render(
-      <Breadcrumb>
-        <Breadcrumb.Item />
-        <Breadcrumb.Item>xxx</Breadcrumb.Item>
-        <Breadcrumb.Item>yyy</Breadcrumb.Item>
-      </Breadcrumb>,
+      <Breadcrumb
+        items={[
+          {} as any,
+          {
+            title: 'xxx',
+          },
+          {
+            title: 'yyy',
+          },
+        ]}
+      />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -87,53 +136,65 @@ describe('Breadcrumb', () => {
   });
 
   it('should render a menu', () => {
-    const routes: Route[] = [
+    const items: ItemType[] = [
       {
         path: 'index',
-        breadcrumbName: 'home',
+        title: 'home',
       },
       {
         path: 'first',
-        breadcrumbName: 'first',
-        children: [
-          {
-            path: '/general',
-            breadcrumbName: 'General',
-          },
-          {
-            path: '/layout',
-            breadcrumbName: 'Layout',
-          },
-          {
-            path: '/navigation',
-            breadcrumbName: 'Navigation',
-          },
-        ],
+        title: 'first',
+        menu: {
+          items: [
+            {
+              path: '/general',
+              title: 'General',
+            },
+            {
+              path: '/layout',
+              title: 'Layout',
+            },
+            {
+              path: '/navigation',
+              title: 'Navigation',
+            },
+          ],
+        },
       },
       {
         path: 'second',
-        breadcrumbName: 'second',
+        title: 'second',
       },
       {
         path: 'third',
-        breadcrumbName: '',
+        title: '',
       },
     ];
-    const { asFragment } = render(<Breadcrumb routes={routes} />);
+    const { asFragment } = render(<Breadcrumb items={items} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should accept undefined routes', () => {
-    const { asFragment } = render(<Breadcrumb routes={undefined} />);
+  it('should accept undefined items', () => {
+    const { asFragment } = render(<Breadcrumb items={undefined!} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support custom attribute', () => {
     const { asFragment } = render(
-      <Breadcrumb data-custom="custom">
-        <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
-        <Breadcrumb.Item>yyy</Breadcrumb.Item>
-      </Breadcrumb>,
+      (
+        <Breadcrumb
+          items={[
+            {
+              title: 'xxx',
+              'data-custom': 'custom-item',
+            },
+            {
+              title: 'yyy',
+            },
+          ]}
+          data-custom="custom"
+        />
+      ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -170,35 +231,218 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
-  it('should support string `0` and number `0`', () => {
+
+  it('should support Breadcrumb.Item customized menu items key', () => {
+    const key = 'test-key';
     const { container } = render(
       <Breadcrumb>
-        <Breadcrumb.Item>{0}</Breadcrumb.Item>
-        <Breadcrumb.Item>0</Breadcrumb.Item>
+        <Breadcrumb.Item dropdownProps={{ open: true }} menu={{ items: [{ key }] }}>
+          test-item
+        </Breadcrumb.Item>
       </Breadcrumb>,
+    );
+
+    const item = container.querySelector<HTMLElement>('.ant-dropdown-menu-item');
+
+    expect(item?.getAttribute('data-menu-id')?.endsWith(key)).toBeTruthy();
+  });
+
+  it('should support string `0` and number `0`', () => {
+    const { container } = render(
+      <Breadcrumb
+        items={[
+          {
+            title: 0,
+          },
+          {
+            title: '0',
+          },
+        ]}
+      />,
     );
     expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should console Error when `overlay` in props', () => {
+  it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(
-      <Breadcrumb>
-        <Breadcrumb.Item overlay={<div>test</div>} />
-      </Breadcrumb>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
-    );
+    render(<Breadcrumb items={[{ path: '/', title: 'Test' }]} />);
+    expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
 
-  it('should not console Error when `overlay` not in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Breadcrumb routes={[{ path: '/', breadcrumbName: 'Test' }]} />);
-    expect(errSpy).not.toHaveBeenCalled();
-    errSpy.mockRestore();
+  it('should use `onClick`', async () => {
+    const onClick = jest.fn();
+    const wrapper = render(<Breadcrumb items={[{ title: 'test', onClick }]} />);
+    const item = await wrapper.findByText('test');
+    item.click();
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+  it('should use `className`', async () => {
+    const testClassName = 'testClassName';
+    const wrapper = render(<Breadcrumb items={[{ title: 'test', className: testClassName }]} />);
+    const item = await wrapper.findByText('test');
+    expect(item).toHaveClass(testClassName);
+  });
+
+  it('Breadcrumb.Item menu type', () => {
+    expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
+  });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('should support custom dropdownIcon', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+          },
+        ]}
+        dropdownIcon={<span>foobar</span>}
+      />,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should support custom dropdownIcon in ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should prefer custom dropdownIcon prop than ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+          dropdownIcon={<span>bamboo</span>}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
+  });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(<Breadcrumb<Params> params={{ key1: 1, key2: 'test' }} />).toBeTruthy();
+  });
+
+  it('support classNames and styles', async () => {
+    const customClassNames: Required<GetProp<BreadcrumbProps, 'classNames', 'Return'>> = {
+      root: 'custom-root',
+      item: 'custom-item',
+      separator: 'custom-separator',
+    };
+    const customStyles: Required<GetProp<BreadcrumbProps, 'styles', 'Return'>> = {
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 128, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
+    };
+    const { container } = render(
+      <Breadcrumb
+        styles={customStyles}
+        classNames={customClassNames}
+        items={[
+          {
+            href: '',
+            title: 'Home',
+          },
+          {
+            href: '',
+            title: (
+              <>
+                <span>Application List</span>
+              </>
+            ),
+          },
+          {
+            title: 'Application',
+          },
+        ]}
+      />,
+    );
+
+    const root = container.querySelector<HTMLElement>('.ant-breadcrumb');
+    const item = container.querySelector<HTMLElement>('.custom-item');
+    const separator = container.querySelector<HTMLElement>('.ant-breadcrumb-separator');
+
+    expect(root).toHaveClass(customClassNames.root);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(separator).toHaveClass(customClassNames.separator);
+
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(item).toHaveStyle({ color: customStyles.item.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator.color });
+  });
+
+  it('supports ConfigProvider separator', () => {
+    const { getByText } = render(
+      <ConfigProvider breadcrumb={{ separator: '666' }}>
+        <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
+      </ConfigProvider>,
+    );
+    getByText('666');
   });
 });

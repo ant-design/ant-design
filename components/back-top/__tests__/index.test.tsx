@@ -1,4 +1,5 @@
 import React from 'react';
+
 import BackTop from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -47,7 +48,7 @@ describe('BackTop', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<BackTop />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: BackTop] `BackTop` is deprecated, please use `FloatButton.BackTop` instead.',
+      'Warning: [antd: BackTop] `BackTop` is deprecated. Please use `FloatButton.BackTop` instead.',
     );
     errSpy.mockRestore();
   });

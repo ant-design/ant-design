@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Pagination from '..';
 import { render } from '../../../tests/utils';
 

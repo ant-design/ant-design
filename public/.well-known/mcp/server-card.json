@@ -1,0 +1,34 @@
+{
+  "serverInfo": {
+    "name": "Ant Design Documentation",
+    "version": "1.0.0"
+  },
+  "description": "Ant Design is a React UI library providing 80+ enterprise-class components. Access component documentation, design tokens, theme customization, and migration guides.",
+  "url": "/",
+  "transport": {
+    "type": "webmcp",
+    "endpoint": "/",
+    "description": "Browser WebMCP tool registration is exposed on ant.design pages through navigator.modelContext when the user agent supports it."
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "search-antd-docs",
+      "description": "Search Ant Design component documentation and return relevant documentation entry points.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query for Ant Design documentation."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

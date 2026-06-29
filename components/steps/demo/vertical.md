@@ -4,4 +4,4 @@
 
 ## en-US
 
-A simple step bar in the vertical direction.
+A simple step bar in the vertical orientation.

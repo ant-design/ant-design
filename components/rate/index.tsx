@@ -1,45 +1,97 @@
-import StarFilled from '@ant-design/icons/StarFilled';
-import classNames from 'classnames';
-import RcRate from 'rc-rate';
-import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import StarFilled from '@ant-design/icons/StarFilled';
+import RcRate from '@rc-component/rate';
+import { clsx } from 'clsx';
+
+import { isPlainObject } from '../_util/is';
+import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
+type RateRef = React.ComponentRef<typeof RcRate>;
+type RcRateProps = React.ComponentPropsWithoutRef<typeof RcRate>;
+type RcCharacterRender = NonNullable<RcRateProps['characterRender']>;
+
 export interface RateProps extends RcRateProps {
-  tooltips?: Array<string>;
+  rootClassName?: string;
+  tooltips?: (TooltipProps | string)[];
+  size?: SizeType;
 }
 
-interface RateNodeProps {
-  index: number;
-}
+const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
+  const {
+    prefixCls,
+    className,
+    rootClassName,
+    style,
+    tooltips,
+    character = <StarFilled />,
+    disabled: customDisabled,
+    size,
+    ...rest
+  } = props;
 
-const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
-  const { prefixCls, tooltips, character = <StarFilled />, ...rest } = props;
-  const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
+  const characterRender: RcCharacterRender = (node, { index = 0 }) => {
     if (!tooltips) {
       return node;
     }
-    return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
+
+    const tooltipsItem = tooltips[index];
+
+    if (isPlainObject<TooltipProps>(tooltipsItem)) {
+      return <Tooltip {...tooltipsItem}>{node}</Tooltip>;
+    }
+
+    return <Tooltip title={tooltipsItem}>{node}</Tooltip>;
   };
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('rate');
+
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(ratePrefixCls);
+  const [hashId, cssVarCls] = useStyle(ratePrefixCls);
 
-  return wrapSSR(
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
+  return (
     <RcRate
       ref={ref}
       character={character}
       characterRender={characterRender}
+      disabled={mergedDisabled}
       {...rest}
-      className={classNames(props.className, hashId)}
+      className={clsx(
+        {
+          [`${ratePrefixCls}-large`]: mergedSize === 'large',
+          [`${ratePrefixCls}-small`]: mergedSize === 'small',
+        },
+        className,
+        rootClassName,
+        hashId,
+        cssVarCls,
+        contextClassName,
+      )}
+      style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
-    />,
+    />
   );
 });
 

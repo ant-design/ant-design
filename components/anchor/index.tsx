@@ -13,4 +13,5 @@ type CompoundedComponent = InternalAnchorType & {
 const Anchor = InternalAnchor as CompoundedComponent;
 
 Anchor.Link = AnchorLink;
+
 export default Anchor;

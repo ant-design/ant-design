@@ -1,8 +1,95 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Collapse Collapse.Panel usage 1`] = `
+<div
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-root"
+>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-disabled="false"
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-collapse-expand-icon"
+      >
+        <span
+          aria-label="collapsed"
+          class="anticon anticon-right ant-collapse-arrow"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </div>
+      <span
+        class="ant-collapse-title"
+      >
+        test panel1
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-disabled="false"
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-collapse-expand-icon"
+      >
+        <span
+          aria-label="collapsed"
+          class="anticon anticon-right ant-collapse-arrow"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </div>
+      <span
+        class="ant-collapse-title"
+      >
+        test panel2
+      </span>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Collapse could override default openMotion 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -18,7 +105,7 @@ exports[`Collapse could override default openMotion 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -39,16 +126,16 @@ exports[`Collapse could override default openMotion 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         content
       </div>
@@ -57,9 +144,39 @@ exports[`Collapse could override default openMotion 1`] = `
 </div>
 `;
 
+exports[`Collapse rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-rtl css-var-root"
+/>
+`;
+
+exports[`Collapse rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-collapse-item"
+>
+  <div
+    aria-disabled="false"
+    class="ant-collapse-header"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-collapse-expand-icon"
+    >
+      <i
+        class="arrow"
+      />
+    </div>
+    <span
+      class="ant-collapse-title"
+    />
+  </div>
+</div>
+`;
+
 exports[`Collapse should render extra node of panel 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -75,7 +192,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -95,7 +212,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>
@@ -124,7 +241,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -144,7 +261,7 @@ exports[`Collapse should render extra node of panel 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>
@@ -164,7 +281,7 @@ exports[`Collapse should render extra node of panel 1`] = `
 
 exports[`Collapse should support remove expandIcon 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -177,7 +294,7 @@ exports[`Collapse should support remove expandIcon 1`] = `
       tabindex="0"
     >
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         header
       </span>

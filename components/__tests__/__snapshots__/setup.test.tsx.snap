@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`SetUp.Test diff of React 18 & React 17 1`] = `
+NodeList [
+  <div>
+  bamboo
+  little
+</div>,
+  <div />,
+]
+`;

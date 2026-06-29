@@ -1,0 +1,49 @@
+import React from 'react';
+import { Image, Space } from 'antd';
+
+const App: React.FC = () => {
+  return (
+    <Space>
+      <Image
+        width={100}
+        alt="blur preview"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        preview={{
+          mask: { blur: true },
+          cover: (
+            <Space vertical align="center">
+              blur
+            </Space>
+          ),
+        }}
+      />
+      <Image
+        alt="Dimmed mask preview"
+        width={100}
+        src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+        preview={{
+          cover: (
+            <Space vertical align="center">
+              Dimmed mask
+            </Space>
+          ),
+        }}
+      />
+      <Image
+        width={100}
+        alt="No mask preview"
+        src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+        preview={{
+          mask: false,
+          cover: (
+            <Space vertical align="center">
+              No mask
+            </Space>
+          ),
+        }}
+      />
+    </Space>
+  );
+};
+
+export default App;

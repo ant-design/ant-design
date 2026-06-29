@@ -1,9 +1,27 @@
+import React from 'react';
+
+import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
-import message, { actWrapper } from '..';
-import ConfigProvider from '../../config-provider';
+import App from '../../app';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 describe('message.config', () => {
+  const topInset =
+    'calc(var(--notification-top, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))';
+
   beforeAll(() => {
     actWrapper(act);
   });
@@ -26,12 +44,25 @@ describe('message.config', () => {
     message.config({
       top: 100,
     });
-
     message.info('whatever');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message')).toHaveStyle({
+      top: topInset,
+      '--notification-top': '100px',
+    });
+  });
+
+  it('should be able to config top with string value', async () => {
+    message.config({
+      top: '10vh',
+    });
+
+    message.info('test message');
     await awaitPromise();
 
     expect(document.querySelector('.ant-message')).toHaveStyle({
-      top: '100px',
+      top: topInset,
+      '--notification-top': '10vh',
     });
   });
 
@@ -80,10 +111,10 @@ describe('message.config', () => {
 
     const noticeWithoutLeaving = Array.from(
       document.querySelectorAll('.ant-message-notice'),
-    ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
+    ).filter((ele) => !ele.classList.contains('ant-message-fade-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(5);
-    expect(noticeWithoutLeaving[4].textContent).toEqual('last');
+    expect(noticeWithoutLeaving[4].textContent).toBe('last');
 
     await triggerMotionEnd();
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
@@ -95,7 +126,7 @@ describe('message.config', () => {
 
   it('should be able to config duration', async () => {
     message.config({
-      duration: 0.5,
+      duration: 5,
     });
 
     message.info('last');
@@ -104,9 +135,18 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(100);
+      jest.advanceTimersByTime(4000);
     });
+
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    await triggerMotionEnd();
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 
     message.config({
       duration: undefined,
@@ -121,7 +161,7 @@ describe('message.config', () => {
     message.info('bamboo');
     await awaitPromise();
 
-    expect(document.querySelector('.light-message-move-up')).toBeTruthy();
+    expect(document.querySelector('.light-message-fade')).toBeTruthy();
 
     message.config({
       prefixCls: undefined,
@@ -137,7 +177,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: null! });
   });
 
   it('should be able to config prefixCls', async () => {
@@ -164,7 +204,7 @@ describe('message.config', () => {
     await awaitPromise();
 
     expect(document.querySelector('.ant-message-notice')).toBeTruthy();
-    expect(document.querySelectorAll('.ant-move-up-enter')).toHaveLength(0);
+    expect(document.querySelectorAll('.ant-message-fade-enter')).toHaveLength(0);
     message.config({
       transitionName: undefined,
     });
@@ -193,7 +233,7 @@ describe('message.config', () => {
 
     message.info(messageText1);
     await awaitPromise();
-    expect(container1.querySelector('.ant-message-notice')!.textContent).toEqual(messageText1);
+    expect(container1.querySelector('.ant-message-notice')!.textContent).toBe(messageText1);
 
     // Config will directly change container
     message.config({
@@ -202,11 +242,108 @@ describe('message.config', () => {
     const messageText2 = 'mounted in container2';
 
     message.info(messageText2);
-    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toEqual(
+    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(
       messageText2,
     );
 
     removeContainer1();
     removeContainer2();
+    message.config({ getContainer: undefined });
+  });
+  it('should be able to config holderRender', async () => {
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => (
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
+          {children}
+        </ConfigProvider>
+      ),
+    });
+
+    message.info('last');
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-info-circle')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-message')).toHaveLength(1);
+    expect(document.querySelectorAll('.icon-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ holderRender: undefined });
+  });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: true });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: false });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeFalsy();
+
+    message.config({ rtl: undefined });
+    ConfigProvider.config({ holderRender: undefined });
+  });
+
+  it('should be able to config holderRender and static config', async () => {
+    // level 1
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-1-message')).toHaveLength(1);
+
+    // level 2
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      prefixCls: 'prefix-1',
+      holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-2-message')).toHaveLength(1);
+
+    // level 3
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ prefixCls: 'prefix-3-message' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-3-message')).toHaveLength(1);
+
+    // clear config
+    message.config({ prefixCls: '' });
+    ConfigProvider.config({ prefixCls: '', iconPrefixCls: '', holderRender: undefined });
+  });
+  it('should be able to config holderRender use App', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <App message={{ maxCount: 1 }}>{children}</App>,
+    });
+
+    message.info('last');
+    message.info('last');
+    await awaitPromise();
+    const noticeWithoutLeaving = Array.from(
+      document.querySelectorAll('.ant-message-notice'),
+    ).filter((ele) => !ele.classList.contains('ant-message-fade-leave'));
+
+    expect(noticeWithoutLeaving).toHaveLength(1);
+    ConfigProvider.config({ holderRender: undefined });
   });
 });

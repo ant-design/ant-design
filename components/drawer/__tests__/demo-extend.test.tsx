@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { extendTest } from '../../../tests/shared/demoTest';
 
-jest.mock('rc-drawer', () => {
-  const Drawer = jest.requireActual('rc-drawer');
+jest.mock('@rc-component/drawer', () => {
+  const Drawer = jest.requireActual('@rc-component/drawer');
   const MockDrawer = Drawer.default;
   return (props: any) => {
     const newProps = {

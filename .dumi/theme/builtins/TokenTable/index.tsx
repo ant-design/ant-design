@@ -1,17 +1,22 @@
-import React, { FC, useMemo } from 'react';
-import tokenMeta from 'antd/es/version/token-meta.json';
+import type { FC } from 'react';
+import * as React from 'react';
+import type { TableProps } from 'antd';
+import { Table } from 'antd';
+import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
-import { Table, TableProps, Tag } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
+import BezierVisualizer from '../../common/BezierVisualizer';
+import ColorChunk from '../ColorChunk';
+import { tokenMeta } from '../versionToken';
+import type { GlobalTokenSource } from '../versionToken';
 
 type TokenTableProps = {
-  type: 'seed' | 'map' | 'alias';
+  type: GlobalTokenSource;
   lang: 'zh' | 'en';
 };
 
-type TokenData = {
+export type TokenData = {
   name: string;
   desc: string;
   type: string;
@@ -35,26 +40,23 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const useStyle = createStyles(({ css, cssVar, token }) => ({
+  codeSpan: css`
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: ${token.siteMarkdownCodeBg};
+    border: 1px solid ${cssVar.colorSplit};
+    border-radius: ${cssVar.borderRadiusSM};
+    font-family: monospace;
+  `,
+}));
 
-  return {
-    codeSpan: css`
-      margin: 0 1px;
-      padding: 0.2em 0.4em;
-      font-size: 0.9em;
-      background: ${token.siteMarkdownCodeBg};
-      border: 1px solid ${token.colorSplit};
-      border-radius: 3px;
-      font-family: monospace;
-    `,
-  };
-};
+export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefined> {
+  const [locale] = useLocale(locales);
+  const { styles } = useStyle();
 
-const TokenTable: FC<TokenTableProps> = ({ type }) => {
-  const styles = useStyle();
-  const [locale, lang] = useLocale(locales);
-  const columns: Exclude<TableProps<TokenData>['columns'], undefined> = [
+  return [
     {
       title: locale.token,
       key: 'name',
@@ -64,51 +66,67 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
       title: locale.description,
       key: 'desc',
       dataIndex: 'desc',
-      width: 300,
     },
     {
       title: locale.type,
       key: 'type',
       dataIndex: 'type',
-      render: (_, record) => <span css={styles.codeSpan}>{record.type}</span>,
+      render: (_, record) => <span className={styles.codeSpan}>{record.type}</span>,
     },
     {
       title: locale.value,
       key: 'value',
-      render: (_, record) => (
-        <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-          {typeof record.value === 'string' &&
-            (record.value.startsWith('#') || record.value.startsWith('rgb')) && (
-              <span
-                style={{
-                  background: record.value,
-                  display: 'inline-block',
-                  width: 6,
-                  height: 6,
-                  borderRadius: '50%',
-                  boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.06)',
-                  marginRight: 4,
-                }}
-              ></span>
-            )}
-          {typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value}
-        </span>
-      ),
+      render: (_, record) => {
+        const isColor =
+          typeof record.value === 'string' &&
+          (record.value.startsWith('#') || record.value.startsWith('rgb'));
+        if (isColor) {
+          return (
+            <ColorChunk value={record.value} enablePopover>
+              {record.value}
+            </ColorChunk>
+          );
+        }
+
+        const isBezier =
+          typeof record.value === 'string' &&
+          record.value.toLowerCase().trim().startsWith('cubic-bezier');
+
+        if (isBezier) {
+          return <BezierVisualizer value={record.value} />;
+        }
+        return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
+      },
     },
   ];
+}
 
-  const data = useMemo<TokenData[]>(() => {
-    return tokenMeta[type].map((token) => {
-      return {
-        name: token.name,
-        desc: lang === 'cn' ? token.desc : token.descEn,
-        type: token.type,
-        value: (defaultToken as any)[token.name],
-      };
-    });
-  }, [type, lang]);
+const TokenTable: FC<TokenTableProps> = ({ type }) => {
+  const [, lang] = useLocale(locales);
+  const columns = useColumns();
 
-  return <Table dataSource={data} columns={columns} pagination={false} bordered />;
+  const data = React.useMemo<TokenData[]>(
+    () =>
+      Object.entries(tokenMeta.global)
+        .filter(([, meta]) => meta.source === type)
+        .map(([token, meta]) => ({
+          name: token,
+          desc: lang === 'cn' ? meta.desc : meta.descEn,
+          type: meta.type,
+          value: defaultToken[token as keyof typeof defaultToken],
+        })),
+    [type, lang],
+  );
+
+  return (
+    <Table<TokenData>
+      bordered
+      rowKey={(record) => record.name}
+      dataSource={data}
+      columns={columns}
+      pagination={false}
+    />
+  );
 };
 
 export default TokenTable;

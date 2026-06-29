@@ -1,24 +1,54 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import { pickAttrs } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import type { ConfigConsumerProps } from '../config-provider';
-import { withConfigConsumer } from '../config-provider/context';
+import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
-import type Countdown from './Countdown';
 import StatisticNumber from './Number';
+import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-import useStyle from './style';
+export type StatisticSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+    value?: string /* 👈 6.4.0+ */;
+    title?: string;
+    header?: string;
+    prefix?: string;
+    suffix?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    value?: React.CSSProperties /* 👈 6.4.0+ */;
+    title?: React.CSSProperties;
+    header?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+  };
+};
 
-interface StatisticComponent {
-  Countdown: typeof Countdown;
+export type StatisticSemanticAllType = GenerateSemantic<StatisticSemanticType, StatisticProps>;
+
+export interface StatisticRef {
+  nativeElement: HTMLDivElement;
 }
 
-export interface StatisticProps extends FormatConfig {
+interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
+  classNames?: StatisticSemanticAllType['classNamesAndFn'];
+  styles?: StatisticSemanticAllType['stylesAndFn'];
+  rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
+  /** @deprecated Please use `styles.content` instead */
   valueStyle?: React.CSSProperties;
   valueRender?: (node: React.ReactNode) => React.ReactNode;
   title?: React.ReactNode;
@@ -29,10 +59,13 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
+export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
+
+const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) => {
   const {
-    prefixCls,
+    prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     valueStyle,
     value = 0,
@@ -41,46 +74,142 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
     prefix,
     suffix,
     loading = false,
-    direction,
-    onMouseEnter,
-    onMouseLeave,
+    /* --- FormatConfig starts --- */
+    formatter,
+    precision,
     decimalSeparator = '.',
     groupSeparator = ',',
+    /* --- FormatConfig starts --- */
+    onMouseEnter,
+    onMouseLeave,
+    styles,
+    classNames,
+    ...rest
   } = props;
-  const valueNode = (
-    <StatisticNumber
-      decimalSeparator={decimalSeparator}
-      groupSeparator={groupSeparator}
-      {...props}
-      value={value}
-    />
-  );
-  // Style
-  const [wrapSSR, hashId] = useStyle(String(prefixCls));
-  const cls = classNames(
+
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('statistic');
+
+  const prefixCls = getPrefixCls('statistic', customizePrefixCls);
+
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const mergedProps: StatisticProps = {
+    ...props,
+    decimalSeparator,
+    groupSeparator,
+    loading,
+    value,
+  };
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    StatisticSemanticAllType['classNames'],
+    StatisticSemanticAllType['styles'],
+    StatisticProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
+
+  // ============================= Warning ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Statistic');
+
+    [['valueStyle', 'styles.content']].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
+  const rootClassNames = clsx(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    contextClassName,
     className,
+    rootClassName,
+    mergedClassNames.root,
     hashId,
+    cssVarCls,
   );
-  return wrapSSR(
-    <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
-        <div style={valueStyle} className={`${prefixCls}-content`}>
-          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-          {valueRender ? valueRender(valueNode) : valueNode}
-          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
+
+  const headerClassNames = clsx(`${prefixCls}-header`, mergedClassNames.header);
+
+  const titleClassNames = clsx(`${prefixCls}-title`, mergedClassNames.title);
+
+  const contentClassNames = clsx(`${prefixCls}-content`, mergedClassNames.content);
+
+  const valueClassNames = clsx(`${prefixCls}-content-value`, mergedClassNames.value);
+
+  const prefixClassNames = clsx(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
+
+  const suffixClassNames = clsx(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
+
+  const valueNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      prefixCls={prefixCls}
+      formatter={formatter}
+      precision={precision}
+      value={value}
+      className={valueClassNames}
+      style={mergedStyles.value}
+    />
+  );
+
+  const internalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: internalRef.current!,
+  }));
+
+  const restProps = pickAttrs(rest, { aria: true, data: true });
+
+  return (
+    <div
+      {...restProps}
+      className={rootClassNames}
+      style={mergedStyles.root}
+      ref={internalRef}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {title && (
+        <div className={headerClassNames} style={mergedStyles.header}>
+          <div className={titleClassNames} style={mergedStyles.title}>
+            {title}
+          </div>
+        </div>
+      )}
+      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`} active>
+        <div className={contentClassNames} style={{ ...valueStyle, ...mergedStyles.content }}>
+          {prefix && (
+            <span className={prefixClassNames} style={mergedStyles.prefix}>
+              {prefix}
+            </span>
+          )}
+          {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
+          {suffix && (
+            <span className={suffixClassNames} style={mergedStyles.suffix}>
+              {suffix}
+            </span>
+          )}
         </div>
       </Skeleton>
-    </div>,
+    </div>
   );
-};
+});
 
-const WrapperStatistic = withConfigConsumer<StatisticProps>({
-  prefixCls: 'statistic',
-})<StatisticComponent>(Statistic);
+if (process.env.NODE_ENV !== 'production') {
+  Statistic.displayName = 'Statistic';
+}
 
-export default WrapperStatistic;
+export default Statistic;

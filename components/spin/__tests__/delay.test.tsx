@@ -1,20 +1,19 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import debounce from 'lodash/debounce';
+import { debounce } from 'throttle-debounce';
+
 import Spin from '..';
 import { waitFakeTimer } from '../../../tests/utils';
 
-jest.mock('lodash/debounce');
+jest.mock('throttle-debounce');
 (debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('lodash/debounce')(...args),
+  jest.requireActual('throttle-debounce').debounce(...args),
 );
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {
     const { container } = render(<Spin spinning delay={500} />);
-    expect(container.querySelector('.ant-spin')?.classList.contains('ant-spin-spinning')).toEqual(
-      false,
-    );
+    expect(container.querySelector('.ant-spin')).not.toHaveClass('ant-spin-spinning');
   });
 
   it('should render when delay is init set', async () => {
@@ -41,5 +40,16 @@ describe('delay spinning', () => {
     expect(cancel).not.toHaveBeenCalled();
     unmount();
     expect(cancel).toHaveBeenCalled();
+  });
+
+  it('should close immediately', async () => {
+    jest.useFakeTimers();
+    const { container, rerender } = render(<Spin spinning delay={500} />);
+
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+
+    rerender(<Spin spinning={false} delay={500} />);
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
   });
 });

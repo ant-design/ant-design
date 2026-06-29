@@ -1,26 +1,35 @@
-import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
-import {
-  Space,
-  Typography,
-  Tour,
-  Tag,
-  DatePicker,
-  Alert,
-  Modal,
-  FloatButton,
-  Progress,
-} from 'antd';
-import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
+import {
+  Card,
+  Carousel,
+  DatePicker,
+  Flex,
+  FloatButton,
+  Masonry,
+  Splitter,
+  Tag,
+  Tour,
+  Typography,
+} from 'antd';
+import { createStyles, css } from 'antd-style';
+import { clsx } from 'clsx';
+import dayjs from 'dayjs';
+
 import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
+import { DarkContext } from './../../../hooks/useDark';
+import { getCarouselStyle } from './util';
+
+const { _InternalPanelDoNotUseOrYouWillBeFired: DatePickerDoNotUseOrYouWillBeFired } = DatePicker;
+const { _InternalPanelDoNotUseOrYouWillBeFired: TourDoNotUseOrYouWillBeFired } = Tour;
+const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonDoNotUseOrYouWillBeFired } = FloatButton;
 
 const SAMPLE_CONTENT_EN =
-  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
+  'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
 const SAMPLE_CONTENT_CN =
-  'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
+  'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
 
 const locales = {
   cn: {
@@ -51,14 +60,14 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ cssVar }, isDark: boolean) => {
+  const { carousel } = getCarouselStyle();
   return {
     card: css`
-      border-radius: ${token.borderRadius}px;
-      background: #f5f8ff;
-      padding: ${token.paddingXL}px;
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${isDark ? cssVar.colorBorder : 'transparent'};
+      background-color: ${isDark ? cssVar.colorBgContainer : '#f5f8ff'};
+      padding: ${cssVar.paddingXL};
       flex: none;
       overflow: hidden;
       position: relative;
@@ -79,115 +88,156 @@ const useStyle = () => {
       filter: blur(40px);
       opacity: 0.1;
     `,
+    mobileCard: css`
+      height: 395px;
+    `,
+    nodeWrap: css`
+      margin-top: ${cssVar.paddingLG};
+      flex: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `,
+    carousel,
+    componentsList: css`
+      width: 100%;
+      overflow: hidden;
+    `,
+    mobileComponentsList: css`
+      margin: 0 ${cssVar.margin};
+    `,
   };
+});
+
+const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
+  const tagColor = type === 'new' ? 'processing' : 'warning';
+  const [locale] = useLocale(locales);
+  const tagText = type === 'new' ? locale.new : locale.update;
+  const isDark = React.use(DarkContext);
+  const { isMobile } = React.use(SiteContext);
+  const { styles } = useStyle(isDark);
+  return (
+    <div className={clsx(styles.card, isMobile && styles.mobileCard)}>
+      {/* Decorator */}
+      <div
+        className={styles.cardCircle}
+        style={{ insetInlineEnd: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
+      />
+
+      {/* Title */}
+      <Flex align="center" gap="small">
+        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+          {title}
+        </Typography.Title>
+        <Tag color={tagColor}>{tagText}</Tag>
+      </Flex>
+      <div className={styles.nodeWrap}>{node}</div>
+    </div>
+  );
 };
 
-export default function ComponentsList() {
-  const { token } = useSiteToken();
-  const styles = useStyle();
-  const [locale] = useLocale(locales);
+interface ComponentItemProps {
+  title: React.ReactNode;
+  node: React.ReactNode;
+  type: 'new' | 'update';
+  index: number;
+}
 
-  const COMPONENTS: {
-    title: React.ReactNode;
-    type: 'new' | 'update';
-    node: React.ReactNode;
-  }[] = React.useMemo(
+const ComponentsList: React.FC = () => {
+  const { styles } = useStyle();
+  const [locale] = useLocale(locales);
+  const { isMobile } = React.use(SiteContext);
+  const isDark = React.use(DarkContext);
+  const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
-      {
-        title: 'Modal',
-        type: 'update',
-        node: (
-          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
-            {locale.sampleContent}
-          </Modal._InternalPanelDoNotUseOrYouWillBeFired>
-        ),
-      },
+      // {
+      //   title: 'Modal',
+      //   type: 'update',
+      //   node: (
+      //     <ModalDoNotUseOrYouWillBeFired title="Ant Design" width={300}>
+      //       {locale.sampleContent}
+      //     </ModalDoNotUseOrYouWillBeFired>
+      //   ),
+      // },
 
       {
         title: 'DatePicker',
         type: 'update',
         node: (
-          <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
+          <DatePickerDoNotUseOrYouWillBeFired
+            value={dayjs('2025-11-22 00:00:00')}
+            // defaultValue={dayjs('2025-11-22 00:00:00')}
             showToday={false}
-            presets={[
-              { label: locale.yesterday, value: dayjs().add(-1, 'd') },
-              { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
-              { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
-              { label: locale.lastYear, value: dayjs().add(-1, 'year') },
-            ]}
-            value={dayjs('2022-11-18 14:00:00')}
+            presets={
+              isMobile
+                ? []
+                : [
+                    { label: locale.yesterday, value: dayjs().add(-1, 'd') },
+                    { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
+                    { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
+                    { label: locale.lastYear, value: dayjs().add(-1, 'year') },
+                  ]
+            }
           />
         ),
       },
-
-      {
-        title: 'Progress',
-        type: 'update',
-        node: (
-          <Space direction="vertical">
-            <Space>
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
-              {locale.inProgress}
-            </Space>
-            <Space>
-              <Progress type="circle" percent={100} width={14} />
-              {locale.success}
-            </Space>
-            <Space>
-              <Progress type="circle" status="exception" percent={88} width={14} />
-              {locale.taskFailed}
-            </Space>
-          </Space>
-        ),
-      },
+      // {
+      //   title: 'Progress',
+      //   type: 'update',
+      //   node: (
+      //     <Flex gap="small" vertical>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
+      //         {locale.inProgress}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" percent={100} size={14} />
+      //         {locale.success}
+      //       </Flex>
+      //       <Flex gap="small" align="center">
+      //         <Progress type="circle" status="exception" percent={88} size={14} />
+      //         {locale.taskFailed}
+      //       </Flex>
+      //     </Flex>
+      //   ),
+      // },
 
       {
         title: 'Tour',
-        type: 'new',
+        type: 'update',
         node: (
-          <Tour._InternalPanelDoNotUseOrYouWillBeFired
-            title="Ant Design 5.0"
+          <TourDoNotUseOrYouWillBeFired
+            title="Ant Design"
             description={locale.tour}
-            style={{ width: 350 }}
+            style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
             total={9}
           />
         ),
       },
+
       {
         title: 'FloatButton',
-        type: 'new',
+        type: 'update',
         node: (
-          <Space size="large">
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+          <Flex align="center" gap="large">
+            <FloatButtonDoNotUseOrYouWillBeFired
               shape="square"
               items={[
-                {
-                  icon: <QuestionCircleOutlined />,
-                },
-                {
-                  icon: <CustomerServiceOutlined />,
-                },
-                {
-                  icon: <SyncOutlined />,
-                },
+                { icon: <QuestionCircleOutlined /> },
+                { icon: <CustomerServiceOutlined /> },
+                { icon: <SyncOutlined /> },
               ]}
             />
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+            <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            <FloatButtonDoNotUseOrYouWillBeFired
               items={[
-                {
-                  icon: <QuestionCircleOutlined />,
-                },
-                {
-                  icon: <CustomerServiceOutlined />,
-                },
-                {
-                  icon: <SyncOutlined />,
-                },
+                { icon: <QuestionCircleOutlined /> },
+                { icon: <CustomerServiceOutlined /> },
+                { icon: <SyncOutlined /> },
               ]}
             />
-          </Space>
+          </Flex>
         ),
       },
 
@@ -198,62 +248,125 @@ export default function ComponentsList() {
       // },
 
       {
-        title: 'Alert',
-        type: 'update',
+        title: 'Splitter',
+        type: 'new',
         node: (
-          <Alert
-            style={{ width: 400 }}
-            message="Ant Design 5.0"
-            description={locale.sampleContent}
-            closable
+          <Splitter
+            orientation="vertical"
+            style={{
+              height: 320,
+              width: 200,
+              background: isDark ? '#1f1f1f' : '#ffffff',
+              boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Splitter.Panel defaultSize="40%" min="20%" max="70%">
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  First
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+
+            <Splitter.Panel>
+              <Flex justify="center" align="center" style={{ height: '100%' }}>
+                <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+                  Second
+                </Typography.Title>
+              </Flex>
+            </Splitter.Panel>
+          </Splitter>
+        ),
+      },
+
+      {
+        title: 'Masonry',
+        type: 'new',
+        node: (
+          <Masonry
+            columns={2}
+            gutter={8}
+            style={{
+              width: 300,
+              height: 320,
+            }}
+            items={[
+              { key: '1', data: 80 },
+              { key: '2', data: 60 },
+              { key: '3', data: 40 },
+              { key: '4', data: 120 },
+              { key: '5', data: 90 },
+              { key: '6', data: 40 },
+              { key: '7', data: 60 },
+              { key: '8', data: 70 },
+              { key: '9', data: 120 },
+            ]}
+            itemRender={({ data, index }) => (
+              <Card size="small" style={{ height: data }}>
+                {index + 1}
+              </Card>
+            )}
           />
         ),
       },
+
+      // {
+      //   title: 'Alert',
+      //   type: 'update',
+      //   node: (
+      //     <Alert
+      //       style={{ width: 400 }}
+      //       title="Ant Design"
+      //       description={locale.sampleContent}
+      //       closable={{ closeIcon: true, disabled: true }}
+      //     />
+      //   ),
+      // },
     ],
-    [],
+    [
+      isDark,
+      isMobile,
+      locale.inProgress,
+      locale.lastMonth,
+      locale.lastWeek,
+      locale.lastYear,
+      locale.sampleContent,
+      locale.success,
+      locale.taskFailed,
+      locale.tour,
+      locale.yesterday,
+    ],
   );
 
-  return (
-    <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
-        {COMPONENTS.map(({ title, node, type }, index) => {
-          const tagColor = type === 'new' ? 'processing' : 'warning';
-          const tagText = type === 'new' ? locale.new : locale.update;
-
-          return (
-            <div key={index} css={styles.card}>
-              {/* Decorator */}
-              <div
-                css={styles.cardCircle}
-                style={{
-                  right: (index % 2) * -20 - 20,
-                  bottom: (index % 3) * -40 - 20,
-                }}
-              />
-
-              {/* Title */}
-              <Space>
-                <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
-                  {title}
-                </Typography.Title>
-                <Tag color={tagColor}>{tagText}</Tag>
-              </Space>
-
-              <div
-                style={{
-                  marginTop: token.paddingLG,
-                  flex: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {node}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+  return isMobile ? (
+    <div className={styles.mobileComponentsList}>
+      <Carousel className={styles.carousel}>
+        {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`mobile-item-${index}`}
+          />
+        ))}
+      </Carousel>
     </div>
+  ) : (
+    <Flex justify="center" className={styles.componentsList}>
+      <Flex align="stretch" gap="large">
+        {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`desktop-item-${index}`}
+          />
+        ))}
+      </Flex>
+    </Flex>
   );
-}
+};
+
+export default ComponentsList;

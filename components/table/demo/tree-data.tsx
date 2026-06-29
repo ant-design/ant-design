@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Space, Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
+import type { TableColumnsType, TableProps } from 'antd';
+
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: React.ReactNode;
@@ -11,7 +12,7 @@ interface DataType {
   children?: DataType[];
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -92,20 +93,23 @@ const data: DataType[] = [
     key: 2,
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
 ];
 
 // rowSelection objects indicates the need for row selection
 const rowSelection: TableRowSelection<DataType> = {
-  onChange: (selectedRowKeys, selectedRows) => {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  onChange: (selectedRowKeys, selectedRows, info) => {
+    console.log(
+      `selectedRowKeys: ${selectedRowKeys}`,
+      'selectedRows: ',
+      selectedRows,
+      'info',
+      info,
+    );
   },
   onSelect: (record, selected, selectedRows) => {
     console.log(record, selected, selectedRows);
-  },
-  onSelectAll: (selected, selectedRows, changeRows) => {
-    console.log(selected, selectedRows, changeRows);
   },
 };
 
@@ -117,7 +121,7 @@ const App: React.FC = () => {
       <Space align="center" style={{ marginBottom: 16 }}>
         CheckStrictly: <Switch checked={checkStrictly} onChange={setCheckStrictly} />
       </Space>
-      <Table
+      <Table<DataType>
         columns={columns}
         rowSelection={{ ...rowSelection, checkStrictly }}
         dataSource={data}

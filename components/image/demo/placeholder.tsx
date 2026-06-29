@@ -1,31 +1,146 @@
-import React, { useState } from 'react';
-import { Button, Image, Space } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Button, Flex, Image, theme } from 'antd';
 
-const App: React.FC = () => {
-  const [random, setRandom] = useState<number>();
+const GeneratingProgress: React.FC = () => {
+  const { token } = theme.useToken();
+  const [percent, setPercent] = useState(0);
+  const [status, setStatus] = useState<'idle' | 'generating' | 'complete'>('idle');
+  const imageStyles = {
+    root: { borderRadius: token.borderRadiusLG },
+    image: { borderRadius: token.borderRadiusLG },
+    cover: { borderRadius: token.borderRadiusLG },
+  };
 
-  return (
-    <Space size={12}>
+  useEffect(() => {
+    if (status === 'generating' && percent < 100) {
+      const timer = setTimeout(() => {
+        setPercent((prev) => Math.min(prev + Math.random() * 8 + 2, 100));
+      }, 200);
+      return () => clearTimeout(timer);
+    } else if (status === 'generating' && percent >= 100) {
+      const timer = setTimeout(() => {
+        setStatus('complete');
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [status, percent]);
+
+  const handleStart = () => {
+    setPercent(0);
+    setStatus('generating');
+  };
+
+  const imageNode =
+    status === 'complete' ? (
       <Image
         width={200}
-        src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
-        placeholder={
-          <Image
-            preview={false}
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-            width={200}
-          />
-        }
+        height={200}
+        styles={imageStyles}
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
-      <Button
-        type="primary"
-        onClick={() => {
-          setRandom(Date.now());
+    ) : (
+      <Image
+        width={200}
+        height={200}
+        styles={imageStyles}
+        placeholder={{
+          progress: {
+            percent: Math.round(percent),
+            render: (progress, p) => (
+              <>
+                {progress}
+                <div style={{ marginTop: 8 }}>Generating {p}%</div>
+              </>
+            ),
+          },
         }}
-      >
-        Reload
+      />
+    );
+
+  return (
+    <Flex vertical gap={8}>
+      <Button type="primary" onClick={handleStart} disabled={status === 'generating'}>
+        Generate
       </Button>
-    </Space>
+      {imageNode}
+    </Flex>
+  );
+};
+
+const App: React.FC = () => {
+  const { token } = theme.useToken();
+  const [random, setRandom] = useState<number>(() => Date.now());
+  const imageStyles = {
+    root: { borderRadius: token.borderRadiusLG },
+    image: { borderRadius: token.borderRadiusLG },
+    cover: { borderRadius: token.borderRadiusLG },
+  };
+
+  return (
+    <>
+      <Flex gap={16} wrap>
+        <Image width={200} height={200} styles={imageStyles} placeholder={{ progress: true }} />
+        <Image
+          width={200}
+          height={200}
+          styles={imageStyles}
+          placeholder={{ progress: { render: () => 'loading...' } }}
+        />
+        <Image
+          width={200}
+          height={200}
+          styles={imageStyles}
+          placeholder={{ progress: { percent: 50 } }}
+        />
+        <Image
+          width={200}
+          height={200}
+          styles={imageStyles}
+          placeholder={{
+            progress: {
+              percent: 75,
+              render: (progress, p) => (
+                <>
+                  {progress}
+                  <div style={{ marginTop: 8 }}>Generating {p}%</div>
+                </>
+              ),
+            },
+          }}
+        />
+      </Flex>
+      <Flex gap={16} wrap style={{ marginTop: 16 }}>
+        <Flex vertical gap={8}>
+          <Button
+            type="primary"
+            onClick={() => {
+              setRandom(Date.now());
+            }}
+          >
+            Reload Image
+          </Button>
+          <Image
+            width={200}
+            height={200}
+            alt="basic image"
+            styles={imageStyles}
+            src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
+            placeholder={
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: token.borderRadiusLG,
+                }}
+              />
+            }
+          />
+        </Flex>
+        <GeneratingProgress />
+      </Flex>
+    </>
   );
 };
 

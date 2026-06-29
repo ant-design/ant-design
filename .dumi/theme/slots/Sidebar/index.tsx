@@ -1,36 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
+import MobileMenu from '@rc-component/drawer';
+import { Col, ConfigProvider, Menu } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import { Affix, Col, Menu } from 'antd';
-import MobileMenu from 'rc-drawer';
-import SiteContext from '../SiteContext';
+
 import useMenu from '../../../hooks/useMenu';
-import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
+import SiteContext from '../SiteContext';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  const { antCls, fontFamily, colorSplit } = token;
-
+const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-bottom: 48px;
-      font-family: Avenir, ${fontFamily}, sans-serif;
+      padding-top: 0;
+      padding-bottom: ${cssVar.marginXXL} !important;
+      font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
+      padding-inline: ${cssVar.paddingXXS};
 
-      &${antCls}-menu-inline {
-        ${antCls}-menu-submenu-title h4,
-        > ${antCls}-menu-item,
-        ${antCls}-menu-item a {
+      &${token.antCls}-menu-inline {
+        ${token.antCls}-menu-submenu-title h4,
+        > ${token.antCls}-menu-item,
+        ${token.antCls}-menu-item a {
           overflow: hidden;
-          font-size: 14px;
+          font-size: ${cssVar.fontSize};
           text-overflow: ellipsis;
         }
 
-        > ${antCls}-menu-item-group > ${antCls}-menu-item-group-title {
-          margin-top: 16px;
-          margin-bottom: 16px;
-          font-size: 13px;
+        > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-title {
+          margin-top: ${cssVar.margin};
+          margin-bottom: ${cssVar.margin};
+          font-size: ${cssVar.fontSize};
 
           &::after {
             position: relative;
@@ -38,55 +36,50 @@ const useStyle = () => {
             display: block;
             width: calc(100% - 20px);
             height: 1px;
-            background: ${colorSplit};
+            background: ${cssVar.colorSplit};
             content: '';
           }
         }
 
-        > ${antCls}-menu-item,
-          > ${antCls}-menu-submenu
-          > ${antCls}-menu-submenu-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item,
-          &${antCls}-menu-inline
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item {
-          padding-left: 40px !important;
-
-          ${antCls}-row-rtl & {
-            padding-right: 40px !important;
-            padding-left: 16px !important;
-          }
+        > ${token.antCls}-menu-item,
+          > ${token.antCls}-menu-submenu
+          > ${token.antCls}-menu-submenu-title,
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-title,
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-list
+          > ${token.antCls}-menu-item,
+          &${token.antCls}-menu-inline
+          > ${token.antCls}-menu-item-group
+          > ${token.antCls}-menu-item-group-list
+          > ${token.antCls}-menu-item {
+          padding-inline: 36px 12px !important;
         }
 
         // Nest Category > Type > Article
-        &${antCls}-menu-inline {
-          ${antCls}-menu-item-group-title {
-            margin-left: 4px;
-            padding-left: 60px;
+        &${token.antCls}-menu-inline {
+          ${token.antCls}-menu-item-group-title {
+            margin-inline-start: ${cssVar.marginXXS};
+            padding-inline-start: 60px;
 
-            ${antCls}-row-rtl & {
-              padding-right: 60px;
-              padding-left: 16px;
+            ${token.antCls}-row-rtl & {
+              padding-inline-end: 60px;
+              padding-inline-start: ${cssVar.padding};
             }
           }
 
-          ${antCls}-menu-item-group-list > ${antCls}-menu-item {
-            padding-left: 80px !important;
+          ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item {
+            padding-inline-start: 80px !important;
 
-            ${antCls}-row-rtl & {
-              padding-right: 80px !important;
-              padding-left: 16px !important;
+            ${token.antCls}-row-rtl & {
+              padding-inline-end: 80px !important;
+              padding-inline-start: ${cssVar.padding} !important;
             }
           }
         }
 
-        ${antCls}-menu-item-group:first-child {
-          ${antCls}-menu-item-group-title {
+        ${token.antCls}-menu-item-group:first-child {
+          ${token.antCls}-menu-item-group-title {
             margin-top: 0;
           }
         }
@@ -95,62 +88,64 @@ const useStyle = () => {
       a[disabled] {
         color: #ccc;
       }
-
-      .chinese {
-        margin-left: 6px;
-        font-weight: normal;
-        font-size: 12px;
-        opacity: 0.67;
-      }
     `,
     mainMenu: css`
       z-index: 1;
+      position: sticky;
+      top: ${token.headerHeight}px;
+      width: 100%;
+      max-height: calc(100vh - ${token.headerHeight}px);
+      overflow: hidden;
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
 
-      .main-menu-inner {
-        height: 100%;
-        max-height: 100vh;
-        overflow: hidden;
-      }
-
-      &:hover .main-menu-inner {
+      &:hover {
         overflow-y: auto;
-      }
-
-      > div,
-      > div > div {
-        height: 100%;
       }
     `,
   };
-};
+});
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile } = useContext(SiteContext);
-  const styles = useStyle();
+  const { isMobile, isDark } = React.use(SiteContext);
+  const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
+  const { colorBgContainer } = useTheme();
+
+  const defaultOpenKeys = sidebarData?.map<string>(({ title }) => title!).filter(Boolean) || [];
+  const [openKeys, setOpenKeys] = React.useState<string[]>(defaultOpenKeys);
+
+  useEffect(() => {
+    if (openKeys.join(',') === defaultOpenKeys.join(',')) {
+      return;
+    }
+    setOpenKeys(defaultOpenKeys);
+  }, [defaultOpenKeys.join(',')]);
 
   const menuChild = (
-    <Menu
-      items={menuItems}
-      inlineIndent={30}
-      css={styles.asideContainer}
-      mode="inline"
-      selectedKeys={[selectedKey]}
-      defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
-    />
+    <ConfigProvider
+      theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
+    >
+      <Menu
+        items={menuItems}
+        inlineIndent={30}
+        className={styles.asideContainer}
+        mode="inline"
+        theme={isDark ? 'dark' : 'light'}
+        selectedKeys={[selectedKey]}
+        openKeys={openKeys}
+        onOpenChange={setOpenKeys}
+      />
+    </ConfigProvider>
   );
 
   return isMobile ? (
     <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
-    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
-      <Affix>
-        <section style={{ width: '100%' }} className="main-menu-inner">
-          {menuChild}
-        </section>
-      </Affix>
+    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className={styles.mainMenu}>
+      {menuChild}
     </Col>
   );
 };

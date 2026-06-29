@@ -1,9 +1,9 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
+
 import { Col, Row } from '..';
 import { render } from '../../../tests/utils';
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => false);
+jest.mock('@rc-component/util/lib/Dom/canUseDom', () => () => false);
 
 describe('Grid.Server', () => {
   it('use compatible gap logic', () => {
@@ -13,18 +13,18 @@ describe('Grid.Server', () => {
       </Row>,
     );
 
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginLeft).toEqual('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginRight).toEqual('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginTop).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginBottom).toEqual(
-      '-8px',
-    );
+    const rowElement = container.querySelector<HTMLElement>('.ant-row');
+    expect(rowElement).toHaveStyle({
+      marginInline: '-4px',
+      marginTop: '',
+      marginBottom: '',
+    });
 
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingLeft).toEqual('4px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingRight).toEqual('4px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingTop).toEqual('8px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingBottom).toEqual(
-      '8px',
-    );
+    const colElement = container.querySelector<HTMLElement>('.ant-col');
+    expect(colElement).toHaveStyle({
+      paddingInline: '4px',
+      paddingTop: '',
+      paddingBottom: '',
+    });
   });
 });

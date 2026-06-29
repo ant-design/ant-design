@@ -1,15 +1,14 @@
-/* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { Alert, Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
+import { createStyles } from 'antd-style';
 import dayjs from 'dayjs';
-import { FormattedMessage, useIntl } from 'dumi';
-import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
-import { useSiteData } from '../../../pages/index/components/util';
-import type { Article, Authors } from '../../../pages/index/components/util';
-import { css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { FormattedMessage } from 'dumi';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+import useLocale from '../../../hooks/useLocale';
+import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
+import { useAntdSiteConfig } from '../../../pages/index/components/util';
+
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls } = token;
 
   return {
@@ -17,7 +16,7 @@ const useStyle = () => {
       h4 {
         margin: 40px 0 24px;
         font-weight: 500;
-        font-size: 20px;
+        font-size: ${cssVar.fontSizeXL};
       }
 
       ${antCls}-skeleton {
@@ -27,12 +26,8 @@ const useStyle = () => {
 
         ul li {
           display: block;
-          margin-left: 0;
+          margin-inline-start: 0;
         }
-      }
-
-      ${antCls}-tabs-nav::before {
-        display: none;
       }
 
       table {
@@ -49,16 +44,18 @@ const useStyle = () => {
       li {
         margin: 1em 0;
         padding: 0;
-        font-size: 14px;
+        font-size: ${cssVar.fontSize};
         list-style: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
-
       ${antCls}-avatar > img {
         max-width: unset;
       }
     `,
   };
-};
+});
 
 interface ArticleListProps {
   name: React.ReactNode;
@@ -67,11 +64,11 @@ interface ArticleListProps {
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = [] }) => {
-  const { articleList } = useStyle();
+  const { styles } = useStyle();
   return (
     <td>
       <h4>{name}</h4>
-      <ul css={articleList}>
+      <ul className={styles.articleList}>
         {data.length === 0 ? (
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         ) : (
@@ -79,12 +76,12 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
             const author = authors.find((auth) => auth.name === article.author);
             return (
               <li key={index}>
-                <a href={author?.href} target="_blank" rel="noreferrer">
+                <a href={author?.href} target="_blank" rel="noopener noreferrer">
                   <Avatar size="small" src={author?.avatar} />
                 </a>
-                <Divider type="vertical" />
-                <a href={article.href} target="_blank" rel="noreferrer">
-                  {article.title}
+                <Divider vertical />
+                <a href={article.href} target="_blank" rel="noopener noreferrer">
+                  {article?.title}
                 </a>
               </li>
             );
@@ -95,60 +92,80 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-export default () => {
-  const { locale } = useIntl();
-  const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData();
+const Articles: React.FC<{ data?: Partial<SiteData> }> = ({ data = {} }) => {
+  const [, lang] = useLocale();
+  const isZhCN = lang === 'cn';
 
-  const styles = useStyle();
+  const { articles = { cn: [], en: [] }, authors = [] } = data;
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
     const yearData: Record<number | string, Record<string, Article[]>> = {};
-    articles[isZhCN ? 'cn' : 'en']?.forEach((article) => {
+    articles[lang]?.forEach((article) => {
       const year = dayjs(article.date).year();
       yearData[year] = yearData[year] || {};
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });
     return yearData;
-  }, [articles]);
+  }, [articles, lang]);
 
-  // ========================= Render =========================
-  let content: React.ReactNode;
+  const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
-  if (loading) {
-    content = <Skeleton active />;
-  } else {
-    const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
-    content = yearList.length ? (
-      <Tabs>
-        {yearList.map((year) => (
-          <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
-            <table>
-              <tbody>
-                <tr>
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.design" />}
-                    data={mergedData[year].design}
-                    authors={authors}
-                  />
-                  <ArticleList
-                    name={<FormattedMessage id="app.docs.resource.develop" />}
-                    data={mergedData[year].develop}
-                    authors={authors}
-                  />
-                </tr>
-              </tbody>
-            </table>
-          </Tabs.TabPane>
-        ))}
-      </Tabs>
-    ) : null;
+  if (yearList.length === 0) {
+    return null;
   }
 
   return (
-    <div id="articles" css={styles.articles}>
-      {content}
+    <Tabs
+      centered
+      size="large"
+      items={yearList.map((year) => ({
+        key: year,
+        label: `${year}${isZhCN ? ' 年' : ''}`,
+        children: (
+          <table>
+            <tbody>
+              <tr>
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.design" />}
+                  data={mergedData[year].design}
+                  authors={authors}
+                />
+                <ArticleList
+                  name={<FormattedMessage id="app.docs.resource.develop" />}
+                  data={mergedData[year].develop}
+                  authors={authors}
+                />
+              </tr>
+            </tbody>
+          </table>
+        ),
+      }))}
+    />
+  );
+};
+
+const ResourceArticles: React.FC = () => {
+  const { styles } = useStyle();
+  const { data, error, isLoading } = useAntdSiteConfig();
+  if (isLoading) {
+    return <Skeleton active />;
+  }
+  if (error) {
+    return (
+      <Alert
+        showIcon
+        type="error"
+        title={error.message}
+        description={process.env.NODE_ENV !== 'production' ? error.stack : undefined}
+      />
+    );
+  }
+  return (
+    <div id="articles" className={styles.articles}>
+      <Articles data={data} />
     </div>
   );
 };
+
+export default ResourceArticles;

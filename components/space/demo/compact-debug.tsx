@@ -1,41 +1,50 @@
 import React, { useState } from 'react';
-import { SettingOutlined, CopyOutlined, DownloadOutlined } from '@ant-design/icons';
+import { CopyOutlined, DownloadOutlined, SettingOutlined } from '@ant-design/icons';
 import {
+  Button,
   Cascader,
+  DatePicker,
+  Divider,
+  Drawer,
+  Dropdown,
   Input,
+  InputNumber,
+  Modal,
+  Popover,
   Select,
   Space,
-  Button,
   Tooltip,
-  Modal,
-  Dropdown,
-  Drawer,
-  InputNumber,
-  DatePicker,
 } from 'antd';
 
-const { Option } = Select;
-
 const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
+  <Select
+    defaultValue="http"
+    className="select-before"
+    options={[
+      { label: 'http://', value: 'http' },
+      { label: 'https://', value: 'https' },
+    ]}
+  />
 );
+
 const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
+  <Select
+    defaultValue=".com"
+    className="select-after"
+    options={[
+      { label: '.com', value: '.com' },
+      { label: '.jp', value: '.jp' },
+      { label: '.cn', value: '.cn' },
+      { label: '.org', value: '.org' },
+    ]}
+  />
 );
 
 const App: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Space.Compact block>
         <Button>default Button</Button>
         <Button danger>danger Button</Button>
@@ -78,6 +87,17 @@ const App: React.FC = () => {
           defaultValue="mysite"
         />
         <Button type="primary">Submit</Button>
+      </Space.Compact>
+      <Space.Compact>
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
+        <Button type="primary">Submit</Button>
+        <Input
+          addonBefore="Prefix"
+          defaultValue="mysite"
+          showCount
+          addonAfter={<SettingOutlined />}
+        />
+        <Input addonBefore="Prefix" defaultValue="mysite" showCount />
       </Space.Compact>
       <br />
       <Space.Compact>
@@ -137,13 +157,36 @@ const App: React.FC = () => {
         )}
       </Space.Compact>
       <Space.Compact>
+        <Input placeholder="Debug Popover context" />
+        <Popover
+          content={
+            <>
+              <Input placeholder="Left Border" />
+              <Divider />
+              <DatePicker />
+              <Divider />
+              <InputNumber />
+              <Divider />
+              <Select />
+            </>
+          }
+          trigger={['click']}
+          placement="bottom"
+        >
+          <Button>Settings</Button>
+        </Popover>
+      </Space.Compact>
+      <Space.Compact>
         <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
       </Space.Compact>
       <Space.Compact>
-        <Select defaultValue="Sign Up">
-          <Option value="Sign Up">Sign Up</Option>
-          <Option value="Sign In">Sign In</Option>
-        </Select>
+        <Select
+          defaultValue="Sign Up"
+          options={[
+            { label: 'Sign Up', value: 'Sign Up' },
+            { label: 'Sign In', value: 'Sign In' },
+          ]}
+        />
       </Space.Compact>
       <Space.Compact>
         <DatePicker.RangePicker style={{ width: '70%' }} />
@@ -191,7 +234,7 @@ const App: React.FC = () => {
           placeholder="Select Address"
         />
       </Space.Compact>
-      <Space.Compact direction="vertical">
+      <Space.Compact orientation="vertical">
         <Button>vertical compact button A</Button>
       </Space.Compact>
     </Space>

@@ -3,71 +3,87 @@ category: Components
 group: 数据展示
 title: Card
 subtitle: 卡片
-cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
+description: 通用卡片容器。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QXO1SKEdIzYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-通用卡片容器。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">典型卡片</code>
-<code src="./demo/border-less.tsx">无边框</code>
+<code src="./demo/border-less.tsx" background="grey">无边框</code>
 <code src="./demo/simple.tsx">简洁卡片</code>
 <code src="./demo/flexible-content.tsx">更灵活的内容展示</code>
-<code src="./demo/in-column.tsx">栅格卡片</code>
+<code src="./demo/in-column.tsx" background="grey">栅格卡片</code>
 <code src="./demo/loading.tsx">预加载的卡片</code>
 <code src="./demo/grid-card.tsx">网格型内嵌卡片</code>
 <code src="./demo/inner.tsx">内部卡片</code>
 <code src="./demo/tabs.tsx">带页签的卡片</code>
 <code src="./demo/meta.tsx">支持更多内容配置</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/no-body-debug.tsx" debug>封面和操作区不渲染 body</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ```jsx
 <Card title="卡片标题">卡片内容</Card>
 ```
 
-### Card
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
-| activeTabKey | 当前激活页签的 key | string | - |  |
-| bodyStyle | 内容区域自定义样式 | CSSProperties | - |  |
-| bordered | 是否有边框 | boolean | true |  |
-| cover | 卡片封面 | ReactNode | - |  |
-| defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签` |  |
-| extra | 卡片右上角的操作区域 | ReactNode | - |  |
-| headStyle | 自定义标题区域样式 | CSSProperties | - |  |
-| hoverable | 鼠标移过时可浮起 | boolean | false |  |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| size | card 的尺寸 | `default` \| `small` | `default` |  |
-| tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
-| tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
-| title | 卡片标题 | ReactNode | - |  |
-| type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
-| onTabChange | 页签切换的回调 | (key) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  | × |
+| activeTabKey | 当前激活页签的 key | string | - |  | × |
+| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  | × |
+| ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.24.0 | 5.24.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.14.0 |
+| cover | 卡片封面 | ReactNode | - |  | × |
+| defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  | × |
+| extra | 卡片右上角的操作区域 | ReactNode | - |  | × |
+| hoverable | 鼠标移过时可浮起 | boolean | false |  | × |
+| ~~headStyle~~ | 卡片头部样式，请使用 `styles.header` 替代 | CSSProperties | - | - | × |
+| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  | × |
+| size | card 的尺寸 | `medium` \| `small` | `medium` |  | × |
+| tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  | × |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  | × |
+| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  | × |
+| title | 卡片标题 | ReactNode | - |  | × |
+| type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.14.0 |
+| onTabChange | 页签切换的回调 | (key) => void | - |  | × |
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型          | 默认值 | 版本 |
-| --------- | ---------------------- | ------------- | ------ | ---- |
-| className | 网格容器类名           | string        | -      |      |
-| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
-| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
+| 参数      | 说明             | 类型    | 默认值 | 版本 |
+| --------- | ---------------- | ------- | ------ | ---- |
+| hoverable | 鼠标移过时可浮起 | boolean | true   |      |
 
 ### Card.Meta
 
-| 参数        | 说明               | 类型          | 默认值 | 版本 |
-| ----------- | ------------------ | ------------- | ------ | ---- |
-| avatar      | 头像/图标          | ReactNode     | -      |      |
-| className   | 容器类名           | string        | -      |      |
-| description | 描述内容           | ReactNode     | -      |      |
-| style       | 定义容器类名的样式 | CSSProperties | -      |      |
-| title       | 标题内容           | ReactNode     | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| avatar | 头像/图标 | ReactNode | - |  | × |
+| description | 描述内容 | ReactNode | - |  | × |
+| title | 标题内容 | ReactNode | - |  | × |
+
+## Semantic DOM
+
+### Card
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Card.Meta
+
+<code src="./demo/_semantic_meta.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

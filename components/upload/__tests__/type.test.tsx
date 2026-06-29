@@ -1,6 +1,10 @@
 import React from 'react';
-import type { UploadProps } from '..';
+
+import type { DraggerProps, UploadListProps, UploadProps } from '..';
 import Upload from '..';
+import Dragger from '../Dragger';
+import type { UploadRef } from '../Upload';
+import UploadList from '../UploadList';
 
 describe('Upload.typescript', () => {
   it('Upload', () => {
@@ -208,5 +212,86 @@ describe('Upload.typescript', () => {
     expect(upload1).toBeTruthy();
     expect(upload2).toBeTruthy();
     expect(upload3).toBeTruthy();
+  });
+
+  it('UploadProps type', () => {
+    const uploadProps: UploadProps<number | string> = {
+      customRequest({ onSuccess }) {
+        onSuccess?.(1234);
+        onSuccess?.('test');
+      },
+    };
+    expect(<Upload {...uploadProps} />).toBeTruthy();
+  });
+
+  it('UploadListProps type', () => {
+    const uploadListProps: UploadListProps<number | string> = {
+      locale: {},
+      removeIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+      downloadIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+      previewIcon: (file) => <div>{JSON.stringify(file.response)}</div>,
+    };
+    expect(<UploadList {...uploadListProps} />).toBeTruthy();
+  });
+
+  it('DraggerProps type', () => {
+    const draggerProps: DraggerProps<number | string> = {
+      customRequest({ onSuccess }) {
+        onSuccess?.(1234);
+        onSuccess?.('test');
+      },
+    };
+    expect(<Dragger {...draggerProps} />).toBeTruthy();
+  });
+
+  it('Dragger generic onChange', () => {
+    const dragger = (
+      <Upload.Dragger<File> onChange={({ file }) => file}>
+        <span>drag to upload</span>
+      </Upload.Dragger>
+    );
+    expect(dragger).toBeTruthy();
+  });
+
+  it('Dragger generic onChange params', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const dragger = (
+      <Upload.Dragger<IFile> onChange={({ file }) => file.response?.customFile}>
+        <span>drag to upload</span>
+      </Upload.Dragger>
+    );
+    expect(dragger).toBeTruthy();
+  });
+
+  it('Dragger generic onChange fileList', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const dragger = (
+      <Upload.Dragger<IFile>
+        onChange={({ fileList }) => fileList.map((file) => file.response?.customFile)}
+      >
+        <span>drag to upload</span>
+      </Upload.Dragger>
+    );
+    expect(dragger).toBeTruthy();
+  });
+
+  it('Dragger generic ref', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const ref = React.createRef<UploadRef<IFile>>();
+    const dragger = (
+      <Upload.Dragger<IFile> ref={ref}>
+        <span>drag to upload</span>
+      </Upload.Dragger>
+    );
+    expect(dragger).toBeTruthy();
   });
 });

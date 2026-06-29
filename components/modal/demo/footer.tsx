@@ -41,6 +41,7 @@ const App: React.FC = () => {
           <Button
             key="link"
             href="https://google.com"
+            target="_blank"
             type="primary"
             loading={loading}
             onClick={handleOk}

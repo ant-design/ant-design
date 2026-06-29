@@ -2,12 +2,14 @@
 category: Components
 group: Data Display
 title: Segmented
-cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1612ad.svg
+description: Display multiple options and allow users to select a single option.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XJR2TbS1aaQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-9tSSoO_MkIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Segmented Controls. This component is available since `antd@4.20.0`.
+This component is available since `antd@4.20.0`.
 
 ## When To Use
 
@@ -18,27 +20,61 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/vertical.tsx" version="5.21.0">Vertical Direction</code>
 <code src="./demo/block.tsx">Block Segmented</code>
-<code src="./demo/disabled.tsx">Basic</code>
+<code src="./demo/shape.tsx" version="5.24.0">Round shape</code>
+<code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
 <code src="./demo/custom.tsx">Custom Render</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
 <code src="./demo/size.tsx">Three sizes of Segmented</code>
 <code src="./demo/with-icon.tsx">With Icon</code>
 <code src="./demo/icon-only.tsx">With Icon only</code>
+<code src="./demo/with-name.tsx" version="5.23.0">With name</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/controlled-two.tsx" debug>Controlled Synced mode</code>
 <code src="./demo/size-consistent.tsx" debug>Consistent height</code>
+<code src="./demo/componentToken.tsx" debug>Custom component token</code>
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@4.20.0`
+
+### Segmented
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false |  | × |
+| classNames | Customize class for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultValue | Default selected value | string \| number | Value of first item in `options` |  | × |
+| disabled | Disable all segments | boolean | false |  | × |
+| onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  | × |
+| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
+| size | The size of the Segmented. | `large` \| `medium` \| `small` | `medium` |  | × |
+| styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 5.21.0 | × |
+| value | Currently selected value | string \| number |  |  | × |
+| shape | shape of Segmented | `default` \| `round` | `default` | 5.24.0 | × |
+| name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  | 5.23.0 | × |
+
+### SegmentedItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| block | Option to fit width to its parent\'s width | boolean | false |  |
-| defaultValue | Default selected value | string \| number |  |  |
-| disabled | Disable all segments | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
-| options | Set children optional | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
-| size | The size of the Segmented. | `large` \| `middle` \| `small` | - |  |
-| value | Currently selected value | string \| number |  |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
+| className | The additional css class | string | - |  |
+| icon | Display icon for Segmented item | ReactNode | - |  |
+| label | Display text for Segmented item | ReactNode | - |  |
+| tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.en-US.md#api) | - |  |
+| value | Value for Segmented item | string \| number | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component="Segmented"></ComponentTokenTable>

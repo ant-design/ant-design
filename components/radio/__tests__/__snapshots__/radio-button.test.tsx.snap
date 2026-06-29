@@ -1,27 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Radio Button rtl render component should be rendered correctly in RTL direction 1`] = `
-<label
-  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
->
-  <span
-    class="ant-radio-button"
-  >
-    <input
-      class="ant-radio-button-input"
-      type="radio"
-      value=""
-    />
-    <span
-      class="ant-radio-button-inner"
-    />
-  </span>
-</label>
-`;
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Radio Button should render correctly 1`] = `
 <label
-  class="ant-radio-button-wrapper customized"
+  class="ant-radio-button-wrapper customized css-var-root ant-radio-css-var"
 >
   <span
     class="ant-radio-button"
@@ -29,13 +10,11 @@ exports[`Radio Button should render correctly 1`] = `
     <input
       class="ant-radio-button-input"
       type="radio"
-      value=""
-    />
-    <span
-      class="ant-radio-button-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-button-label"
+  >
     Test
   </span>
 </label>
@@ -43,44 +22,45 @@ exports[`Radio Button should render correctly 1`] = `
 
 exports[`Radio Group passes prefixCls down to radio 1`] = `
 <div
-  class="my-radio-group my-radio-group-outline"
+  class="my-radio-group my-radio-group-outline css-var-root my-radio-css-var"
+  role="radiogroup"
 >
   <label
-    class="my-radio-wrapper"
+    class="my-radio-wrapper css-var-root my-radio-css-var"
   >
     <span
-      class="my-radio"
+      class="my-radio ant-wave-target"
     >
       <input
         class="my-radio-input"
+        name="test-id"
         type="radio"
         value="Apple"
       />
-      <span
-        class="my-radio-inner"
-      />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Apple
     </span>
   </label>
   <label
-    class="my-radio-wrapper"
+    class="my-radio-wrapper css-var-root my-radio-css-var"
     style="font-size: 12px;"
   >
     <span
-      class="my-radio"
+      class="my-radio ant-wave-target"
     >
       <input
         class="my-radio-input"
+        name="test-id"
         type="radio"
         value="Orange"
       />
-      <span
-        class="my-radio-inner"
-      />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Orange
     </span>
   </label>

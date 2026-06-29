@@ -5,18 +5,3 @@
 ## en-US
 
 Use `Form.Provider` to process data between forms. In this case, submit button is in the Modal which is out of Form. You can use `form.submit` to submit form. Besides, we recommend native `<Button htmlType="submit" />` to submit a form.
-
-```css
-#components-form-demo-form-context .user {
-  margin-bottom: 8px;
-}
-
-#components-form-demo-form-context .user .ant-avatar {
-  margin-right: 8px;
-}
-
-.ant-row-rtl #components-form-demo-form-context .user .ant-avatar {
-  margin-right: 0;
-  margin-left: 8px;
-}
-```

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableProps } from 'antd';
 
 interface DataType {
   key: string;
@@ -13,21 +13,26 @@ interface DataType {
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const sharedOnCell = (_: DataType, index: number) => {
-  if (index === 4) {
+const sharedOnCell = (_: DataType, index?: number) => {
+  if (index === 1) {
     return { colSpan: 0 };
   }
 
   return {};
 };
 
-const columns: ColumnsType<DataType> = [
+const columns: TableProps<DataType>['columns'] = [
+  {
+    title: 'RowHead',
+    dataIndex: 'key',
+    rowScope: 'row',
+  },
   {
     title: 'Name',
     dataIndex: 'name',
     render: (text) => <a>{text}</a>,
     onCell: (_, index) => ({
-      colSpan: (index as number) < 4 ? 1 : 5,
+      colSpan: index === 1 ? 5 : 1,
     }),
   },
   {
@@ -40,14 +45,14 @@ const columns: ColumnsType<DataType> = [
     colSpan: 2,
     dataIndex: 'tel',
     onCell: (_, index) => {
-      if (index === 2) {
+      if (index === 3) {
         return { rowSpan: 2 };
       }
       // These two are merged into above cell
-      if (index === 3) {
+      if (index === 4) {
         return { rowSpan: 0 };
       }
-      if (index === 4) {
+      if (index === 1) {
         return { colSpan: 0 };
       }
 
@@ -90,7 +95,7 @@ const data: DataType[] = [
     age: 32,
     tel: '0575-22098909',
     phone: 18900010002,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
@@ -110,6 +115,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;
+const App: React.FC = () => <Table<DataType> columns={columns} dataSource={data} bordered />;
 
 export default App;

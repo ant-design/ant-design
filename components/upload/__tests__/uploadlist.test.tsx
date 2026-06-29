@@ -1,14 +1,16 @@
 import React from 'react';
+
+import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { FormInstance } from '../../form';
 import Form from '../../form';
+import type { UploadListProps, UploadLocale } from '../interface';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
-import type { FormInstance } from '../../form';
-import type { UploadFile, UploadProps } from '..';
-import type { UploadListProps, UploadLocale } from '../interface';
 
 const fileList: UploadProps['fileList'] = [
   {
@@ -28,13 +30,15 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload List', () => {
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
+  const originRevokeObjectURL = window.URL.revokeObjectURL;
+  window.URL.revokeObjectURL = jest.fn(() => '');
 
   // Mock dom
   let size = { width: 0, height: 0 };
@@ -54,26 +58,14 @@ describe('Upload List', () => {
 
   // HTMLCanvasElement.prototype
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-    return setup();
-  });
-  afterEach(() => {
-    teardown();
-    drawImageCallback = null;
-    jest.clearAllTimers();
-    jest.useRealTimers();
-  });
-
   let open: jest.MockInstance<any, any[]>;
   beforeAll(() => {
     open = jest.spyOn(window, 'open').mockImplementation(() => null);
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
-      if (this.onload) {
-        this.onload();
-      }
+      // @ts-ignore
+      this.onload?.();
     });
 
     mockGetCanvasContext.mockReturnValue({
@@ -85,9 +77,20 @@ describe('Upload List', () => {
     } as RenderingContext);
     mockToDataURL.mockReturnValue('data:image/png;base64,');
   });
+  beforeEach(() => {
+    jest.useFakeTimers();
+    return setup();
+  });
+  afterEach(() => {
+    teardown();
+    drawImageCallback = null;
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
+    window.URL.revokeObjectURL = originRevokeObjectURL;
     mockWidthGet.mockRestore();
     mockHeightGet.mockRestore();
     mockSrcSet.mockRestore();
@@ -110,6 +113,34 @@ describe('Upload List', () => {
       expect(imgNode.getAttribute('src')).toBe(file.thumbUrl);
     });
     unmount();
+  });
+
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      list: 'custom-list',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { color: 'rgba(40, 167, 69, 0.9)' },
+      list: { color: 'rgba(255, 193, 7, 0.7)' },
+      item: { color: 'rgb(255, 0, 0)' },
+    };
+    const { container } = render(
+      <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    const root = container.querySelector('.ant-upload-wrapper');
+    const list = container.querySelector('.ant-upload-list');
+    const item = container.querySelector('.ant-upload-list-item');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(list).toHaveClass(customClassNames.list);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(list).toHaveStyle(customStyles.list);
+    expect(item).toHaveStyle(customStyles.item);
   });
 
   // https://github.com/ant-design/ant-design/issues/7269
@@ -576,6 +607,89 @@ describe('Upload List', () => {
     unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/27519
+  // https://github.com/ant-design/ant-design/issues/45735
+  it('should show remove icon when showRemoveIcon is true', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.querySelector('.anticon-delete')).toBeTruthy();
+    unmount();
+  });
+
+  describe('disabled should not affect preview and download icon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const check = (wrapper: HTMLElement) => {
+      const actionEls = wrapper.querySelectorAll('.ant-upload-list-item-actions > *');
+      expect(actionEls).toHaveLength(3);
+      // preview icon
+      expect(actionEls[0]).not.toBeDisabled();
+      // download icon
+      expect(actionEls[1]).not.toBeDisabled();
+      // delete icon
+      expect(actionEls[2]).toBeDisabled();
+    };
+
+    const InnerUploadList = (props: Partial<UploadProps>) => (
+      <Upload
+        listType="picture-card"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showPreviewIcon: true,
+          showDownloadIcon: true,
+          showRemoveIcon: true,
+        }}
+        {...props}
+      >
+        <button type="button">upload</button>
+      </Upload>
+    );
+
+    // https://github.com/ant-design/ant-design/issues/46171
+    it('normal', () => {
+      const { container: wrapper } = render(<InnerUploadList disabled />);
+      check(wrapper);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/53503
+    it('in Form', () => {
+      const { container: wrapper } = render(
+        <Form disabled>
+          <Form.Item>
+            <InnerUploadList />
+          </Form.Item>
+        </Form>,
+      );
+      check(wrapper);
+    });
+  });
+
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
@@ -607,6 +721,53 @@ describe('Upload List', () => {
     await waitFakeTimer();
     expect(handleChange).toHaveBeenCalledTimes(2);
 
+    unmount();
+  });
+
+  it('should support showXxxIcon functions', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+        response: {
+          protected: true,
+        },
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: (file) => file.response?.protected,
+          showDownloadIcon: (file) => file.response?.protected,
+          showPreviewIcon: (file) => file.response?.protected,
+          removeIcon: <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+          previewIcon: <i>PV</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
     unmount();
   });
 
@@ -834,6 +995,46 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('when picture-card file upload fails, non-image file should render file icon', () => {
+    const items = [{ status: 'error', uid: 'upload-list-item', name: 'report.pdf' }];
+    const { container: wrapper, unmount } = render(
+      <UploadList
+        listType="picture-card"
+        items={items as UploadListProps['items']}
+        locale={{ uploadError: 'upload error' }}
+      />,
+    );
+
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file')).toBeTruthy();
+    expect(
+      wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file svg[data-icon="file"]'),
+    ).toBeTruthy();
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-picture')).toBeFalsy();
+
+    unmount();
+  });
+
+  it('when picture-card file upload fails, image file should render picture icon', () => {
+    const items = [{ status: 'error', uid: 'upload-list-item', name: 'picture.png' }];
+    const { container: wrapper, unmount } = render(
+      <UploadList
+        listType="picture-card"
+        items={items as UploadListProps['items']}
+        locale={{ uploadError: 'upload error' }}
+      />,
+    );
+
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-picture')).toBeTruthy();
+    expect(
+      wrapper.querySelector(
+        '.ant-upload-list-item-thumbnail .anticon-picture svg[data-icon="picture"]',
+      ),
+    ).toBeTruthy();
+    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail .anticon-file')).toBeFalsy();
+
+    unmount();
+  });
+
   it('onPreview should be called, when url exists', () => {
     const onPreview = jest.fn();
     const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
@@ -862,7 +1063,13 @@ describe('Upload List', () => {
       />,
     );
     fireEvent.click(wrapper.querySelector('.ant-upload-list-item-name')!);
+    expect(wrapper.querySelector('.ant-upload-list-item-name')?.getAttribute('role')).toBe(
+      'button',
+    );
     expect(onPreview).toHaveBeenCalled();
+    fireEvent.keyDown(wrapper.querySelector('.ant-upload-list-item-name')!, { key: 'Enter' });
+    fireEvent.keyDown(wrapper.querySelector('.ant-upload-list-item-name')!, { key: ' ' });
+    expect(onPreview).toHaveBeenCalledTimes(5);
 
     unmount();
   });
@@ -887,7 +1094,7 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
+      expect(dataUrl).toBe('data:image/png;base64,');
     });
     unmount();
   });
@@ -916,7 +1123,32 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then((dataUrl) => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
+      expect(dataUrl).toBe('data:image/png;base64,');
+    });
+    unmount();
+  });
+
+  it('upload gif file should be converted to the image/gif base64', async () => {
+    const mockFile = new File([''], 'foo.gif', {
+      type: 'image/gif',
+    });
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then((dataUrl) => {
+      expect(dataUrl).toBe('data:image/gif;base64,');
     });
     unmount();
   });
@@ -1139,37 +1371,6 @@ describe('Upload List', () => {
     });
   });
 
-  it('[deprecated] should support transformFile', (done) => {
-    jest.useRealTimers();
-    let wrapper: ReturnType<typeof render>;
-    let lastFile: UploadFile;
-
-    const handleTransformFile = jest.fn();
-    const onChange: UploadProps['onChange'] = ({ file }) => {
-      if (file.status === 'done') {
-        expect(file).not.toBe(lastFile);
-        expect(handleTransformFile).toHaveBeenCalled();
-        wrapper.unmount();
-        done();
-      }
-
-      lastFile = file;
-    };
-    wrapper = render(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        transformFile={handleTransformFile}
-        onChange={onChange}
-        customRequest={successRequest}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    fireEvent.change(wrapper.container.querySelector('input')!, {
-      target: { files: [{ name: 'foo.png' }] },
-    });
-  });
-
   it('should render button inside UploadList when listStyle is picture-card', () => {
     const {
       container: wrapper,
@@ -1226,7 +1427,7 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);
@@ -1242,7 +1443,7 @@ describe('Upload List', () => {
     // Mock async update in a frame
     const fileNames = ['light', 'bamboo', 'little'];
 
-    await act(() => {
+    act(() => {
       uploadRef.current.onBatchStart(
         fileNames.map((fileName) => {
           const file = new File([], fileName);
@@ -1479,8 +1680,8 @@ describe('Upload List', () => {
         <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });
@@ -1504,8 +1705,8 @@ describe('Upload List', () => {
         />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
-        'none',
+      expect(wrapper.querySelector<HTMLDivElement>('.ant-upload-select')).toHaveClass(
+        'ant-upload-hidden',
       );
       unmount();
     });
@@ -1540,5 +1741,61 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42056
+  describe('when form is disabled but upload is not', () => {
+    it('should not disable remove button', () => {
+      const { container } = render(
+        <Form name="base" disabled>
+          <Form.Item name="upload">
+            <Upload
+              disabled={false}
+              defaultFileList={[
+                {
+                  uid: '1',
+                  name: 'zzz.png',
+                  status: 'error',
+                  url: 'http://www.baidu.com/zzz.png',
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>,
+      );
+
+      const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
+      expect(removeButton).toBeTruthy();
+      expect(removeButton).not.toBeDisabled();
+    });
+  });
+
+  describe('Customize token', () => {
+    it('pictureCardSize', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            components: { Upload: { pictureCardSize: 142 } },
+          }}
+        >
+          <Upload
+            listType="picture-card"
+            fileList={[
+              {
+                uid: '-1',
+                name: 'image.png',
+                status: 'done',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-upload-list-item-container')).toHaveStyle({
+        width: 'var(--ant-upload-picture-card-size)',
+        height: 'var(--ant-upload-picture-card-size)',
+      });
+    });
   });
 });
