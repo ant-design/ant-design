@@ -132,6 +132,7 @@ export { Variants };
  */
 let existThemeConfig = false;
 
+/* istanbul ignore next */
 export const warnContext: (componentName: string) => void =
   process.env.NODE_ENV !== 'production'
     ? (componentName: string) => {
@@ -141,8 +142,7 @@ export const warnContext: (componentName: string) => void =
           `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
         );
       }
-    : /* istanbul ignore next */
-      null!;
+    : null!;
 
 export {
   ConfigConsumer,
