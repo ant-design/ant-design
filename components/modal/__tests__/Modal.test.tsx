@@ -170,6 +170,17 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 
+  it('should support modalRender', () => {
+    const modalRender = vi.fn((node: React.ReactNode) => (
+      <div className="custom-modal-render">{node}</div>
+    ));
+
+    render(<Modal open modalRender={modalRender} />);
+
+    expect(modalRender).toHaveBeenCalled();
+    expect(document.querySelector('.ant-modal-render .custom-modal-render')).toBeTruthy();
+  });
+
   // https://github.com/ant-design/ant-design/issues/
   it('Both ways should be rendered normally on the page', () => {
     render(
