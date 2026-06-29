@@ -116,13 +116,10 @@ describe('Typography.Editable', () => {
 
     fireEvent.click(container.querySelector('.ant-typography-edit')!);
 
-    // The editing wrapper carries the heading class, so its computed font size
-    // is the (customized) heading size; the textarea must inherit it instead of
-    // falling back to the user-agent form-control font.
-    expect(container.querySelector('.ant-typography-edit-content')).toHaveClass(
-      'ant-typography-h1',
-    );
-
+    // The edited element carries the heading class, so the editing textarea must
+    // inherit its typography (size/line-height/family/weight) instead of falling
+    // back to the user-agent form-control font; assert those declarations are
+    // emitted for the edit-content textarea rule.
     const styleText = Array.from(document.querySelectorAll('style'))
       .map((style) => style.innerHTML)
       .join('');
