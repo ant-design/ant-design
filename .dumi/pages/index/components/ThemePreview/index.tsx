@@ -190,7 +190,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
       description={locale.themeDesc}
       collapse
       titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
-      background={isDark ? '#393F4A' : background}
+      background={background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
       <Flex className={styles.container}>
