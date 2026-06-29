@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -34,7 +34,7 @@ export type DividerSemanticType = {
   };
 };
 
-export type CardSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
+export type DividerSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -57,8 +57,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: CardSemanticAllType['classNamesAndFn'];
-  styles?: CardSemanticAllType['stylesAndFn'];
+  classNames?: DividerSemanticAllType['classNamesAndFn'];
+  styles?: DividerSemanticAllType['stylesAndFn'];
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
@@ -128,11 +128,15 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: sizeFullName,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    { props: mergedProps },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DividerSemanticAllType['classNames'],
+    DividerSemanticAllType['styles'],
+    DividerProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     prefixCls,
@@ -196,7 +200,6 @@ const Divider: React.FC<DividerProps> = (props) => {
     <div
       className={classString}
       style={{
-        ...contextStyle,
         ...mergedStyles.root,
         ...(children ? {} : mergedStyles.rail),
         ...style,

@@ -8,7 +8,7 @@ import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
@@ -295,13 +295,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     destroyOnHidden: mergedDestroyOnHidden,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipSemanticAllType['classNames'],
+    TooltipSemanticAllType['styles'],
+    TooltipProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
@@ -371,8 +374,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         root: {
           ...arrowContentStyle,
           ...mergedStyles.root,
-          ...contextStyle,
-          ...overlayStyle,
         },
         container: containerStyle,
         uniqueContainer: containerStyle,
