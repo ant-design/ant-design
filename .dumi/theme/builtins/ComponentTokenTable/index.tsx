@@ -4,6 +4,7 @@ import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
 
 import useLocale from '../../../hooks/useLocale';
 import type { TokenData } from '../TokenTable';
@@ -107,6 +108,31 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   const { styles } = useStyle();
 
+  const highlightedCode = useMemo(() => {
+    const code = component
+      ? `<ConfigProvider
+  theme={{
+    components: {
+      ${component}: {
+        /* ${comment?.componentComment} */
+      },
+    },
+  }}
+>
+  ...
+</ConfigProvider>`
+      : `<ConfigProvider
+  theme={{
+    token: {
+      /* ${comment?.globalComment} */
+    },
+  }}
+>
+  ...
+</ConfigProvider>`;
+    return Prism.highlight(code, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
+  }, [component, comment]);
+
   if (!tokens.length) {
     return null;
   }
@@ -132,31 +158,6 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
       };
     })
     .filter((item): item is TokenData => item !== null && item !== undefined);
-
-  const highlightedCode = useMemo(() => {
-    const code = component
-      ? `<ConfigProvider
-  theme={{
-    components: {
-      ${component}: {
-        /* ${comment?.componentComment} */
-      },
-    },
-  }}
->
-  ...
-</ConfigProvider>`
-      : `<ConfigProvider
-  theme={{
-    token: {
-      /* ${comment?.globalComment} */
-    },
-  }}
->
-  ...
-</ConfigProvider>`;
-    return Prism.highlight(code, Prism.languages.javascript, 'jsx');
-  }, [component, comment]);
 
   return (
     <>
