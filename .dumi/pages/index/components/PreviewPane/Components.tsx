@@ -7,9 +7,10 @@ import {
   LoadingOutlined,
   MailOutlined,
   MessageOutlined,
-  TwitterOutlined,
+  XOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons';
+import type { StepItem } from '@rc-component/steps/es/Steps';
 import {
   App,
   Avatar,
@@ -41,9 +42,19 @@ import {
   Tag,
   Typography,
 } from 'antd';
-import type { ButtonProps, ConfigProviderProps } from 'antd';
+import type {
+  BadgeProps,
+  ButtonProps,
+  ConfigProviderProps,
+  RadioGroupProps,
+  SelectProps,
+  TagProps,
+  ThemeConfig,
+} from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
+import type { ItemType } from 'antd/es/menu/interface';
+import { clsx } from 'clsx';
 
 const { Title, Text } = Typography;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
@@ -108,11 +119,12 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       backgroundPosition: 'center',
     }),
     blockCard: css({
-      background: cssVar.colorBgContainer,
+      backgroundColor: cssVar.colorBgContainer,
       borderRadius: token.borderRadiusLG,
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
       border: `1px solid ${token.colorBorderSecondary}`,
       padding: token.paddingLG,
+      userSelect: 'none',
     }),
     avatarGroup: css({
       marginBlockEnd: 16,
@@ -219,29 +231,29 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
   };
 });
 
-const selectOptions = [
+const selectOptions: SelectProps<string>['options'] = [
   { value: 'apple', label: 'Apple' },
   { value: 'banana', label: 'Banana' },
   { value: 'orange', label: 'Orange' },
   { value: 'watermelon', label: 'Watermelon' },
 ];
 
-const dropdownMenuItems = Array.from({ length: 5 }).map((_, index) => ({
+const dropdownMenuItems = Array.from({ length: 5 }).map<ItemType>((_, index) => ({
   key: `opt${index}`,
   label: `Option ${index}`,
 }));
 
-const checkboxOptions = [
+const checkboxOptions: CheckboxGroupProps<string>['options'] = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
 ];
 
-const radioOptions = [
+const radioOptions: RadioGroupProps['options'] = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
 ];
 
-const badgeList = [
+const badgeList: BadgeProps[] = [
   { status: 'success', text: 'Success' },
   { status: 'error', text: 'Error' },
   { status: 'default', text: 'Default' },
@@ -249,10 +261,10 @@ const badgeList = [
   { status: 'warning', text: 'Warning' },
 ];
 
-const tagList = [
-  { icon: <TwitterOutlined />, color: '#55acee', label: 'Twitter' },
-  { icon: <YoutubeOutlined />, color: '#cd201f', label: 'Youtube' },
-  { icon: <FacebookOutlined />, color: '#3b5999', label: 'Facebook' },
+const tagList: TagProps[] = [
+  { icon: <XOutlined />, color: '#55acee', content: 'Twitter' },
+  { icon: <YoutubeOutlined />, color: '#cd201f', content: 'Youtube' },
+  { icon: <FacebookOutlined />, color: '#3b5999', content: 'Facebook' },
 ];
 
 const avatarGroupList = [
@@ -271,7 +283,11 @@ const buttonList: ButtonProps[] = [
   { danger: true, shape: 'round', children: 'Round button' },
 ];
 
-const stepsItems = [{ title: 'Finished' }, { title: 'In Process' }, { title: 'Waiting' }];
+const stepsItems: StepItem[] = [
+  { title: 'Finished' },
+  { title: 'In Process' },
+  { title: 'Waiting' },
+];
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const {
@@ -287,13 +303,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { theme, ...restConfig } = config || {};
 
-  const mergedTheme = React.useMemo(
-    () => ({
-      ...theme,
-      inherit,
-    }),
-    [theme, inherit],
-  );
+  const mergedTheme = useMemo<ThemeConfig>(() => ({ ...theme, inherit }), [theme, inherit]);
 
   const genBackgroundColor = useMemo(() => {
     if (isDarkTheme) {
@@ -359,28 +369,24 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         <Switch defaultChecked />
                         <Progress type="circle" percent={25} size={20} showInfo={false} />
                       </Flex>
-
                       <div className={styles.stepsWrapper}>
                         <Steps current={1} status="error" items={stepsItems} />
                       </div>
                     </Flex>
                   </div>
-
                   <div className={styles.progressWrapper}>
                     <Flex gap="middle" vertical>
                       <Progress percent={50} status="active" />
                       <Progress percent={70} status="exception" />
                     </Flex>
                   </div>
-
                   <div>
-                    <Flex justify="space-between" gap={8}>
-                      {badgeList.map((badge) => (
-                        <Badge key={badge.status} status={badge.status as any} text={badge.text} />
+                    <Flex justify="space-between" align="center" gap="small">
+                      {badgeList.map((badge, index) => (
+                        <Badge key={`item-${index}`} {...badge} />
                       ))}
                     </Flex>
                   </div>
-
                   <div className={styles.flexRow12}>
                     <div className={clsx(styles.blockCard, styles.blockCardQr)}>
                       <QRCode
@@ -397,11 +403,14 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       </Flex>
                       <div className={clsx(styles.blockCard, styles.blockCardExtraPad)}>
                         <Flex gap="small" align="center">
-                          {tagList.map((tag) => (
-                            <Tag key={tag.label} icon={tag.icon} color={tag.color}>
-                              {tag.label}
-                            </Tag>
-                          ))}
+                          {tagList.map((tag) => {
+                            const { content, ...restProps } = tag;
+                            return (
+                              <Tag key={`item-${content}`} {...restProps}>
+                                {content}
+                              </Tag>
+                            );
+                          })}
                         </Flex>
                       </div>
                       <InternalPopconfirm
@@ -442,28 +451,35 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Avatar.Group>
                     <Title level={5}>Verify account</Title>
                     <Text type="secondary">We've sent a code to a****@gmail.com</Text>
-
                     <div className={styles.otpWrapper}>
-                      <Input.OTP size="large" length={6} defaultValue="4320" />
+                      <Input.OTP size="large" length={6} defaultValue="4320" variant="filled" />
                     </div>
                     <Text type="secondary">
                       Didn't receive a code? <a>Resend</a>
                     </Text>
                   </div>
-
                   <Flex gap="large" vertical>
                     <Flex gap="middle" justify="center">
-                      {buttonList.slice(0, 2).map((btn: ButtonProps, idx) => (
-                        <Button key={idx} {...btn} />
-                      ))}
+                      {buttonList.slice(0, 2).map((props, idx) => {
+                        const { children, ...restProps } = props;
+                        return (
+                          <Button key={`item-${idx}`} {...restProps}>
+                            {children}
+                          </Button>
+                        );
+                      })}
                     </Flex>
                     <Flex gap="middle" justify="center">
-                      {buttonList.slice(-2).map((btn: ButtonProps, idx) => (
-                        <Button key={idx} {...btn} />
-                      ))}
+                      {buttonList.slice(-2).map((props, idx) => {
+                        const { children, ...restProps } = props;
+                        return (
+                          <Button key={`item-${idx}`} {...restProps}>
+                            {children}
+                          </Button>
+                        );
+                      })}
                     </Flex>
                   </Flex>
-
                   <div className={styles.blockCard}>
                     <Flex align="flex-start" gap="middle">
                       <Avatar
@@ -484,7 +500,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       </div>
                     </Flex>
                   </div>
-
                   <InternalPanel
                     styles={{ root: { width: '100%' } }}
                     title="Ant Design"
