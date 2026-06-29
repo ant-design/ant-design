@@ -92,6 +92,22 @@ export default defineConfig({
       ...(shouldIgnoreSemantic ? ['**/demo-semantic.test.*'] : []),
       'components/__tests__/node.test.tsx',
     ],
+    coverage: {
+      include: ['components/**/*.{ts,tsx}'],
+      exclude: [
+        'components/*/style/index.tsx',
+        'components/style/index.tsx',
+        'components/*/locale/index.tsx',
+        'components/*/__tests__/type.test.tsx',
+        'components/**/*/interface.{ts,tsx}',
+        'components/*/__tests__/image.test.{ts,tsx}',
+        'components/*/__tests__/demo-semantic.test.tsx',
+        'components/__tests__/node.test.tsx',
+        'components/*/demo/*.tsx',
+        'components/*/design/**',
+      ],
+      excludeAfterRemap: true,
+    },
     environmentOptions: {
       jsdom: { url: 'http://localhost' },
     },
