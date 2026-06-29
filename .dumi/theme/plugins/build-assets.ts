@@ -6,8 +6,7 @@ import type { IApi } from 'dumi';
 
 const siteLayerOrder = '@layer theme, base, global, antd, components, utilities;';
 const siteLayerStyle = `<style>${siteLayerOrder}</style>`;
-const tailwindLayerStyle = `<style type="text/tailwindcss">${siteLayerOrder}
-@import "tailwindcss";</style>`;
+const tailwindLayerStyle = `<style type="text/tailwindcss">${siteLayerOrder}</style>`;
 
 export const getHash = (str: string, length = 8) =>
   createHash('md5').update(str).digest('hex').slice(0, length);
