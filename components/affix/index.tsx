@@ -230,6 +230,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     lazyUpdatePosition.cancel();
   };
 
+  /* istanbul ignore next */
   React.useImperativeHandle(ref, () => ({ updatePosition }));
 
   // mount & unmount

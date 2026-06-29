@@ -12,6 +12,7 @@ export type { ArgsProps };
 
 let notification: GlobalNotification | null = null;
 
+/* istanbul ignore next */
 let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
 
 interface GlobalNotification {

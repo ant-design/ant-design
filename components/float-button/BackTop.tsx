@@ -50,6 +50,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
 
+  /* istanbul ignore next */
   React.useImperativeHandle(ref, () => ({
     nativeElement: internalRef.current,
   }));

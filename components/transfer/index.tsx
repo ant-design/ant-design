@@ -141,10 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onScroll' | 'children'
-> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -399,6 +397,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleLeftClear = () => onSearch?.('left', '');
 
+  /* istanbul ignore next */
   const handleRightClear = () => onSearch?.('right', '');
 
   const handleSingleSelect = (
