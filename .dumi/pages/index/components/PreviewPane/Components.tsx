@@ -122,7 +122,6 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       backgroundColor: cssVar.colorBgContainer,
       borderRadius: token.borderRadiusLG,
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      border: `1px solid ${token.colorBorderSecondary}`,
       padding: token.paddingLG,
       userSelect: 'none',
     }),
