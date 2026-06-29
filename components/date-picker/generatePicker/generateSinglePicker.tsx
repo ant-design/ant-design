@@ -147,6 +147,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupClassName || dropdownClassName,
         popupStyle,
         mergedProps,
+        contextPickerConfig?.style,
       );
 
       const innerRef = React.useRef<PickerRef>(null);
@@ -251,7 +252,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               contextPickerConfig?.className,
               className,
             )}
-            style={{ ...contextPickerConfig?.style, ...style }}
+            style={style}
             // Semantic Style
             classNames={mergedClassNames}
             styles={{

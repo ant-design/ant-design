@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -160,13 +160,15 @@ const Spin: SpinType = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpinSemanticAllType['classNames'],
+    SpinSemanticAllType['styles'],
+    SpinProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles], {
+    props: mergedProps,
+  });
 
   // ======================== Warning =========================
   if (process.env.NODE_ENV !== 'production') {
@@ -246,7 +248,6 @@ const Spin: SpinType = (props) => {
         ...mergedStyles.root,
         ...(!isNested ? mergedStyles.section : {}),
         ...(fullscreen ? mergedStyles.mask : {}),
-        ...contextStyle,
         ...style,
       }}
       aria-live="polite"

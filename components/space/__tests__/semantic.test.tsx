@@ -3,6 +3,11 @@ import React from 'react';
 import Space from '..';
 import type { SpaceProps } from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Space.Semantic', () => {
   it('should support classNames as object', () => {
@@ -81,5 +86,22 @@ describe('Space.Semantic', () => {
     expect(stylesFn.mock.calls[0][0].props.size).toBe('large');
     const spaceElement = container.querySelector('.ant-space');
     expect(spaceElement).toHaveStyle('background-color: rgb(0, 0, 255)');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        space={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Space styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          <span>Item</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-space'));
   });
 });
