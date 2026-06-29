@@ -71,7 +71,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const location = useLocation();
 
   const entryName = 'index.tsx';
-  const entryCode = asset.dependencies[entryName].value;
+  const entryCode = asset.dependencies[entryName]?.value ?? '';
 
   const demoContainerRef = useRef<HTMLElement>(null);
   const {
