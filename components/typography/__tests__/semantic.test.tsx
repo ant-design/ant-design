@@ -5,6 +5,10 @@ import Typography from '..';
 import type { TypographyProps } from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import ConfigProvider from '../../config-provider';
 
 describe('Typography.Semantic', () => {
@@ -150,5 +154,25 @@ describe('Typography.Semantic', () => {
     const textarea = container.querySelector<HTMLTextAreaElement>('textarea');
     expect(textarea).toHaveClass('custom-textarea-class');
     expect(textarea).toHaveStyle({ fontSize: '20px' });
+  });
+
+  it('should follow root style priority', () => {
+    render(
+      <ConfigProvider
+        typography={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Typography.Paragraph
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        >
+          Test Typography
+        </Typography.Paragraph>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-typography'));
   });
 });
