@@ -1,4 +1,3 @@
-import { FastColor } from '@ant-design/fast-color';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
@@ -52,24 +51,6 @@ const loadingCircle = new Keyframes('loadingCircle', {
   },
 });
 
-const scrollFadeTop = new Keyframes('antScrollFadeTop', {
-  '0%': {
-    opacity: 0,
-  },
-  '12%, 100%': {
-    opacity: 1,
-  },
-});
-
-const scrollFadeBottom = new Keyframes('antScrollFadeBottom', {
-  '0%, 88%': {
-    opacity: 1,
-  },
-  '100%': {
-    opacity: 0,
-  },
-});
-
 export const clearFix = (): CSSObject => ({
   // https://github.com/ant-design/ant-design/issues/21301#issuecomment-583955229
   '&::before': {
@@ -96,71 +77,40 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
 });
 
 interface ScrollFadeStyleOptions {
-  backgroundColor?: string;
   shadowColor?: string;
 }
-
-const getScrollFadeShadowColor = (color: string) => new FastColor(color).setA(0.05).toRgbString();
 
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorBgElevated, colorTextQuaternary, paddingLG, paddingSM } = token;
-  const backgroundColor = options?.backgroundColor ?? colorBgElevated;
-  const shadowColor = options?.shadowColor ?? getScrollFadeShadowColor(colorTextQuaternary);
-  const fadeSize = unit(paddingLG);
+  const { colorSplit, paddingSM } = token;
+  const shadowColor = options?.shadowColor ?? colorSplit;
   const shadowSize = unit(paddingSM);
-  const fadeOffset = `calc(${fadeSize} * -1)`;
+  const shadowOffset = `calc(${shadowSize} * -1)`;
 
   return {
-    backgroundImage: [
-      `linear-gradient(${backgroundColor} 30%, transparent)`,
-      `linear-gradient(transparent, ${backgroundColor} 70%)`,
-      `linear-gradient(to bottom, ${shadowColor}, transparent)`,
-      `linear-gradient(to top, ${shadowColor}, transparent)`,
-    ].join(', '),
-    backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: [
-      `100% ${fadeSize}`,
-      `100% ${fadeSize}`,
-      `100% ${shadowSize}`,
-      `100% ${shadowSize}`,
-    ].join(', '),
-    backgroundAttachment: 'local, local, scroll, scroll',
+    position: 'relative',
 
-    '@supports (animation-timeline: scroll(nearest block))': {
-      position: 'relative',
-      backgroundImage: 'none',
+    '&::before, &::after': {
+      position: 'sticky',
+      zIndex: 1,
+      display: 'block',
+      height: shadowSize,
+      pointerEvents: 'none',
+      content: '""',
+    },
 
-      '&::before, &::after': {
-        position: 'sticky',
-        zIndex: 1,
-        display: 'block',
-        height: fadeSize,
-        pointerEvents: 'none',
-        opacity: 0,
-        content: '""',
-        animationDuration: 'auto',
-        animationTimingFunction: 'linear',
-        animationFillMode: 'both',
-        animationTimeline: 'scroll(nearest block)',
-      },
+    '&::before': {
+      top: 0,
+      marginBottom: shadowOffset,
+      boxShadow: `inset 0 10px 8px -8px ${shadowColor}`,
+    },
 
-      '&::before': {
-        top: 0,
-        marginBottom: fadeOffset,
-        backgroundImage: `linear-gradient(to bottom, ${backgroundColor}, transparent)`,
-        animationName: scrollFadeTop,
-      },
-
-      '&::after': {
-        bottom: 0,
-        marginTop: fadeOffset,
-        backgroundImage: `linear-gradient(to top, ${backgroundColor}, transparent)`,
-        animationName: scrollFadeBottom,
-      },
+    '&::after': {
+      bottom: 0,
+      marginTop: shadowOffset,
+      boxShadow: `inset 0 -10px 8px -8px ${shadowColor}`,
     },
   };
 };

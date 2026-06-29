@@ -178,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
       [`&${componentCls}-submenu-popup ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])`]:
         {
-          ...genScrollFadeStyle(token, { backgroundColor: popupBg }),
+          ...genScrollFadeStyle(token),
         },
       // ===== 设置浮层的颜色 end =======
 
