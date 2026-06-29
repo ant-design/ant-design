@@ -23,7 +23,7 @@ vi.mock('../../tests/shared/demoTest', () => {
 const files = globSync(`./components/*/__tests__/demo.test.@(j|t)s?(x)`);
 
 for (const componentTestFile of files) {
-  await vi.importActual(`../../${componentTestFile}`);
+  await import(/* @vite-ignore */ `../../${componentTestFile}`);
 }
 
 describe('node', () => {
@@ -48,7 +48,9 @@ describe('node', () => {
 
         test(demoFile, async () => {
           const Demo = (
-            await vi.importActual<{ default: React.ComponentType }>(`../../${demoFile}`)
+            (await import(/* @vite-ignore */ `../../${demoFile}`)) as {
+              default: React.ComponentType;
+            }
           ).default;
           expect(() => {
             renderToString(<Demo />);

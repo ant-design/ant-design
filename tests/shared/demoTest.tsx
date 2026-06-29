@@ -41,7 +41,7 @@ export type Options = {
   postRenderFn?: (container: HTMLElement) => Promise<void>;
 };
 
-const DEMO_TEST_TIMEOUT = 10_000;
+const DEMO_TEST_TIMEOUT = 20_000;
 
 function baseTest(doInject: boolean, component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`).filter(

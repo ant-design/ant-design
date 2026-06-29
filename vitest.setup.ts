@@ -1,4 +1,5 @@
 import { ReadableStream } from 'node:stream/web';
+import { createRequire } from 'node:module';
 import util from 'node:util';
 import { MessagePort } from 'node:worker_threads';
 
@@ -15,6 +16,13 @@ import { expect, vi } from 'vitest';
 import { defaultConfig } from './components/theme/internal';
 
 defaultConfig.hashed = false;
+
+if (process.env.MOCK_USE_ID !== 'false') {
+  const require = createRequire(import.meta.url);
+  const cjsReact = require('react') as typeof React;
+
+  cjsReact.useId = () => 'test-id';
+}
 
 configureTestingLibrary({
   asyncWrapper: async (callback) => {

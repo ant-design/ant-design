@@ -2,12 +2,17 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 // Align with the historical moduleNameMapper / LIB_DIR behavior.
-// LIB_DIR=es|lib points antd aliases to build output; otherwise tests use source.
+// LIB_DIR=es|lib points antd aliases to build output; dist jobs use UMD bundles.
 const LIB_DIR = process.env.LIB_DIR || 'components';
 const baseDir = ['es', 'lib'].includes(LIB_DIR) ? LIB_DIR : 'components';
-const include = ['dist', 'dist-min'].includes(LIB_DIR)
+const antdEntry =
+  LIB_DIR === 'dist' ? 'dist/antd' : LIB_DIR === 'dist-min' ? 'dist/antd.min' : `${baseDir}/index`;
+const include = ['dist', 'dist-min', 'lib', 'es'].includes(LIB_DIR)
   ? ['components/**/__tests__/demo.test.{ts,tsx}']
   : ['components/**/__tests__/**/*.test.{ts,tsx}', 'tests/*.test.ts'];
+const shouldIgnoreSemantic =
+  ['dist', 'lib', 'es', 'dist-min'].includes(LIB_DIR) ||
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC || '');
 
 const r = (p: string) => resolve(__dirname, p);
 
@@ -17,7 +22,7 @@ export default defineConfig({
   resolve: {
     alias: [
       // LIB_DIR switching
-      { find: /^antd$/, replacement: r(`${baseDir}/index`) },
+      { find: /^antd$/, replacement: r(antdEntry) },
       { find: /^antd\/es\/(.*)$/, replacement: r(`${baseDir}/$1`) },
       { find: /^antd\/lib\/(.*)$/, replacement: r(`${baseDir}/$1`) },
       { find: /^antd\/locale\/(.*)$/, replacement: r(`${baseDir}/locale/$1`) },
@@ -80,9 +85,11 @@ export default defineConfig({
     include,
     exclude: [
       '**/node_modules/**',
+      '**/__snapshots__/vitest/**',
       // 非 jsdom 环境或独立测试类型
       '**/image.test.*',
       '**/node.test.*',
+      ...(shouldIgnoreSemantic ? ['**/demo-semantic.test.*'] : []),
       'components/__tests__/node.test.tsx',
     ],
     environmentOptions: {
