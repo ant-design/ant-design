@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'Fermer',
     show: 'Afficher',
     hide: 'Masquer',
+    placeholder: 'Veuillez sélectionner',
+    sortable: 'triable',
   },
   Table: {
     filterTitle: 'Filtrer',
@@ -62,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'Sélectionner toutes les données',
     removeAll: 'Désélectionner toutes les données',
     selectInvert: 'Inverser la sélection de la page actuelle',
+    deselectAll: 'Désélectionner toutes les données',
   },
   Upload: {
     uploading: 'Téléchargement...',
@@ -81,6 +84,7 @@ const localeValues: Locale = {
     copy: 'Copier',
     copied: 'Copie effectuée',
     expand: 'Développer',
+    collapse: 'Réduire',
   },
   Form: {
     optional: '(optionnel)',
@@ -131,6 +135,17 @@ const localeValues: Locale = {
         mismatch: 'La valeur du champ ${label} ne correspond pas au modèle ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Code QR expiré',
+    refresh: 'Actualiser',
+    scanned: 'Numérisé',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vide',
+    transparent: 'Transparente',
+    singleColor: 'Couleur unique',
+    gradientColor: 'Couleur dégradée',
   },
 };
 

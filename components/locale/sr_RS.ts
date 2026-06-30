@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zatvori',
     show: 'Prikaži',
     hide: 'Sakrij',
+    sortable: 'сортабле',
   },
   Table: {
     filterTitle: 'Meni filtera',
@@ -35,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
+    filterCheckAll: 'Изаберите све ставке',
+    filterSearchPlaceholder: 'Тражи у филтерима',
   },
   Tour: {
     Next: 'Sledeće',
@@ -61,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'Izaberi sve podatke',
     removeAll: 'Ukloni sve podatke',
     selectInvert: 'Obrni izbor trenutne stranice',
+    deselectAll: 'Опозовите избор свих података',
   },
   Upload: {
     uploading: 'Otpremanje...',
@@ -80,6 +84,7 @@ const localeValues: Locale = {
     copy: 'Kopiraj',
     copied: 'Kopirano',
     expand: 'Proširi',
+    collapse: 'Колапс',
   },
   Form: {
     optional: '(opcionalno)',
@@ -130,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} ne odgovara obrascu ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'КР код је истекао',
+    refresh: 'Освежи',
+    scanned: 'Скенирано',
+  },
+  ColorPicker: {
+    presetEmpty: 'Празан',
+    transparent: 'Транспарент',
+    singleColor: 'Једнобојна',
+    gradientColor: 'Градијентна боја',
   },
 };
 

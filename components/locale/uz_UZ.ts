@@ -23,6 +23,7 @@ const localeValues: Locale = {
     close: 'Yopish',
     show: "Ko'rsat",
     hide: 'Yashir',
+    sortable: 'saralanadigan',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -68,6 +69,7 @@ const localeValues: Locale = {
     selectInvert: 'Tanlovni aylantirish',
     removeAll: "Barcha ma'lumotlarni o'chirish",
     removeCurrent: "Joriy sahifani o'chirish",
+    deselectAll: "Barcha ma'lumotlarni bekor qiling",
   },
   Upload: {
     uploading: 'Yuklanmoqda...',
@@ -87,6 +89,7 @@ const localeValues: Locale = {
     copy: 'Nusxalash',
     copied: 'Nusxalandi',
     expand: 'Ochib qoyish',
+    collapse: 'Yiqilish',
   },
   Form: {
     optional: '(shart emas)',
@@ -141,6 +144,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-kod eskirgan',
     refresh: 'Yangilash',
+    scanned: 'Skanerlangan',
+  },
+  ColorPicker: {
+    presetEmpty: "Bo'sh",
+    transparent: 'Shaffof',
+    singleColor: 'Yagona rang',
+    gradientColor: 'Gradient rangi',
   },
 };
 
