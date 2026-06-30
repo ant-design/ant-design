@@ -16,7 +16,7 @@ jobs:
     permissions:
       contents: read  # for actions/checkout to fetch code
       pull-requests: write  # for actions-cool/verify-package-version to comment on PR
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     if: contains(github.event.pull_request.title, 'changelog') || contains(github.event.pull_request.title, 'release')
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7

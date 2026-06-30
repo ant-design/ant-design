@@ -128,7 +128,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       return [
         `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
         `components/${kebabComponent}`,
-        `/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
+        `https://ant.design/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
       ];
     }
 

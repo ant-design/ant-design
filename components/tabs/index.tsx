@@ -40,6 +40,7 @@ export type TabsSemanticType = {
     item?: string;
     remove?: string;
     indicator?: string;
+    body?: string;
     content?: string;
     header?: string;
     popup?: { root?: string };
@@ -49,6 +50,7 @@ export type TabsSemanticType = {
     item?: React.CSSProperties;
     remove?: React.CSSProperties;
     indicator?: React.CSSProperties;
+    body?: React.CSSProperties;
     content?: React.CSSProperties;
     header?: React.CSSProperties;
     popup?: { root?: React.CSSProperties };

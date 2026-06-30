@@ -36,26 +36,6 @@ export interface ComponentToken {
    * @descEN Star background color
    */
   starBg: string;
-  /**
-   * @desc 星星边框颜色
-   * @descEN Star border color
-   */
-  starBorderColor: string;
-  /**
-   * @desc 默认星星边框宽度
-   * @descEN Default star border width
-   */
-  starBorderWidthDefault: number;
-  /**
-   * @desc 选中星星边框颜色
-   * @descEN Selected star border color
-   */
-  starBorderColorSelected: string;
-  /**
-   * @desc 选中星星边框宽度
-   * @descEN Selected star border width
-   */
-  starBorderWidthSelected: number;
 }
 
 interface RateToken extends FullToken<'Rate'> {}
@@ -95,13 +75,6 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         color: token.starBg,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
-        WebkitTextStroke: `${unit(token.starBorderWidthDefault)} ${token.starBorderColor}`,
-
-        '> span svg, > svg': {
-          stroke: token.starBorderColor,
-          strokeWidth: token.starBorderWidthDefault,
-          strokeLinejoin: 'round',
-        },
       },
 
       '&-first': {
@@ -120,13 +93,6 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
 
       [`&-half ${componentCls}-star-first, &-full ${componentCls}-star-second`]: {
         color: 'inherit',
-        WebkitTextStroke: `${unit(token.starBorderWidthSelected)} ${token.starBorderColorSelected}`,
-
-        '> span svg, > svg': {
-          stroke: token.starBorderColorSelected,
-          strokeWidth: token.starBorderWidthSelected,
-          strokeLinejoin: 'round',
-        },
       },
     },
   };
@@ -188,10 +154,6 @@ export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
   starSizeLG: token.controlHeightLG * 0.625,
   starHoverScale: 'scale(1.1)',
   starBg: token.colorFillContent,
-  starBorderColor: token.colorTextTertiary,
-  starBorderWidthDefault: token.lineWidth,
-  starBorderColorSelected: token.yellow8,
-  starBorderWidthSelected: token.lineWidth,
 });
 
 export default genStyleHooks(
