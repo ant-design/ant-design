@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Radio > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<label
+  class="ant-radio-wrapper ant-radio-wrapper-rtl css-var-root ant-radio-css-var"
+>
+  <span
+    class="ant-radio ant-wave-target"
+  >
+    <input
+      class="ant-radio-input"
+      type="radio"
+    />
+  </span>
+</label>
+`;
+
+exports[`Radio > rtl render > component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl css-var-root ant-radio-css-var"
+  role="radiogroup"
+/>
+`;
+
+exports[`Radio > rtl render > component should be rendered correctly in RTL direction 3`] = `
+<label
+  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
+>
+  <span
+    class="ant-radio-button"
+  >
+    <input
+      class="ant-radio-button-input"
+      type="radio"
+    />
+  </span>
+</label>
+`;
+
+exports[`Radio > should render correctly 1`] = `
+<label
+  class="ant-radio-wrapper customized css-var-root ant-radio-css-var"
+>
+  <span
+    class="ant-radio ant-wave-target"
+  >
+    <input
+      class="ant-radio-input"
+      type="radio"
+    />
+  </span>
+  <span
+    class="ant-radio-label"
+  >
+    Test
+  </span>
+</label>
+`;

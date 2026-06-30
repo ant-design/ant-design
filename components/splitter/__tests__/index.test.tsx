@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Splitter from '..';
 import type { SplitterProps } from '..';
@@ -253,7 +253,7 @@ describe('Splitter', () => {
 
   it('Splitter.Panel is syntactic sugar', () => {
     const { container } = render(<Splitter.Panel />);
-    expect(container.innerHTML).toEqual('');
+    expect(container.innerHTML).toBe('');
   });
 
   // ============================== Resizable ==============================

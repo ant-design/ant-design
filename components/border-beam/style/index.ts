@@ -1,11 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
-import { MAX_BEAM_COLOR_STOP_PERCENT } from '../util';
+import { DEFAULT_BORDER_BEAM_DURATION, MAX_BEAM_COLOR_STOP_PERCENT } from '../util';
 
 export type ComponentToken = object;
 
@@ -39,7 +39,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       pointerEvents: 'none',
 
       // Border Beam
-      padding: token.lineWidth,
+      padding: varRef('line-width', unit(token.lineWidth)),
 
       // Border Beam Effect
       '@supports ((mask-composite: exclude) or (-webkit-mask-composite: xor))': {
@@ -57,16 +57,16 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             position: 'absolute',
             top: 0,
             left: 0,
-            width: 100,
+            width: varRef('size', '100px'),
             aspectRatio: '1 / 1',
             opacity: 0.95,
             backgroundImage: varRef('beam-gradient', defaultBeamGradient),
             offsetAnchor: '90% 50%',
             offsetDistance: '0%',
-            offsetPath: 'rect(0 auto auto 0 round 100px)',
+            offsetPath: `rect(0 auto auto 0 round ${varRef('size', '100px')})`,
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
-            animationDuration: '6s',
+            animationDuration: varRef('duration', `${DEFAULT_BORDER_BEAM_DURATION}s`),
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
             willChange: 'offset-distance',

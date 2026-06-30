@@ -137,6 +137,18 @@ describe('Popover', () => {
     });
   });
 
+  it('should display overlay when the content is the number 0', () => {
+    const { container } = render(
+      <Popover content={0} trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+    fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+    const popup = document.querySelector('.ant-popover');
+    expect(popup).not.toBe(null);
+    expect(popup?.textContent).toContain('0');
+  });
+
   it('ConfigProvider support arrow props', () => {
     const TooltipTestComponent = () => {
       const [configArrow, setConfigArrow] = React.useState(true);

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import RcRate from '@rc-component/rate';
-import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
-import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
 import { clsx } from 'clsx';
 
 import { isPlainObject } from '../_util/is';
@@ -13,6 +11,10 @@ import type { SizeType } from '../config-provider/SizeContext';
 import Tooltip from '../tooltip';
 import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
+
+type RateRef = React.ComponentRef<typeof RcRate>;
+type RcRateProps = React.ComponentPropsWithoutRef<typeof RcRate>;
+type RcCharacterRender = NonNullable<RcRateProps['characterRender']>;
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
@@ -33,18 +35,18 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     ...rest
   } = props;
 
-  const characterRender: RcStarProps['characterRender'] = (node, { index }) => {
+  const characterRender: RcCharacterRender = (node, { index = 0 }) => {
     if (!tooltips) {
       return node;
     }
 
-    const tooltipsItem = tooltips[index as number];
+    const tooltipsItem = tooltips[index];
 
-    if (isPlainObject(tooltipsItem)) {
+    if (isPlainObject<TooltipProps>(tooltipsItem)) {
       return <Tooltip {...tooltipsItem}>{node}</Tooltip>;
     }
 
-    return <Tooltip title={tooltipsItem as string}>{node}</Tooltip>;
+    return <Tooltip title={tooltipsItem}>{node}</Tooltip>;
   };
 
   const {

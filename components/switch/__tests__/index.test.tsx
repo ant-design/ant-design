@@ -6,9 +6,12 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => true;
-  return mockFn;
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => true,
+  };
 });
 
 // TODO: Remove this. Mock for React 19

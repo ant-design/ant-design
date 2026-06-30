@@ -1,4 +1,4 @@
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken, GenerateStyle } from '../theme/internal';
@@ -42,6 +42,12 @@ export const resetIcon = (): CSSObject => ({
 
   svg: {
     display: 'inline-block',
+  },
+});
+
+const loadingCircle = new Keyframes('loadingCircle', {
+  '100%': {
+    transform: 'rotate(360deg)',
   },
 });
 
@@ -150,6 +156,13 @@ export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
     [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
       display: 'block',
     },
+  },
+
+  [`.${iconPrefixCls}-spin`]: {
+    animationName: loadingCircle,
+    animationDuration: '1s',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
   },
 });
 

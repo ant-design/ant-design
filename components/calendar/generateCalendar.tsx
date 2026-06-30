@@ -6,7 +6,7 @@ import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { AnyObject } from '../_util/type';
@@ -144,13 +144,16 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       showWeek,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-      {
-        props: mergedProps,
-      },
-    );
+    const contextStyleRoot = useSemanticRootStyle(contextStyle);
+    const styleRoot = useSemanticRootStyle(style);
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      CalendarSemanticAllType<DateType>['classNames'],
+      CalendarSemanticAllType<DateType>['styles'],
+      CalendarProps<DateType>
+    >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+      props: mergedProps,
+    });
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {
@@ -367,7 +370,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           hashId,
           cssVarCls,
         )}
-        style={{ ...rootStyle, ...contextStyle, ...style }}
+        style={rootStyle}
       >
         {headerRender ? (
           headerRender({

@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -789,6 +790,24 @@ describe('Form', () => {
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('');
       expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
     });
+
+    // https://github.com/ant-design/ant-design/issues/58557
+    it('false', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item name="test" help={false} rules={[{ required: true, message: 'message' }]}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe('');
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/20706
@@ -818,12 +837,12 @@ describe('Form', () => {
     for (let i = 0; i < 3; i += 1) {
       await changeValue(0, 'bamboo');
       await changeValue(0, '');
-      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual(
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe(
         "'name' is required",
       );
 
       await changeValue(0, 'p');
-      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('not a p');
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toBe('not a p');
     }
   });
 
@@ -907,7 +926,7 @@ describe('Form', () => {
 
     await waitFakeTimer();
 
-    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('');
+    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toBe('');
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
@@ -945,7 +964,7 @@ describe('Form', () => {
 
     await changeValue(0, '');
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
-    expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('help');
+    expect(container.querySelector('.ant-form-item-explain')!.textContent).toBe('help');
   });
 
   it('clear validation message when', async () => {
@@ -1197,7 +1216,7 @@ describe('Form', () => {
 
     await changeValue(0, 'a');
 
-    expect(renderTimes).toEqual(1);
+    expect(renderTimes).toBe(1);
     expect(container.querySelector('input')).toHaveValue('a');
   });
 
@@ -1261,7 +1280,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelector('input')!.id).toEqual('bamboo');
+    expect(container.querySelector('input')!.id).toBe('bamboo');
   });
 
   it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
@@ -1418,6 +1437,45 @@ describe('Form', () => {
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55523
+  it('should apply custom labelHeight token in vertical layout across themes', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <>
+          <Form layout="vertical">
+            <Form.Item label="Username">
+              <Input />
+            </Form.Item>
+          </Form>
+          <ConfigProvider
+            theme={{
+              components: {
+                Form: {
+                  labelHeight: 100,
+                },
+              },
+            }}
+          >
+            <Form layout="vertical">
+              <Form.Item label="Username">
+                <Input />
+              </Form.Item>
+            </Form>
+          </ConfigProvider>
+        </>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('--ant-form-vertical-label-height:100px;');
+    expect(styleText).toContain(
+      '.ant-form-item-vertical .ant-form-item-label>label{height:var(--ant-form-vertical-label-height);}',
+    );
   });
 
   it('form.item should support label = null', () => {
@@ -1862,7 +1920,7 @@ describe('Form', () => {
       await changeValue(0, 'Once');
       await changeValue(0, '');
 
-      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toEqual(
+      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toBe(
         "'first' is required",
       );
 
@@ -2391,10 +2449,10 @@ describe('Form', () => {
         </Form>,
       );
 
-      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toEqual(
+      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toBe(
         'Required: true',
       );
-      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toEqual(
+      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toBe(
         'Optional: false',
       );
     });
@@ -2413,8 +2471,8 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(container.querySelectorAll('input')[0].value).toEqual('bamboo');
-    expect(container.querySelectorAll('input')[1].value).toEqual('14');
+    expect(container.querySelectorAll('input')[0].value).toBe('bamboo');
+    expect(container.querySelectorAll('input')[1].value).toBe('14');
     expect(errorSpy).not.toHaveBeenCalled();
   });
 

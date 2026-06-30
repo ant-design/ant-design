@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PortalProps, PortalRef } from '@rc-component/util/lib/Portal';
+import type { PortalProps, PortalRef } from '@rc-component/util';
 import { TriggerMockContext } from '../../../shared/demoTestContext';
 
 const OriginPortalModule = jest.requireActual('@rc-component/util/lib/Portal');

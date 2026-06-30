@@ -141,7 +141,7 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     </>
   );
 
-  const hasTitle = isReactRenderable(props.title) && props.title !== '';
+  const hasTitle = isReactRenderable(props.title);
   const hasIcon = isReactRenderable(mergedIcon);
 
   const bodyCls = `${confirmPrefixCls}-body`;

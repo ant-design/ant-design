@@ -1,6 +1,5 @@
 import React from 'react';
 import { UnstableContext } from '@rc-component/mentions';
-import type { UnstableContextProps } from '@rc-component/mentions/lib/context';
 import type { MentionProps } from 'antd';
 import { Mentions } from 'antd';
 
@@ -25,7 +24,10 @@ const locales = {
 
 const Block: React.FC<MentionProps> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-  const memoizedValue = React.useMemo<UnstableContextProps>(() => ({ open: true }), []);
+  const memoizedValue = React.useMemo<React.ContextType<typeof UnstableContext>>(
+    () => ({ open: true }),
+    [],
+  );
   return (
     <div ref={divRef} style={{ position: 'absolute', height: 200, overflow: 'hidden' }}>
       <UnstableContext.Provider value={memoizedValue}>

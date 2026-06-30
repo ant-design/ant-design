@@ -78,6 +78,25 @@ describe('DatePicker.typescript', () => {
     expect(datePicker).toBeTruthy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/49198
+  it('DatePicker should accept only single value if multiple is explicitly false', () => {
+    const mockSingleValue = dayjs();
+    const mockOnChange = jest.fn<void, [Dayjs | null, string | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs | null]>();
+
+    const datePicker = (
+      <DatePicker
+        multiple={false}
+        defaultValue={mockSingleValue}
+        value={mockSingleValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
   it('DatePicker should accept only array value if multiple is true', () => {
     const mockMultiValue = [dayjs()];
     const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
@@ -86,6 +105,24 @@ describe('DatePicker.typescript', () => {
     const datePicker = (
       <DatePicker
         multiple
+        defaultValue={mockMultiValue}
+        value={mockMultiValue}
+        onChange={mockOnChange}
+        onOk={mockOnOk}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
+
+  it('DatePicker should accept only array value if multiple is explicitly true', () => {
+    const mockMultiValue = [dayjs()];
+    const mockOnChange = jest.fn<void, [Dayjs[] | null, string[] | null]>();
+    const mockOnOk = jest.fn<void, [Dayjs[] | null]>();
+
+    const datePicker = (
+      <DatePicker
+        multiple={true}
         defaultValue={mockMultiValue}
         value={mockMultiValue}
         onChange={mockOnChange}

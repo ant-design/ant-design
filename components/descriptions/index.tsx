@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -60,11 +60,9 @@ export type DescriptionsSemanticAllType = GenerateSemantic<
   DescriptionsProps
 >;
 
-export interface DescriptionsProps {
+export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
-  className?: string;
   rootClassName?: string;
-  style?: React.CSSProperties;
   bordered?: boolean;
   /**
    * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
@@ -90,7 +88,6 @@ export interface DescriptionsProps {
   classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
   styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
-  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
@@ -167,13 +164,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsSemanticAllType['classNames'],
+    DescriptionsSemanticAllType['styles'],
+    DescriptionsProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ======================== Render ========================
   const memoizedValue = React.useMemo<DescriptionsContextProps>(
@@ -217,7 +217,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...mergedStyles.root, ...style }}
+        style={mergedStyles.root}
         {...restProps}
       >
         {(title || extra) && (

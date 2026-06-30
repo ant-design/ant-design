@@ -49,44 +49,44 @@ dayjs.extend(customParseFormat)
 <TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
-| ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => ReactNode | - | - |
-| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 |
-| className | 选择器类名 | string | - |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
-| disabled | 禁用全部操作 | boolean | false |  |
-| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 |
-| format | 展示的时间格式 | string | `HH:mm:ss` |  |
-| getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
-| hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
-| hourStep | 小时选项间隔 | number | 1 |  |
-| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
-| minuteStep | 分钟选项间隔 | number | 1 |  |
-| needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择 | boolean | - | 5.14.0 |
-| open | 面板是否打开 | boolean | false |  |
-| placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  |
-| placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  |
-| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  |
-| prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
-| previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 |
-| renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
-| secondStep | 秒选项间隔 | number | 1 |  |
-| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
-| size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
-| value | 当前时间 | [dayjs](http://day.js.org/) | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
-| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
-| onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  |
-| onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
+| ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => ReactNode | - | - | × |
+| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
+| changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
+| defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
+| disabled | 禁用全部操作 | boolean | false |  | × |
+| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
+| format | 展示的时间格式 | string | `HH:mm:ss` |  | × |
+| getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  | × |
+| hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  | × |
+| hourStep | 小时选项间隔 | number | 1 |  | × |
+| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  | × |
+| minuteStep | 分钟选项间隔 | number | 1 |  | × |
+| needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择 | boolean | - | 5.14.0 | × |
+| open | 面板是否打开 | boolean | false |  | × |
+| placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  | × |
+| placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
+| ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  | × |
+| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  | × |
+| prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
+| previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 | × |
+| renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  | × |
+| secondStep | 秒选项间隔 | number | 1 |  | × |
+| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 | × |
+| size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | 6.3.0 |
+| use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
+| value | 当前时间 | [dayjs](http://day.js.org/) | - |  | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
+| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
+| onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |
+| onClear | 点击清除按钮时的回调 | () => void | - | 6.5.0 | × |
+| onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  | × |
 
 #### DisabledTime
 

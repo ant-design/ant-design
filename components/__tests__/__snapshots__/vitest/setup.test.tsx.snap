@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SetUp.Test > diff of React 18 & React 17 1`] = `
+NodeList [
+  <div>
+  bamboo
+  little
+</div>,
+  <div />,
+]
+`;

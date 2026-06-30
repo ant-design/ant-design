@@ -173,7 +173,7 @@ const useShadcnTheme = () => {
             iconSize: 32,
           },
           Switch: {
-            trackHeight: 24,
+            trackHeight: 22,
             trackMinWidth: 44,
             innerMinMargin: 4,
             innerMaxMargin: 24,

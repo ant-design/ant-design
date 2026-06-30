@@ -154,7 +154,13 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
-        width: '100%',
+        // Use `min-width: 100%` together with `width: 0` instead of
+        // `width: 100%` so the view still fills its container in normal layout,
+        // but won't contribute an extreme intrinsic width when nested inside a
+        // `max-content` sized ancestor (e.g. Table with
+        // `scroll={{ x: 'max-content' }}`). See #54268.
+        width: 0,
+        minWidth: '100%',
         borderRadius: token.borderRadiusLG,
         table: {
           width: '100%',

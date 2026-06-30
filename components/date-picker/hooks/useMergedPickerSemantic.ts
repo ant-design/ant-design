@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../../_util/type';
 import { useComponentConfig } from '../../config-provider/context';
 
@@ -12,12 +12,20 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
   mergedProps?: P,
+  contextStyle?: React.CSSProperties | null,
 ) => {
-  const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
+  const {
+    classNames: contextClassNames,
+    style: componentContextStyle,
+    styles: contextStyles,
+  } = useComponentConfig(pickerType);
+  const mergedContextStyle =
+    contextStyle === null ? undefined : (contextStyle ?? componentContextStyle);
+  const contextStyleRoot = useSemanticRootStyle(mergedContextStyle);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames as P['classNames'], classNames],
-    [contextStyles as P['styles'], styles],
+    [contextStyles as P['styles'], contextStyleRoot as P['styles'], styles],
     { props: mergedProps as P },
     {
       popup: {

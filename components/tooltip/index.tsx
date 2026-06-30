@@ -1,10 +1,5 @@
 import * as React from 'react';
 import RcTooltip from '@rc-component/tooltip';
-import type { placements as Placements } from '@rc-component/tooltip/lib/placements';
-import type {
-  TooltipProps as RcTooltipProps,
-  TooltipRef as RcTooltipRef,
-} from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -13,7 +8,7 @@ import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
@@ -32,6 +27,10 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
+
+type RcTooltipProps = React.ComponentPropsWithoutRef<typeof RcTooltip>;
+type RcTooltipRef = React.ComponentRef<typeof RcTooltip>;
+type Placements = NonNullable<RcTooltipProps['builtinPlacements']>;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -110,7 +109,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
-  builtinPlacements?: typeof Placements;
+  builtinPlacements?: Placements;
   openClassName?: string;
   arrow?: boolean | { pointAtCenter?: boolean };
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -296,13 +295,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     destroyOnHidden: mergedDestroyOnHidden,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipSemanticAllType['classNames'],
+    TooltipSemanticAllType['styles'],
+    TooltipProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
@@ -372,8 +374,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         root: {
           ...arrowContentStyle,
           ...mergedStyles.root,
-          ...contextStyle,
-          ...overlayStyle,
         },
         container: containerStyle,
         uniqueContainer: containerStyle,

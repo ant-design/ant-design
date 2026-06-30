@@ -46,41 +46,42 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
-| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
-| centered | Centered Modal | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - |
-| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
-| confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
-| ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  |
-| destroyOnHidden | Whether to unmount child components on onClose | boolean | false | 5.25.0 |
-| ~~focusTriggerAfterClose~~ | Whether need to focus trigger element after dialog is closed. Please use `focusable.focusTriggerAfterClose` instead | boolean | true | 4.9.0 |
-| footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
-| forceRender | Force render Modal | boolean | false |  |
-| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
-| getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 |
-| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | true | - |
-| modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
-| okText | Text of the OK button | ReactNode | `OK` |  |
-| okType | Button `type` of the OK button | string | `primary` |  |
-| style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
-| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| loading | Show the skeleton | boolean |  | 5.18.0 |
-| title | The modal dialog's title | ReactNode | - |  |
-| open | Whether the modal dialog is visible or not | boolean | false |  |
-| width | Width of the modal dialog | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 |
-| wrapClassName | The class name of the container of the modal dialog | string | - |  |
-| zIndex | The `z-index` of the Modal | number | 1000 |  |
-| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
-| onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
-| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.4.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterClose | Specify a function that will be called when modal is closed completely | function | - |  | × |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  | 6.0.0 |
+| cancelText | Text of the Cancel button | ReactNode | `Cancel` |  | × |
+| centered | Centered Modal | boolean | false |  | 5.24.0 |
+| classNames | Customize class for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
+| closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - | 5.16.0 |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  | 5.14.0 |
+| confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  | × |
+| ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  | × |
+| destroyOnHidden | Whether to unmount child components on onClose | boolean | false | 5.25.0 | × |
+| ~~focusTriggerAfterClose~~ | Whether need to focus trigger element after dialog is closed. Please use `focusable.focusTriggerAfterClose` instead | boolean | true | 4.9.0 | × |
+| footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 | × |
+| forceRender | Force render Modal | boolean | false |  | × |
+| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 | 6.4.0 |
+| getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  | × |
+| keyboard | Whether support press esc to close | boolean | true |  | × |
+| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | 6.0.0, mask.closable: 6.3.0 |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | true | - | × |
+| modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 | × |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  | 6.0.0 |
+| okText | Text of the OK button | ReactNode | `OK` |  | × |
+| okType | Button `type` of the OK button | string | `primary` |  | × |
+| style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  | 5.7.0 |
+| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.10.0 |
+| loading | Show the skeleton | boolean |  | 5.18.0 | × |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 6.5.0 | × |
+| title | The modal dialog's title | ReactNode | - |  | × |
+| open | Whether the modal dialog is visible or not | boolean | false |  | × |
+| width | Width of the modal dialog | string \| number \| [Breakpoint](/components/grid#col) | 520 | Breakpoint: 5.23.0 | × |
+| wrapClassName | The class name of the container of the modal dialog | string | - |  | × |
+| zIndex | The `z-index` of the Modal | number | 1000 |  | × |
+| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  | × |
+| onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  | × |
+| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.4.0 | × |
 
 #### Note
 
@@ -118,6 +119,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | false | - |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 6.5.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |

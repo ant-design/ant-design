@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Tab } from '@rc-component/tabs/lib/interface';
+import type { Tab } from '@rc-component/tabs';
 import { toArray } from '@rc-component/util';
 
 import type { TabPaneProps, TabsProps } from '..';

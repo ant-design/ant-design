@@ -66,6 +66,9 @@ const stylesFnPassword: PasswordProps['styles'] = (
 const stylesFnOTP: OTPProps['styles'] = (info): GetProp<OTPProps, 'styles', 'Return'> => {
   if (info.props.size === 'medium') {
     return {
+      root: {
+        borderWidth: 0,
+      },
       input: {
         borderColor: '#6E8CFB',
         width: 32,
@@ -78,7 +81,7 @@ const stylesFnOTP: OTPProps['styles'] = (info): GetProp<OTPProps, 'styles', 'Ret
 const stylesFnSearch: SearchProps['styles'] = (info): GetProp<SearchProps, 'styles', 'Return'> => {
   if (info.props.size === 'large') {
     return {
-      root: { color: '#4DA8DA' },
+      root: { color: '#4DA8DA', borderWidth: 0 },
       input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
       prefix: { color: '#4DA8DA' },
       suffix: { color: '#4DA8DA' },

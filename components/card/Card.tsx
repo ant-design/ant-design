@@ -1,9 +1,9 @@
 import * as React from 'react';
-import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
+import type { Tab, TabBarExtraContent } from '@rc-component/tabs';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -160,11 +160,16 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     variant: variant as CardProps['variant'],
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    { props: mergedProps },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardSemanticAllType['classNames'],
+    CardSemanticAllType['styles'],
+    CardProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -295,8 +300,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   return (

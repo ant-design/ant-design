@@ -12,17 +12,17 @@ jobs:
     permissions:
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - name: need reproduce
-        uses: actions-cool/issues-helper-backup@d65454423c6fbbd20026b9b499d403f79422ac69 # v3
+        uses: actions-cool/issues-helper-backup@d65454423c6fbbd20026b9b499d403f79422ac69
         with:
           actions: close-issues
           labels: 🤔 Need Reproduce
           inactive-day: 3
 
       - name: needs more info
-        uses: actions-cool/issues-helper-backup@d65454423c6fbbd20026b9b499d403f79422ac69 # v3
+        uses: actions-cool/issues-helper-backup@d65454423c6fbbd20026b9b499d403f79422ac69
         with:
           actions: close-issues
           labels: needs-more-info

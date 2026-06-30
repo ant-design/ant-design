@@ -3,6 +3,11 @@ import { render } from '@testing-library/react';
 
 import type { InputProps } from '..';
 import Input from '..';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const testClassNames = {
   root: 'custom-root',
@@ -135,6 +140,24 @@ describe('Input.Semantic', () => {
     expect(count).toHaveStyle(testStyles.count);
   });
 
+  it('search should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputSearch={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.Search
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-search'));
+  });
+
   it('password should support classNames and styles', () => {
     const { container } = render(
       <Input.Password
@@ -165,6 +188,24 @@ describe('Input.Semantic', () => {
     expect(clear).toHaveStyle(testStyles.clear);
     expect(count).toHaveClass(testClassNames.count);
     expect(count).toHaveStyle(testStyles.count);
+  });
+
+  it('password should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputPassword={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.Password
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-affix-wrapper'));
   });
 
   it('otp should support classNames and styles', () => {
@@ -205,5 +246,60 @@ describe('Input.Semantic', () => {
     rerender(<Input disabled classNames={classNames} styles={styles} />);
     expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
     expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
+  });
+  it('input should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        input={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input
+          prefix="prefix"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-affix-wrapper'));
+  });
+
+  it('textarea should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        textArea={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.TextArea
+          allowClear
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-textarea-affix-wrapper'));
+  });
+
+  it('otp should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        otp={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.OTP
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-otp'));
   });
 });

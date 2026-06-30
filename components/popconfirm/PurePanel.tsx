@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import { isReactRenderable } from '../_util/is';
 import Button from '../button/Button';
 import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
@@ -79,12 +80,12 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           </span>
         )}
         <div className={`${prefixCls}-message-text`}>
-          {titleNode && (
+          {isReactRenderable(titleNode) && (
             <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>
               {titleNode}
             </div>
           )}
-          {descriptionNode && (
+          {isReactRenderable(descriptionNode) && (
             <div
               className={clsx(`${prefixCls}-description`, classNames?.content)}
               style={styles?.content}

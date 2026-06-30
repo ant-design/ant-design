@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Flex, Image } from 'antd';
+import { Button, Flex, Image, theme } from 'antd';
 
 const GeneratingProgress: React.FC = () => {
+  const { token } = theme.useToken();
   const [percent, setPercent] = useState(0);
   const [status, setStatus] = useState<'idle' | 'generating' | 'complete'>('idle');
+  const imageStyles = {
+    root: { borderRadius: token.borderRadiusLG },
+    image: { borderRadius: token.borderRadiusLG },
+    cover: { borderRadius: token.borderRadiusLG },
+  };
 
   useEffect(() => {
     if (status === 'generating' && percent < 100) {
@@ -29,14 +35,14 @@ const GeneratingProgress: React.FC = () => {
       <Image
         width={200}
         height={200}
-        style={{ borderRadius: 8 }}
+        styles={imageStyles}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
     ) : (
       <Image
         width={200}
         height={200}
-        style={{ borderRadius: 8 }}
+        styles={imageStyles}
         placeholder={{
           progress: {
             percent: Math.round(percent),
@@ -62,33 +68,34 @@ const GeneratingProgress: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const { token } = theme.useToken();
   const [random, setRandom] = useState<number>(() => Date.now());
+  const imageStyles = {
+    root: { borderRadius: token.borderRadiusLG },
+    image: { borderRadius: token.borderRadiusLG },
+    cover: { borderRadius: token.borderRadiusLG },
+  };
 
   return (
     <>
       <Flex gap={16} wrap>
+        <Image width={200} height={200} styles={imageStyles} placeholder={{ progress: true }} />
         <Image
           width={200}
           height={200}
-          style={{ borderRadius: 8 }}
-          placeholder={{ progress: true }}
-        />
-        <Image
-          width={200}
-          height={200}
-          style={{ borderRadius: 8 }}
+          styles={imageStyles}
           placeholder={{ progress: { render: () => 'loading...' } }}
         />
         <Image
           width={200}
           height={200}
-          style={{ borderRadius: 8 }}
+          styles={imageStyles}
           placeholder={{ progress: { percent: 50 } }}
         />
         <Image
           width={200}
           height={200}
-          style={{ borderRadius: 8 }}
+          styles={imageStyles}
           placeholder={{
             progress: {
               percent: 75,
@@ -116,7 +123,7 @@ const App: React.FC = () => {
             width={200}
             height={200}
             alt="basic image"
-            style={{ borderRadius: 8 }}
+            styles={imageStyles}
             src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
             placeholder={
               <div
@@ -125,7 +132,7 @@ const App: React.FC = () => {
                   height: '100%',
                   background: 'rgba(255, 255, 255, 0.3)',
                   backdropFilter: 'blur(10px)',
-                  borderRadius: 8,
+                  borderRadius: token.borderRadiusLG,
                 }}
               />
             }

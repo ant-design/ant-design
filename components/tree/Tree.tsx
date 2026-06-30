@@ -2,9 +2,8 @@ import type { Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import type { CSSMotionProps } from '@rc-component/motion';
-import type { BasicDataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
+import type { BasicDataNode, DataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
-import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -48,8 +47,8 @@ export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: React.ReactNode | ((data: DataNode) => React.ReactNode);
-  key?: Key;
-  eventKey?: Key;
+  key?: React.Key;
+  eventKey?: React.Key;
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
@@ -90,13 +89,13 @@ export interface AntTreeNodeMouseEvent {
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
-  expandedKeys: Key[];
+  expandedKeys: React.Key[];
 }
 
 export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
-  dragNodesKeys: Key[];
+  dragNodesKeys: React.Key[];
   dropPosition: number;
   dropToGap?: boolean;
   event: React.MouseEvent<HTMLElement>;
@@ -162,21 +161,21 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   /** Expand the corresponding tree node by default */
   defaultExpandParent?: boolean;
   /** Expand the specified tree node by default */
-  defaultExpandedKeys?: Key[];
+  defaultExpandedKeys?: React.Key[];
   /** (Controlled) Expand the specified tree node */
-  expandedKeys?: Key[];
+  expandedKeys?: React.Key[];
   /** (Controlled) Tree node with checked checkbox */
-  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
+  checkedKeys?: React.Key[] | { checked: React.Key[]; halfChecked: React.Key[] };
   /** Tree node with checkbox checked by default */
-  defaultCheckedKeys?: Key[];
+  defaultCheckedKeys?: React.Key[];
   /** (Controlled) Set the selected tree node */
-  selectedKeys?: Key[];
+  selectedKeys?: React.Key[];
   /** Tree node selected by default */
-  defaultSelectedKeys?: Key[];
+  defaultSelectedKeys?: React.Key[];
   selectable?: boolean;
   /** Click on the tree node to trigger */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  loadedKeys?: Key[];
+  loadedKeys?: React.Key[];
   /** Set the node to be draggable (IE>8) */
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;

@@ -1,8 +1,13 @@
 import React from 'react';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util';
 
 import Popconfirm from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Popconfirm.semantic', () => {
   beforeAll(() => {
@@ -80,5 +85,28 @@ describe('Popconfirm.semantic', () => {
     expect(popconfirmElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
     expect(contentElement).toHaveStyle({ padding: '16px' });
     expect(iconElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        popconfirm={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Popconfirm
+          title="Test"
+          description="Content"
+          open
+          styles={semanticRootStylePriority.styles}
+          overlayStyle={semanticRootStylePriority.style}
+        >
+          <span>Test</span>
+        </Popconfirm>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-popover'));
   });
 });

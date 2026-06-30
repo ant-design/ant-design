@@ -85,7 +85,7 @@ dayjs.locale('zh-cn');
 
 <!-- prettier-ignore -->
 :::warning
-When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+When using the Next.js App Router, make sure to add `'use client'` before importing Day.js locale files. This is because all Ant Design components only work on the client side, so importing locale files in RSC will not work.
 :::
 
 ### Common API
@@ -94,10 +94,10 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | DatePicker: 6.4.0, RangePicker: × |
+| allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | 6.4.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | className | The picker className | string | - |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 6.0.0, RangePicker: × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 | × |
@@ -130,12 +130,13 @@ The following APIs are shared by DatePicker, RangePicker.
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | To customize the style of the input box | CSSProperties | {} |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 6.0.0, RangePicker: × |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
+| suffixIcon | The custom suffix icon | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 | × |
-| clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | DatePicker: 6.4.0, RangePicker: × |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.13.0, RangePicker: 5.13.0 |
+| clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | 6.4.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.19.0, RangePicker: 5.19.0 |
+| onClear | Callback when click the clear button | () => void | - | 6.5.0 | × |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  | × |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  | × |
 | ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - | × |
@@ -226,19 +227,19 @@ Added in `4.1.0`.
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
-| defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/) | - | 5.14.0 | × |
+| defaultPickerValue | Default panel date, will be reset when panel open | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - | 5.14.0 | × |
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
 | disabled | If disable start or end | \[boolean, boolean] | - |  | × |
 | disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | `info.from`: 5.17.0 | × |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  | × |
 | id | Config input ids | { start?: string, end?: string } | - | 5.14.0 | × |
-| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.14.0 | × |
-| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: (Dayjs \| (() => Dayjs))\[] }\[] | - |  | × |
+| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - | 5.14.0 | × |
+| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: \[(Dayjs \| (() => Dayjs)), (Dayjs \| (() => Dayjs))] }\[] | - |  | × |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  | × |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  | 6.3.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  | × |
-| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] | 5.27.3 | × |
-| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  | × |
+| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] | 5.27.3 | × |
+| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] |  | × |
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs] \| null, dateStrings: \[string, string] \| null) | - |  | × |

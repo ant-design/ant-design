@@ -562,7 +562,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             >
               <img
                 alt="User 1"
-                src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+                src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
               />
             </span>
             <div>
@@ -1786,12 +1786,12 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="select"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { warning } from '@rc-component/util';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototype, warning } from '@rc-component/util';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';

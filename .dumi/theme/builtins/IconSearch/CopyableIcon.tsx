@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import { App, Badge } from 'antd';
+import { App } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/es/_util/copy';
 import { clsx } from 'clsx';
@@ -23,7 +23,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       padding-inline-start: 0 !important;
       padding-inline-end: 0 !important;
       position: relative;
-      width: 200px;
+      width: 100%;
       height: 100px;
       overflow: hidden;
       color: #555;
@@ -73,6 +73,19 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         opacity: 1;
       }
     `,
+    newIconVersion: css`
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      z-index: 1;
+      padding: 0 ${cssVar.paddingXXS};
+      color: ${cssVar.colorWhite};
+      font-size: ${cssVar.fontSizeSM};
+      line-height: ${cssVar.lineHeightSM};
+      background-color: ${cssVar.colorSuccess};
+      border-start-end-radius: ${cssVar.borderRadiusSM};
+      border-end-start-radius: ${cssVar.borderRadiusSM};
+    `,
     anticonCls: css`
       display: block;
       font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -98,6 +111,7 @@ const locales = {
 export interface CopyableIconProps {
   name: string;
   isNew: boolean;
+  newIconVersion: string;
   theme: ThemeType;
   justCopied: string | null;
   onCopied: (type: string, text: string) => void;
@@ -105,7 +119,7 @@ export interface CopyableIconProps {
 
 const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { message } = App.useApp();
-  const { name, isNew, justCopied, theme, onCopied } = props;
+  const { name, isNew, newIconVersion, justCopied, theme, onCopied } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
@@ -123,10 +137,9 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
       onClick={() => onCopy(`<${name} />`)}
       style={{ cursor: 'pointer' }}
     >
+      {isNew && <span className={styles.newIconVersion}>{newIconVersion}</span>}
       {React.createElement(allIcons[name])}
-      <span className={styles.anticonCls}>
-        <Badge dot={isNew}>{name}</Badge>
-      </span>
+      <span className={styles.anticonCls}>{name}</span>
     </li>
   );
 };

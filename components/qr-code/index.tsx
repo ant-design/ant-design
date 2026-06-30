@@ -3,13 +3,19 @@ import { QRCodeCanvas, QRCodeSVG } from '@rc-component/qrcode';
 import { omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg } from './interface';
+import type {
+  QRCodeProps,
+  QRCodeSemanticAllType,
+  QRProps,
+  QRPropsCanvas,
+  QRPropsSvg,
+} from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
@@ -60,13 +66,16 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     errorLevel,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    QRCodeSemanticAllType['classNames'],
+    QRCodeSemanticAllType['styles'],
+    QRCodeProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
@@ -136,8 +145,6 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const rootStyle: React.CSSProperties = {
     backgroundColor: bgColor,
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
     width: style?.width ?? size,
     height: style?.height ?? size,
   };

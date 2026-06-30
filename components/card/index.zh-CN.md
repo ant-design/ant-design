@@ -37,46 +37,42 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 <Card title="卡片标题">卡片内容</Card>
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
-| activeTabKey | 当前激活页签的 key | string | - |  |
-| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  |
-| ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| cover | 卡片封面 | ReactNode | - |  |
-| defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  |
-| extra | 卡片右上角的操作区域 | ReactNode | - |  |
-| hoverable | 鼠标移过时可浮起 | boolean | false |  |
-| ~~headStyle~~ | 卡片头部样式，请使用 `styles.header` 替代 | CSSProperties | - | - |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| size | card 的尺寸 | `medium` \| `small` | `medium` |  |
-| tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
-| tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  |
-| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
-| title | 卡片标题 | ReactNode | - |  |
-| type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| onTabChange | 页签切换的回调 | (key) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  | × |
+| activeTabKey | 当前激活页签的 key | string | - |  | × |
+| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  | × |
+| ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.24.0 | 5.24.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.14.0 |
+| cover | 卡片封面 | ReactNode | - |  | × |
+| defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  | × |
+| extra | 卡片右上角的操作区域 | ReactNode | - |  | × |
+| hoverable | 鼠标移过时可浮起 | boolean | false |  | × |
+| ~~headStyle~~ | 卡片头部样式，请使用 `styles.header` 替代 | CSSProperties | - | - | × |
+| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  | × |
+| size | card 的尺寸 | `medium` \| `small` | `medium` |  | × |
+| tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  | × |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  | × |
+| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  | × |
+| title | 卡片标题 | ReactNode | - |  | × |
+| type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.14.0 |
+| onTabChange | 页签切换的回调 | (key) => void | - |  | × |
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型          | 默认值 | 版本 |
-| --------- | ---------------------- | ------------- | ------ | ---- |
-| className | 网格容器类名           | string        | -      |      |
-| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
-| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
+| 参数      | 说明             | 类型    | 默认值 | 版本 |
+| --------- | ---------------- | ------- | ------ | ---- |
+| hoverable | 鼠标移过时可浮起 | boolean | true   |      |
 
 ### Card.Meta
 
-| 参数        | 说明               | 类型          | 默认值 | 版本 |
-| ----------- | ------------------ | ------------- | ------ | ---- |
-| avatar      | 头像/图标          | ReactNode     | -      |      |
-| className   | 容器类名           | string        | -      |      |
-| description | 描述内容           | ReactNode     | -      |      |
-| style       | 定义容器类名的样式 | CSSProperties | -      |      |
-| title       | 标题内容           | ReactNode     | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| avatar | 头像/图标 | ReactNode | - |  | × |
+| description | 描述内容 | ReactNode | - |  | × |
+| title | 标题内容 | ReactNode | - |  | × |
 
 ## Semantic DOM
 

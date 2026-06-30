@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/km_KH';
+import Pagination from '@rc-component/pagination/locale/km_KH';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/km_KH';
@@ -34,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
+  },
+  Tour: {
+    Next: 'បន្ទាប់',
+    Previous: 'មុន',
+    Finish: 'បញ្ចប់',
   },
   Modal: {
     okText: 'យល់ព្រម',

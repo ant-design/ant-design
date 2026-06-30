@@ -31,6 +31,7 @@ group:
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>
 <code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
+<code src="./demo/custom-title-alignment.tsx">Custom title alignment</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
@@ -45,8 +46,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | banner | Whether to show as banner | boolean | false |  | × |
 | variant | Variant of Alert style | `outlined` \| `filled` | `outlined` | 6.4.0 | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| closable | The config of closable | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | ✔ |
-| closeIcon | (Only supports global configuration) Custom close icon | ReactNode | - | × | 6.3.0 |
+| closable | The config of closable | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | 5.15.0 |
+| closeIcon | (Only supports global configuration) Custom close icon | ReactNode | - | × | 5.14.0 |
 | description | Additional content of Alert | ReactNode | - |  | × |
 | errorIcon | (Only supports global configuration) Custom error icon in Alert icon | ReactNode | - | × | 6.2.0 |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  | × |
