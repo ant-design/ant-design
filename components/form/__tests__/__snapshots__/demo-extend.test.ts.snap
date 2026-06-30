@@ -1672,7 +1672,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   Select a option and change input text above
                 </div>
@@ -2553,7 +2552,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2686,7 +2684,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2855,7 +2852,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -11495,8 +11491,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </svg>
                 </span>
               </div>
-              <div
+              <button
+                aria-label="Clear"
                 class="ant-select-clear"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -11518,7 +11516,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     />
                   </svg>
                 </span>
-              </div>
+              </button>
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
@@ -13013,7 +13011,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -13145,7 +13142,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -13313,7 +13309,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -22990,7 +22985,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   Please select a country
                 </div>
@@ -23155,7 +23149,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   >
                     Please select favourite colors
                   </div>
@@ -25029,7 +25022,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -29334,8 +29326,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   </span>
                 </span>
               </div>
-              <div
+              <button
+                aria-label="Clear"
                 class="ant-select-clear"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -29357,7 +29351,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     />
                   </svg>
                 </span>
-              </div>
+              </button>
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -29494,7 +29488,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   I'm Cascader
                 </div>
@@ -29640,7 +29633,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   I'm TreeSelect
                 </div>
@@ -32584,7 +32576,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -32724,7 +32715,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -32878,7 +32868,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"

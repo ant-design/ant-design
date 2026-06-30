@@ -826,7 +826,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please select an owner
                               </div>
@@ -992,7 +991,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please choose the type
                               </div>
@@ -1163,7 +1161,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please choose the approver
                               </div>

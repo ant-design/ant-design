@@ -8339,7 +8339,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select a option
           </div>
@@ -8455,7 +8454,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Please select
           </div>
