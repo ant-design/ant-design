@@ -3,11 +3,9 @@ import { toArray } from '@rc-component/util';
 import { Avatar, Flex, InputNumber, Switch } from 'antd';
 import type { AvatarGroupProps } from '../AvatarGroup';
 
-const defaultMaxCount = 3;
-
 const AvatarGroupOverflow: React.FC<AvatarGroupProps & { overflowInFinal?: boolean }> = (props) => {
   const { overflowInFinal, ...restProps } = props;
-  const mergedMaxCount = props.max?.count ?? defaultMaxCount;
+  const mergedMaxCount = props.max?.count ?? 3;
   const childrenCount = toArray(props.children).length;
   if (!overflowInFinal || mergedMaxCount >= childrenCount) {
     return <Avatar.Group {...restProps} />;
@@ -37,7 +35,7 @@ const App: React.FC = () => {
           min={2}
           max={10}
           value={avatarCount}
-          onChange={(value) => setAvatarCount(value ?? defaultMaxCount)}
+          onChange={(value) => setAvatarCount(value!)}
           aria-label="Avatar count"
           mode="spinner"
         />
@@ -53,7 +51,7 @@ const App: React.FC = () => {
 
       <AvatarGroupOverflow
         max={{
-          count: defaultMaxCount,
+          count: 3,
           style: { backgroundColor: '#52c41a', color: '#fff' },
         }}
         overflowInFinal={overflowInFinal}
