@@ -641,7 +641,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       prefixCls: iconPrefixCls,
       csp,
       layer: layer ? 'antd' : undefined,
-      zeroRuntime: mergedTheme?.zeroRuntime,
+      zeroRuntime: !!layer || mergedTheme?.zeroRuntime,
     }),
     [iconPrefixCls, csp, layer, mergedTheme?.zeroRuntime],
   );
