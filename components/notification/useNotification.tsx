@@ -101,12 +101,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
       props,
     },
   );
-  const resolvedContextStyles = notification?.styles
-    ? resolveStyleOrClass(notification.styles, { props })
-    : undefined;
-  const resolvedPropsStyles = props?.styles
-    ? resolveStyleOrClass(props.styles, { props })
-    : undefined;
+  const resolvedContextStyles = resolveStyleOrClass(notification?.styles as HolderProps['styles'], {
+    props,
+  });
+  const resolvedPropsStyles = resolveStyleOrClass(props?.styles as HolderProps['styles'], {
+    props,
+  });
   const normalizedMergedStyles = React.useMemo(() => {
     if (!resolvedContextStyles?.root && !resolvedPropsStyles?.root) {
       return mergedStyles;

@@ -93,10 +93,12 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     [contextStyles as PurePanelProps['styles'], styles],
     { props },
   );
-  const resolvedContextStyles = contextStyles
-    ? resolveStyleOrClass(contextStyles as PurePanelProps['styles'], { props })
-    : undefined;
-  const resolvedNotificationStyles = styles ? resolveStyleOrClass(styles, { props }) : undefined;
+  const resolvedContextStyles = resolveStyleOrClass(contextStyles as PurePanelProps['styles'], {
+    props,
+  });
+  const resolvedNotificationStyles = resolveStyleOrClass(styles as PurePanelProps['styles'], {
+    props,
+  });
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
