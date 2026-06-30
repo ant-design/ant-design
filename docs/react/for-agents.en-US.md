@@ -14,7 +14,7 @@ This page provides a ready-to-use prompt that lets any AI coding agent work with
 Copy into your agent conversation or automation runner.
 
 ```text
-Before writing any code, please read https://ant.design/docs/react/for-agents.md and https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
+This version may contain breaking changes. The component APIs, conventions, and file structure may differ from what is included in your training data. Before writing any code, please read https://ant.design/docs/react/for-agents.md and https://raw.githubusercontent.com/ant-design/ant-design-cli/main/skills/antd/SKILL.md, pay attention to deprecation warnings, and follow the instructions to use Ant Design.
 
 If you can install skills, run:
 npx skills add ant-design/ant-design-cli
@@ -52,6 +52,12 @@ antd upgrade                        # Upgrade CLI to latest version
 
 Full reference: [CLI](/docs/react/cli)
 
+### design.md — design-language context
+
+[design.md](https://ant.design/design.md) is built for AI design tools. It describes the visual language, component archetypes, and theme tokens of Ant Design's default light theme.
+
+Full reference: [design.md](/docs/react/design-md)
+
 ### MCP Server — IDE integration
 
 The CLI also runs as an MCP server with 8 tools and 2 prompts for IDE integration (Claude Code, Cursor, VS Code, etc.).
@@ -76,9 +82,10 @@ Feed complete component documentation directly into AI context:
 | File | Description |
 | --- | --- |
 | [llms.txt](https://ant.design/llms.txt) | Navigation file with links to all docs and components |
+| [design.md](https://ant.design/design.md) | Design-language description for AI design tools |
 | [llms-full.txt](https://ant.design/llms-full.txt) | Full component documentation (English) |
 | [llms-full-cn.txt](https://ant.design/llms-full-cn.txt) | Full component documentation (Chinese) |
 
 Single component docs are also available at `https://ant.design/components/<name>.md`.
 
-Full reference: [LLMs.txt](/docs/react/llms)
+Full reference: [LLMs.txt](/docs/react/llms), [design.md](/docs/react/design-md)

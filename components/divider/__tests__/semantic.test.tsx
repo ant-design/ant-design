@@ -3,6 +3,11 @@ import * as React from 'react';
 import Divider from '..';
 import type { DividerProps } from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Divider.Semantic', () => {
   it('not show children when vertical', () => {
@@ -63,5 +68,22 @@ describe('Divider.Semantic', () => {
     root = container.querySelector('.ant-divider')!;
     expect(root).toHaveClass('divider-center');
     expect(root).toHaveStyle({ opacity: 1 });
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        divider={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Divider styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Text
+        </Divider>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-divider'));
   });
 });

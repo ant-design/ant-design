@@ -4,7 +4,7 @@ import { composeRef, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
@@ -98,9 +98,16 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     enterButton,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputSearchSemanticAllType['classNames'],
+    InputSearchSemanticAllType['styles'],
+    SearchProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       button: {
@@ -260,12 +267,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   );
 
   return (
-    <Compact
-      className={mergedClassName}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      {...rootProps}
-      hidden={hidden}
-    >
+    <Compact className={mergedClassName} style={mergedStyles.root} {...rootProps} hidden={hidden}>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
     </Compact>

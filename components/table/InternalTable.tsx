@@ -5,7 +5,7 @@ import { omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -301,9 +301,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     bordered,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TableSemanticAllType<RecordType>['classNames'],
+    TableSemanticAllType<RecordType>['styles'],
+    TableProps<RecordType>
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       pagination: {
@@ -463,6 +470,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
     mergedColumns,
+    // Pass `baseColumns` (pre-responsive) so `defaultSortOrder` and controlled
+    // `sortOrder` on a `responsive` column are still honored when the column
+    // is hidden at the current breakpoint.
+    // See: https://github.com/ant-design/ant-design/issues/32847
+    baseColumns,
     onSorterChange,
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
@@ -700,8 +712,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     hashId,
   );
 
-  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
-
   // ========== empty ==========
   const mergedEmptyNode = React.useMemo<RcTableProps['emptyText']>(() => {
     // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
@@ -744,7 +754,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   return (
-    <div ref={rootRef} className={wrappercls} style={mergedStyle}>
+    <div ref={rootRef} className={wrappercls} style={mergedStyles.root}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <HeaderTableContext.Provider value={headerTableContext}>

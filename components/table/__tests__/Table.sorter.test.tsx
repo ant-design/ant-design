@@ -62,6 +62,32 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(container.querySelector('th')?.getAttribute('aria-sort')).toBe('descending');
   });
+
+  // https://github.com/ant-design/ant-design/issues/32847
+  it('defaultSortOrder still applies when column is hidden by responsive', () => {
+    // jsdom matchMedia mock only matches `max-width` queries (i.e. `xs`),
+    // so a column with `responsive: ['md']` is filtered out of `mergedColumns`.
+    // The default sort should still apply because base columns are used to
+    // collect default sort states.
+    const columns: ColumnType<any>[] = [
+      // Always-visible column we can read to assert row order.
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      {
+        title: 'NameSorted',
+        dataIndex: 'name',
+        key: 'name-sorted',
+        sorter: sorterFn,
+        defaultSortOrder: 'descend',
+        responsive: ['md'],
+      },
+    ];
+    const { container } = render(<Table columns={columns} dataSource={data} pagination={false} />);
+    // The responsive sorter column should not render a header.
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    // But the data should still be sorted by the hidden column's defaultSortOrder.
+    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+  });
+
   it('sort will work when column with children', () => {
     const onChange = jest.fn();
     const tableData = [

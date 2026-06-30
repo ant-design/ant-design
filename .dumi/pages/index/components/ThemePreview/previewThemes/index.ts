@@ -81,7 +81,7 @@ export default function usePreviewThemes() {
         },
       },
       {
-        icon: 'https://mui.com/static/favicon.svg',
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*LuUWTKWMy34AAAAAFvAAAAgAegCCAQ/original',
         name: locale.mui,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
@@ -89,7 +89,7 @@ export default function usePreviewThemes() {
         copyCode: muiThemeSource,
       },
       {
-        icon: 'https://ui.shadcn.com/favicon.ico',
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*X-rDQY7JQ-oAAAAAFVAAAAgAegCCAQ/original',
         name: locale.shadcn,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
@@ -97,7 +97,7 @@ export default function usePreviewThemes() {
         copyCode: shadcnThemeSource,
       },
       {
-        icon: 'https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg',
+        icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*V0RKS7vJxqEAAAAAQBAAAAgAegCCAQ/original',
         name: locale.bootstrap,
         props: bootstrapTheme,
         copyCode: bootstrapThemeSource,
