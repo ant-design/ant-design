@@ -35,7 +35,27 @@ interface IconSearchState {
   searchKey: string;
 }
 
-const NEW_ICON_NAMES: ReadonlyArray<string> = [];
+const NEW_ICON_VERSION = '6.5.0';
+
+const NEW_ICON_NAMES: ReadonlyArray<string> = [
+  'AnthropicFilled',
+  'ClaudeFilled',
+  'GeminiFilled',
+  'MistralFilled',
+  'DeepSeekFilled',
+  'QwenFilled',
+  'PerplexityFilled',
+  'HuggingFaceFilled',
+  'OllamaFilled',
+  'ReplicateFilled',
+  'ElevenLabsFilled',
+  'TelegramFilled',
+  'MastodonFilled',
+  'ThreadsFilled',
+  'SnapchatFilled',
+];
+
+const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]));
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
@@ -97,9 +117,11 @@ const IconSearch: React.FC = () => {
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
     const matchedCategories = Object.values(merged)
       .map((item) => {
-        item.icons = item.icons
+        const icons = item.icons
           .map((iconName) => iconName + theme)
           .filter((iconName) => allIcons[iconName]);
+
+        item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
 
         return item;
       })
@@ -112,6 +134,7 @@ const IconSearch: React.FC = () => {
         theme={theme}
         icons={icons}
         newIcons={NEW_ICON_NAMES}
+        newIconVersion={NEW_ICON_VERSION}
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
@@ -169,6 +192,7 @@ const IconSearch: React.FC = () => {
             allowClear
             autoFocus
             size="large"
+            variant="filled"
             onChange={handleSearchIcon}
           />
         </div>
@@ -184,6 +208,25 @@ type MatchedCategory = {
   category: string;
   icons: string[];
 };
+
+function groupNewIcons(icons: string[]) {
+  const firstNewIconIndex = icons.findIndex((iconName) => NEW_ICON_ORDER.has(iconName));
+
+  if (firstNewIconIndex === -1) {
+    return icons;
+  }
+
+  const newIcons = icons
+    .filter((iconName) => NEW_ICON_ORDER.has(iconName))
+    .sort((a, b) => NEW_ICON_ORDER.get(a)! - NEW_ICON_ORDER.get(b)!);
+  const restIcons = icons.filter((iconName) => !NEW_ICON_ORDER.has(iconName));
+
+  return [
+    ...restIcons.slice(0, firstNewIconIndex),
+    ...newIcons,
+    ...restIcons.slice(firstNewIconIndex),
+  ];
+}
 
 function matchCategoriesFromTag(searchKey: string, metaInfo: IconsMeta) {
   if (!searchKey) {

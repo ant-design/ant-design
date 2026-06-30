@@ -87,6 +87,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     modalRender,
     maskClosable,
     _semanticOmit,
+    scrollLock,
 
     // Focusable
     focusTriggerAfterClose,
@@ -300,6 +301,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
           maskClosable={mergeMaskClosable}
+          scrollLock={scrollLock}
           className={clsx(hashId, className, contextClassName)}
           style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{

@@ -7,14 +7,14 @@ on:
 
 jobs:
   upgrade-deps:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design' && github.ref == 'refs/heads/master'
     permissions:
       pull-requests: write # for peter-evans/create-pull-request to create PRs
       contents: write # for git push
     steps:
       - name: checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           sparse-checkout: |
             .github

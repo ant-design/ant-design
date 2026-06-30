@@ -5,7 +5,7 @@ import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
@@ -153,13 +153,16 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     variant: customVariant,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MentionSemanticAllType['classNames'],
+    MentionSemanticAllType['styles'],
+    MentionProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -246,7 +249,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       direction={direction}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}

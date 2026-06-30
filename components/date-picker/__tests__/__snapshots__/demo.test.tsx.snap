@@ -342,9 +342,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -366,7 +367,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -410,9 +411,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -434,7 +436,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -493,9 +495,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
                 </svg>
               </span>
             </span>
-            <span
+            <button
+              aria-label="Clear"
               class="ant-picker-clear"
-              role="button"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -517,7 +520,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </div>
         </div>
       </div>
@@ -561,9 +564,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
                 </svg>
               </span>
             </span>
-            <span
+            <button
+              aria-label="Clear"
               class="ant-picker-clear"
-              role="button"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -585,7 +589,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </div>
         </div>
       </div>
@@ -821,9 +825,10 @@ exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -845,7 +850,7 @@ exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -1120,9 +1125,10 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1144,7 +1150,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>
   <div
@@ -1187,9 +1193,10 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -1211,7 +1218,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2160,9 +2167,10 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -2184,7 +2192,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>
   <div
@@ -2228,9 +2236,10 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2252,7 +2261,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2526,9 +2535,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2550,7 +2560,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2594,9 +2604,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2618,7 +2629,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2662,9 +2673,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2686,7 +2698,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2731,9 +2743,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2755,7 +2768,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -2845,9 +2858,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -2869,7 +2883,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>
   <div
@@ -2913,9 +2927,10 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2937,7 +2952,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
   </div>
@@ -3236,9 +3251,10 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -3260,7 +3276,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker ant-picker-multiple ant-picker-outlined css-var-test-id ant-picker-css-var"
@@ -3318,9 +3334,10 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -3342,7 +3359,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var"
@@ -3400,9 +3417,10 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -3424,7 +3442,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -3908,9 +3926,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -3932,7 +3951,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker ant-picker-multiple ant-picker-outlined css-var-test-id ant-picker-css-var"
@@ -4364,9 +4383,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -4388,7 +4408,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var"
@@ -4820,9 +4840,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -4844,7 +4865,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -7720,12 +7741,12 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Picker Type"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

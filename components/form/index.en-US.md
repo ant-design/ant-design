@@ -31,6 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-item-path.tsx">Path Prefix</code>
 <code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
 <code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
+<code src="./demo/dynamic-form-items-drag-sorting.tsx">Drag sorting</code>
 <code src="./demo/dynamic-form-items-no-style.tsx" debug>Dynamic Form nest pure Items</code>
 <code src="./demo/dynamic-form-items-complex.tsx">Complex Dynamic Form Item</code>
 <code src="./demo/nest-messages.tsx">Nest</code>

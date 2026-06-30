@@ -112,7 +112,7 @@ describe('DatePicker', () => {
 
   it('placeholder', () => {
     const wrapper = render(<DatePicker placeholder={undefined} />);
-    expect(wrapper.container.querySelector('input')?.placeholder).toEqual('Select date');
+    expect(wrapper.container.querySelector('input')?.placeholder).toBe('Select date');
   });
 
   it('multiple tagRender should support custom remove logic', () => {
@@ -397,13 +397,13 @@ describe('DatePicker', () => {
 
   it('DatePicker placement api work correctly', () => {
     const { rerender } = render(<DatePicker open placement="topLeft" />);
-    expect(triggerProps?.popupPlacement).toEqual('topLeft');
+    expect(triggerProps?.popupPlacement).toBe('topLeft');
     rerender(<DatePicker open placement="topRight" />);
-    expect(triggerProps?.popupPlacement).toEqual('topRight');
+    expect(triggerProps?.popupPlacement).toBe('topRight');
     rerender(<DatePicker open placement="bottomLeft" />);
-    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
+    expect(triggerProps?.popupPlacement).toBe('bottomLeft');
     rerender(<DatePicker open placement="bottomRight" />);
-    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
+    expect(triggerProps?.popupPlacement).toBe('bottomRight');
   });
 
   it('RangePicker placement api work correctly', () => {
@@ -413,7 +413,7 @@ describe('DatePicker', () => {
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
-    expect(triggerProps?.popupPlacement).toEqual('topLeft');
+    expect(triggerProps?.popupPlacement).toBe('topLeft');
 
     rerender(<DatePicker.RangePicker open placement="topRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -421,7 +421,7 @@ describe('DatePicker', () => {
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
-    expect(triggerProps?.popupPlacement).toEqual('topRight');
+    expect(triggerProps?.popupPlacement).toBe('topRight');
 
     rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -429,7 +429,7 @@ describe('DatePicker', () => {
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
-    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
+    expect(triggerProps?.popupPlacement).toBe('bottomLeft');
 
     rerender(<DatePicker.RangePicker open placement="bottomRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -437,7 +437,7 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
-    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
+    expect(triggerProps?.popupPlacement).toBe('bottomRight');
   });
 
   it('legacy dropdownClassName & popupClassName', () => {
@@ -652,6 +652,17 @@ describe('DatePicker', () => {
         </ConfigProvider>,
       );
       expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should trigger onClear when click clear button', () => {
+      const onClear = jest.fn();
+      const somePoint = dayjs('2023-08-01');
+
+      render(<DatePicker defaultValue={somePoint} onClear={onClear} />);
+
+      fireEvent.click(getClearButton()!);
+
+      expect(onClear).toHaveBeenCalledTimes(1);
     });
   });
 

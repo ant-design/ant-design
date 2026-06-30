@@ -54,7 +54,7 @@ group: 数据展示
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.7.0 |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  | × |
-| title | 设置鼠标放在状态点上时显示的文字 | string | - |  | × |
+| title | 设置鼠标放在状态点上时显示的文字。设置为 `null` 或 `false` 时移除原生 tooltip | string \| null \| false | - | 6.5.0 | × |
 
 ### Badge.Ribbon
 

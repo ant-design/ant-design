@@ -38,6 +38,10 @@ ant-design/
 - 判断数据类型时，优先使用 `components/_util/is.ts` 中已有的方法，例如 `isNumber`、`isString`、`isPlainObject`、`isFunction`、`isThenable`、`isPrimitive`、`isNonNullable`。
 - 仅当 `components/_util/is.ts` 中没有合适方法，或当前场景需要更严格、更特殊的判断逻辑时，再使用内联 `typeof`、`instanceof` 等判断方式。
 
+## 样式优先级规范
+
+- 当组件根节点同时支持 ConfigProvider 的 `styles.root`、ConfigProvider 的 `style`、组件自身的 `styles.root` 和组件自身的 `style` 时，优先级从低到高为：ConfigProvider `styles.root` -> ConfigProvider `style` -> 组件 `styles.root` -> 组件 `style`；如在 util 层预合并根节点样式，预合并结果内部应保持前三者的同样顺序，组件自身 `style` 保持最终最高优先级。
+
 ---
 
 ## Demo 导入规范
@@ -155,7 +159,9 @@ ant-design/
 - 文件位置：`CHANGELOG.en-US.md` 和 `CHANGELOG.zh-CN.md`
 - 必须同时提供中英文两个版本
 - 忽略用户无感知的改动（内部重构、纯测试更新、工具链优化等）
-- 描述"对开发者的影响"，而非"具体的实现细节"
+- 描述"用户或开发者能感知到的变化"，而非"具体的实现细节"；不要用"传递某配置"、"修改 runtime"、"增加 metadata"等内部实现视角代替效果描述
+- 涉及 Design Token 时，必须列出具体新增、修复或变更的 token 名称
+- `rc-component` 或其他运行时依赖升级默认不作为 changelog；但如果带来用户可感知能力、行为变化、类型定义改进或包体积收益，必须单独核查并描述影响
 - 尽量给出 PR 链接，并统一添加贡献者链接
 
 ### 格式规范
@@ -177,8 +183,10 @@ ant-design/
 
 #### 分组逻辑
 
-- 同一组件有 2 条以上改动时，使用 `- 组件名` 作为分类标题
+- 同一组件最终有 2 条以上有效改动时，使用 `- 组件名` 作为分类标题
 - 单项改动直接写单行条目
+- **严格禁止只有 1 条有效 changelog 的组件单独分组**：过滤、合并、移动到 Icon/跨组件分类或其他分类后，必须重新统计各组件有效条目数；最终只有 1 条的组件必须拆回顶层单行条目
+- 发布版本 changelog 要按影响排序：最重要的跨版本变化放最前；同为组件分组时，条目多的组件优先
 
 ### Emoji 规范
 

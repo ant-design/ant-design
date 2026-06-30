@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
+import { unit } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isString } from '../_util/is';
+import { isNonNullable, isNumber, isString } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
@@ -23,11 +24,24 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
+  duration?: number;
+  lineWidth?: number | string;
   outset?: number | string;
+  size?: number | string;
 }
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
-  const { prefixCls: customizePrefixCls, className, style, children, color, outset } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    style,
+    children,
+    color,
+    duration,
+    lineWidth,
+    outset,
+    size,
+  } = props;
 
   const {
     className: contextClassName,
@@ -63,6 +77,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...contextStyle,
           ...style,
           ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
+          ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
+          ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
+          ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
           [varName('inset-offset')]: insetOffset,
           [varName('border-radius')]: borderRadius,
         }}

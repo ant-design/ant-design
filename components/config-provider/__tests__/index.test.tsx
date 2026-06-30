@@ -128,7 +128,7 @@ describe('ConfigProvider', () => {
         <Input />
       </ConfigProvider>,
     );
-    expect(container.querySelector('input')?.autocomplete).toEqual('off');
+    expect(container.querySelector('input')?.autocomplete).toBe('off');
   });
 
   it('select showSearch', () => {

@@ -19,10 +19,10 @@ concurrency:
 jobs:
   test-image:
     name: test image
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: utooland/setup-utoo@e63ce40ce5f7e9838c666a57479344e91c3a9795 # v1
       - run: ut
       - name: generate image snapshots

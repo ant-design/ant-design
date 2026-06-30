@@ -301,13 +301,13 @@ exports[`Form form should support disabled 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   disabled=""
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -379,13 +379,13 @@ exports[`Form form should support disabled 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   disabled=""
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -457,13 +457,13 @@ exports[`Form form should support disabled 1`] = `
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   disabled=""
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -945,7 +945,7 @@ exports[`Form form should support disabled 1`] = `
                 aria-valuemax="100"
                 aria-valuemin="0"
                 aria-valuenow="0"
-                class="ant-slider-handle"
+                class="ant-slider-handle ant-slider-handle-disabled"
                 role="slider"
                 style="left: 0%; transform: translateX(-50%);"
               />

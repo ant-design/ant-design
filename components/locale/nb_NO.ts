@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vennligst velg',
     close: 'Lukk',
+    sortable: 'sorterbar',
     show: 'Vis',
     hide: 'Skjul',
   },
@@ -24,8 +25,12 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Nullstill',
     filterEmptyText: 'Ingen filtre',
+    filterCheckAll: 'Velg alle elementer',
+    filterSearchPlaceholder: 'Søk i filtre',
+    emptyText: 'Ingen data',
     selectAll: 'Velg alle',
     selectInvert: 'Inverter gjeldende side',
+    selectNone: 'Fjern all data',
     selectionAll: 'Velg all data',
     sortTitle: 'Sorter',
     expand: 'Utvid rad',
@@ -57,6 +62,7 @@ const localeValues: Locale = {
     selectCurrent: 'Velg gjeldende side',
     removeCurrent: 'Fjern gjeldende side',
     selectAll: 'Velg all data',
+    deselectAll: 'Opphev valg av all data',
     removeAll: 'Fjern all data',
     selectInvert: 'Inverter gjeldende side',
   },
@@ -78,8 +84,10 @@ const localeValues: Locale = {
     copy: 'Kopier',
     copied: 'Kopiert',
     expand: 'Utvid',
+    collapse: 'Skjul',
   },
   Form: {
+    optional: '(valgfritt)',
     defaultValidateMessages: {
       default: 'Feltvalideringsfeil ${label}',
       required: 'Vennligst skriv inn ${label}',
@@ -127,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} stemmer ikke overens med mønsteret ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-koden er utløpt',
+    refresh: 'Oppdater',
+    scanned: 'Skannet',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tom',
+    transparent: 'Gjennomsiktig',
+    singleColor: 'Ensfarget',
+    gradientColor: 'Gradient',
   },
 };
 

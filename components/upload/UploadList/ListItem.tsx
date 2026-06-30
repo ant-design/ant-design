@@ -187,6 +187,12 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const listItemNameClass = clsx(`${prefixCls}-list-item-name`);
+    const onPreviewKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        onPreview(file, e);
+      }
+    };
     const fileName = file.url ? (
       <a
         key="view"
@@ -204,8 +210,11 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     ) : (
       <span
         key="view"
+        role="button"
+        tabIndex={0}
         className={listItemNameClass}
         onClick={(e) => onPreview(file, e)}
+        onKeyDown={onPreviewKeyDown}
         title={file.name}
       >
         {file.name}

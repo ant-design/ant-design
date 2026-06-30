@@ -23,6 +23,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/icon.tsx">带图标的步骤条</code>
 <code src="./demo/step-next.tsx" debug>步骤切换</code>
 <code src="./demo/title-placement.tsx">标签放置位置与进度</code>
+<code src="./demo/max-count.tsx">限量展示</code>
 <code src="./demo/progress-dot.tsx">点状步骤条</code>
 <code src="./demo/customized-progress-dot.tsx" debug>自定义点状步骤条</code>
 <code src="./demo/nav.tsx">导航步骤</code>
@@ -51,6 +52,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | iconRender | 自定义渲染图标，请优先使用 `items.icon` | (oriNode, info: { index, active, item }) => ReactNode | - |  | × |
 | initial | 起始序号，从 0 开始记数 | number | 0 |  | × |
 | ~~labelPlacement~~ | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  | × |
+| maxCount | 最大可见步骤项数量（`>= 3`）。超出数量的步骤区间会聚合成禁用的省略号步骤。 | number | - |  | × |
 | orientation | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | `horizontal` |  | × |
 | percent | 当前 `process` 步骤显示的进度条进度（只对基本类型的 Steps 生效） | number | - | 4.5.0 | × |
 | ~~progressDot~~ | 点状步骤条，可以设置为一个 function，请使用 `type="dot"` 替代。`titlePlacement` 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  | × |

@@ -322,7 +322,7 @@ describe('Descriptions', () => {
       const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
-        expect(Number(td.getAttribute('colSpan'))).toEqual(spans[index]);
+        expect(Number(td.getAttribute('colSpan'))).toBe(spans[index]);
       });
     }
 
@@ -464,5 +464,159 @@ describe('Descriptions', () => {
     );
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
     expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/50364
+  describe('bordered: labelStyle / contentStyle land on the cell with the matching class', () => {
+    it('horizontal bordered: applies labelStyle / contentStyle to <th>/<td>, not the inner <span>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              labelStyle: { background: 'red' },
+              contentStyle: { background: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.tagName).toBe('TH');
+      expect(contentCell.tagName).toBe('TD');
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+
+      // Inner <span> wrappers must not carry the inline style anymore.
+      const labelSpan = labelCell.querySelector<HTMLElement>('span')!;
+      const contentSpan = contentCell.querySelector<HTMLElement>('span')!;
+      expect(labelSpan.getAttribute('style')).toBeNull();
+      expect(contentSpan.getAttribute('style')).toBeNull();
+    });
+
+    it('vertical bordered: applies labelStyle / contentStyle to <th>/<td>, not the inner <span>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          layout="vertical"
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              labelStyle: { background: 'red' },
+              contentStyle: { background: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.tagName).toBe('TH');
+      expect(contentCell.tagName).toBe('TD');
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+
+      const labelSpan = labelCell.querySelector<HTMLElement>('span')!;
+      const contentSpan = contentCell.querySelector<HTMLElement>('span')!;
+      expect(labelSpan.getAttribute('style')).toBeNull();
+      expect(contentSpan.getAttribute('style')).toBeNull();
+    });
+
+    it('bordered: semantic styles.label / styles.content also land on <th>/<td>', () => {
+      const { container } = render(
+        <Descriptions
+          bordered
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              styles: {
+                label: { background: 'red' },
+                content: { background: 'green' },
+              },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.style.background).toBe('red');
+      expect(contentCell.style.background).toBe('green');
+    });
+
+    it('horizontal bordered: item-level labelStyle wins over root-level ConfigProvider styles', () => {
+      // Regression guard: the bordered branch must not re-apply the
+      // root-context label / content style in a way that overrides the
+      // item-level override that Row.tsx already merged into the cell
+      // `style` prop in the horizontal-bordered path.
+      const { container } = render(
+        <ConfigProvider
+          descriptions={{
+            styles: {
+              label: { color: 'red' },
+              content: { color: 'red' },
+            },
+          }}
+        >
+          <Descriptions
+            bordered
+            items={[
+              {
+                key: '1',
+                label: 'Product',
+                children: 'Cloud Database',
+                labelStyle: { color: 'blue' },
+                contentStyle: { color: 'blue' },
+              },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      expect(labelCell.style.color).toBe('blue');
+      expect(contentCell.style.color).toBe('blue');
+    });
+
+    it('vertical bordered: item `style` + `labelStyle` both land on the same cell with labelStyle winning', () => {
+      // In the vertical-bordered layout the label and content are rendered
+      // into separate <th>/<td> cells, so the per-item `style` and the
+      // per-type `labelStyle` / `contentStyle` end up on the same element.
+      // labelStyle / contentStyle (more specific) must win over style.
+      const { container } = render(
+        <Descriptions
+          bordered
+          layout="vertical"
+          items={[
+            {
+              key: '1',
+              label: 'Product',
+              children: 'Cloud Database',
+              style: { color: 'red', background: 'yellow' },
+              labelStyle: { color: 'blue' },
+              contentStyle: { color: 'green' },
+            },
+          ]}
+        />,
+      );
+
+      const labelCell = container.querySelector<HTMLElement>('.ant-descriptions-item-label')!;
+      const contentCell = container.querySelector<HTMLElement>('.ant-descriptions-item-content')!;
+      // `style` background flows through on both cells.
+      expect(labelCell.style.background).toBe('yellow');
+      expect(contentCell.style.background).toBe('yellow');
+      // labelStyle / contentStyle override `style.color` on the matching cell.
+      expect(labelCell.style.color).toBe('blue');
+      expect(contentCell.style.color).toBe('green');
+    });
   });
 });
