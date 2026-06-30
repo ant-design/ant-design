@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { isFunction, isNonNullable, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
-import { devUseWarning } from '../../_util/warning';
+import { useDevWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
@@ -107,8 +107,6 @@ function genEmptyMeta(): Meta {
 }
 
 function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
-  'use no memo';
-
   const {
     name,
     noStyle,
@@ -151,7 +149,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ========================= Warn =========================
-  const warning = devUseWarning('Form.Item');
+  const warning = useDevWarning('Form.Item');
 
   if (process.env.NODE_ENV !== 'production') {
     warning(name !== null, 'usage', '`null` is passed as `name` property');

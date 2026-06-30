@@ -3,7 +3,7 @@ import { List } from '@rc-component/form';
 import type { StoreValue, ValidatorRule } from '@rc-component/form';
 
 import { isNumber } from '../_util/is';
-import { devUseWarning } from '../_util/warning';
+import { useDevWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
 
@@ -35,10 +35,8 @@ const FormList: React.FC<FormListProps> = ({
   children,
   ...props
 }) => {
-  'use no memo';
-
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Form.List');
+    const warning = useDevWarning('Form.List');
 
     warning(
       isNumber(props.name) || (Array.isArray(props.name) ? !!props.name.length : !!props.name),
