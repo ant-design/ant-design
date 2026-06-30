@@ -4,6 +4,7 @@ import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import notification, { actWrapper } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import { getCloseIconConfig } from '../util';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
@@ -434,6 +435,33 @@ describe('notification', () => {
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
   });
 
+  it('should warn when opening notification in render', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+      const openedRef = React.useRef(false);
+
+      if (!openedRef.current) {
+        openedRef.current = true;
+        api.open({
+          title: 'Notification Title',
+        });
+      }
+
+      return contextHolder;
+    };
+
+    render(<TestComponent />);
+    await awaitPromise();
+
+    expect(errSpy.mock.calls.flat().join('')).toContain(
+      'You are calling notice in render which will break in React 18 concurrent mode.',
+    );
+
+    errSpy.mockRestore();
+  });
+
   it('should ignore intrinsic width in notice style', async () => {
     act(() => {
       notification.open({
@@ -658,5 +686,37 @@ describe('notification', () => {
       document.querySelector<HTMLElement>('.pure-panel-width .ant-notification-notice')?.style
         .width,
     ).toBe('480px');
+  });
+
+  it('PurePanel should ignore intrinsic root width without dropping lower-priority config root width', () => {
+    const Holder = notification._InternalPanelDoNotUseOrYouWillBeFired;
+
+    render(
+      <ConfigProvider
+        notification={{
+          styles: {
+            root: {
+              width: 420,
+            },
+          },
+        }}
+      >
+        <Holder
+          title="Notification title"
+          className="pure-panel-root-width"
+          styles={{ root: { width: 'max-content' } }}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(document.querySelector<HTMLElement>('.pure-panel-root-width')?.style.width).toBe(
+      '420px',
+    );
+  });
+
+  it('should prefer notificationConfig closeIcon when notice closeIcon is undefined', () => {
+    const closeIcon = <span className="config-close-icon" />;
+
+    expect(getCloseIconConfig(undefined, { closeIcon }, undefined)).toBe(closeIcon);
   });
 });
