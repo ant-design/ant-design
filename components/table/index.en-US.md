@@ -394,6 +394,10 @@ In order to improve user experience, Pagination show size changer by default whe
 
 Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. You can use `column.shouldCellUpdate` to control render.
 
+### How should I troubleshoot Table performance issues? {#faq-table-performance}
+
+React DevTools may add extra overhead when profiling complex tables, especially with many rows or cells. If you notice obvious lag, please try disabling React DevTools or testing in a clean browser environment first. If the performance issue can still be reproduced in a normal runtime, feel free to provide a minimal reproduction so we can continue to investigate.
+
 ### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 
 Fixed column use `z-index` to make it over other columns. You will find sometimes fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
