@@ -24,6 +24,7 @@ group:
 <code src="./demo/dynamic.tsx">自动调整字符大小</code>
 <code src="./demo/badge.tsx">带徽标的头像</code>
 <code src="./demo/group.tsx">Avatar.Group</code>
+<code src="./demo/max-count.tsx">maxCount 包含溢出元素</code>
 <code src="./demo/toggle-debug.tsx" debug>隐藏情况下计算字符对齐</code>
 <code src="./demo/responsive.tsx">响应式尺寸</code>
 <code src="./demo/fallback.tsx" debug>图片不存在时</code>

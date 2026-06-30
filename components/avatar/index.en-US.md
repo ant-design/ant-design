@@ -19,6 +19,7 @@ group:
 <code src="./demo/dynamic.tsx">Autoset Font Size</code>
 <code src="./demo/badge.tsx">With Badge</code>
 <code src="./demo/group.tsx">Avatar.Group</code>
+<code src="./demo/max-count.tsx">maxCount includes overflow</code>
 <code src="./demo/toggle-debug.tsx" debug>Calculate text style when hiding</code>
 <code src="./demo/responsive.tsx">Responsive Size</code>
 <code src="./demo/fallback.tsx" debug>Fallback</code>
