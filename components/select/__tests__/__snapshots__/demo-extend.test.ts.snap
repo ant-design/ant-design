@@ -15,7 +15,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
       </div>
       <div
@@ -825,8 +824,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -848,7 +849,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -1209,7 +1210,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         custom dropdown render
       </div>
@@ -1840,7 +1840,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Try paste: "San Francisco, CA", New York
         </div>
@@ -1983,7 +1982,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             233
           </div>
@@ -2870,7 +2868,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -5672,7 +5669,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Inserted are removed
         </div>
@@ -6359,8 +6355,10 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -6382,7 +6380,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -7486,8 +7484,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -7509,7 +7509,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -7626,7 +7626,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select a option
           </div>
@@ -7819,8 +7818,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -7842,7 +7843,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8041,8 +8042,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8064,7 +8067,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8193,7 +8196,6 @@ Array [
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               Select a option
             </div>
@@ -8786,8 +8788,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8809,7 +8813,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8943,7 +8947,6 @@ Array [
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               请选择
             </div>
@@ -9092,7 +9095,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             请选择
           </div>
@@ -9287,8 +9289,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -9310,7 +9314,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9467,8 +9471,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -9490,7 +9496,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9673,8 +9679,10 @@ Array [
                         </svg>
                       </span>
                     </div>
-                    <div
+                    <button
+                      aria-label="Clear"
                       class="ant-select-clear"
+                      type="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -9696,7 +9704,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9852,8 +9860,10 @@ Array [
                         value="Bamboo"
                       />
                     </div>
-                    <div
+                    <button
+                      aria-label="Clear"
                       class="ant-select-clear"
+                      type="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -9875,7 +9885,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10041,7 +10051,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Single
         </div>
@@ -10231,8 +10240,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -10254,7 +10265,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10370,7 +10381,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -10518,7 +10528,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -10743,8 +10752,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -10766,7 +10777,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10941,8 +10952,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -10964,7 +10977,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -11738,7 +11751,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -12431,7 +12443,6 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Item...
           </div>
@@ -13381,7 +13392,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -13533,7 +13543,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -13685,7 +13694,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select an option
       </div>
@@ -13855,7 +13863,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Search to Select
       </div>
@@ -14063,7 +14070,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Select users
         </div>
@@ -15803,7 +15809,6 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -15916,7 +15921,6 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -16058,7 +16062,6 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object
       </div>
@@ -16212,7 +16215,6 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function
       </div>
@@ -16396,8 +16398,10 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -16419,7 +16423,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -17402,7 +17406,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Tags Mode
         </div>
@@ -17804,7 +17807,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Outlined
         </div>
@@ -18152,7 +18154,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Filled
         </div>
@@ -18500,7 +18501,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Borderless
         </div>
@@ -18848,7 +18848,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Underlined
         </div>
