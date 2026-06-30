@@ -18,7 +18,6 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { MEASURED_WIDTH_VAR } from './constants';
 import useStackConfig from './hooks/useStackConfig';
 import type {
   ArgsProps,
@@ -28,87 +27,16 @@ import type {
 } from './interface';
 import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
-import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
+import {
+  getCloseIconConfig,
+  getMotion,
+  getPlacementOffsetStyle,
+  normalizeNoticeWidthStyle,
+} from './util';
 
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 const DEFAULT_STACK_CONFIG = { offset: 8 };
-
-const useInternalLayoutEffect =
-  typeof window === 'undefined' ? React.useEffect : React.useLayoutEffect;
-
-const useNotificationMeasuredWidth = (
-  prefixCls: string,
-  containerRef: React.RefObject<HTMLDivElement | null>,
-) => {
-  useInternalLayoutEffect(() => {
-    const container = containerRef.current;
-
-    if (!container || typeof MutationObserver === 'undefined') {
-      return;
-    }
-
-    const listSelector = `.${prefixCls}-list`;
-    const noticeSelector = `.${prefixCls}-notice`;
-    const observedNotices = new Set<HTMLElement>();
-
-    const updateMeasuredWidth = () => {
-      container.querySelectorAll<HTMLElement>(listSelector).forEach((listNode) => {
-        const measuredWidth = Array.from(
-          listNode.querySelectorAll<HTMLElement>(noticeSelector),
-        ).reduce((maxWidth, noticeNode) => Math.max(maxWidth, noticeNode.offsetWidth), 0);
-
-        if (measuredWidth > 0) {
-          listNode.style.setProperty(MEASURED_WIDTH_VAR, `${measuredWidth}px`);
-        } else {
-          listNode.style.removeProperty(MEASURED_WIDTH_VAR);
-        }
-      });
-    };
-
-    const resizeObserver =
-      typeof ResizeObserver === 'undefined'
-        ? null
-        : new ResizeObserver(() => {
-            updateMeasuredWidth();
-          });
-
-    const syncNoticeObservers = () => {
-      const currentNotices = new Set<HTMLElement>();
-
-      container.querySelectorAll<HTMLElement>(noticeSelector).forEach((noticeNode) => {
-        currentNotices.add(noticeNode);
-
-        if (resizeObserver && !observedNotices.has(noticeNode)) {
-          observedNotices.add(noticeNode);
-          resizeObserver.observe(noticeNode);
-        }
-      });
-
-      observedNotices.forEach((noticeNode) => {
-        if (!currentNotices.has(noticeNode)) {
-          resizeObserver?.unobserve(noticeNode);
-          observedNotices.delete(noticeNode);
-        }
-      });
-    };
-
-    const mutationObserver = new MutationObserver(() => {
-      syncNoticeObservers();
-      updateMeasuredWidth();
-    });
-
-    mutationObserver.observe(container, { childList: true, subtree: true });
-    syncNoticeObservers();
-    updateMeasuredWidth();
-
-    return () => {
-      mutationObserver.disconnect();
-      resizeObserver?.disconnect();
-      observedNotices.clear();
-    };
-  }, [containerRef, prefixCls]);
-};
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -123,17 +51,13 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  useNotificationMeasuredWidth(prefixCls, containerRef);
 
   return (
-    <div ref={containerRef} style={{ display: 'contents' }}>
-      <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
-        {children}
-      </NotificationProvider>
-    </div>
+    <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
+      {children}
+    </NotificationProvider>
   );
 };
 
@@ -177,6 +101,25 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
       props,
     },
   );
+  const resolvedContextStyles = notification?.styles
+    ? resolveStyleOrClass(notification.styles, { props })
+    : undefined;
+  const resolvedPropsStyles = props?.styles
+    ? resolveStyleOrClass(props.styles, { props })
+    : undefined;
+  const normalizedMergedStyles = React.useMemo(() => {
+    if (!resolvedContextStyles?.root && !resolvedPropsStyles?.root) {
+      return mergedStyles;
+    }
+
+    return {
+      ...mergedStyles,
+      root: {
+        ...normalizeNoticeWidthStyle(resolvedContextStyles?.root),
+        ...normalizeNoticeWidthStyle(resolvedPropsStyles?.root),
+      },
+    };
+  }, [mergedStyles, resolvedContextStyles, resolvedPropsStyles]);
 
   // =============================== Style ===============================
   const getStyle = () => getPlacementOffsetStyle(top, bottom);
@@ -202,7 +145,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     pauseOnHover,
     showProgress,
     classNames: mergedClassNames,
-    styles: mergedStyles,
+    styles: normalizedMergedStyles,
     onAllRemoved,
     renderNotifications,
     stack: stackConfig,
@@ -299,6 +242,9 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
+      const normalizedContextStyle = normalizeNoticeWidthStyle(contextStyle);
+      const normalizedSemanticRootStyle = normalizeNoticeWidthStyle(semanticStyles.root);
+      const normalizedStyle = normalizeNoticeWidthStyle(style);
       const iconNode = icon || (type ? TypeIcon[type] : null);
       const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
@@ -318,12 +264,12 @@ export function useInternalNotification(
         styles: {
           ...semanticStyles,
           root: {
-            ...contextStyle,
-            ...semanticStyles.root,
+            ...normalizedContextStyle,
+            ...normalizedSemanticRootStyle,
           },
         },
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
-        style,
+        style: normalizedStyle,
         closable: mergedClosable,
       });
     };

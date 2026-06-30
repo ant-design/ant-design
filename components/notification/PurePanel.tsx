@@ -10,7 +10,7 @@ import type { NotificationProps as RcNotificationProps } from '@rc-component/not
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -19,6 +19,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
+import { normalizeNoticeWidthStyle } from './util';
 
 export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
 
@@ -92,6 +93,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     [contextStyles as PurePanelProps['styles'], styles],
     { props },
   );
+  const resolvedContextStyles = contextStyles
+    ? resolveStyleOrClass(contextStyles as PurePanelProps['styles'], { props })
+    : undefined;
+  const resolvedNotificationStyles = styles ? resolveStyleOrClass(styles, { props }) : undefined;
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
@@ -113,6 +118,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const { root: rootClassName, ...contentClassNames } = mergedClassNames;
   const { root: rootStyle, ...contentStyles } = mergedStyles;
+  const normalizedRootStyle = React.useMemo(() => {
+    if (!resolvedContextStyles?.root && !resolvedNotificationStyles?.root) {
+      return rootStyle;
+    }
+
+    return {
+      ...normalizeNoticeWidthStyle(resolvedContextStyles?.root),
+      ...normalizeNoticeWidthStyle(resolvedNotificationStyles?.root),
+    };
+  }, [resolvedContextStyles, resolvedNotificationStyles, rootStyle]);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -144,11 +159,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         rootCls,
         rootClassName,
       )}
-      style={rootStyle}
+      style={normalizedRootStyle}
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <RcNotification
-        style={{ ...contextStyle, ...style }}
+        style={{
+          ...normalizeNoticeWidthStyle(contextStyle),
+          ...normalizeNoticeWidthStyle(style),
+        }}
         {...restProps}
         prefixCls={prefixCls}
         duration={null}
