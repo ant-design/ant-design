@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 3
+order: 4
 title: CLI
 tag: New
 ---
@@ -66,6 +66,30 @@ antd upgrade                        # 升级 CLI 到最新版本
 | `antd design.md`                       | 设计语言文档，供 AI 设计工具使用               |
 | `antd semantic <Component>`            | 语义化 `classNames` / `styles` 结构及用法示例  |
 | `antd changelog [v1] [v2] [component]` | Changelog 条目、版本范围或跨版本 API 对比      |
+
+#### antd design.md {#design-md}
+
+`antd design.md` 输出 Ant Design 的设计语言描述文件，遵循 [google-labs-code/design.md](https://github.com/google-labs-code/design.md) 规范。该文件面向 AI 设计工具（如 Figma Make、Google Stitch 等），让它们在生成 UI 时能够遵循 Ant Design 的视觉语言。
+
+```bash
+antd design.md                # 输出完整的 design.md 内容
+antd design.md --format json  # JSON 格式输出
+antd design.md --lang zh      # 中文描述
+```
+
+文件内容包括：
+
+- **YAML Front Matter** — 颜色、字体、圆角、间距和核心组件的结构化 Token 定义，支持 `{path.to.token}` 引用语法
+- **设计概览** — Ant Design 四大设计价值观（自然、确定、有意义、生长）
+- **颜色系统** — 功能色、预设色板、中性色使用 `rgba()` 的原因
+- **字体排版** — 14px 基础字号、字体栈、两种字重限制
+- **布局** — 4px 网格、间距比例尺、三层表面模型
+- **层次与深度** — 四级阴影、动效时长与缓动函数
+- **形状** — 6px 默认圆角及各组件分类
+- **组件** — 核心组件原型和状态的样式描述
+- **设计建议** — Do's and Don'ts 规则
+
+该文件也已发布在 [ant.design/design.md](https://ant.design/design.md)，AI 工具可直接通过 URL 读取。
 
 ### 项目分析 {#project-analysis}
 

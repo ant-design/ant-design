@@ -3,6 +3,11 @@ import React from 'react';
 import Empty from '..';
 import type { EmptyProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Empty.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
@@ -48,5 +53,19 @@ describe('Empty.Semantic', () => {
     );
     expect(container.querySelector('.empty-custom')).toBeTruthy();
     expect(container.querySelector('.empty-image-custom')).toBeTruthy();
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        empty={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Empty styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style} />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-empty'));
   });
 });

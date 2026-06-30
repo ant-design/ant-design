@@ -1277,15 +1277,15 @@ exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context corr
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"

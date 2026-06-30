@@ -257,6 +257,34 @@ describe('ConfigProvider.Form', () => {
     });
   });
 
+  describe('form labelWrap', () => {
+    it('set labelWrap true', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelWrap: true }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-wrap')).toBeTruthy();
+    });
+
+    it('form labelWrap should override ConfigProvider labelWrap', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelWrap: true }}>
+          <Form labelWrap={false}>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-wrap')).toBeFalsy();
+    });
+  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(

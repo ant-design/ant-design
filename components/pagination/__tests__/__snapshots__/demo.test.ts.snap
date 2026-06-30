@@ -505,7 +505,25 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
         <span
           class="ant-pagination-item-ellipsis"
         >
-          •••
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </div>
     </a>
@@ -569,11 +587,11 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -867,7 +885,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -931,11 +967,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1089,7 +1125,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -1153,12 +1207,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1299,7 +1353,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -1341,11 +1413,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1510,7 +1582,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -1574,12 +1664,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1841,7 +1931,25 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
         <span
           class="ant-pagination-item-ellipsis"
         >
-          •••
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </div>
     </a>
@@ -1883,11 +1991,11 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2044,7 +2152,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -2108,11 +2234,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2277,7 +2403,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -2341,12 +2485,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2672,11 +2816,11 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2988,12 +3132,12 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3312,11 +3456,11 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3628,12 +3772,12 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3758,24 +3902,31 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
         <span
           class="ant-pagination-item-ellipsis"
         >
-          •••
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </div>
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-4 ant-pagination-item-after-jump-prev"
-    tabindex="0"
-    title="4"
-  >
-    <a
-      rel="nofollow"
-    >
-      4
-    </a>
-  </li>
-  <li
-    class="ant-pagination-item ant-pagination-item-5"
+    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-after-jump-prev"
     tabindex="0"
     title="5"
   >
@@ -3797,7 +3948,7 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-7"
+    class="ant-pagination-item ant-pagination-item-7 ant-pagination-item-before-jump-next"
     tabindex="0"
     title="7"
   >
@@ -3805,17 +3956,6 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
       rel="nofollow"
     >
       7
-    </a>
-  </li>
-  <li
-    class="ant-pagination-item ant-pagination-item-8 ant-pagination-item-before-jump-next"
-    tabindex="0"
-    title="8"
-  >
-    <a
-      rel="nofollow"
-    >
-      8
     </a>
   </li>
   <li
@@ -3851,7 +3991,25 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
         <span
           class="ant-pagination-item-ellipsis"
         >
-          •••
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
         </span>
       </div>
     </a>
@@ -3915,11 +4073,11 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -4342,7 +4500,25 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -4408,11 +4584,11 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4571,7 +4747,25 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -4637,11 +4831,11 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4819,11 +5013,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4997,11 +5191,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6102,7 +6296,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -6166,11 +6378,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6324,7 +6536,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -6388,12 +6618,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6503,7 +6733,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -6611,11 +6859,11 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6725,7 +6973,25 @@ Array [
           <span
             class="ant-pagination-item-ellipsis"
           >
-            •••
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
           </span>
         </div>
       </a>
@@ -6833,12 +7099,12 @@ Array [
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

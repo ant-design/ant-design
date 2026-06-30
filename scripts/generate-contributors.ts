@@ -156,7 +156,7 @@ async function execute() {
   const allLogins: string[] = [];
   const loginIndex = new Map<string, number>();
 
-  function getLoginIndex(login: string): number {
+  const getLoginIndex = (login: string) => {
     let idx = loginIndex.get(login);
     if (idx === undefined) {
       idx = allLogins.length;
@@ -164,7 +164,7 @@ async function execute() {
       loginIndex.set(login, idx);
     }
     return idx;
-  }
+  };
 
   // Collect all doc files across modules
   const allTasks: { module: ModuleConfig; locale: string; key: string; filePath: string }[] = [];
@@ -199,7 +199,7 @@ async function execute() {
       progressBar.update({ module: `${mod.name}/${key}` });
 
       const logins = await getFileCommits(filePath);
-      const indices = logins.map((login) => getLoginIndex(login));
+      const indices = logins.map<number>(getLoginIndex);
 
       moduleData[mod.name] ??= {};
       moduleData[mod.name][key] ??= {};

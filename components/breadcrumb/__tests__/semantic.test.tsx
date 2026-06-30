@@ -2,6 +2,11 @@ import React from 'react';
 
 import { render } from '../../../tests/utils';
 import Breadcrumb from '..';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Breadcrumb.Semantic', () => {
   it('should support function classNames and styles', () => {
@@ -30,5 +35,23 @@ describe('Breadcrumb.Semantic', () => {
     const rootLong = container.querySelector('.ant-breadcrumb');
     expect(rootLong).toHaveClass('fn-root-long');
     expect(rootLong).toHaveStyle({ backgroundColor: 'rgb(240, 249, 255)' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        breadcrumb={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Breadcrumb
+          items={[{ title: 'One' }, { title: 'Two' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-breadcrumb'));
   });
 });

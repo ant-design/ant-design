@@ -7,6 +7,12 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
+declare module '@ant-design/icons/lib/components/Context' {
+  interface IconContextProps {
+    zeroRuntime?: boolean;
+  }
+}
+
 describe('ConfigProvider.Icon', () => {
   beforeEach(() => {
     expect(document.querySelectorAll('style')).toHaveLength(0);
@@ -63,6 +69,47 @@ describe('ConfigProvider.Icon', () => {
     expect(container.querySelector('.bamboo-smile')).toBeTruthy();
     expect(styleNode?.nonce).toBe('light');
     expect(container.querySelector('#csp')?.innerHTML).toBe('light');
+  });
+
+  it('passes zeroRuntime theme config to icon context', () => {
+    const Checker = () => {
+      const { zeroRuntime } = React.useContext(IconContext);
+      return <div id="zero-runtime">{String(zeroRuntime)}</div>;
+    };
+
+    const { container } = render(
+      <ConfigProvider theme={{ zeroRuntime: true }}>
+        <Checker />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('#zero-runtime')?.innerHTML).toBe('true');
+  });
+
+  it('does not rewrite icon runtime style when cssinjs layer is enabled', () => {
+    render(<SmileOutlined />);
+
+    const runtimeStyle = document.querySelector<HTMLStyleElement>(
+      'style[rc-util-key="@ant-design-icons"]',
+    );
+
+    expect(runtimeStyle).toBeTruthy();
+    expect(runtimeStyle?.innerHTML).not.toContain('@layer antd');
+
+    render(
+      <StyleProvider layer cache={createCache()}>
+        <ConfigProvider>
+          <SmileOutlined />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(runtimeStyle?.innerHTML).not.toContain('@layer antd');
+    expect(
+      Array.from(document.querySelectorAll('style')).some(
+        (style) => style.innerHTML.includes('@layer antd') && style.innerHTML.includes('.anticon'),
+      ),
+    ).toBeTruthy();
   });
 
   it('cssinjs should support nonce', () => {

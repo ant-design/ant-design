@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 3
+order: 4
 title: CLI
 tag: New
 ---
@@ -66,6 +66,30 @@ antd upgrade                        # Upgrade CLI to latest version
 | `antd design.md` | Design-language document for AI design tools |
 | `antd semantic <Component>` | Semantic `classNames` / `styles` structure with usage examples |
 | `antd changelog [v1] [v2] [component]` | Changelog entries, version ranges, or cross-version API diff |
+
+#### antd design.md {#design-md}
+
+`antd design.md` outputs the design language description file for Ant Design, conformant with the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) specification. This file is intended for AI design tools (Figma Make, Google Stitch, etc.) so they can generate UI that follows Ant Design's visual language.
+
+```bash
+antd design.md                # Output the full design.md content
+antd design.md --format json  # JSON format output
+antd design.md --lang zh      # Chinese descriptions
+```
+
+The file includes:
+
+- **YAML front-matter** — Structured token definitions for colors, typography, rounded corners, spacing, and core components, with `{path.to.token}` reference syntax
+- **Overview** — Ant Design's four design values (Natural, Certain, Meaningful, Growing)
+- **Colors** — Functional colors, preset palette, and why neutrals use `rgba()`
+- **Typography** — 14px base font size, font stack, two-weight constraint
+- **Layout** — 4px grid, spacing scale, three-layer surface model
+- **Elevation & Depth** — Four shadow tiers, motion durations and easings
+- **Shapes** — 6px default radius and per-component classifications
+- **Components** — Style descriptions for core component archetypes and states
+- **Do's and Don'ts** — Design guidance rules
+
+The file is also published at [ant.design/design.md](https://ant.design/design.md) and can be read directly by AI tools via URL.
 
 ### Project Analysis
 

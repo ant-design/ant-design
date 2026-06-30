@@ -19,12 +19,12 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -450,12 +450,12 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1575,12 +1575,12 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2006,12 +2006,12 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3130,12 +3130,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3561,12 +3561,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4679,12 +4679,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5110,12 +5110,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6289,12 +6289,12 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -6760,12 +6760,12 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -7856,12 +7856,12 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -8287,12 +8287,12 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -9803,12 +9803,12 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -10234,12 +10234,12 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -11769,12 +11769,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -12200,12 +12200,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -13327,12 +13327,12 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -13758,12 +13758,12 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -14876,12 +14876,12 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -15307,12 +15307,12 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -16431,12 +16431,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -16862,12 +16862,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18041,12 +18041,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18472,12 +18472,12 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

@@ -68,7 +68,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
-  const hasHelp = isNonNullable(help) && help !== false;
+  const hasHelp = isNonNullable(help);
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
     if (hasHelp) {

@@ -73,6 +73,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  | 5.7.0 |
 | styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.10.0 |
 | loading | Show the skeleton | boolean |  | 5.18.0 | × |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 6.5.0 | × |
 | title | The modal dialog's title | ReactNode | - |  | × |
 | open | Whether the modal dialog is visible or not | boolean | false |  | × |
 | width | Width of the modal dialog | string \| number \| [Breakpoint](/components/grid#col) | 520 | Breakpoint: 5.23.0 | × |
@@ -118,6 +119,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | false | - |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 6.5.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |

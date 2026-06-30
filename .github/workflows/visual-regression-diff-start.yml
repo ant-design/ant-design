@@ -24,7 +24,7 @@ jobs:
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start visual-regression diff
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: update status comment

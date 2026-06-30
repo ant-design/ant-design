@@ -6,6 +6,7 @@ import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -205,6 +206,57 @@ describe('Layout', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should customize root and body with semantic classNames and styles', () => {
+    const { container } = render(
+      <Sider
+        classNames={{ root: 'custom-sider-root', body: 'custom-sider-body' }}
+        styles={{
+          root: { backgroundColor: 'rgb(1, 2, 3)' },
+          body: { display: 'flex', flexDirection: 'column' },
+        }}
+      >
+        Sider
+      </Sider>,
+    );
+    const sider = container.querySelector<HTMLElement>('.ant-layout-sider')!;
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+
+    expect(sider).toHaveClass('custom-sider-root');
+    expect(sider).toHaveStyle({ backgroundColor: 'rgb(1, 2, 3)' });
+    expect(sider).not.toHaveClass('custom-sider-body');
+    expect(body).toHaveClass('custom-sider-body');
+    expect(body).toHaveStyle({
+      display: 'flex',
+      flexDirection: 'column',
+    });
+  });
+
+  it('should pass merged state to semantic classNames and styles callbacks', () => {
+    const { container } = render(
+      <Sider
+        collapsible
+        classNames={({ props }) => ({
+          body: props.collapsed ? 'body-collapsed' : 'body-expanded',
+        })}
+        styles={({ props }) => ({
+          body: { opacity: props.collapsed ? 0.5 : 1 },
+        })}
+      >
+        Sider
+      </Sider>,
+    );
+    const body = container.querySelector<HTMLElement>('.ant-layout-sider-children')!;
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+
+    expect(body).toHaveClass('body-expanded');
+    expect(body).toHaveStyle({ opacity: '1' });
+
+    fireEvent.click(trigger);
+
+    expect(body).toHaveClass('body-collapsed');
+    expect(body).toHaveStyle({ opacity: '0.5' });
+  });
+
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
     const { container } = render(
       <Layout hasSider={false}>
@@ -251,6 +303,18 @@ describe('Layout', () => {
     expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/55603
+  it('Header used standalone should apply cssVar class', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+        <Header className="standalone-header">Header</Header>
+      </ConfigProvider>,
+    );
+
+    const header = container.querySelector('.standalone-header')!;
+    expect(header).toHaveClass('foo');
   });
 });
 
