@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { warning } from '@rc-component/util';
 
 import Popover from '..';
@@ -255,5 +256,26 @@ describe('Popover', () => {
 
     const arrow = container.querySelector('.ant-popover-arrow');
     expect(arrow).not.toHaveStyle({ background: 'red' });
+  });
+
+  it('uses container pseudo element to hold popup drop shadow', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Popover content="hello" open>
+          <span>Show</span>
+        </Popover>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).not.toMatch(
+      /\.ant-popover\{[^}]*filter\s*:\s*var\(--ant-drop-shadow-popover\)/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-popover-container::before\{[^}]*filter\s*:\s*var\(--ant-drop-shadow-popover\)/,
+    );
   });
 });

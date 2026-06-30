@@ -68,6 +68,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const centerAlignMinWidth = calc(tooltipBorderRadius).mul(2).add(sizePopupArrow).equal();
 
   const sharedBodyStyle: CSSObject = {
+    position: 'relative',
     minWidth: centerAlignMinWidth,
     minHeight: controlHeight,
     padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
@@ -78,6 +79,17 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     backgroundColor: tooltipBg,
     borderRadius: tooltipBorderRadius,
     boxSizing: 'border-box',
+
+    '&::before': {
+      position: 'absolute',
+      inset: 0,
+      zIndex: -1,
+      borderRadius: 'inherit',
+      background: 'inherit',
+      content: '""',
+      filter: dropShadowPopover,
+      pointerEvents: 'none',
+    },
   };
 
   const sharedTransformOrigin: CSSObject = {
@@ -99,7 +111,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        filter: dropShadowPopover,
 
         ...sharedTransformOrigin,
 
@@ -185,7 +196,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         ...sharedTransformOrigin,
         position: 'absolute',
         zIndex: calc(zIndexPopup).sub(1).equal(),
-        filter: dropShadowPopover,
 
         '&-hidden': {
           display: 'none',
