@@ -94,6 +94,7 @@ export default defineConfig({
     ],
     coverage: {
       include: ['components/**/*.{ts,tsx}'],
+      reporter: ['json'],
       exclude: [
         'components/*/style/index.tsx',
         'components/style/index.tsx',

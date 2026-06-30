@@ -45,7 +45,7 @@ jobs:
       - run: ut
       # dom test
       - name: dom test
-        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --silent=passed-only
 
   test-node:
     name: test-node
@@ -70,7 +70,7 @@ jobs:
 
       # dom test
       - name: dom test
-        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage --silent=passed-only
 
       - name: persist coverages
         run: |
@@ -104,13 +104,13 @@ jobs:
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
-        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --silent=passed-only
         env:
           LIB_DIR: dist-min
 
       - name: dist test
         if: ${{ matrix.module == 'dist' }}
-        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
+        run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --silent=passed-only
         env:
           LIB_DIR: dist
 
