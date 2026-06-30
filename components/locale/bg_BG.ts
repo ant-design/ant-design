@@ -23,7 +23,7 @@ const localeValues: Locale = {
   Table: {
     filterTitle: 'Филтриране',
     filterConfirm: 'Добре',
-    filterReset: 'Нулриане',
+    filterReset: 'Нулиране',
     selectAll: 'Избор на текуща страница',
     selectInvert: 'Обръщане',
     filterEmptyText: 'Без филтри',
