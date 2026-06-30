@@ -27,9 +27,14 @@ import useStyle from './style';
 let mousePosition: MousePosition;
 
 type ModalSemanticName = keyof NonNullable<ModalSemanticAllType['classNames']>;
+type ModalSemanticRenderInfo = {
+  classNames: NonNullable<ModalSemanticAllType['classNamesNoString']>;
+  styles: NonNullable<ModalSemanticAllType['styles']>;
+};
 
 interface InternalModalProps extends ModalProps {
   _semanticOmit?: readonly ModalSemanticName[];
+  _renderSemanticContent?: (semantic: ModalSemanticRenderInfo) => React.ReactNode;
 }
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
@@ -86,6 +91,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     // Focusable
     focusTriggerAfterClose,
     focusable,
+    _renderSemanticContent,
 
     ...restProps
   } = props as InternalModalProps;
@@ -240,6 +246,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     _semanticOmit ? omit(mergedStyles, _semanticOmit) : mergedStyles
   ) as typeof mergedStyles;
 
+  const semanticContent = _renderSemanticContent
+    ? _renderSemanticContent({
+        classNames: mergedClassNames,
+        styles: mergedStyles,
+      })
+    : children;
+
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
     [string | number | undefined, Partial<Record<Breakpoint, string | number>> | undefined]
@@ -309,7 +322,7 @@ const Modal: React.FC<ModalProps> = (props) => {
               className={`${prefixCls}-body-skeleton`}
             />
           ) : (
-            children
+            semanticContent
           )}
         </Dialog>
       </ZIndexContext.Provider>

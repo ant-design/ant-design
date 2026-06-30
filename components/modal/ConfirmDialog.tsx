@@ -8,7 +8,6 @@ import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isFunction, isPlainObject, isReactRenderable } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -26,6 +25,11 @@ import Modal from './Modal';
 import Confirm from './style/confirm';
 
 const CONFIRM_OMIT_SEMANTIC_NAMES = ['body'] as const;
+
+type ConfirmContentSemantic = {
+  classNames: { body?: string };
+  styles: { body?: React.CSSProperties };
+};
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string;
@@ -202,7 +206,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
-    classNames,
     title,
     mask,
     maskClosable,
@@ -210,12 +213,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     cancelButtonProps,
   } = props;
 
-  const {
-    cancelButtonProps: contextCancelButtonProps,
-    classNames: contextClassNames,
-    okButtonProps: contextOkButtonProps,
-    styles: contextStyles,
-  } = useComponentConfig('modal');
+  const { cancelButtonProps: contextCancelButtonProps, okButtonProps: contextOkButtonProps } =
+    useComponentConfig('modal');
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
@@ -232,7 +231,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const width = props.width || 416;
   const style = props.style || {};
-  const semanticStyles = { body: bodyStyle, mask: maskStyle, ...styles };
+  const semanticStyles = isFunction(styles)
+    ? (info: any) => ({ body: bodyStyle, mask: maskStyle, ...styles(info) })
+    : { body: bodyStyle, mask: maskStyle, ...styles };
   const modalProps = omit(props, ['bodyStyle', 'maskStyle'] as const);
 
   const classString = clsx(
@@ -264,19 +265,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     return token.zIndexPopupBase + CONTAINER_MAX_OFFSET;
   }, [zIndex, token]);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, semanticStyles],
-    {
-      props: {
-        ...props,
-        styles: semanticStyles,
-        width,
-        zIndex: mergedZIndex,
-      },
-    },
-  );
-
   // ========================= Render =========================
   return (
     <Modal
@@ -294,20 +282,26 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       mask={mergedMask}
       style={style}
       styles={semanticStyles}
-      {...{ _semanticOmit: CONFIRM_OMIT_SEMANTIC_NAMES }}
       width={width}
       zIndex={mergedZIndex}
       closable={closable}
-    >
-      <ConfirmContent
-        {...props}
-        confirmPrefixCls={confirmPrefixCls}
-        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
-        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
-        contentClassName={mergedClassNames.body}
-        contentStyle={mergedStyles.body}
-      />
-    </Modal>
+      {...{
+        _semanticOmit: CONFIRM_OMIT_SEMANTIC_NAMES,
+        _renderSemanticContent: ({
+          classNames: mergedClassNames,
+          styles: mergedStyles,
+        }: ConfirmContentSemantic) => (
+          <ConfirmContent
+            {...props}
+            confirmPrefixCls={confirmPrefixCls}
+            okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+            cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+            contentClassName={mergedClassNames.body}
+            contentStyle={mergedStyles.body}
+          />
+        ),
+      }}
+    />
   );
 };
 
