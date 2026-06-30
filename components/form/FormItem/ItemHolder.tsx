@@ -61,7 +61,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
-  const hasHelp = isNonNullable(help) && help !== false;
+  const hasHelp = isNonNullable(help);
   const hasError = !!(hasHelp || errors.length || warnings.length);
   const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
