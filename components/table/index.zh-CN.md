@@ -394,6 +394,10 @@ return <Table rowKey={(record) => record.uid} />;
 
 由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `column.shouldCellUpdate` 来控制单元格的渲染。
 
+### 如何排查 Table 性能问题？ {#faq-table-performance}
+
+React DevTools 在分析复杂表格时可能带来额外开销，尤其是行列数量较多的场景。若你遇到明显卡顿，建议先关闭 React DevTools，或在干净的浏览器环境中重新测试。如果在正常运行环境下仍能稳定复现性能问题，欢迎提供最小复现以便我们继续排查。
+
 ### 固定列穿透到最上层该怎么办？ {#faq-fixed-column-zindex}
 
 固定列通过 `z-index` 属性将其悬浮于非固定列之上，这使得有时候你会发现在 Table 上放置遮罩层时固定列会被透过的情况。为遮罩层设置更高的 `z-index` 覆盖住固定列即可。
