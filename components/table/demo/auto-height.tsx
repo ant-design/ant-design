@@ -35,25 +35,42 @@ const AutoHeightTable = <RecordType extends object>(props: AutoHeightTableProps<
         : className;
 
     if (ele) {
-      return (
-        (ele?.getBoundingClientRect().height ?? 0) +
-        Number.parseFloat(getComputedStyle(ele as Element).marginTop)
-      );
+      const styles = getComputedStyle(ele);
+      const marginTop = Number.parseFloat(styles.marginTop) || 0;
+      const marginBottom = Number.parseFloat(styles.marginBottom) || 0;
+
+      return ele.getBoundingClientRect().height + marginTop + marginBottom;
     }
 
     return 0;
   };
 
   useEffect(() => {
-    if (rootRef.current) {
-      const totalHeight = getHeight(rootRef.current.nativeElement);
+    const element = rootRef.current?.nativeElement;
+
+    if (!element) {
+      return;
+    }
+
+    const measure = () => {
+      const totalHeight = getHeight(element);
       const headerHeight = getHeight(measureClassNames.header);
       const paginationHeight = getHeight(measureClassNames.pagination);
 
       setScrollY(Math.max(0, Math.floor(totalHeight - headerHeight - paginationHeight)));
       setSectionHeight(totalHeight - paginationHeight);
-    }
-  });
+    };
+
+    measure();
+
+    const resizeObserver = new ResizeObserver(measure);
+
+    resizeObserver.observe(element);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <Table<RecordType>
