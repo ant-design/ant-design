@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Ýagty',
     show: 'Görkez',
     hide: 'Gizle',
+    sortable: 'tertipli',
   },
   Table: {
     filterTitle: 'Filter',
@@ -35,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'Kemelýän tertipde tertiple',
     triggerAsc: 'Artýan tertipde tertiple',
     cancelSort: 'Tertipleri arassala',
+    filterCheckAll: 'Itemshli elementleri saýlaň',
+    filterSearchPlaceholder: 'Süzgüçlerde gözläň',
   },
   Tour: {
     Next: 'Indiki',
@@ -61,6 +64,7 @@ const localeValues: Locale = {
     selectInvert: 'Ters tertipde görkez',
     removeAll: 'Ähli maglumatlary poz',
     removeCurrent: 'Şu sahypany poz',
+    deselectAll: 'Datahli maglumatlary aýyryň',
   },
   Upload: {
     uploading: 'Ugradylýar...',
@@ -80,8 +84,10 @@ const localeValues: Locale = {
     copy: 'Göçürmek',
     copied: 'Göçürildi',
     expand: 'Ýygnamak',
+    collapse: 'Apseykylmak',
   },
   Form: {
+    optional: '(islege bagly)',
     defaultValidateMessages: {
       default: '${label} meýdany barlanmady',
       required: '${label} meýdany giriziň',
@@ -117,6 +123,7 @@ const localeValues: Locale = {
         len: '${label} meýdan ${len} simwol bolmaly',
         min: '${label} meýdany ${min} simwoldan az bolmaly däl',
         max: '${label} meýdany ${max} simwoldan köp bolmaly däl',
+        range: '${label} ${min}-${max} aralygynda bolmaly',
       },
       array: {
         len: '${label} meýdanynyň elementleriniň sany ${len} deň bolmaly',
@@ -128,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} meýdany ${pattern} şablony bilen gabat gelmeýär',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR kody gutardy',
+    refresh: 'Täzele',
+    scanned: 'Skanirlendi',
+  },
+  ColorPicker: {
+    presetEmpty: 'Boş',
+    transparent: 'Aç-açan',
+    singleColor: 'Coloreke reňk',
+    gradientColor: 'Gradient reňki',
   },
 };
 
