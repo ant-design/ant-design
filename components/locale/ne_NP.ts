@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'बन्द',
     show: 'देखाउनुहोस्',
     hide: 'लुकाउनुहोस्',
+    sortable: 'क्रमबद्ध',
   },
   Table: {
     filterTitle: 'फिल्टर मेनु',
