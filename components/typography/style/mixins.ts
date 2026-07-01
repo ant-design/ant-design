@@ -267,7 +267,13 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
         pointerEvents: 'none',
       },
 
-      textarea: {
+      // Double the `-edit-content` class to raise this selector's specificity
+      // above Input's own `textarea.ant-input { line-height: token.lineHeight }`
+      // rule. Both otherwise share the same (0,1,1) specificity and Input is
+      // injected after Typography, so on the raw TextArea path the Input rule
+      // would win the cascade and the inherited font props below (notably
+      // `line-height`) would not apply.
+      [`&${componentCls}-edit-content textarea`]: {
         margin: '0!important',
         // Inherit the edited element's typography so the editing textarea
         // matches the rendered text (including customized heading tokens such

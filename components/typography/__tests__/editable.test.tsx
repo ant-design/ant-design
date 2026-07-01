@@ -128,6 +128,14 @@ describe('Typography.Editable', () => {
     expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-family:inherit/);
     expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-weight:inherit/);
 
+    // The rule doubles the `-edit-content` class so it out-specifies Input's own
+    // `textarea.ant-input { line-height }` (same base specificity, injected
+    // later); without the bump the inherited line-height would not win. Assert
+    // the doubled-class selector so the cascade fix cannot silently regress.
+    expect(styleText).toMatch(
+      /(\.ant-typography-edit-content){2} textarea\{[^}]*line-height:inherit/,
+    );
+
     unmount();
   });
 });
