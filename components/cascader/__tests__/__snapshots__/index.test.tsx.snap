@@ -889,7 +889,6 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
     </div>
     <div
@@ -952,7 +951,6 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
     </div>
     <div
@@ -1203,8 +1201,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
       </svg>
     </span>
   </div>
-  <div
+  <button
+    aria-label="Clear"
     class="ant-select-clear"
+    type="button"
   >
     <span
       aria-label="close-circle"
@@ -1226,7 +1226,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         />
       </svg>
     </span>
-  </div>
+  </button>
 </div>
 `;
 
@@ -1239,7 +1239,6 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -1517,8 +1516,10 @@ exports[`Cascader support controlled mode 1`] = `
       </svg>
     </span>
   </div>
-  <div
+  <button
+    aria-label="Clear"
     class="ant-select-clear"
+    type="button"
   >
     <span
       aria-label="close-circle"
@@ -1540,6 +1541,6 @@ exports[`Cascader support controlled mode 1`] = `
         />
       </svg>
     </span>
-  </div>
+  </button>
 </div>
 `;

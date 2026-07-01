@@ -232,7 +232,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         UnClearable
       </div>
@@ -260,7 +259,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Customized clear icon
       </div>
@@ -291,7 +289,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         input here
       </div>
@@ -319,7 +316,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         control mode
       </div>
@@ -458,7 +454,6 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx correct
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       />
       <input
         aria-autocomplete="list"
@@ -539,7 +534,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -592,7 +586,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -673,7 +666,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -720,7 +712,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -854,7 +845,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -982,7 +972,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -1115,7 +1104,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -1255,7 +1243,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       try to type \`b\`
     </div>
@@ -1284,7 +1271,6 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       input here
     </div>
@@ -1373,7 +1359,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
@@ -1401,7 +1386,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
@@ -1433,7 +1417,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         object styles
       </div>
@@ -1459,7 +1442,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         function styles
       </div>
@@ -1549,7 +1531,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Outlined
       </div>
@@ -1575,7 +1556,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Filled
       </div>
@@ -1601,7 +1581,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Borderless
       </div>
@@ -1627,7 +1606,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Underlined
       </div>

@@ -29,7 +29,6 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
           >
             <div
               class="ant-select-placeholder semantic-mark-placeholder"
-              style="visibility: visible;"
             >
               Please select
             </div>

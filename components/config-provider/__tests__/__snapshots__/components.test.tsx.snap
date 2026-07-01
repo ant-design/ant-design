@@ -373,7 +373,6 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -399,7 +398,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -426,7 +424,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -452,7 +449,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize med
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -478,7 +474,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -504,7 +499,6 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -530,7 +524,6 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
   >
     <div
       class="prefix-AutoComplete-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11227,7 +11220,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11276,7 +11268,6 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11326,7 +11317,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11375,7 +11365,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize medium 
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11424,7 +11413,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11473,7 +11461,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11522,7 +11509,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
   >
     <div
       class="prefix-Cascader-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41011,7 +40997,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41063,7 +41048,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41114,7 +41098,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41166,7 +41149,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41218,7 +41200,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41270,7 +41251,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41322,7 +41302,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <div
       class="prefix-TreeSelect-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
