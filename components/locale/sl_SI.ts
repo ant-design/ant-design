@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'Zapri',
     show: 'Prikaži',
     hide: 'Skrij',
+    placeholder: 'Prosim izberite',
+    sortable: 'razvrstljiv',
   },
   Table: {
     filterTitle: 'Filter',
@@ -24,6 +26,18 @@ const localeValues: Locale = {
     filterReset: 'Pobriši filter',
     selectAll: 'Izberi vse na trenutni strani',
     selectInvert: 'Obrni izbor na trenutni strani',
+    filterEmptyText: 'Brez filtrov',
+    filterCheckAll: 'Izberite vse elemente',
+    filterSearchPlaceholder: 'Išči v filtrih',
+    emptyText: 'Ni podatkov',
+    selectNone: 'Počisti vse podatke',
+    selectionAll: 'Izberite vse podatke',
+    sortTitle: 'Razvrsti',
+    expand: 'Razširi vrstico',
+    collapse: 'Strni vrstico',
+    triggerDesc: 'Kliknite za razvrščanje padajoče',
+    triggerAsc: 'Kliknite za razvrščanje naraščajoče',
+    cancelSort: 'Kliknite za preklic razvrščanja',
   },
   Tour: {
     Next: 'Naprej',
@@ -44,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Išči tukaj',
     itemUnit: 'Objekt',
     itemsUnit: 'Objektov',
+    remove: 'Odstrani',
+    selectCurrent: 'Izberite trenutno stran',
+    removeCurrent: 'Odstrani trenutno stran',
+    selectAll: 'Izberite vse podatke',
+    deselectAll: 'Počisti vse podatke',
+    removeAll: 'Odstrani vse podatke',
+    selectInvert: 'Obrni trenutno stran',
   },
   Upload: {
     uploading: 'Nalaganje...',
@@ -55,11 +76,15 @@ const localeValues: Locale = {
   Empty: {
     description: 'Ni podatkov',
   },
+  Icon: {
+    icon: 'ikona',
+  },
   Text: {
     edit: 'Uredi',
     copy: 'Kopiraj',
     copied: 'Kopirano',
     expand: 'Razširi',
+    collapse: 'Strni',
   },
   Form: {
     optional: '(neobvezno)',
@@ -110,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} se ne ujema z vzorcem ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Koda QR je potekla',
+    refresh: 'Osveži',
+    scanned: 'skenirano',
+  },
+  ColorPicker: {
+    presetEmpty: 'prazno',
+    transparent: 'Transparentna',
+    singleColor: 'Enobarvna',
+    gradientColor: 'Prelivna barva',
   },
 };
 

@@ -17,13 +17,27 @@ const localeValues: Locale = {
     close: 'Затвори',
     show: 'Покажи',
     hide: 'Скрий',
+    placeholder: 'Моля изберете',
+    sortable: 'сортируеми',
   },
   Table: {
     filterTitle: 'Филтриране',
     filterConfirm: 'Добре',
-    filterReset: 'Нулриане',
+    filterReset: 'Нулиране',
     selectAll: 'Избор на текуща страница',
     selectInvert: 'Обръщане',
+    filterEmptyText: 'Без филтри',
+    filterCheckAll: 'Изберете всички елементи',
+    filterSearchPlaceholder: 'Търсене във филтри',
+    emptyText: 'Няма данни',
+    selectNone: 'Изчистване на всички данни',
+    selectionAll: 'Изберете всички данни',
+    sortTitle: 'Сортиране',
+    expand: 'Разширяване на реда',
+    collapse: 'Свиване на ред',
+    triggerDesc: 'Кликнете, за да сортирате в низходящ ред',
+    triggerAsc: 'Кликнете, за да сортирате във възходящ ред',
+    cancelSort: 'Кликнете, за да отмените сортирането',
   },
   Tour: {
     Next: 'Следващ',
@@ -44,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Търсене',
     itemUnit: 'избор',
     itemsUnit: 'избори',
+    remove: 'Премахнете',
+    selectCurrent: 'Изберете текущата страница',
+    removeCurrent: 'Премахване на текущата страница',
+    selectAll: 'Изберете всички данни',
+    deselectAll: 'Демаркирайте всички данни',
+    removeAll: 'Премахнете всички данни',
+    selectInvert: 'Обърнете текущата страница',
   },
   Upload: {
     uploading: 'Качване...',
@@ -54,6 +75,16 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Няма данни',
+  },
+  Icon: {
+    icon: 'икона',
+  },
+  Text: {
+    edit: 'Редактиране',
+    copy: 'копие',
+    copied: 'Копирано',
+    expand: 'Разширяване',
+    collapse: 'Свиване',
   },
   Form: {
     optional: '（по желание）',
@@ -104,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} не отговаря на модела ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR кодът е изтекъл',
+    refresh: 'Опресняване',
+    scanned: 'Сканирани',
+  },
+  ColorPicker: {
+    presetEmpty: 'празна',
+    transparent: 'Прозрачен',
+    singleColor: 'Едноцветен',
+    gradientColor: 'Преливащ цвят',
   },
 };
 
