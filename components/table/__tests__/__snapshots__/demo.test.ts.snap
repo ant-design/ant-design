@@ -1,5 +1,466 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`renders components/table/demo/auto-height.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <button
+    aria-checked="true"
+    class="ant-switch css-var-test-id ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        More Data
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        More Data
+      </span>
+    </span>
+  </button>
+  <div
+    style="height:400px;box-sizing:border-box;background:rgba(140, 140, 140, 0.03);padding:16px;align-self:stretch"
+  >
+    <div
+      class="css-var-test-id ant-table-css-var ant-table-wrapper"
+      style="height:100%"
+    >
+      <div
+        aria-busy="false"
+        aria-live="polite"
+        class="ant-spin css-var-test-id"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table css-var-test-id ant-table-css-var ant-table-fixed-header"
+          >
+            <div
+              class="ant-table-container"
+              style="height:0"
+            >
+              <div
+                class="ant-table-header"
+                style="overflow:hidden"
+              >
+                <table
+                  style="table-layout:fixed;min-width:100%"
+                >
+                  <colgroup>
+                    <col
+                      style="width:20%"
+                    />
+                    <col
+                      style="width:20%"
+                    />
+                    <col
+                      style="width:60%"
+                    />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead measure-header"
+                  >
+                    <tr>
+                      <th
+                        class="ant-table-cell"
+                        scope="col"
+                      >
+                        Name
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                        scope="col"
+                      >
+                        Age
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                        scope="col"
+                      >
+                        Address
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div
+                class="ant-table-body"
+                style="overflow-y:scroll;max-height:0"
+              >
+                <table
+                  style="table-layout:fixed"
+                >
+                  <colgroup>
+                    <col
+                      style="width:20%"
+                    />
+                    <col
+                      style="width:20%"
+                    />
+                    <col
+                      style="width:60%"
+                    />
+                  </colgroup>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      aria-hidden="true"
+                      class="ant-table-measure-row"
+                      style="height:0"
+                    >
+                      <td
+                        style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                      >
+                        <div
+                          style="height:0;overflow:hidden;font-weight:bold"
+                        >
+                          Name
+                        </div>
+                      </td>
+                      <td
+                        style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                      >
+                        <div
+                          style="height:0;overflow:hidden;font-weight:bold"
+                        >
+                          Age
+                        </div>
+                      </td>
+                      <td
+                        style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                      >
+                        <div
+                          style="height:0;overflow:hidden;font-weight:bold"
+                        >
+                          Address
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="0"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 0
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        32
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 0
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 1
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        33
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 1
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 2
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        34
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 2
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="3"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 3
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        35
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 3
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="4"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 4
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        36
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 4
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="5"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 5
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        37
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 5
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="6"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 6
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        38
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 6
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="7"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 7
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        39
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 7
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="8"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 8
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        40
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 8
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="9"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        Edward King 9
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        41
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        London, Park Lane no. 9
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <ul
+            class="ant-pagination ant-table-pagination ant-table-pagination-end measure-pagination css-var-test-id"
+          >
+            <li
+              aria-disabled="true"
+              class="ant-pagination-prev ant-pagination-disabled"
+              title="Previous Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="left"
+                  class="anticon anticon-left"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="left"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a
+                rel="nofollow"
+              >
+                1
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-2"
+              tabindex="0"
+              title="2"
+            >
+              <a
+                rel="nofollow"
+              >
+                2
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-3"
+              tabindex="0"
+              title="3"
+            >
+              <a
+                rel="nofollow"
+              >
+                3
+              </a>
+            </li>
+            <li
+              aria-disabled="false"
+              class="ant-pagination-next"
+              tabindex="0"
+              title="Next Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
