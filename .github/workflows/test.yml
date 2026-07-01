@@ -34,7 +34,7 @@ jobs:
     strategy:
       matrix:
         react: ['18']
-        shard: [1/6, 2/6, 3/6, 4/6, 5/6, 6/6]
+        shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
       SKIP_SEMANTIC: '1'
@@ -61,7 +61,7 @@ jobs:
     strategy:
       matrix:
         module: [dom]
-        shard: [1/6, 2/6, 3/6, 4/6, 5/6, 6/6]
+        shard: [1/2, 2/2]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
