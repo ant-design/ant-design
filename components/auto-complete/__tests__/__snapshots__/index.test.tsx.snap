@@ -9,7 +9,6 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"

@@ -4296,7 +4296,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -4458,7 +4457,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -4620,7 +4618,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -4765,7 +4762,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"

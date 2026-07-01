@@ -583,7 +583,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               cascader
             </div>
@@ -1056,7 +1055,6 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -1246,7 +1244,6 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -1436,7 +1433,6 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"

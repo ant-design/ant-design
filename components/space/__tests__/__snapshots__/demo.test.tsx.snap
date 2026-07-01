@@ -395,8 +395,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -418,7 +420,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <input
         class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
@@ -523,8 +525,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -546,7 +550,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <input
         class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
@@ -1334,7 +1338,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Email
           </div>
@@ -1411,7 +1414,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Select Address
           </div>
@@ -1591,8 +1593,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -1614,7 +1618,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
@@ -2968,7 +2972,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 >
                   cascader
                 </div>
@@ -3597,7 +3600,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Select Address
           </div>
@@ -4013,7 +4015,6 @@ exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Select Address
           </div>
