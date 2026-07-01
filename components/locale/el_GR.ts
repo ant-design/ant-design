@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Κλείσιμο',
     show: 'Εμφάνιση',
     hide: 'Απόκρυψη',
+    sortable: 'διαλογήσιμος',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',
@@ -63,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'Επιλογή όλων των δεδομένων',
     removeAll: 'Αφαίρεση όλων των δεδομένων',
     selectInvert: 'Αντιστροφή τρέχουσας σελίδας',
+    deselectAll: 'Καταργήστε την επιλογή όλων των δεδομένων',
   },
   Upload: {
     uploading: 'Μεταφόρτωση...',

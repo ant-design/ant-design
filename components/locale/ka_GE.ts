@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'დახურვა',
     show: 'აჩვენე',
     hide: 'დამალე',
+    sortable: 'დასალაგებელი',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',
@@ -35,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'დაღმავალი დალაგება',
     triggerAsc: 'აღმავალი დალაგება',
     cancelSort: 'დალაგების გაუქმება',
+    filterCheckAll: 'აირჩიეთ ყველა ელემენტი',
+    filterSearchPlaceholder: 'მოძებნეთ ფილტრებში',
   },
   Tour: {
     Next: 'მომდევნო',
@@ -61,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'ყველას მონიშვნა',
     removeAll: 'ყველას წაშლა',
     selectInvert: 'მიმდინარე გვერდის შებრუნება',
+    deselectAll: 'გააუქმეთ ყველა მონაცემი',
   },
   Upload: {
     uploading: 'იტვირთება...',
@@ -80,6 +84,7 @@ const localeValues: Locale = {
     copy: 'ასლი',
     copied: 'ასლი აღებულია',
     expand: 'გაშლა',
+    collapse: 'კოლაფსი',
   },
   Form: {
     optional: '(არასავალდებულო)',
@@ -130,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} არ ერგება შაბლონს ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR კოდს ვადა გაუვიდა',
+    refresh: 'განაახლეთ',
+    scanned: 'დასკანირებულია',
+  },
+  ColorPicker: {
+    presetEmpty: 'ცარიელი',
+    transparent: 'გამჭვირვალე',
+    singleColor: 'ერთი ფერი',
+    gradientColor: 'გრადიენტური ფერი',
   },
 };
 

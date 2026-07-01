@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'बंद करा',
     show: 'दाखवा',
     hide: 'लपवा',
+    sortable: 'वर्गीकरण करण्यायोग्य',
   },
   Table: {
     filterTitle: 'फिल्टर मेनू',
@@ -134,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} हे ${pattern} पॅटर्नशी जुळत नाही',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR कोड कालबाह्य झाला',
+    refresh: 'रिफ्रेश करा',
+    scanned: 'स्कॅन केले',
+  },
+  ColorPicker: {
+    presetEmpty: 'रिकामे',
+    transparent: 'पारदर्शक',
+    singleColor: 'एकच रंग',
+    gradientColor: 'ग्रेडियंट रंग',
   },
 };
 
