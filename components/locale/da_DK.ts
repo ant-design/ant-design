@@ -6,6 +6,7 @@ import DatePicker from '../date-picker/locale/da_DK';
 import TimePicker from '../time-picker/locale/da_DK';
 
 const typeTemplate = '${label} er ikke en gyldig ${type}';
+
 const localeValues: Locale = {
   locale: 'da',
   DatePicker,
@@ -16,6 +17,8 @@ const localeValues: Locale = {
     close: 'Luk',
     show: 'Vis',
     hide: 'Skjul',
+    placeholder: 'Vælg venligst',
+    sortable: 'sorterbar',
   },
   Table: {
     filterTitle: 'Filtermenu',
@@ -33,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'Klik for at sortere faldende',
     triggerAsc: 'Klik for at sortere stigende',
     cancelSort: 'Klik for at annullere sortering',
+    filterCheckAll: 'Vælg alle elementer',
+    filterSearchPlaceholder: 'Søg i filtre',
   },
   Tour: {
     Next: 'Næste',
@@ -53,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Søg her',
     itemUnit: 'element',
     itemsUnit: 'elementer',
+    remove: 'Fjern',
+    selectCurrent: 'Vælg den aktuelle side',
+    removeCurrent: 'Fjern den aktuelle side',
+    selectAll: 'Vælg alle data',
+    deselectAll: 'Fravælg alle data',
+    removeAll: 'Fjern alle data',
+    selectInvert: 'Inverter den aktuelle side',
   },
   Upload: {
     uploading: 'Uploader...',
@@ -63,6 +75,16 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Ingen data',
+  },
+  Icon: {
+    icon: 'ikon',
+  },
+  Text: {
+    edit: 'Rediger',
+    copy: 'Kopiér',
+    copied: 'Kopieret',
+    expand: 'Udvid',
+    collapse: 'Kollaps',
   },
   Form: {
     optional: '(valgfrit)',
@@ -113,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} stemmer ikke overens med mønsteret ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-koden er udløbet',
+    refresh: 'Opdater',
+    scanned: 'Scannet',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tom',
+    transparent: 'Gennemsigtig',
+    singleColor: 'Enkelt farve',
+    gradientColor: 'Gradient farve',
   },
 };
 

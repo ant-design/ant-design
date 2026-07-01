@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Kapat',
     show: 'Göster',
     hide: 'Gizle',
+    sortable: 'sıralanabilir',
   },
   Table: {
     filterTitle: 'Filtre menüsü',
@@ -34,6 +35,9 @@ const localeValues: Locale = {
     triggerDesc: 'Azalan düzende sırala',
     triggerAsc: 'Artan düzende sırala',
     cancelSort: 'Sıralamayı kaldır',
+    filterSearchPlaceholder: 'Filtrelerde ara',
+    emptyText: 'Veri yok',
+    selectNone: 'Tüm verileri temizle',
   },
   Tour: {
     Next: 'Sonraki',
@@ -131,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} şu kalıpla eşleşmeli: ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR kodunun süresi doldu',
+    refresh: 'Yenile',
+    scanned: 'Tarandı',
+  },
+  ColorPicker: {
+    presetEmpty: 'Boş',
+    transparent: 'Şeffaf',
+    singleColor: 'Tek renk',
+    gradientColor: 'Gradyan rengi',
   },
 };
 
