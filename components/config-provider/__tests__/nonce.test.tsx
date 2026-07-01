@@ -86,6 +86,32 @@ describe('ConfigProvider.Icon', () => {
     expect(container.querySelector('#zero-runtime')?.innerHTML).toBe('true');
   });
 
+  it('does not rewrite icon runtime style when cssinjs layer is enabled', () => {
+    render(<SmileOutlined />);
+
+    const runtimeStyle = document.querySelector<HTMLStyleElement>(
+      'style[rc-util-key="@ant-design-icons"]',
+    );
+
+    expect(runtimeStyle).toBeTruthy();
+    expect(runtimeStyle?.innerHTML).not.toContain('@layer antd');
+
+    render(
+      <StyleProvider layer cache={createCache()}>
+        <ConfigProvider>
+          <SmileOutlined />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(runtimeStyle?.innerHTML).not.toContain('@layer antd');
+    expect(
+      Array.from(document.querySelectorAll('style')).some(
+        (style) => style.innerHTML.includes('@layer antd') && style.innerHTML.includes('.anticon'),
+      ),
+    ).toBeTruthy();
+  });
+
   it('cssinjs should support nonce', () => {
     render(
       <StyleProvider cache={createCache()}>
