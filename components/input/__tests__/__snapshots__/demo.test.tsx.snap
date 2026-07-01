@@ -238,7 +238,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
             >
               <div
                 class="ant-select-placeholder"
-                style="visibility:visible"
               >
                 cascader
               </div>
@@ -735,7 +734,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       />
       <input
         aria-autocomplete="list"
@@ -783,7 +781,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       />
       <input
         aria-autocomplete="list"
@@ -866,8 +863,10 @@ Array [
         </svg>
       </span>
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -889,7 +888,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
   </div>,
   <div
     class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
@@ -1067,7 +1066,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         input here
       </div>
@@ -3155,7 +3153,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         >
           Email
         </div>
@@ -3232,7 +3229,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         >
           Select Address
         </div>
