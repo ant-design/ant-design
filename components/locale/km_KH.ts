@@ -17,6 +17,7 @@ const localeValues: Locale = {
     close: 'បិទ',
     show: 'បង្ហាញ',
     hide: 'លាក់',
+    clear: 'សម្អាត',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',

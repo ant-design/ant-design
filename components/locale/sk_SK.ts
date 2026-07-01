@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zavrieť',
     show: 'Zobraziť',
     hide: 'Skryť',
+    clear: 'Vymazať',
   },
   Table: {
     filterTitle: 'Filter',

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '閉じる',
     show: '表示',
     hide: '非表示',
+    clear: 'クリア',
   },
   Table: {
     filterTitle: 'フィルター',

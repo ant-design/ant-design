@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'മുടക്കുക',
     show: 'കാണിക്കുക',
     hide: 'മറയ്ക്കുക',
+    clear: 'മായ്ക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',

@@ -17,6 +17,7 @@ const localeValues: Locale = {
     close: 'Loka',
     show: 'Sýna',
     hide: 'Fela',
+    clear: 'Hreinsa',
   },
   Table: {
     filterTitle: 'Afmarkanir',

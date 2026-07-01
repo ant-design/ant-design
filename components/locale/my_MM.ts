@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'ပိတ်ပါ',
     show: 'ပြပါ',
     hide: 'ဖျောက်ပါ',
+    clear: 'ရှင်းလင်းရန်',
   },
   Table: {
     filterTitle: 'စစ်ထုတ်ခြင်း မီနူ',

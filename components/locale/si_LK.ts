@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'වසන්න',
     show: 'පෙන්වන්න',
     hide: 'සඟවන්න',
+    clear: 'හිස් කරන්න',
   },
   Table: {
     filterTitle: 'පෙරහන්',

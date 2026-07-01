@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Sulge',
     show: 'Näita',
     hide: 'Peida',
+    clear: 'Tühjenda',
   },
   Table: {
     filterTitle: 'Filtri menüü',

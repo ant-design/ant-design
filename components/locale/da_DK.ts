@@ -16,6 +16,7 @@ const localeValues: Locale = {
     close: 'Luk',
     show: 'Vis',
     hide: 'Skjul',
+    clear: 'Ryd',
   },
   Table: {
     filterTitle: 'Filtermenu',

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '關閉',
     show: '顯示',
     hide: '隱藏',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',

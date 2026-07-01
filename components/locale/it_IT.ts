@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Chiudi',
     show: 'Mostra',
     hide: 'Nascondi',
+    clear: 'Cancella',
   },
   Table: {
     filterTitle: 'Menù Filtro',
