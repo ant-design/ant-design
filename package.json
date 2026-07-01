@@ -221,8 +221,6 @@
     "@types/semver": "^7.7.1",
     "@types/spinnies": "^0.5.3",
     "@types/throttle-debounce": "^5.0.2",
-    "@umijs/bundler-utils": "^4.6.68",
-    "@umijs/utils": "^4.6.68",
     "adm-zip": "^0.5.17",
     "ajv": "^8.20.0",
     "ali-oss": "^6.23.0",
