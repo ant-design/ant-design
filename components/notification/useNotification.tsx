@@ -27,12 +27,7 @@ import type {
 } from './interface';
 import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
-import {
-  getCloseIconConfig,
-  getMotion,
-  getPlacementOffsetStyle,
-  normalizeNoticeWidthStyle,
-} from './util';
+import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
 
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
@@ -53,7 +48,6 @@ interface HolderRef extends NotificationAPI {
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
   return (
     <NotificationProvider classNames={{ list: clsx(hashId, cssVarCls, rootCls) }}>
       {children}
@@ -101,25 +95,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
       props,
     },
   );
-  const resolvedContextStyles = resolveStyleOrClass(notification?.styles as HolderProps['styles'], {
-    props,
-  });
-  const resolvedPropsStyles = resolveStyleOrClass(props?.styles as HolderProps['styles'], {
-    props,
-  });
-  const normalizedMergedStyles = React.useMemo(() => {
-    if (!resolvedContextStyles?.root && !resolvedPropsStyles?.root) {
-      return mergedStyles;
-    }
-
-    return {
-      ...mergedStyles,
-      root: {
-        ...normalizeNoticeWidthStyle(resolvedContextStyles?.root),
-        ...normalizeNoticeWidthStyle(resolvedPropsStyles?.root),
-      },
-    };
-  }, [mergedStyles, resolvedContextStyles, resolvedPropsStyles]);
 
   // =============================== Style ===============================
   const getStyle = () => getPlacementOffsetStyle(top, bottom);
@@ -145,7 +120,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     pauseOnHover,
     showProgress,
     classNames: mergedClassNames,
-    styles: normalizedMergedStyles,
+    styles: mergedStyles,
     onAllRemoved,
     renderNotifications,
     stack: stackConfig,
@@ -242,9 +217,6 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
-      const normalizedContextStyle = normalizeNoticeWidthStyle(contextStyle);
-      const normalizedSemanticRootStyle = normalizeNoticeWidthStyle(semanticStyles.root);
-      const normalizedStyle = normalizeNoticeWidthStyle(style);
       const iconNode = icon || (type ? TypeIcon[type] : null);
       const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
@@ -264,12 +236,12 @@ export function useInternalNotification(
         styles: {
           ...semanticStyles,
           root: {
-            ...normalizedContextStyle,
-            ...normalizedSemanticRootStyle,
+            ...contextStyle,
+            ...semanticStyles.root,
           },
         },
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
-        style: normalizedStyle,
+        style,
         closable: mergedClosable,
       });
     };

@@ -2,11 +2,9 @@ import type * as React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSMotionProps } from '@rc-component/motion';
 
-import { isNonNullable, isString } from '../_util/is';
+import { isNonNullable } from '../_util/is';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import type { NotificationConfig } from './interface';
-
-const intrinsicWidthPattern = /^(?:max-content|min-content|fit-content(?:\(.*\))?)$/;
 
 export function getPlacementOffsetStyle(
   top?: number | string,
@@ -40,20 +38,4 @@ export function getCloseIconConfig(
     return notificationConfig.closeIcon;
   }
   return notification?.closeIcon;
-}
-
-export function normalizeNoticeWidthStyle(style?: React.CSSProperties) {
-  if (!style) {
-    return style;
-  }
-
-  const width = style.width;
-
-  if (isString(width) && intrinsicWidthPattern.test(width.trim())) {
-    const nextStyle = { ...style };
-    delete nextStyle.width;
-    return nextStyle;
-  }
-
-  return style;
 }
