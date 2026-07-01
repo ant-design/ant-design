@@ -2,7 +2,12 @@ import React from 'react';
 
 import TimeLine from '..';
 import type { GetProp } from '../../_util/type';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { TimelineProps } from '../Timeline';
 
 describe('Timeline.Semantic', () => {
@@ -136,5 +141,27 @@ describe('Timeline.Semantic', () => {
     expect(titleElements[0]).toHaveClass('title-vertical');
     expect(contentElements[0]).toHaveClass('content-filled');
     expect(railElements[0]).toHaveClass('rail-vertical-filled');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        timeline={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <TimeLine
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+          items={[
+            { children: 'Create a services' },
+            { children: 'Solve initial network problems' },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-timeline'));
   });
 });
