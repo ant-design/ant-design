@@ -49,6 +49,27 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       // https://github.com/ant-design/ant-design/issues/51380
       [`${componentCls}-icon > svg`]: resetIcon(),
 
+      // https://github.com/ant-design/ant-design/issues/57727
+      [`${componentCls}-icon`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        [iconCls]: {
+          verticalAlign: 'middle',
+
+          // Baseline will align the first element.
+          // So the Button with SVG will make the baseline to be the bottom of the SVG.
+          // Let's use `:before` to add a space to make the baseline to be the center of the Button.
+          // https://github.com/ant-design/ant-design/issues/58428
+          '&:before': {
+            content: '"\\a0"',
+            display: 'inline-block',
+            width: 0,
+          },
+        },
+      },
+
       '> a': {
         color: 'currentColor',
       },
