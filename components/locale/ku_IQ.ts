@@ -21,6 +21,8 @@ const localeValues: Locale = {
     close: 'Betal ke',
     show: 'Nîşan bide',
     hide: 'Veşêre',
+    placeholder: 'Ji kerema xwe hilbijêre',
+    sortable: 'sorkirin',
   },
   Table: {
     filterTitle: 'Menuê peldanka',
@@ -28,6 +30,18 @@ const localeValues: Locale = {
     filterReset: 'Jê bibe',
     selectAll: 'Hemî hilbijêre',
     selectInvert: 'Hilbijartinan veguhere',
+    filterEmptyText: 'Parzûn tune',
+    filterCheckAll: 'Hemî tiştan hilbijêrin',
+    filterSearchPlaceholder: 'Di parzûnan de bigerin',
+    emptyText: 'Daneyên tune',
+    selectNone: 'Hemî daneyan paqij bike',
+    selectionAll: 'Hemî daneyan hilbijêrin',
+    sortTitle: 'Sort',
+    expand: 'Rêzê berfireh bike',
+    collapse: 'Rêzê hilweşîne',
+    triggerDesc: 'Bikirtînin ji bo rêzkirina daketî',
+    triggerAsc: 'Ji bo rêzkirina hilkişînê bikirtînin',
+    cancelSort: 'Ji bo betalkirina dabeşkirinê bikirtînin',
   },
   Tour: {
     Next: 'Temam',
@@ -48,6 +62,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Lêgerîn',
     itemUnit: 'tişt',
     itemsUnit: 'tişt',
+    remove: 'Rakirin',
+    selectCurrent: 'Rûpelê heyî hilbijêrin',
+    removeCurrent: 'Rûpelê heyî jêbirin',
+    selectAll: 'Hemî daneyan hilbijêrin',
+    deselectAll: 'Hemî daneyan jêbirin',
+    removeAll: 'Hemî daneyan jêbirin',
+    selectInvert: 'Rûpelê heyî berovajî bikin',
   },
   Upload: {
     uploading: 'Bardike...',
@@ -59,11 +80,15 @@ const localeValues: Locale = {
   Empty: {
     description: 'Agahî tune',
   },
+  Icon: {
+    icon: 'icon',
+  },
   Text: {
     edit: 'Sererast bike',
     copy: 'Kopî bike',
     copied: 'Kopî kirin',
     expand: 'Zêdetir nîşan bide',
+    collapse: 'Hilweşîn',
   },
   Form: {
     optional: '(dilxwaz)',
@@ -114,6 +139,17 @@ const localeValues: Locale = {
         mismatch: '${label} bi şablon ${pattern} re li hev nayê',
       },
     },
+  },
+  QRCode: {
+    expired: 'Koda QR qediya',
+    refresh: 'Refresh',
+    scanned: 'Scanned',
+  },
+  ColorPicker: {
+    presetEmpty: 'Empty',
+    transparent: 'Transparent',
+    singleColor: 'Yek reng',
+    gradientColor: 'Rengê gradient',
   },
 };
 

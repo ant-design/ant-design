@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'Sulje',
     show: 'Näytä',
     hide: 'Piilota',
+    placeholder: 'Ole hyvä ja valitse',
+    sortable: 'lajiteltava',
   },
   Table: {
     filterTitle: 'Suodatus valikko',
@@ -28,6 +30,14 @@ const localeValues: Locale = {
     triggerDesc: 'Lajittele laskevasti',
     triggerAsc: 'Lajittele nousevasti',
     cancelSort: 'Peruuta lajittelu',
+    filterEmptyText: 'Ei suodattimia',
+    filterCheckAll: 'Valitse kaikki kohteet',
+    filterSearchPlaceholder: 'Hae suodattimista',
+    emptyText: 'Ei dataa',
+    selectNone: 'Tyhjennä kaikki tiedot',
+    selectionAll: 'Valitse kaikki tiedot',
+    expand: 'Laajenna riviä',
+    collapse: 'Tiivistä rivi',
   },
   Tour: {
     Next: 'Seuraava',
@@ -48,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Etsi täältä',
     itemUnit: 'kohde',
     itemsUnit: 'kohdetta',
+    remove: 'Poista',
+    selectCurrent: 'Valitse nykyinen sivu',
+    removeCurrent: 'Poista nykyinen sivu',
+    selectAll: 'Valitse kaikki tiedot',
+    deselectAll: 'Poista kaikkien tietojen valinnat',
+    removeAll: 'Poista kaikki tiedot',
+    selectInvert: 'Kääntää nykyinen sivu',
   },
   Upload: {
     uploading: 'Lähetetään...',
@@ -59,13 +76,18 @@ const localeValues: Locale = {
   Empty: {
     description: 'Ei kohteita',
   },
+  Icon: {
+    icon: 'kuvake',
+  },
   Text: {
     edit: 'Muokkaa',
     copy: 'Kopioi',
     copied: 'Kopioitu',
     expand: 'Näytä lisää',
+    collapse: 'Kutista',
   },
   Form: {
+    optional: '(valinnainen)',
     defaultValidateMessages: {
       default: 'Kentän ${label} vahvistus epäonnistui',
       required: 'Syötä ${label}',
@@ -113,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} ei vastaa mallia ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-koodi vanhentunut',
+    refresh: 'Päivitä',
+    scanned: 'Skannattu',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tyhjä',
+    transparent: 'Läpinäkyvä',
+    singleColor: 'Yksivärinen',
+    gradientColor: 'Gradienttiväri',
   },
 };
 
