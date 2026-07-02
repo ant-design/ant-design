@@ -17,10 +17,13 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType, NotificationSemanticType } from './interface';
+import type { ArgsProps, IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
 
-export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
+export type NotificationPurePanelSemanticAllType = GenerateSemantic<
+  NotificationSemanticType,
+  PurePanelProps
+>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -53,8 +56,8 @@ export interface PurePanelProps
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames?: AnchorSemanticAllType['classNamesAndFn'];
-  styles?: AnchorSemanticAllType['stylesAndFn'];
+  classNames?: NotificationPurePanelSemanticAllType['classNamesAndFn'];
+  styles?: NotificationPurePanelSemanticAllType['stylesAndFn'];
   closeIcon?: React.ReactNode;
 }
 
@@ -91,13 +94,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const styleRoot = useSemanticRootStyle(style);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PurePanelProps['classNames'],
-    PurePanelProps['styles'],
-    PurePanelProps
+    NotificationPurePanelSemanticAllType['classNames'],
+    NotificationPurePanelSemanticAllType['styles'],
+    PurePanelProps & ArgsProps
   >(
     [contextClassNames, notificationClassNames],
     [contextStyles, contextStyleRoot, styles, styleRoot],
-    { props },
+    { props: props as PurePanelProps & ArgsProps },
   );
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
