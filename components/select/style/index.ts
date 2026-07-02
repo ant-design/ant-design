@@ -18,8 +18,9 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
       opacity: 1,
-      background: token.colorBgBase,
-      borderRadius: '50%',
+    },
+    [`${componentCls}-suffix:not(:last-child)`]: {
+      opacity: 0,
     },
   };
 
