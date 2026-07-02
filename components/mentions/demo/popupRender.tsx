@@ -10,14 +10,14 @@ const App: React.FC = () => {
         <>
           <div
             style={{
-              padding: '8px 12px',
-              fontWeight: 'bold',
+              padding: `${token.paddingXS}px ${token.paddingSM}px`,
+              fontWeight: token.fontWeightStrong,
               color: token.colorTextDescription,
             }}
           >
             Custom Header
           </div>
-          <Divider style={{ margin: '4px 0' }} />
+          <Divider style={{ margin: `${token.marginXXS}px 0` }} />
           {menu}
         </>
       )}
