@@ -8,7 +8,7 @@ import { Notification as RcNotification } from '@rc-component/notification';
 import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
@@ -69,13 +69,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, messageClassNames],
-    [contextStyles, styles],
-    {
-      props: props as unknown as ArgsProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MessageSemanticAllType['classNames'],
+    MessageSemanticAllType['styles'],
+    ArgsProps
+  >([contextClassNames, messageClassNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: props as unknown as ArgsProps,
+  });
   const iconNode = getMessageIcon(type, icon);
   const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const rcClassNames: RcNotificationProps['classNames'] = {
@@ -106,7 +109,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         {...restProps}
         prefixCls={prefixCls}
         className={contextClassName}
-        style={{ ...contextStyle, ...style }}
+        style={mergedStyles.root}
         duration={null}
         icon={iconNode}
         title={content}

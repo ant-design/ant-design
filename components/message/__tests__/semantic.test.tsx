@@ -1,6 +1,10 @@
 import React from 'react';
 
 import message, { actWrapper } from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { act, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
@@ -285,6 +289,59 @@ describe('Message.semantic', () => {
     });
 
     message.destroy();
+  });
+
+  it('should follow notice root style priority', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      React.useEffect(() => {
+        api.info({
+          content: 'Message with root style priority',
+          duration: 0,
+          styles: semanticRootStylePriority.styles,
+          style: semanticRootStylePriority.style,
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(
+      <ConfigProvider
+        message={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Demo />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-message-notice'));
+
+    message.destroy();
+  });
+
+  it('PurePanel should follow notice root style priority', () => {
+    const Holder = message._InternalPanelDoNotUseOrYouWillBeFired;
+
+    render(
+      <ConfigProvider
+        message={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Holder
+          content="Message pure panel"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-message-notice'));
   });
 
   it('should handle empty classNames and styles gracefully', () => {
