@@ -25,6 +25,7 @@ demo:
 <code src="./demo/prefix.tsx">自定义触发字符</code>
 <code src="./demo/readonly.tsx">无效或只读</code>
 <code src="./demo/placement.tsx">向上展开</code>
+<code src="./demo/popupRender.tsx">自定义弹出层</code>
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/autosize-textarea-debug.tsx" debug>debug 自动大小</code>
@@ -64,6 +65,7 @@ demo:
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  | × |
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  | × |
 | onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 | × |
+| popupRender | 自定义下拉菜单渲染 | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 

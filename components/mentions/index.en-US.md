@@ -24,6 +24,7 @@ When you need to mention someone or something.
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
 <code src="./demo/readonly.tsx">disabled or readOnly</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/popupRender.tsx">Customize Popup</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/autosize-textarea-debug.tsx" debug>debug autoSize</code>
@@ -63,6 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  | × |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  | × |
 | onPopupScroll | Trigger when mentions scroll | (e: Event) => void | - | 5.23.0 | × |
+| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
 | options | Option Configuration | [Options](#option) | \[] | 5.1.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
