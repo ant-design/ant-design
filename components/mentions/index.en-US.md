@@ -49,6 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  | × |
 | notFoundContent | Set mentions content when not match | ReactNode | `Not Found` |  | × |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  | × |
+| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  | × |
 | split | Set split string before and after selected mention | string | ` ` |  | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  | × |
@@ -64,7 +65,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  | × |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  | × |
 | onPopupScroll | Trigger when mentions scroll | (e: Event) => void | - | 5.23.0 | × |
-| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
 | options | Option Configuration | [Options](#option) | \[] | 5.1.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
