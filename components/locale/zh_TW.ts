@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '關閉',
     show: '顯示',
     hide: '隱藏',
+    sortable: '可排序',
   },
   Table: {
     filterTitle: '篩選器',
@@ -63,6 +64,7 @@ const localeValues: Locale = {
     selectAll: '全選所有',
     removeAll: '删除全部',
     selectInvert: '反選當頁',
+    deselectAll: '取消全選',
   },
   Upload: {
     uploading: '正在上傳...',
