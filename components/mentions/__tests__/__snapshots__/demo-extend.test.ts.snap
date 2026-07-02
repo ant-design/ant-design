@@ -382,6 +382,20 @@ exports[`renders components/mentions/demo/placement.tsx extend context correctly
 
 exports[`renders components/mentions/demo/placement.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/mentions/demo/popupRender.tsx extend context correctly 1`] = `
+<div
+  class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
+  style="width: 100%;"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders components/mentions/demo/popupRender.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`] = `
 <div
   class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var"
