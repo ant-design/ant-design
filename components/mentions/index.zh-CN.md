@@ -50,7 +50,7 @@ demo:
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  | × |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  | × |
-| popupRender | 自定义下拉菜单渲染 | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
+| popupRender | 自定义下拉菜单渲染 | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
 | prefix | 设置触发关键字 | string \| string\[] | `@` |  | × |
 | split | 设置选中项前后分隔符 | string | ` ` |  | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |

@@ -49,7 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  | × |
 | notFoundContent | Set mentions content when not match | ReactNode | `Not Found` |  | × |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  | × |
-| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.5.0 | × |
+| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  | × |
 | split | Set split string before and after selected mention | string | ` ` |  | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  | × |
