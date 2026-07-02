@@ -154,16 +154,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
-        // Use `min-width: 100%` together with `width: 0` instead of
-        // `width: 100%` so the view still fills its container in normal layout,
-        // but won't contribute an extreme intrinsic width when nested inside a
-        // `max-content` sized ancestor (e.g. Table with
-        // `scroll={{ x: 'max-content' }}`). See #54268.
-        width: 0,
-        minWidth: '100%',
+        // #54268 used `width: 0` with `min-width: 100%` to avoid oversized
+        // intrinsic widths in max-content ancestors. Keep the wrapper at
+        // `width: 100%` so it remains measurable in shrink-to-fit containers
+        // like Popover (#58574), while the inner table preserves the minimum.
+        width: '100%',
         borderRadius: token.borderRadiusLG,
         table: {
-          width: '100%',
+          minWidth: '100%',
           tableLayout: 'fixed',
           borderCollapse: 'collapse',
         },
