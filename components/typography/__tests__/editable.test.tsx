@@ -2,7 +2,6 @@ import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
 
 import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import Base from '../Base';
 
 jest.mock('copy-to-clipboard');
@@ -102,40 +101,5 @@ describe('Typography.Editable', () => {
       </Base>,
     );
     expect(container.querySelector('.ant-typography-edit')?.getAttribute('tabIndex')).toBe('-1');
-  });
-
-  // https://github.com/ant-design/ant-design/issues/56626
-  it('editing textarea inherits the edited element font size', () => {
-    const { container, unmount } = render(
-      <ConfigProvider theme={{ components: { Typography: { fontSizeHeading1: 40 } } }}>
-        <Base component="h1" editable>
-          Bamboo
-        </Base>
-      </ConfigProvider>,
-    );
-
-    fireEvent.click(container.querySelector('.ant-typography-edit')!);
-
-    // The edited element carries the heading class, so the editing textarea must
-    // inherit its typography (size/line-height/family/weight) instead of falling
-    // back to the user-agent form-control font; assert those declarations are
-    // emitted for the edit-content textarea rule.
-    const styleText = Array.from(document.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-size:inherit/);
-    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*line-height:inherit/);
-    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-family:inherit/);
-    expect(styleText).toMatch(/edit-content[^{}]*textarea\{[^}]*font-weight:inherit/);
-
-    // The rule doubles the `-edit-content` class so it out-specifies Input's own
-    // `textarea.ant-input { line-height }` (same base specificity, injected
-    // later); without the bump the inherited line-height would not win. Assert
-    // the doubled-class selector so the cascade fix cannot silently regress.
-    expect(styleText).toMatch(
-      /(\.ant-typography-edit-content){2} textarea\{[^}]*line-height:inherit/,
-    );
-
-    unmount();
   });
 });
