@@ -185,7 +185,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           propSizeChangerOnChange?.(nextSize, option);
         }}
         size={mergedSize}
-        className={clsx(sizeChangerClassName, propSizeChangerClassName)}
+        className={clsx(
+          `${prefixCls}-options-size-changer-select`,
+          sizeChangerClassName,
+          propSizeChangerClassName,
+        )}
       />
     );
   };
