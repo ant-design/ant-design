@@ -35,18 +35,18 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     ...rest
   } = props;
 
-  const characterRender: RcCharacterRender = (node, { index }) => {
+  const characterRender: RcCharacterRender = (node, { index = 0 }) => {
     if (!tooltips) {
       return node;
     }
 
-    const tooltipsItem = tooltips[index as number];
+    const tooltipsItem = tooltips[index];
 
-    if (isPlainObject(tooltipsItem)) {
+    if (isPlainObject<TooltipProps>(tooltipsItem)) {
       return <Tooltip {...tooltipsItem}>{node}</Tooltip>;
     }
 
-    return <Tooltip title={tooltipsItem as string}>{node}</Tooltip>;
+    return <Tooltip title={tooltipsItem}>{node}</Tooltip>;
   };
 
   const {

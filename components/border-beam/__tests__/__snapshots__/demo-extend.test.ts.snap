@@ -116,6 +116,25 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
 
 exports[`renders components/border-beam/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 1`] = `
+<div
+  style="position: relative; width: 420px; background: rgb(255, 255, 255); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
+>
+  <div
+    style="min-height: 160px; padding: 24px; color: rgba(0, 0, 0, 0.88); line-height: 1.5715;"
+  >
+    Review task status, deployment health, and recent automation activity in one custom container.
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-border-beam css-var-test-id"
+    style="--ant-border-beam-inset-offset: -1px -1px -1px -1px; --ant-border-beam-border-radius: 8px;"
+  />
+</div>
+`;
+
+exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/customized-color.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
@@ -298,6 +317,185 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
 
 exports[`renders components/border-beam/demo/customized-color.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/duration.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap: 16px;"
+>
+  <div
+    style="width: 220px;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Fast
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              3s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          A quick loop for temporary highlights and active modules.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-duration: 3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div
+    style="width: 220px;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              6s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          The original pacing for most emphasized containers.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-duration: 6s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div
+    style="width: 220px;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Slow
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              12s
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          A calmer loop for persistent panels and ambient surfaces.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-duration: 12s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/duration.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 1`] = `
+<div
+  style="width: 360px;"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+    style="border-width: 2px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Custom line width
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set lineWidth to match the border width of this container.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-line-width: 2px; --ant-border-beam-inset-offset: -2px -2px -2px -2px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend context correctly 1`] = `
 <div
   style="width: 360px;"
@@ -358,3 +556,143 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
 `;
 
 exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/border-beam/demo/size.tsx extend context correctly 1`] = `
+<div
+  style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 960px;"
+>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              100px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 112px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Uses the default 100px visible beam segment.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Compact
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              56px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 112px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Keeps the highlight shorter for dense card groups.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-size: 56px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+  <div
+    style="grid-column: 1 / -1;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-test-id"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Extended
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              class="ant-tag ant-tag-filled css-var-test-id"
+            >
+              160px
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="min-height: 192px; display: flex; align-items: center;"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Creates a longer highlight for wider feature panels.
+        </span>
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam css-var-test-id"
+        style="--ant-border-beam-size: 160px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/size.tsx extend context correctly 2`] = `[]`;

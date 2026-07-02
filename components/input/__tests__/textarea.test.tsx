@@ -114,7 +114,7 @@ describe('TextArea', () => {
 
     it('maxLength should not block control', () => {
       const { container } = render(<TextArea maxLength={1} value="light" />);
-      expect(container.querySelector('textarea')?.value).toEqual('light');
+      expect(container.querySelector('textarea')?.value).toBe('light');
     });
 
     it('should exceed maxLength when use IME', () => {
@@ -243,8 +243,8 @@ describe('TextArea', () => {
     const ref = React.createRef<TextAreaRef>();
     render(<TextArea autoFocus ref={ref} defaultValue={defaultValue} />);
     ref.current?.resizableTextArea?.textArea.setSelectionRange(valLength, valLength);
-    expect(ref.current?.resizableTextArea?.textArea.selectionStart).toEqual(5);
-    expect(ref.current?.resizableTextArea?.textArea.selectionEnd).toEqual(5);
+    expect(ref.current?.resizableTextArea?.textArea.selectionStart).toBe(5);
+    expect(ref.current?.resizableTextArea?.textArea.selectionEnd).toBe(5);
   });
 
   it('support function classNames and styles', () => {
@@ -328,11 +328,11 @@ describe('TextArea allowClear', () => {
   it('should change type when click', () => {
     const { asFragment, container } = render(<TextArea allowClear />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });
-    expect(container.querySelector('textarea')?.value).toEqual('111');
+    expect(container.querySelector('textarea')?.value).toBe('111');
     expect(asFragment().firstChild).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(container.querySelector('textarea')?.value).toEqual('');
+    expect(container.querySelector('textarea')?.value).toBe('');
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
@@ -342,7 +342,7 @@ describe('TextArea allowClear', () => {
       ),
     );
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('textarea')?.value).toEqual('');
+      expect(container.querySelector('textarea')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -358,7 +358,7 @@ describe('TextArea allowClear', () => {
       ),
     );
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('textarea')?.value).toEqual('');
+      expect(container.querySelector('textarea')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -409,12 +409,12 @@ describe('TextArea allowClear', () => {
   it('not block input when `value` is undefined', () => {
     const { container, rerender } = render(<Input value={undefined} />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Bamboo' } });
-    expect(container.querySelector('input')?.value).toEqual('Bamboo');
+    expect(container.querySelector('input')?.value).toBe('Bamboo');
 
     // Controlled
     rerender(<Input value="Light" />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Bamboo' } });
-    expect(container.querySelector('input')?.value).toEqual('Light');
+    expect(container.querySelector('input')?.value).toBe('Light');
   });
 
   // https://github.com/ant-design/ant-design/issues/26308
@@ -467,10 +467,10 @@ describe('TextArea allowClear', () => {
     const { container, unmount } = render(<App />);
     container.querySelector('textarea')?.focus();
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });
-    expect(container.querySelector('textarea')?.value).toEqual('111');
+    expect(container.querySelector('textarea')?.value).toBe('111');
 
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(container.querySelector('textarea')?.value).toEqual('');
+    expect(container.querySelector('textarea')?.value).toBe('');
 
     unmount();
   });

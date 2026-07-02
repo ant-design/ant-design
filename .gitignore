@@ -86,3 +86,4 @@ docs/superpowers/
 
 # generated css
 components/style/antd.css
+.turbopack

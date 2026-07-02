@@ -69,10 +69,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | tooltip | 配置 inline 折叠时的 MenuItem 悬浮提示，设为 `false` 可关闭 | false \| TooltipProps | - | 6.3.0 | × |
 | theme | 主题颜色 | `light` \| `dark` | `light` |  | × |
 | triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  | × |
-| onClick | 点击 MenuItem 调用此函数 | function({ key, keyPath, domEvent }) | - |  | × |
-| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ key, keyPath, selectedKeys, domEvent }) | - |  | × |
+| onClick | 点击 MenuItem 调用此函数 | function({ key, keyPath, domEvent, itemData }) | - |  | × |
+| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ key, keyPath, selectedKeys, domEvent, itemData }) | - |  | × |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | - |  | × |
-| onSelect | 被选中时调用 | function({ key, keyPath, selectedKeys, domEvent }) | -   |  | × |
+| onSelect | 被选中时调用 | function({ key, keyPath, selectedKeys, domEvent, itemData }) | - |  | × |
 | popupRender | 自定义子菜单的弹出框 | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  | × |
 
 > 更多属性查看 [@rc-component/menu](https://github.com/react-component/menu#api)

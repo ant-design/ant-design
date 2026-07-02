@@ -76,7 +76,6 @@ export default defineConfig({
       'components/_util/__tests__/useZIndex.test.tsx',
       'components/_util/__tests__/wave.test.tsx',
       'components/_util/__tests__/wave-util.test.tsx',
-      'components/alert/__tests__/index.test.tsx',
       'components/anchor/__tests__/Anchor.test.tsx',
       'components/auto-complete/__tests__/index.test.tsx',
       'components/auto-complete/__tests__/semantic.test.tsx',

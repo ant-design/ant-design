@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '閉じる',
     show: '表示',
     hide: '非表示',
+    sortable: '並べ替え可能',
   },
   Table: {
     filterTitle: 'フィルター',
@@ -82,8 +83,8 @@ const localeValues: Locale = {
     edit: '編集',
     copy: 'コピー',
     copied: 'コピーされました',
-    expand: '拡大する',
-    collapse: '崩壊',
+    expand: '展開する',
+    collapse: '折り畳む',
   },
   Form: {
     optional: '(オプション)',

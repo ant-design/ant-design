@@ -83,9 +83,7 @@ export interface ComponentToken {
  * @descEN Token for Pagination component
  */
 export interface PaginationToken
-  extends FullToken<'Pagination'>,
-    SharedComponentToken,
-    SharedInputToken {
+  extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   /**
    * @desc 输入框轮廓偏移量
    * @descEN Outline offset of input
@@ -114,11 +112,13 @@ export interface PaginationToken
   /**
    * @desc 省略号字母间距
    * @descEN Letter spacing of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisLetterSpacing: number | string;
   /**
    * @desc 省略号文本缩进
    * @descEN Text indent of ellipsis
+   * @deprecated Ellipsis is now an SVG icon, this token is no longer used.
    */
   paginationEllipsisTextIndent: string;
   /**
@@ -412,7 +412,7 @@ const genPaginationInputVariantStyle: GenerateStyle<PaginationToken, CSSObject> 
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, iconCls, sizeLG, antCls } = token;
 
   const [, varRef] = genCssVar(antCls, 'pagination');
 
@@ -440,18 +440,19 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
         [`${componentCls}-item-ellipsis`]: {
           position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
-          display: 'block',
+          inset: 0,
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           margin: 'auto',
           color: token.colorTextDisabled,
-          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
+          [`${iconCls}-ellipsis > svg`]: {
+            width: sizeLG,
+            height: sizeLG,
+          },
         },
       },
 

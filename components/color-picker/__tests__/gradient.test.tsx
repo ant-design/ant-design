@@ -298,7 +298,7 @@ describe('ColorPicker.gradient', () => {
     ]);
 
     const newColor = new AggregationColor(color);
-    expect(newColor.toCssString()).toEqual('linear-gradient(90deg, rgb(255,0,0) 0%)');
+    expect(newColor.toCssString()).toBe('linear-gradient(90deg, rgb(255,0,0) 0%)');
   });
 
   it('mode fallback', () => {
@@ -376,7 +376,7 @@ describe('ColorPicker.gradient', () => {
       document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
     );
     const color = onChange.mock.calls[0][0];
-    expect(color.toCssString()).toEqual(
+    expect(color.toCssString()).toBe(
       'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
     );
     expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();

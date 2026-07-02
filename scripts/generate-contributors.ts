@@ -34,18 +34,20 @@ const locales = [
   { locale: 'enUS', suffix: 'en-US' },
 ];
 
-const token = process.env.GITHUB_ACCESS_TOKEN;
+const token = process.env.GITHUB_ACCESS_TOKEN || process.env.GITHUB_TOKEN;
 
 const relativePath = path.relative(cwd, outputFile).replace(/\\/g, '/');
 
 if (token) {
   spinner.succeed(
-    chalk.green(`✅ GITHUB_ACCESS_TOKEN 验证成功，已完成权限校验，正在生成文件：${relativePath}`),
+    chalk.green(
+      `✅ ${process.env.GITHUB_ACCESS_TOKEN ? 'GITHUB_ACCESS_TOKEN' : 'GITHUB_TOKEN'} 验证成功，已完成权限校验，正在生成文件：${relativePath}`,
+    ),
   );
   console.log(''); // Keep an empty line here to make looks good~
 } else {
   spinner.fail(
-    chalk.red('🚨 请先设置 GITHUB_ACCESS_TOKEN 环境变量到本地，请不要泄露给任何在线页面'),
+    chalk.red('🚨 请先设置 GITHUB_ACCESS_TOKEN 或 GITHUB_TOKEN 环境变量，请不要泄露给任何在线页面'),
   );
   console.log(''); // Keep an empty line here to make looks good~
   process.exit(0);
@@ -154,7 +156,7 @@ async function execute() {
   const allLogins: string[] = [];
   const loginIndex = new Map<string, number>();
 
-  function getLoginIndex(login: string): number {
+  const getLoginIndex = (login: string) => {
     let idx = loginIndex.get(login);
     if (idx === undefined) {
       idx = allLogins.length;
@@ -162,7 +164,7 @@ async function execute() {
       loginIndex.set(login, idx);
     }
     return idx;
-  }
+  };
 
   // Collect all doc files across modules
   const allTasks: { module: ModuleConfig; locale: string; key: string; filePath: string }[] = [];
@@ -197,7 +199,7 @@ async function execute() {
       progressBar.update({ module: `${mod.name}/${key}` });
 
       const logins = await getFileCommits(filePath);
-      const indices = logins.map((login) => getLoginIndex(login));
+      const indices = logins.map<number>(getLoginIndex);
 
       moduleData[mod.name] ??= {};
       moduleData[mod.name][key] ??= {};

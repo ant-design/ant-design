@@ -6,7 +6,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { fireEvent, render, resetMockDate, setMockDate } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
@@ -141,14 +141,14 @@ describe('RangePicker', () => {
   it('placeholder', () => {
     const { container } = render(<RangePicker placeholder={undefined} />);
     const inputLists = container.querySelectorAll('input');
-    expect(inputLists[0]?.placeholder).toEqual('Start date');
-    expect(inputLists[inputLists.length - 1].placeholder).toEqual('End date');
+    expect(inputLists[0]?.placeholder).toBe('Start date');
+    expect(inputLists[inputLists.length - 1].placeholder).toBe('End date');
   });
 
   it('RangePicker picker quarter placeholder', () => {
     const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
-    expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
-    expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
+    expect(container.querySelectorAll('input')[0]?.placeholder).toBe('Start quarter');
+    expect(container.querySelectorAll('input')[1]?.placeholder).toBe('End quarter');
   });
 
   it('should fall back to rangePlaceholder when locale omits range-variant placeholder', () => {
@@ -165,12 +165,10 @@ describe('RangePicker', () => {
     };
 
     (['year', 'quarter', 'month', 'week'] as const).forEach((picker) => {
-      const { container, unmount } = render(
-        <RangePicker picker={picker} locale={partialLocale} />,
-      );
+      const { container, unmount } = render(<RangePicker picker={picker} locale={partialLocale} />);
       const inputs = container.querySelectorAll('input');
-      expect(inputs[0]?.placeholder).toEqual('Fallback start');
-      expect(inputs[inputs.length - 1]?.placeholder).toEqual('Fallback end');
+      expect(inputs[0]?.placeholder).toBe('Fallback start');
+      expect(inputs[inputs.length - 1]?.placeholder).toBe('Fallback end');
       unmount();
     });
   });
@@ -347,6 +345,17 @@ describe('RangePicker', () => {
       );
       expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
       expect(container.querySelector('.global-custom-clear-icon')).toBeFalsy();
+    });
+
+    it('should trigger onClear when click clear button', () => {
+      const onClear = jest.fn();
+      const somePoint = dayjs('2023-08-01');
+
+      render(<RangePicker defaultValue={[somePoint, somePoint]} onClear={onClear} />);
+
+      fireEvent.click(getClearButton()!);
+
+      expect(onClear).toHaveBeenCalledTimes(1);
     });
   });
 });

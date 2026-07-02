@@ -253,7 +253,7 @@ describe('Splitter', () => {
 
   it('Splitter.Panel is syntactic sugar', () => {
     const { container } = render(<Splitter.Panel />);
-    expect(container.innerHTML).toEqual('');
+    expect(container.innerHTML).toBe('');
   });
 
   // ============================== Resizable ==============================

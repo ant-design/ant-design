@@ -35,7 +35,7 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect(container.querySelector<HTMLElement>('ant-spin-nested-loading')).toBeNull();
+    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')).toBeNull();
   });
 
   it("should render custom indicator when it's set", () => {
