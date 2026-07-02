@@ -170,3 +170,25 @@ return (
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+
+### 为什么 `style={{ width: 'max-content' }}` 在 Notification 上不生效？ {#faq-notification-width}
+
+Notification 使用固定宽度布局，以保证堆叠卡片样式的一致性。因此不支持在通知外层节点上使用 `max-content`、`min-content`、`fit-content(...)` 这类 intrinsic width。
+
+如果你需要调整 Notification 的整体宽度，建议通过组件 token `width` 来配置：
+
+```tsx
+<ConfigProvider
+  theme={{
+    components: {
+      Notification: {
+        width: 480,
+      },
+    },
+  }}
+>
+  <App />
+</ConfigProvider>
+```
+
+如果你只是希望通知内容本身按内容宽度排布，可以在 `title` 或 `description` 里自行渲染 ReactNode，并把 `max-content` 放在内部节点上，而不是放在 Notification 根节点上。
