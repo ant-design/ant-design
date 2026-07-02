@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'ပိတ်ပါ',
     show: 'ပြပါ',
     hide: 'ဖျောက်ပါ',
+    sortable: 'အမျိုးအစားခွဲနိုင်သည်။',
     clear: 'ရှင်းလင်းရန်',
   },
   Table: {
@@ -36,6 +37,9 @@ const localeValues: Locale = {
     expand: 'အတန်းချဲ့ပါ။',
     collapse: 'အတန်းကို ခေါက်သိမ်းပါ။',
     cancelSort: 'အမျိုးအစားခွဲခြင်းကို ပယ်ဖျက်ရန် နှိပ်ပါ။',
+    emptyText: 'ဒေတာမရှိပါ။',
+    triggerDesc: 'ကြီးစဉ်ငယ်လိုက် စီရန် နှိပ်ပါ။',
+    triggerAsc: 'ကြီးကြီးလိုက် စီရန် နှိပ်ပါ။',
   },
   Tour: {
     Next: 'နောက်တစ်ခု',
@@ -62,6 +66,7 @@ const localeValues: Locale = {
     selectAll: 'ဒေတာအားလုံးကို ရွေးပါ။',
     removeAll: 'ဒေတာအားလုံးကို ဖယ်ရှားပါ။',
     selectInvert: 'လက်ရှိစာမျက်နှာကို ပြောင်းလိုက်ပါ။',
+    deselectAll: 'ဒေတာအားလုံးကို မရွေးပါ။',
   },
   Upload: {
     uploading: 'တင်ခြင်း။...',
@@ -81,6 +86,7 @@ const localeValues: Locale = {
     copy: 'ကော်ပီ',
     copied: 'ကူးယူသည်။',
     expand: 'ချဲ့ထွင်ပါ။',
+    collapse: 'ပြိုကျသည်။',
   },
   Form: {
     optional: '(ချန်လှပ်ထားနိုင်သည်)',
@@ -135,6 +141,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',
     refresh: 'ပြန်လည်စတင်ပါ။',
+    scanned: 'စကင်န်ဖတ်သည်။',
+  },
+  ColorPicker: {
+    presetEmpty: 'ဗလာ',
+    transparent: 'ပွင့်လင်းသည်။',
+    singleColor: 'တစ်ရောင်တည်း',
+    gradientColor: 'Gradient အရောင်',
   },
 };
 

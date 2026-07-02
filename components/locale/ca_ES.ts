@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Tancar',
     show: 'Mostra',
     hide: 'Amaga',
+    sortable: 'ordenable',
     clear: 'Neteja',
   },
   Table: {
@@ -34,6 +35,10 @@ const localeValues: Locale = {
     triggerDesc: 'Ordre descendent',
     triggerAsc: 'Ordre ascendent',
     cancelSort: 'Desactivar l’ordre',
+    filterCheckAll: 'Seleccioneu tots els elements',
+    filterSearchPlaceholder: 'Cerca en filtres',
+    emptyText: 'Sense dades',
+    selectNone: 'Esborra totes les dades',
   },
   Tour: {
     Next: 'Següent',
@@ -60,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Seleccionar-ho tot',
     removeAll: 'Eliminar-ho tot',
     selectInvert: 'Invertir la selecció',
+    deselectAll: 'Desseleccioneu totes les dades',
   },
   Upload: {
     uploading: 'Carregant…',
@@ -79,6 +85,7 @@ const localeValues: Locale = {
     copy: 'Copiar',
     copied: 'Copiat',
     expand: 'Ampliar',
+    collapse: 'Col·lapse',
   },
   Form: {
     optional: '(opcional)',
@@ -129,6 +136,17 @@ const localeValues: Locale = {
         mismatch: '${label} no coincideix amb el patró ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'El codi QR ha caducat',
+    refresh: 'Actualitza',
+    scanned: 'Escanejat',
+  },
+  ColorPicker: {
+    presetEmpty: 'Buit',
+    transparent: 'Transparent',
+    singleColor: 'Un sol',
+    gradientColor: 'Color degradat',
   },
 };
 

@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'ಮುಚ್ಚಿ',
     show: 'ತೋರಿಸಿ',
     hide: 'ಮರೆಮಾಡಿ',
+    sortable: 'ವಿಂಗಡಿಸಬಹುದಾದ',
     clear: 'ತೆರವುಗೊಳಿಸಿ',
   },
   Table: {
@@ -60,6 +61,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ಇಲ್ಲಿ ಹುಡುಕಿ',
     itemUnit: 'ವಿಷಯ',
     itemsUnit: 'ವಿಷಯಗಳು',
+    remove: 'ತೆಗೆದುಹಾಕಿ',
+    selectCurrent: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    removeCurrent: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ತೆಗೆದುಹಾಕಿ',
+    selectAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    deselectAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ',
+    removeAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ತೆಗೆದುಹಾಕಿ',
+    selectInvert: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ತಿರುಗಿಸಿ',
   },
   Upload: {
     uploading: 'ಏರಿಸಿ...',
@@ -134,6 +142,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ಕೋಡ್ ಅವಧಿ ಮೀರಿದೆ',
     refresh: 'ನವೀಕರಿಸಿ',
+    scanned: 'ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗಿದೆ',
+  },
+  ColorPicker: {
+    presetEmpty: 'ಖಾಲಿ',
+    transparent: 'ಪಾರದರ್ಶಕ',
+    singleColor: 'ಏಕ ಬಣ್ಣ',
+    gradientColor: 'ಗ್ರೇಡಿಯಂಟ್ ಬಣ್ಣ',
   },
 };
 

@@ -65,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Select all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
+    deselectAll: 'Deselect all data',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -84,6 +85,7 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Collapse',
   },
   Form: {
     optional: '(optional)',

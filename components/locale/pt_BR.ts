@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Fechar',
     show: 'Mostrar',
     hide: 'Ocultar',
+    sortable: 'classificável',
     clear: 'Limpar',
   },
   Table: {
@@ -64,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Selecionar todos',
     removeAll: 'Remover todos',
     selectInvert: 'Inverter seleção atual',
+    deselectAll: 'Desmarcar todos os dados',
   },
   Upload: {
     uploading: 'Enviando...',
@@ -83,6 +85,7 @@ const localeValues: Locale = {
     copy: 'copiar',
     copied: 'copiado',
     expand: 'expandir',
+    collapse: 'Recolher',
   },
   Form: {
     optional: '(opcional)',

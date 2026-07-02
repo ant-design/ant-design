@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Tutup',
     show: 'Tampilkan',
     hide: 'Sembunyikan',
+    sortable: 'dapat diurutkan',
     clear: 'Bersihkan',
   },
   Table: {

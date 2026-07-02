@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '關閉',
     show: '顯示',
     hide: '隱藏',
+    sortable: '可排序',
     clear: '清除',
   },
   Table: {
@@ -64,6 +65,7 @@ const localeValues: Locale = {
     selectAll: '全選所有',
     removeAll: '刪除全部',
     selectInvert: '反選當頁',
+    deselectAll: '取消全選',
   },
   Upload: {
     uploading: '正在上傳...',
@@ -86,6 +88,7 @@ const localeValues: Locale = {
     collapse: '收起',
   },
   Form: {
+    optional: '（選填）',
     defaultValidateMessages: {
       default: '字段驗證錯誤${label}',
       required: '請輸入${label}',

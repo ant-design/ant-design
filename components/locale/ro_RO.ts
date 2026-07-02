@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Închide',
     show: 'Arată',
     hide: 'Ascunde',
+    sortable: 'sortabil',
     clear: 'Șterge',
   },
   Table: {
@@ -36,6 +37,8 @@ const localeValues: Locale = {
     triggerDesc: 'Apasă pentru ordonare descrescătoare',
     triggerAsc: 'Apasă pentru ordonare crescătoare',
     cancelSort: 'Apasă pentru a anula ordonarea',
+    filterCheckAll: 'Selectați toate elementele',
+    filterSearchPlaceholder: 'Caută în filtre',
   },
   Tour: {
     Next: 'Următorul',
@@ -62,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Selectează toate datele',
     removeAll: 'Șterge toate datele',
     selectInvert: 'Inversează pagina curentă',
+    deselectAll: 'Deselectați toate datele',
   },
   Upload: {
     uploading: 'Se transferă...',
@@ -81,6 +85,7 @@ const localeValues: Locale = {
     copy: 'copiază',
     copied: 'copiat',
     expand: 'extinde',
+    collapse: 'Colaps',
   },
   Form: {
     optional: '(opțional)',
@@ -131,6 +136,17 @@ const localeValues: Locale = {
         mismatch: '${label} nu respectă șablonul ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Codul QR a expirat',
+    refresh: 'Reîmprospătați',
+    scanned: 'Scanat',
+  },
+  ColorPicker: {
+    presetEmpty: 'Gol',
+    transparent: 'Transparent',
+    singleColor: 'O singură culoare',
+    gradientColor: 'Culoare gradient',
   },
 };
 

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zavřít',
     show: 'Zobrazit',
     hide: 'Skrýt',
+    sortable: 'seřadit',
     clear: 'Vymazat',
   },
   Table: {
@@ -64,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Označit vše',
     removeAll: 'Odznačit vše',
     selectInvert: 'Opačný výběr',
+    deselectAll: 'Zrušte výběr všech dat',
   },
   Upload: {
     uploading: 'Nahrávání...',
@@ -83,6 +85,7 @@ const localeValues: Locale = {
     copy: 'Kopírovat',
     copied: 'Zkopírované',
     expand: 'Zvětšit',
+    collapse: 'kolaps',
   },
   Form: {
     optional: '(nepovinné)',

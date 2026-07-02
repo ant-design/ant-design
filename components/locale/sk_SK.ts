@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zavrieť',
     show: 'Zobraziť',
     hide: 'Skryť',
+    sortable: 'zoradiť',
     clear: 'Vymazať',
   },
   Table: {
@@ -64,6 +65,7 @@ const localeValues: Locale = {
     selectAll: 'Označ všetko',
     removeAll: 'Odznač všetko',
     selectInvert: 'Opačný výber',
+    deselectAll: 'Zrušte výber všetkých údajov',
   },
   Upload: {
     uploading: 'Nahrávanie...',
@@ -83,6 +85,7 @@ const localeValues: Locale = {
     copy: 'Kopírovať',
     copied: 'Skopírované',
     expand: 'Zväčšiť',
+    collapse: 'kolaps',
   },
   Form: {
     optional: '(nepovinné)',
@@ -133,6 +136,17 @@ const localeValues: Locale = {
         mismatch: '${label} nezodpovedá vzoru ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Platnosť QR kódu vypršala',
+    refresh: 'Obnoviť',
+    scanned: 'Naskenované',
+  },
+  ColorPicker: {
+    presetEmpty: 'Prázdny',
+    transparent: 'Transparentné',
+    singleColor: 'Jednofarebné',
+    gradientColor: 'Farba prechodu',
   },
 };
 

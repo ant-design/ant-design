@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'بستن',
     show: 'نمایش',
     hide: 'مخفی کردن',
+    sortable: 'قابل مرتب سازی',
     clear: 'پاک کردن',
   },
   Table: {
