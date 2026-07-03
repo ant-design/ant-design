@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import { genScrollFadeStyle, resetComponent, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -11,6 +12,21 @@ import {
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
 import type { SelectToken } from './token';
+
+// Width of the custom scrollbar drawn by `@rc-component/virtual-list`, kept clear
+// of the scroll fade so the gradient never overlaps the scrollbar.
+const VIRTUAL_LIST_SCROLLBAR_WIDTH = 8;
+
+// Scroll-driven fades: reveal each edge fade only while there is more content to
+// scroll toward, so it disappears once the matching edge is reached.
+const scrollFadeTopIn = new Keyframes('antSelectDropdownScrollFadeTop', {
+  '0%': { opacity: 0 },
+  '100%': { opacity: 1 },
+});
+const scrollFadeBottomOut = new Keyframes('antSelectDropdownScrollFadeBottom', {
+  '0%': { opacity: 1 },
+  '100%': { opacity: 0 },
+});
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { optionHeight, optionFontSize, optionLineHeight, optionPadding } = token;
@@ -32,6 +48,9 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
+
+  const fadeHeight = unit(token.controlHeightLG);
+  const scrollbarGutter = unit(VIRTUAL_LIST_SCROLLBAR_WIDTH);
 
   const slideUpEnterActive = `&${antCls}-slide-up-enter${antCls}-slide-up-enter-active`;
   const slideUpAppearActive = `&${antCls}-slide-up-appear${antCls}-slide-up-appear-active`;
@@ -93,8 +112,55 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
+        // ====================== Scroll Fade ======================
+        // Overlay the scroll viewport with a `bg -> transparent` fade at the
+        // top/bottom so long lists hint at more content. The fade sits on top of
+        // the options (not behind), matching a clean elevated-bg gradient.
         '.rc-virtual-list-holder': {
-          ...genScrollFadeStyle(token),
+          '&::before, &::after': {
+            content: '""',
+            position: 'sticky',
+            display: 'block',
+            // Keep clear of the scrollbar, mirroring the reserved gutter.
+            marginInlineEnd: scrollbarGutter,
+            height: fadeHeight,
+            pointerEvents: 'none',
+            zIndex: 1,
+            // Hidden by default, which is also the fallback when the list is not
+            // scrollable or scroll-driven animations are unsupported.
+            opacity: 0,
+          },
+
+          '&::before': {
+            insetBlockStart: 0,
+            marginBlockEnd: `calc(-1 * ${fadeHeight})`,
+            // Interpolate in OKLab so the fade to `transparent` stays clean.
+            backgroundImage: `linear-gradient(to bottom in oklab, ${token.colorBgElevated}, transparent)`,
+          },
+
+          '&::after': {
+            insetBlockEnd: 0,
+            marginBlockStart: `calc(-1 * ${fadeHeight})`,
+            backgroundImage: `linear-gradient(to top in oklab, ${token.colorBgElevated}, transparent)`,
+          },
+
+          '@supports (animation-timeline: scroll())': {
+            '&::before': {
+              animationName: scrollFadeTopIn,
+              animationTimeline: 'scroll(nearest block)',
+              animationRange: `0 ${fadeHeight}`,
+              animationFillMode: 'both',
+              animationTimingFunction: 'linear',
+            },
+
+            '&::after': {
+              animationName: scrollFadeBottomOut,
+              animationTimeline: 'scroll(nearest block)',
+              animationRange: `calc(100% - ${fadeHeight}) 100%`,
+              animationFillMode: 'both',
+              animationTimingFunction: 'linear',
+            },
+          },
         },
 
         [selectItemCls]: {
