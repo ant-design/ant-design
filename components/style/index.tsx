@@ -78,40 +78,34 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
 
 interface ScrollFadeStyleOptions {
   backgroundColor?: string;
+  shadowColor?: string;
 }
 
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorBgElevated, paddingLG } = token;
+  const { colorBgElevated, colorSplit, paddingLG } = token;
   const backgroundColor = options?.backgroundColor ?? colorBgElevated;
+  const shadowColor = options?.shadowColor ?? colorSplit;
   const fadeSize = unit(paddingLG);
-  const fadeOffset = `calc(${fadeSize} * -1)`;
 
   return {
-    position: 'relative',
-
-    '&::before, &::after': {
-      position: 'sticky',
-      zIndex: 1,
-      display: 'block',
-      height: fadeSize,
-      pointerEvents: 'none',
-      content: '""',
-    },
-
-    '&::before': {
-      top: 0,
-      marginBottom: fadeOffset,
-      backgroundImage: `linear-gradient(to bottom, ${backgroundColor}, transparent)`,
-    },
-
-    '&::after': {
-      bottom: 0,
-      marginTop: fadeOffset,
-      backgroundImage: `linear-gradient(to bottom, transparent, ${backgroundColor})`,
-    },
+    backgroundImage: [
+      `linear-gradient(${backgroundColor} 30%, transparent)`,
+      `linear-gradient(transparent, ${backgroundColor} 70%)`,
+      `linear-gradient(to bottom, ${shadowColor}, transparent)`,
+      `linear-gradient(to top, ${shadowColor}, transparent)`,
+    ].join(', '),
+    backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: [
+      `100% ${fadeSize}`,
+      `100% ${fadeSize}`,
+      `100% ${fadeSize}`,
+      `100% ${fadeSize}`,
+    ].join(', '),
+    backgroundAttachment: 'local, local, scroll, scroll',
   };
 };
 

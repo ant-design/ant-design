@@ -3,7 +3,7 @@ import { genScrollFadeStyle } from '..';
 
 describe('components/style', () => {
   describe('genScrollFadeStyle', () => {
-    it('generates gradient edge fades for scrollable popup content', () => {
+    it('generates scroll-boundary-aware gradient edge fades', () => {
       const token = {
         colorBgElevated: '#fff',
         colorSplit: '#f0f0f0',
@@ -13,27 +13,20 @@ describe('components/style', () => {
       } as AliasToken;
 
       expect(genScrollFadeStyle(token)).toMatchObject({
-        position: 'relative',
-        '&::before, &::after': {
-          position: 'sticky',
-          zIndex: 1,
-          display: 'block',
-          height: '24px',
-          pointerEvents: 'none',
-          content: '""',
-        },
-        '&::before': {
-          top: 0,
-          marginBottom: 'calc(24px * -1)',
-          backgroundImage: 'linear-gradient(to bottom, #fff, transparent)',
-        },
-        '&::after': {
-          bottom: 0,
-          marginTop: 'calc(24px * -1)',
-          backgroundImage: 'linear-gradient(to bottom, transparent, #fff)',
-        },
+        backgroundImage: [
+          'linear-gradient(#fff 30%, transparent)',
+          'linear-gradient(transparent, #fff 70%)',
+          'linear-gradient(to bottom, #f0f0f0, transparent)',
+          'linear-gradient(to top, #f0f0f0, transparent)',
+        ].join(', '),
+        backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 24px, 100% 24px, 100% 24px, 100% 24px',
+        backgroundAttachment: 'local, local, scroll, scroll',
       });
 
+      expect(genScrollFadeStyle(token)).not.toHaveProperty('&::before');
+      expect(genScrollFadeStyle(token)).not.toHaveProperty('&::after');
       expect(genScrollFadeStyle(token)).not.toHaveProperty(
         '@supports (animation-timeline: scroll(nearest block))',
       );
@@ -49,20 +42,27 @@ describe('components/style', () => {
       } as unknown as AliasToken;
 
       const style = genScrollFadeStyle(token);
-      const beforeStyle = style['&::before'] as { backgroundImage: string; marginBottom: string };
-      const afterStyle = style['&::after'] as { backgroundImage: string; marginTop: string };
 
-      expect(beforeStyle.backgroundImage).toBe(
-        'linear-gradient(to bottom, var(--ant-color-bg-elevated), transparent)',
+      expect(style.backgroundImage).toBe(
+        [
+          'linear-gradient(var(--ant-color-bg-elevated) 30%, transparent)',
+          'linear-gradient(transparent, var(--ant-color-bg-elevated) 70%)',
+          'linear-gradient(to bottom, var(--ant-color-split), transparent)',
+          'linear-gradient(to top, var(--ant-color-split), transparent)',
+        ].join(', '),
       );
-      expect(afterStyle.backgroundImage).toBe(
-        'linear-gradient(to bottom, transparent, var(--ant-color-bg-elevated))',
+      expect(style.backgroundSize).toBe(
+        [
+          '100% var(--ant-padding-lg)',
+          '100% var(--ant-padding-lg)',
+          '100% var(--ant-padding-lg)',
+          '100% var(--ant-padding-lg)',
+        ].join(', '),
       );
-      expect(beforeStyle.marginBottom).toBe('calc(var(--ant-padding-lg) * -1)');
-      expect(afterStyle.marginTop).toBe('calc(var(--ant-padding-lg) * -1)');
+      expect(style.backgroundAttachment).toBe('local, local, scroll, scroll');
     });
 
-    it('allows overriding the fade background color', () => {
+    it('allows overriding the fade background and shadow colors', () => {
       const token = {
         colorBgElevated: '#fff',
         colorSplit: '#f0f0f0',
@@ -71,13 +71,15 @@ describe('components/style', () => {
         paddingSM: 12,
       } as AliasToken;
 
-      expect(genScrollFadeStyle(token, { backgroundColor: '#001529' })).toMatchObject({
-        '&::before': {
-          backgroundImage: 'linear-gradient(to bottom, #001529, transparent)',
-        },
-        '&::after': {
-          backgroundImage: 'linear-gradient(to bottom, transparent, #001529)',
-        },
+      expect(
+        genScrollFadeStyle(token, { backgroundColor: '#001529', shadowColor: 'rgba(255, 255, 255, 0.12)' }),
+      ).toMatchObject({
+        backgroundImage: [
+          'linear-gradient(#001529 30%, transparent)',
+          'linear-gradient(transparent, #001529 70%)',
+          'linear-gradient(to bottom, rgba(255, 255, 255, 0.12), transparent)',
+          'linear-gradient(to top, rgba(255, 255, 255, 0.12), transparent)',
+        ].join(', '),
       });
     });
   });
