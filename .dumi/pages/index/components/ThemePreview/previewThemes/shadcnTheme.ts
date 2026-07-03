@@ -43,6 +43,19 @@ const useStyles = createStyles(({ css }) => {
       borderRadius: '8px',
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
     }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        border: '1px solid #e4e4e7',
+        borderRadius: 8,
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+      },
+    }),
+    notificationTitle: css({
+      fontWeight: 600,
+    }),
+    notificationDescription: css({
+      color: '#525252',
+    }),
   };
 });
 
@@ -191,6 +204,17 @@ const useShadcnTheme = () => {
           ColorPicker: {
             borderRadius: 6,
           },
+          Notification: {
+            colorSuccessBg: '#f0fdf4',
+            colorErrorBg: '#fef2f2',
+            colorInfoBg: '#f5f5f5',
+            colorWarningBg: '#fff7ed',
+          },
+          Layout: {},
+          Menu: {},
+          Card: {},
+          Tooltip: {},
+          Radio: {},
         },
       },
       button: {
@@ -213,6 +237,29 @@ const useShadcnTheme = () => {
           root: styles.selectRoot,
         },
       },
+      notification: {
+        classNames: {
+          root: styles.notificationRoot,
+          title: styles.notificationTitle,
+          description: styles.notificationDescription,
+        },
+      },
+      wave: {},
+      app: {},
+      card: {},
+      modal: {},
+      alert: {},
+      colorPicker: {},
+      checkbox: {},
+      dropdown: {},
+      datePicker: {},
+      inputNumber: {},
+      popover: {},
+      tooltip: {},
+      switch: {},
+      radio: {},
+      segmented: {},
+      progress: {},
     }),
     [styles],
   );
