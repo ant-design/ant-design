@@ -77,17 +77,17 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
 });
 
 interface ScrollFadeStyleOptions {
-  shadowColor?: string;
+  backgroundColor?: string;
 }
 
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorSplit, paddingSM } = token;
-  const shadowColor = options?.shadowColor ?? colorSplit;
-  const shadowSize = unit(paddingSM);
-  const shadowOffset = `calc(${shadowSize} * -1)`;
+  const { colorBgElevated, paddingLG } = token;
+  const backgroundColor = options?.backgroundColor ?? colorBgElevated;
+  const fadeSize = unit(paddingLG);
+  const fadeOffset = `calc(${fadeSize} * -1)`;
 
   return {
     position: 'relative',
@@ -96,21 +96,21 @@ export const genScrollFadeStyle = (
       position: 'sticky',
       zIndex: 1,
       display: 'block',
-      height: shadowSize,
+      height: fadeSize,
       pointerEvents: 'none',
       content: '""',
     },
 
     '&::before': {
       top: 0,
-      marginBottom: shadowOffset,
-      boxShadow: `inset 0 8px 12px -12px ${shadowColor}`,
+      marginBottom: fadeOffset,
+      backgroundImage: `linear-gradient(to bottom, ${backgroundColor}, transparent)`,
     },
 
     '&::after': {
       bottom: 0,
-      marginTop: shadowOffset,
-      boxShadow: `inset 0 -8px 12px -12px ${shadowColor}`,
+      marginTop: fadeOffset,
+      backgroundImage: `linear-gradient(to bottom, transparent, ${backgroundColor})`,
     },
   };
 };

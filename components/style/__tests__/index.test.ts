@@ -3,7 +3,7 @@ import { genScrollFadeStyle } from '..';
 
 describe('components/style', () => {
   describe('genScrollFadeStyle', () => {
-    it('generates subtle static edge shadows for scrollable popup content', () => {
+    it('generates gradient edge fades for scrollable popup content', () => {
       const token = {
         colorBgElevated: '#fff',
         colorSplit: '#f0f0f0',
@@ -18,19 +18,19 @@ describe('components/style', () => {
           position: 'sticky',
           zIndex: 1,
           display: 'block',
-          height: '12px',
+          height: '24px',
           pointerEvents: 'none',
           content: '""',
         },
         '&::before': {
           top: 0,
-          marginBottom: 'calc(12px * -1)',
-          boxShadow: 'inset 0 8px 12px -12px #f0f0f0',
+          marginBottom: 'calc(24px * -1)',
+          backgroundImage: 'linear-gradient(to bottom, #fff, transparent)',
         },
         '&::after': {
           bottom: 0,
-          marginTop: 'calc(12px * -1)',
-          boxShadow: 'inset 0 -8px 12px -12px #f0f0f0',
+          marginTop: 'calc(24px * -1)',
+          backgroundImage: 'linear-gradient(to bottom, transparent, #fff)',
         },
       });
 
@@ -39,7 +39,7 @@ describe('components/style', () => {
       );
     });
 
-    it('keeps css variable shadow colors without color parsing', () => {
+    it('keeps css variable fade backgrounds without color parsing', () => {
       const token = {
         colorBgElevated: 'var(--ant-color-bg-elevated)',
         colorSplit: 'var(--ant-color-split)',
@@ -49,16 +49,20 @@ describe('components/style', () => {
       } as unknown as AliasToken;
 
       const style = genScrollFadeStyle(token);
-      const beforeStyle = style['&::before'] as { boxShadow: string; marginBottom: string };
-      const afterStyle = style['&::after'] as { boxShadow: string; marginTop: string };
+      const beforeStyle = style['&::before'] as { backgroundImage: string; marginBottom: string };
+      const afterStyle = style['&::after'] as { backgroundImage: string; marginTop: string };
 
-      expect(beforeStyle.boxShadow).toBe('inset 0 8px 12px -12px var(--ant-color-split)');
-      expect(afterStyle.boxShadow).toBe('inset 0 -8px 12px -12px var(--ant-color-split)');
-      expect(beforeStyle.marginBottom).toBe('calc(var(--ant-padding-sm) * -1)');
-      expect(afterStyle.marginTop).toBe('calc(var(--ant-padding-sm) * -1)');
+      expect(beforeStyle.backgroundImage).toBe(
+        'linear-gradient(to bottom, var(--ant-color-bg-elevated), transparent)',
+      );
+      expect(afterStyle.backgroundImage).toBe(
+        'linear-gradient(to bottom, transparent, var(--ant-color-bg-elevated))',
+      );
+      expect(beforeStyle.marginBottom).toBe('calc(var(--ant-padding-lg) * -1)');
+      expect(afterStyle.marginTop).toBe('calc(var(--ant-padding-lg) * -1)');
     });
 
-    it('allows overriding the shadow color', () => {
+    it('allows overriding the fade background color', () => {
       const token = {
         colorBgElevated: '#fff',
         colorSplit: '#f0f0f0',
@@ -67,12 +71,12 @@ describe('components/style', () => {
         paddingSM: 12,
       } as AliasToken;
 
-      expect(genScrollFadeStyle(token, { shadowColor: 'rgba(255, 0, 0, 0.2)' })).toMatchObject({
+      expect(genScrollFadeStyle(token, { backgroundColor: '#001529' })).toMatchObject({
         '&::before': {
-          boxShadow: 'inset 0 8px 12px -12px rgba(255, 0, 0, 0.2)',
+          backgroundImage: 'linear-gradient(to bottom, #001529, transparent)',
         },
         '&::after': {
-          boxShadow: 'inset 0 -8px 12px -12px rgba(255, 0, 0, 0.2)',
+          backgroundImage: 'linear-gradient(to bottom, transparent, #001529)',
         },
       });
     });
