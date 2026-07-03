@@ -3,7 +3,7 @@ import { genScrollFadeStyle } from '..';
 
 describe('components/style', () => {
   describe('genScrollFadeStyle', () => {
-    it('generates static edge shadows for scrollable popup content', () => {
+    it('generates subtle static edge shadows for scrollable popup content', () => {
       const token = {
         colorBgElevated: '#fff',
         colorSplit: '#f0f0f0',
@@ -25,12 +25,12 @@ describe('components/style', () => {
         '&::before': {
           top: 0,
           marginBottom: 'calc(12px * -1)',
-          boxShadow: 'inset 0 10px 8px -8px #f0f0f0',
+          boxShadow: 'inset 0 8px 12px -12px #f0f0f0',
         },
         '&::after': {
           bottom: 0,
           marginTop: 'calc(12px * -1)',
-          boxShadow: 'inset 0 -10px 8px -8px #f0f0f0',
+          boxShadow: 'inset 0 -8px 12px -12px #f0f0f0',
         },
       });
 
@@ -52,8 +52,8 @@ describe('components/style', () => {
       const beforeStyle = style['&::before'] as { boxShadow: string; marginBottom: string };
       const afterStyle = style['&::after'] as { boxShadow: string; marginTop: string };
 
-      expect(beforeStyle.boxShadow).toBe('inset 0 10px 8px -8px var(--ant-color-split)');
-      expect(afterStyle.boxShadow).toBe('inset 0 -10px 8px -8px var(--ant-color-split)');
+      expect(beforeStyle.boxShadow).toBe('inset 0 8px 12px -12px var(--ant-color-split)');
+      expect(afterStyle.boxShadow).toBe('inset 0 -8px 12px -12px var(--ant-color-split)');
       expect(beforeStyle.marginBottom).toBe('calc(var(--ant-padding-sm) * -1)');
       expect(afterStyle.marginTop).toBe('calc(var(--ant-padding-sm) * -1)');
     });
@@ -69,10 +69,10 @@ describe('components/style', () => {
 
       expect(genScrollFadeStyle(token, { shadowColor: 'rgba(255, 0, 0, 0.2)' })).toMatchObject({
         '&::before': {
-          boxShadow: 'inset 0 10px 8px -8px rgba(255, 0, 0, 0.2)',
+          boxShadow: 'inset 0 8px 12px -12px rgba(255, 0, 0, 0.2)',
         },
         '&::after': {
-          boxShadow: 'inset 0 -10px 8px -8px rgba(255, 0, 0, 0.2)',
+          boxShadow: 'inset 0 -8px 12px -12px rgba(255, 0, 0, 0.2)',
         },
       });
     });

@@ -104,13 +104,13 @@ export const genScrollFadeStyle = (
     '&::before': {
       top: 0,
       marginBottom: shadowOffset,
-      boxShadow: `inset 0 10px 8px -8px ${shadowColor}`,
+      boxShadow: `inset 0 8px 12px -12px ${shadowColor}`,
     },
 
     '&::after': {
       bottom: 0,
       marginTop: shadowOffset,
-      boxShadow: `inset 0 -10px 8px -8px ${shadowColor}`,
+      boxShadow: `inset 0 -8px 12px -12px ${shadowColor}`,
     },
   };
 };
