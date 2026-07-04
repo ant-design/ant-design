@@ -13,6 +13,7 @@ import type { HTTPRequest, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
+import type { ThemeConfig } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -27,6 +28,19 @@ const themes = {
   dark: theme.darkAlgorithm,
   compact: theme.compactAlgorithm,
 };
+
+// 修复截图快照里面的中文是乱码的问题
+const imageSnapshotFontFamily = [
+  'Arial',
+  '"PingFang SC"',
+  '"Hiragino Sans GB"',
+  '"Microsoft YaHei"',
+  '"Noto Sans CJK SC"',
+  '"Noto Sans SC"',
+  '"Source Han Sans SC"',
+  '"WenQuanYi Micro Hei"',
+  'sans-serif',
+].join(', ');
 
 interface ImageTestOptions {
   onlyViewport?: boolean;
@@ -280,17 +294,21 @@ export default function imageTest(
 
   if (!options.mobile) {
     Object.entries(themes).forEach(([key, algorithm]) => {
-      const configTheme = {
+      const configTheme: ThemeConfig = {
         algorithm,
         token: {
-          fontFamily: 'Arial',
+          fontFamily: imageSnapshotFontFamily,
         },
       };
-
+      const style: React.CSSProperties = {
+        backgroundColor: key === 'dark' ? '#000' : undefined,
+        fontFamily: imageSnapshotFontFamily,
+        padding: `24px 12px`,
+      };
       test(
         `component image screenshot should correct ${key}`,
         `.${key}`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <div key={`theme-${key}`} style={style}>
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
