@@ -5,7 +5,7 @@ import useLocale from '../../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    progress: '进度',
+    progress: '进行中',
     completed: '已完成',
     exception: '异常',
   },
