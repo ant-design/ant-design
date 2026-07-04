@@ -48,6 +48,7 @@ const locales = {
     illustration: '插画',
     lark: '知识协作',
     blossom: '桃花缘',
+    v4: 'Ant Design V4',
   },
   en: {
     default: 'Ant Design',
@@ -70,7 +71,7 @@ export type UseTheme = () => ConfigProviderProps;
 export const DEFAULT_COLOR = '#1677FF';
 export const PINK_COLOR = '#ED4192';
 
-const previewThemeComponents = {
+const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
   Layout: {},
   Menu: {},
   Button: {},
@@ -88,7 +89,7 @@ const previewThemeComponents = {
   Slider: {},
   ColorPicker: {},
   Notification: {},
-} satisfies NonNullable<ThemeConfig['components']>;
+};
 
 const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigProviderProps => ({
   theme: {
@@ -117,7 +118,7 @@ const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigPr
   progress: {},
 });
 
-export default function usePreviewThemes() {
+const usePreviewThemes = () => {
   const [locale] = useLocale(locales);
 
   const larkTheme = useLarkTheme();
@@ -229,4 +230,6 @@ export default function usePreviewThemes() {
       },
     ];
   }, [locale]);
-}
+};
+
+export default usePreviewThemes;

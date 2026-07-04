@@ -4,14 +4,16 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-const useStyles = createStyles(({ css, cssVar }) => {
-  const glassBorder = {
-    boxShadow: [
-      `0 8px 24px rgba(85, 85,85, 0.1)`,
-      `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,
-      `inset 0 5px 2px rgba(255, 255, 255, 0.2)`,
-    ].join(','),
-  };
+const glassBorder = {
+  boxShadow: [
+    `0 8px 24px rgba(85, 85,85, 0.1)`,
+    `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,
+    `inset 0 5px 2px rgba(255, 255, 255, 0.2)`,
+  ].join(','),
+};
+
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
 
   const glassBox = {
     ...glassBorder,
