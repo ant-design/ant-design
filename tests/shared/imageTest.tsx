@@ -300,23 +300,32 @@ export default function imageTest(
           fontFamily: imageSnapshotFontFamily,
         },
       };
-      const style: React.CSSProperties = {
-        backgroundColor: key === 'dark' ? '#000' : undefined,
-        fontFamily: imageSnapshotFontFamily,
-        padding: `24px 12px`,
-      };
+
       test(
         `component image screenshot should correct ${key}`,
         `.${key}`,
-        <div key={`theme-${key}`} style={style}>
+        <div
+          key={`theme-${key}`}
+          style={{
+            padding: '24px 12px',
+            backgroundColor: key === 'dark' ? '#000' : undefined,
+            fontFamily: imageSnapshotFontFamily,
+          }}
+        >
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
     });
-
-    // Mobile Snapshot
   } else {
-    test(identifier, `.mobile`, component, true);
+    // Mobile Snapshot
+    test(
+      identifier,
+      `.mobile`,
+      <div style={{ fontFamily: imageSnapshotFontFamily }} key={`mobile-${identifier}`}>
+        {component}
+      </div>,
+      true,
+    );
   }
 }
 
