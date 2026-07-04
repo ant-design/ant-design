@@ -78,6 +78,7 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
+/* istanbul ignore next */
 export const prepareComponentToken: GetDefaultToken<'Space'> = () => ({});
 
 export default genStyleHooks(

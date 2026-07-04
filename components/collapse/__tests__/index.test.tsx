@@ -1,5 +1,8 @@
 import React from 'react';
+import type { MockInstance } from 'vitest';
+import { vi } from 'vitest';
 
+import Collapse from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -7,21 +10,20 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
-  const Collapse = jest.requireActual('..').default;
-  const Panel = Collapse.Panel;
+  const Panel = Collapse.Panel as unknown as React.ComponentType;
 
   mountTest(Collapse);
   mountTest(Panel);
   rtlTest(Collapse);
   rtlTest(Panel);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
@@ -41,7 +43,7 @@ describe('Collapse', () => {
   it('should support remove expandIcon', () => {
     const { asFragment } = render(
       <Collapse expandIcon={() => null}>
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="header" />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -64,7 +66,7 @@ describe('Collapse', () => {
           </button>
         )}
       >
-        <Collapse.Panel header="header" />
+        <Collapse.Panel header="header" key="header" />
       </Collapse>,
     );
 
@@ -74,15 +76,23 @@ describe('Collapse', () => {
   it('should render extra node of panel', () => {
     const { asFragment } = render(
       <Collapse>
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
-        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel
+          header="header"
+          key="header-1"
+          extra={<button type="button">action</button>}
+        />
+        <Collapse.Panel
+          header="header"
+          key="header-2"
+          extra={<button type="button">action</button>}
+        />
       </Collapse>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('could be expand and collapse', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -96,12 +106,14 @@ describe('Collapse', () => {
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-collapse-item')).toHaveClass('ant-collapse-item-active');
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('could override default openMotion', () => {
     const { container, asFragment } = render(
-      <Collapse openMotion={{}}>
+      <Collapse
+        {...({ openMotion: {} } as React.ComponentProps<typeof Collapse> & { openMotion: object })}
+      >
         <Collapse.Panel header="This is panel header 1" key="1">
           content
         </Collapse.Panel>
@@ -140,14 +152,14 @@ describe('Collapse', () => {
   });
 
   it('should end motion when set activeKey while hiding', async () => {
-    jest.useFakeTimers();
-    const spiedRAF = jest
+    vi.useFakeTimers();
+    const spiedRAF = vi
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 1000 / 60));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<string | number | undefined>>;
     const Test: React.FC = () => {
-      const [activeKey, setActiveKey] = React.useState<React.Key>();
+      const [activeKey, setActiveKey] = React.useState<string | number>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
@@ -172,7 +184,7 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
     spiedRAF.mockRestore();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('ref should work', () => {
@@ -291,10 +303,10 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPlacement and expandIconPosition behavior', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: MockInstance;
 
     beforeEach(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {
@@ -303,32 +315,32 @@ describe('Collapse', () => {
     it.each([
       { props: {}, expectedClass: 'ant-collapse-icon-placement-start', shouldWarn: false },
       {
-        props: { expandIconPlacement: 'start' },
+        props: { expandIconPlacement: 'start' as const },
         expectedClass: 'ant-collapse-icon-placement-start',
         shouldWarn: false,
       },
       {
-        props: { expandIconPlacement: 'end' },
+        props: { expandIconPlacement: 'end' as const },
         expectedClass: 'ant-collapse-icon-placement-end',
         shouldWarn: false,
       },
       {
-        props: { expandIconPosition: 'start' },
+        props: { expandIconPosition: 'start' as const },
         expectedClass: 'ant-collapse-icon-placement-start',
         shouldWarn: true,
       },
       {
-        props: { expandIconPosition: 'end' },
+        props: { expandIconPosition: 'end' as const },
         expectedClass: 'ant-collapse-icon-placement-end',
         shouldWarn: true,
       },
       {
-        props: { expandIconPosition: 'start', expandIconPlacement: 'end' },
+        props: { expandIconPosition: 'start' as const, expandIconPlacement: 'end' as const },
         expectedClass: 'ant-collapse-icon-placement-end',
         shouldWarn: true,
       },
       {
-        props: { expandIconPosition: 'end', expandIconPlacement: 'start' },
+        props: { expandIconPosition: 'end' as const, expandIconPlacement: 'start' as const },
         expectedClass: 'ant-collapse-icon-placement-start',
         shouldWarn: true,
       },

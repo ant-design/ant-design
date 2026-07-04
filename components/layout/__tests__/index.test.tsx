@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { renderToString } from 'react-dom/server';
+import { vi } from 'vitest';
 
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -136,7 +137,7 @@ describe('Layout', () => {
 
     describe('should collapsible', () => {
       it('uncontrolled', () => {
-        const onCollapse = jest.fn();
+        const onCollapse = vi.fn();
 
         const { container } = render(
           <Layout>
@@ -269,8 +270,8 @@ describe('Layout', () => {
   });
 
   it('render correct with Tooltip', () => {
-    jest.useFakeTimers();
-    const { container, rerender } = render(
+    vi.useFakeTimers();
+    const { baseElement, container, rerender } = render(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
           <Menu.Item key="1">
@@ -283,9 +284,9 @@ describe('Layout', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+    expect(baseElement.querySelector('.ant-tooltip-container')).toBeFalsy();
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
@@ -298,11 +299,11 @@ describe('Layout', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-container')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tooltip-container')).toBeTruthy();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/55603
@@ -319,7 +320,7 @@ describe('Layout', () => {
 });
 
 describe('Sider', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -330,7 +331,7 @@ describe('Sider', () => {
   });
 
   it('should trigger onBreakpoint', async () => {
-    const onBreakpoint = jest.fn();
+    const onBreakpoint = vi.fn();
 
     render(
       <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
@@ -341,6 +342,8 @@ describe('Sider', () => {
   });
 
   it('should controlled collapse work when using with Layout.Sider', () => {
+    vi.useFakeTimers();
+
     const Demo = () => {
       const [collapsed, setCollapsed] = useState(false);
 
@@ -380,7 +383,7 @@ describe('Sider', () => {
     fireEvent.click(button);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(menu).toHaveClass('ant-menu-inline-collapsed');
@@ -388,6 +391,7 @@ describe('Sider', () => {
     fireEvent.click(button);
 
     expect(menu).not.toHaveClass('ant-menu-inline-collapsed');
+    vi.useRealTimers();
   });
 
   it('zeroWidthTriggerStyle should work', () => {
@@ -428,7 +432,7 @@ describe('Sider', () => {
 
     it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef<HTMLDivElement>();
-      const onSelect = jest.fn();
+      const onSelect = vi.fn();
       const Component = ComponentMap[tag];
       render(
         <Component onSelect={onSelect} ref={ref}>

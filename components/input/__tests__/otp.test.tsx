@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -23,16 +24,16 @@ describe('Input.OTP', () => {
   };
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('paste to fill all', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<OTP onChange={onChange} />);
 
     fireEvent.input(container.querySelector('input')!, { target: { value: '123456' } });
@@ -42,7 +43,7 @@ describe('Input.OTP', () => {
 
   it('fill step by step', () => {
     const CODE = 'BAMBOO';
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     render(<OTP onChange={onChange} autoFocus />);
 
     for (let i = 0; i < CODE.length; i += 1) {
@@ -57,7 +58,7 @@ describe('Input.OTP', () => {
   it('backspace to delete', async () => {
     const CODE = 'LITTLE';
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<OTP defaultValue={CODE} onChange={onChange} />);
     expect(getText(container)).toBe(CODE);
 
@@ -98,7 +99,7 @@ describe('Input.OTP', () => {
     const { container } = render(<OTP defaultValue="BAMBOO" />);
 
     const firstInput = container.querySelector('input')!;
-    const selectSpy = jest.spyOn(firstInput, 'select');
+    const selectSpy = vi.spyOn(firstInput, 'select');
     expect(selectSpy).not.toHaveBeenCalled();
 
     // Trigger focus
@@ -122,7 +123,7 @@ describe('Input.OTP', () => {
   });
 
   it('should not switch to next input when value is empty', () => {
-    const onFocus = jest.fn();
+    const onFocus = vi.fn();
     const { container } = render(<OTP autoFocus onFocus={onFocus} />);
 
     const inputList = Array.from(container.querySelectorAll('input'));
@@ -170,7 +171,7 @@ describe('Input.OTP', () => {
   });
 
   it('should throw Error when mask.length > 1', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<OTP mask="abc" />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Input.OTP] `mask` prop should be a single character.',
@@ -179,7 +180,7 @@ describe('Input.OTP', () => {
   });
 
   it('should not throw Error when mask.length <= 1', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<OTP mask="x" />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
@@ -200,7 +201,7 @@ describe('Input.OTP', () => {
   });
 
   it('should call onInput with a string array when input changes', () => {
-    const onInput = jest.fn();
+    const onInput = vi.fn();
     const { container } = render(<OTP length={4} onInput={onInput} />);
 
     const inputs = Array.from(container.querySelectorAll('input'));

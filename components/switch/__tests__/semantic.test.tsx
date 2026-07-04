@@ -1,17 +1,18 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { createStaticStyles } from 'antd-style';
+import { vi } from 'vitest';
 
 import type { SwitchProps } from '..';
 import Switch from '..';
 import type { GetProp } from '../../_util/type';
-import Flex from '../../flex';
-import Space from '../../space';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
+import Flex from '../../flex';
+import Space from '../../space';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`
@@ -134,7 +135,7 @@ describe('Switch style-class demo', () => {
   });
 
   it('should call classNames function with correct parameters', () => {
-    const mockClassNamesFn = jest.fn().mockReturnValue({ content: 'test-class' });
+    const mockClassNamesFn = vi.fn().mockReturnValue({ content: 'test-class' });
 
     render(
       <Switch

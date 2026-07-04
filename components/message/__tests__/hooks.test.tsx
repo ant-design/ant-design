@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { vi } from 'vitest';
 
 import message from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -8,11 +9,11 @@ import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should work', () => {
@@ -88,7 +89,11 @@ describe('message.hooks', () => {
     expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
-  it('should work with onClose', (done) => {
+  it('should work with onClose', async () => {
+    let resolveClose: () => void;
+    const closePromise = new Promise<void>((resolve) => {
+      resolveClose = resolve;
+    });
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -96,7 +101,7 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              api.open({ content: 'amazing', duration: 1, onClose: done });
+              api.open({ content: 'amazing', duration: 1, onClose: resolveClose });
             }}
           >
             test
@@ -109,10 +114,15 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    triggerMotionEnd();
+    await triggerMotionEnd();
+    await closePromise;
   });
 
-  it('should work with close promise', (done) => {
+  it('should work with close promise', async () => {
+    let resolveClose: () => void;
+    const closePromise = new Promise<void>((resolve) => {
+      resolveClose = resolve;
+    });
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -121,7 +131,7 @@ describe('message.hooks', () => {
             type="button"
             onClick={() => {
               api.open({ content: 'good', duration: 1 }).then(() => {
-                done();
+                resolveClose();
               });
             }}
           >
@@ -135,7 +145,8 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    triggerMotionEnd();
+    await triggerMotionEnd();
+    await closePromise;
   });
 
   it('should work with hide', async () => {
@@ -230,7 +241,7 @@ describe('message.hooks', () => {
   });
 
   it('warning if user call update in render', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [api, holder] = message.useMessage();
@@ -339,12 +350,12 @@ describe('message.hooks', () => {
   describe('Message component with pauseOnHover', () => {
     beforeEach(() => {
       message.destroy();
-      jest.spyOn(global, 'clearTimeout');
-      jest.spyOn(global, 'setTimeout');
+      vi.spyOn(global, 'clearTimeout');
+      vi.spyOn(global, 'setTimeout');
     });
 
     afterEach(() => {
-      jest.restoreAllMocks();
+      vi.restoreAllMocks();
     });
     const Demo = ({ pauseOnHover }: { pauseOnHover: boolean }) => {
       const [api, holder] = message.useMessage();

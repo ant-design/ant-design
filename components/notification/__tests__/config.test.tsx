@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import notification, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
@@ -7,12 +8,15 @@ import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -24,7 +28,7 @@ describe('notification.config', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -37,7 +41,7 @@ describe('notification.config', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -59,7 +63,7 @@ describe('notification.config', () => {
 
       act(() => {
         // One frame is 16ms
-        jest.advanceTimersByTime(100);
+        vi.advanceTimersByTime(100);
       });
 
       await triggerMotionEnd(false);
@@ -78,7 +82,7 @@ describe('notification.config', () => {
 
     act(() => {
       // One frame is 16ms
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     await triggerMotionEnd(false);
 

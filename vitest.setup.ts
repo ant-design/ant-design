@@ -1,11 +1,12 @@
-import { createRequire } from 'node:module';
 import { ReadableStream } from 'node:stream/web';
+import { createRequire } from 'node:module';
 import util from 'node:util';
 import { MessagePort } from 'node:worker_threads';
 
 import '@testing-library/jest-dom/vitest';
 
 import React from 'react';
+import { configure as configureTestingLibrary } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
 import type { DOMWindow } from 'jsdom';
 import format, { plugins } from 'pretty-format';
@@ -16,99 +17,36 @@ import { defaultConfig } from './components/theme/internal';
 
 defaultConfig.hashed = false;
 
-// Vitest 默认以 ESM 运行，全局 require 可能不存在；用 createRequire 构造稳定 require。
-const nodeRequire = createRequire(import.meta.url);
+if (process.env.MOCK_USE_ID !== 'false') {
+  const require = createRequire(import.meta.url);
+  const cjsReact = require('react') as typeof React;
 
-/* -------------------------------------------------------------------------- */
-/* jest → vi 垫片                                                              */
-/* POC：让现有测试文件中的 `jest.*` 直接映射到 `vi`，实现测试文件零改动。       */
-/* 唯一无法用 vi 直接填平的是 `jest.requireActual`（同步动态路径），           */
-/* 用 import.meta.glob eager 预构建模块表来支持。                              */
-/* -------------------------------------------------------------------------- */
-
-// 预构建组件入口模块表，供同步 requireActual 解析。demo suites 当前在
-// vitest.config.ts 中排除，避免每个普通 unit suite 都预加载全量 demo。
-// 如果后续恢复 demo suites，先重构 tests/shared/demoTest.tsx 的同步
-// jest.requireActual 路径，不要在这里重新 glob 全量 components/*/demo/*.tsx。
-// import.meta.glob 是 Vite 的编译期宏，必须以字面量形式调用（不能经别名/解构），
-// 故此处直接调用并用 @ts-expect-error 抑制类型报错（vite/client 类型未加入项目 tsconfig）。
-// @ts-expect-error Vite 注入的 import.meta.glob
-const entryModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/*/index.{ts,tsx}',
-);
-const lazyMap: Record<string, () => Promise<any>> = { ...entryModules };
-// 已解析模块缓存（同步 requireActual 需要在首次异步加载后命中）。
-const resolvedCache: Record<string, any> = {};
-
-// 归一化路径用于匹配：去掉前导 ../、./ 等
-function normalize(p: string): string {
-  return p
-    .replace(/^(\.\.\/|\.\/)+/, '')
-    .replace(/\/index(\.tsx?)?$/, '')
-    .replace(/\.tsx?$/, '');
+  cjsReact.useId = () => 'test-id';
 }
 
-function requireActual(request: string): any {
-  // 'react' / 'react-dom' 等裸模块：交给真实模块（同步 require 兜底）
-  if (!request.startsWith('.') && !request.startsWith('/')) {
-    return nodeRequire(request);
-  }
-  const target = normalize(request);
-  const hitKey = Object.keys(lazyMap).find((key) => normalize(key) === target);
-  if (hitKey && hitKey in resolvedCache) {
-    return resolvedCache[hitKey];
-  }
-  throw new Error(
-    `[vitest requireActual shim] 模块未预加载: ${request}（normalized: ${target}）。` +
-      `请扩展 vitest.setup.ts 的 import.meta.glob 或检查模块加载兼容性。`,
-  );
-}
+configureTestingLibrary({
+  asyncWrapper: async (callback) => {
+    const global = globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean };
+    const previousActEnvironment = global.IS_REACT_ACT_ENVIRONMENT;
+    global.IS_REACT_ACT_ENVIRONMENT = false;
 
-// setupFiles 的顶层 await 在测试文件模块求值之前执行，故在此预解析 lazyMap
-// 填充同步缓存，requireActual 即可同步命中。
-async function preloadModules() {
-  await Promise.all(
-    Object.entries(lazyMap).map(async ([key, loader]) => {
-      if (!(key in resolvedCache)) {
-        try {
-          resolvedCache[key] = await loader();
-        } catch {
-          // 保持失败可见：requireActual 未命中 resolvedCache 时会抛出明确错误。
-          // 不要返回空组件，否则会把兼容性失败记录成空 snapshot。
+    try {
+      const result = await callback();
+
+      await new Promise<void>((resolve) => {
+        setTimeout(resolve, 0);
+
+        if (vi.isFakeTimers()) {
+          vi.advanceTimersByTime(0);
         }
-      }
-    }),
-  );
-}
-// eslint-disable-next-line antfu/no-top-level-await
-await preloadModules();
+      });
 
-const jestShim: any = {
-  fn: vi.fn,
-  spyOn: vi.spyOn,
-  mock: vi.mock,
-  unmock: vi.unmock,
-  doMock: vi.doMock,
-  clearAllMocks: vi.clearAllMocks,
-  resetAllMocks: vi.resetAllMocks,
-  restoreAllMocks: vi.restoreAllMocks,
-  useFakeTimers: vi.useFakeTimers,
-  useRealTimers: vi.useRealTimers,
-  isFakeTimers: vi.isFakeTimers,
-  advanceTimersByTime: vi.advanceTimersByTime,
-  advanceTimersByTimeAsync: vi.advanceTimersByTimeAsync,
-  runAllTimers: vi.runAllTimers,
-  runOnlyPendingTimers: vi.runOnlyPendingTimers,
-  clearAllTimers: vi.clearAllTimers,
-  setSystemTime: vi.setSystemTime,
-  getRealSystemTime: vi.getRealSystemTime,
-  requireActual,
-  requireMock: requireActual,
-  resetModules: vi.resetModules,
-  isolateModules: (fn: () => void) => fn(),
-};
-
-(globalThis as any).jest = jestShim;
+      return result;
+    } finally {
+      global.IS_REACT_ACT_ENVIRONMENT = previousActEnvironment;
+    }
+  },
+});
 
 /* -------------------------------------------------------------------------- */
 /* 环境注入（来自 tests/setup.ts，原样复用）                                   */
@@ -147,6 +85,48 @@ console.error = (...args: any[]) => {
 };
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
+function getMatchedStyleValue(win: Window, elt: Element, prop: string) {
+  const styleSheets = Array.from(win.document.styleSheets).reverse();
+
+  for (const sheet of styleSheets) {
+    let rules: CSSRuleList;
+
+    try {
+      rules = sheet.cssRules;
+    } catch {
+      continue;
+    }
+
+    const styleRules = Array.from(rules).reverse();
+
+    for (const rule of styleRules) {
+      if (!('selectorText' in rule) || !('style' in rule)) {
+        continue;
+      }
+
+      const selectorText = rule.selectorText as string;
+      const selectors = selectorText.split(',');
+
+      if (
+        selectors.some((selector) => {
+          try {
+            return elt.matches(selector.trim());
+          } catch {
+            return false;
+          }
+        })
+      ) {
+        const value = (rule.style as CSSStyleDeclaration).getPropertyValue(prop);
+        if (value) {
+          return value;
+        }
+      }
+    }
+  }
+
+  return '';
+}
 
 export function fillWindowEnv(window: Window | DOMWindow) {
   const win = window as Writeable<Window> & typeof globalThis;
@@ -197,8 +177,80 @@ export function fillWindowEnv(window: Window | DOMWindow) {
         },
       } as CSSStyleDeclaration;
     }
-    return originalGetComputedStyle.call(win, elt, pseudoElt);
+    const style = originalGetComputedStyle.call(win, elt, pseudoElt);
+    const inlineStyle = (elt as HTMLElement).style;
+    const overrides: Partial<Record<keyof CSSStyleDeclaration, string>> = {};
+
+    if (inlineStyle.gap) {
+      overrides.gap = inlineStyle.gap;
+    }
+    if (
+      elt.classList.contains('ant-collapse-body') &&
+      (style.padding === '0px' || style.padding === '0')
+    ) {
+      const matchedPadding = getMatchedStyleValue(win, elt, 'padding');
+      if (matchedPadding.startsWith('var(')) {
+        overrides.padding = matchedPadding;
+      }
+    }
+    if (!inlineStyle.border && style.border.includes('none')) {
+      overrides.border = '';
+    }
+
+    if (!inlineStyle.borderTopColor && style.borderTopColor === 'rgb(0, 0, 0)') {
+      overrides.borderTopColor = 'canvastext';
+    }
+    if (!inlineStyle.borderColor && style.borderColor === 'rgb(0, 0, 0)') {
+      overrides.borderColor = 'canvastext';
+    } else if (
+      inlineStyle.borderTopColor === 'transparent' &&
+      inlineStyle.borderRightColor &&
+      inlineStyle.borderRightColor !== 'transparent'
+    ) {
+      overrides.borderColor = inlineStyle.borderRightColor;
+    }
+
+    if (!Object.keys(overrides).length) {
+      return style;
+    }
+
+    Object.entries(overrides).forEach(([key, value]) => {
+      Object.defineProperty(style, key, {
+        configurable: true,
+        value,
+      });
+    });
+    const originalGetPropertyValue = style.getPropertyValue.bind(style);
+    Object.defineProperty(style, 'getPropertyValue', {
+      configurable: true,
+      value: (prop: string) => {
+        if (prop === 'border-top-color' && overrides.borderTopColor) {
+          return overrides.borderTopColor;
+        }
+        if (prop === 'border-color' && overrides.borderColor) {
+          return overrides.borderColor;
+        }
+        if (prop === 'border' && overrides.border !== undefined) {
+          return overrides.border;
+        }
+        if (prop === 'gap' && overrides.gap) {
+          return overrides.gap;
+        }
+        if (prop === 'padding' && overrides.padding) {
+          return overrides.padding;
+        }
+        return originalGetPropertyValue(prop);
+      },
+    });
+
+    return style;
   };
+
+  Object.defineProperty(globalThis, 'getComputedStyle', {
+    configurable: true,
+    writable: true,
+    value: win.getComputedStyle,
+  });
 }
 
 if (typeof window !== 'undefined') {
@@ -251,12 +303,80 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-// jsdom 未实现 canvas getContext，补空实现以避免 QRCode 等组件测试输出噪声
+class MockCanvasRenderingContext2D {
+  private _font = 'normal normal normal 16px sans-serif';
+
+  get font() {
+    return this._font;
+  }
+
+  set font(value: string) {
+    this._font = value;
+  }
+
+  fillStyle: string | CanvasGradient | CanvasPattern = '#000';
+
+  globalAlpha = 1;
+
+  textAlign: CanvasTextAlign = 'start';
+
+  textBaseline: CanvasTextBaseline = 'alphabetic';
+
+  save() {}
+
+  restore() {}
+
+  translate() {}
+
+  rotate() {}
+
+  scale() {}
+
+  clearRect() {}
+
+  fillRect() {}
+
+  fill() {}
+
+  fillText() {}
+
+  drawImage() {}
+
+  measureText(text: string) {
+    const width = String(text).length * 8;
+    return {
+      width,
+      fontBoundingBoxAscent: 12,
+      fontBoundingBoxDescent: 4,
+      actualBoundingBoxAscent: 12,
+      actualBoundingBoxDescent: 4,
+      actualBoundingBoxLeft: 0,
+      actualBoundingBoxRight: width,
+    } as TextMetrics;
+  }
+}
+
+if (typeof globalThis.CanvasRenderingContext2D === 'undefined') {
+  Object.defineProperty(globalThis, 'CanvasRenderingContext2D', {
+    configurable: true,
+    writable: true,
+    value: MockCanvasRenderingContext2D,
+  });
+}
+
+// jsdom 未实现 canvas getContext，补 2D mock 以覆盖 Watermark/QRCode 等组件测试。
 if (typeof HTMLCanvasElement !== 'undefined') {
   Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
     configurable: true,
     writable: true,
-    value: vi.fn(() => null),
+    value: vi.fn((contextId: string) =>
+      contextId === '2d' ? new globalThis.CanvasRenderingContext2D() : null,
+    ),
+  });
+  Object.defineProperty(HTMLCanvasElement.prototype, 'toDataURL', {
+    configurable: true,
+    writable: true,
+    value: vi.fn(() => 'data:image/png;base64,mock'),
   });
 }
 

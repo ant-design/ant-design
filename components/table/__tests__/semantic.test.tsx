@@ -2,13 +2,13 @@ import React from 'react';
 
 import Table from '..';
 import type { GetProp } from '../../_util/type';
-import { render } from '../../../tests/utils';
-import type { InternalTableProps, TableProps } from '../InternalTable';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { InternalTableProps, TableProps } from '../InternalTable';
 
 type DeepRequired<T> = T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
 type RequiredClassNames = DeepRequired<GetProp<TableProps, 'classNames', 'Return'>>;
@@ -292,9 +292,7 @@ describe('Table', () => {
     expect(pagination).toHaveClass('test-pagination-function');
 
     // Check function-based styles
-    expect(root).toHaveStyle({
-      border: '2px solid blue',
-    });
+    expect(root).toHaveAttribute('style', expect.stringContaining('border: 2px solid blue'));
     expect(header).toHaveStyle({
       backgroundColor: '#e6f7ff',
     });

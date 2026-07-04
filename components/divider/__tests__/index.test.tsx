@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { vi } from 'vitest';
 
 import Divider from '..';
 import type { TitlePlacement } from '..';
@@ -11,7 +12,7 @@ describe('Divider', () => {
   mountTest(Divider);
 
   it('not show children when vertical', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Divider type="vertical">Bamboo</Divider>);
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toBeFalsy();
@@ -69,7 +70,7 @@ describe('Divider', () => {
   });
 
   describe('orientation and placement attribute', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
     const testCases: Array<
       [
         params: [

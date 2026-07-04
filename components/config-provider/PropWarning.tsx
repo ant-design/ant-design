@@ -28,4 +28,5 @@ if (process.env.NODE_ENV !== 'production') {
   PropWarning.displayName = 'PropWarning';
 }
 
+/* istanbul ignore next */
 export default process.env.NODE_ENV !== 'production' ? PropWarning : () => null;

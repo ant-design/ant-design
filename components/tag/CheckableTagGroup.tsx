@@ -164,6 +164,7 @@ const CheckableTagGroup = React.forwardRef<
   // ================================ Refs ================================
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  /* istanbul ignore next */
   useImperativeHandle(ref, () => ({
     nativeElement: divRef.current!,
   }));

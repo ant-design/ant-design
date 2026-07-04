@@ -1,19 +1,23 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import notification, { actWrapper } from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { awaitPromise, triggerMotionEnd } from './util';
 import type { ArgsProps as NotificationArgsProps } from '../interface';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    (
+      realReactDOM as typeof realReactDOM & { createRoot: typeof realReactDOMClient.createRoot }
+    ).createRoot = realReactDOMClient.createRoot;
   }
 
   return realReactDOM;
@@ -25,7 +29,7 @@ describe('notification semantic styles and classNames', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -38,7 +42,7 @@ describe('notification semantic styles and classNames', () => {
       getContainer: undefined,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });

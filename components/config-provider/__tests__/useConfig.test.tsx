@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { resetWarned } from '../../_util/warning';
@@ -53,7 +54,7 @@ describe('ConfigProvider.useConfig', () => {
       return <div>{ctx}</div>;
     };
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<App />);
 
@@ -65,7 +66,7 @@ describe('ConfigProvider.useConfig', () => {
 
   it('deprecated autoInsertSpaceInButton', () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
         <Button>测试</Button>

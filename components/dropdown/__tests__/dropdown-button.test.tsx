@@ -1,5 +1,6 @@
 import React from 'react';
 import { warning } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -11,10 +12,12 @@ const { resetWarned } = warning;
 
 let dropdownProps: DropdownProps;
 
-jest.mock('../dropdown', () => {
-  const ActualDropdown = jest.requireActual('../dropdown');
-  const ActualDropdownComponent = ActualDropdown.default;
-  const h: typeof React = jest.requireActual('react');
+vi.mock('../dropdown', async () => {
+  const ActualDropdown = await vi.importActual<typeof import('../dropdown')>('../dropdown');
+  const ActualDropdownComponent = ActualDropdown.default as typeof ActualDropdown.default & {
+    Button: React.ComponentType;
+  };
+  const h = await vi.importActual<typeof import('react')>('react');
 
   const MockedDropdown: React.FC<DropdownProps> & {
     Button: typeof ActualDropdownComponent.Button;
@@ -110,7 +113,7 @@ describe('DropdownButton', () => {
 
   it('should support overlayClassName and overlayStyle', () => {
     const items = [{ label: 'foo', key: '1' }];
-    const { container } = render(
+    const { baseElement: container } = render(
       <DropdownButton
         overlayClassName="test-className"
         overlayStyle={{ padding: 20 }}
@@ -135,7 +138,7 @@ describe('DropdownButton', () => {
   });
 
   it('deprecated warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton menu={{ items: [] }}>Submit</DropdownButton>);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Dropdown.Button] `Dropdown.Button` is deprecated. Please use `Space.Compact + Dropdown + Button` instead.',
@@ -144,27 +147,27 @@ describe('DropdownButton', () => {
   });
 
   it('should support dropdownRender', () => {
-    const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
+    const dropdownRender = vi.fn((menu) => <div>Custom Menu {menu}</div>);
     render(<DropdownButton open dropdownRender={dropdownRender} />);
     expect(dropdownRender).toHaveBeenCalled();
   });
 
   it('should support focus menu when set autoFocus', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const items = [
       {
         label: 'foo',
         key: '1',
       },
     ];
-    const { container } = render(<DropdownButton open autoFocus menu={{ items }} />);
+    const { baseElement: container } = render(<DropdownButton open autoFocus menu={{ items }} />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
   });
 
   it('legacy destroyPopupOnHide with Dropdown.Button', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <DropdownButton destroyPopupOnHide menu={{ items: [] }}>
         test

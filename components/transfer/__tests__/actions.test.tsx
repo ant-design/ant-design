@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import Transfer from '..';
 import Button from '../../button';
@@ -20,8 +21,8 @@ const listCommonProps: {
 
 describe('Actions', () => {
   it('should handle custom button click correctly via actions', () => {
-    const handleChange = jest.fn();
-    const customButtonClick = jest.fn();
+    const handleChange = vi.fn();
+    const customButtonClick = vi.fn();
 
     const CustomButton = ({ onClick }: { onClick: () => void }) => (
       <Button type="link" onClick={onClick}>

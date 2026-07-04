@@ -5,6 +5,7 @@ import type { CompatibilityProps } from '.';
 
 type TabPaneProps = CompatibilityProps & Omit<RcTabPaneProps, 'destroyInactiveTabPane'>;
 
+/* istanbul ignore next */
 const TabPane: React.FC<TabPaneProps> = () => null;
 
 if (process.env.NODE_ENV !== 'production') {

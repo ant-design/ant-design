@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototype, warning } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
@@ -31,16 +32,16 @@ describe('Tooltip', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   it('check `onOpenChange` arguments', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container, rerender } = render(
@@ -122,7 +123,7 @@ describe('Tooltip', () => {
   });
 
   it('should hide when mouse leave native disabled button', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -157,7 +158,7 @@ describe('Tooltip', () => {
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name: string, Component: typeof Button | typeof Switch) {
       it(name, async () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
         const ref = React.createRef<any>();
         const { container } = render(
           <Tooltip
@@ -211,7 +212,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -237,7 +238,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for input group', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
     const { container } = render(
       <Tooltip title="hello" onOpenChange={onOpenChange} ref={ref}>
@@ -384,7 +385,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with loading switch', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -402,7 +403,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with disabled Radio', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
@@ -420,7 +421,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with Fragment children', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(
@@ -454,7 +455,7 @@ describe('Tooltip', () => {
 
   it('deprecated warning', async () => {
     resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(
       <Tooltip open title="bamboo">
         <a />

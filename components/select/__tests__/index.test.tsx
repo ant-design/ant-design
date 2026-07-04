@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -22,16 +23,16 @@ describe('Select', () => {
   function toggleOpen(container: ReturnType<typeof render>['container']): void {
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
   }
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should have default notFoundContent', () => {
@@ -68,7 +69,7 @@ describe('Select', () => {
   });
 
   it('should be controlled by open prop', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
       const handleChange: SelectProps['onOpenChange'] = (value) => {
@@ -87,7 +88,7 @@ describe('Select', () => {
   });
 
   it('should show search icon when showSearch and open', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
     expect(container.querySelector('.anticon-down')).toBeTruthy();
     expect(container.querySelector('.anticon-search')).toBeFalsy();
@@ -115,7 +116,7 @@ describe('Select', () => {
         />,
       );
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -233,7 +234,7 @@ describe('Select', () => {
     it('legacy popupClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select popupClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -246,7 +247,7 @@ describe('Select', () => {
     it('legacy dropdownClassName', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
@@ -258,7 +259,7 @@ describe('Select', () => {
 
     it('legacy dropdownStyle', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
@@ -270,7 +271,7 @@ describe('Select', () => {
 
     it('legacy dropdownRender', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
         <Select
           open
@@ -289,7 +290,7 @@ describe('Select', () => {
 
     it('legacy onDropdownVisibleChange', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select onDropdownVisibleChange={() => {}} open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
@@ -300,7 +301,7 @@ describe('Select', () => {
     it('warning for legacy dropdownMatchSelectWidth', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select dropdownMatchSelectWidth open />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
@@ -312,7 +313,7 @@ describe('Select', () => {
     it('deprecate showArrow', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select showArrow />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
@@ -325,7 +326,7 @@ describe('Select', () => {
     it('deprecate bordered', () => {
       resetWarned();
 
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select bordered={false} />);
       expect(errSpy).toHaveBeenCalledWith(
         expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
@@ -337,7 +338,7 @@ describe('Select', () => {
 
     it('Select maxCount warning', () => {
       resetWarned();
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select maxCount={10} />);
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',

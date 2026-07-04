@@ -18,14 +18,8 @@
     },
     // https://github.com/ant-design/ant-design/pull/57888
     {
-      "groupName": "jest dependencies",
-      "matchPackageNames": [
-        "jest",
-        "jest-*",
-        "@types/jest*",
-        "@testing-library/jest-dom",
-        "eslint-plugin-jest"
-      ]
+      "groupName": "test utilities",
+      "matchPackageNames": ["@testing-library/jest-dom", "eslint-plugin-jest", "jest-axe", "vitest"]
     },
     {
       "matchManagers": ["github-actions"],

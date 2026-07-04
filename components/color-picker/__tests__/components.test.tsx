@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import ColorAlphaInput from '../components/ColorAlphaInput';
 import ColorHexInput from '../components/ColorHexInput';
@@ -10,15 +11,15 @@ import { generateColor } from '../util';
 
 describe('ColorPicker Components test', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('Should ColorSteppers work correct', () => {
-    const handleAlphaChange = jest.fn();
+    const handleAlphaChange = vi.fn();
     const { container } = render(<ColorSteppers prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-steppers')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-steppers input')!, {
@@ -29,7 +30,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorAlphaInput work correct', () => {
-    const handleAlphaChange = jest.fn();
+    const handleAlphaChange = vi.fn();
     const { container } = render(<ColorAlphaInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-alpha-input')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-alpha-input input')!, {
@@ -40,20 +41,18 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorHexInput work correct', () => {
-    const handleAlphaChange = jest.fn();
+    const handleAlphaChange = vi.fn();
     const { container } = render(<ColorHexInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-hex-input')).toBeTruthy();
     fireEvent.change(container.querySelector('.test-hex-input input')!, {
       target: { value: 631515 },
     });
-    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toBe(
-      '631515',
-    );
+    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toBe('631515');
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
   it('Should ColorHsbInput work correct', () => {
-    const handleAlphaChange = jest.fn();
+    const handleAlphaChange = vi.fn();
     const { container } = render(<ColorHsbInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-hsb-input')).toBeTruthy();
     const hsbInputEls = container.querySelectorAll('.test-hsb-input input');
@@ -75,7 +74,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should ColorRgbInput work correct', () => {
-    const handleAlphaChange = jest.fn();
+    const handleAlphaChange = vi.fn();
     const { container } = render(<ColorRgbInput prefixCls="test" onChange={handleAlphaChange} />);
     expect(container.querySelector('.test-rgb-input')).toBeTruthy();
     const rgbInputEls = container.querySelectorAll('.test-rgb-input input');
@@ -106,7 +105,7 @@ describe('ColorPicker Components test', () => {
 
     // Render component with initial color
     const { rerender, getByRole } = render(
-      <ColorHexInput prefixCls="test" value={initialColor} onChange={jest.fn()} />,
+      <ColorHexInput prefixCls="test" value={initialColor} onChange={vi.fn()} />,
       { container },
     );
 
@@ -120,7 +119,7 @@ describe('ColorPicker Components test', () => {
     const newColor = generateColor('#00ff00');
 
     // Re-render component with new color value
-    rerender(<ColorHexInput prefixCls="test" value={newColor} onChange={jest.fn()} />);
+    rerender(<ColorHexInput prefixCls="test" value={newColor} onChange={vi.fn()} />);
 
     // Verify input value has been updated to the new color value
     expect(input.getAttribute('value')).toBe('00ff00');
@@ -130,7 +129,7 @@ describe('ColorPicker Components test', () => {
   });
 
   it('Should handle user input correctly and maintain state when value prop does not change', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<ColorHexInput prefixCls="test" onChange={onChange} />);
 
     // Get input element

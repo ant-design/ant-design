@@ -1,11 +1,13 @@
+import { vi } from 'vitest';
+
 import { waitFakeTimer } from '../../../tests/utils';
 import scrollTo from '../scrollTo';
 
 describe('Test ScrollTo function', () => {
-  const dateNowMock = jest.spyOn(Date, 'now');
+  const dateNowMock = vi.spyOn(Date, 'now');
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   beforeEach(() => {
@@ -13,16 +15,16 @@ describe('Test ScrollTo function', () => {
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
+    vi.clearAllTimers();
     dateNowMock.mockClear();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('test scrollTo', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
@@ -36,7 +38,7 @@ describe('Test ScrollTo function', () => {
   });
 
   it('test callback - option', async () => {
-    const cbMock = jest.fn();
+    const cbMock = vi.fn();
     scrollTo(1000, {
       callback: cbMock,
     });
@@ -71,13 +73,13 @@ describe('Test ScrollTo function', () => {
   });
 
   it('test cancel scroll animation', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
 
     const cancel = scrollTo(1000);
-    jest.advanceTimersByTime(50);
+    vi.advanceTimersByTime(50);
     cancel();
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenCalled();
@@ -85,25 +87,25 @@ describe('Test ScrollTo function', () => {
   });
 
   it('test cancel scroll animation with callback', async () => {
-    const cbMock = jest.fn();
+    const cbMock = vi.fn();
 
     const cancel = scrollTo(1000, {
       callback: cbMock,
     });
-    jest.advanceTimersByTime(100);
+    vi.advanceTimersByTime(100);
     cancel();
     await waitFakeTimer();
     expect(cbMock).not.toHaveBeenCalled();
   });
 
   it('test multiple scrollTo calls with cancellation', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
 
     const cancel1 = scrollTo(1000);
-    jest.advanceTimersByTime(50);
+    vi.advanceTimersByTime(50);
     cancel1();
     const cancel2 = scrollTo(2000);
     await waitFakeTimer();

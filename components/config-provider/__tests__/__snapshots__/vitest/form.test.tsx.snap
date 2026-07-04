@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConfigProvider.Form > form requiredMark > set requiredMark optional 1`] = `
+<form
+  class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
+>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-root"
+    >
+      <div
+        class="ant-col ant-form-item-label css-var-root"
+      >
+        <label
+          class="ant-form-item-required-mark-optional"
+          for="age"
+          title="年龄"
+        >
+          年龄
+          <span
+            class="ant-form-item-optional"
+          >
+            (optional)
+          </span>
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              id="age"
+              value="18"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;

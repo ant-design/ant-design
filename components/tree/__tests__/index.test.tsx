@@ -1,5 +1,6 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { vi } from 'vitest';
 
 import Tree from '..';
 import { render, screen } from '../../../tests/utils';
@@ -201,13 +202,13 @@ describe('Tree', () => {
     });
 
     it('nodeDraggable', () => {
-      const nodeDraggable = jest.fn(() => false);
+      const nodeDraggable = vi.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });
 
     it('nodeDraggable func', () => {
-      const nodeDraggable = jest.fn(() => false);
+      const nodeDraggable = vi.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });

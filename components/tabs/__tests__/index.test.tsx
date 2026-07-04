@@ -1,11 +1,13 @@
 import React from 'react';
+import type { Mock, MockInstance } from 'vitest';
+import { vi } from 'vitest';
 
 import Tabs from '..';
 import type { TabsRef } from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { TabPane } = Tabs;
@@ -23,11 +25,11 @@ describe('Tabs', () => {
   ));
 
   describe('editable-card', () => {
-    let handleEdit: jest.Mock;
+    let handleEdit: Mock;
     let wrapper: ReturnType<typeof render>['container'];
 
     beforeEach(() => {
-      handleEdit = jest.fn();
+      handleEdit = vi.fn();
       const { container } = render(
         <Tabs type="editable-card" onEdit={handleEdit}>
           <TabPane tab="foo" key="1">
@@ -83,7 +85,7 @@ describe('Tabs', () => {
   });
 
   it('warning for onNextClick', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const onNextClick = { onNextClick() {} } as any;
     render(<Tabs {...onNextClick} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -113,7 +115,7 @@ describe('Tabs', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Tabs>
@@ -129,22 +131,30 @@ describe('Tabs', () => {
     errorSpy.mockRestore();
   });
 
-  it('indicator in ConfigProvider should work', () => {
-    const { container } = render(
-      <ConfigProvider tabs={{ indicator: { size: 12 } }}>
-        <Tabs items={[{ key: '1', label: 'foo' }]} className="Tabs_1" />
-        <Tabs items={[{ key: '2', label: 'bar' }]} className="Tabs_2" />
-        <Tabs items={[{ key: '3', label: 'too' }]} indicator={{ size: 4 }} className="Tabs_3" />
-      </ConfigProvider>,
-    );
+  it('indicator in ConfigProvider should work', async () => {
+    vi.useFakeTimers();
 
-    expect(container.querySelector('.Tabs_1 .ant-tabs-ink-bar')).toHaveStyle({ width: 12 });
-    expect(container.querySelector('.Tabs_2 .ant-tabs-ink-bar')).toHaveStyle({ width: 12 });
-    expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: 4 });
+    try {
+      const { container } = render(
+        <ConfigProvider tabs={{ indicator: { size: 12 } }}>
+          <Tabs items={[{ key: '1', label: 'foo' }]} className="Tabs_1" />
+          <Tabs items={[{ key: '2', label: 'bar' }]} className="Tabs_2" />
+          <Tabs items={[{ key: '3', label: 'too' }]} indicator={{ size: 4 }} className="Tabs_3" />
+        </ConfigProvider>,
+      );
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.Tabs_1 .ant-tabs-ink-bar')).toHaveStyle({ width: '12px' });
+      expect(container.querySelector('.Tabs_2 .ant-tabs-ink-bar')).toHaveStyle({ width: '12px' });
+      expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: '4px' });
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('warning for indicatorSize', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tabs indicatorSize={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tabs] `indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
@@ -204,10 +214,10 @@ describe('Tabs', () => {
     expect(content).toHaveStyle({ color: customStyles.content.color });
   });
   describe('Tabs placement transformation', () => {
-    let consoleErrorSpy: jest.SpyInstance;
+    let consoleErrorSpy: MockInstance;
 
     beforeAll(() => {
-      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     });
 
     afterEach(() => {

@@ -26,7 +26,7 @@ describe('TimePicker.Semantic', () => {
       },
     };
 
-    const { container } = render(
+    const { baseElement: container } = render(
       <TimePicker
         open
         classNames={semanticClassNames}

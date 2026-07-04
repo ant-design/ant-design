@@ -1,25 +1,26 @@
 import React from 'react';
 import { clsx } from 'clsx';
+import { vi } from 'vitest';
 
 import Alert from '..';
 import type { AlertProps } from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Alert.Semantic', () => {
   it('should support classNames and styles as functions', () => {
-    const classNamesFn: AlertProps['classNames'] = jest.fn((info) => {
+    const classNamesFn: AlertProps['classNames'] = vi.fn((info) => {
       if (info.props.type === 'error') {
         return { root: 'error-alert' };
       }
       return { root: 'default-alert' };
     });
 
-    const stylesFn: AlertProps['styles'] = jest.fn((info) => {
+    const stylesFn: AlertProps['styles'] = vi.fn((info) => {
       if (info.props.type === 'success') {
         return { root: { backgroundColor: '#f6ffed' } };
       }

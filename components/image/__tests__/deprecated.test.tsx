@@ -1,11 +1,12 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Image from '..';
 import { resetWarned } from '../../_util/warning';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Image.Deprecated', () => {
-  const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(() => {
     resetWarned();
@@ -24,7 +25,7 @@ describe('Image.Deprecated', () => {
 
   describe('onVisibleChange', () => {
     it('Image', () => {
-      const onVisibleChange = jest.fn();
+      const onVisibleChange = vi.fn();
       const { container } = render(<Image preview={{ onVisibleChange }} />);
 
       fireEvent.click(container.querySelector('.ant-image')!);
@@ -36,7 +37,7 @@ describe('Image.Deprecated', () => {
     });
 
     it('PreviewGroup', () => {
-      const onVisibleChange = jest.fn();
+      const onVisibleChange = vi.fn();
       render(<Image.PreviewGroup items={['']} preview={{ open: true, onVisibleChange }} />);
 
       fireEvent.click(document.querySelector('.ant-image-preview-mask')!);

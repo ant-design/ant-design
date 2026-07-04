@@ -1,6 +1,7 @@
 import React from 'react';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { fireEvent, render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -52,7 +53,7 @@ describe('Input.Search', () => {
   });
 
   it('should disable search icon when disabled prop is true', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(
       <Search defaultValue="search text" onSearch={onSearch} disabled />,
     );
@@ -61,7 +62,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search icon', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
@@ -69,7 +70,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(
       <Search defaultValue="search text" enterButton onSearch={onSearch} />,
     );
@@ -79,7 +80,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button with text', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(
       <Search defaultValue="search text" enterButton="button text" onSearch={onSearch} />,
     );
@@ -89,7 +90,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button with customize button', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(
       <Search
         defaultValue="search text"
@@ -103,8 +104,8 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when click search button of native', () => {
-    const onSearch = jest.fn();
-    const onButtonClick = jest.fn();
+    const onSearch = vi.fn();
+    const onButtonClick = vi.fn();
     const { container } = render(
       <Search
         defaultValue="search text"
@@ -123,7 +124,7 @@ describe('Input.Search', () => {
   });
 
   it('should trigger onSearch when press enter', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
@@ -132,7 +133,7 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/34844
   it('should not trigger onSearch when press enter using chinese inputting method', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.compositionStart(container.querySelector('input')!);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
@@ -159,8 +160,8 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/18729
   it('should trigger onSearch when click clear icon', () => {
-    const onSearch = jest.fn();
-    const onChange = jest.fn();
+    const onSearch = vi.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
@@ -177,7 +178,7 @@ describe('Input.Search', () => {
   });
 
   it('should not trigger onSearch when press enter while loading', () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(<Search loading onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).not.toHaveBeenCalled();
@@ -214,7 +215,7 @@ describe('Input.Search', () => {
   });
 
   it('not crash when use function ref', () => {
-    const ref = jest.fn();
+    const ref = vi.fn();
     const { container } = render(<Search ref={ref} enterButton />);
     expect(() => {
       fireEvent.mouseDown(container.querySelector('button')!);
@@ -231,7 +232,7 @@ describe('Input.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/53897
   it('should trigger onPressEnter when press enter', () => {
-    const onPressEnter = jest.fn();
+    const onPressEnter = vi.fn();
     const { container } = render(<Search onPressEnter={onPressEnter} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalledTimes(1);

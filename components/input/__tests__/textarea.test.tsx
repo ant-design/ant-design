@@ -1,6 +1,7 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -43,13 +44,13 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const ref = React.createRef<TextAreaRef>();
 
-    const onInternalAutoSize = jest.fn();
+    const onInternalAutoSize = vi.fn();
 
     const genTextArea = (props = {}) => (
       <TextArea
@@ -80,13 +81,13 @@ describe('TextArea', () => {
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should support onPressEnter and onKeyDown', () => {
-    const fakeHandleKeyDown = jest.fn();
-    const fakeHandlePressEnter = jest.fn();
+    const fakeHandleKeyDown = vi.fn();
+    const fakeHandlePressEnter = vi.fn();
     const { container } = render(
       <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
     );
@@ -118,7 +119,7 @@ describe('TextArea', () => {
     });
 
     it('should exceed maxLength when use IME', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
 
       const { container } = render(<TextArea maxLength={1} onChange={onChange} />);
       fireEvent.compositionStart(container.querySelector('textarea')!);
@@ -135,8 +136,8 @@ describe('TextArea', () => {
   });
 
   it('handleKeyDown', () => {
-    const onPressEnter = jest.fn();
-    const onKeyDown = jest.fn();
+    const onPressEnter = vi.fn();
+    const onKeyDown = vi.fn();
     const { container } = render(
       <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
     );
@@ -147,8 +148,8 @@ describe('TextArea', () => {
   });
 
   it('should trigger onResize', async () => {
-    jest.useFakeTimers();
-    const onResize = jest.fn();
+    vi.useFakeTimers();
+    const onResize = vi.fn();
     const ref = React.createRef<TextAreaRef>();
     const { container } = render(<TextArea ref={ref} onResize={onResize} autoSize />);
     await waitFakeTimer();
@@ -160,8 +161,8 @@ describe('TextArea', () => {
       expect.objectContaining({ width: expect.any(Number), height: expect.any(Number) }),
     );
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should disabled trigger onResize', async () => {
@@ -424,7 +425,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('onChange event should return HTMLTextAreaElement', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(<Input.TextArea onChange={onChange} allowClear />);
 
     function isNativeElement() {
@@ -477,7 +478,7 @@ describe('TextArea allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
-    const onBlur = jest.fn();
+    const onBlur = vi.fn();
     const { container, unmount } = render(
       <TextArea allowClear defaultValue="value" onBlur={onBlur} />,
       {
@@ -515,7 +516,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus when clearBtn is clicked in controlled case', () => {
-    const handleFocus = jest.fn();
+    const handleFocus = vi.fn();
 
     const textareaSpy = spyElementPrototypes(HTMLTextAreaElement, {
       focus: handleFocus,
@@ -592,7 +593,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('legacy bordered should work', () => {
-    const errSpy = jest.spyOn(console, 'error');
+    const errSpy = vi.spyOn(console, 'error');
     const { container } = render(<TextArea bordered={false} />);
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
@@ -600,20 +601,26 @@ describe('TextArea allowClear', () => {
   });
 
   it('resize: both', async () => {
-    const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
+    vi.useFakeTimers();
 
-    fireEvent.mouseDown(container.querySelector('textarea')!);
+    try {
+      const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
 
-    triggerResize(container.querySelector('textarea')!);
-    await waitFakeTimer();
+      fireEvent.mouseDown(container.querySelector('textarea')!);
 
-    expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
-      'ant-input-textarea-affix-wrapper-resize-dirty',
-    );
-    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+      triggerResize(container.querySelector('textarea')!);
+      await waitFakeTimer();
 
-    fireEvent.mouseUp(container.querySelector('textarea')!);
-    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
+      expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
+        'ant-input-textarea-affix-wrapper-resize-dirty',
+      );
+      expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+
+      fireEvent.mouseUp(container.querySelector('textarea')!);
+      expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   describe('ref.nativeElement should be the root div', () => {

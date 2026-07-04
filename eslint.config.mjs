@@ -138,6 +138,13 @@ export default antfu(
   },
   jest.configs['flat/recommended'],
   {
+    settings: {
+      jest: {
+        version: 30,
+      },
+    },
+  },
+  {
     ...jsxA11y.flatConfigs.recommended,
     rules: {
       ...jsxA11y.flatConfigs.recommended.rules,

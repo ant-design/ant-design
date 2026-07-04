@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { vi } from 'vitest';
 
 import TimePicker from '..';
 import { resetWarned } from '../../_util/warning';
@@ -12,7 +13,7 @@ import { fireEvent, render } from '../../../tests/utils';
 dayjs.extend(customParseFormat);
 
 describe('TimePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -56,7 +57,7 @@ describe('TimePicker', () => {
   });
 
   it('should trigger onClear when click clear button', () => {
-    const onClear = jest.fn();
+    const onClear = vi.fn();
     const time = dayjs('00:00:00', 'HH:mm:ss');
     const { container } = render(<TimePicker defaultValue={time} onClear={onClear} />);
 
@@ -66,7 +67,7 @@ describe('TimePicker', () => {
   });
 
   it('should trigger onClear in RangePicker when click clear button', () => {
-    const rangeOnClear = jest.fn();
+    const rangeOnClear = vi.fn();
     const time = dayjs('00:00:00', 'HH:mm:ss');
     const { container } = render(
       <TimePicker.RangePicker defaultValue={[time, time]} onClear={rangeOnClear} />,

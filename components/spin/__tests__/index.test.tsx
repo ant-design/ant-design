@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,12 +9,12 @@ import ConfigProvider from '../../config-provider';
 
 describe('Spin', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   mountTest(Spin);
@@ -45,14 +46,14 @@ describe('Spin', () => {
   });
 
   it('should be controlled by spinning', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Spin spinning={false} />);
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('if indicator set null should not be render default indicator', () => {
@@ -92,7 +93,7 @@ describe('Spin', () => {
       const { container } = render(<Spin percent="auto" />);
 
       act(() => {
-        jest.advanceTimersByTime(100000);
+        vi.advanceTimersByTime(100000);
       });
 
       const nowPTG = Number(
@@ -137,7 +138,7 @@ describe('Spin', () => {
 
   describe('deprecated API warnings', () => {
     it('should warn when using deprecated tip prop', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       render(
         <Spin tip="Loading...">
@@ -153,7 +154,7 @@ describe('Spin', () => {
     });
 
     it('should warn when using deprecated tip in classNames', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       render(<Spin classNames={{ tip: 'custom-tip' }} />);
 
@@ -165,7 +166,7 @@ describe('Spin', () => {
     });
 
     it('should warn when using deprecated tip in styles', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       render(<Spin styles={{ tip: { color: 'blue' } }} />);
 
@@ -177,7 +178,7 @@ describe('Spin', () => {
     });
 
     it('should warn when using deprecated mask in classNames', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       render(<Spin classNames={{ mask: 'custom-mask' }} />);
 
@@ -189,7 +190,7 @@ describe('Spin', () => {
     });
 
     it('should warn when using deprecated mask in styles', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       render(<Spin styles={{ mask: { background: 'red' } }} />);
 
@@ -211,7 +212,7 @@ describe('Spin', () => {
     });
 
     it('should warning when using wrapperClassName', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(
         <Spin wrapperClassName="custom-wrapper">
           <div>content</div>

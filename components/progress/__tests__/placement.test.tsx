@@ -1,33 +1,42 @@
 import React from 'react';
-import { Circle } from '@rc-component/progress';
+import type { MockedFunction } from 'vitest';
+import { vi } from 'vitest';
 
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Progress from '../progress';
 import type { GapPlacement, GapPosition } from '../progress';
 
-jest.mock('@rc-component/progress', () => {
-  const ActualCircle = jest.requireActual('@rc-component/progress').Circle;
+type RcCircle = typeof import('@rc-component/progress')['Circle'];
+
+const rcProgressMocks = vi.hoisted(() => ({
+  Circle: vi.fn(),
+}));
+
+vi.mock('@rc-component/progress', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@rc-component/progress')>();
+  const ReactActual = await vi.importActual<typeof import('react')>('react');
+  rcProgressMocks.Circle.mockImplementation((props) => {
+    return ReactActual.createElement(actual.Circle, props);
+  });
   return {
-    ...jest.requireActual('@rc-component/progress'),
-    Circle: jest.fn().mockImplementation((props) => {
-      return <ActualCircle {...props} />;
-    }),
+    ...actual,
+    Circle: rcProgressMocks.Circle,
   };
 });
 
 describe('Progress gap placement', () => {
-  let consoleErrorSpy: jest.SpyInstance;
-  const mockCircle = Circle as jest.MockedFunction<typeof Circle>;
+  let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
+  const mockCircle = rcProgressMocks.Circle as MockedFunction<RcCircle>;
 
   beforeEach(() => {
-    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mockCircle.mockClear();
   });
 
   afterEach(() => {
     consoleErrorSpy.mockClear();
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
     mockCircle.mockClear();
   });
 

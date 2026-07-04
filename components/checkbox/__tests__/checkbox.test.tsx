@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Checkbox from '..';
 import { resetWarned } from '../../_util/warning';
@@ -13,16 +14,16 @@ describe('Checkbox', () => {
   rtlTest(Checkbox);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(
       <Checkbox onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
@@ -38,7 +39,7 @@ describe('Checkbox', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Checkbox value />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',
@@ -48,8 +49,8 @@ describe('Checkbox', () => {
 
   // https://github.com/ant-design/ant-design/issues/50768
   it('onFocus / onBlur', () => {
-    const onBlur = jest.fn();
-    const onFocus = jest.fn();
+    const onBlur = vi.fn();
+    const onFocus = vi.fn();
 
     const { container } = render(<Checkbox onBlur={onBlur} onFocus={onFocus} />);
     const inputEl = container.querySelector('input')!;
@@ -73,8 +74,8 @@ describe('Checkbox', () => {
   });
 
   it('event bubble should not trigger twice', () => {
-    const onClick = jest.fn();
-    const onRootClick = jest.fn();
+    const onClick = vi.fn();
+    const onRootClick = vi.fn();
 
     const { container } = render(
       <div onClick={onRootClick}>
@@ -87,7 +88,7 @@ describe('Checkbox', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(onRootClick).toHaveBeenCalledTimes(1);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Click on input
@@ -95,7 +96,7 @@ describe('Checkbox', () => {
     expect(onClick).toHaveBeenCalledTimes(2);
     expect(onRootClick).toHaveBeenCalledTimes(2);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     // Click on input again

@@ -1,10 +1,12 @@
 import type { ReactElement } from 'react';
 import React, { createRef, StrictMode } from 'react';
+import { _rs as onResize } from '@rc-component/resize-observer';
 import { _rs as onEsResize } from '@rc-component/resize-observer/es/utils/observerUtil';
 import { _rs as onLibResize } from '@rc-component/resize-observer/lib/utils/observerUtil';
 import type { RenderOptions } from '@testing-library/react';
 import { act, render } from '@testing-library/react';
 import MockDate from 'mockdate';
+import { vi } from 'vitest';
 
 export function assertsExist<T>(item?: T): asserts item is T {
   expect(item).not.toBeUndefined();
@@ -61,6 +63,7 @@ export const triggerResize = (target: Element) => {
   target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
 
   act(() => {
+    onResize?.([{ target } as ResizeObserverEntry]);
     onLibResize([{ target } as ResizeObserverEntry]);
     onEsResize([{ target } as ResizeObserverEntry]);
   });
@@ -80,9 +83,9 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
       await Promise.resolve();
 
       if (advanceTime > 0) {
-        jest.advanceTimersByTime(advanceTime);
+        vi.advanceTimersByTime(advanceTime);
       } else {
-        jest.runAllTimers();
+        vi.runAllTimers();
       }
     });
   }
@@ -97,7 +100,7 @@ export async function waitFakeTimer19(advanceTime = 1000) {
     await Promise.resolve();
   });
   await act(async () => {
-    jest.advanceTimersByTime(advanceTime);
+    vi.advanceTimersByTime(advanceTime);
   });
 }
 

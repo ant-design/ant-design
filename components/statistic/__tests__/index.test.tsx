@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { renderToString } from 'react-dom/server';
+import { vi } from 'vitest';
 
 import type { CountdownProps } from '..';
 import Statistic from '..';
@@ -17,12 +18,12 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('`-` is not a number', () => {
@@ -31,7 +32,7 @@ describe('Statistic', () => {
   });
 
   it('customize formatter', () => {
-    const formatter = jest.fn(() => 93);
+    const formatter = vi.fn(() => 93);
     const { container } = render(<Statistic value={1128} formatter={formatter} />);
     expect(formatter).toHaveBeenCalledWith(1128);
     expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('93');
@@ -109,9 +110,7 @@ describe('Statistic', () => {
     const { container: countdownContainer } = render(
       <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
     );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toBe(
-      'x',
-    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toBe('x');
     expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toBe(
       'y',
     );
@@ -122,8 +121,8 @@ describe('Statistic', () => {
 
   describe('Timer', () => {
     it('countdown', async () => {
-      const onChange = jest.fn();
-      const onFinish = jest.fn();
+      const onChange = vi.fn();
+      const onFinish = vi.fn();
 
       const { container } = render(
         <Statistic.Timer
@@ -143,33 +142,29 @@ describe('Statistic', () => {
       expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
-        '00:00:01',
-      );
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:00:01');
 
       // Pass 0.5s
       act(() => {
-        jest.advanceTimersByTime(500);
+        vi.advanceTimersByTime(500);
       });
       expect(onChange).toHaveBeenCalled();
       expect(onFinish).not.toHaveBeenCalled();
 
       // Pass time
       act(() => {
-        jest.advanceTimersByTime(5000);
+        vi.advanceTimersByTime(5000);
       });
       // Call twice to confirm `onFinish` is called only once
       act(() => {
-        jest.advanceTimersByTime(5000);
+        vi.advanceTimersByTime(5000);
       });
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
-        '00:00:00',
-      );
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:00:00');
       expect(onFinish).toHaveBeenCalled();
       expect(onFinish).toHaveBeenCalledTimes(1);
     });
     it('should show warning when using countdown', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       render(<Statistic.Countdown />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Countdown] `<Statistic.Countdown />` is deprecated. Please use `<Statistic.Timer type="countdown" />` instead.',
@@ -177,8 +172,8 @@ describe('Statistic', () => {
     });
 
     it('countup', async () => {
-      const onChange = jest.fn();
-      const onFinish = jest.fn();
+      const onChange = vi.fn();
+      const onFinish = vi.fn();
       const before = dayjs().add(-30, 'minute').valueOf();
 
       const { container } = render(
@@ -199,26 +194,22 @@ describe('Statistic', () => {
       expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
-        '00:30:00',
-      );
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:30:00');
 
       // Pass 1s
       act(() => {
-        jest.advanceTimersByTime(1000);
+        vi.advanceTimersByTime(1000);
       });
       expect(onChange).toHaveBeenCalled();
       expect(onFinish).not.toHaveBeenCalled();
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
-        '00:30:01',
-      );
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:30:01');
     });
 
     it('ssr', async () => {
-      const onChange = jest.fn();
-      const onFinish = jest.fn();
+      const onChange = vi.fn();
+      const onFinish = vi.fn();
 
       const html = renderToString(
         <Statistic.Timer
@@ -256,9 +247,9 @@ describe('Statistic', () => {
     });
 
     it('time going', async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const now = Date.now() + 1000;
-      const onFinish = jest.fn();
+      const onFinish = vi.fn();
 
       const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
@@ -266,13 +257,13 @@ describe('Statistic', () => {
 
       unmount();
       expect(onFinish).not.toHaveBeenCalled();
-      jest.clearAllTimers();
-      jest.useRealTimers();
+      vi.clearAllTimers();
+      vi.useRealTimers();
     });
 
     it('responses hover events', () => {
-      const onMouseEnter = jest.fn();
-      const onMouseLeave = jest.fn();
+      const onMouseEnter = vi.fn();
+      const onMouseLeave = vi.fn();
       const { container } = render(
         <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
@@ -283,8 +274,8 @@ describe('Statistic', () => {
     });
 
     it('responses hover events for Countdown', () => {
-      const onMouseEnter = jest.fn();
-      const onMouseLeave = jest.fn();
+      const onMouseEnter = vi.fn();
+      const onMouseLeave = vi.fn();
       const { container } = render(
         <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
@@ -296,7 +287,7 @@ describe('Statistic', () => {
 
     describe('time onchange', () => {
       it("called if time has't passed", async () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
@@ -307,29 +298,29 @@ describe('Statistic', () => {
         // container.update();
         await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
-        jest.clearAllTimers();
-        jest.useRealTimers();
+        vi.clearAllTimers();
+        vi.useRealTimers();
       });
     });
 
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
-        const onFinish = jest.fn();
+        const onFinish = vi.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
         expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         const now = Date.now() + 10;
-        const onFinish = jest.fn();
+        const onFinish = vi.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
         await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
-        jest.clearAllTimers();
-        jest.useRealTimers();
+        vi.clearAllTimers();
+        vi.useRealTimers();
       });
     });
   });
@@ -341,7 +332,7 @@ describe('Statistic', () => {
   });
 
   it('should works for statistic timer', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const ref = React.createRef<any>();
 
     const { container } = render(

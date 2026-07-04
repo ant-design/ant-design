@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { vi } from 'vitest';
 
 import type { TableProps, TableRef } from '..';
 import Table from '..';
@@ -14,7 +15,7 @@ describe('Table', () => {
   mountTest(Table);
   rtlTest(Table);
 
-  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {
     warnSpy.mockRestore();
@@ -72,7 +73,7 @@ describe('Table', () => {
   });
 
   it('loading with Spin', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ spinning: false, delay: 500 }} />);
     expect(container.querySelector('.ant-spin-section')).toBeFalsy();
     expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toBe('');
@@ -81,21 +82,21 @@ describe('Table', () => {
     await waitFakeTimer();
     rerender(<Table loading />);
     expect(container.querySelector('.ant-spin-section')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/22733
   it('support loading tip', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
     await waitFakeTimer();
     rerender(
       <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
     );
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
@@ -104,8 +105,8 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const columnsPageRange = jest.fn();
-    const columnsPageSize = jest.fn();
+    const columnsPageRange = vi.fn();
+    const columnsPageSize = vi.fn();
     const props = { columnsPageRange, columnsPageSize };
     render(
       <Table dataSource={data} rowKey="key" {...props}>
@@ -122,7 +123,7 @@ describe('Table', () => {
   });
 
   it('support onHeaderCell', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
     );
@@ -155,7 +156,7 @@ describe('Table', () => {
 
   it('prevent touch event', () => {
     // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
-    const touchmove = jest.fn();
+    const touchmove = vi.fn();
     const { container } = render(
       <Table<{ name?: string }>
         columns={[
@@ -458,6 +459,7 @@ describe('Table', () => {
   });
 
   it('support getPopupContainer inject by ConfigProvider', async () => {
+    vi.useFakeTimers();
     const columns = [
       {
         title: 'title',
@@ -482,15 +484,19 @@ describe('Table', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    try {
+      const { container } = render(<Demo />);
 
-    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
-    await waitFakeTimer();
-    expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+      fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('should not render duplicated controlled Popover in column title when scroll is enabled', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     try {
       const Demo = () => {
@@ -533,8 +539,8 @@ describe('Table', () => {
 
       expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
     } finally {
-      jest.runOnlyPendingTimers();
-      jest.useRealTimers();
+      vi.runOnlyPendingTimers();
+      vi.useRealTimers();
     }
   });
 

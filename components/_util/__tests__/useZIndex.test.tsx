@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import { waitFakeTimer } from '../../../tests/utils';
 import type { ImageProps, MenuProps } from '../../index';
@@ -29,12 +30,16 @@ import { resetWarned } from '../warning';
 import ZIndexContext from '../zindexContext';
 
 // TODO: Remove this. Mock for React 19
-jest.mock('react-dom', () => {
-  const realReactDOM = jest.requireActual('react-dom');
+vi.mock('react-dom', async () => {
+  const realReactDOM = await vi.importActual<typeof import('react-dom')>('react-dom');
 
   if (realReactDOM.version.startsWith('19')) {
-    const realReactDOMClient = jest.requireActual('react-dom/client');
-    realReactDOM.createRoot = realReactDOMClient.createRoot;
+    const realReactDOMClient =
+      await vi.importActual<typeof import('react-dom/client')>('react-dom/client');
+    return {
+      ...realReactDOM,
+      createRoot: realReactDOMClient.createRoot,
+    };
   }
 
   return realReactDOM;
@@ -237,10 +242,10 @@ const getConsumerSelector = (baseSelector: string, consumer: ZIndexConsumer): st
 describe('Test useZIndex hooks', () => {
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
   Object.keys(containerComponent).forEach((containerKey) => {
     Object.keys(consumerComponent).forEach((key) => {
@@ -248,7 +253,7 @@ describe('Test useZIndex hooks', () => {
       const consumerZIndexValue = consumerBaseZIndexOffset[key as ZIndexConsumer];
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
         it('Test hooks', () => {
-          const fn = jest.fn();
+          const fn = vi.fn();
           const Child: React.FC = () => {
             const [zIndex] = useZIndex(key as ZIndexConsumer);
             useEffect(() => {
@@ -348,7 +353,7 @@ describe('Test useZIndex hooks', () => {
   });
 
   it('Modal static func should always use max zIndex', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const instance = Modal.confirm({
       title: 'bamboo',
@@ -372,11 +377,11 @@ describe('Test useZIndex hooks', () => {
     // Clean up for static method
     document.body.innerHTML = '';
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('warning for too large zIndex auto offset', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Drawer open zIndex={999999999}>
@@ -410,7 +415,7 @@ describe('Test useZIndex hooks', () => {
   });
 
   it('not warning for static func', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const { modal } = App.useApp();

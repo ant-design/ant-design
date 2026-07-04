@@ -1,0 +1,773 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Table > renders JSX correctly 1`] = `
+<div
+  class="css-var-root ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-root ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    colspan="2"
+                    scope="colgroup"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    rowspan="2"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    First Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Last Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="css-var-root ant-table-css-var ant-table-wrapper ant-table-wrapper-rtl"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-rtl css-var-root"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-empty css-var-root ant-table-css-var ant-table-rtl"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  />
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-placeholder"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="css-var-root ant-empty ant-empty-normal ant-empty-rtl"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                              />
+                              <path
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table > should render title 1`] = `
+<div>
+  <div
+    class="css-var-root ant-table-css-var ant-table-wrapper"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-root"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-empty css-var-root ant-table-css-var"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      aria-description="sortable"
+                      aria-label=""
+                      class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          <div>
+                            <span>
+                              name
+                            </span>
+                            <span>
+                              Jason
+                            </span>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                    <th
+                      aria-description="sortable"
+                      aria-label=""
+                      class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          <div>
+                            <i />
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                    <th
+                      aria-description="sortable"
+                      aria-label=""
+                      class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          <div>
+                            <span>
+                              age
+                            </span>
+                            <span>
+                              20
+                            </span>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                    <th
+                      aria-description="sortable"
+                      aria-label="color"
+                      class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          color
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                    <th
+                      aria-description="sortable"
+                      aria-label="sex"
+                      class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          sex
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-placeholder"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      colspan="5"
+                    >
+                      <div
+                        class="css-var-root ant-empty ant-empty-normal"
+                      >
+                        <div
+                          class="ant-empty-image"
+                        >
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <title>
+                              No data
+                            </title>
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
+                            >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
+                              <g
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
+                              >
+                                <path
+                                  d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                                />
+                                <path
+                                  d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                                  fill="#fafafa"
+                                />
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          No data
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table > support wireframe 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-empty css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-placeholder"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="css-var-test-id ant-empty ant-empty-normal"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <title>
+                            No data
+                          </title>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
+                            >
+                              <path
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                              />
+                              <path
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                                fill="#fafafa"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table > title should support ReactNode 1`] = `
+<th
+  class="ant-table-cell"
+  scope="col"
+>
+  <div>
+    <strong>
+      Current
+    </strong>
+    <span>
+      User
+    </span>
+  </div>
+</th>
+`;

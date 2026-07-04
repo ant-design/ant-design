@@ -73,6 +73,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
         onChange(newDate);
       }}
       getPopupContainer={() => divRef.current}
+      virtual={false}
     />
   );
 }
@@ -115,6 +116,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
         onChange(generateConfig.setMonth(value, newMonth));
       }}
       getPopupContainer={() => divRef.current}
+      virtual={false}
     />
   );
 }

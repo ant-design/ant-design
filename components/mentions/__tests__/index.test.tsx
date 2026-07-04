@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -39,11 +40,11 @@ function simulateInput(wrapper: ReturnType<typeof render>, text: string, keyEven
 
 describe('Mentions', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('getMentions', () => {
@@ -55,8 +56,8 @@ describe('Mentions', () => {
   });
 
   it('focus', () => {
-    const onFocus = jest.fn();
-    const onBlur = jest.fn();
+    const onFocus = vi.fn();
+    const onBlur = vi.fn();
 
     const { container } = render(<Mentions onFocus={onFocus} onBlur={onBlur} />);
     fireEvent.focus(container.querySelector('textarea')!);
@@ -64,7 +65,7 @@ describe('Mentions', () => {
     expect(onFocus).toHaveBeenCalled();
     fireEvent.blur(container.querySelector('textarea')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-mentions')).not.toHaveClass('ant-mentions-focused');
     expect(onBlur).toHaveBeenCalled();
@@ -133,7 +134,7 @@ describe('Mentions', () => {
   });
 
   it('warning if use Mentions.Option', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Mentions style={{ width: '100%' }} defaultValue="@afc163">
         <Option value="afc163">afc163</Option>
@@ -147,23 +148,31 @@ describe('Mentions', () => {
   });
 
   it('do not lose label when use children Option', () => {
-    const wrapper = render(
-      <Mentions style={{ width: '100%' }}>
-        <Mentions.Option value="afc163">Afc163</Mentions.Option>
-        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
-        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
-      </Mentions>,
-    );
-    simulateInput(wrapper, '@');
-    const { container } = wrapper;
-    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
-    fireEvent.focus(container.querySelector('textarea')!);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(
-      wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
-    ).toBe('Yesmeck');
+    vi.useFakeTimers();
+
+    try {
+      const wrapper = render(
+        <Mentions style={{ width: '100%' }}>
+          <Mentions.Option value="afc163">Afc163</Mentions.Option>
+          <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+          <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+        </Mentions>,
+      );
+      simulateInput(wrapper, '@');
+      const { container } = wrapper;
+      fireEvent.mouseEnter(
+        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+      );
+      fireEvent.focus(container.querySelector('textarea')!);
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(
+        wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
+      ).toBe('Yesmeck');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   describe('form disabled', () => {
@@ -188,41 +197,47 @@ describe('Mentions', () => {
 
   describe('Custom Style', () => {
     it('support classNames and styles', () => {
-      const customClassNames = {
-        root: 'test-root',
-        popup: 'test-popup',
-        textarea: 'test-textarea',
-      };
-      const styles = {
-        root: { background: 'red' },
-        popup: { background: 'green' },
-        textarea: { background: 'blue' },
-      };
-      const wrapper = render(
-        <Mentions styles={styles} classNames={customClassNames}>
-          <Mentions.Option value="afc163">Afc163</Mentions.Option>
-          <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
-          <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
-        </Mentions>,
-      );
-      simulateInput(wrapper, '@');
-      const { container } = wrapper;
-      fireEvent.mouseEnter(
-        container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
-      );
-      fireEvent.focus(container.querySelector('textarea')!);
-      act(() => {
-        jest.runAllTimers();
-      });
-      const root = container.querySelector('.ant-mentions');
-      const popup = container.querySelector('.ant-mentions-dropdown');
-      const textarea = container.querySelector('.rc-textarea');
-      expect(root).toHaveClass(customClassNames.root);
-      expect(popup).toHaveClass(customClassNames.popup);
-      expect(textarea).toHaveClass(customClassNames.textarea);
-      expect(root).toHaveStyle(styles.root);
-      expect(popup).toHaveStyle(styles.popup);
-      expect(textarea).toHaveStyle(styles.textarea);
+      vi.useFakeTimers();
+
+      try {
+        const customClassNames = {
+          root: 'test-root',
+          popup: 'test-popup',
+          textarea: 'test-textarea',
+        };
+        const styles = {
+          root: { background: 'red' },
+          popup: { background: 'green' },
+          textarea: { background: 'blue' },
+        };
+        const wrapper = render(
+          <Mentions styles={styles} classNames={customClassNames}>
+            <Mentions.Option value="afc163">Afc163</Mentions.Option>
+            <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+            <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+          </Mentions>,
+        );
+        simulateInput(wrapper, '@');
+        const { container } = wrapper;
+        fireEvent.mouseEnter(
+          container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!,
+        );
+        fireEvent.focus(container.querySelector('textarea')!);
+        act(() => {
+          vi.runAllTimers();
+        });
+        const root = container.querySelector('.ant-mentions');
+        const popup = container.querySelector('.ant-mentions-dropdown');
+        const textarea = container.querySelector('.rc-textarea');
+        expect(root).toHaveClass(customClassNames.root);
+        expect(popup).toHaveClass(customClassNames.popup);
+        expect(textarea).toHaveClass(customClassNames.textarea);
+        expect(root).toHaveStyle(styles.root);
+        expect(popup).toHaveStyle(styles.popup);
+        expect(textarea).toHaveStyle(styles.textarea);
+      } finally {
+        vi.useRealTimers();
+      }
     });
   });
 });

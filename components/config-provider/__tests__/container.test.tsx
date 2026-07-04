@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -9,7 +10,7 @@ import Slider from '../../slider';
 
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
     render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <DatePicker open />
@@ -19,7 +20,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
   });
 
   it('Slider', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
     const wrapper = render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <Slider />
@@ -30,7 +31,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
   });
 
   it('Drawer', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
     const Demo: React.FC<{ open?: boolean }> = ({ open }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <Drawer open={open} />
@@ -41,7 +42,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
   });
 
   it('Cascader', () => {
-    const getPopupContainer = jest.fn((node) => node.parentNode);
+    const getPopupContainer = vi.fn((node) => node.parentNode);
     render(<Cascader getPopupContainer={getPopupContainer} open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });

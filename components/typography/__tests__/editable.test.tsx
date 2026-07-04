@@ -1,18 +1,19 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import { fireEvent, render } from '../../../tests/utils';
 import Base from '../Base';
 
-jest.mock('copy-to-clipboard');
+vi.mock('copy-to-clipboard');
 
-jest.mock('../../_util/styleChecker', () => ({
+vi.mock('../../_util/styleChecker', () => ({
   isStyleSupport: () => true,
 }));
 
 describe('Typography.Editable', () => {
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
 
   beforeAll(() => {

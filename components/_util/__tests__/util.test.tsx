@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
@@ -6,19 +8,19 @@ import toList from '../toList';
 describe('Test utils function', () => {
   describe('throttle', () => {
     beforeAll(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
     });
 
     afterEach(() => {
-      jest.clearAllTimers();
+      vi.clearAllTimers();
     });
 
     afterAll(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it('throttle function should work', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
       expect(callback).not.toHaveBeenCalled();
 
@@ -31,7 +33,7 @@ describe('Test utils function', () => {
     });
 
     it('throttle function should be canceled', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
 
       throttled();
@@ -41,7 +43,7 @@ describe('Test utils function', () => {
       expect(callback).not.toHaveBeenCalled();
     });
     it('should work with different argument types', async () => {
-      const callback = jest.fn();
+      const callback = vi.fn();
       const throttled = throttleByAnimationFrame(callback);
 
       const obj = { key: 'value' };
@@ -63,7 +65,7 @@ describe('Test utils function', () => {
     });
 
     it('isStyleSupport return false in service side', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(window.document, 'documentElement', 'get')
         .mockImplementation(() => undefined as unknown as HTMLElement);
       expect(isStyleSupport('color')).toBe(false);

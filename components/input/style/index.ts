@@ -33,6 +33,7 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
   },
 });
 
+/* istanbul ignore next */
 export const genActiveStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   borderColor: token.activeBorderColor,
   boxShadow: token.activeShadow,

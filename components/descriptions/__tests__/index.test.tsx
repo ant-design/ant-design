@@ -1,18 +1,19 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import { vi } from 'vitest';
 
 import Descriptions from '..';
+import { matchScreen } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { matchScreen } from '../../_util/responsiveObserver';
 import DEFAULT_COLUMN_MAP from '../constant';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     MockDate.reset();
@@ -272,7 +273,7 @@ describe('Descriptions', () => {
         <Descriptions.Item key="bamboo">1</Descriptions.Item>
       </Descriptions>,
     );
-    expect(jest.spyOn(document, 'createElement')).not.toHaveBeenCalled();
+    expect(vi.spyOn(document, 'createElement')).not.toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/19887

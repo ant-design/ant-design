@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { vi } from 'vitest';
 
 import Splitter from '..';
 import { resetWarned } from '../../_util/warning';
@@ -11,8 +12,8 @@ describe('Splitter.SSR', () => {
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('px value', () => {

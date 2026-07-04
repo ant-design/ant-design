@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import type { RadioGroupProps } from '..';
 import Radio, { Button } from '..';
@@ -14,8 +15,8 @@ describe('Radio Button', () => {
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(
       <Button onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
@@ -39,8 +40,8 @@ describe('Radio Group', () => {
   ));
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(
       <Radio.Group onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -56,7 +57,7 @@ describe('Radio Group', () => {
   });
 
   it('fire change events when value changes', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
 
@@ -69,8 +70,8 @@ describe('Radio Group', () => {
   });
 
   it('both of radio and radioGroup will trigger onchange event when they exists', () => {
-    const onChange = jest.fn();
-    const onChangeRadioGroup = jest.fn();
+    const onChange = vi.fn();
+    const onChangeRadioGroup = vi.fn();
 
     const { container } = render(
       <Radio.Group onChange={onChangeRadioGroup}>
@@ -94,7 +95,7 @@ describe('Radio Group', () => {
   });
 
   it('Trigger onChange when both of Button and radioGroup exists', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(
       <Radio.Group onChange={onChange}>
@@ -118,7 +119,7 @@ describe('Radio Group', () => {
   });
 
   it('should only trigger once when in group with options', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const options = [{ label: 'Bamboo', value: 'Bamboo' }];
     const { container } = render(<Radio.Group options={options} onChange={onChange} />);
 
@@ -127,7 +128,7 @@ describe('Radio Group', () => {
   });
 
   it("won't fire change events when value not changes", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
     const radios = container.querySelectorAll('input');
@@ -176,7 +177,7 @@ describe('Radio Group', () => {
   });
 
   it('Radio type should not be override', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Radio.Group onChange={onChange}>
         <Radio value={1} type="1">

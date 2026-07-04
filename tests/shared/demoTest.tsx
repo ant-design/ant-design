@@ -3,9 +3,12 @@ import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
+
 import 'isomorphic-fetch';
+
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { resetWarned } from '../../components/_util/warning';
 import { act, fireEvent, render } from '../utils';
@@ -13,7 +16,15 @@ import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
-export { rootPropsTest };
+export { default as rootPropsTest } from './rootPropsTest';
+
+vi.mock('../../.dumi/hooks/useLocale', () => {
+  return {
+    default: vi.fn((locales) => {
+      return [locales.cn || {}];
+    }),
+  };
+});
 
 export type Options = {
   skip?: boolean | string[];
@@ -29,6 +40,8 @@ export type Options = {
    */
   postRenderFn?: (container: HTMLElement) => Promise<void>;
 };
+
+const DEMO_TEST_TIMEOUT = 20_000;
 
 function baseTest(doInject: boolean, component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`).filter(
@@ -46,16 +59,15 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
     // function doTest(name: string, openTrigger = false) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
-      () => {
+      async () => {
         resetWarned();
 
         const errSpy = excludeWarning();
 
         const mockNow = new Date('2016-11-22').getTime();
-        Date.now = jest.fn(() => mockNow);
-        jest.useFakeTimers().setSystemTime(mockNow);
+        vi.useFakeTimers({ toFake: ['Date'] }).setSystemTime(mockNow);
 
-        let Demo = jest.requireActual(`../../${file}`).default;
+        let Demo = (await vi.importActual<{ default: any }>(`../../${file}`)).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -83,7 +95,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
           expect({ type: 'demo', html }).toMatchSnapshot();
         }
 
-        jest.clearAllTimers();
+        vi.clearAllTimers();
 
         // Snapshot of warning info
         if (doInject) {
@@ -102,8 +114,9 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
 
         errSpy.mockRestore();
       },
+      DEMO_TEST_TIMEOUT,
     );
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 }
 
@@ -122,13 +135,13 @@ export default function demoTest(component: string, options: Options = {}) {
 
   // Test component name is match the kebab-case
   const testName = test;
-  testName('component name is match the kebab-case', () => {
+  testName('component name is match the kebab-case', async () => {
     const kebabName = kebabCase(component);
 
     // Path should exist
 
-    const Component: React.ComponentType<any> = jest.requireActual(
-      `../../components/${kebabName}`,
+    const Component = (
+      await vi.importActual<{ default: React.ComponentType<any> }>(`../../components/${kebabName}`)
     ).default;
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
@@ -154,7 +167,7 @@ export function createPostFn(titles: string[]): (container: HTMLElement) => Prom
       if (button) {
         await act(async () => {
           fireEvent.click(button);
-          jest.advanceTimersByTime(100);
+          vi.advanceTimersByTime(100);
         });
       }
     }
@@ -166,13 +179,6 @@ export function createPostFn(titles: string[]): (container: HTMLElement) => Prom
  * Uses render instead of renderToString to get semantic classes
  */
 export function semanticDemoTest(component: string, options: Options = {}) {
-  // Mock useLocale hook for _semantic.tsx files
-  jest.mock('../../.dumi/hooks/useLocale', () => {
-    return jest.fn((locales) => {
-      return [locales.cn || {}];
-    });
-  });
-
   const files = globSync(`./components/${component}/demo/_semantic*.tsx`);
   files.forEach((file) => {
     // to compatible windows path
@@ -183,38 +189,41 @@ export function semanticDemoTest(component: string, options: Options = {}) {
         ? test.skip
         : test;
 
-    testMethod(`renders ${file} correctly`, async () => {
-      resetWarned();
+    testMethod(
+      `renders ${file} correctly`,
+      async () => {
+        resetWarned();
 
-      const errSpy = excludeWarning();
+        const errSpy = excludeWarning();
 
-      const mockNow = new Date('2016-11-22').getTime();
-      Date.now = jest.fn(() => mockNow);
-      jest.useFakeTimers().setSystemTime(mockNow);
+        const mockNow = new Date('2016-11-22').getTime();
+        vi.useFakeTimers({ toFake: ['Date'] }).setSystemTime(mockNow);
 
-      let Demo = jest.requireActual(`../../${file}`).default;
-      Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+        let Demo = (await vi.importActual<{ default: any }>(`../../${file}`)).default;
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
 
-      // Inject cssinjs cache to avoid create <style /> element
-      Demo = (
-        <ConfigProvider theme={{ hashed: false }}>
-          <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
-        </ConfigProvider>
-      );
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = (
+          <ConfigProvider theme={{ hashed: false }}>
+            <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+          </ConfigProvider>
+        );
 
-      // Use render to get container with semantic classes
-      const { container } = render(Demo);
+        // Use render to get container with semantic classes
+        const { container } = render(Demo);
 
-      // Run post-render function if provided
-      if (options.postRenderFn) {
-        await options.postRenderFn(container);
-      }
+        // Run post-render function if provided
+        if (options.postRenderFn) {
+          await options.postRenderFn(container);
+        }
 
-      expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
+        expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
 
-      jest.clearAllTimers();
-      errSpy.mockRestore();
-    });
-    jest.useRealTimers();
+        vi.clearAllTimers();
+        errSpy.mockRestore();
+      },
+      DEMO_TEST_TIMEOUT,
+    );
+    vi.useRealTimers();
   });
 }

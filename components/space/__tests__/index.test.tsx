@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { vi } from 'vitest';
 
 import Space from '..';
 import type { Orientation } from '../../_util/hooks';
@@ -87,7 +88,7 @@ describe('Space', () => {
   });
 
   it('should render vertical space width customize size', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space size={10} direction="vertical">
         <span>1</span>
@@ -178,7 +179,7 @@ describe('Space', () => {
   });
 
   it('legacy split', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       <Space split="-">
@@ -195,7 +196,7 @@ describe('Space', () => {
 
   // https://github.com/ant-design/ant-design/issues/35305
   it('should not throw duplicated key warning', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Space>
         <div key="1" />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { vi } from 'vitest';
 
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -15,27 +16,31 @@ const createImplFn = (value: string | number) => {
           cb({ matches: query === value });
         }
       },
-      removeEventListener: jest.fn(),
+      removeEventListener: vi.fn(),
     };
   };
 };
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
-jest.mock('../../_util/responsiveObserver', () => {
-  const modules = jest.requireActual('../../_util/responsiveObserver');
+vi.mock('../../_util/responsiveObserver', async () => {
+  const modules = await vi.importActual<typeof import('../../_util/responsiveObserver')>(
+    '../../_util/responsiveObserver',
+  );
   const originHook = modules.default;
 
-  const useMockResponsiveObserver = (...args: any[]) => {
+  const wrappedUnsubscribeSet = new WeakSet<ReturnType<typeof originHook>['unsubscribe']>();
+
+  const useMockResponsiveObserver = (...args: Parameters<typeof originHook>) => {
     const entity = originHook(...args);
-    if (!entity.unsubscribe.mocked) {
+    if (!wrappedUnsubscribeSet.has(entity.unsubscribe)) {
       const originUnsubscribe = entity.unsubscribe;
-      entity.unsubscribe = (...uArgs: any[]) => {
+      entity.unsubscribe = (...uArgs: Parameters<typeof originUnsubscribe>) => {
         const inst = global as any;
         inst.unsubscribeCnt = (inst.unsubscribeCnt || 0) + 1;
 
         originUnsubscribe.call(entity, ...uArgs);
       };
-      entity.unsubscribe.mocked = true;
+      wrappedUnsubscribeSet.add(entity.unsubscribe);
     }
 
     return entity;
@@ -94,7 +99,7 @@ describe('Grid', () => {
   });
 
   it(`when typeof gutter is object array in large screen`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(min-width: 1200px)') as any);
+    vi.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(min-width: 1200px)') as any);
     const { container, asFragment } = render(
       <Row
         gutter={[
@@ -153,7 +158,7 @@ describe('Grid', () => {
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   it(`should work with useBreakpoint`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    vi.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
     let screensVar: any = null;
     const Demo: React.FC = () => {
       const screens = useBreakpoint();
@@ -173,7 +178,7 @@ describe('Grid', () => {
   });
 
   it(`should align by responsive align prop`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    vi.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
     const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
@@ -183,7 +188,7 @@ describe('Grid', () => {
   });
 
   it(`should justify by responsive justify prop`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    vi.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');
     const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);

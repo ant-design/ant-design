@@ -1,12 +1,13 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import { ConfigContext } from '../context';
 
-jest.mock('@rc-component/util', () => {
-  const util = jest.requireActual('@rc-component/util');
+vi.mock('@rc-component/util', async () => {
+  const util = await vi.importActual<typeof import('@rc-component/util')>('@rc-component/util');
   return {
     ...util,
     isVisible: () => true,
@@ -15,16 +16,16 @@ jest.mock('@rc-component/util', () => {
 
 describe('ConfigProvider.Wave', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('disable', async () => {
-    const showEffect = jest.fn();
-    const onClick = jest.fn();
+    const showEffect = vi.fn();
+    const onClick = vi.fn();
 
     const { container } = render(
       <ConfigProvider wave={{ disabled: true, showEffect }}>
@@ -40,8 +41,8 @@ describe('ConfigProvider.Wave', () => {
   });
 
   it('support customize effect', async () => {
-    const showEffect = jest.fn();
-    const onClick = jest.fn();
+    const showEffect = vi.fn();
+    const onClick = vi.fn();
 
     const { container } = render(
       <ConfigProvider wave={{ showEffect }}>

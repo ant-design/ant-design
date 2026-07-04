@@ -1,5 +1,6 @@
 import React from 'react';
 import { clsx } from 'clsx';
+import { vi } from 'vitest';
 
 import Typography from '..';
 import type { TypographyProps } from '..';
@@ -9,13 +10,13 @@ import ConfigProvider from '../../config-provider';
 
 describe('Typography.Semantic', () => {
   it('should support classNames and styles for root, actions, and action', () => {
-    const classNamesFn: GetProp<TypographyProps, 'classNames'> = jest.fn(() => ({
+    const classNamesFn: GetProp<TypographyProps, 'classNames'> = vi.fn(() => ({
       root: 'custom-typography',
       actions: 'custom-actions',
       action: 'custom-action',
     }));
 
-    const stylesFn: GetProp<TypographyProps, 'styles'> = jest.fn(() => ({
+    const stylesFn: GetProp<TypographyProps, 'styles'> = vi.fn(() => ({
       root: { color: '#1890ff' },
       actions: { backgroundColor: '#f0f0f0' },
       action: { padding: '5px' },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Breadcrumb from '..';
 import type { GetProp } from '../../_util/type';
@@ -14,7 +15,7 @@ describe('Breadcrumb', () => {
   rtlTest(Breadcrumb);
   accessibilityTest(Breadcrumb);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -234,7 +235,7 @@ describe('Breadcrumb', () => {
 
   it('should support Breadcrumb.Item customized menu items key', () => {
     const key = 'test-key';
-    const { container } = render(
+    const { baseElement } = render(
       <Breadcrumb>
         <Breadcrumb.Item dropdownProps={{ open: true }} menu={{ items: [{ key }] }}>
           test-item
@@ -242,7 +243,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     );
 
-    const item = container.querySelector<HTMLElement>('.ant-dropdown-menu-item');
+    const item = baseElement.querySelector<HTMLElement>('.ant-dropdown-menu-item');
 
     expect(item?.getAttribute('data-menu-id')?.endsWith(key)).toBeTruthy();
   });
@@ -266,14 +267,14 @@ describe('Breadcrumb', () => {
   });
 
   it('should not console Error when `overlay` not in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Breadcrumb items={[{ path: '/', title: 'Test' }]} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
 
   it('should use `onClick`', async () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const wrapper = render(<Breadcrumb items={[{ title: 'test', onClick }]} />);
     const item = await wrapper.findByText('test');
     item.click();

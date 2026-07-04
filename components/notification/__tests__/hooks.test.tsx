@@ -1,6 +1,7 @@
 import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { render as testLibRender } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import notification from '..';
 import { act, fireEvent, pureRender, render } from '../../../tests/utils';
@@ -9,12 +10,12 @@ import ConfigProvider from '../../config-provider';
 describe('notification.hooks', () => {
   beforeEach(() => {
     document.body.innerHTML = '';
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should work', () => {
@@ -132,7 +133,7 @@ describe('notification.hooks', () => {
     });
 
     it('warning if user call update in render', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const Demo = () => {
         const [api, holder] = notification.useNotification();
@@ -226,13 +227,13 @@ describe('notification.hooks', () => {
 
     // Pass 1s
     act(() => {
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
     });
     expect(getNoticeCount()).toBe(1);
 
     // Pass 2s
     act(() => {
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
     });
     expect(getNoticeCount()).toBe(0);
   });

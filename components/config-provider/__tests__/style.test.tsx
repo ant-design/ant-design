@@ -1769,7 +1769,7 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Dropdown className & style works', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <ConfigProvider
         dropdown={{ className: 'cp-dropdown', style: { backgroundColor: 'rgb(255, 0, 0)' } }}
       >
@@ -1797,7 +1797,7 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Tour closeIcon works', () => {
-    const { container } = render(
+    const { baseElement: container } = render(
       <ConfigProvider
         tour={{ closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span> }}
       >

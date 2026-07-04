@@ -1,6 +1,7 @@
 import React from 'react';
 import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 
 import Alert from '..';
 import type { GetProp } from '../../_util/type';
@@ -24,16 +25,16 @@ describe('Alert', () => {
   accessibilityTest(Alert);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should show close button and could be closed', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onClose = jest.fn();
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const onClose = vi.fn();
     const { container } = render(
       <Alert
         title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
@@ -50,9 +51,9 @@ describe('Alert', () => {
   });
 
   it('onClose and closable.onClose', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onClose = jest.fn();
-    const handleClosableClose = jest.fn();
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const onClose = vi.fn();
+    const handleClosableClose = vi.fn();
     const { container } = render(
       <Alert
         title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
@@ -104,7 +105,7 @@ describe('Alert', () => {
   });
 
   it('should show error as ErrorBoundary when children have error', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     const ThrowError: React.FC = () => {
       throw new Error('This is a test error');
@@ -119,7 +120,7 @@ describe('Alert', () => {
   });
 
   it('could be used with Tooltip', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup({ advanceTimers: (time) => vi.advanceTimersByTime(time) });
 
     render(
       <Tooltip title="xxx" mouseEnterDelay={0}>
@@ -138,7 +139,7 @@ describe('Alert', () => {
   });
 
   it('could be used with Popconfirm', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const user = userEvent.setup({ advanceTimers: (time) => vi.advanceTimersByTime(time) });
 
     render(
       <Popconfirm title="xxx">
@@ -151,7 +152,7 @@ describe('Alert', () => {
     await user.click(screen.getByRole('alert'));
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
@@ -207,7 +208,7 @@ describe('Alert', () => {
 
   it('should warning when using closeText', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Alert closeText="close" />);
 

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Affix Render > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class=""
+>
+  <div
+    class=""
+  >
+    test
+  </div>
+</div>
+`;

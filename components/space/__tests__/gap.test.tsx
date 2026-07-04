@@ -1,9 +1,10 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Space from '..';
 import { render } from '../../../tests/utils';
 
-jest.mock('../../_util/styleChecker', () => ({
+vi.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
 }));

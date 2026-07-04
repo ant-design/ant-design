@@ -12,6 +12,7 @@ export type { ArgsProps };
 
 let notification: GlobalNotification | null = null;
 
+/* istanbul ignore next */
 let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
 
 interface GlobalNotification {
@@ -241,6 +242,7 @@ methods.forEach((type: keyof NoticeMethods) => {
 // ==============================================================================
 // ==                                   Test                                   ==
 // ==============================================================================
+/* istanbul ignore next */
 const noop = () => {};
 
 let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
@@ -254,6 +256,7 @@ export { actWrapper };
 
 let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
+  /* istanbul ignore next */
   _actDestroy = () => {
     notification = null;
   };

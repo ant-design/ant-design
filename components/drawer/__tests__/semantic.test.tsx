@@ -1,5 +1,6 @@
 import React from 'react';
 import { warning } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Drawer from '..';
 import type { DrawerProps } from '..';
@@ -222,7 +223,7 @@ describe('Drawer.Semantic', () => {
   });
 
   it('warning with both deprecated classNames.content and styles.content props', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     resetWarned();
 
     render(

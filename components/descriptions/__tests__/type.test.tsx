@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
+import { vi } from 'vitest';
+
 import Descriptions from '..';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 describe('Descriptions.Item span property types', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -168,7 +170,7 @@ describe('Descriptions.Item span property types', () => {
 
   // 测试原生 HTML 属性的类型支持与透传
   it('should accept and forward native HTML attributes to the root element', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     const { container } = render(
       <Descriptions
         id="custom-id"

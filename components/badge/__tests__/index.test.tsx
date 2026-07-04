@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Badge from '..';
 import type { GetRef } from '../../_util/type';
@@ -19,15 +20,15 @@ describe('Badge', () => {
   ));
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('no strict warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const Comp = () => {
       const [count, setCount] = React.useState<number | null>(9999);
 
@@ -107,7 +108,7 @@ describe('Badge', () => {
 
     act(() => {
       fireEvent.mouseEnter(container.querySelector('.ant-badge')!);
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
   });
@@ -119,7 +120,7 @@ describe('Badge', () => {
       rerender(<Badge count={count} />);
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
     }

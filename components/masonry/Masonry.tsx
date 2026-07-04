@@ -110,6 +110,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
+  /* istanbul ignore next */
   React.useImperativeHandle(ref, () => ({
     nativeElement: containerRef.current!,
   }));

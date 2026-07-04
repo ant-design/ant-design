@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { vi } from 'vitest';
 
 import { Col, Row } from '..';
 import { render, screen } from '../../../tests/utils';
 
-jest.mock('../../_util/styleChecker', () => ({
+vi.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
 }));
@@ -32,7 +33,7 @@ describe('Grid.Gap', () => {
   });
 
   it('not break ssr', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo: React.FC = () => (
       <Row gutter={[16, 8]}>

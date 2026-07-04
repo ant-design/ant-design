@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { vi } from 'vitest';
 
 import { extendTest } from '../../../tests/shared/demoTest';
 
-jest.mock('@rc-component/drawer', () => {
-  const Drawer = jest.requireActual('@rc-component/drawer');
+vi.mock('@rc-component/drawer', async () => {
+  const Drawer =
+    await vi.importActual<typeof import('@rc-component/drawer')>('@rc-component/drawer');
   const MockDrawer = Drawer.default;
-  return (props: any) => {
+  const ProxyDrawer = (props: any) => {
     const newProps = {
       ...props,
       open: true,
@@ -14,6 +16,11 @@ jest.mock('@rc-component/drawer', () => {
       motion: null,
     };
     return <MockDrawer {...newProps} />;
+  };
+
+  return {
+    ...Drawer,
+    default: ProxyDrawer,
   };
 });
 

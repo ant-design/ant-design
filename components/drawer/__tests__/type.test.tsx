@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { vi } from 'vitest';
 
 import Drawer from '..';
 
 describe('Drawer.typescript', () => {
   it('Drawer', () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const wrapper = (
       <Drawer
         title="Basic Drawer"

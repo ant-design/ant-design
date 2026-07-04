@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Steps from '..';
 import type { StepsProps } from '..';
@@ -64,7 +65,7 @@ describe('Steps maxCount', () => {
   });
 
   it('warns and renders original items when maxCount is less than 3', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<Steps current={2} maxCount={2} items={items} />);
 
@@ -112,7 +113,7 @@ describe('Steps maxCount', () => {
   });
 
   it('triggers onChange with original step index', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     render(<Steps current={3} maxCount={5} items={items} onChange={onChange} />);
     fireEvent.click(screen.getByText('Step 5'));

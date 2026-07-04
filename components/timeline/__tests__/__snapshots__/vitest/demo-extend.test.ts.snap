@@ -1,0 +1,2802 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-green ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 16px;"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 16px;"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 20px; background: rgb(255, 255, 255);"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/end.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/end.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/horizontal.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/horizontal.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/horizontal-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/horizontal-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Recording...
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Toggle Reverse
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/pending-legacy.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Recording...
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          🔴
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Recording...
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/pending-legacy.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Timeline] \`pendingDot\` is deprecated. Please use \`items\` instead. You can create a \`item\` as pending node directly.",
+  "Warning: [antd: Timeline] \`pending\` is deprecated. Please use \`items\` instead. You can create a \`item\` as pending node directly.",
+]
+`;
+
+exports[`renders components/timeline/demo/semantic.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    style="height: 100px;"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            style="border-style: dashed;"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    style="height: 100px;"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            style="border-style: dashed;"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+          style="opacity: 0.45;"
+        >
+          ...for a long time...
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/semantic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-14g82y5"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-14g82y5"
+    style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/title.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
+    style="margin-bottom: 20px;"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="start"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Start
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="end"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        End
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="alternate"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Alternate
+      </span>
+    </label>
+  </div>,
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>,
+]
+`;
+
+exports[`renders components/timeline/demo/title.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/title-span.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
+>
+  <h5
+    class="ant-typography css-var-test-id"
+    style="margin: 0px;"
+  >
+    titleSpan = 100px
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 100px;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <h5
+    class="ant-typography css-var-test-id"
+    style="margin: 0px;"
+  >
+    titleSpan = 25%
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 25%;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <h5
+    class="ant-typography css-var-test-id"
+    style="margin: 0px;"
+  >
+    titleSpan = 18, mode = end
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span: 18;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/title-span.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/variant.tsx extend context correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders components/timeline/demo/variant.tsx extend context correctly 2`] = `[]`;

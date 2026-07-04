@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
+import { vi } from 'vitest';
 
 import Masonry from '..';
 import type { MasonryProps } from '..';
@@ -15,21 +16,25 @@ const resizeMasonry = async () => {
 };
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
-jest.mock('../../_util/responsiveObserver', () => {
-  const modules = jest.requireActual('../../_util/responsiveObserver');
+vi.mock('../../_util/responsiveObserver', async () => {
+  const modules = await vi.importActual<typeof import('../../_util/responsiveObserver')>(
+    '../../_util/responsiveObserver',
+  );
   const originHook = modules.default;
 
-  const useMockResponsiveObserver = (...args: any[]) => {
+  const wrappedUnsubscribeSet = new WeakSet<ReturnType<typeof originHook>['unsubscribe']>();
+
+  const useMockResponsiveObserver = (...args: Parameters<typeof originHook>) => {
     const entity = originHook(...args);
-    if (!entity.unsubscribe.mocked) {
+    if (!wrappedUnsubscribeSet.has(entity.unsubscribe)) {
       const originUnsubscribe = entity.unsubscribe;
-      entity.unsubscribe = (...uArgs: any[]) => {
+      entity.unsubscribe = (...uArgs: Parameters<typeof originUnsubscribe>) => {
         const inst = global as any;
         inst.unsubscribeCnt = (inst.unsubscribeCnt || 0) + 1;
 
         originUnsubscribe.call(entity, ...uArgs);
       };
-      entity.unsubscribe.mocked = true;
+      wrappedUnsubscribeSet.add(entity.unsubscribe);
     }
 
     return entity;
@@ -49,7 +54,7 @@ describe('Masonry', () => {
   let minWidth = '';
 
   beforeAll(() => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    vi.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
           addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
@@ -57,7 +62,7 @@ describe('Masonry', () => {
               cb({ matches: query === `(min-width: ${minWidth})` });
             }
           },
-          removeEventListener: jest.fn(),
+          removeEventListener: vi.fn(),
           matches: query === `(min-width: ${minWidth})`,
         }) as any,
     );
@@ -78,7 +83,7 @@ describe('Masonry', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     minWidth = '1200px';
     (global as any).unsubscribeCnt = 0;
   });
@@ -86,9 +91,9 @@ describe('Masonry', () => {
   afterEach(async () => {
     await waitFakeTimer();
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
-    jest.restoreAllMocks();
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
     document.body.innerHTML = '';
   });
 
@@ -126,7 +131,7 @@ describe('Masonry', () => {
   };
 
   it('should render correctly', async () => {
-    const onLayoutChange = jest.fn();
+    const onLayoutChange = vi.fn();
     const { container } = render(<DemoMasonry columns={3} onLayoutChange={onLayoutChange} />);
     await resizeMasonry();
 
@@ -253,7 +258,7 @@ describe('Masonry', () => {
     });
 
     it('should handle responsive gutter with array', async () => {
-      const mockMatchMedia = jest.spyOn(window, 'matchMedia').mockImplementation(
+      const mockMatchMedia = vi.spyOn(window, 'matchMedia').mockImplementation(
         (query) =>
           ({
             addEventListener: (type: string, cb: (e: { matches: boolean }) => void) => {
@@ -261,7 +266,7 @@ describe('Masonry', () => {
                 cb({ matches: query === '(min-width: 576px)' });
               }
             },
-            removeEventListener: jest.fn(),
+            removeEventListener: vi.fn(),
             matches: query === '(min-width: 576px)',
           }) as any,
       );
