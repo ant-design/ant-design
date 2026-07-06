@@ -4,19 +4,25 @@ import { isNonNullable } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { ColumnTitleProps, FilterValue } from '../interface';
 
+const getMergedFilters = (filters: Record<string, FilterValue | null>) => {
+  const mergedFilters: Record<string, FilterValue> = {};
+  for (const [key, value] of Object.entries(filters)) {
+    if (isNonNullable(value)) {
+      mergedFilters[key] = value;
+    }
+  }
+  return mergedFilters;
+};
+
 const useColumnTitleProps = <RecordType extends AnyObject = AnyObject>(
   sorterTitleProps: ColumnTitleProps<RecordType>,
   filters: Record<string, FilterValue | null>,
 ) => {
   const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
-    const mergedFilters: Record<string, FilterValue> = {};
-    Object.keys(filters).forEach((filterKey) => {
-      const value = filters[filterKey];
-      if (isNonNullable(value)) {
-        mergedFilters[filterKey] = value;
-      }
-    });
-    return { ...sorterTitleProps, filters: mergedFilters };
+    return {
+      ...sorterTitleProps,
+      filters: getMergedFilters(filters),
+    };
   }, [sorterTitleProps, filters]);
   return columnTitleProps;
 };
