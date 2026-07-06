@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -86,12 +88,14 @@ export const getMergedFilters = (filters: Record<string, FilterValue | null>) =>
   return mergedFilters;
 };
 
-export const getSpinProps = (loading?: boolean | SpinProps): SpinProps => {
-  if (typeof loading === 'boolean') {
-    return { spinning: loading };
-  }
-  if (isPlainObject<SpinProps>(loading)) {
-    return { spinning: true, ...loading };
-  }
-  return {};
+export const useSpinProps = (loading?: boolean | SpinProps) => {
+  return React.useMemo<SpinProps>(() => {
+    if (typeof loading === 'boolean') {
+      return { spinning: loading };
+    }
+    if (isPlainObject<SpinProps>(loading)) {
+      return { spinning: true, ...loading };
+    }
+    return {};
+  }, [loading]);
 };

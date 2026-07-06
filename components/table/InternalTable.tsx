@@ -61,7 +61,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { getMergedFilters, getPaginationSize, getSpinProps, normalizePlacement } from './util';
+import { getMergedFilters, getPaginationSize, normalizePlacement, useSpinProps } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -670,7 +670,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  const spinProps = React.useMemo(() => getSpinProps(loading), [loading]);
+  const spinProps = useSpinProps(loading);
 
   const wrappercls = clsx(
     cssVarCls,
