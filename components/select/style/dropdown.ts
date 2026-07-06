@@ -13,10 +13,6 @@ import {
 import type { GenerateStyle } from '../../theme/internal';
 import type { SelectToken } from './token';
 
-// Width of the custom scrollbar drawn by `@rc-component/virtual-list`, kept clear
-// of the scroll fade so the gradient never overlaps the scrollbar.
-const VIRTUAL_LIST_SCROLLBAR_WIDTH = 8;
-
 // Scroll-driven fades: reveal each edge fade only while there is more content to
 // scroll toward, so it disappears once the matching edge is reached.
 const scrollFadeTopIn = new Keyframes('antSelectDropdownScrollFadeTop', {
@@ -50,7 +46,6 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const selectItemCls = `${componentCls}-item`;
 
   const fadeHeight = unit(token.controlHeightLG);
-  const scrollbarGutter = unit(VIRTUAL_LIST_SCROLLBAR_WIDTH);
 
   const slideUpEnterActive = `&${antCls}-slide-up-enter${antCls}-slide-up-enter-active`;
   const slideUpAppearActive = `&${antCls}-slide-up-appear${antCls}-slide-up-appear-active`;
@@ -117,12 +112,12 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         // top/bottom so long lists hint at more content. The fade sits on top of
         // the options (not behind), matching a clean elevated-bg gradient.
         '.rc-virtual-list-holder': {
+          scrollbarGutter: 'stable',
+
           '&::before, &::after': {
             content: '""',
             position: 'sticky',
             display: 'block',
-            // Keep clear of the scrollbar, mirroring the reserved gutter.
-            marginInlineEnd: scrollbarGutter,
             height: fadeHeight,
             pointerEvents: 'none',
             zIndex: 1,
