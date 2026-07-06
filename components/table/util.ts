@@ -1,6 +1,17 @@
+import type { TableProps } from '.';
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
-import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
+import type { SizeType } from '../config-provider/SizeContext';
+import type { SpinProps } from '../spin';
+import type {
+  ColumnTitle,
+  ColumnTitleProps,
+  ColumnType,
+  FilterValue,
+  Key,
+  TablePaginationPlacement,
+  TablePaginationPosition,
+} from './interface';
 
 export const getColumnKey = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
@@ -45,4 +56,39 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
     return '';
   }
   return result;
+};
+
+export const normalizePlacement = (pos: TablePaginationPlacement | TablePaginationPosition) => {
+  const lowerPos = pos.toLowerCase();
+  if (lowerPos.includes('center')) {
+    return 'center';
+  }
+  return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end';
+};
+
+export const getPaginationSize = (paginationSize: SizeType, mergedSize: SizeType): SizeType => {
+  if (paginationSize) {
+    return paginationSize;
+  }
+  return mergedSize === 'small' || mergedSize === 'medium' ? 'small' : undefined;
+};
+
+export const getMergedFilters = (filters: Record<string, FilterValue | null>) => {
+  const mergedFilters: Record<string, FilterValue> = {};
+  Object.keys(filters).forEach((filterKey) => {
+    if (filters[filterKey] !== null) {
+      mergedFilters[filterKey] = filters[filterKey];
+    }
+  });
+  return mergedFilters;
+};
+
+export const getSpinProps = (loading: TableProps['loading']): SpinProps => {
+  if (typeof loading === 'boolean') {
+    return { spinning: loading };
+  }
+  if (isPlainObject<SpinProps>(loading)) {
+    return { spinning: true, ...loading };
+  }
+  return {};
 };
