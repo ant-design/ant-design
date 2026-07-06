@@ -45,6 +45,7 @@ import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 
+import type { PreviewThemeConfig } from '../ThemePreview/previewThemes';
 import { DEFAULT_COLOR } from '../ThemePreview/previewThemes';
 
 const { Header, Content, Sider } = Layout;
@@ -258,7 +259,7 @@ export interface ThemeDashboardProps {
   className?: string;
   config?: ConfigProviderProps;
   style?: React.CSSProperties;
-  activeTheme: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const dashboardKpis = [
@@ -387,7 +388,7 @@ interface ThemeDashboardLayoutProps {
   className?: string;
   isDarkTheme: boolean;
   style?: React.CSSProperties;
-  activeTheme?: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
@@ -433,10 +434,9 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                className={clsx(styles.avatar)}
+                className={styles.avatar}
                 style={{
-                  // backgroundColor: token.colorPrimaryBgHover,
-                  backgroundImage: `url(${activeTheme?.icon})`,
+                  backgroundImage: activeTheme?.icon ? `url(${activeTheme.icon})` : undefined,
                 }}
               />
             </Flex>
@@ -579,7 +579,6 @@ export const ThemeDashboard: React.FC<ThemeDashboardProps> = (props) => {
   const isDarkTheme = React.useMemo(() => {
     const algorithm = config?.theme?.algorithm;
     const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
-
     return algorithms.includes(theme.darkAlgorithm);
   }, [config]);
 
