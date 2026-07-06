@@ -1,163 +1,8 @@
 import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
-import { createStyles } from 'antd-style';
-import clsx from 'clsx';
-
-const useStyles = createStyles(({ css, cssVar }) => {
-  const softShadow = '0 1px 2px rgba(42, 35, 29, 0.04), 0 8px 24px -12px rgba(42, 35, 29, 0.08)';
-  const elevShadow = '0 2px 4px rgba(42, 35, 29, 0.05), 0 24px 48px -16px rgba(42, 35, 29, 0.14)';
-
-  return {
-    buttonPrimary: css({
-      backgroundColor: '#312721',
-      color: '#f8f6f1',
-      border: '1px solid #312721',
-      fontWeight: 500,
-      letterSpacing: '0.02em',
-      boxShadow: 'none',
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        backgroundColor: '#3f342d !important',
-        borderColor: '#3f342d !important',
-      },
-    }),
-    buttonDefault: css({
-      backgroundColor: '#fcfaf8',
-      color: '#2a231d',
-      border: '1px solid #e2dcd5',
-      fontWeight: 500,
-      boxShadow: 'none',
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        backgroundColor: '#f8f6f2 !important',
-        borderColor: '#d9d0c6 !important',
-        color: '#2a231d !important',
-      },
-    }),
-    buttonDanger: css({
-      backgroundColor: '#be4237',
-      color: '#f8f6f1',
-      border: '1px solid #be4237',
-      boxShadow: 'none',
-    }),
-    inputRoot: css({
-      borderColor: '#e2dcd5',
-      backgroundColor: '#fcfaf8',
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        borderColor: '#c7a56b',
-      },
-    }),
-    inputElement: css({
-      color: '#2a231d',
-    }),
-    inputError: css({
-      borderColor: '#be4237',
-    }),
-    cardRoot: css({
-      border: '1px solid color-mix(in srgb, #e2dcd5 70%, transparent)',
-      boxShadow: softShadow,
-      transition: 'box-shadow 0.3s ease',
-      '&:hover': {
-        boxShadow: elevShadow,
-      },
-    }),
-    modalContainer: css({
-      border: '1px solid #e2dcd5',
-      boxShadow: elevShadow,
-    }),
-    modalHeader: css({
-      borderBottom: `1px solid ${cssVar.colorSplit}`,
-    }),
-    modalFooter: css({
-      borderTop: `1px solid ${cssVar.colorSplit}`,
-      backgroundColor: '#f8f6f2',
-    }),
-    notificationRoot: css({
-      '&.ant-notification-notice, & .ant-notification-notice': {
-        border: '1px solid #e2dcd5',
-        borderRadius: 4,
-        boxShadow: softShadow,
-        backgroundColor: '#fcfaf8',
-      },
-    }),
-    notificationTitle: css({
-      fontWeight: 600,
-      color: '#2a231d',
-    }),
-    notificationDescription: css({
-      color: '#766a60',
-    }),
-    selectPopup: css({
-      borderRadius: 4,
-      border: '1px solid #e2dcd5',
-      boxShadow: softShadow,
-    }),
-    menuRoot: css({
-      background: 'transparent !important',
-      borderInlineEnd: 'none !important',
-      paddingBlock: 4,
-
-      '& .ant-menu-item, & .ant-menu-submenu-title': {
-        fontWeight: 300,
-        letterSpacing: '0.04em',
-        borderInlineStart: '2px solid transparent',
-        marginInline: 12,
-        width: 'calc(100% - 24px)',
-        borderRadius: '0 !important',
-      },
-
-      '& .ant-menu-item::after': {
-        display: 'none !important',
-      },
-
-      '& .ant-menu-item': {
-        color: 'rgba(232, 226, 217, 0.7)',
-      },
-
-      '& .ant-menu-item:hover': {
-        color: '#e8e2d9 !important',
-        backgroundColor: 'rgba(60, 51, 42, 0.4) !important',
-      },
-
-      '& .ant-menu-item-selected': {
-        color: '#ebe4d8 !important',
-        backgroundColor: '#3c332a !important',
-        borderInlineStartColor: '#c7a56b !important',
-        fontWeight: 400,
-      },
-
-      '& .ant-menu-submenu-title': {
-        color: 'rgba(232, 226, 217, 0.7)',
-      },
-
-      '& .ant-menu-submenu-title:hover': {
-        color: '#e8e2d9 !important',
-        backgroundColor: 'rgba(60, 51, 42, 0.4) !important',
-      },
-
-      '& .ant-menu-submenu-selected > .ant-menu-submenu-title': {
-        color: '#e8e2d9 !important',
-        backgroundColor: 'transparent !important',
-        borderInlineStartColor: 'transparent !important',
-        fontWeight: 300,
-      },
-
-      '& .ant-menu-sub.ant-menu-inline': {
-        background: 'transparent !important',
-      },
-
-      '& .ant-menu-sub .ant-menu-item': {
-        paddingInlineStart: '40px !important',
-      },
-    }),
-  };
-});
 
 const useSereneTheme = () => {
-  const { styles } = useStyles();
-
   return useMemo<ConfigProviderProps>(
     () => ({
       theme: {
@@ -300,16 +145,27 @@ const useSereneTheme = () => {
             itemMarginInline: 12,
             itemHeight: 40,
           },
-          Card: { borderRadiusLG: 4 },
-          Modal: { borderRadiusLG: 6 },
-          Alert: { borderRadiusLG: 4 },
+          Card: {
+            borderRadiusLG: 4,
+          },
+          Modal: {
+            borderRadiusLG: 6,
+          },
+          Alert: {
+            borderRadiusLG: 4,
+          },
           Progress: {
             circleTextColor: '#2a231d',
             defaultColor: '#312721',
             remainingColor: 'rgba(49, 39, 33, 0.08)',
           },
-          Switch: { trackHeight: 22, trackMinWidth: 44 },
-          Checkbox: { borderRadiusSM: 2 },
+          Switch: {
+            trackHeight: 22,
+            trackMinWidth: 44,
+          },
+          Checkbox: {
+            borderRadiusSM: 2,
+          },
           Slider: {
             trackBg: '#ebe7e0',
             trackHoverBg: '#e2dcd5',
@@ -331,66 +187,28 @@ const useSereneTheme = () => {
           Radio: {},
         },
       },
-      button: {
-        classNames: ({ props }) => ({
-          root: clsx(
-            props.type === 'primary' && styles.buttonPrimary,
-            props.type === 'default' && styles.buttonDefault,
-            props.danger && styles.buttonDanger,
-          ),
-        }),
-      },
-      input: {
-        classNames: ({ props }) => ({
-          root: clsx(styles.inputRoot, props.status === 'error' && styles.inputError),
-          input: styles.inputElement,
-        }),
-      },
-      select: {
-        classNames: {
-          popup: { root: styles.selectPopup },
-        },
-      },
-      card: {
-        classNames: {
-          root: styles.cardRoot,
-        },
-      },
-      modal: {
-        classNames: {
-          container: styles.modalContainer,
-          header: styles.modalHeader,
-          footer: styles.modalFooter,
-        },
-      },
-      notification: {
-        classNames: {
-          root: styles.notificationRoot,
-          title: styles.notificationTitle,
-          description: styles.notificationDescription,
-        },
-      },
-      menu: {
-        classNames: {
-          root: styles.menuRoot,
-        },
-      },
       wave: {},
       app: {},
+      card: {},
+      modal: {},
+      button: {},
       alert: {},
       colorPicker: {},
       checkbox: {},
       dropdown: {},
+      select: {},
       datePicker: {},
+      input: {},
       inputNumber: {},
       popover: {},
       tooltip: {},
+      notification: {},
       switch: {},
       radio: {},
       segmented: {},
       progress: {},
     }),
-    [styles],
+    [],
   );
 };
 
