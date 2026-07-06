@@ -1,4 +1,3 @@
-import type { TableProps } from '.';
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -70,21 +69,24 @@ export const getPaginationSize = (paginationSize: SizeType, mergedSize: SizeType
   if (paginationSize) {
     return paginationSize;
   }
-  return mergedSize === 'small' || mergedSize === 'medium' ? 'small' : undefined;
+  if (mergedSize === 'small' || mergedSize === 'medium') {
+    return 'small';
+  }
+  return undefined;
 };
 
 export const getMergedFilters = (filters: Record<string, FilterValue | null>) => {
   const mergedFilters: Record<string, FilterValue> = {};
   Object.keys(filters).forEach((filterKey) => {
     const value = filters[filterKey];
-    if (value !== null && value !== undefined) {
+    if (isNonNullable(value)) {
       mergedFilters[filterKey] = value;
     }
   });
   return mergedFilters;
 };
 
-export const getSpinProps = (loading: TableProps['loading']): SpinProps => {
+export const getSpinProps = (loading?: boolean | SpinProps): SpinProps => {
   if (typeof loading === 'boolean') {
     return { spinning: loading };
   }
