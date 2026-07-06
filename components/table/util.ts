@@ -76,8 +76,9 @@ export const getPaginationSize = (paginationSize: SizeType, mergedSize: SizeType
 export const getMergedFilters = (filters: Record<string, FilterValue | null>) => {
   const mergedFilters: Record<string, FilterValue> = {};
   Object.keys(filters).forEach((filterKey) => {
-    if (filters[filterKey] !== null) {
-      mergedFilters[filterKey] = filters[filterKey];
+    const value = filters[filterKey];
+    if (value !== null && value !== undefined) {
+      mergedFilters[filterKey] = value;
     }
   });
   return mergedFilters;
