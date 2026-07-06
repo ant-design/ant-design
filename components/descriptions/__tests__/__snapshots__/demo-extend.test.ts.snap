@@ -2781,19 +2781,19 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                                     class="ant-table-cell"
                                     scope="col"
                                   >
-                                    姓名
+                                    Name
                                   </th>
                                   <th
                                     class="ant-table-cell"
                                     scope="col"
                                   >
-                                    年龄
+                                    Age
                                   </th>
                                   <th
                                     class="ant-table-cell"
                                     scope="col"
                                   >
-                                    住址
+                                    Address
                                   </th>
                                 </tr>
                               </thead>
@@ -2807,7 +2807,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    胡彦斌
+                                    John Brown
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -2817,7 +2817,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    西湖区湖底公园1号
+                                    No. 1 Lake Park
                                   </td>
                                 </tr>
                                 <tr
@@ -2827,7 +2827,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    胡彦祖
+                                    Jim Green
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -2837,7 +2837,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    西湖区湖底公园1号
+                                    No. 1 Lake Park
                                   </td>
                                 </tr>
                               </tbody>
