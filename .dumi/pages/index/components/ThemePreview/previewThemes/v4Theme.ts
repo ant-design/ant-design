@@ -37,7 +37,12 @@ const useV4Theme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            ...defaultTheme.components?.Progress,
+            circleTextColor: '#000000d9',
+            defaultColor: defaultTheme.token?.colorPrimary ?? '#1890ff',
+            remainingColor: '#f5f5f5',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},

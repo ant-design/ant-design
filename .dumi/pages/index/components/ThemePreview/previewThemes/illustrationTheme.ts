@@ -138,7 +138,11 @@ const useIllustrationTheme = () => {
           Radio: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#2C2C2C',
+            defaultColor: '#52C41A',
+            remainingColor: '#D9F7BE',
+          },
           Steps: {},
           ColorPicker: {},
         },

@@ -36,7 +36,11 @@ const useBlossomTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#3f2330',
+            defaultColor: '#ED4192',
+            remainingColor: 'rgba(237, 65, 146, 0.14)',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},

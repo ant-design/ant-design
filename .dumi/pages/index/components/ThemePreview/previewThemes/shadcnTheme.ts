@@ -179,6 +179,7 @@ const useShadcnTheme = () => {
             borderRadiusLG: 12,
           },
           Progress: {
+            circleTextColor: '#262626',
             defaultColor: '#18181b',
             remainingColor: '#f4f4f5',
           },

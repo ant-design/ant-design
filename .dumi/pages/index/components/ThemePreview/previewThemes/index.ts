@@ -96,7 +96,11 @@ const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
   Select: {},
   Input: {},
   Switch: {},
-  Progress: {},
+  Progress: {
+    circleTextColor: 'rgba(0, 0, 0, 0.88)',
+    defaultColor: DEFAULT_COLOR,
+    remainingColor: 'rgba(0, 0, 0, 0.06)',
+  },
   Steps: {},
   Slider: {},
   ColorPicker: {},
@@ -123,6 +127,12 @@ const darkPreviewMenuToken: NonNullable<ThemeConfig['components']>['Menu'] = {
   darkSubMenuItemBg: 'transparent',
 };
 
+const darkPreviewProgressToken: NonNullable<ThemeConfig['components']>['Progress'] = {
+  circleTextColor: 'rgba(255, 255, 255, 0.88)',
+  defaultColor: DEFAULT_COLOR,
+  remainingColor: 'rgba(255, 255, 255, 0.12)',
+};
+
 const isDarkAlgorithm = (algorithm: ThemeConfig['algorithm']) => {
   const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
 
@@ -137,6 +147,7 @@ const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigPr
           ...previewThemeComponents,
           Layout: darkPreviewLayoutToken,
           Menu: darkPreviewMenuToken,
+          Progress: darkPreviewProgressToken,
         }
       : previewThemeComponents,
   },

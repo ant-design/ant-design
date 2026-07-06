@@ -150,7 +150,11 @@ const useBootstrapTheme: UseTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#212529',
+            defaultColor: '#337ab7',
+            remainingColor: '#f5f5f5',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},
