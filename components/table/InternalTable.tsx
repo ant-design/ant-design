@@ -670,7 +670,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  const spinProps = React.useMemo<SpinProps>(() => getSpinProps(loading), [loading]);
+  const spinProps = React.useMemo(() => getSpinProps(loading), [loading]);
 
   const wrappercls = clsx(
     cssVarCls,
