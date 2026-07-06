@@ -13,13 +13,18 @@ const useBlossomTheme = () => {
         },
         components: {
           Layout: {
-            headerBg: 'transparent',
-            bodyBg: 'transparent',
+            bodyBg: '#fff4fa',
+            footerBg: '#fff4fa',
+            headerBg: '#ffffff',
+            headerColor: '#3f2330',
+            siderBg: '#fff7fb',
+            triggerBg: '#ffe4f0',
+            triggerColor: '#ED4192',
           },
           Menu: {
+            activeBarBorderWidth: 0,
             itemBg: 'transparent',
             subMenuItemBg: 'transparent',
-            activeBarBorderWidth: 0,
           },
           Button: {},
           Alert: {},

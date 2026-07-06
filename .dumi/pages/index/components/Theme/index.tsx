@@ -395,6 +395,8 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
 
   const { token } = theme.useToken();
   const closestColor = DEFAULT_COLOR;
+  const hasDarkBackground = isDarkTheme || !!activeTheme?.bgImgDark;
+  const menuTheme = hasDarkBackground ? 'dark' : 'light';
   const logoColor = React.useMemo(() => {
     const hsb = generateColor(token.colorPrimary).toHsb();
     hsb.b = Math.min(hsb.b, 0.7);
@@ -405,13 +407,14 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
     <App style={{ width: '100%' }}>
       <div
         className={clsx(styles.demo, className, {
-          [styles.otherDemo]: !isDarkTheme && closestColor !== DEFAULT_COLOR && styles.otherDemo,
-          [styles.darkDemo]: isDarkTheme,
+          [styles.otherDemo]:
+            !hasDarkBackground && closestColor !== DEFAULT_COLOR && styles.otherDemo,
+          [styles.darkDemo]: hasDarkBackground,
         })}
         style={style}
       >
-        <Layout className={styles.transBg}>
-          <Header className={clsx(styles.header, styles.transBg, isDarkTheme && styles.headerDark)}>
+        <Layout>
+          <Header className={clsx(styles.header, hasDarkBackground && styles.headerDark)}>
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
@@ -438,11 +441,11 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
               />
             </Flex>
           </Header>
-          <Layout className={styles.transBg} hasSider>
-            <Sider className={clsx(styles.transBg)} width={200}>
+          <Layout hasSider>
+            <Sider theme={menuTheme} width={200}>
               <Menu
                 mode="inline"
-                className={clsx(styles.transBg)}
+                theme={menuTheme}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderInlineEnd: 0 }}
@@ -450,7 +453,7 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
                 expandIcon={false}
               />
             </Sider>
-            <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>
+            <Layout style={{ padding: '0 24px 24px' }}>
               <Breadcrumb
                 style={{ margin: '16px 0' }}
                 items={[

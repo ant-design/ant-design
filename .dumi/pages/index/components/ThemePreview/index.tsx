@@ -90,6 +90,15 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       width: '60%',
     },
   }),
+  previewTabsDark: css({
+    background: 'rgba(255, 255, 255, 0.14)',
+    backdropFilter: 'blur(16px)',
+    boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
+    '.ant-segmented-thumb': {
+      background: 'rgba(255, 255, 255, 0.96)',
+      boxShadow: '0 6px 18px rgba(0,0,0,0.24)',
+    },
+  }),
   previewTabsItem: css({
     minWidth: 112,
     borderRadius: 100,
@@ -102,6 +111,16 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       minWidth: 0,
       paddingInline: 12,
       fontSize: 16,
+    },
+  }),
+  previewTabsItemDark: css({
+    color: 'rgba(255, 255, 255, 0.78)',
+    '&:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover': {
+      color: '#fff',
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
     },
   }),
   previewTabsLabel: css({
@@ -236,13 +255,14 @@ function ThemePreviewContent(props: ThemePreviewProps) {
   const background = activeTheme?.bgImg
     ? activeTheme.bgImg
     : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)';
+  const hasDarkBackground = !!activeTheme?.bgImgDark;
 
   return (
     <Group
       title={locale.themeTitle}
       description={locale.themeDesc}
       collapse
-      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+      titleColor={hasDarkBackground ? '#fff' : undefined}
       background={background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
@@ -251,8 +271,10 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           <Flex className={styles.switch} justify="space-between">
             <Segmented
               classNames={{
-                root: styles.previewTabs,
-                item: styles.previewTabsItem,
+                root: `${styles.previewTabs} ${hasDarkBackground ? styles.previewTabsDark : ''}`,
+                item: `${styles.previewTabsItem} ${
+                  hasDarkBackground ? styles.previewTabsItemDark : ''
+                }`,
                 label: styles.previewTabsLabel,
               }}
               options={previewPaneOptions}
@@ -299,7 +321,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           {activePane === 'components' ? (
             <ComponentsBlock
               isDark={isDark}
-              isDarkTheme={activeTheme?.bgImgDark}
+              isDarkTheme={hasDarkBackground}
               key={activeName}
               config={activeTheme?.props}
               className={styles.componentsBlock}

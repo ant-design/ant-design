@@ -13,13 +13,18 @@ const useLarkTheme = () => {
         },
         components: {
           Layout: {
-            headerBg: 'transparent',
-            bodyBg: 'transparent',
+            bodyBg: '#f7fbf8',
+            footerBg: '#f7fbf8',
+            headerBg: '#ffffff',
+            headerColor: '#1f2329',
+            siderBg: '#ffffff',
+            triggerBg: '#eff7f2',
+            triggerColor: '#1f2329',
           },
           Menu: {
+            activeBarBorderWidth: 0,
             itemBg: 'transparent',
             subMenuItemBg: 'transparent',
-            activeBarBorderWidth: 0,
           },
           Button: {},
           Alert: {},
