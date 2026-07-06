@@ -207,7 +207,11 @@ const useGlassTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: 'rgba(0, 0, 0, 0.88)',
+            defaultColor: '#1677ff',
+            remainingColor: 'rgba(255, 255, 255, 0.28)',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},

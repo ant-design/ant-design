@@ -245,6 +245,7 @@ const useMuiTheme = () => {
             borderRadiusLG: 4,
           },
           Progress: {
+            circleTextColor: 'rgba(33, 33, 33, 0.87)',
             defaultColor: '#1976d2',
             remainingColor: 'rgba(25, 118, 210, 0.12)',
           },

@@ -147,7 +147,11 @@ const useGeekTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#39ff14',
+            defaultColor: '#39ff14',
+            remainingColor: 'rgba(57, 255, 20, 0.18)',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},

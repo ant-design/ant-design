@@ -93,7 +93,11 @@ const useCartoonTheme = () => {
           Radio: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#51463B',
+            defaultColor: '#225555',
+            remainingColor: '#CBC4AF',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},
