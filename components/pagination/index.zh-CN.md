@@ -63,7 +63,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | 数据总数 | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  | 6.2.0 |
-| onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  | × |
+| onChange | 页码或 `pageSize` 改变的回调。当 `pageSize` 改变时，第三个参数 `info.recommendPage` 会提供基于新页面大小的推荐页码，帮助保留用户当前的数据位置 | function(page, pageSize, info?) | - |  | × |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  | × |
 
 ## Semantic DOM
