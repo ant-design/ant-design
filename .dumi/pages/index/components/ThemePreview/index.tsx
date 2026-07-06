@@ -229,8 +229,8 @@ function ThemePreviewContent(props: ThemePreviewProps) {
   const handleCopyTheme = async (event: React.MouseEvent) => {
     event.stopPropagation();
     const code = generateFullCopyFile({
-      themeConfig: activeTheme!.props!.theme,
-      copyCode: activeTheme!.copyCode,
+      themeConfig: activeTheme?.props?.theme,
+      copyCode: activeTheme?.copyCode,
     });
     const success = await copy(code);
     if (success) {

@@ -30,7 +30,7 @@ export type PreviewThemeConfig = {
   key?: string;
   props?: ConfigProviderProps;
   bgImg?: string;
-  bgImgDark?: true;
+  bgImgDark?: boolean;
   copyCode?: string;
   colors?: string[];
 };
