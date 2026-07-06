@@ -131,7 +131,7 @@ const IconSearch: React.FC = () => {
 
     // merge matched categories from tag search
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
-    const resolveMatchedCategories = (targetTheme: ThemeType) =>
+    const resolveMatchedCategories = (targetTheme: ConcreteThemeType) =>
       Object.values(merged)
         .map(({ category, icons: baseIconNames }) => {
           const icons = resolveIconNames(baseIconNames, targetTheme);
@@ -145,7 +145,7 @@ const IconSearch: React.FC = () => {
 
     const renderCategoryList = (
       matchedCategories: MatchedCategory[],
-      targetTheme: ThemeType,
+      targetTheme: ConcreteThemeType,
       keyPrefix?: string,
     ) =>
       matchedCategories.map(({ category, icons }) => (
@@ -258,14 +258,7 @@ type MatchedCategory = {
 };
 
 // Map base icon names to the concrete component names to render for a theme.
-// "All" groups every existing variant by theme; a specific theme resolves to
-// that variant only when it exists.
-function resolveIconNames(baseNames: string[], theme: ThemeType): string[] {
-  if (theme === ThemeType.All) {
-    return THEME_ORDER.flatMap((item) =>
-      baseNames.map((baseName) => baseName + item).filter((iconName) => allIcons[iconName]),
-    );
-  }
+function resolveIconNames(baseNames: string[], theme: ConcreteThemeType): string[] {
   return baseNames.map((baseName) => baseName + theme).filter((iconName) => allIcons[iconName]);
 }
 
