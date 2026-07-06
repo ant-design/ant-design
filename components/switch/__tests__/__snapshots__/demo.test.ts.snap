@@ -276,12 +276,12 @@ exports[`renders components/switch/demo/text.tsx correctly 1`] = `
         <span
           class="ant-switch-inner-checked"
         >
-          开启
+          On
         </span>
         <span
           class="ant-switch-inner-unchecked"
         >
-          关闭
+          Off
         </span>
       </span>
     </button>

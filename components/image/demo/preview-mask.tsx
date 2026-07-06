@@ -16,7 +16,7 @@ const App: React.FC = () => (
       cover: (
         <Space vertical align="center">
           <ZoomInOutlined />
-          示例
+          Preview
         </Space>
       ),
     }}
