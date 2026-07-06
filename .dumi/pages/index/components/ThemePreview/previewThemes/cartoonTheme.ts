@@ -10,6 +10,12 @@ const useStyles = createStyles(({ css, cssVar }) => {
 
   return {
     sharedBorder,
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        ...sharedBorder,
+        boxShadow: 'none',
+      },
+    }),
     progressTrack: css({
       ...sharedBorder,
       marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,
@@ -62,6 +68,23 @@ const useCartoonTheme = () => {
           Select: {
             optionSelectedBg: '#CBC4AF',
           },
+          Notification: {
+            colorSuccessBg: '#E0EECF',
+            colorErrorBg: '#F3D0C8',
+            colorInfoBg: '#D9EEEE',
+            colorWarningBg: '#FFF1B8',
+          },
+          Layout: {},
+          Menu: {},
+          Alert: {},
+          Checkbox: {},
+          Radio: {},
+          Input: {},
+          Switch: {},
+          Progress: {},
+          Steps: {},
+          Slider: {},
+          ColorPicker: {},
         },
       },
       // app: {
@@ -80,6 +103,11 @@ const useCartoonTheme = () => {
           container: styles.sharedBorder,
         },
       },
+      notification: {
+        classNames: {
+          root: styles.notificationRoot,
+        },
+      },
       progress: {
         classNames: {
           rail: styles.sharedBorder,
@@ -94,6 +122,21 @@ const useCartoonTheme = () => {
           },
         },
       },
+      wave: {},
+      app: {},
+      card: {},
+      button: {},
+      alert: {},
+      checkbox: {},
+      dropdown: {},
+      select: {},
+      datePicker: {},
+      input: {},
+      inputNumber: {},
+      tooltip: {},
+      switch: {},
+      radio: {},
+      segmented: {},
     }),
     [],
   );

@@ -119,6 +119,16 @@ const useStyles = createStyles(({ css }) => {
       boxShadow:
         '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
     }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        borderRadius: 4,
+        boxShadow:
+          '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
+      },
+    }),
+    notificationTitle: css({
+      fontWeight: 500,
+    }),
   };
 });
 
@@ -254,6 +264,20 @@ const useMuiTheme = () => {
           ColorPicker: {
             borderRadius: 4,
           },
+          Notification: {
+            colorSuccessBg: '#e8f5e9',
+            colorErrorBg: '#ffebee',
+            colorInfoBg: '#e1f5fe',
+            colorWarningBg: '#fff3e0',
+          },
+          Layout: {},
+          Menu: {},
+          Card: {},
+          Tooltip: {},
+          Radio: {},
+          Select: {},
+          Input: {},
+          Switch: {},
         },
       },
       wave: {
@@ -279,6 +303,27 @@ const useMuiTheme = () => {
           root: styles.selectRoot,
         },
       },
+      notification: {
+        classNames: {
+          root: styles.notificationRoot,
+          title: styles.notificationTitle,
+        },
+      },
+      app: {},
+      card: {},
+      modal: {},
+      alert: {},
+      colorPicker: {},
+      checkbox: {},
+      dropdown: {},
+      datePicker: {},
+      inputNumber: {},
+      popover: {},
+      tooltip: {},
+      switch: {},
+      radio: {},
+      segmented: {},
+      progress: {},
     }),
     [styles],
   );
