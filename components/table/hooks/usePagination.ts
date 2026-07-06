@@ -64,9 +64,9 @@ function usePagination(
     });
   };
 
-  const onInternalChange: PaginationProps['onChange'] = (current, pageSize) => {
+  const onInternalChange: PaginationProps['onChange'] = (current, pageSize, info) => {
     if (pagination) {
-      pagination.onChange?.(current, pageSize);
+      pagination.onChange?.(current, pageSize, info);
     }
     refreshPagination(current, pageSize);
     onChange(current, pageSize || mergedPagination?.pageSize!);
