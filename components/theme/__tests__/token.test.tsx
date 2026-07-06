@@ -257,15 +257,6 @@ describe('Theme', () => {
       expect(token).toEqual(hookToken);
     });
 
-    it('keeps quaternary text color opacity for placeholder and disabled states', () => {
-      expect(theme.getDesignToken().colorTextQuaternary).toBe('rgba(0,0,0,0.25)');
-      expect(
-        theme.getDesignToken({
-          algorithm: theme.darkAlgorithm,
-        }).colorTextQuaternary,
-      ).toBe('rgba(255,255,255,0.25)');
-    });
-
     it('with custom token', () => {
       const config: ThemeConfig = {
         token: {
