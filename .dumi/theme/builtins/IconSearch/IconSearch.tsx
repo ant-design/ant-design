@@ -21,14 +21,20 @@ export enum ThemeType {
   TwoTone = 'TwoTone',
 }
 
-// Preference order used by the "All" view to pick the single variant shown for
-// each icon. Outlined first keeps the default look; Filled surfaces logos that
-// only ship as Filled and would otherwise stay hidden on the Outlined tab.
-const THEME_ORDER: ReadonlyArray<ThemeType> = [
+type ConcreteThemeType = Exclude<ThemeType, ThemeType.All>;
+
+// Theme order used by the "All" view to group icons by the same variant.
+const THEME_ORDER: ReadonlyArray<ConcreteThemeType> = [
   ThemeType.Outlined,
   ThemeType.Filled,
   ThemeType.TwoTone,
 ];
+
+const THEME_LABEL_IDS: Record<ConcreteThemeType, string> = {
+  [ThemeType.Outlined]: 'app.docs.components.icon.outlined',
+  [ThemeType.Filled]: 'app.docs.components.icon.filled',
+  [ThemeType.TwoTone]: 'app.docs.components.icon.two-tone',
+};
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
@@ -125,28 +131,57 @@ const IconSearch: React.FC = () => {
 
     // merge matched categories from tag search
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
-    const matchedCategories = Object.values(merged)
-      .map((item) => {
-        const icons = item.icons.flatMap((iconName) => resolveIconNames(iconName, theme));
+    const resolveMatchedCategories = (targetTheme: ThemeType) =>
+      Object.values(merged)
+        .map(({ category, icons: baseIconNames }) => {
+          const icons = resolveIconNames(baseIconNames, targetTheme);
 
-        item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
+          return {
+            category,
+            icons: category === 'logo' ? groupNewIcons(icons) : icons,
+          };
+        })
+        .filter(({ icons }) => !!icons.length);
 
-        return item;
-      })
-      .filter(({ icons }) => !!icons.length);
+    const renderCategoryList = (
+      matchedCategories: MatchedCategory[],
+      targetTheme: ThemeType,
+      keyPrefix?: string,
+    ) =>
+      matchedCategories.map(({ category, icons }) => (
+        <Category
+          key={keyPrefix ? `${keyPrefix}-${category}` : category}
+          title={category as CategoriesKeys}
+          theme={targetTheme}
+          icons={icons}
+          newIcons={NEW_ICON_NAMES}
+          newIconVersion={NEW_ICON_VERSION}
+        />
+      ));
 
-    const categoriesResult = matchedCategories.map(({ category, icons }) => (
-      <Category
-        key={category}
-        title={category as CategoriesKeys}
-        theme={theme}
-        icons={icons}
-        newIcons={NEW_ICON_NAMES}
-        newIconVersion={NEW_ICON_VERSION}
-      />
-    ));
+    if (theme === ThemeType.All) {
+      const themeGroups = THEME_ORDER.map((targetTheme) => {
+        const matchedCategories = resolveMatchedCategories(targetTheme);
+
+        if (!matchedCategories.length) {
+          return null;
+        }
+
+        return (
+          <React.Fragment key={targetTheme}>
+            <h2>{intl.formatMessage({ id: THEME_LABEL_IDS[targetTheme] })}</h2>
+            {renderCategoryList(matchedCategories, targetTheme, targetTheme)}
+          </React.Fragment>
+        );
+      });
+
+      return themeGroups.some(Boolean) ? themeGroups : <Empty style={{ margin: '2em 0' }} />;
+    }
+
+    const matchedCategories = resolveMatchedCategories(theme);
+    const categoriesResult = renderCategoryList(matchedCategories, theme);
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
-  }, [displayState]);
+  }, [displayState, intl]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
 
@@ -222,15 +257,16 @@ type MatchedCategory = {
   icons: string[];
 };
 
-// Map a base icon name to the concrete component name(s) to render for a theme.
-// "All" resolves to a single variant (see THEME_ORDER); a specific theme resolves
-// to that variant only when it exists.
-function resolveIconNames(baseName: string, theme: ThemeType): string[] {
+// Map base icon names to the concrete component names to render for a theme.
+// "All" groups every existing variant by theme; a specific theme resolves to
+// that variant only when it exists.
+function resolveIconNames(baseNames: string[], theme: ThemeType): string[] {
   if (theme === ThemeType.All) {
-    const matched = THEME_ORDER.find((item) => allIcons[baseName + item]);
-    return matched ? [baseName + matched] : [];
+    return THEME_ORDER.flatMap((item) =>
+      baseNames.map((baseName) => baseName + item).filter((iconName) => allIcons[iconName]),
+    );
   }
-  return allIcons[baseName + theme] ? [baseName + theme] : [];
+  return baseNames.map((baseName) => baseName + theme).filter((iconName) => allIcons[iconName]);
 }
 
 function groupNewIcons(icons: string[]) {
