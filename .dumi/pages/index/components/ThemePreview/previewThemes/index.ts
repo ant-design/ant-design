@@ -1,8 +1,10 @@
 import React from 'react';
-import type { ConfigProviderProps } from 'antd';
+import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
+import useBlossomTheme from './blossomTheme';
+import blossomThemeSource from './blossomTheme.ts?raw';
 import useBootstrapTheme from './bootstrapTheme';
 import bootstrapThemeSource from './bootstrapTheme.ts?raw';
 import useCartoonTheme from './cartoonTheme';
@@ -13,12 +15,17 @@ import useGlassTheme from './glassTheme';
 import glassThemeSource from './glassTheme.ts?raw';
 import useIllustrationTheme from './illustrationTheme';
 import illustrationThemeSource from './illustrationTheme.ts?raw';
+import useLarkTheme from './larkTheme';
+import larkThemeSource from './larkTheme.ts?raw';
 import useMuiTheme from './muiTheme';
 import muiThemeSource from './muiTheme.ts?raw';
 import useShadcnTheme from './shadcnTheme';
 import shadcnThemeSource from './shadcnTheme.ts?raw';
+import useV4Theme from './v4Theme';
+import v4ThemeSource from './v4Theme.ts?raw';
 
 export type PreviewThemeConfig = {
+  icon?: string;
   name: string;
   key?: string;
   props?: ConfigProviderProps;
@@ -39,6 +46,9 @@ const locales = {
     bootstrap: 'Bootstrap',
     cartoon: '卡通',
     illustration: '插画',
+    lark: '知识协作',
+    blossom: '桃花缘',
+    v4: 'Ant Design V4',
   },
   en: {
     default: 'Ant Design',
@@ -50,14 +60,70 @@ const locales = {
     bootstrap: 'Bootstrap',
     cartoon: 'Cartoon',
     illustration: 'Illustration',
+    lark: 'Document',
+    blossom: 'Blossom',
+    v4: 'Ant Design V4',
   },
 };
 
 export type UseTheme = () => ConfigProviderProps;
 
-export default function usePreviewThemes() {
+export const DEFAULT_COLOR = '#1677FF';
+export const PINK_COLOR = '#ED4192';
+
+const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
+  Layout: {},
+  Menu: {},
+  Button: {},
+  Alert: {},
+  Modal: {},
+  Card: {},
+  Tooltip: {},
+  Checkbox: {},
+  Radio: {},
+  Select: {},
+  Input: {},
+  Switch: {},
+  Progress: {},
+  Steps: {},
+  Slider: {},
+  ColorPicker: {},
+  Notification: {},
+};
+
+const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigProviderProps => ({
+  theme: {
+    algorithm,
+    components: previewThemeComponents,
+  },
+  wave: {},
+  app: {},
+  card: {},
+  modal: {},
+  button: {},
+  alert: {},
+  colorPicker: {},
+  checkbox: {},
+  dropdown: {},
+  select: {},
+  datePicker: {},
+  input: {},
+  inputNumber: {},
+  popover: {},
+  tooltip: {},
+  notification: {},
+  switch: {},
+  radio: {},
+  segmented: {},
+  progress: {},
+});
+
+const usePreviewThemes = () => {
   const [locale] = useLocale(locales);
 
+  const larkTheme = useLarkTheme();
+  const blossomTheme = useBlossomTheme();
+  const v4Theme = useV4Theme();
   const cartoonTheme = useCartoonTheme();
   const illustrationTheme = useIllustrationTheme();
   const geekTheme = useGeekTheme();
@@ -74,11 +140,7 @@ export default function usePreviewThemes() {
         key: 'light',
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
-        props: {
-          theme: {
-            algorithm: theme.defaultAlgorithm,
-          },
-        },
+        props: getBasePreviewThemeProps(theme.defaultAlgorithm),
       },
       {
         icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*LuUWTKWMy34AAAAAFvAAAAgAegCCAQ/original',
@@ -117,11 +179,7 @@ export default function usePreviewThemes() {
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
         bgImgDark: true,
-        props: {
-          theme: {
-            algorithm: theme.darkAlgorithm,
-          },
-        },
+        props: getBasePreviewThemeProps(theme.darkAlgorithm),
       },
       {
         icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*Tm6ESY5h6ZgAAAAAQBAAAAgAegCCAQ/original',
@@ -148,6 +206,30 @@ export default function usePreviewThemes() {
         props: geekTheme,
         copyCode: geekThemeSource,
       },
+      {
+        icon: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
+        name: locale.lark,
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iM6CQ496P3oAAAAAAAAAAAAADrJ8AQ/fmt.webp',
+        props: larkTheme,
+        copyCode: larkThemeSource,
+      },
+      {
+        icon: 'https://gw.alipayobjects.com/zos/bmw-prod/ed9b04e8-9b8d-4945-8f8a-c8fc025e846f.svg',
+        name: locale.blossom,
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*s5OdR6wZZIkAAAAAAAAAAAAADrJ8AQ/fmt.webp',
+        props: blossomTheme,
+        copyCode: blossomThemeSource,
+      },
+      {
+        icon: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bOiWT4-34jkAAAAAAAAAAAAADrJ8AQ/original',
+        name: locale.v4,
+        props: v4Theme,
+        copyCode: v4ThemeSource,
+      },
     ];
   }, [locale]);
-}
+};
+
+export default usePreviewThemes;

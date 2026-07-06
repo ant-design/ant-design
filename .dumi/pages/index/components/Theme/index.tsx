@@ -1,111 +1,56 @@
 import * as React from 'react';
-import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import { FastColor } from '@ant-design/fast-color';
 import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
   BellOutlined,
-  CheckOutlined,
-  CopyOutlined,
+  CalendarOutlined,
+  ColumnHeightOutlined,
+  DeleteOutlined,
+  DownloadOutlined,
+  EditOutlined,
+  EyeOutlined,
+  FilterOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
+  ReloadOutlined,
+  SearchOutlined,
+  SortAscendingOutlined,
 } from '@ant-design/icons';
-import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
+import type { ConfigProviderProps, MenuProps, TableProps } from 'antd';
 import {
+  App,
+  Avatar,
   Breadcrumb,
   Button,
   Card,
+  Col,
   ConfigProvider,
   Flex,
-  Form,
+  Input,
   Layout,
   Menu,
-  Radio,
+  Row,
+  Segmented,
+  Select,
+  Space,
+  Statistic,
+  Table,
+  Tag,
   theme,
-  Tooltip,
   Typography,
 } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
-import copy from 'antd/lib/_util/copy';
 import { clsx } from 'clsx';
-import { useLocation } from 'dumi';
 
-import useLocale from '../../../../hooks/useLocale';
-import LinkButton from '../../../../theme/common/LinkButton';
-import SiteContext from '../../../../theme/slots/SiteContext';
-import { getLocalizedPathname } from '../../../../theme/utils';
-import Group from '../Group';
-import { generateThemeCode } from '../ThemePreview/themeCodeUtils';
-import { getCarouselStyle } from '../util';
-import { DarkContext } from './../../../../hooks/useDark';
-import BackgroundImage from './BackgroundImage';
-import ColorPicker from './ColorPicker';
-import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
-import MobileCarousel from './MobileCarousel';
-import RadiusPicker from './RadiusPicker';
-import type { THEME } from './ThemePicker';
-import ThemePicker from './ThemePicker';
-
-type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
+import { DEFAULT_COLOR } from '../ThemePreview/previewThemes';
 
 const { Header, Content, Sider } = Layout;
 
-const TokenChecker: React.FC = () => {
-  const token = theme.useToken();
-  React.useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
-      console.log('Demo Token:', token);
-    }
-  }, [token]);
-  return null;
-};
-
-// ============================= Theme =============================
-const locales = {
-  cn: {
-    themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 开放更多样式算法，让你定制主题更简单',
-
-    customizeTheme: '定制主题',
-    myTheme: '我的主题',
-    titlePrimaryColor: '主色',
-    titleBorderRadius: '圆角',
-    titleCompact: '宽松度',
-    default: '默认',
-    compact: '紧凑',
-    titleTheme: '主题',
-    light: '亮色',
-    dark: '暗黑',
-    toDef: '深度定制',
-    toUse: '去使用',
-    copyTheme: '复制主题代码',
-    copySuccess: '已复制',
-  },
-  en: {
-    themeTitle: 'Flexible theme customization',
-    themeDesc: 'Ant Design enable extendable algorithm, make custom theme easier',
-
-    customizeTheme: 'Customize Theme',
-    myTheme: 'My Theme',
-    titlePrimaryColor: 'Primary Color',
-    titleBorderRadius: 'Border Radius',
-    titleCompact: 'Compact',
-    titleTheme: 'Theme',
-    default: 'Default',
-    compact: 'Compact',
-    light: 'Light',
-    dark: 'Dark',
-    toDef: 'More',
-    toUse: 'Apply',
-    copyTheme: 'Copy theme code',
-    copySuccess: 'Copied',
-  },
-};
-
 // ============================= Style =============================
 const styles = createStaticStyles(({ cssVar, css, cx }) => {
-  const { carousel } = getCarouselStyle();
   const demo = css`
     overflow: hidden;
     background: rgba(240, 242, 245, 0.25);
@@ -130,19 +75,6 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
       }
     `,
 
-    larkDemo: css`
-      &.${cx(demo)} {
-        // background: #f7f7f7;
-        background: rgba(240, 242, 245, 0.65);
-      }
-    `,
-    comicDemo: css`
-      &.${cx(demo)} {
-        // background: #ffe4e6;
-        background: rgba(240, 242, 245, 0.65);
-      }
-    `,
-
     menu: css`
       margin-inline-start: auto;
     `,
@@ -161,11 +93,12 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     `,
 
     avatar: css`
-      width: ${cssVar.controlHeight};
-      height: ${cssVar.controlHeight};
+      width: 28px;
+      height: 28px;
       border-radius: 100%;
-      background: rgba(240, 240, 240, 0.75);
-      background-size: cover;
+      background-size: 70%;
+      background-repeat: no-repeat;
+      background-position: center;
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     `,
 
@@ -200,46 +133,68 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     transBg: css`
       background: transparent !important;
     `,
-
-    form: css`
+    dashboardShell: css`
       width: 100%;
-      margin: 0 auto;
-    `,
-    pos: css`
-      position: absolute;
-    `,
-    leftTopImagePos: css`
-      inset-inline-start: 0;
-      top: -100px;
-      height: 500px;
-    `,
-    rightBottomPos: css`
-      inset-inline-end: 0;
-      bottom: -100px;
-      height: 287px;
-    `,
-    leftTopImage: css`
-      inset-inline-start: 50%;
-      transform: translate3d(-900px, 0, 0);
-      top: -100px;
-      height: 500px;
-    `,
-    rightBottomImage: css`
-      inset-inline-end: 50%;
-      transform: translate3d(750px, 0, 0);
-      bottom: -100px;
-      height: 287px;
-    `,
-    motion: css`
+      min-height: 480px;
+      overflow: hidden;
       transition: all ${cssVar.motionDurationSlow};
+
+      .ant-card {
+        height: 100%;
+      }
+
+      .ant-card-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
     `,
-    op1: css`
-      opacity: 1;
+    dashboardToolbar: css`
+      margin-block-end: ${cssVar.marginMD};
     `,
-    op0: css`
-      opacity: 0;
+    dashboardTabs: css`
+      padding: 3px;
+      border-radius: 999px;
+
+      .ant-segmented-item {
+        min-width: 96px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .ant-segmented-thumb {
+        border-radius: 999px;
+      }
     `,
-    carousel,
+    dashboardStatValue: css`
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: ${cssVar.marginSM};
+    `,
+    dashboardStatTrend: css`
+      margin-inline-start: auto;
+      border: 0;
+      font-weight: 600;
+    `,
+    dashboardPanelTitle: css`
+      margin: 0 !important;
+    `,
+    dashboardKpiGrid: css`
+      margin-block-end: ${cssVar.marginMD};
+    `,
+    dashboardTableCard: css`
+      margin-block-start: ${cssVar.marginMD};
+    `,
+    dashboardTableActions: css`
+      margin-block: ${cssVar.marginMD};
+    `,
+    dashboardEmployee: css`
+      min-width: 0;
+    `,
+    dashboardEmployeeMeta: css`
+      line-height: 1.3;
+    `,
   };
 });
 
@@ -277,63 +232,6 @@ const sideMenuItems: MenuProps['items'] = [
   },
 ];
 
-// ============================= Theme =============================
-
-function getTitleColor(colorPrimary: Color, isLight?: boolean) {
-  if (!isLight) {
-    return '#FFF';
-  }
-
-  const color = generateColor(colorPrimary);
-  const closestColor = getClosetColor(colorPrimary);
-
-  switch (closestColor) {
-    case DEFAULT_COLOR:
-    case PINK_COLOR:
-    case '#F2BD27':
-      return undefined;
-
-    case '#5A54F9':
-    case '#E0282E':
-      return '#FFF';
-
-    default:
-      return color.toHsb().b < 0.7 ? '#FFF' : undefined;
-  }
-}
-
-interface ThemeData {
-  themeType: THEME;
-  colorPrimary: Color;
-  borderRadius: number;
-  compact: 'default' | 'compact';
-}
-
-const ThemeDefault: ThemeData = {
-  themeType: 'default',
-  colorPrimary: '#1677FF',
-  borderRadius: 6,
-  compact: 'default',
-};
-
-const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
-  default: {},
-  dark: {
-    borderRadius: 2,
-  },
-  lark: {
-    colorPrimary: '#00B96B',
-    borderRadius: 4,
-  },
-  comic: {
-    colorPrimary: PINK_COLOR,
-    borderRadius: 16,
-  },
-  v4: {
-    ...defaultTheme.token,
-  },
-};
-
 const normalize = (value: number) => value / 255;
 
 function rgbToColorMatrix(color: string) {
@@ -356,140 +254,164 @@ function rgbToColorMatrix(color: string) {
   return `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg)`;
 }
 
-const Theme: React.FC = () => {
-  const [locale, lang] = useLocale(locales);
-  const isZhCN = lang === 'cn';
-  const { search } = useLocation();
+export interface ThemeDashboardProps {
+  className?: string;
+  config?: ConfigProviderProps;
+  style?: React.CSSProperties;
+  activeTheme: any;
+}
 
-  const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
-  const [copied, setCopied] = React.useState(false);
-  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+const dashboardKpis = [
+  { title: 'Revenue', value: 228441, prefix: 'US$', trend: 3.3, status: 'success' },
+  { title: 'Expenses', value: 25108, prefix: 'US$', trend: 3.3, status: 'error' },
+  { title: 'Sales', value: 458, prefix: '', trend: 3.3, status: 'success' },
+  { title: 'Profit', value: 203133, prefix: 'US$', trend: 4.1, status: 'success' },
+] as const;
 
-  const onThemeChange = (_: Partial<ThemeData>, nextThemeData: ThemeData) => {
-    React.startTransition(() => {
-      setThemeData({ ...ThemesInfo[nextThemeData.themeType], ...nextThemeData });
-    });
-  };
+interface EmployeeRecord {
+  key: string;
+  id: string;
+  avatar: string;
+  email: string;
+  member: string;
+  role: string;
+  type: string;
+}
 
-  const { compact, themeType, colorPrimary, ...themeToken } = themeData;
-  const isLight = themeType !== 'dark';
-  const [form] = Form.useForm();
-  const { isMobile } = React.use(SiteContext);
-  const colorPrimaryValue = React.useMemo(
-    () => (typeof colorPrimary === 'string' ? colorPrimary : colorPrimary.toHexString()),
-    [colorPrimary],
-  );
+const employeeData: EmployeeRecord[] = [
+  {
+    key: '1',
+    id: '#4586936',
+    avatar: 'linear-gradient(135deg, #69c0ff, #9254de)',
+    email: 'alex@acme.com',
+    member: 'Alex Turner',
+    role: 'Product Manager',
+    type: 'Employee',
+  },
+  {
+    key: '2',
+    id: '#4586937',
+    avatar: 'linear-gradient(135deg, #ffadd2, #eb2f96)',
+    email: 'emma@acme.com',
+    member: 'Emma Davis',
+    role: 'Senior Designer',
+    type: 'Employee',
+  },
+  {
+    key: '3',
+    id: '#4586933',
+    avatar: 'linear-gradient(135deg, #b5f5ec, #1677ff)',
+    email: 'john@acme.com',
+    member: 'John Smith',
+    role: 'Chief Technology Officer',
+    type: 'Employee',
+  },
+  {
+    key: '4',
+    id: '#4586932',
+    avatar: 'linear-gradient(135deg, #d3f261, #5cdbd3)',
+    email: 'kate@acme.com',
+    member: 'Kate Moore',
+    role: 'Chief Executive Officer',
+    type: 'Employee',
+  },
+];
 
-  // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
-  const algorithmFn = React.useMemo(() => {
-    const algorithms = [isLight ? theme.defaultAlgorithm : theme.darkAlgorithm];
+const employeeColumns: TableProps<EmployeeRecord>['columns'] = [
+  {
+    title: 'Worker ID',
+    dataIndex: 'id',
+    width: 150,
+    render: (id: string) => <Typography.Text strong>{id}</Typography.Text>,
+  },
+  {
+    title: 'Member',
+    dataIndex: 'member',
+    render: (_: string, record) => (
+      <Flex align="center" gap="middle" className={styles.dashboardEmployee}>
+        <Avatar size={40} style={{ background: record.avatar }} />
+        <div className={styles.dashboardEmployeeMeta}>
+          <Typography.Text strong>{record.member}</Typography.Text>
+          <br />
+          <Typography.Text type="secondary">{record.email}</Typography.Text>
+        </div>
+      </Flex>
+    ),
+  },
+  {
+    title: 'Role',
+    dataIndex: 'role',
+  },
+  {
+    title: 'Worker Type',
+    dataIndex: 'type',
+    width: 160,
+  },
+  {
+    title: 'Actions',
+    key: 'actions',
+    width: 148,
+    align: 'right',
+    render: () => (
+      <Space size="small">
+        <Button shape="circle" icon={<EyeOutlined />} />
+        <Button shape="circle" icon={<EditOutlined />} />
+        <Button danger shape="circle" icon={<DeleteOutlined />} />
+      </Space>
+    ),
+  },
+];
 
-    if (compact === 'compact') {
-      algorithms.push(theme.compactAlgorithm);
-    }
-
-    if (themeType === 'v4') {
-      algorithms.push(defaultAlgorithm);
-    }
-
-    return algorithms;
-  }, [isLight, compact, themeType]);
-
-  // ================================ Themes ================================
-  React.useEffect(() => {
-    const mergedData = {
-      ...ThemeDefault,
-      themeType,
-      ...ThemesInfo[themeType],
+function getDashboardConfig(config?: ConfigProviderProps): ConfigProviderProps {
+  if (!config) {
+    return {
+      theme: {
+        algorithm: theme.defaultAlgorithm,
+        inherit: false,
+      },
     };
-    setThemeData(mergedData);
-    form.setFieldsValue(mergedData);
-  }, [form, themeType]);
+  }
 
-  const isDark = React.use(DarkContext);
+  const { theme: configTheme, ...restConfig } = config;
 
-  React.useEffect(() => {
-    onThemeChange({}, { ...themeData, themeType: isDark ? 'dark' : 'default' });
-  }, [isDark]);
+  return {
+    ...restConfig,
+    theme: {
+      ...configTheme,
+      inherit: false,
+    },
+  };
+}
 
-  // ================================ Tokens ================================
-  const closestColor = getClosetColor(colorPrimaryValue);
+interface ThemeDashboardLayoutProps {
+  className?: string;
+  isDarkTheme: boolean;
+  style?: React.CSSProperties;
+  activeTheme?: any;
+}
 
-  const [backgroundColor, avatarColor] = React.useMemo(() => {
-    let bgColor = 'transparent';
+const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
+  const { className, isDarkTheme, style, activeTheme } = props;
 
-    const mapToken = theme.defaultAlgorithm({
-      ...theme.defaultConfig.token,
-      colorPrimary: colorPrimaryValue,
-    });
-
-    if (themeType === 'dark') {
-      bgColor = '#393F4A';
-    } else if (closestColor === DEFAULT_COLOR) {
-      bgColor = '#F5F8FF';
-    } else {
-      bgColor = mapToken.colorPrimaryHover;
-    }
-
-    return [bgColor, mapToken.colorPrimaryBgHover];
-  }, [themeType, closestColor, colorPrimaryValue]);
-
+  const { token } = theme.useToken();
+  const closestColor = DEFAULT_COLOR;
   const logoColor = React.useMemo(() => {
-    const hsb = generateColor(colorPrimaryValue).toHsb();
+    const hsb = generateColor(token.colorPrimary).toHsb();
     hsb.b = Math.min(hsb.b, 0.7);
     return generateColor(hsb).toHexString();
-  }, [colorPrimaryValue]);
+  }, [token.colorPrimary]);
 
-  const memoTheme = React.useMemo<ThemeConfig>(
-    () => ({
-      token: { ...themeToken, colorPrimary: colorPrimaryValue },
-      algorithm: algorithmFn,
-      components: {
-        Layout: isLight ? { headerBg: 'transparent', bodyBg: 'transparent' } : {},
-        Menu: isLight
-          ? { itemBg: 'transparent', subMenuItemBg: 'transparent', activeBarBorderWidth: 0 }
-          : {},
-        ...(themeType === 'v4' ? defaultTheme.components : {}),
-      },
-    }),
-    [themeToken, colorPrimaryValue, algorithmFn, isLight, themeType],
-  );
-
-  const handleCopyTheme = async () => {
-    const code = generateThemeCode(memoTheme);
-    const success = await copy(code);
-    if (success) {
-      if (copyTimerRef.current) {
-        clearTimeout(copyTimerRef.current);
-      }
-      setCopied(true);
-      copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
-  React.useEffect(
-    () => () => {
-      if (copyTimerRef.current) {
-        clearTimeout(copyTimerRef.current);
-      }
-    },
-    [],
-  );
-
-  // ================================ Render ================================
-  const themeNode = (
-    <ConfigProvider theme={memoTheme}>
-      <TokenChecker />
+  return (
+    <App style={{ width: '100%' }}>
       <div
-        className={clsx(styles.demo, {
-          [styles.otherDemo]: isLight && closestColor !== DEFAULT_COLOR && styles.otherDemo,
-          [styles.darkDemo]: !isLight,
+        className={clsx(styles.demo, className, {
+          [styles.otherDemo]: !isDarkTheme && closestColor !== DEFAULT_COLOR && styles.otherDemo,
+          [styles.darkDemo]: isDarkTheme,
         })}
-        style={{ borderRadius: themeData.borderRadius }}
+        style={style}
       >
         <Layout className={styles.transBg}>
-          <Header className={clsx(styles.header, styles.transBg, !isLight && styles.headerDark)}>
-            {/* Logo */}
+          <Header className={clsx(styles.header, styles.transBg, isDarkTheme && styles.headerDark)}>
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
@@ -508,10 +430,10 @@ const Theme: React.FC = () => {
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
-                className={clsx(styles.avatar, { [styles.avatarDark]: themeType === 'dark' })}
+                className={clsx(styles.avatar)}
                 style={{
-                  backgroundColor: avatarColor,
-                  backgroundImage: `url(${getAvatarURL(closestColor)})`,
+                  // backgroundColor: token.colorPrimaryBgHover,
+                  backgroundImage: `url(${activeTheme?.icon})`,
                 }}
               />
             </Flex>
@@ -538,125 +460,136 @@ const Theme: React.FC = () => {
                 ]}
               />
               <Content>
-                <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
-                <Card
-                  title={locale.myTheme}
-                  extra={
-                    <Flex gap="small">
-                      <Tooltip title={locale.copyTheme}>
-                        <Button
-                          icon={copied ? <CheckOutlined /> : <CopyOutlined />}
-                          onClick={handleCopyTheme}
-                        >
-                          {locale.copyTheme}
-                        </Button>
-                      </Tooltip>
-                      <LinkButton to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
-                        {locale.toDef}
-                      </LinkButton>
-                      <LinkButton
-                        type="primary"
-                        to={getLocalizedPathname('/docs/react/customize-theme', isZhCN, search)}
-                      >
-                        {locale.toUse}
-                      </LinkButton>
-                    </Flex>
-                  }
-                >
-                  <Form
-                    form={form}
-                    initialValues={themeData}
-                    onValuesChange={onThemeChange}
-                    labelCol={{ span: 3 }}
-                    wrapperCol={{ span: 21 }}
-                    className={styles.form}
+                <div className={styles.dashboardShell}>
+                  <Flex
+                    className={styles.dashboardToolbar}
+                    justify="space-between"
+                    align="center"
+                    wrap
+                    gap="middle"
                   >
-                    <Form.Item label={locale.titleTheme} name="themeType">
-                      <ThemePicker />
-                    </Form.Item>
-                    <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
-                      <ColorPicker />
-                    </Form.Item>
-                    <Form.Item label={locale.titleBorderRadius} name="borderRadius">
-                      <RadiusPicker />
-                    </Form.Item>
-                    <Form.Item label={locale.titleCompact} name="compact" htmlFor="compact_default">
-                      <Radio.Group
+                    <Segmented
+                      className={styles.dashboardTabs}
+                      defaultValue="Overview"
+                      options={['Overview', 'Sales', 'Expenses']}
+                    />
+                    <Space>
+                      <Button shape="circle" icon={<ReloadOutlined />} />
+                      <Select
+                        value="monthly"
+                        style={{ width: 144 }}
                         options={[
-                          { label: locale.default, value: 'default', id: 'compact_default' },
-                          { label: locale.compact, value: 'compact' },
+                          {
+                            value: 'monthly',
+                            label: (
+                              <Space size={6}>
+                                <CalendarOutlined />
+                                Monthly
+                              </Space>
+                            ),
+                          },
                         ]}
                       />
-                    </Form.Item>
-                  </Form>
-                </Card>
+                      <Button type="primary" icon={<DownloadOutlined />}>
+                        Download
+                      </Button>
+                    </Space>
+                  </Flex>
+
+                  <Row gutter={[16, 16]} className={styles.dashboardKpiGrid}>
+                    {dashboardKpis.map((item) => (
+                      <Col key={item.title} xs={24} sm={12} lg={6}>
+                        <Card>
+                          <Typography.Text type="secondary">{item.title}</Typography.Text>
+                          <div className={styles.dashboardStatValue}>
+                            <Statistic
+                              value={item.value}
+                              formatter={(value) =>
+                                `${item.prefix ?? ''}${Number(value).toLocaleString('en-US')}`
+                              }
+                            />
+                            <Tag
+                              className={styles.dashboardStatTrend}
+                              color={item.status}
+                              icon={
+                                item.status === 'success' ? (
+                                  <ArrowUpOutlined />
+                                ) : (
+                                  <ArrowDownOutlined />
+                                )
+                              }
+                            >
+                              {item.trend}%
+                            </Tag>
+                          </div>
+                        </Card>
+                      </Col>
+                    ))}
+                  </Row>
+
+                  <Card
+                    className={styles.dashboardTableCard}
+                    title={
+                      <Space>
+                        <Typography.Title level={4} className={styles.dashboardPanelTitle}>
+                          All Employees
+                        </Typography.Title>
+                        <Tag>32</Tag>
+                      </Space>
+                    }
+                    extra={<Input prefix={<SearchOutlined />} placeholder="Search..." />}
+                  >
+                    <Flex
+                      className={styles.dashboardTableActions}
+                      justify="space-between"
+                      align="center"
+                      wrap
+                      gap="middle"
+                    >
+                      <Space wrap>
+                        <Button icon={<FilterOutlined />}>Filter</Button>
+                        <Button icon={<SortAscendingOutlined />}>Sort</Button>
+                        <Button icon={<ColumnHeightOutlined />}>Columns</Button>
+                      </Space>
+                    </Flex>
+                    <Table<EmployeeRecord>
+                      columns={employeeColumns}
+                      dataSource={employeeData}
+                      pagination={false}
+                      size="middle"
+                      scroll={{ x: 900, y: 220 }}
+                    />
+                  </Card>
+                </div>
               </Content>
             </Layout>
           </Layout>
         </Layout>
       </div>
-    </ConfigProvider>
-  );
-
-  return isMobile ? (
-    <MobileCarousel title={locale.themeTitle} description={locale.themeDesc} id="flexible" />
-  ) : (
-    <Group
-      title={locale.themeTitle}
-      titleColor={getTitleColor(colorPrimaryValue, isLight)}
-      description={locale.themeDesc}
-      id="flexible"
-      background={backgroundColor}
-      decoration={
-        // =========================== Theme Background ===========================
-        <>
-          {/* >>>>>> Default <<<<<< */}
-          <div
-            className={clsx(
-              styles.motion,
-              isLight && closestColor === DEFAULT_COLOR ? styles.op1 : styles.op0,
-            )}
-          >
-            {/* Image Left Top */}
-            <img
-              draggable={false}
-              className={clsx(styles.pos, styles.leftTopImage)}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
-              alt="image-left-top"
-            />
-            {/* Image Right Bottom */}
-            <img
-              draggable={false}
-              className={clsx(styles.pos, styles.rightBottomImage)}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
-              alt="image-right-bottom"
-            />
-          </div>
-          {/* >>>>>> Dark <<<<<< */}
-          <div className={clsx(styles.motion, !isLight || !closestColor ? styles.op1 : styles.op0)}>
-            {/* Image Left Top */}
-            <img
-              draggable={false}
-              className={clsx(styles.pos, styles.leftTopImagePos)}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
-              alt="image-left-top"
-            />
-            {/* Image Right Bottom */}
-            <img
-              draggable={false}
-              className={clsx(styles.pos, styles.rightBottomPos)}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
-              alt="image-right-bottom"
-            />
-          </div>
-          {/* >>>>>> Background Image <<<<<< */}
-          <BackgroundImage isLight={isLight} colorPrimary={colorPrimaryValue} />
-        </>
-      }
-    >
-      {themeNode}
-    </Group>
+    </App>
   );
 };
 
-export default Theme;
+export const ThemeDashboard: React.FC<ThemeDashboardProps> = (props) => {
+  const { className, config, style, activeTheme } = props;
+  const dashboardConfig = React.useMemo(() => getDashboardConfig(config), [config]);
+  const isDarkTheme = React.useMemo(() => {
+    const algorithm = config?.theme?.algorithm;
+    const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
+
+    return algorithms.includes(theme.darkAlgorithm);
+  }, [config]);
+
+  return (
+    <ConfigProvider {...dashboardConfig}>
+      <ThemeDashboardLayout
+        className={className}
+        activeTheme={activeTheme}
+        isDarkTheme={isDarkTheme}
+        style={style}
+      />
+    </ConfigProvider>
+  );
+};
+
+export default ThemeDashboard;

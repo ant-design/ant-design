@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
-import { App, ConfigProvider, Flex, theme, Tooltip } from 'antd';
+import { App, ConfigProvider, Flex, Segmented, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
 import { Link, useLocation } from 'dumi';
@@ -11,8 +11,11 @@ import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
 import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import ComponentsBlock from '../PreviewPane/Components';
+import { ThemeDashboard } from '../Theme';
 import usePreviewThemes from './previewThemes';
 import { generateFullCopyFile } from './themeCodeUtils';
+
+const PREVIEW_CARD_RADIUS = 16;
 
 const locales = {
   cn: {
@@ -66,6 +69,45 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     maxWidth: 1320,
     margin: '0 auto',
   }),
+  dashboardBlock: css({
+    width: '100%',
+    maxWidth: 1320,
+    margin: '0 auto',
+  }),
+  previewTabs: css({
+    padding: 3,
+    borderRadius: 100,
+    background: cssVar.colorFillQuaternary,
+    '.ant-segmented-group': {
+      gap: 2,
+    },
+    '.ant-segmented-thumb': {
+      borderRadius: 100,
+      background: cssVar.colorBgElevated,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+    },
+    '@media (max-width: 768px)': {
+      width: '60%',
+    },
+  }),
+  previewTabsItem: css({
+    minWidth: 112,
+    borderRadius: 100,
+    color: cssVar.colorTextTertiary,
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+    '@media (max-width: 768px)': {
+      flex: 1,
+      minWidth: 0,
+      paddingInline: 12,
+      fontSize: 16,
+    },
+  }),
+  previewTabsLabel: css({
+    minHeight: 30,
+    lineHeight: '30px',
+  }),
   themeBlock: css({
     height: 20,
     width: 20,
@@ -87,8 +129,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     outline: `2px solid ${cssVar.colorPrimaryBorder}`,
   }),
   switch: css({
+    alignItems: 'center',
+    gap: 16,
     '@media (max-width: 1200px)': {
       justifyContent: 'center',
+      flexDirection: 'column',
     },
   }),
   buttonBlock: css({
@@ -110,6 +155,13 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 }));
 
+type PreviewPane = 'components' | 'dashboard';
+
+const previewPaneOptions: { label: string; value: PreviewPane }[] = [
+  { label: 'Components', value: 'components' },
+  { label: 'Dashboard', value: 'dashboard' },
+];
+
 export interface ThemePreviewProps {
   onOpenPromptDrawer?: () => void;
 }
@@ -128,6 +180,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
   const [activeName, setActiveName] = React.useState(
     () => previewThemes?.find((theme) => theme.key === 'light')?.name,
   );
+  const [activePane, setActivePane] = React.useState<PreviewPane>('components');
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
@@ -196,7 +249,16 @@ function ThemePreviewContent(props: ThemePreviewProps) {
       <Flex className={styles.container}>
         <Flex className={styles.wrapper} gap={16}>
           <Flex className={styles.switch} justify="space-between">
-            <div></div>
+            <Segmented
+              classNames={{
+                root: styles.previewTabs,
+                item: styles.previewTabsItem,
+                label: styles.previewTabsLabel,
+              }}
+              options={previewPaneOptions}
+              value={activePane}
+              onChange={(value) => setActivePane(value as PreviewPane)}
+            />
             <Flex align="center" gap={12}>
               {previewThemes.map((previewTheme: any) => (
                 <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
@@ -234,14 +296,24 @@ function ThemePreviewContent(props: ThemePreviewProps) {
             </Flex>
           </Flex>
           {/* ===== 组件预览区域 ===== */}
-          <ComponentsBlock
-            isDark={isDark}
-            isDarkTheme={activeTheme?.bgImgDark}
-            key={activeName}
-            config={activeTheme?.props}
-            className={styles.componentsBlock}
-            containerClassName={styles.componentsBlockContainer}
-          />
+          {activePane === 'components' ? (
+            <ComponentsBlock
+              isDark={isDark}
+              isDarkTheme={activeTheme?.bgImgDark}
+              key={activeName}
+              config={activeTheme?.props}
+              className={styles.componentsBlock}
+              containerClassName={styles.componentsBlockContainer}
+            />
+          ) : (
+            <ThemeDashboard
+              key={activeName}
+              className={styles.dashboardBlock}
+              config={activeTheme?.props}
+              activeTheme={activeTheme}
+              style={{ borderRadius: PREVIEW_CARD_RADIUS }}
+            />
+          )}
         </Flex>
       </Flex>
     </Group>

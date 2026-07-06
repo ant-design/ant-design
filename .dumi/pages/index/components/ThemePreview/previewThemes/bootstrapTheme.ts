@@ -75,6 +75,15 @@ const useStyles = createStyles(({ css, cssVar }) => {
     selectPopupRoot: css({
       paddingInline: 0,
     }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
+        borderRadius: cssVar.borderRadiusLG,
+        boxShadow: [`inset 0 1px 0 rgba(255, 255, 255, 0.6)`, `0 2px 4px rgba(0, 0, 0, 0.16)`].join(
+          ',',
+        ),
+      },
+    }),
     switchRoot: css({
       boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.4)`,
     }),
@@ -114,6 +123,25 @@ const useBootstrapTheme: UseTheme = () => {
             borderRadius: 2,
             algorithm: true,
           },
+          Notification: {
+            colorSuccessBg: '#dff0d8',
+            colorErrorBg: '#f2dede',
+            colorInfoBg: '#d9edf7',
+            colorWarningBg: '#fcf8e3',
+          },
+          Layout: {},
+          Menu: {},
+          Button: {},
+          Alert: {},
+          Modal: {},
+          Card: {},
+          Select: {},
+          Input: {},
+          Switch: {},
+          Progress: {},
+          Steps: {},
+          Slider: {},
+          ColorPicker: {},
         },
       },
       wave: {
@@ -164,6 +192,11 @@ const useBootstrapTheme: UseTheme = () => {
           },
         },
       },
+      notification: {
+        classNames: {
+          root: styles.notificationRoot,
+        },
+      },
       switch: {
         classNames: {
           root: styles.switchRoot,
@@ -181,6 +214,15 @@ const useBootstrapTheme: UseTheme = () => {
           track: { height: 20 },
         },
       },
+      app: {},
+      card: {},
+      datePicker: {},
+      input: {},
+      inputNumber: {},
+      popover: {},
+      tooltip: {},
+      radio: {},
+      segmented: {},
     }),
     [],
   );

@@ -88,7 +88,7 @@ export interface CSPConfig {
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
-type ComponentsConfig = {
+export type ComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
     algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[];
   };
@@ -167,8 +167,9 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<RecordType extends AnyObject = AnyObject>
-  extends ComponentStyleConfig {
+export interface TableConfig<
+  RecordType extends AnyObject = AnyObject,
+> extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
