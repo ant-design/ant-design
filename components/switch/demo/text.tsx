@@ -4,7 +4,7 @@ import { Space, Switch } from 'antd';
 
 const App: React.FC = () => (
   <Space vertical>
-    <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
+    <Switch checkedChildren="On" unCheckedChildren="Off" defaultChecked />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <Switch
       checkedChildren={<CheckOutlined />}

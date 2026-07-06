@@ -115,6 +115,6 @@ If need update content when close, you can set `fresh` property ([#44830](https:
 
 ---
 
-<!-- 请确保在 FAQ 最后 -->
+<!-- Make sure this remains at the end of FAQ -->
 
 <embed src="./shared/sharedFAQ.en-US.md"></embed>
