@@ -28,6 +28,7 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import renderExpandIcon from './ExpandIcon';
+import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
@@ -37,10 +38,10 @@ import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/us
 import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
+import useSpinProps from './hooks/useSpinProps';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnsType,
-  ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
   ExpandType,
@@ -61,7 +62,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { getMergedFilters, getPaginationSize, normalizePlacement, useSpinProps } from './util';
+import { getPaginationSize, normalizePlacement } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -508,12 +509,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
-  const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
-    return {
-      ...sorterTitleProps,
-      filters: getMergedFilters(filters),
-    };
-  }, [sorterTitleProps, filters]);
+  const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters);
 
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 

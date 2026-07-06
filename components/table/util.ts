@@ -1,14 +1,10 @@
-import * as React from 'react';
-
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
-import type { SpinProps } from '../spin';
 import type {
   ColumnTitle,
   ColumnTitleProps,
   ColumnType,
-  FilterValue,
   Key,
   TablePaginationPlacement,
   TablePaginationPosition,
@@ -42,10 +38,7 @@ export const renderColumnTitle = <RecordType extends AnyObject = AnyObject>(
 };
 
 /**
- * Safe get column title
- *
- * Should filter object
- *
+ * @description Safe get column title, Should filter object
  * @param title
  */
 export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
@@ -75,27 +68,4 @@ export const getPaginationSize = (paginationSize: SizeType, mergedSize: SizeType
     return 'small';
   }
   return undefined;
-};
-
-export const getMergedFilters = (filters: Record<string, FilterValue | null>) => {
-  const mergedFilters: Record<string, FilterValue> = {};
-  Object.keys(filters).forEach((filterKey) => {
-    const value = filters[filterKey];
-    if (isNonNullable(value)) {
-      mergedFilters[filterKey] = value;
-    }
-  });
-  return mergedFilters;
-};
-
-export const useSpinProps = (loading?: boolean | SpinProps) => {
-  return React.useMemo<SpinProps>(() => {
-    if (typeof loading === 'boolean') {
-      return { spinning: loading };
-    }
-    if (isPlainObject<SpinProps>(loading)) {
-      return { spinning: true, ...loading };
-    }
-    return {};
-  }, [loading]);
 };
