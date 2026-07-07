@@ -96,6 +96,11 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
     setCurrent(e.key);
   };
 
+  const getPopupContainer = React.useCallback<NonNullable<MenuProps['getPopupContainer']>>(
+    () => divRef.current?.parentElement?.parentElement || divRef.current!,
+    [],
+  );
+
   return (
     <Flex vertical gap="medium" ref={divRef} align="center">
       <Segmented<ModeType> options={['horizontal', 'vertical', 'inline']} onChange={setMode} />
@@ -117,7 +122,7 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
           }}
           {...restProps}
           openKeys={['SubMenu']}
-          getPopupContainer={() => divRef.current!}
+          getPopupContainer={getPopupContainer}
         />
       </div>
     </Flex>
