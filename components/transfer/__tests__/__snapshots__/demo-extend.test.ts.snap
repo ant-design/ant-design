@@ -4915,8 +4915,9 @@ Array [
                 >
                   <li
                     aria-disabled="true"
+                    aria-label="Previous Page"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
+                    role="button"
                   >
                     <button
                       class="ant-pagination-item-link"
@@ -4946,32 +4947,42 @@ Array [
                     </button>
                   </li>
                   <li
+                    aria-current="page"
+                    aria-label="Page 1"
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                    role="button"
                     tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-hidden="true"
                       rel="nofollow"
+                      tabindex="-1"
                     >
                       1
                     </a>
                   </li>
                   <li
+                    aria-label="Page 2"
                     class="ant-pagination-item ant-pagination-item-2"
+                    role="button"
                     tabindex="0"
                     title="2"
                   >
                     <a
+                      aria-hidden="true"
                       rel="nofollow"
+                      tabindex="-1"
                     >
                       2
                     </a>
                   </li>
                   <li
                     aria-disabled="false"
+                    aria-label="Next Page"
                     class="ant-pagination-next"
+                    role="button"
                     tabindex="0"
-                    title="Next Page"
                   >
                     <button
                       class="ant-pagination-item-link"
@@ -5518,8 +5529,9 @@ Array [
                 >
                   <li
                     aria-disabled="true"
+                    aria-label="Previous Page"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
+                    role="button"
                   >
                     <button
                       class="ant-pagination-item-link"
@@ -5549,20 +5561,26 @@ Array [
                     </button>
                   </li>
                   <li
+                    aria-current="page"
+                    aria-label="Page 1"
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                    role="button"
                     tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-hidden="true"
                       rel="nofollow"
+                      tabindex="-1"
                     >
                       1
                     </a>
                   </li>
                   <li
                     aria-disabled="true"
+                    aria-label="Next Page"
                     class="ant-pagination-next ant-pagination-disabled"
-                    title="Next Page"
+                    role="button"
                   >
                     <button
                       class="ant-pagination-item-link"
@@ -7461,8 +7479,9 @@ Array [
         >
           <li
             aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -7510,8 +7529,9 @@ Array [
           </li>
           <li
             aria-disabled="false"
+            aria-label="Next Page"
             class="ant-pagination-next"
-            title="Next Page"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -7979,8 +7999,9 @@ Array [
         >
           <li
             aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -8028,8 +8049,9 @@ Array [
           </li>
           <li
             aria-disabled="false"
+            aria-label="Next Page"
             class="ant-pagination-next"
-            title="Next Page"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -13120,8 +13142,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                 >
                   <li
                     aria-disabled="true"
+                    aria-label="Previous Page"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
+                    role="button"
                   >
                     <button
                       class="ant-pagination-item-link"
@@ -13151,32 +13174,42 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     </button>
                   </li>
                   <li
+                    aria-current="page"
+                    aria-label="Page 1"
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                    role="button"
                     tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-hidden="true"
                       rel="nofollow"
+                      tabindex="-1"
                     >
                       1
                     </a>
                   </li>
                   <li
+                    aria-label="Page 2"
                     class="ant-pagination-item ant-pagination-item-2"
+                    role="button"
                     tabindex="0"
                     title="2"
                   >
                     <a
+                      aria-hidden="true"
                       rel="nofollow"
+                      tabindex="-1"
                     >
                       2
                     </a>
                   </li>
                   <li
                     aria-disabled="false"
+                    aria-label="Next Page"
                     class="ant-pagination-next"
+                    role="button"
                     tabindex="0"
-                    title="Next Page"
                   >
                     <button
                       class="ant-pagination-item-link"
