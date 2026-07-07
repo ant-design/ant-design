@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
