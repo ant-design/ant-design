@@ -110,9 +110,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const [varName, varRef] = genCssVar(antCls, 'select');
 
   const contentMarginInlineEnd = max(calc(showArrowPaddingInlineEnd).sub(fontSizeIcon).equal(), 0);
-  const suffixTransition = ['opacity', 'color']
-    .map((prop) => `${prop} ${token.motionDurationMid} ease`)
-    .join(', ');
 
   return {
     [componentCls]: [
@@ -217,11 +214,9 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
-          transition: suffixTransition,
-
-          [`> ${iconCls}`]: {
-            transition: suffixTransition,
-          },
+          transition: ['opacity', 'color']
+            .map((prop) => `${prop} ${token.motionDurationMid}`)
+            .join(', '),
 
           '> :not(:last-child)': {
             marginInlineEnd: token.marginXS,

@@ -13,13 +13,13 @@ export type { ComponentToken };
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { antCls, componentCls, iconCls, motionDurationMid, inputPaddingHorizontalBase } = token;
+  const { antCls, componentCls, motionDurationMid, inputPaddingHorizontalBase } = token;
 
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
       opacity: 1,
     },
-    [`${componentCls}-suffix:not(:last-child) > ${iconCls}`]: {
+    [`${componentCls}-suffix:not(:last-child)`]: {
       opacity: 0,
     },
   };

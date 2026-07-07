@@ -57,7 +57,6 @@ const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
 const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
-    iconCls,
     antCls,
     paddingInline,
     lineWidth,
@@ -97,9 +96,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'date-picker');
-  const suffixTransition = ['opacity', 'color']
-    .map((prop) => `${prop} ${motionDurationMid}`)
-    .join(', ');
 
   return [
     {
@@ -194,11 +190,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextQuaternary,
           lineHeight: 1,
           pointerEvents: 'none',
-          transition: suffixTransition,
-
-          [`> ${iconCls}`]: {
-            transition: suffixTransition,
-          },
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -250,7 +242,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           // Should use the following selector, but since `:has` has poor compatibility,
           // we use `:not(:last-child)` instead, which may cause some problems in some cases.
           // [`${componentCls}-suffix:has(+ ${componentCls}-clear)`]: {
-          [`${componentCls}-suffix:not(:last-child) > ${iconCls}`]: {
+          [`${componentCls}-suffix:not(:last-child)`]: {
             opacity: 0,
           },
         },
