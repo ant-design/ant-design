@@ -30,7 +30,7 @@ export type PreviewThemeConfig = {
   key?: string;
   props?: ConfigProviderProps;
   bgImg?: string;
-  bgImgDark?: true;
+  bgImgDark?: boolean;
   copyCode?: string;
   colors?: string[];
 };
@@ -72,8 +72,20 @@ export const DEFAULT_COLOR = '#1677FF';
 export const PINK_COLOR = '#ED4192';
 
 const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
-  Layout: {},
-  Menu: {},
+  Layout: {
+    bodyBg: '#f5f8ff',
+    footerBg: '#f5f8ff',
+    headerBg: '#ffffff',
+    headerColor: 'rgba(0, 0, 0, 0.88)',
+    siderBg: '#ffffff',
+    triggerBg: '#f0f5ff',
+    triggerColor: 'rgba(0, 0, 0, 0.88)',
+  },
+  Menu: {
+    activeBarBorderWidth: 0,
+    itemBg: 'transparent',
+    subMenuItemBg: 'transparent',
+  },
   Button: {},
   Alert: {},
   Modal: {},
@@ -84,17 +96,60 @@ const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
   Select: {},
   Input: {},
   Switch: {},
-  Progress: {},
+  Progress: {
+    circleTextColor: 'rgba(0, 0, 0, 0.88)',
+    defaultColor: DEFAULT_COLOR,
+    remainingColor: 'rgba(0, 0, 0, 0.06)',
+  },
   Steps: {},
   Slider: {},
   ColorPicker: {},
   Notification: {},
 };
 
+const darkPreviewLayoutToken: NonNullable<ThemeConfig['components']>['Layout'] = {
+  bodyBg: '#050505',
+  footerBg: '#050505',
+  headerBg: '#111111',
+  headerColor: 'rgba(255, 255, 255, 0.88)',
+  siderBg: '#050505',
+  triggerBg: '#111111',
+  triggerColor: 'rgba(255, 255, 255, 0.88)',
+};
+
+const darkPreviewMenuToken: NonNullable<ThemeConfig['components']>['Menu'] = {
+  darkItemBg: 'transparent',
+  darkItemColor: 'rgba(255, 255, 255, 0.68)',
+  darkItemHoverBg: 'rgba(255, 255, 255, 0.08)',
+  darkItemHoverColor: '#fff',
+  darkItemSelectedBg: 'rgba(22, 119, 255, 0.28)',
+  darkItemSelectedColor: '#fff',
+  darkSubMenuItemBg: 'transparent',
+};
+
+const darkPreviewProgressToken: NonNullable<ThemeConfig['components']>['Progress'] = {
+  circleTextColor: 'rgba(255, 255, 255, 0.88)',
+  defaultColor: DEFAULT_COLOR,
+  remainingColor: 'rgba(255, 255, 255, 0.12)',
+};
+
+const isDarkAlgorithm = (algorithm: ThemeConfig['algorithm']) => {
+  const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
+
+  return algorithms.includes(theme.darkAlgorithm);
+};
+
 const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigProviderProps => ({
   theme: {
     algorithm,
-    components: previewThemeComponents,
+    components: isDarkAlgorithm(algorithm)
+      ? {
+          ...previewThemeComponents,
+          Layout: darkPreviewLayoutToken,
+          Menu: darkPreviewMenuToken,
+          Progress: darkPreviewProgressToken,
+        }
+      : previewThemeComponents,
   },
   wave: {},
   app: {},
