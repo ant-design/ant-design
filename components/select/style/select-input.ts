@@ -215,7 +215,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
           transition: ['opacity', 'color']
-            .map((prop) => `${prop} ${token.motionDurationMid}`)
+            .map((prop) => `${prop} ${token.motionDurationMid} ease`)
             .join(', '),
 
           '> :not(:last-child)': {
