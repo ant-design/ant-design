@@ -65,9 +65,9 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | 垂直对齐方式 | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 | × |
+| grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，或传入对象配置 grid 模板 | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.5.0 | × |
 | gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 | string: 5.28.0 | × |
 | justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 | × |
-| grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，或传入对象配置 grid 模板 | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.5.0 | × |
 | wrap | 是否自动换行 | boolean | true | 4.8.0 | × |
 
 ### Col
@@ -77,11 +77,11 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | flex | flex 布局属性 | string \| number | - |  | × |
+| gridItemConfig | Grid 模式配置，支持 gridColumn、gridRow、gridArea 属性 | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  | × |
 | order | 栅格顺序 | number | 0 |  | × |
 | pull | 栅格向左移动格数 | number | 0 |  | × |
 | push | 栅格向右移动格数 | number | 0 |  | × |
-| gridItemConfig | Grid 模式配置，支持 gridColumn、gridRow、gridArea 属性 | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  | × |
 | xs | `窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  | × |
 | sm | `窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  | × |
@@ -95,7 +95,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
-### Grid 模式注意事项
+### Grid 模式注意事项 {#grid-mode-notes}
 
 如需在 grid 模式下实现响应式布局，请通过 `gridTemplateColumns` 配置列数，并确保 `span` 值不超过列数。例如：`grid={{ gridTemplateColumns: 'repeat(12, 1fr)' }}` 时，`span={6}` 占一半宽度。
 
