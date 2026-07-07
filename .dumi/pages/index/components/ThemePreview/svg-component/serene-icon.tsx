@@ -17,6 +17,7 @@ export const SereneIcon: React.FC<SereneIconProps> = (props) => {
       focusable={false}
       {...props}
     >
+      <title>Serene Icon</title>
       <circle cx="32" cy="32" r="31" fill="#f8f6f2" stroke="#e2dcd5" strokeWidth="1" />
       <circle cx="32" cy="30" r="14" fill="none" stroke="#312721" strokeWidth="2" />
       <circle cx="32" cy="46" r="3" fill="#c7a56b" />

@@ -94,12 +94,12 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     },
   }),
   tabsDark: css({
-    background: 'rgba(255, 255, 255, 0.14)',
-    backdropFilter: 'blur(16px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.14)',
+    backdropFilter: 'blur(18px)',
     boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
     '.ant-segmented-thumb': {
-      background: 'rgba(255, 255, 255, 0.96)',
-      boxShadow: '0 6px 18px rgba(0,0,0,0.24)',
+      backgroundColor: 'rgba(255, 255, 255, 0.96)',
+      boxShadow: '0 8px 18px rgba(0,0,0,0.24)',
     },
   }),
   tabsItem: css({
@@ -136,7 +136,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     fontSize: 20,
     borderRadius: '50%',
     cursor: 'pointer',
-    boxShadow: '0 3px 8px rgba(0, 0, 0, 0.15)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     outline: `2px solid ${cssVar.colorBgLayout}`,
