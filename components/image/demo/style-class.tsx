@@ -39,7 +39,7 @@ const App: React.FC = () => {
   const sharedProps: ImageProps = {
     src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     width: 160,
-    alt: '示例图片',
+    alt: 'Example image',
     classNames,
   };
 

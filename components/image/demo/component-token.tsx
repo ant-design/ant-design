@@ -14,7 +14,7 @@ const App: React.FC = () => (
     }}
   >
     <Image.PreviewGroup
-      preview={{ countRender: (current, total) => `当前 ${current} / 总计 ${total}` }}
+      preview={{ countRender: (current, total) => `Current ${current} / Total ${total}` }}
     >
       <Image
         width={150}
