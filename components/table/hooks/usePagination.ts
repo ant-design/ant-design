@@ -30,7 +30,7 @@ export function getPaginationParam(
 
 function usePagination(
   total: number,
-  onChange: (current: number, pageSize: number) => void,
+  onChange: (current: number, pageSize: number, info?: { recommendPage?: number }) => void,
   pagination?: TablePaginationConfig | false,
 ): readonly [TablePaginationConfig, (current?: number, pageSize?: number) => void] {
   const { total: paginationTotal = 0, ...paginationObj } = isPlainObject(pagination)
@@ -65,11 +65,21 @@ function usePagination(
   };
 
   const onInternalChange: PaginationProps['onChange'] = (current, pageSize, info) => {
+    // Only pass info (recommendPage) when it's defined (size change scenario)
     if (pagination) {
-      pagination.onChange?.(current, pageSize, info);
+      if (info) {
+        pagination.onChange?.(current, pageSize, info);
+      } else {
+        pagination.onChange?.(current, pageSize);
+      }
     }
     refreshPagination(current, pageSize);
-    onChange(current, pageSize || mergedPagination?.pageSize!);
+    const pageSizeParam = pageSize || mergedPagination?.pageSize!;
+    if (info) {
+      onChange(current, pageSizeParam, info);
+    } else {
+      onChange(current, pageSizeParam);
+    }
   };
 
   if (pagination === false) {
