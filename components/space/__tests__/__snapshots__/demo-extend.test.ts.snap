@@ -3052,7 +3052,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         type="button"
       >
         <span>
-          查 询
+          Search
         </span>
       </button>
     </div>

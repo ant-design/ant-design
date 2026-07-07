@@ -15,10 +15,20 @@ import type { IconName, IconsMeta } from './meta';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
+  All = 'All',
   Filled = 'Filled',
   Outlined = 'Outlined',
   TwoTone = 'TwoTone',
 }
+
+// Preference order used by the "All" view to pick the single variant shown for
+// each icon. Outlined first keeps the default look; Filled surfaces logos that
+// only ship as Filled and would otherwise stay hidden on the Outlined tab.
+const THEME_ORDER: ReadonlyArray<ThemeType> = [
+  ThemeType.Outlined,
+  ThemeType.Filled,
+  ThemeType.TwoTone,
+];
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
@@ -61,7 +71,7 @@ const IconSearch: React.FC = () => {
   const intl = useIntl();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
-    theme: ThemeType.Outlined,
+    theme: ThemeType.All,
   });
   const token = useTheme();
 
@@ -117,9 +127,7 @@ const IconSearch: React.FC = () => {
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
     const matchedCategories = Object.values(merged)
       .map((item) => {
-        const icons = item.icons
-          .map((iconName) => iconName + theme)
-          .filter((iconName) => allIcons[iconName]);
+        const icons = item.icons.flatMap((iconName) => resolveIconNames(iconName, theme));
 
         item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
 
@@ -154,6 +162,11 @@ const IconSearch: React.FC = () => {
 
   const memoizedOptions = React.useMemo<SegmentedOptions<ThemeType>>(
     () => [
+      {
+        value: ThemeType.All,
+        icon: <AntdIcons.AppstoreOutlined />,
+        label: intl.formatMessage({ id: 'app.docs.components.icon.all' }),
+      },
       {
         value: ThemeType.Outlined,
         icon: <Icon component={OutlinedIcon} />,
@@ -208,6 +221,17 @@ type MatchedCategory = {
   category: string;
   icons: string[];
 };
+
+// Map a base icon name to the concrete component name(s) to render for a theme.
+// "All" resolves to a single variant (see THEME_ORDER); a specific theme resolves
+// to that variant only when it exists.
+function resolveIconNames(baseName: string, theme: ThemeType): string[] {
+  if (theme === ThemeType.All) {
+    const matched = THEME_ORDER.find((item) => allIcons[baseName + item]);
+    return matched ? [baseName + matched] : [];
+  }
+  return allIcons[baseName + theme] ? [baseName + theme] : [];
+}
 
 function groupNewIcons(icons: string[]) {
   const firstNewIconIndex = icons.findIndex((iconName) => NEW_ICON_ORDER.has(iconName));
