@@ -134,7 +134,8 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     height: 20,
     width: 20,
     fontSize: 20,
-    borderRadius: '50%',
+    borderRadius: '100%',
+    overflow: 'hidden',
     cursor: 'pointer',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
     backgroundPosition: 'center',
@@ -153,6 +154,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       display: 'block',
       width: '100%',
       height: '100%',
+      borderRadius: '100%',
     },
   }),
   active: css({
