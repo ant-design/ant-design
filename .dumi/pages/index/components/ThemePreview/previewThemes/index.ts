@@ -3,6 +3,7 @@ import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
+import { SereneIcon } from '../svg-component';
 import useBlossomTheme from './blossomTheme';
 import blossomThemeSource from './blossomTheme.ts?raw';
 import useBootstrapTheme from './bootstrapTheme';
@@ -19,21 +20,23 @@ import useLarkTheme from './larkTheme';
 import larkThemeSource from './larkTheme.ts?raw';
 import useMuiTheme from './muiTheme';
 import muiThemeSource from './muiTheme.ts?raw';
+import useSereneTheme from './sereneTheme';
+import sereneThemeSource from './sereneTheme.ts?raw';
 import useShadcnTheme from './shadcnTheme';
 import shadcnThemeSource from './shadcnTheme.ts?raw';
 import useV4Theme from './v4Theme';
 import v4ThemeSource from './v4Theme.ts?raw';
 
-export type PreviewThemeConfig = {
-  icon?: string;
+export interface PreviewThemeConfig {
+  icon: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   name: string;
   key?: string;
   props?: ConfigProviderProps;
   bgImg?: string;
-  bgImgDark?: true;
+  bgImgDark?: boolean;
   copyCode?: string;
   colors?: string[];
-};
+}
 
 const locales = {
   cn: {
@@ -49,6 +52,7 @@ const locales = {
     lark: '知识协作',
     blossom: '桃花缘',
     v4: 'Ant Design V4',
+    serene: '静谧',
   },
   en: {
     default: 'Ant Design',
@@ -63,6 +67,7 @@ const locales = {
     lark: 'Document',
     blossom: 'Blossom',
     v4: 'Ant Design V4',
+    serene: 'Serene',
   },
 };
 
@@ -186,6 +191,7 @@ const usePreviewThemes = () => {
   const muiTheme = useMuiTheme();
   const shadcnTheme = useShadcnTheme();
   const bootstrapTheme = useBootstrapTheme();
+  const sereneTheme = useSereneTheme();
 
   return React.useMemo<PreviewThemeConfig[]>(() => {
     return [
@@ -282,6 +288,12 @@ const usePreviewThemes = () => {
         name: locale.v4,
         props: v4Theme,
         copyCode: v4ThemeSource,
+      },
+      {
+        name: locale.serene,
+        icon: SereneIcon,
+        props: sereneTheme,
+        copyCode: sereneThemeSource,
       },
     ];
   }, [locale]);
