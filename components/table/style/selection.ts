@@ -60,8 +60,8 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
-      [`table tr th${componentCls}-selection-column${componentCls}-cell-fix-left`]: {
-        zIndex: calc(token.zIndexTableFixed).add(1).equal({ unit: false }),
+      [`table tr th${componentCls}-selection-column${componentCls}-cell-fix-start`]: {
+        zIndex: `calc(var(--z-offset, 0) + ${token.zIndexTableFixed})`,
       },
 
       [`table tr th${componentCls}-selection-column::after`]: {
