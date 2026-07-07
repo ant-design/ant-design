@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Chiudi',
     show: 'Mostra',
     hide: 'Nascondi',
+    sortable: 'ordinabile',
   },
   Table: {
     filterTitle: 'Menù Filtro',
@@ -63,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'Seleziona tutti i dati',
     removeAll: 'Rimuovi tutti i dati',
     selectInvert: 'Inverti la pagina corrente',
+    deselectAll: 'Deseleziona tutti i dati',
   },
   Upload: {
     uploading: 'Caricamento...',
@@ -82,6 +84,7 @@ const localeValues: Locale = {
     copy: 'copia',
     copied: 'copia effettuata',
     expand: 'espandi',
+    collapse: 'Crollo',
   },
   Form: {
     optional: '(opzionale)',

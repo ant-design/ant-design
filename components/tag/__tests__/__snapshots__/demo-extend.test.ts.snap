@@ -915,7 +915,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
       role="button"
       tabindex="0"
     >
-      关 闭
+      Close
     </span>
   </span>
   <span
