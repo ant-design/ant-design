@@ -21,20 +21,12 @@ export enum ThemeType {
   TwoTone = 'TwoTone',
 }
 
-type ConcreteThemeType = Exclude<ThemeType, ThemeType.All>;
-
-// Theme order used by the "All" view to group icons by the same variant.
-const THEME_ORDER: ReadonlyArray<ConcreteThemeType> = [
+// Theme order used by the "All" view to expand each base icon.
+const THEME_ORDER: ReadonlyArray<ThemeType> = [
   ThemeType.Outlined,
   ThemeType.Filled,
   ThemeType.TwoTone,
 ];
-
-const THEME_LABEL_IDS: Record<ConcreteThemeType, string> = {
-  [ThemeType.Outlined]: 'app.docs.components.icon.outlined',
-  [ThemeType.Filled]: 'app.docs.components.icon.filled',
-  [ThemeType.TwoTone]: 'app.docs.components.icon.two-tone',
-};
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
@@ -131,57 +123,28 @@ const IconSearch: React.FC = () => {
 
     // merge matched categories from tag search
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
-    const resolveMatchedCategories = (targetTheme: ConcreteThemeType) =>
-      Object.values(merged)
-        .map(({ category, icons: baseIconNames }) => {
-          const icons = resolveIconNames(baseIconNames, targetTheme);
+    const matchedCategories = Object.values(merged)
+      .map((item) => {
+        const icons = item.icons.flatMap((iconName) => resolveIconNames(iconName, theme));
 
-          return {
-            category,
-            icons: category === 'logo' ? groupNewIcons(icons) : icons,
-          };
-        })
-        .filter(({ icons }) => !!icons.length);
+        item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
 
-    const renderCategoryList = (
-      matchedCategories: MatchedCategory[],
-      targetTheme: ConcreteThemeType,
-      keyPrefix?: string,
-    ) =>
-      matchedCategories.map(({ category, icons }) => (
-        <Category
-          key={keyPrefix ? `${keyPrefix}-${category}` : category}
-          title={category as CategoriesKeys}
-          theme={targetTheme}
-          icons={icons}
-          newIcons={NEW_ICON_NAMES}
-          newIconVersion={NEW_ICON_VERSION}
-        />
-      ));
+        return item;
+      })
+      .filter(({ icons }) => !!icons.length);
 
-    if (theme === ThemeType.All) {
-      const themeGroups = THEME_ORDER.map((targetTheme) => {
-        const matchedCategories = resolveMatchedCategories(targetTheme);
-
-        if (!matchedCategories.length) {
-          return null;
-        }
-
-        return (
-          <React.Fragment key={targetTheme}>
-            <h2>{intl.formatMessage({ id: THEME_LABEL_IDS[targetTheme] })}</h2>
-            {renderCategoryList(matchedCategories, targetTheme, targetTheme)}
-          </React.Fragment>
-        );
-      });
-
-      return themeGroups.some(Boolean) ? themeGroups : <Empty style={{ margin: '2em 0' }} />;
-    }
-
-    const matchedCategories = resolveMatchedCategories(theme);
-    const categoriesResult = renderCategoryList(matchedCategories, theme);
+    const categoriesResult = matchedCategories.map(({ category, icons }) => (
+      <Category
+        key={category}
+        title={category as CategoriesKeys}
+        theme={theme}
+        icons={icons}
+        newIcons={NEW_ICON_NAMES}
+        newIconVersion={NEW_ICON_VERSION}
+      />
+    ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
-  }, [displayState, intl]);
+  }, [displayState]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
 
@@ -257,9 +220,13 @@ type MatchedCategory = {
   icons: string[];
 };
 
-// Map base icon names to the concrete component names to render for a theme.
-function resolveIconNames(baseNames: string[], theme: ConcreteThemeType): string[] {
-  return baseNames.map((baseName) => baseName + theme).filter((iconName) => allIcons[iconName]);
+// Map a base icon name to the concrete component name(s) to render for a theme.
+function resolveIconNames(baseName: string, theme: ThemeType): string[] {
+  if (theme === ThemeType.All) {
+    return THEME_ORDER.map((item) => baseName + item).filter((iconName) => allIcons[iconName]);
+  }
+
+  return allIcons[baseName + theme] ? [baseName + theme] : [];
 }
 
 function groupNewIcons(icons: string[]) {
