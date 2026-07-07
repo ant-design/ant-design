@@ -43,6 +43,19 @@ const useStyles = createStyles(({ css }) => {
       borderRadius: '8px',
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
     }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        border: '1px solid #e4e4e7',
+        borderRadius: 8,
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+      },
+    }),
+    notificationTitle: css({
+      fontWeight: 600,
+    }),
+    notificationDescription: css({
+      color: '#525252',
+    }),
   };
 });
 
@@ -166,6 +179,7 @@ const useShadcnTheme = () => {
             borderRadiusLG: 12,
           },
           Progress: {
+            circleTextColor: '#262626',
             defaultColor: '#18181b',
             remainingColor: '#f4f4f5',
           },
@@ -191,6 +205,29 @@ const useShadcnTheme = () => {
           ColorPicker: {
             borderRadius: 6,
           },
+          Notification: {
+            colorSuccessBg: '#f0fdf4',
+            colorErrorBg: '#fef2f2',
+            colorInfoBg: '#f5f5f5',
+            colorWarningBg: '#fff7ed',
+          },
+          Layout: {
+            bodyBg: '#fafafa',
+            footerBg: '#fafafa',
+            headerBg: '#ffffff',
+            headerColor: '#18181b',
+            siderBg: '#ffffff',
+            triggerBg: '#f4f4f5',
+            triggerColor: '#18181b',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            itemBg: 'transparent',
+            subMenuItemBg: 'transparent',
+          },
+          Card: {},
+          Tooltip: {},
+          Radio: {},
         },
       },
       button: {
@@ -213,6 +250,29 @@ const useShadcnTheme = () => {
           root: styles.selectRoot,
         },
       },
+      notification: {
+        classNames: {
+          root: styles.notificationRoot,
+          title: styles.notificationTitle,
+          description: styles.notificationDescription,
+        },
+      },
+      wave: {},
+      app: {},
+      card: {},
+      modal: {},
+      alert: {},
+      colorPicker: {},
+      checkbox: {},
+      dropdown: {},
+      datePicker: {},
+      inputNumber: {},
+      popover: {},
+      tooltip: {},
+      switch: {},
+      radio: {},
+      segmented: {},
+      progress: {},
     }),
     [styles],
   );
