@@ -15,13 +15,12 @@ import defaultAlgorithm from './themes/default';
 /** Get current context Design Token. Will be different if you are using nest theme config. */
 function useToken() {
   const [theme, token, hashId, cssVar] = useInternalToken();
-
   return { theme, token, hashId, cssVar };
 }
 
 export type { GlobalToken, MappingAlgorithm };
 
-export default {
+const theme = {
   /** Default seedToken */
   defaultSeed: defaultConfig.token,
   useToken,
@@ -40,3 +39,5 @@ export default {
    */
   _internalContext: InternalDesignTokenContext,
 };
+
+export default theme;
