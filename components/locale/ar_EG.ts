@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'إغلاق',
     show: 'إظهار',
     hide: 'إخفاء',
+    sortable: 'قابل للفرز',
   },
   Table: {
     filterTitle: 'الفلاتر',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'ترتيب تنازلي',
     triggerAsc: 'ترتيب تصاعدي',
     cancelSort: 'إلغاء الترتيب',
+    filterEmptyText: 'لا مرشحات',
+    filterCheckAll: 'حدد كافة العناصر',
+    filterSearchPlaceholder: 'البحث في المرشحات',
+    emptyText: 'لا توجد بيانات',
+    selectNone: 'مسح كافة البيانات',
   },
   Tour: {
     Next: 'التالي',
@@ -52,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ابحث هنا',
     itemUnit: 'عنصر',
     itemsUnit: 'عناصر',
+    remove: 'إزالة',
+    selectCurrent: 'حدد الصفحة الحالية',
+    removeCurrent: 'إزالة الصفحة الحالية',
+    selectAll: 'حدد كافة البيانات',
+    deselectAll: 'إلغاء تحديد كافة البيانات',
+    removeAll: 'إزالة كافة البيانات',
+    selectInvert: 'عكس الصفحة الحالية',
   },
   Upload: {
     uploading: 'جاري الرفع...',
@@ -71,8 +84,10 @@ const localeValues: Locale = {
     copy: 'نسخ',
     copied: 'نقل',
     expand: 'وسع',
+    collapse: 'طي',
   },
   Form: {
+    optional: '(اختياري)',
     defaultValidateMessages: {
       default: 'خطأ في حقل الإدخال ${label}',
       required: 'يرجى إدخال ${label}',

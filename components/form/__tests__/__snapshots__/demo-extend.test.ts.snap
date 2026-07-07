@@ -7498,7 +7498,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               <span
                 class="ant-input-prefix"
               >
-                人民币
+                RMB
               </span>
               <input
                 class="ant-input"
@@ -7543,7 +7543,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               <span
                 class="ant-input-prefix"
               >
-                人民币
+                RMB
               </span>
               <input
                 class="ant-input"
@@ -7602,7 +7602,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
               <span
                 class="ant-input-prefix"
               >
-                人民币
+                RMB
               </span>
               <input
                 class="ant-input ant-input-disabled"

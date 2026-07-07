@@ -71,7 +71,7 @@ interface ComponentsBlockProps {
   isDarkTheme?: boolean;
 }
 
-const useStyle = createStyles(({ css, token, cssVar }) => {
+const useStyle = createStyles(({ css, token }) => {
   return {
     container: css({
       backgroundColor: 'transparent',
@@ -118,13 +118,6 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }),
-    blockCard: css({
-      backgroundColor: cssVar.colorBgContainer,
-      borderRadius: token.borderRadiusLG,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      padding: token.paddingLG,
-      userSelect: 'none',
-    }),
     avatarGroup: css({
       marginBlockEnd: 16,
     }),
@@ -154,13 +147,17 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       gap: 12,
     }),
     blockCardQr: css({
-      padding: 6,
       flex: '0 0 auto',
     }),
-    blockCardExtraPad: css({
+    blockCardQrBody: css({
       padding: 6,
+    }),
+    blockCardExtraPad: css({
       justifyContent: 'center',
       marginBlockEnd: 8,
+    }),
+    blockCardExtraPadBody: css({
+      padding: 6,
     }),
     flexCol1: css({
       flex: 1,
@@ -172,7 +169,7 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       width: '100%',
       margin: 0,
     }),
-    blockCardSegmented: css({
+    blockCardSegmentedBody: css({
       padding: 8,
     }),
     avatarSection: css({
@@ -210,6 +207,8 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
     }),
     signupCard: css({
       textAlign: 'center',
+    }),
+    signupCardBody: css({
       padding: '32px 24px',
     }),
     signupAvatar: css({
@@ -387,20 +386,28 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Flex>
                   </div>
                   <div className={styles.flexRow12}>
-                    <div className={clsx(styles.blockCard, styles.blockCardQr)}>
+                    <Card
+                      variant="borderless"
+                      className={styles.blockCardQr}
+                      classNames={{ body: styles.blockCardQrBody }}
+                    >
                       <QRCode
                         errorLevel="H"
                         value="https://ant.design/"
                         icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                       />
-                    </div>
+                    </Card>
                     <div className={styles.flexCol1}>
                       <Flex justify="space-around">
                         <Spin indicator={<LoadingOutlined spin />} size="middle" />
                         <Spin size="middle" />
                         <Rate size="middle" value={3} className={styles.rateStyle} />
                       </Flex>
-                      <div className={clsx(styles.blockCard, styles.blockCardExtraPad)}>
+                      <Card
+                        variant="borderless"
+                        className={styles.blockCardExtraPad}
+                        classNames={{ body: styles.blockCardExtraPadBody }}
+                      >
                         <Flex gap="small" align="center">
                           {tagList.map((tag) => {
                             const { content, ...restProps } = tag;
@@ -411,7 +418,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                             );
                           })}
                         </Flex>
-                      </div>
+                      </Card>
                       <InternalPopconfirm
                         title="Are you OK?"
                         placement="topRight"
@@ -420,7 +427,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </div>
                   </div>
 
-                  <div className={clsx(styles.blockCard, styles.blockCardSegmented)}>
+                  <Card variant="borderless" classNames={{ body: styles.blockCardSegmentedBody }}>
                     <Segmented block options={['1D', '7D', '1M', '1Y', 'All']} />
                     <Segmented
                       styles={{
@@ -434,7 +441,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         { label: 'Emails', value: 'Emails', icon: <MailOutlined /> },
                       ]}
                     />
-                  </div>
+                  </Card>
                 </div>
 
                 {/* ================= CENTER COLUMN ================= */}
@@ -479,7 +486,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       })}
                     </Flex>
                   </Flex>
-                  <div className={styles.blockCard}>
+                  <Card variant="borderless">
                     <Flex align="flex-start" gap="middle">
                       <Avatar
                         shape="square"
@@ -498,7 +505,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         </p>
                       </div>
                     </Flex>
-                  </div>
+                  </Card>
                   <InternalPanel
                     styles={{ root: { width: '100%' } }}
                     title="Ant Design"
@@ -509,7 +516,11 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
                 {/* ================= RIGHT COLUMN ================= */}
                 <div className={styles.colRight}>
-                  <div className={clsx(styles.blockCard, styles.signupCard)}>
+                  <Card
+                    variant="borderless"
+                    className={styles.signupCard}
+                    classNames={{ body: styles.signupCardBody }}
+                  >
                     <Avatar
                       size={50}
                       src="https://avatars.githubusercontent.com/u/27722486?v=4"
@@ -531,7 +542,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         Continue with Apple
                       </Button>
                     </Flex>
-                  </div>
+                  </Card>
 
                   <ModalInternalPanel title="Ant Design">
                     <div>

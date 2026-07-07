@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Затвори',
     show: 'Прикажи',
     hide: 'Сокриј',
+    sortable: 'подредливи',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',
@@ -25,6 +26,18 @@ const localeValues: Locale = {
     filterReset: 'Избриши',
     selectAll: 'Одбери страница',
     selectInvert: 'Инвертирај страница',
+    filterEmptyText: 'Нема филтри',
+    filterCheckAll: 'Изберете ги сите ставки',
+    filterSearchPlaceholder: 'Барај во филтри',
+    emptyText: 'Нема податоци',
+    selectNone: 'Исчистете ги сите податоци',
+    selectionAll: 'Изберете ги сите податоци',
+    sortTitle: 'Подреди',
+    expand: 'Проширете го редот',
+    collapse: 'Собери ред',
+    triggerDesc: 'Кликнете за да сортирате опаѓачки',
+    triggerAsc: 'Кликнете за да сортирате растечки',
+    cancelSort: 'Кликнете за да го откажете сортирањето',
   },
   Tour: {
     Next: 'Следно',
@@ -45,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Пребарај тука',
     itemUnit: 'предмет',
     itemsUnit: 'предмети',
+    remove: 'Отстрани',
+    selectCurrent: 'Изберете тековна страница',
+    removeCurrent: 'Отстранете ја моменталната страница',
+    selectAll: 'Изберете ги сите податоци',
+    deselectAll: 'Деселектирај ги сите податоци',
+    removeAll: 'Отстранете ги сите податоци',
+    selectInvert: 'Превртете ја тековната страница',
   },
   Upload: {
     uploading: 'Се прикачува...',
@@ -64,6 +84,7 @@ const localeValues: Locale = {
     copy: 'Копирај',
     copied: 'Копирано',
     expand: 'Зголеми',
+    collapse: 'Колапс',
   },
   Form: {
     optional: '(опционално)',
@@ -114,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} не се совпаѓа со шаблонот ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-кодот е истечен',
+    refresh: 'Освежи',
+    scanned: 'Скенирано',
+  },
+  ColorPicker: {
+    presetEmpty: 'Празен',
+    transparent: 'Транспарентен',
+    singleColor: 'Еднобојна',
+    gradientColor: 'Боја на градиент',
   },
 };
 

@@ -169,3 +169,25 @@ return (
 ### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)
+
+### Why doesn't `style={{ width: 'max-content' }}` work on Notification? {#faq-notification-width}
+
+Notification uses a fixed-width layout so the stacked card style can stay consistent. Because of this, intrinsic widths such as `max-content`, `min-content`, and `fit-content(...)` are not supported on the outer notification node.
+
+If you need to customize the notification width, use the component token `width`:
+
+```tsx
+<ConfigProvider
+  theme={{
+    components: {
+      Notification: {
+        width: 480,
+      },
+    },
+  }}
+>
+  <App />
+</ConfigProvider>
+```
+
+If you only need the content to size itself, render your own ReactNode in `title` or `description`, and apply `max-content` to the inner node instead of the notification root.
