@@ -112,7 +112,7 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
           items={item}
           styles={{
             root: {
-              width: mode === 'horizontal' ? 310 : 230,
+              width: mode === 'horizontal' ? 480 : 230,
             },
             popup: {
               root: {
