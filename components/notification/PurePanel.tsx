@@ -10,14 +10,14 @@ import type { NotificationProps as RcNotificationProps } from '@rc-component/not
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable } from '../_util/hooks';
-import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { ArgsProps, IconType, NotificationSemanticType } from './interface';
+import type { IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
 
 export type NotificationPurePanelSemanticAllType = GenerateSemantic<
@@ -90,17 +90,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('notification');
 
-  const contextStyleRoot = useSemanticRootStyle(contextStyle);
-  const styleRoot = useSemanticRootStyle(style);
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    NotificationPurePanelSemanticAllType['classNames'],
-    NotificationPurePanelSemanticAllType['styles'],
-    PurePanelProps & ArgsProps
-  >(
-    [contextClassNames, notificationClassNames],
-    [contextStyles, contextStyleRoot, styles, styleRoot],
-    { props: props as PurePanelProps & ArgsProps },
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames as PurePanelProps['classNames'], notificationClassNames],
+    [contextStyles as PurePanelProps['styles'], styles],
+    { props },
   );
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
@@ -158,12 +151,12 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <RcNotification
+        style={{ ...contextStyle, ...style }}
         {...restProps}
         prefixCls={prefixCls}
         duration={null}
         closable={mergedClosable}
         className={contextClassName}
-        style={rootStyle}
         title={hasTitle ? mergedTitle : null}
         description={description}
         icon={iconNode}

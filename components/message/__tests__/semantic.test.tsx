@@ -323,27 +323,6 @@ describe('Message.semantic', () => {
     message.destroy();
   });
 
-  it('PurePanel should follow notice root style priority', () => {
-    const Holder = message._InternalPanelDoNotUseOrYouWillBeFired;
-
-    render(
-      <ConfigProvider
-        message={{
-          styles: semanticRootStylePriority.contextStyles,
-          style: semanticRootStylePriority.contextStyle,
-        }}
-      >
-        <Holder
-          content="Message pure panel"
-          styles={semanticRootStylePriority.styles}
-          style={semanticRootStylePriority.style}
-        />
-      </ConfigProvider>,
-    );
-
-    expectSemanticRootStylePriority(document.querySelector('.ant-message-notice'));
-  });
-
   it('should handle empty classNames and styles gracefully', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();

@@ -432,25 +432,4 @@ describe('notification semantic styles and classNames', () => {
 
     expectSemanticRootStylePriority(document.querySelector('.ant-notification-notice'));
   });
-
-  it('PurePanel should follow notice root style priority', () => {
-    const Holder = notification._InternalPanelDoNotUseOrYouWillBeFired;
-
-    render(
-      <ConfigProvider
-        notification={{
-          styles: semanticRootStylePriority.contextStyles,
-          style: semanticRootStylePriority.contextStyle,
-        }}
-      >
-        <Holder
-          title="Notification title"
-          styles={semanticRootStylePriority.styles}
-          style={semanticRootStylePriority.style}
-        />
-      </ConfigProvider>,
-    );
-
-    expectSemanticRootStylePriority(document.querySelector('.ant-notification-notice'));
-  });
 });
