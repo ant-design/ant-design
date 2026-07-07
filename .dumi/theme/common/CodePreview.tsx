@@ -6,6 +6,7 @@ import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
 
 import DemoContext from '../slots/DemoContext';
 import LiveCode from './LiveCode';
@@ -132,10 +133,10 @@ const CodePreview: React.FC<CodePreviewProps> = (props) => {
   useEffect(() => {
     const codes: Codes = {};
     if (sourceCodes.tsx) {
-      codes.tsx = Prism.highlight(sourceCodes.tsx, Prism.languages.javascript, 'jsx');
+      codes.tsx = Prism.highlight(sourceCodes.tsx, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
     }
     if (sourceCodes.jsx) {
-      codes.jsx = Prism.highlight(sourceCodes.jsx, Prism.languages.javascript, 'jsx');
+      codes.jsx = Prism.highlight(sourceCodes.jsx, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
     }
     if (sourceCodes.style) {
       codes.style = Prism.highlight(sourceCodes.style, Prism.languages.css, 'css');

@@ -72,9 +72,7 @@ export default defineConfig({
   hash: true,
   mfsu: false,
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
-  utoopack: {
-    pluginRuntimeStrategy: 'childProcesses',
-  },
+  utoopack: {},
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
