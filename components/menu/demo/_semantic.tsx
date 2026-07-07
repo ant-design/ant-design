@@ -1,5 +1,5 @@
 import React from 'react';
-import { MailOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
 import { Flex, Menu, Segmented } from 'antd';
 import type { MenuProps } from 'antd';
 
@@ -50,8 +50,8 @@ const items: MenuItem[] = [
   },
   {
     key: 'SubMenu',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
     children: [
       {
         key: 'g1',
@@ -69,11 +69,11 @@ const items: MenuItem[] = [
 const groupItem: MenuItem[] = [
   {
     key: 'grp',
-    label: 'Group',
+    label: 'Navigation Three',
     type: 'group',
     children: [
-      { key: '13', label: 'Option 13' },
-      { key: '14', label: 'Option 14' },
+      { key: '3', label: 'Option 3' },
+      { key: '4', label: 'Option 4' },
     ],
   },
 ];
