@@ -674,7 +674,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
     class="ant-pagination-options"
   >
     <div
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-content ant-select-content-has-value"
@@ -1215,7 +1215,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -1589,7 +1589,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -1931,7 +1931,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -2316,7 +2316,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -2804,7 +2804,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
     class="ant-pagination-options"
   >
     <div
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-content ant-select-content-has-value"
@@ -3183,7 +3183,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -3568,7 +3568,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -4053,7 +4053,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -4521,7 +4521,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -4997,7 +4997,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -5465,7 +5465,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -5899,7 +5899,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
     class="ant-pagination-options"
   >
     <div
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-content ant-select-content-has-value"
@@ -6554,7 +6554,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -6935,7 +6935,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -7248,7 +7248,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -7555,7 +7555,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -8980,7 +8980,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -9354,7 +9354,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -9729,7 +9729,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -10103,7 +10103,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"

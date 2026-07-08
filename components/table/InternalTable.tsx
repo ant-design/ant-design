@@ -28,6 +28,7 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import renderExpandIcon from './ExpandIcon';
+import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
@@ -37,10 +38,10 @@ import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/us
 import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
+import useSpinProps from './hooks/useSpinProps';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnsType,
-  ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
   ExpandType,
@@ -55,14 +56,13 @@ import type {
   TableCurrentDataSource,
   TableLocale,
   TablePaginationConfig,
-  TablePaginationPlacement,
-  TablePaginationPosition,
   TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
+import { getPaginationSize, normalizePlacement } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -139,19 +139,18 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -510,18 +509,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
-  const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
-    const mergedFilters: Record<string, FilterValue> = {};
-    Object.keys(filters).forEach((filterKey) => {
-      if (filters[filterKey] !== null) {
-        mergedFilters[filterKey] = filters[filterKey]!;
-      }
-    });
-    return {
-      ...sorterTitleProps,
-      filters: mergedFilters,
-    };
-  }, [sorterTitleProps, filters]);
+  const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters);
 
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
@@ -635,12 +623,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
   if (pagination !== false && mergedPagination?.total) {
-    let paginationSize: TablePaginationConfig['size'];
-    if (mergedPagination.size) {
-      paginationSize = mergedPagination.size;
-    } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'medium' ? 'small' : undefined;
-    }
+    const paginationSize = getPaginationSize(mergedPagination.size, mergedSize);
 
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
       <Pagination
@@ -648,7 +631,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         classNames={mergedClassNames.pagination}
         styles={mergedStyles.pagination}
         className={clsx(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
+          `${prefixCls}-pagination`,
+          `${prefixCls}-pagination-${placement}`,
           mergedPagination.className,
         )}
         size={paginationSize}
@@ -657,13 +641,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     const { placement, position } = mergedPagination;
     const mergedPlacement = placement ?? position;
-    const normalizePlacement = (pos: TablePaginationPlacement | TablePaginationPosition) => {
-      const lowerPos = pos.toLowerCase();
-      if (lowerPos.includes('center')) {
-        return 'center';
-      }
-      return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end';
-    };
+
     if (Array.isArray(mergedPlacement)) {
       const [topPos, bottomPos] = ['top', 'bottom'].map((dir) =>
         mergedPlacement.find((p) => p.includes(dir)),
@@ -688,15 +666,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // >>>>>>>>> Spinning
-  const spinProps = React.useMemo<SpinProps | undefined>(() => {
-    if (typeof loading === 'boolean') {
-      return { spinning: loading };
-    } else if (isPlainObject(loading)) {
-      return { spinning: true, ...loading };
-    } else {
-      return undefined;
-    }
-  }, [loading]);
+  const spinProps = useSpinProps(loading);
 
   const wrappercls = clsx(
     cssVarCls,

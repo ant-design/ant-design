@@ -45,6 +45,7 @@ import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 
+import type { PreviewThemeConfig } from '../ThemePreview/previewThemes';
 import { DEFAULT_COLOR } from '../ThemePreview/previewThemes';
 
 const { Header, Content, Sider } = Layout;
@@ -93,17 +94,16 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     `,
 
     avatar: css`
-      width: 28px;
-      height: 28px;
+      width: 20px;
+      height: 20px;
       border-radius: 100%;
-      background-size: 70%;
       background-repeat: no-repeat;
       background-position: center;
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     `,
 
     avatarDark: css`
-      background: rgba(200, 200, 200, 0.3);
+      background-color: rgba(200, 200, 200, 0.3);
     `,
 
     logo: css`
@@ -258,7 +258,7 @@ export interface ThemeDashboardProps {
   className?: string;
   config?: ConfigProviderProps;
   style?: React.CSSProperties;
-  activeTheme: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const dashboardKpis = [
@@ -387,15 +387,17 @@ interface ThemeDashboardLayoutProps {
   className?: string;
   isDarkTheme: boolean;
   style?: React.CSSProperties;
-  activeTheme?: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
   const { className, isDarkTheme, style, activeTheme } = props;
 
+  const { bgImgDark, icon: Icon = '', name } = activeTheme || {};
+
   const { token } = theme.useToken();
   const closestColor = DEFAULT_COLOR;
-  const hasDarkBackground = isDarkTheme || !!activeTheme?.bgImgDark;
+  const hasDarkBackground = isDarkTheme || bgImgDark;
   const menuTheme = hasDarkBackground ? 'dark' : 'light';
   const logoColor = React.useMemo(() => {
     const hsb = generateColor(token.colorPrimary).toHsb();
@@ -432,13 +434,17 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
             <Flex className={styles.menu} gap="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
-              <div
-                className={clsx(styles.avatar)}
-                style={{
-                  // backgroundColor: token.colorPrimaryBgHover,
-                  backgroundImage: `url(${activeTheme?.icon})`,
-                }}
-              />
+              {typeof Icon === 'string' ? (
+                <img
+                  className={styles.avatar}
+                  src={Icon}
+                  alt={name}
+                  title={name}
+                  draggable={false}
+                />
+              ) : (
+                <Icon className={styles.avatar} />
+              )}
             </Flex>
           </Header>
           <Layout hasSider>
@@ -579,7 +585,6 @@ export const ThemeDashboard: React.FC<ThemeDashboardProps> = (props) => {
   const isDarkTheme = React.useMemo(() => {
     const algorithm = config?.theme?.algorithm;
     const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
-
     return algorithms.includes(theme.darkAlgorithm);
   }, [config]);
 
