@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -16,7 +16,7 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerPanelProps } from './DrawerPanel';
+import type { DrawerPanelProps, DrawerSemanticAllType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 import type { FocusableConfig, OmitFocusType } from './useFocusable';
@@ -209,10 +209,17 @@ const Drawer: React.FC<DrawerProps> & {
     push,
     focusable: mergedFocusable,
   };
+  const contextSectionStyle = useSemanticRootStyle(contextStyle, 'section');
+  const drawerSectionStyle = useSemanticRootStyle(drawerStyle, 'section');
+  const sectionStyle = useSemanticRootStyle(style, 'section');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerSemanticAllType['classNames'],
+    DrawerSemanticAllType['styles'],
+    DrawerProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextSectionStyle, styles, drawerSectionStyle, sectionStyle],
     {
       props: mergedProps,
     },
@@ -278,7 +285,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           styles={{
             mask: { ...mergedStyles.mask, ...maskStyle },
-            section: { ...mergedStyles.section, ...drawerStyle },
+            section: mergedStyles.section,
             wrapper: { ...mergedStyles.wrapper, ...contentWrapperStyle },
             dragger: mergedStyles.dragger,
           }}
@@ -288,8 +295,7 @@ const Drawer: React.FC<DrawerProps> & {
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}
-          style={{ ...contextStyle, ...style }}
-          rootStyle={{ ...rootStyle, ...mergedStyles.root }}
+          rootStyle={{ ...mergedStyles.root, ...rootStyle }}
           className={clsx(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}

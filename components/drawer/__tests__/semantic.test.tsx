@@ -4,6 +4,12 @@ import { warning } from '@rc-component/util';
 import Drawer from '..';
 import type { DrawerProps } from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  expectSemanticRootStyleWithRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 const { resetWarned } = warning;
 
@@ -239,5 +245,48 @@ describe('Drawer.Semantic', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('should follow section style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        drawer={{
+          styles: { section: semanticRootStylePriority.contextStyles.root },
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Drawer
+          open
+          getContainer={false}
+          styles={{ section: semanticRootStylePriority.styles.root }}
+          style={semanticRootStylePriority.style}
+        >
+          test
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-drawer-section'));
+  });
+
+  it('should let rootStyle override semantic root style', () => {
+    const { container } = render(
+      <ConfigProvider
+        drawer={{
+          styles: semanticRootStylePriority.contextStyles,
+        }}
+      >
+        <Drawer
+          open
+          getContainer={false}
+          styles={semanticRootStylePriority.styles}
+          rootStyle={semanticRootStylePriority.style}
+        >
+          test
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStyleWithRootStylePriority(container.querySelector('.ant-drawer'));
   });
 });

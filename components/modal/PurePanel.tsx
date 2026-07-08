@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Panel } from '@rc-component/dialog';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -33,6 +33,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     title,
     children,
     footer,
+    style,
     classNames,
     styles,
     ...restProps
@@ -49,14 +50,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
   const rootCls = useCSSVarCls(rootPrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ModalSemanticAllType['classNames'],
+    ModalSemanticAllType['styles'],
+    PurePanelProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 
@@ -100,7 +103,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         rootCls,
         mergedClassNames.root,
       )}
-      style={{ ...contextStyle, ...mergedStyles.root }}
+      style={mergedStyles.root}
       {...restProps}
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
       closable={closable}
