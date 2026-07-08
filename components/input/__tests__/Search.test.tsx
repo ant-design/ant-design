@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
@@ -412,5 +413,23 @@ describe('Input.Search', () => {
       color: 'rgb(0, 0, 255)',
       backgroundColor: 'rgb(0, 255, 0)',
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/54859
+  it('compact small search button height should align with input', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ algorithm: theme.compactAlgorithm }}>
+        <Search placeholder="compact small search" size="small" enterButton="Search" />
+      </ConfigProvider>,
+    );
+
+    const input = container.querySelector('input.ant-input')!;
+    const button = container.querySelector('.ant-input-search-button')!;
+
+    const inputHeight = input.getBoundingClientRect().height;
+    const buttonHeight = button.getBoundingClientRect().height;
+
+    // Button height should be at least equal to input height (not 1px shorter)
+    expect(buttonHeight).toBeGreaterThanOrEqual(inputHeight);
   });
 });
