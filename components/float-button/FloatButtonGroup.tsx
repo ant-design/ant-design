@@ -6,7 +6,7 @@ import { useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -197,13 +197,16 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   };
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FloatButtonGroupSemanticAllType['classNames'],
+    FloatButtonGroupSemanticAllType['styles'],
+    FloatButtonGroupProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const listContext = React.useMemo<GroupContextProps>(
     () => ({
@@ -291,7 +294,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
             [`${groupPrefixCls}-menu-mode`]: isMenuMode,
           },
         )}
-        style={{ ...contextStyle, zIndex, ...mergedStyles.root, ...style }}
+        style={{ zIndex, ...mergedStyles.root }}
         // ref
         ref={floatButtonGroupRef}
         // Hover trigger
