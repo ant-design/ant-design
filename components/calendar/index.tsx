@@ -3,7 +3,7 @@ import type { Dayjs } from 'dayjs';
 
 import generateCalendar from './generateCalendar';
 
-export type { CalendarMode, CalendarProps } from './generateCalendar';
+export type { CalendarMode, CalendarProps, CalendarRef } from './generateCalendar';
 
 const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
