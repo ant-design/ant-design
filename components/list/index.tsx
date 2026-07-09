@@ -24,6 +24,7 @@ import useStyle from './style';
 export type { ListConsumerProps } from './context';
 export type {
   ListItemMetaProps,
+  ListItemMetaRef,
   ListItemProps,
   ListItemSemanticClassNames,
   ListItemSemanticName,
