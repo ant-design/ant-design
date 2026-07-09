@@ -70,7 +70,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| flex | flex 布局属性 | string \| number | - |  | × |
+| flex | flex 布局属性，数字类型对应 `flex: n n auto`，字符串类型对应 `flex: n 1 0` | string \| number | - |  | × |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  | × |
 | order | 栅格顺序 | number | 0 |  | × |
 | pull | 栅格向左移动格数 | number | 0 |  | × |
