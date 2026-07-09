@@ -141,7 +141,7 @@ export type { SliderSingleProps } from './slider';
 export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
-export type { SpinProps } from './spin';
+export type { SpinProps, SpinRef } from './spin';
 export { default as Splitter } from './splitter';
 export type { SplitterProps } from './splitter';
 export { default as Statistic } from './statistic';
