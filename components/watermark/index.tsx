@@ -164,17 +164,18 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
   }, [mergedZIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
   const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
+
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
-  React.useImperativeHandle(
-    ref,
-    () => ({
-      nativeElement: nativeElementRef.current!,
-    }),
-    [container],
-  );
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
 
-  const setContainerRef = useComposeRef(nativeElementRef, setContainer);
+  const setContainerRef = React.useCallback((node: HTMLDivElement) => {
+    setContainer(node);
+  }, []);
+
+  const mergedRef = useComposeRef(nativeElementRef, setContainerRef);
 
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(() => new Set<HTMLElement>());
@@ -349,7 +350,7 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
 
   return (
     <div
-      ref={setContainerRef}
+      ref={mergedRef}
       className={clsx(className, contextClassName, rootClassName)}
       style={mergedStyle}
     >
