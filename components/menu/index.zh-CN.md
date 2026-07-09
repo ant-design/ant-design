@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 <code src="./demo/tooltip.tsx">菜单项提示</code>
 <code src="./demo/sider-current.tsx">只展开当前父级菜单</code>
 <code src="./demo/vertical.tsx">垂直菜单</code>
+<code src="./demo/scrollable-submenu.tsx">子菜单滚动</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/submenu-theme.tsx">子菜单主题</code>
 <code src="./demo/switch-mode.tsx">切换菜单类型</code>

@@ -28,6 +28,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/tooltip.tsx">Menu tooltip</code>
 <code src="./demo/sider-current.tsx">Open current submenu only</code>
 <code src="./demo/vertical.tsx">Vertical menu</code>
+<code src="./demo/scrollable-submenu.tsx">Scrollable submenu</code>
 <code src="./demo/theme.tsx">Menu Themes</code>
 <code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
 <code src="./demo/switch-mode.tsx">Switch the menu type</code>
