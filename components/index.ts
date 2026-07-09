@@ -57,7 +57,7 @@ export type { DatePickerProps } from './date-picker';
 export { default as Descriptions } from './descriptions';
 export type { DescriptionsProps, DescriptionsRef } from './descriptions';
 export { default as Divider } from './divider';
-export type { DividerProps } from './divider';
+export type { DividerProps, DividerRef } from './divider';
 export { default as Drawer } from './drawer';
 export type { DrawerProps } from './drawer';
 export { default as Dropdown } from './dropdown';
