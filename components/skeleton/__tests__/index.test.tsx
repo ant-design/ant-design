@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Skeleton from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
 import type { SkeletonImageProps } from '../Image';
@@ -22,6 +22,12 @@ describe('Skeleton', () => {
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
+
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    const { container } = render(<Skeleton ref={ref} />);
+    expect(ref.current?.nativeElement).toBe(container.querySelector<HTMLElement>('.ant-skeleton'));
+  });
 
   it('should without avatar and paragraph', () => {
     const { asFragment } = genSkeleton({ avatar: false, paragraph: false });
