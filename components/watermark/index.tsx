@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
-import { useEvent } from '@rc-component/util';
+import { useComposeRef, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
@@ -50,6 +50,10 @@ export interface WatermarkProps {
   onRemove?: () => void;
 }
 
+export interface WatermarkRef {
+  nativeElement: HTMLDivElement;
+}
+
 /**
  * Only return `next` when size changed.
  * This is only used for elements compare, not a shallow equal!
@@ -67,7 +71,7 @@ const fixedStyle: React.CSSProperties = {
   overflow: 'hidden',
 };
 
-const Watermark: React.FC<WatermarkProps> = (props) => {
+const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) => {
   const {
     zIndex,
     rotate = -22,
@@ -160,6 +164,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   }, [mergedZIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
   const [container, setContainer] = React.useState<HTMLDivElement | null>();
+
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
+  const mergedRef = useComposeRef<HTMLDivElement>(nativeElementRef, setContainer);
 
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(() => new Set<HTMLElement>());
@@ -334,14 +346,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   return (
     <div
-      ref={setContainer}
+      ref={mergedRef}
       className={clsx(className, contextClassName, rootClassName)}
       style={mergedStyle}
     >
       {childNode}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Watermark.displayName = 'Watermark';
