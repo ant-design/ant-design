@@ -174,7 +174,7 @@ export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
-export type { TransferProps } from './transfer';
+export type { TransferProps, TransferRef } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
