@@ -119,7 +119,7 @@ export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
 export { default as Rate } from './rate';
 export type { RateProps } from './rate';
 export { default as Result } from './result';
-export type { ResultProps } from './result';
+export type { ResultProps, ResultRef } from './result';
 export { default as Row } from './row';
 export type { RowProps } from './row';
 export { default as Segmented } from './segmented';
