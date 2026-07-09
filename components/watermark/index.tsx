@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
-import { useEvent } from '@rc-component/util';
+import { useComposeRef, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
@@ -163,17 +163,18 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
     return mergedMarkStyle;
   }, [mergedZIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
-  const [container, setContainer] = React.useState<HTMLDivElement | null>();
+  const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
-  React.useImperativeHandle(ref, () => ({
-    nativeElement: nativeElementRef.current!,
-  }));
+  React.useImperativeHandle(
+    ref,
+    () => ({
+      nativeElement: nativeElementRef.current!,
+    }),
+    [container],
+  );
 
-  const setContainerRef = React.useCallback((node: HTMLDivElement | null) => {
-    nativeElementRef.current = node;
-    setContainer(node);
-  }, []);
+  const setContainerRef = useComposeRef(nativeElementRef, setContainer);
 
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(() => new Set<HTMLElement>());
