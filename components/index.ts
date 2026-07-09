@@ -181,7 +181,13 @@ export { default as Upload } from './upload';
 export type { DraggerProps, UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
-export type { WatermarkContent, WatermarkFont, WatermarkProps, WatermarkText } from './watermark';
+export type {
+  WatermarkContent,
+  WatermarkFont,
+  WatermarkProps,
+  WatermarkRef,
+  WatermarkText,
+} from './watermark';
 
 export const unstableSetRender: any = () => {
   warning(
