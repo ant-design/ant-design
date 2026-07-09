@@ -100,6 +100,8 @@ The breakpoints of responsive grid follow [BootStrap 4 media queries rules](http
 
 For responsive layouts in grid mode, configure the column count via `gridTemplateColumns` and ensure `span` values do not exceed the column count. For example: with `grid={{ gridTemplateColumns: 'repeat(12, 1fr)' }}`, `span={6}` occupies half the width.
 
+`gridItemConfig` has higher priority than `span` prop. For example, `span={0}` will hide the element, but `span={0} gridItemConfig={{ gridColumn: 'span 2' }}` will display the element.
+
 ## Design Token
 
 <ComponentTokenTable component="Grid"></ComponentTokenTable>
