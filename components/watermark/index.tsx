@@ -171,11 +171,7 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
     nativeElement: nativeElementRef.current!,
   }));
 
-  const setContainerRef = React.useCallback((node: HTMLDivElement) => {
-    setContainer(node);
-  }, []);
-
-  const mergedRef = useComposeRef(nativeElementRef, setContainerRef);
+  const mergedRef = useComposeRef<HTMLDivElement>(nativeElementRef, setContainer);
 
   // Used for nest case like Modal, Drawer
   const [subElements, setSubElements] = React.useState(() => new Set<HTMLElement>());
