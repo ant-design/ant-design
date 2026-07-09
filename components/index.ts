@@ -69,7 +69,7 @@ export type {
   DropdownProps,
 } from './dropdown';
 export { default as Empty } from './empty';
-export type { EmptyProps } from './empty';
+export type { EmptyProps, EmptyRef } from './empty';
 export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
