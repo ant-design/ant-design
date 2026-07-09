@@ -187,7 +187,7 @@
     "@npmcli/run-script": "^11.0.0",
     "@octokit/rest": "^22.0.1",
     "@prettier/sync": "^0.6.1",
-    "@rc-component/virtual-list": "^1.3.0",
+    "@rc-component/virtual-list": "^1.3.2",
     "@size-limit/file": "^12.1.0",
     "@stackblitz/sdk": "^1.11.0",
     "@testing-library/dom": "^10.4.1",
