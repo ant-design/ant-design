@@ -18,7 +18,7 @@ export type { AvatarGroupRef, AvatarProps } from './avatar';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
-export type { BadgeProps } from './badge';
+export type { BadgeProps, RibbonRef } from './badge';
 export { default as BorderBeam } from './border-beam';
 export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam';
 export { default as Breadcrumb } from './breadcrumb';
