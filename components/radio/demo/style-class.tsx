@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Radio } from 'antd';
 import type { GetProp, RadioProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const useStyles = createStyles(({ token, css }) => ({
   root: css`

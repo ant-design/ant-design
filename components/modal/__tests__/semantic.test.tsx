@@ -3,6 +3,11 @@ import React from 'react';
 import Modal from '..';
 import type { ModalProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const classNames: ModalProps['classNames'] = (info) => {
   return info.props?.width === 520
@@ -17,6 +22,8 @@ const styles: ModalProps['styles'] = (info) => {
 };
 
 describe('Modal.Semantic', () => {
+  const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
+
   it('should apply custom styles to Modal', () => {
     const customClassNames = {
       root: 'custom-root',
@@ -88,5 +95,24 @@ describe('Modal.Semantic', () => {
     );
     expect(root).toHaveClass('modal-props-width-other');
     expect(root).toHaveStyle({ backgroundColor: '#000' });
+  });
+
+  it('Modal.PurePanel should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        modal={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <InternalPanel
+          title="Test Modal"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-modal'));
   });
 });

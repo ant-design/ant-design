@@ -6,7 +6,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -19,6 +19,7 @@ import type {
   UploadChangeParam,
   UploadFile,
   UploadProps,
+  UploadSemanticAllType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -363,13 +364,16 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextTriggerStyle = useSemanticRootStyle(contextStyle, 'trigger');
+  const triggerStyle = useSemanticRootStyle(style, 'trigger');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    UploadSemanticAllType['classNames'],
+    UploadSemanticAllType['styles'],
+    UploadProps
+  >([contextClassNames, classNames], [contextStyles, contextTriggerStyle, styles, triggerStyle], {
+    props: mergedProps,
+  });
 
   const rcUploadProps = {
     onBatchStart,
@@ -470,8 +474,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   );
   const mergedRootStyle: React.CSSProperties = { ...mergedStyles.root };
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
   // ======================== Render ========================
 
   if (type === 'drag') {
@@ -492,7 +494,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
         <div
           className={dragCls}
-          style={{ ...mergedStyle, ...mergedStyles.trigger }}
+          style={mergedStyles.trigger}
           onDrop={onFileDrop}
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
@@ -517,7 +519,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   );
 
   const uploadButton = (
-    <div className={uploadBtnCls} style={{ ...mergedStyle, ...mergedStyles.trigger }}>
+    <div className={uploadBtnCls} style={mergedStyles.trigger}>
       <RcUpload {...rcUploadProps} ref={uploadRef} />
     </div>
   );

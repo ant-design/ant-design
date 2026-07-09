@@ -6,6 +6,11 @@ import Badge from '..';
 import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);
@@ -153,5 +158,26 @@ describe('Ribbon', () => {
     expect(rootElement).toHaveStyle({ border: '1px solid rgb(255, 0, 0)' });
     expect(indicatorElement).toHaveStyle({ opacity: '0.8' });
     expect(contentElement).toHaveStyle({ fontWeight: 'bold' });
+  });
+
+  it('should follow ribbon style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        ribbon={{
+          styles: { indicator: semanticRootStylePriority.contextStyles.root },
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Badge.Ribbon
+          text="Test"
+          styles={{ indicator: semanticRootStylePriority.styles.root }}
+          style={semanticRootStylePriority.style}
+        >
+          <div>Test content</div>
+        </Badge.Ribbon>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-ribbon'));
   });
 });

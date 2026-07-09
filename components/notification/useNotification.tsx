@@ -11,7 +11,11 @@ import type {
 import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks';
-import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import {
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -88,9 +92,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     [duration],
   );
 
+  const contextStyleRoot = useSemanticRootStyle(notification?.style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [notification?.classNames, props?.classNames],
-    [notification?.styles, props?.styles],
+    [notification?.styles, contextStyleRoot, props?.styles],
     {
       props,
     },
@@ -162,7 +168,6 @@ export function useInternalNotification(
 
       const { open: originOpen, prefixCls, notification } = holderRef.current;
       const contextClassName = notification?.className || {};
-      const contextStyle = notification?.style || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -233,13 +238,7 @@ export function useInternalNotification(
           ...semanticClassNames,
           icon: clsx(typeIconCls, semanticClassNames.icon),
         },
-        styles: {
-          ...semanticStyles,
-          root: {
-            ...contextStyle,
-            ...semanticStyles.root,
-          },
-        },
+        styles: semanticStyles,
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
         style,
         closable: mergedClosable,
