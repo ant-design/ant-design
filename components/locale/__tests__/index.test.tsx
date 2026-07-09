@@ -51,6 +51,7 @@ import 'dayjs/locale/pt';
 import 'dayjs/locale/pt-br';
 import 'dayjs/locale/ro';
 import 'dayjs/locale/ru';
+import 'dayjs/locale/sq';
 import 'dayjs/locale/sk';
 import 'dayjs/locale/sl';
 import 'dayjs/locale/sr';
@@ -146,6 +147,7 @@ import ruRU from '../../locale/ru_RU';
 import siLK from '../../locale/si_LK';
 import skSK from '../../locale/sk_SK';
 import slSI from '../../locale/sl_SI';
+import sqAL from '../../locale/sq_AL';
 import srRS from '../../locale/sr_RS';
 import svSE from '../../locale/sv_SE';
 import taIN from '../../locale/ta_IN';
@@ -219,6 +221,7 @@ const locales = [
   siLK,
   skSK,
   slSI,
+  sqAL,
   srRS,
   svSE,
   taIN,

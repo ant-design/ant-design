@@ -20,7 +20,10 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
 
-export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
+export type NotificationPurePanelSemanticAllType = GenerateSemantic<
+  NotificationSemanticType,
+  PurePanelProps
+>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -53,8 +56,8 @@ export interface PurePanelProps
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames?: AnchorSemanticAllType['classNamesAndFn'];
-  styles?: AnchorSemanticAllType['stylesAndFn'];
+  classNames?: NotificationPurePanelSemanticAllType['classNamesAndFn'];
+  styles?: NotificationPurePanelSemanticAllType['stylesAndFn'];
   closeIcon?: React.ReactNode;
 }
 
