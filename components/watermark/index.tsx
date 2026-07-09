@@ -163,7 +163,7 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
     return mergedMarkStyle;
   }, [mergedZIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
-  const [container, setContainer] = React.useState<HTMLDivElement | null>(null);
+  const [container, setContainer] = React.useState<HTMLDivElement | null>();
 
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
