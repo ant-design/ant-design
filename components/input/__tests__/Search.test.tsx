@@ -416,20 +416,24 @@ describe('Input.Search', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/54859
-  it('compact small search button height should align with input', () => {
+  it('compact small search button min-height should not be less than controlHeightSM', () => {
     const { container } = render(
       <ConfigProvider theme={{ algorithm: theme.compactAlgorithm }}>
         <Search placeholder="compact small search" size="small" enterButton="Search" />
       </ConfigProvider>,
     );
 
-    const input = container.querySelector('input.ant-input')!;
-    const button = container.querySelector('.ant-input-search-button')!;
+    const button = container.querySelector<HTMLButtonElement>('.ant-input-search-button')!;
 
-    const inputHeight = input.getBoundingClientRect().height;
-    const buttonHeight = button.getBoundingClientRect().height;
+    // search.ts sets minHeight on the small search button to ensure it aligns
+    // with the input height. In compact algorithm, controlHeightSM is 21px but
+    // the calculated smallButtonHeight should be >= 22px (to cover the input's
+    // font line box + borders). Verify the computed min-height is set and is
+    // greater than the raw controlHeightSM (21px).
+    const buttonMinHeight = getComputedStyle(button).minHeight;
+    expect(buttonMinHeight).not.toBe('0px');
 
-    // Button height should be at least equal to input height (not 1px shorter)
-    expect(buttonHeight).toBeGreaterThanOrEqual(inputHeight);
+    const minHeightValue = parseFloat(buttonMinHeight);
+    expect(minHeightValue).toBeGreaterThanOrEqual(22);
   });
 });
