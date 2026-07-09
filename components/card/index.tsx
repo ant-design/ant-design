@@ -6,6 +6,7 @@ export type { CardProps, CardTabListType } from './Card';
 export type { CardGridProps } from './CardGrid';
 export type { CardGridRef } from './CardGrid';
 export type { CardMetaProps } from './CardMeta';
+export type { CardMetaRef } from './CardMeta';
 
 type InternalCardType = typeof InternalCard;
 

@@ -31,6 +31,7 @@ export { default as Card } from './card';
 export type { CardProps } from './card';
 export type { CardGridRef } from './card';
 export type { CardMetaProps } from './card/CardMeta';
+export type { CardMetaRef } from './card/CardMeta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
