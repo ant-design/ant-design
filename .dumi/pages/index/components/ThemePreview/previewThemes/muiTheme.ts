@@ -3,7 +3,7 @@ import { raf } from '@rc-component/util';
 import { theme } from 'antd';
 import type { ConfigProviderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
