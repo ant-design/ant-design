@@ -23,7 +23,6 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/disabled.tsx">禁用</code>
-<code src="./demo/popupRender-Search.tsx">自定义折叠菜单搜索</code>
 <code src="./demo/centered.tsx">居中</code>
 <code src="./demo/icon.tsx">图标</code>
 <code src="./demo/custom-indicator.tsx">指示条</code>
