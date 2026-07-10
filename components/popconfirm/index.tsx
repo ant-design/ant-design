@@ -64,6 +64,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     styles,
     arrow: popconfirmArrow,
     classNames,
+    disabled = false,
     ...restProps
   } = props;
   const {
@@ -107,7 +108,6 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const onInternalOpenChange: PopoverProps['onOpenChange'] = (value) => {
-    const { disabled = false } = props;
     if (disabled) {
       return;
     }
