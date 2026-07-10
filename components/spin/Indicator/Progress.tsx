@@ -45,7 +45,7 @@ const Progress: React.FC<Readonly<ProgressProps>> = ({ percent, prefixCls }) => 
     if (percent !== 0) {
       setRender(true);
     }
-  }, [percent !== 0, percent]);
+  }, [percent]);
 
   // ==================== Progress ====================
   const safePtg = Math.max(Math.min(percent, 100), 0);
