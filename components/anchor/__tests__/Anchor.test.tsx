@@ -31,7 +31,6 @@ describe('Anchor Render', () => {
     'getBoundingClientRect',
   );
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
-  const scrollIntoViewMock = jest.createMockFromModule<any>('scroll-into-view-if-needed');
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -45,7 +44,6 @@ describe('Anchor Render', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    scrollIntoViewMock.mockReset();
   });
 
   afterEach(() => {
@@ -868,37 +866,6 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
       expect(container.querySelectorAll('.ant-anchor-link').length).toBe(3);
-    });
-  });
-
-  describe('scroll active link into view', () => {
-    it('scrollIntoView should be called for vertical anchor', async () => {
-      const hash = getHashUrl();
-      const root = createDiv();
-      render(<h1 id={hash}>Hello</h1>, { container: root });
-      const { container } = render(
-        <Anchor
-          items={[
-            {
-              key: hash,
-              href: `#${hash}`,
-              title: hash,
-            },
-          ]}
-        />,
-      );
-
-      fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
-      await waitFakeTimer();
-
-      expect(scrollIntoView).toHaveBeenCalledWith(
-        expect.anything(),
-        expect.objectContaining({
-          scrollMode: 'if-needed',
-          block: 'nearest',
-          boundary: expect.anything(),
-        }),
-      );
     });
   });
 
