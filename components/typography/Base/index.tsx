@@ -323,7 +323,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
   const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
-  const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -525,17 +524,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          open={isHoveringTypography && !isHoveringOperations}
+          disabled={isHoveringOperations}
         >
           <InternalTypography
-            onMouseEnter={(e) => {
-              setIsHoveringTypography(true);
-              onMouseEnter?.(e);
-            }}
-            onMouseLeave={(e) => {
-              setIsHoveringTypography(false);
-              onMouseLeave?.(e);
-            }}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,
