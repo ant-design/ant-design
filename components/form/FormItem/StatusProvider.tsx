@@ -103,7 +103,15 @@ function StatusProvider({
     }
 
     return context;
-  }, [mergedValidateStatus, hasFeedback, noStyle, parentIsFormItemInput, parentStatus]);
+  }, [
+    mergedValidateStatus,
+    hasFeedback,
+    noStyle,
+    parentIsFormItemInput,
+    parentStatus,
+    itemPrefixCls,
+    parentHasFeedback,
+  ]);
 
   // ======================= Render =======================
   return (

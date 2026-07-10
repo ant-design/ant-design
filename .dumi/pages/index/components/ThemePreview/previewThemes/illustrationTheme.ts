@@ -3,7 +3,9 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   const illustrationBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
   };
@@ -231,7 +233,19 @@ const useIllustrationTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.buttonRoot,
+      styles.illustrationBorder,
+      styles.illustrationBox,
+      styles.inputNumberActions,
+      styles.modalContainer,
+      styles.notificationRoot,
+      styles.notificationTitle,
+      styles.popupBox,
+      styles.progressRail,
+      styles.progressTrack,
+      styles.tooltipRoot,
+    ],
   );
 };
 

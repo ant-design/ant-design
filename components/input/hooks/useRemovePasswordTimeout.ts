@@ -32,7 +32,7 @@ export default function useRemovePasswordTimeout(
           clearTimeout(timer);
         }
       });
-  }, []);
+  }, [triggerOnMount]);
 
   return removePasswordTimeout;
 }
