@@ -891,7 +891,14 @@ describe('Anchor Render', () => {
       fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
       await waitFakeTimer();
 
-      expect(scrollIntoView).toHaveBeenCalled();
+      expect(scrollIntoView).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({
+          scrollMode: 'if-needed',
+          block: 'nearest',
+          boundary: expect.anything(),
+        }),
+      );
     });
   });
 

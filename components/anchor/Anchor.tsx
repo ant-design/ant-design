@@ -224,7 +224,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       inkStyle.height = horizontalAnchor ? '' : `${linkNode.clientHeight}px`;
       inkStyle.left = horizontalAnchor ? `${linkNode.offsetLeft}px` : '';
       inkStyle.width = horizontalAnchor ? `${linkNode.clientWidth}px` : '';
-      scrollIntoView(linkNode, { scrollMode: 'if-needed', block: 'nearest' });
+      scrollIntoView(linkNode, {
+        scrollMode: 'if-needed',
+        block: 'nearest',
+        boundary: wrapperRef.current?.parentElement,
+      });
     }
   };
 
