@@ -110,9 +110,9 @@ export const genScrollFadeStyle = (
       height: fadeSize,
       pointerEvents: 'none',
       zIndex: 1,
-      // Hidden by default, which is also the fallback when the list is not
-      // scrollable or scroll-driven animations are unsupported.
-      opacity: 0,
+      // Visible by default for browsers without scroll-driven animations.
+      // The supported path below hides each edge when its scroll boundary is reached.
+      opacity: 1,
     },
 
     '&::before': {
