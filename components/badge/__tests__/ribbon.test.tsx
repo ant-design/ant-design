@@ -16,6 +16,17 @@ describe('Ribbon', () => {
   mountTest(Badge.Ribbon);
   rtlTest(Badge.Ribbon);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Badge.Ribbon>>();
+    const { container } = render(
+      <Badge.Ribbon ref={ref} text="Ribbon">
+        <div />
+      </Badge.Ribbon>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-ribbon-wrapper'));
+  });
+
   describe('placement', () => {
     it('works with `start` & `end` placement', () => {
       const { container: wrapperStart } = render(

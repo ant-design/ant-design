@@ -102,6 +102,13 @@ describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Transfer>>();
+    const { container } = render(<Transfer ref={ref} dataSource={[]} targetKeys={[]} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-transfer'));
+  });
+
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper.container.firstChild).toMatchSnapshot();

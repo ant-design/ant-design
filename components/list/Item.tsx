@@ -43,21 +43,25 @@ export interface ListItemMetaProps {
   title?: ReactNode;
 }
 
+export interface ListItemMetaRef {
+  nativeElement: HTMLDivElement;
+}
+
 type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
 type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
 
-export const Meta: React.FC<ListItemMetaProps> = ({
-  prefixCls: customizePrefixCls,
-  className,
-  avatar,
-  title,
-  description,
-  ...others
-}) => {
+export const Meta = React.forwardRef<ListItemMetaRef, ListItemMetaProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls, className, avatar, title, description, ...others } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const classString = clsx(`${prefixCls}-item-meta`, className);
+
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
 
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
@@ -67,12 +71,12 @@ export const Meta: React.FC<ListItemMetaProps> = ({
   );
 
   return (
-    <div {...others} className={classString}>
+    <div ref={nativeElementRef} {...others} className={classString}>
       {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
       {(title || description) && content}
     </div>
   );
-};
+});
 
 const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref) => {
   const {
