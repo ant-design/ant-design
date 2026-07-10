@@ -33,6 +33,15 @@ describe('Watermark', () => {
     mockSrcSet.mockRestore();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Watermark>>();
+    const { container } = render(
+      <Watermark ref={ref} className="watermark-ref" content="Ant Design" />,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.watermark-ref'));
+  });
+
   it('The watermark should render successfully', () => {
     const { container } = render(<Watermark className="watermark" content="Ant Design" />);
     expect(container.querySelector('.watermark div')).toBeTruthy();

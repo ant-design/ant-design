@@ -39,7 +39,11 @@ export interface RibbonProps {
   styles?: RibbonSemanticAllType['stylesAndFn'];
 }
 
-const Ribbon: React.FC<RibbonProps> = (props) => {
+export interface RibbonRef {
+  nativeElement: HTMLDivElement;
+}
+
+const Ribbon = React.forwardRef<RibbonRef, RibbonProps>((props, ref) => {
   const {
     className,
     prefixCls: customizePrefixCls,
@@ -105,8 +109,16 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     colorStyle.background = color;
     cornerColorStyle.color = color;
   }
+
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <div
+      ref={nativeElementRef}
       className={clsx(wrapperCls, rootClassName, hashId, cssVarCls, mergedClassNames.root)}
       style={mergedStyles.root}
     >
@@ -122,7 +134,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
       </div>
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Ribbon.displayName = 'Ribbon';
