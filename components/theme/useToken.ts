@@ -96,6 +96,12 @@ export const getComputedToken = (
           componentTheme,
         );
       }
+      if (mergedComponentToken.focusOutline === false) {
+        mergedComponentToken.lineWidthFocus = 0;
+      } else if (mergedComponentToken.focusOutline === true) {
+        mergedComponentToken.lineWidthFocus ??=
+          (mergedComponentToken.lineWidth ?? mergedDerivativeToken.lineWidth) * 3;
+      }
       mergedDerivativeToken[key] = mergedComponentToken;
     });
   }
