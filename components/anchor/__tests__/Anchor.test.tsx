@@ -871,6 +871,30 @@ describe('Anchor Render', () => {
     });
   });
 
+  describe('scroll active link into view', () => {
+    it('scrollIntoView should be called for vertical anchor', async () => {
+      const hash = getHashUrl();
+      const root = createDiv();
+      render(<h1 id={hash}>Hello</h1>, { container: root });
+      const { container } = render(
+        <Anchor
+          items={[
+            {
+              key: hash,
+              href: `#${hash}`,
+              title: hash,
+            },
+          ]}
+        />,
+      );
+
+      fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).toHaveBeenCalled();
+    });
+  });
+
   describe('deprecated/legacy jsx syntax', () => {
     it('renders jsx correctly', () => {
       const hash = getHashUrl();
