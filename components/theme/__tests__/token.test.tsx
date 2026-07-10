@@ -250,6 +250,12 @@ describe('Theme', () => {
     expect(container.querySelector('.duration')?.textContent).toBe('0s');
   });
 
+  it('focusOutline false token', () => {
+    const { token } = getHookToken({ token: { focusOutline: false } });
+
+    expect(token.lineWidthFocus).toBe(0);
+  });
+
   describe('getDesignToken', () => {
     it('default', () => {
       const token = theme.getDesignToken();
@@ -352,6 +358,22 @@ describe('Theme', () => {
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
     expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#1fb572' });
+  });
+
+  it('component token should support focusOutline', () => {
+    const Demo: React.FC<{ focusOutline: boolean }> = ({ focusOutline }) => (
+      <ConfigProvider theme={{ components: { Input: { focusOutline } } }}>
+        <Input />
+      </ConfigProvider>
+    );
+
+    const { container, rerender } = render(<Demo focusOutline={false} />);
+    const inputElement = container.querySelector<HTMLInputElement>('input');
+
+    expect(inputElement).toHaveStyle({ '--ant-line-width-focus': '0px' });
+
+    rerender(<Demo focusOutline />);
+    expect(inputElement).toHaveStyle({ '--ant-line-width-focus': '3px' });
   });
 
   it('get cssVar from useToken', () => {
