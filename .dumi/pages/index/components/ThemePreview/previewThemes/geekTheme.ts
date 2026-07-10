@@ -4,7 +4,9 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
     boxShadow: `0 0 3px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
@@ -242,7 +244,25 @@ const useGeekTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.app,
+      styles.buttonRoot,
+      styles.buttonRootSolid,
+      styles.buttonRootSolidDanger,
+      styles.colorPickerBody,
+      styles.lightBorder,
+      styles.menuRoot,
+      styles.modalBody,
+      styles.modalContainer,
+      styles.modalFooter,
+      styles.modalHeader,
+      styles.notificationClose,
+      styles.notificationRoot,
+      styles.notificationText,
+      styles.progressTrack,
+      styles.tooltipContainer,
+      styles.tooltipRoot,
+    ],
   );
 };
 export default useGeekTheme;
