@@ -59,7 +59,7 @@ export interface SkeletonProps {
 }
 
 export interface SkeletonRef {
-  nativeElement: HTMLDivElement;
+  nativeElement: HTMLDivElement | null;
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
@@ -171,7 +171,7 @@ const Skeleton = React.forwardRef<SkeletonRef, PropsWithChildren<SkeletonProps>>
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
   React.useImperativeHandle(ref, () => ({
-    nativeElement: nativeElementRef.current!,
+    nativeElement: nativeElementRef.current,
   }));
 
   if (loading || !('loading' in props)) {

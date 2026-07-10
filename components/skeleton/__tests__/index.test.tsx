@@ -29,6 +29,22 @@ describe('Skeleton', () => {
     expect(ref.current?.nativeElement).toBe(container.querySelector<HTMLElement>('.ant-skeleton'));
   });
 
+  it('should return null nativeElement when not loading', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    render(<Skeleton ref={ref} loading={false} />);
+    expect(ref.current).not.toBeNull();
+    expect(ref.current?.nativeElement).toBeNull();
+  });
+
+  it('should update nativeElement when loading changes', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    const { rerender, container } = render(<Skeleton ref={ref} loading />);
+    expect(ref.current?.nativeElement).toBe(container.querySelector<HTMLElement>('.ant-skeleton'));
+    rerender(<Skeleton ref={ref} loading={false} />);
+    expect(ref.current).not.toBeNull();
+    expect(ref.current?.nativeElement).toBeNull();
+  });
+
   it('should without avatar and paragraph', () => {
     const { asFragment } = genSkeleton({ avatar: false, paragraph: false });
     expect(asFragment().firstChild).toMatchSnapshot();
