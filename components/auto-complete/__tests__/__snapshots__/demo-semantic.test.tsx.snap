@@ -68,16 +68,16 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
               </div>
             </div>
             <div
-              class="rc-virtual-list semantic-mark-popup-list"
+              class="ant-select-dropdown-list semantic-mark-popup-list"
               style="position: relative;"
             >
               <div
-                class="rc-virtual-list-holder"
+                class="ant-select-dropdown-list-holder"
                 style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
-                    class="rc-virtual-list-holder-inner"
+                    class="ant-select-dropdown-list-holder-inner"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
