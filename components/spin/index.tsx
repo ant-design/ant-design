@@ -75,7 +75,11 @@ export interface SpinProps {
   styles?: SpinSemanticAllType['stylesAndFn'];
 }
 
-export type SpinType = React.FC<SpinProps> & {
+export interface SpinRef {
+  nativeElement: HTMLDivElement;
+}
+
+export type SpinType = React.ForwardRefExoticComponent<SpinProps & React.RefAttributes<SpinRef>> & {
   setDefaultIndicator: (indicator: React.ReactNode) => void;
 };
 
@@ -86,7 +90,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !Number.isNaN(Number(delay));
 }
 
-const Spin: SpinType = (props) => {
+const Spin = React.forwardRef<SpinRef, SpinProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     spinning: customSpinning = true,
@@ -224,8 +228,15 @@ const Spin: SpinType = (props) => {
     </>
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <div
+      ref={nativeElementRef}
       className={clsx(
         prefixCls,
         {
@@ -278,7 +289,7 @@ const Spin: SpinType = (props) => {
       )}
     </div>
   );
-};
+}) as SpinType;
 
 Spin.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;

@@ -64,7 +64,14 @@ export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'className
   placement?: 'top' | 'left' | 'right' | 'bottom';
 }
 
-const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
+export interface FloatButtonGroupRef {
+  nativeElement: HTMLDivElement;
+}
+
+const InternalFloatButtonGroup = (
+  props: Readonly<FloatButtonGroupProps>,
+  ref: React.ForwardedRef<FloatButtonGroupRef>,
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -116,6 +123,10 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   // ============================= Refs =============================
   const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: floatButtonGroupRef.current!,
+  }));
 
   // ========================== Placement ==========================
   const mergedPlacement = ['top', 'left', 'right', 'bottom'].includes(placement!)
@@ -327,5 +338,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     </GroupContext.Provider>
   );
 };
+
+const FloatButtonGroup = React.forwardRef(InternalFloatButtonGroup);
 
 export default FloatButtonGroup;

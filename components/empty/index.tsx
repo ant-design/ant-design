@@ -48,12 +48,18 @@ export interface EmptyProps {
   styles?: EmptySemanticAllType['stylesAndFn'];
 }
 
-type CompoundedComponent = React.FC<EmptyProps> & {
+export interface EmptyRef {
+  nativeElement: HTMLDivElement;
+}
+
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  EmptyProps & React.RefAttributes<EmptyRef>
+> & {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
 };
 
-const Empty: CompoundedComponent = (props) => {
+const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
   const {
     className,
     rootClassName,
@@ -116,8 +122,15 @@ const Empty: CompoundedComponent = (props) => {
     });
   }
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <div
+      ref={nativeElementRef}
       className={clsx(
         hashId,
         cssVarCls,
@@ -158,7 +171,7 @@ const Empty: CompoundedComponent = (props) => {
       )}
     </div>
   );
-};
+}) as CompoundedComponent;
 
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
