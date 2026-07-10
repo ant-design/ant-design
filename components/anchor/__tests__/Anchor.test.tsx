@@ -31,6 +31,7 @@ describe('Anchor Render', () => {
     'getBoundingClientRect',
   );
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
+  const scrollIntoViewMock = jest.createMockFromModule<any>('scroll-into-view-if-needed');
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -44,6 +45,7 @@ describe('Anchor Render', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
+    scrollIntoViewMock.mockReset();
   });
 
   afterEach(() => {
