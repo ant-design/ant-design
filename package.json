@@ -263,7 +263,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^30.4.2",
     "jest-axe": "^10.0.0",
-    "jest-canvas-mock": "2.5.2",
+    "jest-canvas-mock": "2.5.8",
     "jest-environment-jsdom": "^30.4.1",
     "jest-environment-node": "^30.4.1",
     "jest-image-snapshot": "^6.5.2",
