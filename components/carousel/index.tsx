@@ -101,12 +101,12 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   React.useImperativeHandle(
     ref,
     () => ({
-      nativeElement: nativeElementRef.current!,
       goTo,
       autoPlay: slickRef.current.innerSlider.autoPlay,
       innerSlider: slickRef.current.innerSlider,
       prev: slickRef.current.slickPrev,
       next: slickRef.current.slickNext,
+      nativeElement: nativeElementRef.current!,
     }),
     [slickRef.current],
   );
