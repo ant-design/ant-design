@@ -218,11 +218,9 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
 
   React.useEffect(() => {
     const defaultThemeName = isDark ? 'dark' : 'light';
-    const targetTheme =
-      previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName)?.name ||
-      previewThemes[0].name;
-    setActiveName(targetTheme);
-  }, [isDark]);
+    const findedTheme = previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName);
+    setActiveName(findedTheme?.name || previewThemes[0].name);
+  }, [isDark, previewThemes]);
 
   const backgroundPrefetchList = React.useMemo(
     () => previewThemes.map((t) => t.bgImg).filter((img): img is string => !!img),

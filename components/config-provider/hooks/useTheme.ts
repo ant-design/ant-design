@@ -78,11 +78,10 @@ export default function useTheme(
         cssVar: mergedCssVar,
       };
     },
-    [themeConfig, parentThemeConfig],
+    [themeConfig, parentThemeConfig, config?.prefixCls, themeKey],
     (prev, next) =>
       prev.some((prevTheme, index) => {
         const nextTheme = next[index];
-
         return !isEqual(prevTheme, nextTheme, true);
       }),
   );
