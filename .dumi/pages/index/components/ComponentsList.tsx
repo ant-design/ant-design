@@ -326,13 +326,9 @@ const ComponentsList: React.FC = () => {
     [
       isDark,
       isMobile,
-      locale.inProgress,
       locale.lastMonth,
       locale.lastWeek,
       locale.lastYear,
-      locale.sampleContent,
-      locale.success,
-      locale.taskFailed,
       locale.tour,
       locale.yesterday,
     ],

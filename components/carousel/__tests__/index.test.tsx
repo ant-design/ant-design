@@ -30,6 +30,18 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<CarouselRef>();
+    const { container } = render(
+      <Carousel ref={ref}>
+        <div />
+      </Carousel>,
+    );
+    expect(ref.current?.nativeElement).toBe(
+      container.querySelector<HTMLDivElement>('.ant-carousel'),
+    );
+  });
+
   it('should support id property', () => {
     const { container } = render(
       <Carousel id="my-carousel">
@@ -291,19 +303,19 @@ describe('Carousel', () => {
         { placement: 'end', expectedVertical: true },
         { placement: 'top', expectedVertical: false },
         { placement: 'bottom', expectedVertical: false },
-      ])('should set vertical=$expectedVertical for $placement', ({
-        placement,
-        expectedVertical,
-      }) => {
-        const { container } = render(<Demo dotPlacement={placement} />);
-        const carousel = container.querySelector('.ant-carousel-vertical');
+      ])(
+        'should set vertical=$expectedVertical for $placement',
+        ({ placement, expectedVertical }) => {
+          const { container } = render(<Demo dotPlacement={placement} />);
+          const carousel = container.querySelector('.ant-carousel-vertical');
 
-        if (expectedVertical) {
-          expect(carousel).toBeTruthy();
-        } else {
-          expect(carousel).toBeFalsy();
-        }
-      });
+          if (expectedVertical) {
+            expect(carousel).toBeTruthy();
+          } else {
+            expect(carousel).toBeFalsy();
+          }
+        },
+      );
     });
   });
   describe('RTL Direction', () => {
