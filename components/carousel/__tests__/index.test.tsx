@@ -30,6 +30,17 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<CarouselRef>();
+    const { container } = render(
+      <Carousel ref={ref}>
+        <div />
+      </Carousel>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-carousel'));
+  });
+
   it('should support id property', () => {
     const { container } = render(
       <Carousel id="my-carousel">
