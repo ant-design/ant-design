@@ -278,7 +278,6 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: token.marginXXS,
           color: token.colorTextLightSolid,
           fontSize: token.fontSizeSM,
           pointerEvents: 'none',
