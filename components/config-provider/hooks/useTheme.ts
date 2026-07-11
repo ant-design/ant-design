@@ -82,7 +82,6 @@ export default function useTheme(
     (prev, next) =>
       prev.some((prevTheme, index) => {
         const nextTheme = next[index];
-
         return !isEqual(prevTheme, nextTheme, true);
       }),
   );

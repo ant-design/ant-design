@@ -286,14 +286,14 @@ const InternalCompoundedButton = React.forwardRef<
     } else if (hasTwoCNChar) {
       setHasTwoCNChar(false);
     }
-  });
+  }); // 这里不需要依赖数组
 
   // Auto focus
   useEffect(() => {
-    if (autoFocus && buttonRef.current) {
-      buttonRef.current.focus();
+    if (autoFocus) {
+      buttonRef.current?.focus();
     }
-  }, []);
+  }, []); // 这里不需要依赖 autoFocus 变量，只需要在第一次 mount 时生效
 
   // ========================= Events =========================
   const handleClick = React.useCallback(
