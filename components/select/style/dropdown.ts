@@ -93,6 +93,11 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
+        [`${componentCls}-dropdown-list-scrollbar:hover`]: {
+          backgroundColor: token.colorFillQuaternary,
+          cursor: 'pointer',
+        },
+
         [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
