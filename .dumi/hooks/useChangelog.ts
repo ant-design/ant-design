@@ -16,7 +16,7 @@ const useChangelog = (path: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
     () => import(`../preset/${logFileName}`),
   );
 
-  if (error || isLoading) {
+  if (error || isLoading || !data) {
     return [];
   }
 
