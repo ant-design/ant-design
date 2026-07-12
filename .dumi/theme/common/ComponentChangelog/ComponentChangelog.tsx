@@ -190,12 +190,12 @@ const RenderChangelogList: React.FC<RenderChangelogListProps> = ({ changelogList
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
   const len = changelogList.length;
-  const parser = new DOMParser();
   for (let i = 0; i < len; i += 1) {
     const { refs, changelog, contributors } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
     const nextChangelog = changelogList[i + 1]?.changelog || '';
     if (i + 1 < len && nextChangelog.trim().startsWith('<img')) {
+      const parser = new DOMParser();
       const document = parser.parseFromString(nextChangelog, 'text/html');
       const imgElement = document.querySelector<HTMLImageElement>('img');
       elements.push(
