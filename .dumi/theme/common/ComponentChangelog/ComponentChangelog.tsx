@@ -4,12 +4,12 @@ import { Button, Drawer, Flex, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
 
+import type { ChangelogInfo } from '../../../hooks/useChangelog';
+import useChangelog from '../../../hooks/useChangelog';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import { matchDeprecated } from '../../utils';
 import Link from '../Link';
-import { useChangelog } from './hooks';
-import type { ChangelogInfo } from './hooks';
 
 const useStyle = createStyles(({ cssVar, token, css }) => ({
   listWrap: css`

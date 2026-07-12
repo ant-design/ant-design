@@ -8,19 +8,19 @@ export interface ChangelogInfo {
   releaseDate: string;
 }
 
-export const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
+const useChangelog = (path: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
   const logFileName = `components-changelog-${lang}.json`;
 
   const { data, error, isLoading } = useSWR(
-    `component-changelog-${lang}`,
-    () => import(`../../../preset/${logFileName}`),
+    lang ? `component-changelog-${lang}` : null,
+    () => import(`../preset/${logFileName}`),
   );
 
   if (error || isLoading) {
     return [];
   }
 
-  const component = componentPath.replace(/-/g, '');
+  const component = path.replace(/-/g, '');
   const componentName = Object.keys(data).find(
     (name) => name.toLowerCase() === component.toLowerCase(),
   );
@@ -29,3 +29,5 @@ export const useChangelog = (componentPath: string, lang: 'cn' | 'en'): Changelo
   }
   return data?.[componentName] || [];
 };
+
+export default useChangelog;
