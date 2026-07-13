@@ -4362,16 +4362,16 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-select-dropdown-list"
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
-          class="ant-select-dropdown-list-holder"
+          class="rc-virtual-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="ant-select-dropdown-list-holder-inner"
+              class="rc-virtual-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -4523,16 +4523,16 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-select-dropdown-list"
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
-          class="ant-select-dropdown-list-holder"
+          class="rc-virtual-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="ant-select-dropdown-list-holder-inner"
+              class="rc-virtual-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -4684,16 +4684,16 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-select-dropdown-list"
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
-          class="ant-select-dropdown-list-holder"
+          class="rc-virtual-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="ant-select-dropdown-list-holder-inner"
+              class="rc-virtual-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -4828,16 +4828,16 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-select-dropdown-list"
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
-          class="ant-select-dropdown-list-holder"
+          class="rc-virtual-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="ant-select-dropdown-list-holder-inner"
+              class="rc-virtual-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -5649,6 +5649,657 @@ Array [
 `;
 
 exports[`renders components/tabs/demo/placement.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tabs/demo/popupRender-Search.tsx extend context correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab"
+          data-node-key="0"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-0"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-0"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-0
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-1"
+            aria-disabled="false"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
+            role="tab"
+            tabindex="0"
+          >
+            Tab-1
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-2"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-2
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-3"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-3
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="4"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-4"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-4"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-4
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="5"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-5"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-5"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-5
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="6"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-6"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-6"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-6
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="7"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-7"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-7"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-7
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="8"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-8"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-8"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-8
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="9"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-9"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-9"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-9
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="10"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-10"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-10"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-10
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="11"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-11"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-11"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-11
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="12"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-12"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-12"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-12
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="13"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-13"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-13"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-13
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="14"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-14"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-14"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-14
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="15"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-15"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-15"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-15
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="16"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-16"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-16"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-16
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="17"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-17"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-17"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-17
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="18"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-18"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-18"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-18
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="19"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-19"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-19"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-19
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="20"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-20"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-20"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-20
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="21"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-21"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-21"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-21
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="22"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-22"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-22"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-22
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="23"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-23"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-23"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-23
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="24"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-24"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-24"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-24
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="25"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-25"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-25"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-25
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="26"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-26"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-26"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-26
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="27"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-27"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-27"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-27
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab ant-tabs-tab-disabled"
+          data-node-key="28"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-28"
+            aria-disabled="true"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-28"
+            role="tab"
+          >
+            Tab-28
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="29"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-29"
+            aria-disabled="false"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-29"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab-29
+          </div>
+        </div>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="rc-tabs-test-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="acss-17m2kwe"
+        >
+          <div
+            class="acss-zdsr0e"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
+            >
+              <span
+                class="ant-input-prefix"
+              >
+                <span
+                  aria-label="search"
+                  class="anticon anticon-search"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="search"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <input
+                class="ant-input"
+                placeholder="Search tabs..."
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <button
+                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                  type="button"
+                >
+                  <span
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
+            </span>
+          </div>
+          <div
+            class="acss-ab4omf"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var"
+              data-menu-list="true"
+              role="menu"
+              tabindex="0"
+            />
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+          <div
+            class="acss-obzjni"
+          >
+            No matching tabs
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-body-holder"
+  >
+    <div
+      class="ant-tabs-body ant-tabs-body-top"
+    >
+      <div
+        aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
+        class="ant-tabs-content ant-tabs-content-active"
+        id="rc-tabs-test-panel-1"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of tab 1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tabs/demo/popupRender-Search.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
