@@ -6,7 +6,6 @@ import type {
   EditableConfig,
   GetIndicatorSize,
   MoreProps,
-  PopupRender,
   TabsProps as RcTabsProps,
   Tab,
 } from '@rc-component/tabs';
@@ -300,5 +299,4 @@ if (process.env.NODE_ENV !== 'production') {
   Tabs.displayName = 'Tabs';
 }
 
-export type { PopupRender };
 export default Tabs;
