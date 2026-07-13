@@ -169,7 +169,13 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       }
     }
 
-    Object.assign(gridStyles, gridItemConfig);
+    // Skip undefined grid placement overrides so span remains the fallback
+    const filteredGridItemConfig = Object.fromEntries(
+      Object.entries(gridItemConfig ?? {}).filter(
+        ([, value]) => value !== undefined && value !== null,
+      ),
+    );
+    Object.assign(gridStyles, filteredGridItemConfig);
 
     Object.assign(mergedStyle, gridStyles);
   }
