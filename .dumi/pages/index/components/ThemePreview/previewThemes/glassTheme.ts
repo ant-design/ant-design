@@ -319,7 +319,22 @@ const useGlassTheme = () => {
       checkbox: {},
       tooltip: {},
     }),
-    [],
+    [
+      styles.app,
+      styles.buttonRoot,
+      styles.buttonRootDangerColor,
+      styles.buttonRootDefaultColor,
+      styles.cardRoot,
+      styles.dropdownRoot,
+      styles.glassBorder,
+      styles.glassBox,
+      styles.modalContainer,
+      styles.notBackdropFilter,
+      styles.notificationRoot,
+      styles.radioButtonRoot,
+      styles.segmentedRoot,
+      styles.switchRoot,
+    ],
   );
 };
 export default useGlassTheme;

@@ -297,7 +297,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return isLineClampSupport;
-  }, [needMeasureEllipsis, isTextOverflowSupport, isLineClampSupport]);
+  }, [needMeasureEllipsis, rows, isLineClampSupport, isTextOverflowSupport]);
 
   // We use effect to change from css ellipsis to js ellipsis.
   // To make SSR still can see the ellipsis.
@@ -323,7 +323,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
   const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
-  const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -387,7 +386,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return undefined;
     }
     return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
-  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
+  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis, editConfig.text]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -525,17 +524,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          open={isHoveringTypography && !isHoveringOperations}
+          disabled={isHoveringOperations}
         >
           <InternalTypography
-            onMouseEnter={(e) => {
-              setIsHoveringTypography(true);
-              onMouseEnter?.(e);
-            }}
-            onMouseLeave={(e) => {
-              setIsHoveringTypography(false);
-              onMouseLeave?.(e);
-            }}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,
