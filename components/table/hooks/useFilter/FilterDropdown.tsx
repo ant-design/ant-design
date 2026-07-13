@@ -245,7 +245,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       return;
     }
     onSelectKeys({ selectedKeys: wrapStringListType(propFilteredKeys) });
-  }, [propFilteredKeys]);
+  }, [propFilteredKeys, visible]);
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
