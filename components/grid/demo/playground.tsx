@@ -22,7 +22,7 @@ const App: React.FC = () => {
   const [vgutterKey, setVgutterKey] = useState(1);
   const [colCountKey, setColCountKey] = useState(2);
 
-  const cols = [];
+  const cols: React.ReactNode[] = [];
   const colCount = colCounts[colCountKey];
   let colCode = '';
   for (let i = 0; i < colCount; i++) {
