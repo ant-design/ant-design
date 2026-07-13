@@ -459,6 +459,38 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
 
 exports[`renders components/border-beam/demo/duration.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/hover.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered acss-1ioidlz css-var-test-id"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Hover over the card
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    The border beam appears when the pointer moves over this card.
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-border-beam css-var-test-id"
+    style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+  />
+</div>
+`;
+
+exports[`renders components/border-beam/demo/hover.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 1`] = `
 <div
   style="width: 360px;"

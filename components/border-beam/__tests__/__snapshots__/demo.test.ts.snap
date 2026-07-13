@@ -433,6 +433,31 @@ exports[`renders components/border-beam/demo/duration.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/border-beam/demo/hover.tsx correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered acss-1ioidlz css-var-test-id"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Hover over the card
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    The border beam appears when the pointer moves over this card.
+  </div>
+</div>
+`;
+
 exports[`renders components/border-beam/demo/line-width.tsx correctly 1`] = `
 <div
   style="width:360px"
