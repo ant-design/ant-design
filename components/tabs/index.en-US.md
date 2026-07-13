@@ -27,7 +27,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/popupRender-Search.tsx">Custom Popup Search</code>
+<code src="./demo/popupRender-Search.tsx" version="6.5.0">Custom Popup Search</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>Container of card type Tab</code>

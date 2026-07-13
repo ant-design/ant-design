@@ -30,7 +30,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/placement.tsx">位置</code>
-<code src="./demo/popupRender-Search.tsx">自定义折叠菜单搜索</code>
+<code src="./demo/popupRender-Search.tsx" version="6.5.0">自定义折叠菜单搜索</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>卡片式页签容器</code>
