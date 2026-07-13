@@ -10,10 +10,16 @@ const useStyles = createStyles((props) => {
       .${prefixCls}-border-beam {
         opacity: 0;
         transition: opacity ${cssVar.motionDurationMid};
+        &::before {
+          animation-play-state: paused;
+        }
       }
       &:hover {
         .${prefixCls}-border-beam {
           opacity: 1;
+          &::before {
+            animation-play-state: running;
+          }
         }
       }
     `,
