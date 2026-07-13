@@ -100,7 +100,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 自定义折叠图标 | ReactNode | - |  |
-| popupRender | 自定义折叠菜单渲染 | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 5.17.0 |
+| popupRender | 自定义折叠菜单渲染 | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.5.0 |
 | [DropdownProps](/components/dropdown-cn#api) | 支持 Dropdown 的其他属性 |  |  |  |
 
 ## Semantic DOM
