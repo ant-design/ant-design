@@ -11,8 +11,8 @@ export interface ChangelogInfo {
 type ChangelogData = Record<string, ChangelogInfo[]>;
 
 const changelogLoaders: Record<'cn' | 'en', () => Promise<ChangelogData>> = {
-  cn: () => import('../preset/components-changelog-cn.json').then((module) => module.default),
-  en: () => import('../preset/components-changelog-en.json').then((module) => module.default),
+  cn: () => import('../preset/components-changelog-cn.json').then((mod) => mod.default),
+  en: () => import('../preset/components-changelog-en.json').then((mod) => mod.default),
 };
 
 const useChangelog = (path: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
