@@ -35,6 +35,7 @@ The differences with Select are:
 <code src="./demo/allowClear.tsx">Customize clear button</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>Disabled custom input debug</code>
+<code src="./demo/filled-custom-debug.tsx" debug>Filled custom input debug</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete and Select</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
