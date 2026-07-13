@@ -210,10 +210,6 @@ export function semanticDemoTest(component: string, options: Options = {}) {
         await options.postRenderFn(container);
       }
 
-      act(() => {
-        jest.runAllTimers();
-      });
-
       expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
 
       jest.clearAllTimers();
