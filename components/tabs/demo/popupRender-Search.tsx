@@ -37,7 +37,15 @@ const items: TabsProps['items'] = Array.from({ length: 30 }, (_, i) => {
   };
 });
 
-const SearchPopup = (restTabs: any[], activeKey: string, onChange: (key: string) => void) => {
+const SearchPopup = ({
+  restTabs,
+  activeKey,
+  onChange,
+}: {
+  restTabs: any[];
+  activeKey: string;
+  onChange: (key: string) => void;
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const menuRef = useRef<any>(null);
   const { styles } = useSearchPopupStyle();
@@ -100,7 +108,16 @@ const App: React.FC = () => {
       more={{
         trigger: 'click',
         placement: 'bottomLeft',
-        popupRender: (_, { restTabs }) => SearchPopup(restTabs, activeKey, setActiveKey),
+        popupRender: (_, { restTabs, onClose }) => (
+          <SearchPopup
+            restTabs={restTabs}
+            activeKey={activeKey}
+            onChange={(key) => {
+              setActiveKey(key);
+              onClose();
+            }}
+          />
+        ),
       }}
     />
   );
