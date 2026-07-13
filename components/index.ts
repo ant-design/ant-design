@@ -14,22 +14,24 @@ export type { AppProps } from './app';
 export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
-export type { AvatarProps } from './avatar';
+export type { AvatarGroupRef, AvatarProps } from './avatar';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
-export type { BadgeProps } from './badge';
+export type { BadgeProps, RibbonRef } from './badge';
 export { default as BorderBeam } from './border-beam';
 export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam';
 export { default as Breadcrumb } from './breadcrumb';
-export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
+export type { BreadcrumbItemProps, BreadcrumbProps, BreadcrumbRef } from './breadcrumb';
 export { default as Button } from './button';
 export type { ButtonProps } from './button';
 export { default as Calendar } from './calendar';
-export type { CalendarMode, CalendarProps } from './calendar';
+export type { CalendarMode, CalendarProps, CalendarRef } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
+export type { CardGridRef } from './card';
 export type { CardMetaProps } from './card/CardMeta';
+export type { CardMetaRef } from './card/CardMeta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
@@ -53,9 +55,9 @@ export type { ConfigProviderProps, ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';
 export type { DatePickerProps } from './date-picker';
 export { default as Descriptions } from './descriptions';
-export type { DescriptionsProps } from './descriptions';
+export type { DescriptionsProps, DescriptionsRef } from './descriptions';
 export { default as Divider } from './divider';
-export type { DividerProps } from './divider';
+export type { DividerProps, DividerRef } from './divider';
 export { default as Drawer } from './drawer';
 export type { DrawerProps } from './drawer';
 export { default as Dropdown } from './dropdown';
@@ -67,11 +69,16 @@ export type {
   DropdownProps,
 } from './dropdown';
 export { default as Empty } from './empty';
-export type { EmptyProps } from './empty';
+export type { EmptyProps, EmptyRef } from './empty';
 export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
-export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button';
+export type {
+  FloatButtonGroupProps,
+  FloatButtonGroupRef,
+  FloatButtonProps,
+  FloatButtonRef,
+} from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -91,7 +98,7 @@ export type { InputNumberProps } from './input-number';
 export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
-export type { ListProps } from './list';
+export type { ListItemMetaRef, ListProps } from './list';
 export { default as Masonry } from './masonry';
 export type { MasonryProps } from './masonry';
 export { default as Mentions } from './mentions';
@@ -113,13 +120,14 @@ export type { PopoverProps } from './popover';
 export { default as Progress } from './progress';
 export type { ProgressProps } from './progress';
 export { default as QRCode } from './qr-code';
+export type { QRCodeRef } from './qr-code';
 export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
 export { default as Radio } from './radio';
 export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
 export { default as Rate } from './rate';
 export type { RateProps } from './rate';
 export { default as Result } from './result';
-export type { ResultProps } from './result';
+export type { ResultProps, ResultRef } from './result';
 export { default as Row } from './row';
 export type { RowProps } from './row';
 export { default as Segmented } from './segmented';
@@ -127,15 +135,15 @@ export type { SegmentedProps } from './segmented';
 export { default as Select } from './select';
 export type { RefSelectProps, SelectProps } from './select';
 export { default as Skeleton } from './skeleton';
-export type { SkeletonProps } from './skeleton';
+export type { SkeletonProps, SkeletonRef } from './skeleton';
 export { default as Slider } from './slider';
 export type { SliderSingleProps } from './slider';
 export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
-export type { SpinProps } from './spin';
+export type { SpinProps, SpinRef } from './spin';
 export { default as Splitter } from './splitter';
-export type { SplitterProps } from './splitter';
+export type { SplitterProps, SplitterRef } from './splitter';
 export { default as Statistic } from './statistic';
 export type { CountdownProps, StatisticProps, StatisticTimerProps } from './statistic';
 export { default as Steps } from './steps';
@@ -166,7 +174,7 @@ export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
-export type { TransferProps } from './transfer';
+export type { TransferProps, TransferRef } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
@@ -181,7 +189,13 @@ export { default as Upload } from './upload';
 export type { DraggerProps, UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
-export type { WatermarkContent, WatermarkFont, WatermarkProps, WatermarkText } from './watermark';
+export type {
+  WatermarkContent,
+  WatermarkFont,
+  WatermarkProps,
+  WatermarkRef,
+  WatermarkText,
+} from './watermark';
 
 export const unstableSetRender: any = () => {
   warning(

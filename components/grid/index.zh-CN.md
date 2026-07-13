@@ -76,7 +76,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| flex | flex 布局属性 | string \| number | - |  | × |
+| flex | flex 布局属性。数字类型对应 'flex: n n auto'；字符串类型直接透传（例如纯数字字符串 'n' 对应 'flex: n 1 0'） | string \| number | - |  | × |
 | gridItemConfig | Grid 模式配置，支持 gridColumn、gridRow、gridArea 属性 | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  | × |
 | order | 栅格顺序 | number | 0 |  | × |

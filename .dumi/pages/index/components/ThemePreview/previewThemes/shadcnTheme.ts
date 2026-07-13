@@ -274,7 +274,18 @@ const useShadcnTheme = () => {
       segmented: {},
       progress: {},
     }),
-    [styles],
+    [
+      styles.buttonDanger,
+      styles.buttonDefault,
+      styles.buttonPrimary,
+      styles.inputElement,
+      styles.inputError,
+      styles.inputRoot,
+      styles.notificationDescription,
+      styles.notificationRoot,
+      styles.notificationTitle,
+      styles.selectRoot,
+    ],
   );
 };
 export default useShadcnTheme;

@@ -77,7 +77,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| flex | Flex layout style | string \| number | - |  | × |
+| flex | Flex layout style. Number for 'flex: n n auto', string is applied directly (e.g. pure number string 'n' for 'flex: n 1 0') | string \| number | - |  | × |
 | gridItemConfig | Grid mode configuration, supports gridColumn, gridRow, gridArea properties | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
 | offset | The number of cells to offset Col from the left | number | 0 |  | × |
 | order | Raster order | number | 0 |  | × |

@@ -6,7 +6,9 @@ import { clsx } from 'clsx';
 
 import type { UseTheme } from '.';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   return {
     boxBorder: css({
       border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
@@ -240,7 +242,23 @@ const useBootstrapTheme: UseTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.alertRoot,
+      styles.boxBorder,
+      styles.buttonColorDefault,
+      styles.buttonRoot,
+      styles.dropdownItem,
+      styles.modalBody,
+      styles.modalContainer,
+      styles.modalFooter,
+      styles.modalHeader,
+      styles.notificationRoot,
+      styles.popupBox,
+      styles.progressRail,
+      styles.progressTrack,
+      styles.selectPopupRoot,
+      styles.switchRoot,
+    ],
   );
 };
 export default useBootstrapTheme;

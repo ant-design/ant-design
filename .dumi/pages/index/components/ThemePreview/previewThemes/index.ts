@@ -296,7 +296,32 @@ const usePreviewThemes = () => {
         copyCode: sereneThemeSource,
       },
     ];
-  }, [locale]);
+  }, [
+    blossomTheme,
+    bootstrapTheme,
+    cartoonTheme,
+    geekTheme,
+    glassTheme,
+    illustrationTheme,
+    larkTheme,
+    locale.blossom,
+    locale.bootstrap,
+    locale.cartoon,
+    locale.dark,
+    locale.default,
+    locale.geek,
+    locale.glass,
+    locale.illustration,
+    locale.lark,
+    locale.mui,
+    locale.serene,
+    locale.shadcn,
+    locale.v4,
+    muiTheme,
+    sereneTheme,
+    shadcnTheme,
+    v4Theme,
+  ]);
 };
 
 export default usePreviewThemes;

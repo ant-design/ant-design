@@ -30,6 +30,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'au
   autoplay?: boolean | { dotDuration?: boolean };
 }
 export interface CarouselRef {
+  nativeElement: HTMLDivElement;
   goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
   prev: () => void;
@@ -91,6 +92,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     style: contextStyle,
   } = useComponentConfig('carousel');
   const slickRef = React.useRef<any>(null);
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);
@@ -104,6 +106,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       innerSlider: slickRef.current.innerSlider,
       prev: slickRef.current.slickPrev,
       next: slickRef.current.slickNext,
+      nativeElement: nativeElementRef.current!,
     }),
     [slickRef.current],
   );
@@ -167,7 +170,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     : {};
 
   return (
-    <div className={className} id={id} style={dotDurationStyle}>
+    <div ref={nativeElementRef} className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}

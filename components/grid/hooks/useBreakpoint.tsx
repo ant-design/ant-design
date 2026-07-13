@@ -25,7 +25,7 @@ function useBreakpoint(
     });
 
     return () => responsiveObserver.unsubscribe(token);
-  }, []);
+  }, [refreshOnChange]);
 
   return screensRef.current;
 }

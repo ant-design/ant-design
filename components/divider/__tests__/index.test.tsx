@@ -10,6 +10,13 @@ import ConfigProvider from '../../config-provider';
 describe('Divider', () => {
   mountTest(Divider);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Divider>>();
+    const { container } = render(<Divider ref={ref} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-divider'));
+  });
+
   it('not show children when vertical', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
