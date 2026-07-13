@@ -275,7 +275,9 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           .join(', '),
         ...genNoMotionStyle(),
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
-          display: 'block',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           color: token.colorTextLightSolid,
           fontSize: token.fontSizeSM,
           pointerEvents: 'none',
