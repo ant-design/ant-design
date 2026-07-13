@@ -156,9 +156,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
-      [`${treeCls}-list-scrollbar:hover`]: {
-        backgroundColor: token.colorFillQuaternary,
+      [`${treeCls}-list-scrollbar`]: {
         cursor: 'pointer',
+
+        '&:hover': {
+          backgroundColor: token.colorFillQuaternary,
+        },
       },
 
       [`${treeCls}-list-holder-inner`]: {
