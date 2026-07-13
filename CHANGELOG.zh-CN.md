@@ -21,7 +21,7 @@ tag: vVERSION
 
 - 💄 修复 AutoComplete 自定义输入组件在 `filled` 形态下背景色重复叠加的问题。[#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Avatar、List、Pagination、Steps 和 Table 动态启用响应式配置后无法响应断点变化的问题。[#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
-- ♿ 修复 Button、Checkbox、Switch、Splitter 和 BorderBeam 的伪元素过渡与动画，使其遵循 `prefers-reduced-motion` 设置。[#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ 修复 Button、Checkbox、Switch、Splitter 和 BorderBeam 的伪元素过渡与动画，使其遵循 `prefers-reduced-motion` 设置。[#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Button 图标在 Card `extra` 中垂直对齐的问题。[#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider
   - 🐞 修复 ConfigProvider 配合 StyleProvider `layer` 使用时部分组件样式可能丢失的问题。[#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)
@@ -40,7 +40,7 @@ tag: vVERSION
   - 🐞 修复 Table 横向滚动时旧的延迟同步任务可能导致滚动位置回跳的问题。[#58613](https://github.com/ant-design/ant-design/pull/58613) [#58622](https://github.com/ant-design/ant-design/pull/58622) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Table 重新打开筛选下拉框时选中项未重置为当前筛选值的问题。[#58657](https://github.com/ant-design/ant-design/pull/58657) [@li-jia-nan](https://github.com/li-jia-nan)
 - Typography
-  - ♿ 修复 Typography 的 `ellipsis.rows` 或可编辑文本变化后省略模式与 `aria-label` 未更新的问题。[#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
+  - ⌨️ 修复 Typography 的 `ellipsis.rows` 或可编辑文本变化后省略模式与 `aria-label` 未更新的问题。[#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🇯🇵 修复 Typography 日语 `expand` 和 `collapse` 文案语义错误。[#58563](https://github.com/ant-design/ant-design/pull/58563) [@greymoth-jp](https://github.com/greymoth-jp)
 - 🌐 补全 ConfigProvider、Table、Transfer、Typography、Form、QRCode、ColorPicker 和 Icon 在 68 个语言包中缺失的本地化文案。[#58575](https://github.com/ant-design/ant-design/pull/58575) [@li-jia-nan](https://github.com/li-jia-nan)
 
