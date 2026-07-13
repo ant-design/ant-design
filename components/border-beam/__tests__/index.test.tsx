@@ -51,6 +51,34 @@ describe('BorderBeam', () => {
     });
   });
 
+  it('should control the beam effect with active', async () => {
+    const { container, rerender } = render(
+      <BorderBeam active={false}>
+        <div className="beam-child">content</div>
+      </BorderBeam>,
+    );
+
+    expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+
+    rerender(
+      <BorderBeam active>
+        <div className="beam-child">content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-border-beam')).toBeTruthy();
+    });
+
+    rerender(
+      <BorderBeam active={false}>
+        <div className="beam-child">content</div>
+      </BorderBeam>,
+    );
+
+    expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+  });
+
   it('should skip decoration for plain text children', () => {
     const { container } = render(<BorderBeam>content</BorderBeam>);
 

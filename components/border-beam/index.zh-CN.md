@@ -22,6 +22,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/custom-container.tsx">自定义容器</code>
+<code src="./demo/active.tsx" version="6.6.0">受控显示</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
 <code src="./demo/size.tsx" version="6.5.0">尺寸</code>
@@ -37,6 +38,7 @@ tag: 6.4.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| active | 是否显示并运行动画 | boolean | true | 6.6.0 | × |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |

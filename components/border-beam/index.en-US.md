@@ -21,6 +21,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/custom-container.tsx">Custom container</code>
+<code src="./demo/active.tsx" version="6.6.0">Controlled visibility</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
 <code src="./demo/duration.tsx" version="6.5.0">Duration</code>
 <code src="./demo/size.tsx" version="6.5.0">Size</code>
@@ -36,6 +37,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| active | Whether to show and run the animation | boolean | true | 6.6.0 | × |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | duration | Time in seconds for the beam to complete one loop | number | 6 | 6.5.0 | × |

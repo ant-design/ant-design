@@ -22,6 +22,7 @@ export interface BorderBeamProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  active?: boolean;
   children?: React.ReactNode;
   color?: BorderBeamColor;
   duration?: number;
@@ -35,6 +36,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     prefixCls: customizePrefixCls,
     className,
     style,
+    active = true,
     children,
     color,
     duration,
@@ -69,21 +71,23 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   return (
     <>
       {childNode}
-      <BorderBeamEffect
-        prefixCls={prefixCls}
-        hostDom={childDomNode}
-        className={clsx(contextClassName, className, hashId, cssVarCls)}
-        style={{
-          ...contextStyle,
-          ...style,
-          ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
-          ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
-          ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
-          [varName('inset-offset')]: insetOffset,
-          [varName('border-radius')]: borderRadius,
-        }}
-      />
+      {active && (
+        <BorderBeamEffect
+          prefixCls={prefixCls}
+          hostDom={childDomNode}
+          className={clsx(contextClassName, className, hashId, cssVarCls)}
+          style={{
+            ...contextStyle,
+            ...style,
+            ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
+            ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
+            ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
+            ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
+            [varName('inset-offset')]: insetOffset,
+            [varName('border-radius')]: borderRadius,
+          }}
+        />
+      )}
     </>
   );
 };
