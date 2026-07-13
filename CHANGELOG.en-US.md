@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2026-07-13`
 
+- 💄 Fix AutoComplete custom input background color being applied twice in the `filled` variant. [#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Avatar, List, Pagination, Steps, and Table not responding to breakpoint changes after responsive configuration is enabled dynamically. [#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Button icon vertical alignment when used in Card `extra`. [#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider

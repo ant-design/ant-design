@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2026-07-13`
 
+- 💄 修复 AutoComplete 自定义输入组件在 `filled` 形态下背景色重复叠加的问题。[#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Avatar、List、Pagination、Steps 和 Table 动态启用响应式配置后无法响应断点变化的问题。[#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Button 图标在 Card `extra` 中垂直对齐的问题。[#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider
