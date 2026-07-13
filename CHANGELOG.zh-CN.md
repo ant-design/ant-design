@@ -21,6 +21,7 @@ tag: vVERSION
 
 - 💄 修复 AutoComplete 自定义输入组件在 `filled` 形态下背景色重复叠加的问题。[#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Avatar、List、Pagination、Steps 和 Table 动态启用响应式配置后无法响应断点变化的问题。[#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
+- ♿ 修复 Button、Checkbox、Switch、Splitter 和 BorderBeam 的伪元素过渡与动画，使其遵循 `prefers-reduced-motion` 设置。[#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Button 图标在 Card `extra` 中垂直对齐的问题。[#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider
   - 🐞 修复 ConfigProvider 配合 StyleProvider `layer` 使用时部分组件样式可能丢失的问题。[#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)

@@ -21,6 +21,7 @@ tag: vVERSION
 
 - 💄 Fix AutoComplete custom input background color being applied twice in the `filled` variant. [#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Avatar, List, Pagination, Steps, and Table not responding to breakpoint changes after responsive configuration is enabled dynamically. [#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
+- ♿ Fix Button, Checkbox, Switch, Splitter, and BorderBeam pseudo-element transitions and animations so they respect `prefers-reduced-motion`. [#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Button icon vertical alignment when used in Card `extra`. [#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider
   - 🐞 Fix ConfigProvider with StyleProvider `layer` causing missing styles in some components. [#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)
