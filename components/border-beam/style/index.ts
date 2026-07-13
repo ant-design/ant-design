@@ -67,6 +67,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
             animationDuration: varRef('duration', `${DEFAULT_BORDER_BEAM_DURATION}s`),
+            animationDelay: varRef('delay', '0s'),
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
             willChange: 'offset-distance',

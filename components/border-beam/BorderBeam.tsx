@@ -9,7 +9,7 @@ import BorderBeamEffect from './BorderBeamEffect';
 import useBorderSize from './hooks/useBorderSize';
 import useChildDom from './hooks/useChildDom';
 import useStyle from './style';
-import { getBorderBeamGradient } from './util';
+import { DEFAULT_BORDER_BEAM_DURATION, getBorderBeamGradient } from './util';
 import type { BorderBeamColor } from './util';
 
 export type { BorderBeamColor, BorderBeamGradient } from './util';
@@ -24,6 +24,7 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
+  count?: number;
   duration?: number;
   lineWidth?: number | string;
   outset?: number | string;
@@ -37,6 +38,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     color,
+    count = 1,
     duration,
     lineWidth,
     outset,
@@ -59,6 +61,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const [childNode, childDomNode] = useChildDom(children);
   const { borderWidth, borderRadius } = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
+  const mergedCount =
+    isNumber(count) && Number.isFinite(count) && count > 0 ? Math.floor(count) : 1;
+  const mergedDuration =
+    isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
 
   // ============================ Border ============================
   const insetOffset = useMemo<string>(() => {
@@ -69,21 +75,27 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   return (
     <>
       {childNode}
-      <BorderBeamEffect
-        prefixCls={prefixCls}
-        hostDom={childDomNode}
-        className={clsx(contextClassName, className, hashId, cssVarCls)}
-        style={{
-          ...contextStyle,
-          ...style,
-          ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-          ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
-          ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
-          ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
-          [varName('inset-offset')]: insetOffset,
-          [varName('border-radius')]: borderRadius,
-        }}
-      />
+      {Array.from({ length: mergedCount }, (_, index) => (
+        <BorderBeamEffect
+          key={index}
+          prefixCls={prefixCls}
+          hostDom={childDomNode}
+          className={clsx(contextClassName, className, hashId, cssVarCls)}
+          style={{
+            ...contextStyle,
+            ...style,
+            ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
+            ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
+            ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
+            ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
+            ...(index > 0 && {
+              [varName('delay')]: `${(-mergedDuration * index) / mergedCount}s`,
+            }),
+            [varName('inset-offset')]: insetOffset,
+            [varName('border-radius')]: borderRadius,
+          }}
+        />
+      ))}
     </>
   );
 };
