@@ -297,7 +297,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return isLineClampSupport;
-  }, [needMeasureEllipsis, isTextOverflowSupport, isLineClampSupport]);
+  }, [needMeasureEllipsis, rows, isLineClampSupport, isTextOverflowSupport]);
 
   // We use effect to change from css ellipsis to js ellipsis.
   // To make SSR still can see the ellipsis.
@@ -386,7 +386,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return undefined;
     }
     return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
-  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
+  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis, editConfig.text]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
