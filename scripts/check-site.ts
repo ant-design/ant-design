@@ -24,9 +24,10 @@ describe('site test', () => {
   const render = async (path: string) => {
     const port = await portPromise;
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
-      const html: string = await res.text();
-      const root = new DOMParser().parseFromString(html, 'text/html') as unknown as HTMLElement;
-      function getTextContent(node: any): string {
+      const html = await res.text();
+      const parser = new DOMParser();
+      const document = parser.parseFromString(html, 'text/html') as unknown as Document;
+      const getTextContent = (node: any): string => {
         if (!node) {
           return '';
         }
@@ -41,7 +42,7 @@ describe('site test', () => {
           return Array.from(node.children).map<string>(getTextContent).join('').trim();
         }
         return '';
-      }
+      };
       const wrap = (nodes: HTMLElement[]) => {
         const list = Array.isArray(nodes) ? nodes : [];
         return {
@@ -50,13 +51,13 @@ describe('site test', () => {
             if (list.length === 0) {
               return '';
             }
-            return list.map<string>(getTextContent).join('');
+            return list.map<string>(getTextContent).join('').trim();
           },
           first: () => wrap(list.slice(0, 1)),
         };
       };
       const $ = (selector: string) => {
-        if (!root.querySelector) {
+        if (!document.querySelector) {
           console.warn('DOMParser does not support querySelector');
           return wrap([]);
         }
@@ -64,7 +65,7 @@ describe('site test', () => {
         // Handle complex selectors that domparser-rs might not support
         if (selector === '.markdown table') {
           // Find all .markdown elements and then find tables within them
-          const markdownElements = root.querySelectorAll<HTMLElement>('.markdown');
+          const markdownElements = document.querySelectorAll<HTMLElement>('.markdown');
           const tables: HTMLTableElement[] = [];
           for (const markdown of Array.from(markdownElements)) {
             const tablesInMarkdown = markdown.querySelectorAll<HTMLTableElement>('table');
@@ -73,13 +74,13 @@ describe('site test', () => {
           return wrap(tables);
         } else {
           // Use querySelectorAll for simple selectors
-          const elements = root.querySelectorAll<HTMLElement>(selector);
+          const elements = document.querySelectorAll<HTMLElement>(selector);
           const elementsArray = Array.from(elements);
           return wrap(elementsArray);
         }
       };
 
-      return { status: res.status, $, root };
+      return { status: res.status, $, root: document };
     });
     return resp;
   };
