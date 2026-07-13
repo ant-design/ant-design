@@ -154,7 +154,7 @@ const useCartoonTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [styles.notificationRoot, styles.progressTrack, styles.sharedBorder],
   );
 };
 

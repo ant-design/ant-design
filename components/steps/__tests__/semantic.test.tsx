@@ -3,7 +3,12 @@ import React from 'react';
 import Steps from '..';
 import type { StepsProps, StepsSemanticAllType } from '..';
 import type { GetProp } from '../../_util/type';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Steps.Semantic', () => {
   const renderSteps = (props: Partial<StepsProps>) => (
@@ -98,5 +103,23 @@ describe('Steps.Semantic', () => {
     expect(rootElement).toBeTruthy();
     expect(rootElement).toHaveClass('ant-steps');
     expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        steps={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        {renderSteps({
+          styles: semanticRootStylePriority.styles,
+          style: semanticRootStylePriority.style,
+        })}
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-steps'));
   });
 });
