@@ -15,6 +15,33 @@ tag: vVERSION
 
 ---
 
+## 6.5.1
+
+`2026-07-13`
+
+- 🐞 修复 Avatar、List、Pagination、Steps 和 Table 动态启用响应式配置后无法响应断点变化的问题。[#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Button 图标在 Card `extra` 中垂直对齐的问题。[#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
+- ConfigProvider
+  - 🐞 修复 ConfigProvider 配合 StyleProvider `layer` 使用时部分组件样式可能丢失的问题。[#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)
+  - 🐞 修复 ConfigProvider 动态修改 `prefixCls` 后 CSS 变量前缀未更新的问题。[#58652](https://github.com/ant-design/ant-design/pull/58652) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Descriptions 嵌套在 Popover 中时内容列宽度塌缩的问题。[#58583](https://github.com/ant-design/ant-design/pull/58583) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Dropdown 子组件不支持 `ref` 时弹层定位与交互异常的问题。[#58662](https://github.com/ant-design/ant-design/pull/58662) [@afc163](https://github.com/afc163)
+- Form
+  - 🐞 修复 Form.Item 设置 `help={false}` 时仍展示校验提示的问题。[#58558](https://github.com/ant-design/ant-design/pull/58558) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Form.Item 动态配置变化后反馈图标类名与嵌套 `noStyle` 反馈状态未更新的问题。[#58653](https://github.com/ant-design/ant-design/pull/58653) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Icon `TwitchFilled` 相比其他图标偏小且带有意外投影的问题。[#58542](https://github.com/ant-design/ant-design/pull/58542) [ant-design-icons#747](https://github.com/ant-design/ant-design-icons/pull/747) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- ⌨️ 修复 Input.Search 搜索按钮的聚焦轮廓在相邻 Input 进入 hover 态时被覆盖的问题。[#58615](https://github.com/ant-design/ant-design/pull/58615) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Modal 方法将 `classNames.body`、`styles.body` 和 `bodyStyle` 错误应用到确认弹窗标题的问题。[#58412](https://github.com/ant-design/ant-design/pull/58412) [@biubiukam](https://github.com/biubiukam)
+- 🐞 修复 Pagination 每页条数选择器在 Form.Item 中被撑满宽度的问题。[#58579](https://github.com/ant-design/ant-design/pull/58579) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Switch 的 `checkedChildren` 和 `unCheckedChildren` 中图标未垂直居中的问题。[#58672](https://github.com/ant-design/ant-design/pull/58672) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- Table
+  - 🐞 修复 Table 横向滚动时旧的延迟同步任务可能导致滚动位置回跳的问题。[#58613](https://github.com/ant-design/ant-design/pull/58613) [#58622](https://github.com/ant-design/ant-design/pull/58622) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 修复 Table 重新打开筛选下拉框时选中项未重置为当前筛选值的问题。[#58657](https://github.com/ant-design/ant-design/pull/58657) [@li-jia-nan](https://github.com/li-jia-nan)
+- Typography
+  - ♿ 修复 Typography 的 `ellipsis.rows` 或可编辑文本变化后省略模式与 `aria-label` 未更新的问题。[#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🇯🇵 修复 Typography 日语 `expand` 和 `collapse` 文案语义错误。[#58563](https://github.com/ant-design/ant-design/pull/58563) [@greymoth-jp](https://github.com/greymoth-jp)
+- 🌐 补全 ConfigProvider、Table、Transfer、Typography、Form、QRCode、ColorPicker 和 Icon 在 68 个语言包中缺失的本地化文案。[#58575](https://github.com/ant-design/ant-design/pull/58575) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 6.5.0
 
 `2026-06-27`
