@@ -99,7 +99,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 如需在 grid 模式下实现响应式布局，请通过 `gridTemplateColumns` 配置列数，并确保 `span` 值不超过列数。例如：`grid={{ gridTemplateColumns: 'repeat(12, 1fr)' }}` 时，`span={6}` 占一半宽度。
 
-`gridItemConfig` 的优先级高于 `span` 属性。例如 `span={0}` 会隐藏元素，但 `span={0} gridItemConfig={{ gridColumn: 'span 2' }}` 会显示元素。
+`gridItemConfig.gridColumn` 的优先级高于 `span` 属性。例如 `span={0}` 会隐藏元素，但 `span={0} gridItemConfig={{ gridColumn: 'span 2' }}` 会显示元素。
 
 ## 主题变量（Design Token）{#design-token}
 
