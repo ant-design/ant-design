@@ -2,8 +2,8 @@ import React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css }) => {
-  const antdTabsCls = '.ant-tabs';
+const useStyle = createStyles(({ token, css, prefixCls }) => {
+  const antdTabsCls = `.${prefixCls}-tabs`;
 
   return css`
     ${antdTabsCls}${antdTabsCls}-card {
