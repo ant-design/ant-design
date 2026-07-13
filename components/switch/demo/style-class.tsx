@@ -15,7 +15,7 @@ const useStyle = createStyles((props) => {
       height: 14px;
       line-height: 14px;
       &&.ant-switch-checked {
-        background-color: rgb(25, 118, 210, 0.5);
+        background-color: rgba(25, 118, 210, 0.5);
         .ant-switch-handle {
           inset-inline-start: calc(100% - 17px);
         }
