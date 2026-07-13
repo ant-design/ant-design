@@ -461,7 +461,7 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
 
 exports[`renders components/border-beam/demo/hover.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered acss-1ioidlz css-var-test-id"
+  class="ant-card ant-card-bordered acss-511ys3 css-var-test-id"
 >
   <div
     class="ant-card-head"
