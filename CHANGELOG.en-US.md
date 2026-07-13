@@ -19,7 +19,9 @@ tag: vVERSION
 
 `2026-07-13`
 
+- 💄 Fix AutoComplete custom input background color being applied twice in the `filled` variant. [#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Avatar, List, Pagination, Steps, and Table not responding to breakpoint changes after responsive configuration is enabled dynamically. [#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ Fix Button, Checkbox, Switch, Splitter, and BorderBeam pseudo-element transitions and animations so they respect `prefers-reduced-motion`. [#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Button icon vertical alignment when used in Card `extra`. [#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
 - ConfigProvider
   - 🐞 Fix ConfigProvider with StyleProvider `layer` causing missing styles in some components. [#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)
@@ -38,7 +40,7 @@ tag: vVERSION
   - 🐞 Fix Table horizontal scrolling occasionally jumping back because of stale deferred scroll synchronization. [#58613](https://github.com/ant-design/ant-design/pull/58613) [#58622](https://github.com/ant-design/ant-design/pull/58622) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix Table filter selections not resetting to the current filtered values when reopening the filter dropdown. [#58657](https://github.com/ant-design/ant-design/pull/58657) [@li-jia-nan](https://github.com/li-jia-nan)
 - Typography
-  - ♿ Fix Typography ellipsis mode and `aria-label` not updating when `ellipsis.rows` or editable text changes. [#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
+  - ⌨️ Fix Typography ellipsis mode and `aria-label` not updating when `ellipsis.rows` or editable text changes. [#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🇯🇵 Fix Typography incorrect Japanese `expand` and `collapse` labels. [#58563](https://github.com/ant-design/ant-design/pull/58563) [@greymoth-jp](https://github.com/greymoth-jp)
 - 🌐 Complete missing localized messages for ConfigProvider, Table, Transfer, Typography, Form, QRCode, ColorPicker, and Icon across 68 locales. [#58575](https://github.com/ant-design/ant-design/pull/58575) [@li-jia-nan](https://github.com/li-jia-nan)
 
