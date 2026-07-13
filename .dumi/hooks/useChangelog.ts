@@ -8,12 +8,17 @@ export interface ChangelogInfo {
   releaseDate: string;
 }
 
-const useChangelog = (path: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
-  const logFileName = `components-changelog-${lang}.json`;
+type ChangelogData = Record<string, ChangelogInfo[]>;
 
+const changelogLoaders: Record<'cn' | 'en', () => Promise<ChangelogData>> = {
+  cn: () => import('../preset/components-changelog-cn.json').then((module) => module.default),
+  en: () => import('../preset/components-changelog-en.json').then((module) => module.default),
+};
+
+const useChangelog = (path: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
   const { data, error, isLoading } = useSWR(
     lang ? `component-changelog-${lang}` : null,
-    () => import(`../preset/${logFileName}`),
+    changelogLoaders[lang],
   );
 
   if (error || isLoading || !data) {
