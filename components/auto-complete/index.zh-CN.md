@@ -36,6 +36,7 @@ demo:
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>禁用自定义输入 Debug</code>
+<code src="./demo/filled-custom-debug.tsx" debug>填充形态自定义输入 Debug</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete 和 Select</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
