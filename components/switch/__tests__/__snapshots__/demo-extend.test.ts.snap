@@ -265,7 +265,7 @@ exports[`renders components/switch/demo/style-class.tsx extend context correctly
   </button>
   <button
     aria-checked="true"
-    class="ant-switch acss-gmyb21 css-var-test-id ant-switch-checked"
+    class="ant-switch acss-1g1umn4 css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >

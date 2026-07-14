@@ -14,6 +14,7 @@ import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import ComponentsBlock from '../PreviewPane/Components';
 import { ThemeDashboard } from '../Theme';
+import type { PreviewThemeConfig } from './previewThemes';
 import usePreviewThemes from './previewThemes';
 import { generateFullCopyFile } from './themeCodeUtils';
 
@@ -194,6 +195,9 @@ const previewPaneOptions: { label: string; value: PreviewPane }[] = [
   { label: 'Dashboard', value: 'dashboard' },
 ];
 
+const getPreviewThemeKey = (previewTheme: PreviewThemeConfig) =>
+  previewTheme.key ?? previewTheme.name;
+
 export interface ThemePreviewProps {
   onOpenPromptDrawer?: () => void;
 }
@@ -209,34 +213,32 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(
-    () => previewThemes?.find((theme) => theme.key === 'light')?.name,
-  );
+  const [activeThemeKey, setActiveThemeKey] = React.useState('light');
   const [activePane, setActivePane] = React.useState<PreviewPane>('components');
 
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   React.useEffect(() => {
-    const defaultThemeName = isDark ? 'dark' : 'light';
-    const findedTheme = previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName);
-    setActiveName(findedTheme?.name || previewThemes[0].name);
-  }, [isDark, previewThemes]);
+    setActiveThemeKey(isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   const backgroundPrefetchList = React.useMemo(
     () => previewThemes.map((t) => t.bgImg).filter((img): img is string => !!img),
     [previewThemes],
   );
 
-  const handleThemeClick = (name: string) => setActiveName(name);
+  const handleThemeClick = (themeKey: string) => setActiveThemeKey(themeKey);
 
-  const handleKeyDown = (event: React.KeyboardEvent, name: string) => {
+  const handleKeyDown = (event: React.KeyboardEvent, themeKey: string) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      handleThemeClick(name);
+      handleThemeClick(themeKey);
     }
   };
 
-  const activeTheme = previewThemes.find((previewTheme) => previewTheme.name === activeName);
+  const activeTheme =
+    previewThemes.find((previewTheme) => getPreviewThemeKey(previewTheme) === activeThemeKey) ??
+    previewThemes[0];
 
   const handleCopyTheme = async (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -293,17 +295,18 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
             />
             <Flex align="center" gap={12}>
               {previewThemes.map((theme) => {
-                const { name, icon: Icon, key } = theme;
-                const isSelected = activeName === name;
+                const { name, icon: Icon } = theme;
+                const themeKey = getPreviewThemeKey(theme);
+                const isSelected = activeThemeKey === themeKey;
                 return (
-                  <Tooltip placement="top" key={`item-${key}`} title={name}>
+                  <Tooltip placement="top" key={`item-${themeKey}`} title={name}>
                     <div
                       role="tab"
                       className={clsx(styles.themeBlock, { [styles.active]: isSelected })}
                       tabIndex={isSelected ? 0 : -1}
                       aria-selected={isSelected}
-                      onClick={() => handleThemeClick(name)}
-                      onKeyDown={(event) => handleKeyDown(event, name)}
+                      onClick={() => handleThemeClick(themeKey)}
+                      onKeyDown={(event) => handleKeyDown(event, themeKey)}
                     >
                       {typeof Icon === 'string' ? (
                         <img src={Icon} alt={name} title={name} draggable={false} />
@@ -338,14 +341,14 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
             <ComponentsBlock
               isDark={isDark}
               isDarkTheme={hasDarkBackground}
-              key={activeName}
+              key={activeThemeKey}
               config={activeTheme?.props}
               className={styles.componentsBlock}
               containerClassName={styles.componentsBlockContainer}
             />
           ) : (
             <ThemeDashboard
-              key={activeName}
+              key={activeThemeKey}
               className={styles.dashboardBlock}
               config={activeTheme?.props}
               activeTheme={activeTheme}
