@@ -218,10 +218,10 @@ Chinese:
 | 🇺🇸🇨🇳🇬🇧 | 国际化改动             |
 | 📖 📝  | 文档或网站改进         |
 | ✅     | 新增或更新测试用例     |
-| 🛎      | 更新警告/提示信息      |
+| 🛎     | 更新警告/提示信息      |
 | ⌨️ ♿  | 可访问性增强           |
-| 🗑      | 废弃或移除             |
-| 🛠      | 重构或工具链优化       |
+| 🗑     | 废弃或移除             |
+| 🛠     | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
 
 **commit 类型 → Emoji / 动词 映射**：
@@ -231,11 +231,11 @@ Chinese:
 | `fix:` / `bug:`            | 修复       | Fix                 | 🐞           |
 | `feat:` / `feature:`       | 新增       | Add                 | 🆕           |
 | `style:` / `ui:`           | 优化       | Improve             | 💄           |
-| `refactor:`                | 重构       | Refactor            | 🛠            |
+| `refactor:`                | 重构       | Refactor            | 🛠           |
 | `perf:`                    | 提升性能   | Improve performance | ⚡️           |
 | `docs:`                    | 更新文档   | Update docs         | 📝           |
 | `i18n:` / `locale:`        | 更新国际化 | Update i18n         | 🇺🇸           |
-| `deprecate:`               | 废弃       | Deprecate           | 🗑            |
+| `deprecate:`               | 废弃       | Deprecate           | 🗑           |
 | `chore:` / `test:` / `ci:` | —          | —                   | 跳过，不写入 |
 
 ##### 无 changelog 时自动生成

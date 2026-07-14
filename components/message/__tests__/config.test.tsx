@@ -242,7 +242,9 @@ describe('message.config', () => {
     const messageText2 = 'mounted in container2';
 
     message.info(messageText2);
-    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(messageText2);
+    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(
+      messageText2,
+    );
 
     removeContainer1();
     removeContainer2();

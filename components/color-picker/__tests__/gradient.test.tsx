@@ -434,7 +434,9 @@ describe('ColorPicker.gradient', () => {
       document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
     );
     const color = onChange.mock.calls[0][0];
-    expect(color.toCssString()).toBe('linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)');
+    expect(color.toCssString()).toBe(
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
     expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
   });
 });

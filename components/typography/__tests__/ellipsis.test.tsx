@@ -219,7 +219,9 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toBe('...--The information is very important');
+    expect(wrapper.querySelector('p')?.textContent).toBe(
+      '...--The information is very important',
+    );
 
     rerender(
       <Base ellipsis={{ rows: 2, suffix }} component="p">

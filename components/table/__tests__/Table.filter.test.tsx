@@ -1942,13 +1942,17 @@ describe('Table.filter', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${32}`);
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
+      `${32}`,
+    );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
     );
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${66}`);
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
+      `${66}`,
+    );
   });
 
   it('Columns with filters should filter correctly after reset it.', () => {
@@ -3004,13 +3008,17 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('input[type="checkbox"]')!);
 
     // The checkbox is now checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
+      true,
+    );
     fireEvent.click(container.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
     // The checkbox is still checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
+      true,
+    );
   });
 
   it('should not crash when filterDropdown is boolean', () => {

@@ -109,7 +109,9 @@ describe('Statistic', () => {
     const { container: countdownContainer } = render(
       <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
     );
-    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toBe('x');
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toBe(
+      'x',
+    );
     expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toBe(
       'y',
     );
@@ -141,7 +143,9 @@ describe('Statistic', () => {
       expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:00:01');
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
+        '00:00:01',
+      );
 
       // Pass 0.5s
       act(() => {
@@ -158,7 +162,9 @@ describe('Statistic', () => {
       act(() => {
         jest.advanceTimersByTime(5000);
       });
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:00:00');
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
+        '00:00:00',
+      );
       expect(onFinish).toHaveBeenCalled();
       expect(onFinish).toHaveBeenCalledTimes(1);
     });
@@ -193,7 +199,9 @@ describe('Statistic', () => {
       expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:30:00');
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
+        '00:30:00',
+      );
 
       // Pass 1s
       act(() => {
@@ -203,7 +211,9 @@ describe('Statistic', () => {
       expect(onFinish).not.toHaveBeenCalled();
 
       // Now value
-      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe('00:30:01');
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
+        '00:30:01',
+      );
     });
 
     it('ssr', async () => {

@@ -139,19 +139,18 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;

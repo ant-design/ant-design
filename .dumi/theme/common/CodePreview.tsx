@@ -64,8 +64,10 @@ const LANGS = {
   style: 'CSS',
 };
 
-interface CodePreviewProps
-  extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang' | 'onChange'> {
+interface CodePreviewProps extends Omit<
+  ComponentProps<typeof LiveCode>,
+  'initialValue' | 'lang' | 'onChange'
+> {
   sourceCode?: string;
   jsxCode?: string;
   styleCode?: string;
@@ -131,18 +133,10 @@ const CodePreview: React.FC<CodePreviewProps> = (props) => {
   useEffect(() => {
     const codes: Codes = {};
     if (sourceCodes.tsx) {
-      codes.tsx = Prism.highlight(
-        sourceCodes.tsx,
-        Prism.languages.jsx || Prism.languages.javascript,
-        'jsx',
-      );
+      codes.tsx = Prism.highlight(sourceCodes.tsx, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
     }
     if (sourceCodes.jsx) {
-      codes.jsx = Prism.highlight(
-        sourceCodes.jsx,
-        Prism.languages.jsx || Prism.languages.javascript,
-        'jsx',
-      );
+      codes.jsx = Prism.highlight(sourceCodes.jsx, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
     }
     if (sourceCodes.style) {
       codes.style = Prism.highlight(sourceCodes.style, Prism.languages.css, 'css');

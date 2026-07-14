@@ -262,7 +262,9 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe('Little');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
+      'Little',
+    );
   });
 
   it('support update config', () => {
@@ -293,7 +295,9 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
     expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toBe('Bamboo');
-    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe('Little');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toBe(
+      'Little',
+    );
   });
 
   it('destroy before render', () => {

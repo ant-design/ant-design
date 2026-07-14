@@ -107,7 +107,9 @@ function HighlightExample(props: {
     return Prism.highlight(code, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
   }, [componentName, itemsAPI, semanticName]);
 
-  return <div dangerouslySetInnerHTML={{ __html: highlightCode }} />;
+  return (
+    <div dangerouslySetInnerHTML={{ __html: highlightCode }} />
+  );
 }
 
 const getMarkClassName = (semanticKey: string) =>
