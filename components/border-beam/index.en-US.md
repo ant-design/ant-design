@@ -20,11 +20,8 @@ tag: 6.4.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<<<<<<< HEAD
 <code src="./demo/hover.tsx">Show on hover</code>
-=======
 <code src="./demo/count.tsx" version="6.6.0">Multiple beams</code>
->>>>>>> 8b1b9b2253 (feat(BorderBeam): add count prop to configure number of beams and update related styles and tests)
 <code src="./demo/custom-container.tsx">Custom container</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
 <code src="./demo/duration.tsx" version="6.5.0">Duration</code>
