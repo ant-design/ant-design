@@ -116,6 +116,84 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
 
 exports[`renders components/border-beam/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/border-beam/demo/count.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Multiple beams
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set count to distribute multiple beams evenly around the container border.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-delay: -2s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-delay: -4s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+  </div>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Multiple beams
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set count to distribute multiple beams evenly around the container border.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/count.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 1`] = `
 <div
   style="position: relative; width: 420px; background: rgb(255, 255, 255); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
@@ -458,6 +536,38 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
 `;
 
 exports[`renders components/border-beam/demo/duration.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/border-beam/demo/hover.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered acss-511ys3 css-var-test-id"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Hover over the card
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    The border beam appears when the pointer moves over this card.
+  </div>
+  <div
+    aria-hidden="true"
+    class="ant-border-beam css-var-test-id"
+    style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+  />
+</div>
+`;
+
+exports[`renders components/border-beam/demo/hover.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/border-beam/demo/line-width.tsx extend context correctly 1`] = `
 <div
