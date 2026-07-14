@@ -250,6 +250,12 @@ describe('Theme', () => {
     expect(container.querySelector('.duration')?.textContent).toBe('0s');
   });
 
+  it('focusOutline false token', () => {
+    const { token } = getHookToken({ token: { focusOutline: false } });
+
+    expect(token.lineWidthFocus).toBe(0);
+  });
+
   describe('getDesignToken', () => {
     it('default', () => {
       const token = theme.getDesignToken();
