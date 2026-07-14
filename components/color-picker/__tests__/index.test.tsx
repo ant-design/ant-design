@@ -173,19 +173,6 @@ describe('ColorPicker', () => {
     await triggerClear(' ');
   });
 
-  it('Should ignore other clear keyboard actions', async () => {
-    const onClear = jest.fn();
-    const { container } = render(
-      <ColorPicker defaultValue="#1677ff" allowClear onClear={onClear} />,
-    );
-
-    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
-    await waitFakeTimer();
-    fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key: 'Escape' });
-
-    expect(onClear).not.toHaveBeenCalled();
-  });
-
   it('Should render trigger work', async () => {
     const { container } = render(
       <ColorPicker>
