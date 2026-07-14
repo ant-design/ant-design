@@ -62,7 +62,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const { borderWidth, borderRadius } = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
   const mergedCount =
-    isNumber(count) && Number.isFinite(count) && count > 1 ? Math.floor(count) : 1;
+    isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
   const mergedDuration =
     isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
 
