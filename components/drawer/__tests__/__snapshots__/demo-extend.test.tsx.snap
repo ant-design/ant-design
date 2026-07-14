@@ -826,7 +826,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please select an owner
                               </div>
@@ -835,12 +834,12 @@ Array [
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
                                 aria-required="true"
-                                autocomplete="off"
+                                autocomplete="new-password"
                                 class="ant-select-input"
                                 id="owner"
                                 readonly=""
                                 role="combobox"
-                                type="search"
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -896,16 +895,16 @@ Array [
                                 </div>
                               </div>
                               <div
-                                class="rc-virtual-list"
+                                class="ant-select-dropdown-list"
                                 style="position: relative;"
                               >
                                 <div
-                                  class="rc-virtual-list-holder"
+                                  class="ant-select-dropdown-list-holder"
                                   style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                 >
                                   <div>
                                     <div
-                                      class="rc-virtual-list-holder-inner"
+                                      class="ant-select-dropdown-list-holder-inner"
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
@@ -992,7 +991,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please choose the type
                               </div>
@@ -1001,12 +999,12 @@ Array [
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
                                 aria-required="true"
-                                autocomplete="off"
+                                autocomplete="new-password"
                                 class="ant-select-input"
                                 id="type"
                                 readonly=""
                                 role="combobox"
-                                type="search"
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -1062,16 +1060,16 @@ Array [
                                 </div>
                               </div>
                               <div
-                                class="rc-virtual-list"
+                                class="ant-select-dropdown-list"
                                 style="position: relative;"
                               >
                                 <div
-                                  class="rc-virtual-list-holder"
+                                  class="ant-select-dropdown-list-holder"
                                   style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                 >
                                   <div>
                                     <div
-                                      class="rc-virtual-list-holder-inner"
+                                      class="ant-select-dropdown-list-holder-inner"
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
@@ -1163,7 +1161,6 @@ Array [
                             >
                               <div
                                 class="ant-select-placeholder"
-                                style="visibility: visible;"
                               >
                                 Please choose the approver
                               </div>
@@ -1172,12 +1169,12 @@ Array [
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
                                 aria-required="true"
-                                autocomplete="off"
+                                autocomplete="new-password"
                                 class="ant-select-input"
                                 id="approver"
                                 readonly=""
                                 role="combobox"
-                                type="search"
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -1233,16 +1230,16 @@ Array [
                                 </div>
                               </div>
                               <div
-                                class="rc-virtual-list"
+                                class="ant-select-dropdown-list"
                                 style="position: relative;"
                               >
                                 <div
-                                  class="rc-virtual-list-holder"
+                                  class="ant-select-dropdown-list-holder"
                                   style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                 >
                                   <div>
                                     <div
-                                      class="rc-virtual-list-holder-inner"
+                                      class="ant-select-dropdown-list-holder-inner"
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div

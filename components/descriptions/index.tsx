@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -90,7 +90,11 @@ export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElem
   items?: DescriptionsItemType[];
 }
 
-const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+export interface DescriptionsRef {
+  nativeElement: HTMLDivElement;
+}
+
+const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -164,13 +168,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsSemanticAllType['classNames'],
+    DescriptionsSemanticAllType['styles'],
+    DescriptionsProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ======================== Render ========================
   const memoizedValue = React.useMemo<DescriptionsContextProps>(
@@ -196,9 +203,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     ],
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <DescriptionsContext.Provider value={memoizedValue}>
       <div
+        ref={nativeElementRef}
         className={clsx(
           prefixCls,
           contextClassName,
@@ -214,7 +228,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...mergedStyles.root, ...style }}
+        style={mergedStyles.root}
         {...restProps}
       >
         {(title || extra) && (
@@ -260,7 +274,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       </div>
     </DescriptionsContext.Provider>
   );
-};
+}) as React.ForwardRefExoticComponent<DescriptionsProps & React.RefAttributes<DescriptionsRef>> &
+  CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';

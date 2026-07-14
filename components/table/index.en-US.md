@@ -85,6 +85,7 @@ const columns = [
 <code src="./demo/tree-data.tsx">Tree data</code>
 <code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
+<code src="./demo/auto-height.tsx">Auto height</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
@@ -393,6 +394,10 @@ In order to improve user experience, Pagination show size changer by default whe
 ### Why Table fully render when state change? {#faq-state-update-rerender}
 
 Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. You can use `column.shouldCellUpdate` to control render.
+
+### How should I troubleshoot Table performance issues? {#faq-table-performance}
+
+React DevTools may add extra overhead when profiling complex tables, especially with many rows or cells. If you notice obvious lag, please try disabling React DevTools or testing in a clean browser environment first. If the performance issue can still be reproduced in a normal runtime, feel free to provide a minimal reproduction so we can continue to investigate.
 
 ### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 

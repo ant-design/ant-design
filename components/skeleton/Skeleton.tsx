@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
+import type { PropsWithChildren } from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
@@ -57,6 +58,10 @@ export interface SkeletonProps {
   styles?: SkeletonSemanticAllType['stylesAndFn'];
 }
 
+export interface SkeletonRef {
+  nativeElement: HTMLDivElement | null;
+}
+
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
   if (isPlainObject(prop)) {
     return prop;
@@ -103,7 +108,9 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
   return basicProps;
 }
 
-type CompoundedComponent = {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  PropsWithChildren<SkeletonProps> & React.RefAttributes<SkeletonRef>
+> & {
   Button: typeof SkeletonButton;
   Avatar: typeof SkeletonAvatar;
   Input: typeof SkeletonInput;
@@ -113,9 +120,7 @@ type CompoundedComponent = {
 
 // Tips: ctx.classNames.root < ctx.className < cpns.classNames.root < cpns.className < rootClassName
 
-const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedComponent = (
-  props,
-) => {
+const Skeleton = React.forwardRef<SkeletonRef, PropsWithChildren<SkeletonProps>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     loading,
@@ -152,13 +157,22 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     paragraph,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SkeletonSemanticAllType['classNames'],
+    SkeletonSemanticAllType['styles'],
+    SkeletonProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
+
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current,
+  }));
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -244,14 +258,14 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     );
 
     return (
-      <div className={cls} style={{ ...mergedStyles.root, ...contextStyle, ...style }}>
+      <div ref={nativeElementRef} className={cls} style={mergedStyles.root}>
         {avatarNode}
         {contentNode}
       </div>
     );
   }
   return children ?? null;
-};
+}) as CompoundedComponent;
 
 Skeleton.Button = SkeletonButton;
 Skeleton.Avatar = SkeletonAvatar;

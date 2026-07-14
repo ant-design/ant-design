@@ -24,7 +24,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(container.querySelector('.test-steppers input')!, {
       target: { value: 1 },
     });
-    expect(container.querySelector('.test-steppers input')?.getAttribute('value')).toEqual('1');
+    expect(container.querySelector('.test-steppers input')?.getAttribute('value')).toBe('1');
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
@@ -48,7 +48,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(container.querySelector('.test-alpha-input input')!, {
       target: { value: 1 },
     });
-    expect(container.querySelector('.test-alpha-input input')?.getAttribute('value')).toEqual('1%');
+    expect(container.querySelector('.test-alpha-input input')?.getAttribute('value')).toBe('1%');
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
@@ -59,9 +59,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(container.querySelector('.test-hex-input input')!, {
       target: { value: 631515 },
     });
-    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toEqual(
-      '631515',
-    );
+    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toBe('631515');
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
@@ -73,17 +71,17 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(hsbInputEls[0], {
       target: { value: 139 },
     });
-    expect(hsbInputEls[0]?.getAttribute('value')).toEqual('139');
+    expect(hsbInputEls[0]?.getAttribute('value')).toBe('139');
 
     fireEvent.change(hsbInputEls[1], {
       target: { value: 78 },
     });
-    expect(hsbInputEls[1]?.getAttribute('value')).toEqual('78%');
+    expect(hsbInputEls[1]?.getAttribute('value')).toBe('78%');
 
     fireEvent.change(hsbInputEls[2], {
       target: { value: 39 },
     });
-    expect(hsbInputEls[2]?.getAttribute('value')).toEqual('39%');
+    expect(hsbInputEls[2]?.getAttribute('value')).toBe('39%');
     expect(handleAlphaChange).toHaveBeenCalledTimes(3);
   });
 
@@ -95,17 +93,17 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(rgbInputEls[0], {
       target: { value: 99 },
     });
-    expect(rgbInputEls[0]?.getAttribute('value')).toEqual('99');
+    expect(rgbInputEls[0]?.getAttribute('value')).toBe('99');
 
     fireEvent.change(rgbInputEls[1], {
       target: { value: 21 },
     });
-    expect(rgbInputEls[1]?.getAttribute('value')).toEqual('21');
+    expect(rgbInputEls[1]?.getAttribute('value')).toBe('21');
 
     fireEvent.change(rgbInputEls[2], {
       target: { value: 21 },
     });
-    expect(rgbInputEls[2]?.getAttribute('value')).toEqual('21');
+    expect(rgbInputEls[2]?.getAttribute('value')).toBe('21');
     expect(handleAlphaChange).toHaveBeenCalledTimes(3);
   });
 
@@ -127,7 +125,7 @@ describe('ColorPicker Components test', () => {
     const input = getByRole('textbox');
 
     // Verify initial value is displayed correctly
-    expect(input.getAttribute('value')).toEqual('ff0000');
+    expect(input.getAttribute('value')).toBe('ff0000');
 
     // Create new color value
     const newColor = generateColor('#00ff00');
@@ -136,7 +134,7 @@ describe('ColorPicker Components test', () => {
     rerender(<ColorHexInput prefixCls="test" value={newColor} onChange={jest.fn()} />);
 
     // Verify input value has been updated to the new color value
-    expect(input.getAttribute('value')).toEqual('00ff00');
+    expect(input.getAttribute('value')).toBe('00ff00');
 
     // Cleanup
     document.body.removeChild(container);
@@ -153,7 +151,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(input, { target: { value: 'ff5500' } });
 
     // Verify input value has been updated
-    expect(input.getAttribute('value')).toEqual('ff5500');
+    expect(input.getAttribute('value')).toBe('ff5500');
 
     // Verify onChange callback has been called
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -162,13 +160,13 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(input, { target: { value: 'xyz' } });
 
     // Verify input value has been updated but formatted as valid hex format
-    expect(input.getAttribute('value')).toEqual('');
+    expect(input.getAttribute('value')).toBe('');
 
     // Simulate another invalid input
     fireEvent.change(input, { target: { value: 'ff_00_gg' } });
 
     // Verify input value is filtered
-    expect(input.getAttribute('value')).toEqual('ff00');
+    expect(input.getAttribute('value')).toBe('ff00');
 
     // onChange should not be called for invalid inputs
     expect(onChange).toHaveBeenCalledTimes(1);

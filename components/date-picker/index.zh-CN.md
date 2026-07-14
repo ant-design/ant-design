@@ -137,6 +137,7 @@ dayjs.locale('zh-cn');
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | ReactNode | - | × | 6.4.0 |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | DatePicker: 5.19.0，RangePicker: 5.19.0 |
+| onClear | 点击清除按钮时的回调 | () => void | - | 6.5.0 | × |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  | × |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |
@@ -227,20 +228,20 @@ dayjs.locale('zh-cn');
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  | × |
 | cellRender | 自定义单元格的内容。 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
-| defaultPickerValue | 默认面板日期，每次面板打开时会被重置到该日期 | [dayjs](https://day.js.org/)[] | - | 5.14.0 | × |
-| defaultValue | 默认日期 | [dayjs](https://day.js.org/)\[] | - |  | × |
+| defaultPickerValue | 默认面板日期，每次面板打开时会被重置到该日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - | 5.14.0 | × |
+| defaultValue | 默认日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  | × |
 | disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | `info.from`: 5.17.0 | × |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  | × |
 | id | 设置输入框 `id` 属性。 | { start?: string, end?: string } | - | 5.14.0 | × |
-| pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/)[] | - | 5.14.0 | × |
-| presets | 预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: (Dayjs \| (() => Dayjs))\[] }\[] | - |  | × |
+| pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - | 5.14.0 | × |
+| presets | 预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: \[(Dayjs \| (() => Dayjs)), (Dayjs \| (() => Dayjs))] }\[] | - |  | × |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  | × |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  | 6.3.0 |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  | × |
-| ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] | 5.27.3 | × |
-| showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  | × |
-| value | 日期 | [dayjs](https://day.js.org/)\[] | - |  | × |
+| ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] | 5.27.3 | × |
+| showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] |  | × |
+| value | 日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
 | onChange | 日期范围发生变化的回调 | function(dates: \[dayjs, dayjs] \| null, dateStrings: \[string, string] \| null) | - |  | × |
 | onFocus | 聚焦时回调 | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.14.0 | × |

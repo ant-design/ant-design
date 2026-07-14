@@ -889,7 +889,6 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
     </div>
     <div
@@ -902,13 +901,13 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
         style="--select-input-width: 0;"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -952,7 +951,6 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
     </div>
     <div
@@ -965,13 +963,13 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
         style="--select-input-width: 0;"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1171,12 +1169,12 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -1203,8 +1201,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
       </svg>
     </span>
   </div>
-  <div
+  <button
+    aria-label="Clear"
     class="ant-select-clear"
+    type="button"
   >
     <span
       aria-label="close-circle"
@@ -1226,7 +1226,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         />
       </svg>
     </span>
-  </div>
+  </button>
 </div>
 `;
 
@@ -1239,18 +1239,17 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -1485,12 +1484,12 @@ exports[`Cascader support controlled mode 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -1517,8 +1516,10 @@ exports[`Cascader support controlled mode 1`] = `
       </svg>
     </span>
   </div>
-  <div
+  <button
+    aria-label="Clear"
     class="ant-select-clear"
+    type="button"
   >
     <span
       aria-label="close-circle"
@@ -1540,6 +1541,6 @@ exports[`Cascader support controlled mode 1`] = `
         />
       </svg>
     </span>
-  </div>
+  </button>
 </div>
 `;

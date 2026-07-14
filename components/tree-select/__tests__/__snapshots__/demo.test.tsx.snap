@@ -10,7 +10,6 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -18,12 +17,12 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -63,7 +62,6 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -71,11 +69,11 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -163,12 +161,12 @@ exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -257,12 +255,12 @@ exports[`renders components/tree-select/demo/maxCount.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -314,7 +312,6 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx correctly 1`] 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         please select
       </div>
@@ -327,12 +324,12 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx correctly 1`] 
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -384,7 +381,6 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -397,11 +393,11 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -526,7 +522,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -534,11 +529,11 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -586,12 +581,12 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -639,7 +634,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         >
           Error
         </div>
@@ -647,12 +641,12 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -697,7 +691,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Warning multiple
           </div>
@@ -710,12 +703,12 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -760,7 +753,6 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Object
       </div>
@@ -768,13 +760,13 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
         style="font-size:16px"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -811,7 +803,6 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Function
       </div>
@@ -819,12 +810,12 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -867,7 +858,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -875,11 +865,11 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -923,7 +913,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -931,11 +920,11 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -976,7 +965,6 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -984,12 +972,12 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -1119,18 +1107,17 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1175,7 +1162,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1183,12 +1169,12 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1225,7 +1211,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1233,12 +1218,12 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1275,7 +1260,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1283,12 +1267,12 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1325,7 +1309,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1333,12 +1316,12 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

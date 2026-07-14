@@ -92,6 +92,7 @@ demo:
 | value | 指定选中项 | string\[] \| number\[] | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  | × |
+| onClear | 清除内容时回调 | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 | × |
 | onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | 显示或隐藏浮层的回调，请使用 `onOpenChange` 替代 | (value) => void | - | - | × |

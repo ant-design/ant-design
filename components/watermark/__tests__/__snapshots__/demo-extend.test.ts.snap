@@ -86,7 +86,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               <input
                 class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 id="content"
-                placeholder="请输入"
+                placeholder="Please enter"
                 type="text"
                 value="Ant Design"
               />
@@ -261,12 +261,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 aria-autocomplete="list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                autocomplete="off"
+                                autocomplete="new-password"
                                 class="ant-select-input"
                                 id="test-id"
                                 readonly=""
                                 role="combobox"
-                                type="search"
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -322,16 +322,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 </div>
                               </div>
                               <div
-                                class="rc-virtual-list"
+                                class="ant-select-dropdown-list"
                                 style="position: relative;"
                               >
                                 <div
-                                  class="rc-virtual-list-holder"
+                                  class="ant-select-dropdown-list-holder"
                                   style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                 >
                                   <div>
                                     <div
-                                      class="rc-virtual-list-holder-inner"
+                                      class="ant-select-dropdown-list-holder-inner"
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div

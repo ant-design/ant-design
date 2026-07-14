@@ -373,13 +373,12 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
@@ -399,13 +398,12 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       disabled=""
       id="test-id"
@@ -426,13 +424,12 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
@@ -452,13 +449,12 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize med
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
@@ -478,13 +474,12 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
@@ -504,13 +499,12 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
@@ -530,13 +524,12 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
   >
     <div
       class="prefix-AutoComplete-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="prefix-AutoComplete-input"
       id="test-id"
       role="combobox"
@@ -1606,12 +1599,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1651,12 +1644,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2518,12 +2511,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2851,13 +2844,13 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             disabled=""
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2897,13 +2890,13 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             disabled=""
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3767,13 +3760,13 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             disabled=""
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4103,12 +4096,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4148,12 +4141,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5015,12 +5008,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5348,12 +5341,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5393,12 +5386,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6260,12 +6253,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6593,12 +6586,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6638,12 +6631,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7505,12 +7498,12 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7838,12 +7831,12 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7883,12 +7876,12 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8750,12 +8743,12 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9083,12 +9076,12 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9128,12 +9121,12 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9995,12 +9988,12 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -11227,17 +11220,16 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11276,18 +11268,17 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       disabled=""
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11326,17 +11317,16 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11375,17 +11365,16 @@ exports[`ConfigProvider components Cascader configProvider componentSize medium 
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11424,17 +11413,16 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11473,17 +11461,16 @@ exports[`ConfigProvider components Cascader normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -11522,17 +11509,16 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
   >
     <div
       class="prefix-Cascader-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="prefix-Cascader-input"
       id="test-id"
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -16526,13 +16512,13 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16554,13 +16540,13 @@ exports[`ConfigProvider components Layout configProvider componentDisabled 1`] =
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16582,13 +16568,13 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16610,13 +16596,13 @@ exports[`ConfigProvider components Layout configProvider componentSize medium 1`
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16638,13 +16624,13 @@ exports[`ConfigProvider components Layout configProvider componentSize small 1`]
     class="config-layout css-var-root"
   >
     <header
-      class="config-layout-header"
+      class="config-layout-header css-var-root"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content css-var-root"
     />
     <footer
-      class="config-layout-footer"
+      class="config-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16666,13 +16652,13 @@ exports[`ConfigProvider components Layout normal 1`] = `
     class="ant-layout css-var-root"
   >
     <header
-      class="ant-layout-header"
+      class="ant-layout-header css-var-root"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content css-var-root"
     />
     <footer
-      class="ant-layout-footer"
+      class="ant-layout-footer css-var-root"
     />
   </div>
 </div>
@@ -16694,13 +16680,13 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     class="prefix-Layout css-var-root"
   >
     <header
-      class="prefix-header"
+      class="prefix-header css-var-root"
     />
     <main
-      class="prefix-content"
+      class="prefix-content css-var-root"
     />
     <footer
-      class="prefix-footer"
+      class="prefix-footer css-var-root"
     />
   </div>
 </div>
@@ -18297,7 +18283,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18309,11 +18295,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18425,7 +18411,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18437,11 +18423,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18558,7 +18544,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18570,12 +18556,12 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18687,7 +18673,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18699,12 +18685,12 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18821,7 +18807,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18833,11 +18819,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -18949,7 +18935,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18961,11 +18947,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19082,7 +19068,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19094,11 +19080,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19210,7 +19196,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19222,11 +19208,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19343,7 +19329,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19355,11 +19341,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19471,7 +19457,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19483,11 +19469,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="config-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19604,7 +19590,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19616,11 +19602,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19732,7 +19718,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19744,11 +19730,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19865,7 +19851,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer-select prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19877,11 +19863,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -19993,7 +19979,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer-select prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -20005,11 +19991,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -23555,12 +23541,12 @@ exports[`ConfigProvider components Select configProvider 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23603,13 +23589,13 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       disabled=""
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23655,12 +23641,12 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23706,12 +23692,12 @@ exports[`ConfigProvider components Select configProvider componentSize medium 1`
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23757,12 +23743,12 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23808,12 +23794,12 @@ exports[`ConfigProvider components Select normal 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -23859,12 +23845,12 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="prefix-Select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -27460,15 +27446,15 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27549,15 +27535,15 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27638,15 +27624,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27727,15 +27713,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize medium 1`] 
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27816,15 +27802,15 @@ exports[`ConfigProvider components Tabs configProvider componentSize small 1`] =
     </div>
   </div>
   <div
-    class="config-tabs-content-holder"
+    class="config-tabs-body-holder"
   >
     <div
-      class="config-tabs-content config-tabs-content-top"
+      class="config-tabs-body config-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
+        class="config-tabs-content config-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27905,15 +27891,15 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -27994,15 +27980,15 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     </div>
   </div>
   <div
-    class="prefix-Tabs-content-holder"
+    class="prefix-Tabs-body-holder"
   >
     <div
-      class="prefix-Tabs-content prefix-Tabs-content-top"
+      class="prefix-Tabs-body prefix-Tabs-body-top"
     >
       <div
         aria-hidden="false"
         aria-labelledby="rc-tabs-test-tab-Light"
-        class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
+        class="prefix-Tabs-content prefix-Tabs-content-active"
         id="rc-tabs-test-panel-Light"
         role="tabpanel"
         tabindex="-1"
@@ -41011,7 +40997,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41019,12 +41004,12 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41063,19 +41048,18 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       disabled=""
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41114,7 +41098,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41122,12 +41105,12 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41166,7 +41149,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41174,12 +41156,12 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41218,7 +41200,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41226,12 +41207,12 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="config-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41270,7 +41251,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41278,12 +41258,12 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41322,7 +41302,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <div
       class="prefix-TreeSelect-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41330,12 +41309,12 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-owns="test-id_list"
-      autocomplete="off"
+      autocomplete="new-password"
       class="prefix-TreeSelect-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>
@@ -41418,6 +41397,8 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41516,6 +41497,8 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41582,6 +41565,8 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41679,6 +41664,8 @@ exports[`ConfigProvider components Upload configProvider componentSize medium 1`
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41776,6 +41763,8 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
         </div>
         <span
           class="config-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41873,6 +41862,8 @@ exports[`ConfigProvider components Upload normal 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -41970,6 +41961,8 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
         </div>
         <span
           class="prefix-Upload-list-item-name"
+          role="button"
+          tabindex="0"
           title="xxx.png"
         >
           xxx.png

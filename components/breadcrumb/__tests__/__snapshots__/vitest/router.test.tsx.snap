@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`react router > react router legacy 1`] = `
+<nav
+  class="ant-breadcrumb css-var-root"
+>
+  <ol>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
+        class="ant-breadcrumb-link"
+        href="#/"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
+        class="ant-breadcrumb-link"
+        href="#//apps"
+      >
+        Application List
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
+        class="ant-breadcrumb-link"
+        href="#//apps/1"
+      >
+        Application1
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <a
+        class="ant-breadcrumb-link"
+        href="#//apps/1/detail"
+      >
+        Detail
+      </a>
+    </li>
+  </ol>
+</nav>
+`;

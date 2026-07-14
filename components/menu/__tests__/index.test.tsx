@@ -193,7 +193,7 @@ describe('Menu', () => {
     expect(
       container.querySelector('.ant-menu-submenu-open')?.querySelector('.ant-menu-submenu-title')
         ?.textContent,
-    ).toEqual('submenu1');
+    ).toBe('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
@@ -210,7 +210,7 @@ describe('Menu', () => {
     expect(
       container.querySelector('.ant-menu-submenu-open')?.querySelector('.ant-menu-submenu-title')
         ?.textContent,
-    ).toEqual('submenu1');
+    ).toBe('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -1025,10 +1025,10 @@ describe('Menu', () => {
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
-    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[0]?.textContent).toEqual(
+    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[0]?.textContent).toBe(
       'L',
     );
-    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[1]?.textContent).toEqual(
+    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[1]?.textContent).toBe(
       'B',
     );
   });

@@ -2,6 +2,11 @@ import React from 'react';
 
 import Slider from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Slider.Semantic', () => {
   it('should support classNames and styles as functions', () => {
@@ -32,5 +37,23 @@ describe('Slider.Semantic', () => {
     const rootElement2 = container.querySelector<HTMLElement>('.ant-slider');
     expect(rootElement2).toHaveClass('enabled-slider');
     expect(rootElement2).toHaveStyle({ padding: '10px' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        slider={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Slider
+          defaultValue={30}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-slider'));
   });
 });

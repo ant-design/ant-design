@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H'` | `M` | - | × |
 | boostLevel | If enabled, the Error Correction Level of the result may be higher than the specified Error Correction Level | `boolean` | true | 5.28.0 | × |
 | status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 | × |
-| statusRender | custom status render | `(info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | - | 5.20.0 | × |
+| statusRender | custom status render | (info: [StatusRenderInfo](/components/qr-code#statusrenderinfo)) => React.ReactNode | - | 5.20.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 
 ### StatusRenderInfo

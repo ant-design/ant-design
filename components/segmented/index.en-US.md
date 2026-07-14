@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent\'s width | boolean | false |  | × |
 | classNames | Customize class for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| defaultValue | Default selected value | string \| number |  |  | × |
+| defaultValue | Default selected value | string \| number | Value of first item in `options` |  | × |
 | disabled | Disable all segments | boolean | false |  | × |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  | × |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |

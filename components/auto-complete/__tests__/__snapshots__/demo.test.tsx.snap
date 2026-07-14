@@ -21,11 +21,11 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value="centered"
         />
       </div>
@@ -66,7 +66,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -92,11 +92,11 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value="centered"
         />
       </div>
@@ -137,7 +137,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -163,11 +163,11 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value="centered"
         />
       </div>
@@ -208,7 +208,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -232,7 +232,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         UnClearable
       </div>
@@ -240,7 +239,7 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -260,7 +259,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Customized clear icon
       </div>
@@ -268,7 +266,7 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -291,7 +289,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         input here
       </div>
@@ -299,7 +296,7 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -319,7 +316,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         control mode
       </div>
@@ -327,7 +323,7 @@ Array [
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -354,7 +350,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         id="test-id"
         placeholder="input here"
@@ -407,7 +403,7 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var custom"
       id="test-id"
       placeholder="input here"
@@ -441,7 +437,7 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx correct
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-select-input ant-input-disabled"
         disabled=""
         id="test-id"
@@ -458,19 +454,18 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx correct
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       />
       <input
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         disabled=""
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -498,6 +493,102 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx correct
       </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`renders components/auto-complete/demo/filled-custom-debug.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap:24px"
+>
+  <form
+    class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
+    style="width:280px"
+  >
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            title="AutoComplete TextArea"
+          >
+            AutoComplete TextArea
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-select ant-select-filled ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              >
+                <div
+                  class="ant-select-content"
+                >
+                  <textarea
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    autocomplete="new-password"
+                    class="ant-input ant-input-filled css-var-test-id ant-input-css-var ant-select-input"
+                    id="test-id"
+                    placeholder="Custom TextArea"
+                    role="combobox"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row css-var-test-id"
+      >
+        <div
+          class="ant-col ant-form-item-label css-var-test-id"
+        >
+          <label
+            class=""
+            title="Input TextArea"
+          >
+            Input TextArea
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control css-var-test-id"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                class="ant-input ant-input-filled css-var-test-id ant-input-css-var"
+                placeholder="Compare TextArea"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
 `;
 
@@ -539,13 +630,12 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
@@ -592,18 +682,17 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -673,18 +762,17 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -720,13 +808,12 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     role="combobox"
@@ -779,7 +866,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-input"
                     id="test-id"
                     role="combobox"
@@ -854,18 +941,17 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -906,7 +992,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-input"
                       id="test-id"
                       role="combobox"
@@ -982,18 +1068,17 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -1034,7 +1119,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
                       id="test-id"
                       role="combobox"
@@ -1115,18 +1200,17 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -1167,7 +1251,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-autocomplete="list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
                       id="test-id"
                       role="combobox"
@@ -1255,7 +1339,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       try to type \`b\`
     </div>
@@ -1263,7 +1346,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
@@ -1284,7 +1367,6 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       input here
     </div>
@@ -1292,7 +1374,7 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       role="combobox"
@@ -1343,7 +1425,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -1373,13 +1455,12 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -1401,13 +1482,12 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
@@ -1433,7 +1513,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         object styles
       </div>
@@ -1441,7 +1520,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -1459,7 +1538,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         function styles
       </div>
@@ -1467,7 +1545,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -1494,7 +1572,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
         id="test-id"
         placeholder="input here"
@@ -1549,7 +1627,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Outlined
       </div>
@@ -1557,7 +1634,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -1575,7 +1652,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Filled
       </div>
@@ -1583,7 +1659,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -1601,7 +1677,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Borderless
       </div>
@@ -1609,7 +1684,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
@@ -1627,7 +1702,6 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Underlined
       </div>
@@ -1635,7 +1709,7 @@ exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"

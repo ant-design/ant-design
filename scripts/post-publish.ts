@@ -34,7 +34,9 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   // git tag
   const spinner = ora(chalk.cyan(`Tagging ${packageVersion}`)).start();
   try {
-    execSync(`git tag ${packageVersion}`);
+    // `--no-sign` keeps the tag lightweight even if local `tag.gpgSign` is enabled,
+    // which would otherwise wait for an editor and hang `execSync`
+    execSync(`git tag --no-sign ${packageVersion}`);
     execSync(`git push origin ${packageVersion}:${packageVersion}`);
     spinner.succeed(
       chalk.cyan(

@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'បិទ',
     show: 'បង្ហាញ',
     hide: 'លាក់',
+    placeholder: 'សូមជ្រើសរើស',
+    sortable: 'អាចតម្រៀបបាន។',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',
@@ -34,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
+    filterCheckAll: 'ជ្រើសរើសធាតុទាំងអស់។',
+    filterSearchPlaceholder: 'ស្វែងរកក្នុងតម្រង',
   },
   Tour: {
     Next: 'បន្ទាប់',
@@ -54,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ស្វែងរកនៅទីនេះ',
     itemUnit: '',
     itemsUnit: 'items',
+    remove: 'ដកចេញ',
+    selectCurrent: 'ជ្រើសរើសទំព័របច្ចុប្បន្ន',
+    removeCurrent: 'លុបទំព័របច្ចុប្បន្ន',
+    selectAll: 'ជ្រើសរើសទិន្នន័យទាំងអស់។',
+    deselectAll: 'ដកការជ្រើសរើសទិន្នន័យទាំងអស់។',
+    removeAll: 'លុបទិន្នន័យទាំងអស់។',
+    selectInvert: 'បញ្ច្រាសទំព័របច្ចុប្បន្ន',
   },
   Upload: {
     uploading: 'កំពុងបញ្ចូលឡើង...',
@@ -65,7 +76,18 @@ const localeValues: Locale = {
   Empty: {
     description: 'គ្មានទិន្នន័យ',
   },
+  Icon: {
+    icon: 'រូបតំណាង',
+  },
+  Text: {
+    edit: 'កែសម្រួល',
+    copy: 'ចម្លង',
+    copied: 'ចម្លង',
+    expand: 'ពង្រីក',
+    collapse: 'ដួលរលំ',
+  },
   Form: {
+    optional: '(ស្រេចចិត្ត)',
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',
       required: 'Please enter ${label}',
@@ -113,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'កូដ QR ផុតកំណត់',
+    refresh: 'ធ្វើឱ្យស្រស់',
+    scanned: 'ស្កេន',
+  },
+  ColorPicker: {
+    presetEmpty: 'ទទេ',
+    transparent: 'តម្លាភាព',
+    singleColor: 'ពណ៌តែមួយ',
+    gradientColor: 'ពណ៌ជម្រាល',
   },
 };
 

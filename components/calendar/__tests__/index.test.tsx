@@ -68,6 +68,13 @@ describe('Calendar', () => {
     fireEvent.click(findSelectItem(wrapper)[index]);
   }
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Calendar>>();
+    const { container } = render(<Calendar ref={ref} fullscreen={false} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-picker-calendar'));
+  });
+
   // https://github.com/ant-design/ant-design/issues/30392
   it('should be able to set undefined or null', () => {
     expect(() => {
@@ -190,9 +197,9 @@ describe('Calendar', () => {
     const monthMode = 'month';
     const yearMode = 'year';
     const wrapper = render(<Calendar />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(monthMode);
     wrapper.rerender(<Calendar mode={yearMode} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(yearMode);
   });
 
   it('Calendar should switch mode', () => {
@@ -200,9 +207,9 @@ describe('Calendar', () => {
     const yearMode = 'year';
     const onPanelChangeStub = jest.fn();
     const wrapper = render(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(yearMode);
     wrapper.rerender(<Calendar mode={monthMode} onPanelChange={onPanelChangeStub} />);
-    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toBe(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
@@ -237,7 +244,7 @@ describe('Calendar', () => {
       fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell'))[0]!);
 
       expect(onPanelChange).toHaveBeenCalled();
-      expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+      expect(onPanelChange.mock.calls[0][0].month()).toBe(date.month() - 1);
     });
 
     it('not trigger when in same month', () => {
@@ -264,7 +271,7 @@ describe('Calendar', () => {
     expect(wrapper.container.querySelectorAll('.ant-picker-month-panel').length).toBe(1);
 
     expect(onPanelChange).toHaveBeenCalled();
-    expect(onPanelChange.mock.calls[0][1]).toEqual('year');
+    expect(onPanelChange.mock.calls[0][1]).toBe('year');
   });
 
   const createWrapper = (
@@ -467,28 +474,28 @@ describe('Calendar', () => {
     const { container } = render(
       <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
     );
-    expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
+    expect(container.querySelectorAll('.light')[0].innerHTML).toBe('Bamboo');
   });
 
   it('monthFullCellRender', () => {
     const { container } = render(
       <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
     );
-    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toBe('Light');
   });
 
   it('fullCellRender in date', () => {
     const { container } = render(
       <Calendar fullCellRender={() => <div className="light">Bamboo</div>} />,
     );
-    expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
+    expect(container.querySelectorAll('.light')[0].innerHTML).toBe('Bamboo');
   });
 
   it('fullCellRender in month', () => {
     const { container } = render(
       <Calendar mode="year" fullCellRender={() => <div className="bamboo">Light</div>} />,
     );
-    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toBe('Light');
   });
 
   it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {

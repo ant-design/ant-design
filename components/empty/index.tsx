@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -48,12 +48,18 @@ export interface EmptyProps {
   styles?: EmptySemanticAllType['stylesAndFn'];
 }
 
-type CompoundedComponent = React.FC<EmptyProps> & {
+export interface EmptyRef {
+  nativeElement: HTMLDivElement;
+}
+
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  EmptyProps & React.RefAttributes<EmptyRef>
+> & {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
 };
 
-const Empty: CompoundedComponent = (props) => {
+const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
   const {
     className,
     rootClassName,
@@ -80,13 +86,16 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    EmptySemanticAllType['classNames'],
+    EmptySemanticAllType['styles'],
+    EmptyProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const [locale] = useLocale('Empty');
 
@@ -113,8 +122,15 @@ const Empty: CompoundedComponent = (props) => {
     });
   }
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <div
+      ref={nativeElementRef}
       className={clsx(
         hashId,
         cssVarCls,
@@ -128,7 +144,7 @@ const Empty: CompoundedComponent = (props) => {
         rootClassName,
         mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       {...restProps}
     >
       <div
@@ -155,7 +171,7 @@ const Empty: CompoundedComponent = (props) => {
       )}
     </div>
   );
-};
+}) as CompoundedComponent;
 
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;

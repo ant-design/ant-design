@@ -3,8 +3,20 @@ import React from 'react';
 import FloatButton from '..';
 import type { FloatButtonGroupProps } from '..';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('FloatButtonGroup', () => {
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof FloatButton.Group>>();
+    const { container } = render(
+      <FloatButton.Group ref={ref}>
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-float-btn-group'));
+  });
+
   it('should correct render', () => {
     const { container } = render(
       <FloatButton.Group>
@@ -59,6 +71,32 @@ describe('FloatButtonGroup', () => {
     fireEvent.mouseEnter(container.querySelector('.ant-float-btn-group')!);
     fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
     expect(onOpenChange).toHaveBeenCalled();
+  });
+  it('should not trigger open when hover menu is disabled', () => {
+    const onOpenChange = jest.fn();
+    const { container, rerender } = render(
+      <FloatButton.Group disabled trigger="hover" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    const group = container.querySelector('.ant-float-btn-group')!;
+
+    fireEvent.mouseEnter(group);
+    fireEvent.mouseLeave(group);
+    expect(onOpenChange).not.toHaveBeenCalled();
+
+    rerender(
+      <ConfigProvider componentDisabled>
+        <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
+          <FloatButton />
+          <FloatButton />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-float-btn-group')!);
+    fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
+    expect(onOpenChange).not.toHaveBeenCalled();
   });
   it('support click floatButtonGroup not close', () => {
     const onOpenChange = jest.fn();

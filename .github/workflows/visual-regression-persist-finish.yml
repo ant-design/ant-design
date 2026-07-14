@@ -18,7 +18,7 @@ concurrency:
 jobs:
   check-trust:
     name: Check if workflow run is trusted
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       trusted: ${{ steps.check.outputs.trusted }}
@@ -42,7 +42,7 @@ jobs:
 
   upstream-workflow-summary:
     name: upstream workflow summary
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
       jobs: ${{ steps.persist_start_job_status.outputs.result }}
@@ -85,16 +85,13 @@ jobs:
     name: persist image-snapshots
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: [check-trust, upstream-workflow-summary]
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       - name: checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-        with:
-          # checkout the head sha/branch that triggered this workflow
-          ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       # We need get persist key first
       - name: Download Visual Regression Ref

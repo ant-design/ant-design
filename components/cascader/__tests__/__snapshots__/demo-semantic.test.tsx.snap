@@ -122,13 +122,13 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
                 aria-expanded="true"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input semantic-mark-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
                 style="--select-input-width: 0;"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -156,8 +156,10 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
               </svg>
             </span>
           </div>
-          <div
+          <button
+            aria-label="Clear"
             class="ant-select-clear semantic-mark-clear"
+            type="button"
           >
             <span
               aria-label="close-circle"
@@ -179,7 +181,7 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
                 />
               </svg>
             </span>
-          </div>
+          </button>
         </div>
         <div
           class="ant-select-dropdown ant-cascader-dropdown ant-select-css-var semantic-mark-popup-root ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"

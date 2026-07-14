@@ -25,6 +25,7 @@ demo:
 <code src="./demo/prefix.tsx">自定义触发字符</code>
 <code src="./demo/readonly.tsx">无效或只读</code>
 <code src="./demo/placement.tsx">向上展开</code>
+<code src="./demo/popupRender.tsx">自定义弹出层</code>
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/autosize-textarea-debug.tsx" debug>debug 自动大小</code>
@@ -49,10 +50,11 @@ demo:
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  | × |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  | × |
+| popupRender | 自定义下拉菜单渲染 | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
 | prefix | 设置触发关键字 | string \| string\[] | `@` |  | × |
 | split | 设置选中项前后分隔符 | string | ` ` |  | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  | × |
 | value | 设置值 | string | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |

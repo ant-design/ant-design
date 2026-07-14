@@ -3,6 +3,8 @@ import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design
 import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
 
 import useLocale from '../../../hooks/useLocale';
 import type { TokenData } from '../TokenTable';
@@ -106,6 +108,31 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   const { styles } = useStyle();
 
+  const highlightedCode = useMemo(() => {
+    const code = component
+      ? `<ConfigProvider
+  theme={{
+    components: {
+      ${component}: {
+        /* ${comment?.componentComment} */
+      },
+    },
+  }}
+>
+  ...
+</ConfigProvider>`
+      : `<ConfigProvider
+  theme={{
+    token: {
+      /* ${comment?.globalComment} */
+    },
+  }}
+>
+  ...
+</ConfigProvider>`;
+    return Prism.highlight(code, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
+  }, [component, comment]);
+
   if (!tokens.length) {
     return null;
   }
@@ -132,28 +159,6 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
     })
     .filter((item): item is TokenData => item !== null && item !== undefined);
 
-  const code = component
-    ? `<ConfigProvider
-  theme={{
-    components: {
-      ${component}: {
-        /* ${comment?.componentComment} */
-      },
-    },
-  }}
->
-  ...
-</ConfigProvider>`
-    : `<ConfigProvider
-  theme={{
-    token: {
-      /* ${comment?.globalComment} */
-    },
-  }}
->
-  ...
-</ConfigProvider>`;
-
   return (
     <>
       <div className={styles.tableTitle} onClick={() => setOpen((prev) => !prev)}>
@@ -167,7 +172,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
             content={
               <Typography>
                 <pre dir="ltr" style={{ fontSize: 12 }}>
-                  <code dir="ltr">{code}</code>
+                  <code dir="ltr" dangerouslySetInnerHTML={{ __html: highlightedCode }} />
                 </pre>
                 <a href={helpLink} target="_blank" rel="noopener noreferrer">
                   <LinkOutlined style={{ marginInlineEnd: 4 }} />

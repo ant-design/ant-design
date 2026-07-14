@@ -71,7 +71,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| flex | Flex layout style | string \| number | - |  | × |
+| flex | Flex layout style. Number for 'flex: n n auto', string is applied directly (e.g. pure number string 'n' for 'flex: n 1 0') | string \| number | - |  | × |
 | offset | The number of cells to offset Col from the left | number | 0 |  | × |
 | order | Raster order | number | 0 |  | × |
 | pull | The number of cells that raster is moved to the left | number | 0 |  | × |
@@ -85,7 +85,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | xxxl | `screen ≥ 1920px`, could be a `span` value or an object containing above props | number \| object | - | 6.3.0 | × |
 
-You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|XXL|XXXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
+You can modify breakpoint values by customizing `screen[XS|SM|MD|LG|XL|XXL|XXXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 

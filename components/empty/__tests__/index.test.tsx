@@ -11,6 +11,13 @@ describe('Empty', () => {
   mountTest(Empty);
   rtlTest(Empty);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Empty>>();
+    const { container } = render(<Empty ref={ref} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-empty'));
+  });
+
   it('image size should change', () => {
     const { container } = render(<Empty styles={{ image: { height: 20 } }} />);
     expect(container.querySelector<HTMLDivElement>('.ant-empty-image')).toHaveStyle({

@@ -19,6 +19,13 @@ describe('Spin', () => {
   mountTest(Spin);
   rtlTest(Spin);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Spin>>();
+    const { container } = render(<Spin ref={ref} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-spin'));
+  });
+
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const { container } = render(
       <Spin style={{ padding: 20 }}>
@@ -35,7 +42,7 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect(container.querySelector<HTMLElement>('ant-spin-nested-loading')).toBeNull();
+    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')).toBeNull();
   });
 
   it("should render custom indicator when it's set", () => {

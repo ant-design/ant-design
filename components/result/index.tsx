@@ -7,7 +7,7 @@ import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -70,6 +70,10 @@ export interface ResultProps extends HTMLAriaDataAttributes {
   styles?: ResultSemanticAllType['stylesAndFn'];
 }
 
+export interface ResultRef {
+  nativeElement: HTMLDivElement;
+}
+
 // ExceptionImageMap keys
 const ExceptionStatus = Object.keys(ExceptionMap);
 
@@ -128,7 +132,7 @@ interface ExtraProps {
 }
 
 const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
-  if (!extra) {
+  if (!isReactRenderable(extra)) {
     return null;
   }
   return (
@@ -138,13 +142,14 @@ const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
   );
 };
 
-export interface ResultType extends React.FC<ResultProps> {
+export interface ResultType
+  extends React.ForwardRefExoticComponent<ResultProps & React.RefAttributes<ResultRef>> {
   PRESENTED_IMAGE_404: React.FC;
   PRESENTED_IMAGE_403: React.FC;
   PRESENTED_IMAGE_500: React.FC;
 }
 
-const Result: ResultType = (props) => {
+const Result = React.forwardRef<ResultRef, ResultProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className: customizeClassName,
@@ -176,13 +181,16 @@ const Result: ResultType = (props) => {
     status,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ResultSemanticAllType['classNames'],
+    ResultSemanticAllType['styles'],
+    ResultProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
@@ -217,14 +225,18 @@ const Result: ResultType = (props) => {
 
   const rootStyles: React.CSSProperties = {
     ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
   };
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
       {isReactRenderable(title) && (
         <div className={titleClassNames} style={mergedStyles.title}>
@@ -244,7 +256,7 @@ const Result: ResultType = (props) => {
       )}
     </div>
   );
-};
+}) as ResultType;
 
 Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];
 Result.PRESENTED_IMAGE_404 = ExceptionMap['404'];

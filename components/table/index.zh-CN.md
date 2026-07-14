@@ -87,6 +87,7 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
 <code src="./demo/tree-table-preserveSelectedRowKeys.tsx" debug>树形数据保留key测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
+<code src="./demo/auto-height.tsx">自动高度</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
@@ -393,6 +394,10 @@ return <Table rowKey={(record) => record.uid} />;
 ### 为什么 更新 state 会导致全表渲染？ {#faq-state-update-rerender}
 
 由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `column.shouldCellUpdate` 来控制单元格的渲染。
+
+### 如何排查 Table 性能问题？ {#faq-table-performance}
+
+React DevTools 在分析复杂表格时可能带来额外开销，尤其是行列数量较多的场景。若你遇到明显卡顿，建议先关闭 React DevTools，或在干净的浏览器环境中重新测试。如果在正常运行环境下仍能稳定复现性能问题，欢迎提供最小复现以便我们继续排查。
 
 ### 固定列穿透到最上层该怎么办？ {#faq-fixed-column-zindex}
 

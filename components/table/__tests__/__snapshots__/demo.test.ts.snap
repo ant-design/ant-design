@@ -7981,7 +7981,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -7993,11 +7993,11 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -12704,7 +12704,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -12716,11 +12716,11 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -14709,7 +14709,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -14721,11 +14721,11 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -15866,7 +15866,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -15878,11 +15878,11 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -18021,7 +18021,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
             class="ant-pagination-options"
           >
             <div
-              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -18033,11 +18033,11 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -28224,7 +28224,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -28236,11 +28236,11 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>

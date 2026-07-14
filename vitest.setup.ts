@@ -1,13 +1,15 @@
 import { createRequire } from 'node:module';
-import util from 'node:util';
 import { ReadableStream } from 'node:stream/web';
+import util from 'node:util';
 import { MessagePort } from 'node:worker_threads';
+
 import '@testing-library/jest-dom/vitest';
-import { expect, vi } from 'vitest';
+
 import React from 'react';
 import { toHaveNoViolations } from 'jest-axe';
-import format, { plugins } from 'pretty-format';
 import type { DOMWindow } from 'jsdom';
+import format, { plugins } from 'pretty-format';
+import { expect, vi } from 'vitest';
 
 // 关闭动态 hash，避免版本变化影响 snapshot
 import { defaultConfig } from './components/theme/internal';
@@ -24,20 +26,17 @@ const nodeRequire = createRequire(import.meta.url);
 /* 用 import.meta.glob eager 预构建模块表来支持。                              */
 /* -------------------------------------------------------------------------- */
 
-// 预构建 POC 选定组件的 demo + 组件入口模块表，供同步 requireActual 解析。
-// 用 lazy glob：只在 requireActual 命中时才真正加载对应模块，避免把所有 demo
-// （及其依赖如 antd-style）拉进每一个测试文件。
+// 预构建组件入口模块表，供同步 requireActual 解析。demo suites 当前在
+// vitest.config.ts 中排除，避免每个普通 unit suite 都预加载全量 demo。
+// 如果后续恢复 demo suites，先重构 tests/shared/demoTest.tsx 的同步
+// jest.requireActual 路径，不要在这里重新 glob 全量 components/*/demo/*.tsx。
 // import.meta.glob 是 Vite 的编译期宏，必须以字面量形式调用（不能经别名/解构），
 // 故此处直接调用并用 @ts-expect-error 抑制类型报错（vite/client 类型未加入项目 tsconfig）。
 // @ts-expect-error Vite 注入的 import.meta.glob
-const demoModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/{button,modal,table}/demo/*.tsx',
-);
-// @ts-expect-error Vite 注入的 import.meta.glob
 const entryModules: Record<string, () => Promise<any>> = import.meta.glob(
-  './components/{button,modal,table}/index.{ts,tsx}',
+  './components/*/index.{ts,tsx}',
 );
-const lazyMap: Record<string, () => Promise<any>> = { ...demoModules, ...entryModules };
+const lazyMap: Record<string, () => Promise<any>> = { ...entryModules };
 // 已解析模块缓存（同步 requireActual 需要在首次异步加载后命中）。
 const resolvedCache: Record<string, any> = {};
 
@@ -61,27 +60,28 @@ function requireActual(request: string): any {
   }
   throw new Error(
     `[vitest requireActual shim] 模块未预加载: ${request}（normalized: ${target}）。` +
-      `demo 测试需在 beforeAll 中预解析 lazyMap；若为 POC 范围外组件，请扩展 vitest.setup.ts 的 import.meta.glob。`,
+      `请扩展 vitest.setup.ts 的 import.meta.glob 或检查模块加载兼容性。`,
   );
 }
 
-// demo 测试在 test 体内同步调用 requireActual。setupFiles 的顶层 await 在测试文件
-// 模块求值之前执行，故在此预解析 lazyMap 填充同步缓存，demo 测试即可同步命中。
-async function preloadDemoModules() {
+// setupFiles 的顶层 await 在测试文件模块求值之前执行，故在此预解析 lazyMap
+// 填充同步缓存，requireActual 即可同步命中。
+async function preloadModules() {
   await Promise.all(
     Object.entries(lazyMap).map(async ([key, loader]) => {
       if (!(key in resolvedCache)) {
         try {
           resolvedCache[key] = await loader();
         } catch {
-          // 加载失败的 demo 留待 requireActual 时抛出明确错误
+          // 保持失败可见：requireActual 未命中 resolvedCache 时会抛出明确错误。
+          // 不要返回空组件，否则会把兼容性失败记录成空 snapshot。
         }
       }
     }),
   );
 }
 // eslint-disable-next-line antfu/no-top-level-await
-await preloadDemoModules();
+await preloadModules();
 
 const jestShim: any = {
   fn: vi.fn,
@@ -94,6 +94,7 @@ const jestShim: any = {
   restoreAllMocks: vi.restoreAllMocks,
   useFakeTimers: vi.useFakeTimers,
   useRealTimers: vi.useRealTimers,
+  isFakeTimers: vi.isFakeTimers,
   advanceTimersByTime: vi.advanceTimersByTime,
   advanceTimersByTimeAsync: vi.advanceTimersByTimeAsync,
   runAllTimers: vi.runAllTimers,
@@ -249,6 +250,15 @@ global.ResizeObserver = class ResizeObserver {
   unobserve() {}
   disconnect() {}
 };
+
+// jsdom 未实现 canvas getContext，补空实现以避免 QRCode 等组件测试输出噪声
+if (typeof HTMLCanvasElement !== 'undefined') {
+  Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+    configurable: true,
+    writable: true,
+    value: vi.fn(() => null),
+  });
+}
 
 if (global.HTMLElement) {
   global.HTMLElement.prototype.scrollIntoView = () => {};

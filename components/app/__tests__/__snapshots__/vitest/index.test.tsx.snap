@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-app css-var-root ant-app-rtl"
+/>
+`;
+
+exports[`App > single 1`] = `
+<div
+  class="ant-app css-var-root"
+>
+  <div>
+    Hello World
+  </div>
+</div>
+`;

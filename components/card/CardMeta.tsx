@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 
@@ -35,7 +35,11 @@ export interface CardMetaProps {
   styles?: CardMetaSemanticAllType['stylesAndFn'];
 }
 
-const CardMeta: React.FC<CardMetaProps> = (props) => {
+export interface CardMetaRef {
+  nativeElement: HTMLDivElement;
+}
+
+const CardMeta = React.forwardRef<CardMetaRef, CardMetaProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -59,20 +63,21 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, cardMetaClassNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    CardMetaSemanticAllType['classNames'],
+    CardMetaSemanticAllType['styles'],
+    CardMetaProps
+  >([contextClassNames, cardMetaClassNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props,
+  });
 
   const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
 
   const rootStyles: React.CSSProperties = {
-    ...contextStyle,
     ...mergedStyles.root,
-    ...style,
   };
 
   const avatarClassNames = clsx(`${metaPrefixCls}-avatar`, mergedClassNames.avatar);
@@ -109,13 +114,19 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
       </div>
     ) : null;
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyles}>
       {avatarDom}
       {MetaDetail}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   CardMeta.displayName = 'CardMeta';

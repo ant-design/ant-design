@@ -56,6 +56,7 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { MoreProps } from '@rc-component/tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
@@ -88,7 +89,7 @@ export interface CSPConfig {
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
-type ComponentsConfig = {
+export type ComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
     algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[];
   };
@@ -226,15 +227,10 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<
     TabsProps,
-    | 'indicator'
-    | 'indicatorSize'
-    | 'more'
-    | 'moreIcon'
-    | 'addIcon'
-    | 'removeIcon'
-    | 'classNames'
-    | 'styles'
-  >;
+    'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon' | 'classNames' | 'styles'
+  > & {
+    more?: Omit<MoreProps, 'popupRender'>;
+  };
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 

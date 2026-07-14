@@ -7,6 +7,7 @@ Array [
   >
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
+      style="display:inline-block;overflow:hidden;white-space:nowrap;opacity:1;transform:none"
     >
       Tag 1
       <span
@@ -33,6 +34,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
+      style="display:inline-block;overflow:hidden;white-space:nowrap;opacity:1;transform:none"
     >
       Tag 2
       <span
@@ -59,6 +61,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
+      style="display:inline-block;overflow:hidden;white-space:nowrap;opacity:1;transform:none"
     >
       Tag 3
       <span
@@ -926,7 +929,7 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      关 闭
+      Close
     </span>
   </span>
   <span

@@ -98,6 +98,7 @@ demo:
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 | × |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  | × |
+| onClear | 清除内容时回调 | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  | × |
 | onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  | × |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - | 5.17.0 | × |

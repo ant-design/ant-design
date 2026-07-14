@@ -10,6 +10,7 @@ import {
   MediumOutlined,
   MessageOutlined,
   QuestionCircleOutlined,
+  RobotOutlined,
   UsergroupAddOutlined,
   XOutlined,
   ZhihuOutlined,
@@ -271,6 +272,14 @@ const Footer: React.FC = () => {
           title: <FormattedMessage id="app.footer.faq" />,
           url: getLink('/docs/react/faq'),
           LinkComponent: Link,
+        },
+        {
+          icon: <RobotOutlined />,
+          title: 'For Agents',
+          url: isZhCN
+            ? 'https://ant.design/docs/react/for-agents-cn.md'
+            : 'https://ant.design/docs/react/for-agents.md',
+          openExternal: true,
         },
         {
           icon: <BugOutlined />,

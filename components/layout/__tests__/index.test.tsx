@@ -6,6 +6,7 @@ import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -303,6 +304,18 @@ describe('Layout', () => {
 
     jest.useRealTimers();
   });
+
+  // https://github.com/ant-design/ant-design/issues/55603
+  it('Header used standalone should apply cssVar class', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+        <Header className="standalone-header">Header</Header>
+      </ConfigProvider>,
+    );
+
+    const header = container.querySelector('.standalone-header')!;
+    expect(header).toHaveClass('foo');
+  });
 });
 
 describe('Sider', () => {
@@ -391,7 +404,7 @@ describe('Sider', () => {
     expect(
       container.querySelector<HTMLDivElement>('.ant-layout-sider-zero-width-trigger')?.style
         .background,
-    ).toEqual('rgb(255, 153, 102)');
+    ).toBe('rgb(255, 153, 102)');
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {

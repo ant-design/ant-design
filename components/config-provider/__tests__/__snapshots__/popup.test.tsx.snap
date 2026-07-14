@@ -10,7 +10,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -19,12 +18,12 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -60,7 +59,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -68,12 +66,12 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -109,7 +107,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -117,12 +114,12 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -163,7 +160,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -172,12 +168,12 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -213,7 +209,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -221,12 +216,12 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -262,7 +257,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -270,12 +264,12 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -316,7 +310,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -325,12 +318,12 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -366,7 +359,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -374,12 +366,12 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -415,7 +407,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -423,12 +414,12 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
         aria-expanded="true"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

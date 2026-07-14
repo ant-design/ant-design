@@ -63,10 +63,10 @@ describe('Badge', () => {
 
   it('badge should support float number', () => {
     const { container } = render(<Badge count={3.5} />);
-    expect(container.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toEqual('3.5');
+    expect(container.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toBe('3.5');
 
     const { container: anotherContainer, unmount } = render(<Badge count="3.5" />);
-    expect(anotherContainer.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toEqual(
+    expect(anotherContainer.querySelectorAll('.ant-badge-multiple-words')[0].textContent).toBe(
       '3.5',
     );
 

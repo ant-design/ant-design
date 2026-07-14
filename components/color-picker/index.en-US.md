@@ -115,9 +115,9 @@ type PresetColorType = {
 | toCssString | Convert to CSS support format | `() => string` | 5.20.0 |
 | toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
 | toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
-| toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |
+| toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a: number })` | - |
 | toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | - |
-| toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
+| toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a: number })` | - |
 | toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - |
 
 ## Semantic DOM

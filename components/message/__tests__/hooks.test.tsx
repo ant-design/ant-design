@@ -48,7 +48,7 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should work with success', () => {
@@ -85,7 +85,7 @@ describe('message.hooks', () => {
     fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
   });
 
   it('should work with onClose', (done) => {
@@ -225,7 +225,7 @@ describe('message.hooks', () => {
 
     expect(div.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(div.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(div.querySelector('.hook-content')!.textContent).toEqual('happy');
+    expect(div.querySelector('.hook-content')!.textContent).toBe('happy');
     expect(document.querySelectorAll(`#${containerId}`)).toHaveLength(1);
   });
 

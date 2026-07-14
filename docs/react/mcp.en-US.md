@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 2
+order: 3
 title: MCP Server
 tag: New
 ---
@@ -78,6 +78,19 @@ You can pin a specific antd version with additional args:
 }
 ```
 
+You can also let the CLI write supported project configuration for you:
+
+```bash
+antd setup --client claude
+antd setup --client cursor --mode both
+antd setup --client vscode --write-instructions
+antd setup --client codex
+antd setup --client claude --dry-run
+antd setup --client claude --check
+```
+
+Supported clients are `claude`, `cursor`, `vscode`, and `codex`. Setup modes are `mcp`, `skill`, and `both`.
+
 ## Usage with AI Tools
 
 | Tool | Description | Configuration |
@@ -118,7 +131,7 @@ Configuration:
 
 ## Alternative: Using LLMs.txt
 
-If your AI tool doesn't support MCP, you can use our [LLMs.txt](/docs/react/llms-en-US) support instead. We provide:
+If your AI tool doesn't support MCP, you can use our [LLMs.txt](/docs/react/llms) support instead. We provide:
 
 - [llms.txt](https://ant.design/llms.txt) - Structured overview of all components
 - [llms-full.txt](https://ant.design/llms-full.txt) - Complete documentation with examples
@@ -126,7 +139,7 @@ If your AI tool doesn't support MCP, you can use our [LLMs.txt](/docs/react/llms
 ## Learn More
 
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-- [Ant Design CLI](/docs/react/cli-en-US)
+- [Ant Design CLI](/docs/react/cli)
 - [@ant-design/cli on GitHub](https://github.com/ant-design/ant-design-cli)
-- [Ant Design LLMs.txt Guide](/docs/react/llms-en-US)
+- [Ant Design LLMs.txt Guide](/docs/react/llms)
 - [@jzone-mcp/antd-components-mcp on npm](https://www.npmjs.com/package/@jzone-mcp/antd-components-mcp)

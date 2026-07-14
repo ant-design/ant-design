@@ -114,7 +114,7 @@ describe('message.config', () => {
     ).filter((ele) => !ele.classList.contains('ant-message-fade-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(5);
-    expect(noticeWithoutLeaving[4].textContent).toEqual('last');
+    expect(noticeWithoutLeaving[4].textContent).toBe('last');
 
     await triggerMotionEnd();
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
@@ -233,7 +233,7 @@ describe('message.config', () => {
 
     message.info(messageText1);
     await awaitPromise();
-    expect(container1.querySelector('.ant-message-notice')!.textContent).toEqual(messageText1);
+    expect(container1.querySelector('.ant-message-notice')!.textContent).toBe(messageText1);
 
     // Config will directly change container
     message.config({
@@ -242,9 +242,7 @@ describe('message.config', () => {
     const messageText2 = 'mounted in container2';
 
     message.info(messageText2);
-    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toEqual(
-      messageText2,
-    );
+    expect(container2.querySelectorAll('.ant-message-notice')[1]!.textContent).toBe(messageText2);
 
     removeContainer1();
     removeContainer2();

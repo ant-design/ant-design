@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 2
+order: 3
 title: MCP Server
 tag: New
 ---
@@ -78,6 +78,19 @@ tag: New
 }
 ```
 
+也可以让 CLI 自动写入支持的项目配置：
+
+```bash
+antd setup --client claude
+antd setup --client cursor --mode both
+antd setup --client vscode --write-instructions
+antd setup --client codex
+antd setup --client claude --dry-run
+antd setup --client claude --check
+```
+
+支持的客户端包括 `claude`、`cursor`、`vscode` 和 `codex`。Setup 模式包括 `mcp`、`skill` 和 `both`。
+
 ## 在 AI 工具中的使用 {#usage-with-ai-tools}
 
 | 工具 | 说明 | 配置 |
@@ -118,7 +131,7 @@ tag: New
 
 ## 备选方案：使用 LLMs.txt {#alternative-llms-txt}
 
-如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/react/llms-zh-CN) 支持。我们提供：
+如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/react/llms-cn) 支持。我们提供：
 
 - [llms.txt](https://ant.design/llms.txt) - 所有组件的结构化概览
 - [llms-full.txt](https://ant.design/llms-full.txt) - 包含示例的完整文档
@@ -126,7 +139,7 @@ tag: New
 ## 了解更多 {#learn-more}
 
 - [Model Context Protocol 文档](https://modelcontextprotocol.io/)
-- [Ant Design CLI](/docs/react/cli-zh-CN)
+- [Ant Design CLI](/docs/react/cli-cn)
 - [@ant-design/cli GitHub 仓库](https://github.com/ant-design/ant-design-cli)
-- [Ant Design LLMs.txt 指南](/docs/react/llms-zh-CN)
+- [Ant Design LLMs.txt 指南](/docs/react/llms-cn)
 - [@jzone-mcp/antd-components-mcp npm 地址](https://www.npmjs.com/package/@jzone-mcp/antd-components-mcp)

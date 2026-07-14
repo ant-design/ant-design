@@ -114,12 +114,12 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -175,16 +175,16 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </div>
             </div>
             <div
-              class="rc-virtual-list"
+              class="ant-select-dropdown-list"
               style="position: relative;"
             >
               <div
-                class="rc-virtual-list-holder"
+                class="ant-select-dropdown-list-holder"
                 style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
-                    class="rc-virtual-list-holder-inner"
+                    class="ant-select-dropdown-list-holder-inner"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
@@ -314,12 +314,12 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -375,16 +375,16 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </div>
             </div>
             <div
-              class="rc-virtual-list"
+              class="ant-select-dropdown-list"
               style="position: relative;"
             >
               <div
-                class="rc-virtual-list-holder"
+                class="ant-select-dropdown-list-holder"
                 style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
-                    class="rc-virtual-list-holder-inner"
+                    class="ant-select-dropdown-list-holder-inner"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
@@ -583,7 +583,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               cascader
             </div>
@@ -591,12 +590,12 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -1056,18 +1055,17 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1246,18 +1244,17 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1436,18 +1433,17 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

@@ -22,7 +22,7 @@ jobs:
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     # Only run for merged PRs on the main repo
     if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: get commit count

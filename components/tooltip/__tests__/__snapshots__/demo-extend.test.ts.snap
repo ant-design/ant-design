@@ -490,7 +490,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       type="button"
     >
       <span>
-        Align edge / 边缘对齐
+        Align edge
       </span>
     </button>
     <div
@@ -523,7 +523,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       type="button"
     >
       <span>
-        Arrow points to center / 箭头指向中心
+        Arrow points to center
       </span>
     </button>
     <div
@@ -573,7 +573,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         type="button"
       >
         <span>
-          Adjust automatically / 自动调整
+          Adjust automatically
         </span>
       </button>
       <div
@@ -602,7 +602,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         type="button"
       >
         <span>
-          Ignore / 不处理
+          Ignore
         </span>
       </button>
       <div
@@ -644,7 +644,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         type="button"
       >
         <span>
-          Adjust automatically / 自动调整
+          Adjust automatically
         </span>
       </button>
       <div
@@ -673,7 +673,7 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         type="button"
       >
         <span>
-          Ignore / 不处理
+          Ignore
         </span>
       </button>
       <div
@@ -1571,20 +1571,19 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
           aria-describedby="test-id"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           disabled=""
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

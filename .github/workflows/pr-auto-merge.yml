@@ -16,7 +16,7 @@ jobs:
       contents: write  # for actions-cool/check-pr-ci to merge PRs
       issues: write  # for actions-cool/check-pr-ci to update issues
       pull-requests: write  # for actions-cool/check-pr-ci to update PRs
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     steps:
       - uses: actions-cool/check-pr-ci@0ae0a449b0b4a24d792befccee14931cc91caff9 # v1
         with:

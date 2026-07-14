@@ -5,6 +5,7 @@ import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography
 import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
 
 import Markers from './Markers';
 
@@ -103,12 +104,10 @@ function HighlightExample(props: {
 />`.trim();
     }
 
-    return Prism.highlight(code, Prism.languages.javascript, 'jsx');
+    return Prism.highlight(code, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
   }, [componentName, itemsAPI, semanticName]);
 
-  return (
-    <div dangerouslySetInnerHTML={{ __html: highlightCode }} />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: highlightCode }} />;
 }
 
 const getMarkClassName = (semanticKey: string) =>

@@ -472,12 +472,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -504,8 +504,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -527,7 +529,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -557,16 +559,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -680,12 +682,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
               style="--select-input-width: 0;"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -713,8 +715,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -736,7 +740,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -766,16 +770,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -1013,12 +1017,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1074,16 +1078,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -3048,7 +3052,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         type="button"
       >
         <span>
-          查 询
+          Search
         </span>
       </button>
     </div>
@@ -4283,12 +4287,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4344,16 +4348,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4408,12 +4412,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4469,16 +4473,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4541,12 +4545,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4602,16 +4606,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4697,12 +4701,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4758,16 +4762,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4819,7 +4823,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Email
           </div>
@@ -4827,7 +4830,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
@@ -4855,16 +4858,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -6483,7 +6486,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -6491,12 +6493,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8234,11 +8236,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8265,8 +8267,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8288,7 +8292,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8911,12 +8915,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="test-id"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -8972,16 +8976,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                       </div>
                       <div
-                        class="rc-virtual-list"
+                        class="ant-select-dropdown-list"
                         style="position: relative;"
                       >
                         <div
-                          class="rc-virtual-list-holder"
+                          class="ant-select-dropdown-list-holder"
                           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
-                              class="rc-virtual-list-holder-inner"
+                              class="ant-select-dropdown-list-holder-inner"
                               style="display: flex; flex-direction: column;"
                             >
                               <div
@@ -9384,9 +9388,6 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
             viewBox="64 64 896 896"
             width="1em"
           >
-            <defs>
-              <style />
-            </defs>
             <path
               d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
             />
@@ -10412,12 +10413,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -10473,16 +10474,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
-                  class="rc-virtual-list"
+                  class="ant-select-dropdown-list"
                   style="position: relative;"
                 >
                   <div
-                    class="rc-virtual-list-holder"
+                    class="ant-select-dropdown-list-holder"
                     style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
-                        class="rc-virtual-list-holder-inner"
+                        class="ant-select-dropdown-list-holder-inner"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
@@ -10546,12 +10547,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -10607,16 +10608,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
-                  class="rc-virtual-list"
+                  class="ant-select-dropdown-list"
                   style="position: relative;"
                 >
                   <div
-                    class="rc-virtual-list-holder"
+                    class="ant-select-dropdown-list-holder"
                     style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
-                        class="rc-virtual-list-holder-inner"
+                        class="ant-select-dropdown-list-holder-inner"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
@@ -11000,7 +11001,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   cascader
                 </div>
@@ -11008,12 +11008,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -12186,18 +12186,17 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -12401,12 +12400,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -12462,16 +12461,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -13815,7 +13814,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -13823,12 +13821,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -14109,12 +14107,12 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -14170,16 +14168,16 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               </div>
             </div>
             <div
-              class="rc-virtual-list"
+              class="ant-select-dropdown-list"
               style="position: relative;"
             >
               <div
-                class="rc-virtual-list-holder"
+                class="ant-select-dropdown-list-holder"
                 style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
-                    class="rc-virtual-list-holder-inner"
+                    class="ant-select-dropdown-list-holder-inner"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
@@ -15925,7 +15923,6 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -15933,12 +15930,12 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

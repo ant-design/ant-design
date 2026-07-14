@@ -7,7 +7,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
@@ -171,13 +171,16 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   };
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ProgressSemanticAllType['classNames'],
+    ProgressSemanticAllType['styles'],
+    ProgressProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ========================= Info =========================
   const isLineType = type === 'line';
@@ -336,7 +339,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   return (
     <div
       ref={ref}
-      style={{ ...contextStyle, ...mergedStyles.root, ...style }}
+      style={mergedStyles.root}
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}

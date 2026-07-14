@@ -35,6 +35,17 @@ describe('Avatar Render', () => {
     });
   });
 
+  it('should support Avatar.Group nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Avatar.Group>>();
+    const { container } = render(
+      <Avatar.Group ref={ref}>
+        <Avatar />
+      </Avatar.Group>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-avatar-group'));
+  });
+
   it('Render long string correctly', () => {
     const { container } = render(<Avatar>TestString</Avatar>);
     expect(container.querySelectorAll('.ant-avatar-string').length).toBe(1);
@@ -175,7 +186,7 @@ describe('Avatar Render', () => {
       </Avatar>,
     );
     expect(container.querySelector('img')?.crossOrigin).toBeTruthy();
-    expect(container.querySelector('img')?.crossOrigin).toEqual(crossOrigin);
+    expect(container.querySelector('img')?.crossOrigin).toBe(crossOrigin);
   });
 
   it('should not exist crossorigin attribute', () => {

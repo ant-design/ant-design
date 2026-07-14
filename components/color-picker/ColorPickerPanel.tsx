@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isFunction } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -14,7 +14,7 @@ import { PanelPickerContext, PanelPresetsContext } from './context';
 import type { PanelPickerContextProps, PanelPresetsContextProps } from './context';
 import useColorPickerPanelState from './hooks/useColorPickerPanelState';
 import type { ColorPickerPanelState } from './hooks/useColorPickerPanelState';
-import type { ColorPickerProps } from './interface';
+import type { ColorPickerProps, ColorPickerSemanticAllType } from './interface';
 import useStyle from './style';
 
 export interface ColorPickerPanelProps
@@ -121,13 +121,16 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
     className,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ColorPickerSemanticAllType['classNames'],
+    ColorPickerSemanticAllType['styles'],
+    ColorPickerProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -141,12 +144,6 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
     className,
     hashId,
   );
-  const mergedStyle: React.CSSProperties = {
-    ...contextStyle,
-    ...(mergedStyles.root || {}),
-    ...style,
-  };
-
   const panelContext: PanelPickerContextProps = React.useMemo(
     () => ({
       prefixCls,
@@ -233,7 +230,7 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
   }
 
   return (
-    <div className={mergedCls} style={mergedStyle} {...rest}>
+    <div className={mergedCls} style={mergedStyles.root} {...rest}>
       {panelNode}
     </div>
   );

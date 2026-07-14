@@ -3180,9 +3180,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3204,7 +3205,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -3823,9 +3824,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3847,7 +3849,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -5969,9 +5971,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                 </svg>
               </span>
             </span>
-            <span
+            <button
+              aria-label="Clear"
               class="ant-picker-clear"
-              role="button"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -5993,7 +5996,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </div>
         </div>
         <div
@@ -6612,9 +6615,10 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                 </svg>
               </span>
             </span>
-            <span
+            <button
+              aria-label="Clear"
               class="ant-picker-clear"
-              role="button"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -6636,7 +6640,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </div>
         </div>
         <div
@@ -10724,9 +10728,10 @@ Array [
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -10748,7 +10753,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
   </div>,
   <div
@@ -13490,9 +13495,10 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -13514,7 +13520,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
@@ -14670,9 +14676,10 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -14694,7 +14701,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -31131,9 +31138,10 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -31155,7 +31163,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
@@ -32312,9 +32320,10 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -32336,7 +32345,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -35988,9 +35997,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -36012,7 +36022,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -36631,9 +36641,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -36655,7 +36666,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -37274,9 +37285,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -37298,7 +37310,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -37543,9 +37555,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -37567,7 +37580,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -38287,9 +38300,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           </svg>
         </span>
       </span>
-      <span
+      <button
+        aria-label="Clear"
         class="ant-picker-clear"
-        role="button"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -38311,7 +38325,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             />
           </svg>
         </span>
-      </span>
+      </button>
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
@@ -39468,9 +39482,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             </svg>
           </span>
         </span>
-        <span
+        <button
+          aria-label="Clear"
           class="ant-picker-clear"
-          role="button"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -39492,7 +39507,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
               />
             </svg>
           </span>
-        </span>
+        </button>
       </div>
     </div>
     <div
@@ -43254,9 +43269,10 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -43278,7 +43294,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -43893,9 +43909,10 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -43917,7 +43934,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -44532,9 +44549,10 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -44556,7 +44574,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -46156,9 +46174,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -46180,7 +46199,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -47169,9 +47188,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -47193,7 +47213,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -48182,9 +48202,10 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
         </svg>
       </span>
     </span>
-    <span
+    <button
+      aria-label="Clear"
       class="ant-picker-clear"
-      role="button"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -48206,7 +48227,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
           />
         </svg>
       </span>
-    </span>
+    </button>
   </div>
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
@@ -88146,12 +88167,12 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Picker Type"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -88207,16 +88228,16 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div

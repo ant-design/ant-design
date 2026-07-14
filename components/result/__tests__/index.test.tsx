@@ -31,6 +31,13 @@ describe('Result', () => {
   mountTest(Result);
   rtlTest(Result);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Result>>();
+    const { container } = render(<Result ref={ref} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-result'));
+  });
+
   it('🙂  successPercent should decide the progress status when it exists', () => {
     const { container } = render(
       <Result
@@ -69,6 +76,13 @@ describe('Result', () => {
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
     const { container } = render(<Result status="404" />);
     expect(container.querySelectorAll('.ant-result-extra')).toHaveLength(0);
+  });
+
+  it('should render extra when it is the number 0', () => {
+    const { container } = render(<Result status="404" extra={0} />);
+    const extraNode = container.querySelector('.ant-result-extra');
+    expect(extraNode).not.toBe(null);
+    expect(extraNode?.textContent).toBe('0');
   });
 
   it('🙂  When title is undefined, the title dom is not rendered', () => {

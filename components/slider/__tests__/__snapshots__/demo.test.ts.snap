@@ -362,77 +362,60 @@ Array [
     />
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-flex-start ant-flex-gap-small"
+    style="margin-top:16px"
   >
-    <div
-      class="ant-space-item"
+    <label
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
-      <label
-        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
+      <span
+        class="ant-checkbox ant-wave-target"
       >
-        <span
-          class="ant-checkbox ant-wave-target"
-        >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-        </span>
-        <span
-          class="ant-checkbox-label"
-        >
-          Handle 
-          <!-- -->
-          1
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Disabled Handle 1
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
-      <label
-        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
+      <span
+        class="ant-checkbox ant-wave-target"
       >
-        <span
-          class="ant-checkbox ant-wave-target"
-        >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-        </span>
-        <span
-          class="ant-checkbox-label"
-        >
-          Handle 
-          <!-- -->
-          2
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Disabled Handle 2
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
-      <label
-        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
+      <span
+        class="ant-checkbox ant-wave-target"
       >
-        <span
-          class="ant-checkbox ant-wave-target"
-        >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-        </span>
-        <span
-          class="ant-checkbox-label"
-        >
-          Handle 
-          <!-- -->
-          3
-        </span>
-      </label>
-    </div>
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Disabled Handle 3
+      </span>
+    </label>
   </div>,
 ]
 `;

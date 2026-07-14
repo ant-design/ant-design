@@ -31,7 +31,7 @@ describe('Table.pagination', () => {
   const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props?: TableProps<any>) {
-    return <Table columns={columns} dataSource={data} pagination={pagination} {...props} />;
+    return <Table<any> columns={columns} dataSource={data} pagination={pagination} {...props} />;
   }
 
   function renderedNames(container: ReturnType<typeof render>['container']) {
@@ -624,7 +624,7 @@ describe('Table.pagination', () => {
     };
 
     const { container } = render(<Demo />);
-    expect(container.querySelector('.ant-pagination-total-text')?.textContent).toEqual('>200<');
+    expect(container.querySelector('.ant-pagination-total-text')?.textContent).toBe('>200<');
 
     // Should hide
     fireEvent.click(container.querySelector('.ant-pagination-item-2')!);

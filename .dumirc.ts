@@ -45,6 +45,8 @@ const alibabaSansFontFaceStyle = alibabaSansFonts
   )
   .join('\n');
 
+const isCloudflarePages = process.env.CF_PAGES === '1';
+
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
 
@@ -63,12 +65,14 @@ export default defineConfig({
   ssr:
     process.env.NODE_ENV === 'production'
       ? {
-          builder: 'mako',
+          // Cloudflare Pages may crash utoopack loader child processes with SIGBUS.
+          builder: isCloudflarePages ? 'mako' : 'utoopack',
         }
       : false,
   hash: true,
   mfsu: false,
-  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  utoopack: {},
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',

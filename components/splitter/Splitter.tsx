@@ -5,7 +5,7 @@ import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -15,12 +15,19 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type { SplitterProps } from './interface';
+import type { SplitterProps, SplitterSemanticAllType } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
 
-const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
+export interface SplitterRef {
+  nativeElement: HTMLDivElement;
+}
+
+const InternalSplitter = (
+  props: React.PropsWithChildren<SplitterProps>,
+  ref: React.ForwardedRef<SplitterRef>,
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -153,9 +160,16 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SplitterSemanticAllType['classNames'],
+    SplitterSemanticAllType['styles'],
+    SplitterProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       // Convert `classNames.dragger: 'a'` to
@@ -181,6 +195,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     hashId,
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   // ======================== Render ========================
   const maskCls = `${prefixCls}-mask`;
 
@@ -197,15 +217,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes, items.length]);
 
-  const mergedStyle: React.CSSProperties = {
-    ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
-  };
-
   return (
     <ResizeObserver onResize={onContainerResize}>
-      <div style={mergedStyle} className={containerClassName}>
+      <div ref={nativeElementRef} style={mergedStyles.root} className={containerClassName}>
         {items.map((item, idx) => {
           const panelProps = {
             ...item,
@@ -286,6 +300,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     </ResizeObserver>
   );
 };
+
+const Splitter = React.forwardRef(InternalSplitter);
 
 if (process.env.NODE_ENV !== 'production') {
   Splitter.displayName = 'Splitter';

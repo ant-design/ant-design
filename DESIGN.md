@@ -1,4 +1,5 @@
 ---
+version: alpha
 name: Ant Design
 description: Enterprise-grade React UI design system from Ant Group, built around the values Natural, Certain, Meaningful, and Growing.
 colors:
@@ -8,6 +9,7 @@ colors:
   error: '#FF4D4F'
   info: '#1677FF'
   blue: '#1677FF'
+  blue-7: '#0958D9'
   purple: '#722ED1'
   cyan: '#13C2C2'
   green: '#52C41A'
@@ -168,6 +170,37 @@ components:
   dropdown-item-hover:
     backgroundColor: '{colors.surface-container}'
     textColor: '{colors.on-surface}'
+  alert-success:
+    backgroundColor: '#F6FFED'
+    textColor: '{colors.on-surface}'
+    rounded: '{rounded.lg}'
+    padding: 8px 12px
+  alert-warning:
+    backgroundColor: '#FFFBE6'
+    textColor: '{colors.on-surface}'
+    rounded: '{rounded.lg}'
+    padding: 8px 12px
+  alert-error:
+    backgroundColor: '#FFF2F0'
+    textColor: '{colors.on-surface}'
+    rounded: '{rounded.lg}'
+    padding: 8px 12px
+  alert-info:
+    backgroundColor: '#E6F4FF'
+    textColor: '{colors.on-surface}'
+    rounded: '{rounded.lg}'
+    padding: 8px 12px
+  badge-status-error:
+    backgroundColor: '{colors.error}'
+    rounded: '{rounded.full}'
+    width: 6px
+    height: 6px
+  tag-blue:
+    backgroundColor: '#E6F4FF'
+    textColor: '{colors.blue-7}'
+    typography: '{typography.body-sm}'
+    rounded: '{rounded.md}'
+    padding: 0 7px
 ---
 
 ## Overview
@@ -183,27 +216,17 @@ Four values guide every decision in the system:
 - **Meaningful.** Visual emphasis is reserved for action. Decoration that does not communicate is removed.
 - **Growing.** The system scales from small forms to dense tables to multi-tenant admin consoles without losing coherence.
 
-## Customization
-
-Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. The system is designed to be re-skinned without editing this file or overriding individual tokens by hand.
-
-Three layers of customization exist:
-
-1. **Seed token overrides.** Pass `theme.token` to `ConfigProvider` to replace any seed. The six color seeds (`colorPrimary`, `colorSuccess`, `colorWarning`, `colorError`, `colorInfo`, plus the neutral base) each expand automatically through `@ant-design/colors` into a ten-step gradient covering background tint, hover, active, and outline variants — change the seed, and the entire derived palette moves with it. Spacing, radius, and font-size seeds work the same way.
-
-2. **Algorithm switching.** Set `theme.algorithm` to swap the entire derivation logic. `darkAlgorithm` derives a dark surface ladder, inverted text alphas, and adjusted shadow values from the same seeds — do not invert colors manually; the algorithm accounts for non-linear gradient stops that flat inversion cannot reproduce. `compactAlgorithm` reduces control heights and spacing while preserving the same palette.
-
-3. **Component-level overrides.** `theme.components.Button` (or any component's token namespace) can override a single component's derived tokens without affecting others — for example, changing the Button border radius without touching Input or Select.
-
 ## Colors
 
-The palette is built from six functional seeds: a single **primary** brand color and five semantic states (`success`, `warning`, `error`, `info`, plus the neutral background). Each seed expands automatically through `@ant-design/colors` into a ten-step gradient covering background tint, hover, active, and outline variants — change the seed, and the entire derived palette moves with it.
+The palette is built from one **primary** brand seed, four semantic state seeds (`success`, `warning`, `error`, `info`), and neutral base colors for text and surfaces. Color seeds expand automatically through `@ant-design/colors` into gradient steps covering background tint, hover, active, and outline variants — change the seed, and the entire derived palette moves with it.
 
-`#1677FF` was chosen as the primary because blue reads as trustworthy and focused without the corporate flatness of a darker navy or the playfulness of a saturated cyan. It also remains legible against both white and pale-grey surfaces — the two surfaces enterprise consoles use most.
+`#1677FF` was chosen as the primary because blue reads as trustworthy and focused without the corporate flatness of a darker navy or the playfulness of a saturated cyan. It is the default brand color for actions, links, focus rings, selected navigation, and active tabs.
+
+Accessibility note: this file records Ant Design's default visual tokens. Some brand-color pairs, especially white text on `#1677FF` and primary text on pale selected backgrounds, are below WCAG AA's 4.5:1 contrast threshold for small text. For strict accessibility targets, darken `colorPrimary` through `ConfigProvider` or use component-specific token overrides rather than inventing one-off colors.
 
 Neutral text and overlays in the runtime token system are expressed as `rgba(0, 0, 0, α)` rather than flat grey hex values. The reason is overlay: when text sits above a tinted card or a colored cell highlight, an opaque grey breaks the tint, while a transparent black blends naturally. The four standard alpha steps are `0.88` (primary text, exported here as `#1F1F1F`), `0.65` (secondary text, `#595959`), `0.45` (tertiary / description text), and `0.25` (placeholder / disabled, `#BFBFBF`). The hex values listed in this document are the equivalent composited result on a white surface, suitable for static export targets that require hex; downstream consumers that support alpha should prefer the `rgba()` form from `@ant-design/cssinjs`.
 
-The thirteen preset colors (`blue`, `purple`, `cyan`, `green`, `magenta`, `red`, `orange`, `yellow`, `volcano`, `geekblue`, `gold`, `lime`, plus the same brand `blue`) are reserved for tagging, charts, and categorical visualization — never for primary UI affordances. Use functional colors (`success`/`warning`/`error`/`info`) for status, and reserve `primary` for the single most important action on each screen.
+The preset colors (`blue`, `purple`, `cyan`, `green`, `magenta`, `red`, `orange`, `yellow`, `volcano`, `geekblue`, `gold`, `lime`; `pink` is a deprecated alias of `magenta` in runtime tokens) are reserved for tags, charts, and categorical visualization — never for primary UI affordances. Use functional colors (`success`/`warning`/`error`/`info`) for status, and reserve `primary` for the single most important action on each screen.
 
 ## Typography
 
@@ -229,12 +252,13 @@ Never hard-code `#FFF` or `#FAFAFA` in product code. Read the token. The three-l
 
 Ant Design is **flat-first**. Borders and tonal contrast carry hierarchy. Shadows appear only on surfaces that genuinely float above their context.
 
-Four shadow tiers exist (CSS variables `--ant-box-shadow-tertiary`, `--ant-box-shadow-secondary`, `--ant-box-shadow`, `--ant-box-shadow-popover-arrow`). In ascending strength:
+Shadow tokens are generated from `colorShadow`, so the same names adapt across light and dark themes. The core tiers are:
 
-- **Tertiary** — inset hairline, used for input internal stroke.
-- **Default** — `0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 6px -1px rgba(0,0,0,0.02), 0 2px 4px 0 rgba(0,0,0,0.02)` — for raised cards and floating action surfaces.
-- **Secondary** — `0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12), 0 9px 28px 8px rgba(0,0,0,0.05)` — for modals, drawers, and dropdowns.
-- **Popover arrow** — used only for the small triangular pointer on tooltip and popover arrows.
+- **Tertiary** (`boxShadowTertiary`) — the light raised-surface shadow: `0 1px 2px 0 rgba(0,0,0,0.05), 0 1px 6px -1px rgba(0,0,0,0.03), 0 2px 4px 0 rgba(0,0,0,0.03)`.
+- **Popup** (`boxShadow` and `boxShadowSecondary`) — the standard floating-layer shadow: `0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12), 0 9px 28px 8px rgba(0,0,0,0.05)`.
+- **Card** (`boxShadowCard`) — a card-specific raised shadow with tighter spread, used when cards need separation from the container.
+- **Directional drawer and overflow shadows** (`boxShadowDrawer*`, `boxShadowTabsOverflow*`) — specialized tokens for edge-attached surfaces and scroll affordances.
+- **Popover arrow** (`boxShadowPopoverArrow`) — used only for the small triangular pointer on tooltip and popover arrows.
 
 Motion uses three durations and a small library of cubic-bezier easings, all exposed as tokens:
 
@@ -259,18 +283,20 @@ Full-pill (`rounded.full`, 9999 px) is reserved for circular avatars, badges, an
 
 ## Components
 
-Twelve component archetypes capture most of the system's surface area. Each entry below maps to the token references in the YAML front-matter.
+Component archetypes capture the system's most common surfaces and states. Each entry below maps to the token references in the YAML front-matter.
 
 - **Button (primary)** — the single dominant action per screen. Solid `primary` fill, white text, 32 px tall, 6 px radius. Hover lightens the fill to `#4096FF`; active darkens to `#0958D9`. Do not stack two `primary` buttons in one decision.
 - **Button (default)** — secondary actions. Transparent background on a white surface, dark text, 1 px outline border. Hover changes text color to `#4096FF`; the border tints to match.
 - **Input field** — 32 px tall to match buttons. Subtle 1 px outline border; focus state thickens the border to `primary` and adds an inset glow. Placeholder text uses `on-surface-disabled`.
 - **Select** — visually identical to Input. The trigger reads as an input until interacted with.
-- **Card** — the workhorse container. White surface, 8 px radius, default shadow tier. Internal padding is 24 px on all sides; nested controls maintain 16 px gaps.
+- **Card** — the workhorse container. White surface, 8 px radius, optional `boxShadowCard` elevation. Internal padding is 24 px on all sides; nested controls maintain 16 px gaps.
 - **Modal** — same surface and radius as Card, but uses the secondary shadow tier and is centered on a `rgba(0, 0, 0, 0.45)` mask. Body padding is 20 px top/bottom × 24 px left/right.
 - **Menu (selected item)** — `#E6F4FF` background, `primary` text. This is the single visual cue for "you are here" in navigation.
 - **Tabs (active tab)** — `primary` text and a 2 px `primary` underline. Inactive tabs are `on-surface-variant`. No background fill on tabs at any state.
 - **Table (header row)** — `surface-container` background, `title-md` typography (14 px / 600). Body rows alternate on hover only, not by default — the system trusts users to read dense data without zebra striping.
 - **Tag** — small categorical label. 4 px radius, 12 px font, low-saturation pastel fills from the preset palette. Never use a tag for a critical state — use Alert or Badge.
+- **Alert** — semantic feedback surface. Success, warning, error, and info alerts use pale semantic backgrounds with normal text color; the status is communicated by icon and tint, not by low-contrast colored body text.
+- **Badge status dot** — compact status indicator. Critical status may use `error` fill, but the dot is not a substitute for text in accessibility-critical flows.
 - **Tooltip** — high-contrast inverse surface: `rgba(0,0,0,0.85)` background, white text. Always positioned by the framework, never manually pinned.
 - **Dropdown menu (item hover)** — `surface-container` fill on hover, no text-color change. The hover affordance is enough.
 
@@ -286,3 +312,21 @@ Twelve component archetypes capture most of the system's surface area. Each entr
 - **Don't** mint accent colors outside the preset palette for one-off UI surfaces. If a screen seems to need one, the design probably needs a different layout instead.
 - **Do** snap every gap, inset, and gutter to the 4 px grid through the spacing scale.
 - **Don't** use magic numbers in product code. If the scale lacks a step you need, the design needs revisiting, not a one-pixel override.
+
+## Customization
+
+Every value in the YAML front-matter above is a **default** produced by `defaultAlgorithm` — the light theme. Ant Design theming is broader than Design Token replacement: it includes algorithmic derivation, component-scoped overrides, dynamic switching, nested theme scopes, CSS variable output, static token consumption, and zero-runtime CSS extraction. See [Customize Theme](https://ant.design/docs/react/customize-theme.md) for the complete runtime API and examples.
+
+The primary theme configuration entry is `ConfigProvider`'s `theme` prop:
+
+1. **Seed token overrides.** Pass `theme.token` to `ConfigProvider` to replace any seed. The primary and semantic color seeds (`colorPrimary`, `colorSuccess`, `colorWarning`, `colorError`, `colorInfo`) expand into derived gradients, while `colorBgBase` and `colorTextBase` drive neutral surfaces and text. Spacing, radius, and font-size seeds work the same way.
+
+2. **Algorithm switching.** Set `theme.algorithm` to swap the derivation logic. `defaultAlgorithm`, `darkAlgorithm`, and `compactAlgorithm` can be used alone or composed as an array — do not invert colors manually; the algorithms account for non-linear palette, surface, shadow, and size relationships.
+
+3. **Component-level overrides.** `theme.components.Button` (or any component's token namespace) can override a single component's Component Token and consumed Alias Token without affecting others. In component config, `algorithm` can opt that component into token derivation when the override should still follow seed-token relationships.
+
+4. **Runtime scope.** Themes can switch dynamically by changing `ConfigProvider.theme`, and nested `ConfigProvider` instances create local themes that inherit unchanged tokens from their parent. Static APIs such as `message.xxx`, `Modal.xxx`, and `notification.xxx` do not automatically receive the surrounding context; use hook-based APIs, `App`, or explicit context holders when themed static feedback is required.
+
+5. **Token consumption and output.** Use `theme.useToken()` inside React and `theme.getDesignToken()` outside React to consume resolved tokens. Use `theme.cssVar` when CSS variables are needed, and `theme.zeroRuntime` with prebuilt or extracted CSS when runtime style generation must be disabled.
+
+For custom theme generation, keep Ant Design's interaction structure, density, state feedback, and component semantics first. Then change the smallest necessary seed set: usually `colorPrimary`, status colors, `borderRadius`, `fontFamily`, `fontSize`, and neutral surface bases. Brand pages may look distinct, but forms, tables, navigation, overlays, focus states, and validation feedback should still feel like Ant Design. Avoid generating custom CSS rules that bypass tokens, algorithms, `theme.components`, CSS variables, or extracted static styles; if a theme cannot be expressed through those official layers, treat that as a design-system extension rather than a one-off page style.

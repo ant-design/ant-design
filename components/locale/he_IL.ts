@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'סגור',
     show: 'הצג',
     hide: 'הסתר',
+    sortable: 'ניתן למיין',
   },
   Table: {
     filterTitle: 'תפריט סינון',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'לחץ למיון לפי סדר יורד',
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
+    filterEmptyText: 'אין מסננים',
+    filterCheckAll: 'בחר את כל הפריטים',
+    filterSearchPlaceholder: 'חפש במסננים',
+    emptyText: 'אין נתונים',
+    selectNone: 'נקה את כל הנתונים',
   },
   Tour: {
     Next: 'הבא',
@@ -52,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'חפש כאן',
     itemUnit: 'פריט',
     itemsUnit: 'פריטים',
+    remove: 'הסר',
+    selectCurrent: 'בחר את הדף הנוכחי',
+    removeCurrent: 'הסר את הדף הנוכחי',
+    selectAll: 'בחר את כל הנתונים',
+    deselectAll: 'בטל את הבחירה בכל הנתונים',
+    removeAll: 'הסר את כל הנתונים',
+    selectInvert: 'הפוך את הדף הנוכחי',
   },
   Upload: {
     uploading: 'מעלה...',
@@ -71,8 +84,10 @@ const localeValues: Locale = {
     copy: 'העתק',
     copied: 'הועתק',
     expand: 'הרחב',
+    collapse: 'התמוטט',
   },
   Form: {
+    optional: '(אופציונלי)',
     defaultValidateMessages: {
       default: 'ערך השדה שגוי ${label}',
       required: 'בבקשה הזן ${label}',
@@ -120,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} לא תואם לתבנית ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'פג תוקפו של קוד QR',
+    refresh: 'רענן',
+    scanned: 'נסרק',
+  },
+  ColorPicker: {
+    presetEmpty: 'ריק',
+    transparent: 'שקוף',
+    singleColor: 'צבע יחיד',
+    gradientColor: 'צבע שיפוע',
   },
 };
 

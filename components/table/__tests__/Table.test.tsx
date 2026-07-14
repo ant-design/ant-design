@@ -68,14 +68,14 @@ describe('Table', () => {
       },
     ];
     rerender(<Table columns={newColumns} />);
-    expect(container.querySelector('th')?.textContent).toEqual('Title');
+    expect(container.querySelector('th')?.textContent).toBe('Title');
   });
 
   it('loading with Spin', async () => {
     jest.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ spinning: false, delay: 500 }} />);
     expect(container.querySelector('.ant-spin-section')).toBeFalsy();
-    expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toEqual('');
+    expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toBe('');
     rerender(<Table loading={{ spinning: true, delay: 500 }} />);
     expect(container.querySelector('.ant-spin-section')).toBeFalsy();
     await waitFakeTimer();
@@ -263,10 +263,10 @@ describe('Table', () => {
 
     expect(cells).toHaveLength(4);
     expect(cells[0]).toHaveStyle({ textAlign: 'center' });
-    expect(cells[0].textContent).toEqual('Jack');
+    expect(cells[0].textContent).toBe('Jack');
     expect(cells[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     expect(cells[2]).toHaveStyle({ textAlign: 'right' });
-    expect(cells[2].textContent).toEqual('20');
+    expect(cells[2].textContent).toBe('20');
     expect(cells[3].querySelector('.ant-checkbox-input')).toBeTruthy();
   });
 
@@ -567,7 +567,7 @@ describe('Table', () => {
     ];
     const { container } = render(<Table columns={columns} />);
 
-    expect(container.querySelectorAll('.ant-table-thead th')[1].innerHTML).toEqual('title3');
+    expect(container.querySelectorAll('.ant-table-thead th')[1].innerHTML).toBe('title3');
     expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(2);
   });
 
@@ -601,13 +601,13 @@ describe('Table', () => {
 
     expect(
       container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th')[1].innerHTML,
-    ).toEqual('title3');
+    ).toBe('title3');
     expect(
       container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th'),
     ).toHaveLength(2);
     expect(
       container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th')[0].innerHTML,
-    ).toEqual('title3-2');
+    ).toBe('title3-2');
     expect(
       container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
     ).toHaveLength(1);

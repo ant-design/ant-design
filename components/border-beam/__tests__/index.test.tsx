@@ -165,6 +165,40 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
   });
 
+  it('should support customizing the beam size', async () => {
+    const { container, rerender } = render(
+      <BorderBeam size={160}>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('160px');
+    });
+
+    rerender(
+      <BorderBeam size="12em">
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('12em');
+
+    rerender(
+      <BorderBeam>
+        <div>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElement(container).style.getPropertyValue(varName('size'))).toBe('');
+  });
+
   it('should support customizing line width with prop', async () => {
     const { container, rerender } = render(
       <ConfigProvider

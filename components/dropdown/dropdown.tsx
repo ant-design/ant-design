@@ -8,7 +8,7 @@ import { getNodeRef, omit, useComposeRef, useControlledState, useEvent } from '@
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject, isPrimitive } from '../_util/is';
 import type { AdjustOverflow } from '../_util/placements';
@@ -34,6 +34,12 @@ const _Placements = [
   'bottomRight',
   'top',
   'bottom',
+  'left',
+  'leftTop',
+  'leftBottom',
+  'right',
+  'rightTop',
+  'rightBottom',
 ] as const;
 
 type Placement = (typeof _Placements)[number];
@@ -149,17 +155,18 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     mouseLeaveDelay,
     autoAdjustOverflow,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DropdownSemanticAllType['classNames'],
+    DropdownSemanticAllType['styles'],
+    DropdownProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const mergedRootStyles: React.CSSProperties = {
-    ...contextStyle,
-    ...overlayStyle,
     ...mergedStyles.root,
   };
 
@@ -194,8 +201,14 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (transitionName !== undefined) {
       return transitionName;
     }
-    if (placement.includes('top')) {
+    if (placement.startsWith('top')) {
       return `${rootPrefixCls}-slide-down`;
+    }
+    if (placement.startsWith('left')) {
+      return `${rootPrefixCls}-slide-right`;
+    }
+    if (placement.startsWith('right')) {
+      return `${rootPrefixCls}-slide-left`;
     }
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
@@ -352,7 +365,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={memoPlacement}
+      placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}

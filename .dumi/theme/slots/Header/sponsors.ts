@@ -51,7 +51,7 @@ export const sponsors: Sponsor[] = [
   },
   {
     name: 'CodeRabbit',
-    logo: 'https://www.coderabbit.ai/images/CR_mark_orange.svg',
+    logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*yHnhRL4x1DEAAAAAQBAAAAgAeh6VAQ/original',
     url: 'https://coderabbit.ai?utm_source=ant-design',
     opencollective: 'https://opencollective.com/coderabbit',
     description: {
