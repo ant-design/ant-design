@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `count` to set the number of beams. Multiple beams are evenly distributed around the container border.
+Use `count` to set the number of beams. Multiple beams are evenly distributed around the container border. It only accepts positive integers, and the default value is `1`.
