@@ -348,7 +348,6 @@
     }
   ],
   "overrides": {
-    "@utoo/pack": "1.4.25",
     "jest-environment-node": "^30.4.1"
   },
   "title": "Ant Design",
