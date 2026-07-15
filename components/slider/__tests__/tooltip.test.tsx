@@ -65,6 +65,20 @@ describe('Slider.Tooltip', () => {
     expect(tooltipProps().open).toBeTruthy();
   });
 
+  it('range should show tooltip when handle is focused', async () => {
+    const { container } = render(<Slider range defaultValue={[0, 100]} />);
+
+    const handleEle = container.querySelector('.ant-slider-handle')!;
+
+    fireEvent.focus(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeTruthy();
+
+    fireEvent.blur(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeFalsy();
+  });
+
   it('tooltip should not display when formatter is null or open is false', async () => {
     // https://github.com/ant-design/ant-design/issues/48668
     const { container: container1 } = render(
