@@ -4569,13 +4569,13 @@ Array [
           class="ant-drawer-body"
         >
           <p
-            class="site-description-item-profile-p"
+            class="acss-1nlrm2g"
             style="margin-bottom: 24px;"
           >
             User Profile
           </p>
           <p
-            class="site-description-item-profile-p"
+            class="acss-1nlrm2g"
           >
             Personal
           </p>
@@ -4586,10 +4586,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Full Name:
                 </p>
@@ -4600,10 +4600,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Account:
                 </p>
@@ -4618,10 +4618,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   City:
                 </p>
@@ -4632,10 +4632,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Country:
                 </p>
@@ -4650,10 +4650,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Birthday:
                 </p>
@@ -4664,10 +4664,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Website:
                 </p>
@@ -4682,10 +4682,10 @@ Array [
               class="ant-col ant-col-24 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Message:
                 </p>
@@ -4698,7 +4698,7 @@ Array [
             role="separator"
           />
           <p
-            class="site-description-item-profile-p"
+            class="acss-1nlrm2g"
           >
             Company
           </p>
@@ -4709,10 +4709,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Position:
                 </p>
@@ -4723,10 +4723,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Responsibilities:
                 </p>
@@ -4741,10 +4741,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Department:
                 </p>
@@ -4755,10 +4755,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Supervisor:
                 </p>
@@ -4775,10 +4775,10 @@ Array [
               class="ant-col ant-col-24 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Skills:
                 </p>
@@ -4791,7 +4791,7 @@ Array [
             role="separator"
           />
           <p
-            class="site-description-item-profile-p"
+            class="acss-1nlrm2g"
           >
             Contacts
           </p>
@@ -4802,10 +4802,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Email:
                 </p>
@@ -4816,10 +4816,10 @@ Array [
               class="ant-col ant-col-12 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   Phone Number:
                 </p>
@@ -4834,10 +4834,10 @@ Array [
               class="ant-col ant-col-24 css-var-test-id"
             >
               <div
-                class="site-description-item-profile-wrapper"
+                class="acss-a60y89"
               >
                 <p
-                  class="site-description-item-profile-p-label"
+                  class="acss-18k7i04"
                 >
                   GitHub:
                 </p>

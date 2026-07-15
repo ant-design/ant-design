@@ -1,19 +1,49 @@
 import React, { useState } from 'react';
 import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css } = props;
+  return {
+    descriptionItem: css`
+      margin-bottom: 7px;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+      line-height: 1.5715;
+    `,
+    profileTitle: css`
+      display: block;
+      margin-bottom: 16px;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 16px;
+      line-height: 1.5715;
+    `,
+    label: css`
+      display: inline-block;
+      margin-inline-end: 8px;
+      color: rgba(0, 0, 0, 0.85);
+    `,
+  };
+});
 
 interface DescriptionItemProps {
   title: string;
   content: React.ReactNode;
 }
 
-const DescriptionItem = ({ title, content }: DescriptionItemProps) => (
-  <div className="site-description-item-profile-wrapper">
-    <p className="site-description-item-profile-p-label">{title}:</p>
-    {content}
-  </div>
-);
+const DescriptionItem: React.FC<DescriptionItemProps> = (props) => {
+  const { title, content } = props;
+  const { styles } = useStyles();
+  return (
+    <div className={styles.descriptionItem}>
+      <p className={styles.label}>{title}:</p>
+      {content}
+    </div>
+  );
+};
 
 const App: React.FC = () => {
+  const { styles } = useStyles();
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -28,14 +58,8 @@ const App: React.FC = () => {
     <>
       <List
         dataSource={[
-          {
-            id: 1,
-            name: 'Lily',
-          },
-          {
-            id: 2,
-            name: 'Lily',
-          },
+          { id: 1, name: 'Lily' },
+          { id: 2, name: 'Lily' },
         ]}
         bordered
         renderItem={(item) => (
@@ -58,10 +82,10 @@ const App: React.FC = () => {
         )}
       />
       <Drawer size={640} placement="right" closable={false} onClose={onClose} open={open}>
-        <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
+        <p className={styles.profileTitle} style={{ marginBottom: 24 }}>
           User Profile
         </p>
-        <p className="site-description-item-profile-p">Personal</p>
+        <p className={styles.profileTitle}>Personal</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Full Name" content="Lily" />
@@ -95,7 +119,7 @@ const App: React.FC = () => {
           </Col>
         </Row>
         <Divider />
-        <p className="site-description-item-profile-p">Company</p>
+        <p className={styles.profileTitle}>Company</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Position" content="Programmer" />
@@ -121,7 +145,7 @@ const App: React.FC = () => {
           </Col>
         </Row>
         <Divider />
-        <p className="site-description-item-profile-p">Contacts</p>
+        <p className={styles.profileTitle}>Contacts</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Email" content="AntDesign@example.com" />
