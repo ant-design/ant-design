@@ -253,13 +253,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   const rootStyleRoot = useSemanticRootStyle(rootStyle);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, rootStyleRoot, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeSemanticAllType['classNames'],
+    TreeSemanticAllType['styles'],
+    TreeProps
+  >([contextClassNames, classNames], [contextStyles, rootStyleRoot, styles], {
+    props: mergedProps,
+  });
 
   const newProps = {
     ...mergedProps,
