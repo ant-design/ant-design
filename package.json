@@ -337,7 +337,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "overrides": {
-    "@utoo/pack": "1.4.25-alpha.2",
+    "@utoo/pack": "1.4.25",
     "jest-environment-node": "30.5.2"
   },
   "title": "Ant Design",
