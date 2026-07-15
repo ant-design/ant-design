@@ -6,9 +6,10 @@ import type { BasicDataNode, DataNode, TreeProps as RcTreeProps } from '@rc-comp
 import RcTree from '@rc-component/tree';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import initCollapseMotion from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -141,11 +142,14 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     | 'switcherIcon'
     | 'classNames'
     | 'styles'
+    | 'rootStyle'
   > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeSemanticAllType['classNamesAndFn'];
   styles?: TreeSemanticAllType['stylesAndFn'];
+  /** @deprecated Please use `styles.root` instead */
+  rootStyle?: React.CSSProperties;
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */
@@ -214,10 +218,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion: customMotion,
     style,
     rootClassName,
+    rootStyle,
     classNames,
     styles,
     icon,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Tree');
+    warning.deprecated(!rootStyle, 'rootStyle', 'styles.root');
+  }
 
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
@@ -241,9 +251,11 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion,
   };
 
+  const rootStyleRoot = useSemanticRootStyle(rootStyle);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, rootStyleRoot, styles],
     {
       props: mergedProps,
     },
