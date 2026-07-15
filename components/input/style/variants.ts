@@ -175,15 +175,11 @@ export const genOutlinedGroupStyle: GenerateStyle<InputToken, CSSObject> = (toke
 const borderlessFocusVisibleSelector =
   '&:focus-visible, &:has(input:focus-visible), &:has(textarea:focus-visible)';
 
-const genBorderlessFocusVisibleStyle = (token: InputToken, outlineColor: string): CSSObject => {
-  const outlineWidth = token.min(token.lineWidth, token.lineWidthFocus);
-
-  return {
-    outline: `${unit(outlineWidth)} ${token.lineType} ${outlineColor}`,
-    outlineOffset: unit(token.calc(outlineWidth).mul(-1).equal()),
-    transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
-  };
-};
+const genBorderlessFocusVisibleStyle = (token: InputToken, outlineColor: string): CSSObject => ({
+  outline: `${unit(token.lineWidthFocus)} ${token.lineType} ${outlineColor}`,
+  outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+});
 
 const genBorderlessStatusStyle = (
   token: InputToken,
