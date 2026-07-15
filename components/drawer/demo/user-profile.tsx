@@ -3,25 +3,25 @@ import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles((props) => {
-  const { css } = props;
+  const { css, cssVar } = props;
   return {
     descriptionItem: css`
-      margin-bottom: 7px;
-      color: rgba(0, 0, 0, 0.65);
-      font-size: 14px;
-      line-height: 1.5715;
+      margin-bottom: ${cssVar.marginXS};
+      color: ${cssVar.colorTextLabel};
+      font-size: ${cssVar.fontSize};
+      line-height: ${cssVar.lineHeight};
     `,
     profileTitle: css`
       display: block;
-      margin-bottom: 16px;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 16px;
-      line-height: 1.5715;
+      margin-bottom: ${cssVar.margin};
+      color: ${cssVar.colorTextHeading};
+      font-size: ${cssVar.fontSizeLG};
+      line-height: ${cssVar.lineHeight};
     `,
     label: css`
       display: inline-block;
-      margin-inline-end: 8px;
-      color: rgba(0, 0, 0, 0.85);
+      margin-inline-end: ${cssVar.marginXS};
+      color: ${cssVar.colorTextHeading};
     `,
   };
 });
@@ -57,11 +57,11 @@ const App: React.FC = () => {
   return (
     <>
       <List
+        bordered
         dataSource={[
           { id: 1, name: 'Lily' },
           { id: 2, name: 'Lily' },
         ]}
-        bordered
         renderItem={(item) => (
           <List.Item
             key={item.id}
