@@ -6,7 +6,7 @@ import { CheckCircleOutlined, CloseCircleOutlined, LinkedinOutlined } from '@ant
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, createEvent, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
@@ -64,6 +64,23 @@ describe('Tag', () => {
       jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+  });
+
+  it('should prevent navigation when closing a link tag', () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <Tag href="#target" closable onClose={onClose}>
+        Link
+      </Tag>,
+    );
+    const closeIcon = container.querySelector('.ant-tag-close-icon')!;
+    const clickEvent = createEvent.click(closeIcon);
+
+    fireEvent(closeIcon, clickEvent);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(clickEvent.defaultPrevented).toBe(true);
+    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
   });
 
   it('show close button by closeIcon', () => {
