@@ -2,11 +2,13 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import type { UseTheme } from '.';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   return {
     boxBorder: css({
       border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
@@ -129,8 +131,20 @@ const useBootstrapTheme: UseTheme = () => {
             colorInfoBg: '#d9edf7',
             colorWarningBg: '#fcf8e3',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: '#f8f9fa',
+            footerBg: '#f8f9fa',
+            headerBg: '#ffffff',
+            headerColor: '#212529',
+            siderBg: '#ffffff',
+            triggerBg: '#e9ecef',
+            triggerColor: '#212529',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            itemBg: 'transparent',
+            subMenuItemBg: 'transparent',
+          },
           Button: {},
           Alert: {},
           Modal: {},
@@ -138,7 +152,11 @@ const useBootstrapTheme: UseTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#212529',
+            defaultColor: '#337ab7',
+            remainingColor: '#f5f5f5',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},
@@ -224,7 +242,23 @@ const useBootstrapTheme: UseTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.alertRoot,
+      styles.boxBorder,
+      styles.buttonColorDefault,
+      styles.buttonRoot,
+      styles.dropdownItem,
+      styles.modalBody,
+      styles.modalContainer,
+      styles.modalFooter,
+      styles.modalHeader,
+      styles.notificationRoot,
+      styles.popupBox,
+      styles.progressRail,
+      styles.progressTrack,
+      styles.selectPopupRoot,
+      styles.switchRoot,
+    ],
   );
 };
 export default useBootstrapTheme;

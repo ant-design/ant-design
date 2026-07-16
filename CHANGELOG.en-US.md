@@ -15,6 +15,35 @@ tag: vVERSION
 
 ---
 
+## 6.5.1
+
+`2026-07-13`
+
+- 💄 Fix AutoComplete custom input background color being applied twice in the `filled` variant. [#58669](https://github.com/ant-design/ant-design/pull/58669) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Avatar, List, Pagination, Steps, and Table not responding to breakpoint changes after responsive configuration is enabled dynamically. [#58654](https://github.com/ant-design/ant-design/pull/58654) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ Fix Button, Checkbox, Switch, Splitter, and BorderBeam pseudo-element transitions and animations so they respect `prefers-reduced-motion`. [#58685](https://github.com/ant-design/ant-design/pull/58685) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Button icon vertical alignment when used in Card `extra`. [#58584](https://github.com/ant-design/ant-design/pull/58584) [@zombieJ](https://github.com/zombieJ)
+- ConfigProvider
+  - 🐞 Fix ConfigProvider with StyleProvider `layer` causing missing styles in some components. [#58559](https://github.com/ant-design/ant-design/pull/58559) [@fireairforce](https://github.com/fireairforce)
+  - 🐞 Fix ConfigProvider CSS variable prefix not updating when `prefixCls` changes dynamically. [#58652](https://github.com/ant-design/ant-design/pull/58652) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Descriptions content columns collapsing to near-zero width when nested in Popover. [#58583](https://github.com/ant-design/ant-design/pull/58583) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Dropdown positioning and interaction when its child component does not support `ref`. [#58662](https://github.com/ant-design/ant-design/pull/58662) [@afc163](https://github.com/afc163)
+- Form
+  - 🐞 Fix Form.Item validation messages still appearing when `help={false}` is set. [#58558](https://github.com/ant-design/ant-design/pull/58558) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Form.Item feedback icon classes and nested `noStyle` feedback state not updating after dynamic configuration changes. [#58653](https://github.com/ant-design/ant-design/pull/58653) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix Icon `TwitchFilled` rendering smaller than other icons and remove its unintended drop shadow. [#58542](https://github.com/ant-design/ant-design/pull/58542) [ant-design-icons#747](https://github.com/ant-design/ant-design-icons/pull/747) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- ⌨️ Fix Input.Search focus outline being covered when hovering the adjacent Input. [#58615](https://github.com/ant-design/ant-design/pull/58615) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Modal methods incorrectly applying `classNames.body`, `styles.body`, and `bodyStyle` to confirmation dialog titles. [#58412](https://github.com/ant-design/ant-design/pull/58412) [@biubiukam](https://github.com/biubiukam)
+- 🐞 Fix Pagination page-size selector expanding to full width inside Form.Item. [#58579](https://github.com/ant-design/ant-design/pull/58579) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Switch icons in `checkedChildren` and `unCheckedChildren` not being vertically centered. [#58672](https://github.com/ant-design/ant-design/pull/58672) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- Table
+  - 🐞 Fix Table horizontal scrolling occasionally jumping back because of stale deferred scroll synchronization. [#58613](https://github.com/ant-design/ant-design/pull/58613) [#58622](https://github.com/ant-design/ant-design/pull/58622) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Fix Table filter selections not resetting to the current filtered values when reopening the filter dropdown. [#58657](https://github.com/ant-design/ant-design/pull/58657) [@li-jia-nan](https://github.com/li-jia-nan)
+- Typography
+  - ⌨️ Fix Typography ellipsis mode and `aria-label` not updating when `ellipsis.rows` or editable text changes. [#58650](https://github.com/ant-design/ant-design/pull/58650) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🇯🇵 Fix Typography incorrect Japanese `expand` and `collapse` labels. [#58563](https://github.com/ant-design/ant-design/pull/58563) [@greymoth-jp](https://github.com/greymoth-jp)
+- 🌐 Complete missing localized messages for ConfigProvider, Table, Transfer, Typography, Form, QRCode, ColorPicker, and Icon across 68 locales. [#58575](https://github.com/ant-design/ant-design/pull/58575) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 6.5.0
 
 `2026-06-27`

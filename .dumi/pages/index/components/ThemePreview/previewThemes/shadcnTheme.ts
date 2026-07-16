@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const useStyles = createStyles(({ css }) => {
   return {
@@ -179,6 +179,7 @@ const useShadcnTheme = () => {
             borderRadiusLG: 12,
           },
           Progress: {
+            circleTextColor: '#262626',
             defaultColor: '#18181b',
             remainingColor: '#f4f4f5',
           },
@@ -210,8 +211,20 @@ const useShadcnTheme = () => {
             colorInfoBg: '#f5f5f5',
             colorWarningBg: '#fff7ed',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: '#fafafa',
+            footerBg: '#fafafa',
+            headerBg: '#ffffff',
+            headerColor: '#18181b',
+            siderBg: '#ffffff',
+            triggerBg: '#f4f4f5',
+            triggerColor: '#18181b',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            itemBg: 'transparent',
+            subMenuItemBg: 'transparent',
+          },
           Card: {},
           Tooltip: {},
           Radio: {},
@@ -261,7 +274,18 @@ const useShadcnTheme = () => {
       segmented: {},
       progress: {},
     }),
-    [styles],
+    [
+      styles.buttonDanger,
+      styles.buttonDefault,
+      styles.buttonPrimary,
+      styles.inputElement,
+      styles.inputError,
+      styles.inputRoot,
+      styles.notificationDescription,
+      styles.notificationRoot,
+      styles.notificationTitle,
+      styles.selectRoot,
+    ],
   );
 };
 export default useShadcnTheme;

@@ -2,9 +2,11 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
     boxShadow: `0 0 3px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
@@ -83,6 +85,14 @@ const useStyles = createStyles(({ css, cssVar }) => {
     progressTrack: css({
       backgroundColor: cssVar.colorPrimary,
     }),
+    menuRoot: css({
+      '&.ant-menu.ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title': {
+        color: cssVar.colorPrimary,
+      },
+      '&.ant-menu.ant-menu-dark .ant-menu-item-selected': {
+        color: '#000',
+      },
+    }),
   };
 });
 
@@ -109,8 +119,26 @@ const useGeekTheme = () => {
             colorInfoBg: 'rgba(57, 255, 20, 0.08)',
             colorWarningBg: 'rgba(250, 219, 20, 0.12)',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: '#030603',
+            footerBg: '#030603',
+            headerBg: '#051105',
+            headerColor: '#39ff14',
+            siderBg: '#030603',
+            triggerBg: '#051105',
+            triggerColor: '#39ff14',
+          },
+          Menu: {
+            darkGroupTitleColor: 'rgba(57, 255, 20, 0.45)',
+            darkItemBg: 'transparent',
+            darkItemColor: 'rgba(57, 255, 20, 0.72)',
+            darkItemHoverBg: 'rgba(57, 255, 20, 0.12)',
+            darkItemHoverColor: '#39ff14',
+            darkItemSelectedBg: '#39ff14',
+            darkItemSelectedColor: '#39ff14',
+            darkPopupBg: '#030603',
+            darkSubMenuItemBg: 'transparent',
+          },
           Button: {},
           Alert: {},
           Modal: {},
@@ -121,7 +149,11 @@ const useGeekTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#39ff14',
+            defaultColor: '#39ff14',
+            remainingColor: 'rgba(57, 255, 20, 0.18)',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},
@@ -203,11 +235,34 @@ const useGeekTheme = () => {
       checkbox: {},
       dropdown: {},
       popover: {},
+      menu: {
+        classNames: {
+          root: styles.menuRoot,
+        },
+      },
       switch: {},
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.app,
+      styles.buttonRoot,
+      styles.buttonRootSolid,
+      styles.buttonRootSolidDanger,
+      styles.colorPickerBody,
+      styles.lightBorder,
+      styles.menuRoot,
+      styles.modalBody,
+      styles.modalContainer,
+      styles.modalFooter,
+      styles.modalHeader,
+      styles.notificationClose,
+      styles.notificationRoot,
+      styles.notificationText,
+      styles.progressTrack,
+      styles.tooltipContainer,
+      styles.tooltipRoot,
+    ],
   );
 };
 export default useGeekTheme;

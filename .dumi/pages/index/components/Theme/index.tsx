@@ -45,6 +45,7 @@ import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 
+import type { PreviewThemeConfig } from '../ThemePreview/previewThemes';
 import { DEFAULT_COLOR } from '../ThemePreview/previewThemes';
 
 const { Header, Content, Sider } = Layout;
@@ -93,17 +94,16 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     `,
 
     avatar: css`
-      width: 28px;
-      height: 28px;
+      width: 20px;
+      height: 20px;
       border-radius: 100%;
-      background-size: 70%;
       background-repeat: no-repeat;
       background-position: center;
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     `,
 
     avatarDark: css`
-      background: rgba(200, 200, 200, 0.3);
+      background-color: rgba(200, 200, 200, 0.3);
     `,
 
     logo: css`
@@ -258,7 +258,7 @@ export interface ThemeDashboardProps {
   className?: string;
   config?: ConfigProviderProps;
   style?: React.CSSProperties;
-  activeTheme: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const dashboardKpis = [
@@ -387,14 +387,18 @@ interface ThemeDashboardLayoutProps {
   className?: string;
   isDarkTheme: boolean;
   style?: React.CSSProperties;
-  activeTheme?: any;
+  activeTheme?: PreviewThemeConfig;
 }
 
 const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
   const { className, isDarkTheme, style, activeTheme } = props;
 
+  const { bgImgDark, icon: Icon = '', name } = activeTheme || {};
+
   const { token } = theme.useToken();
   const closestColor = DEFAULT_COLOR;
+  const hasDarkBackground = isDarkTheme || bgImgDark;
+  const menuTheme = hasDarkBackground ? 'dark' : 'light';
   const logoColor = React.useMemo(() => {
     const hsb = generateColor(token.colorPrimary).toHsb();
     hsb.b = Math.min(hsb.b, 0.7);
@@ -405,13 +409,14 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
     <App style={{ width: '100%' }}>
       <div
         className={clsx(styles.demo, className, {
-          [styles.otherDemo]: !isDarkTheme && closestColor !== DEFAULT_COLOR && styles.otherDemo,
-          [styles.darkDemo]: isDarkTheme,
+          [styles.otherDemo]:
+            !hasDarkBackground && closestColor !== DEFAULT_COLOR && styles.otherDemo,
+          [styles.darkDemo]: hasDarkBackground,
         })}
         style={style}
       >
-        <Layout className={styles.transBg}>
-          <Header className={clsx(styles.header, styles.transBg, isDarkTheme && styles.headerDark)}>
+        <Layout>
+          <Header className={clsx(styles.header, hasDarkBackground && styles.headerDark)}>
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
@@ -429,20 +434,24 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
             <Flex className={styles.menu} gap="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
-              <div
-                className={clsx(styles.avatar)}
-                style={{
-                  // backgroundColor: token.colorPrimaryBgHover,
-                  backgroundImage: `url(${activeTheme?.icon})`,
-                }}
-              />
+              {typeof Icon === 'string' ? (
+                <img
+                  className={styles.avatar}
+                  src={Icon}
+                  alt={name}
+                  title={name}
+                  draggable={false}
+                />
+              ) : (
+                <Icon className={styles.avatar} />
+              )}
             </Flex>
           </Header>
-          <Layout className={styles.transBg} hasSider>
-            <Sider className={clsx(styles.transBg)} width={200}>
+          <Layout hasSider>
+            <Sider theme={menuTheme} width={200}>
               <Menu
                 mode="inline"
-                className={clsx(styles.transBg)}
+                theme={menuTheme}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderInlineEnd: 0 }}
@@ -450,7 +459,7 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
                 expandIcon={false}
               />
             </Sider>
-            <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>
+            <Layout style={{ padding: '0 24px 24px' }}>
               <Breadcrumb
                 style={{ margin: '16px 0' }}
                 items={[
@@ -576,7 +585,6 @@ export const ThemeDashboard: React.FC<ThemeDashboardProps> = (props) => {
   const isDarkTheme = React.useMemo(() => {
     const algorithm = config?.theme?.algorithm;
     const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
-
     return algorithms.includes(theme.darkAlgorithm);
   }, [config]);
 

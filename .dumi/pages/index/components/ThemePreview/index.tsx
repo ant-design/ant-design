@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
 import { App, ConfigProvider, Flex, Segmented, theme, Tooltip } from 'antd';
+import type { ThemeConfig } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
+import { clsx } from 'clsx';
 import { Link, useLocation } from 'dumi';
 
 import { DarkContext } from '../../../../hooks/useDark';
@@ -12,6 +14,7 @@ import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import ComponentsBlock from '../PreviewPane/Components';
 import { ThemeDashboard } from '../Theme';
+import type { PreviewThemeConfig } from './previewThemes';
 import usePreviewThemes from './previewThemes';
 import { generateFullCopyFile } from './themeCodeUtils';
 
@@ -42,6 +45,7 @@ const locales = {
     contribution: 'Contribution',
   },
 };
+
 const useStyles = createStyles(({ css, cssVar }) => ({
   container: css({
     width: '100%',
@@ -90,7 +94,16 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       width: '60%',
     },
   }),
-  previewTabsItem: css({
+  tabsDark: css({
+    backgroundColor: 'rgba(255, 255, 255, 0.14)',
+    backdropFilter: 'blur(18px)',
+    boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
+    '.ant-segmented-thumb': {
+      backgroundColor: 'rgba(255, 255, 255, 0.96)',
+      boxShadow: '0 8px 18px rgba(0,0,0,0.24)',
+    },
+  }),
+  tabsItem: css({
     minWidth: 112,
     borderRadius: 100,
     color: cssVar.colorTextTertiary,
@@ -104,6 +117,16 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       fontSize: 16,
     },
   }),
+  tabsItemDark: css({
+    color: 'rgba(255, 255, 255, 0.78)',
+    '&:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover': {
+      color: '#fff',
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+  }),
   previewTabsLabel: css({
     minHeight: 30,
     lineHeight: '30px',
@@ -112,17 +135,27 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     height: 20,
     width: 20,
     fontSize: 20,
-    borderRadius: '50%',
+    borderRadius: '100%',
+    overflow: 'hidden',
     cursor: 'pointer',
-    backgroundSize: '75%',
-    boxShadow: '0 3px 8px rgba(0,0,0,0.15)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     outline: `2px solid ${cssVar.colorBgLayout}`,
-    transition: `transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow}`,
+    backgroundColor: cssVar.colorBgLayout,
+    transition: ['background-color', 'transform', 'opacity']
+      .map((prop) => `${prop} ${cssVar.motionDurationFast}`)
+      .join(', '),
     '&:hover, &:focus-within': {
       outline: `2px solid ${cssVar.colorPrimaryBorder}`,
       transform: 'scale(1.1)',
+    },
+    '> img': {
+      fontSize: 0,
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '100%',
     },
   }),
   active: css({
@@ -162,11 +195,14 @@ const previewPaneOptions: { label: string; value: PreviewPane }[] = [
   { label: 'Dashboard', value: 'dashboard' },
 ];
 
+const getPreviewThemeKey = (previewTheme: PreviewThemeConfig) =>
+  previewTheme.key ?? previewTheme.name;
+
 export interface ThemePreviewProps {
   onOpenPromptDrawer?: () => void;
 }
 
-function ThemePreviewContent(props: ThemePreviewProps) {
+const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const { onOpenPromptDrawer } = props;
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
@@ -177,18 +213,13 @@ function ThemePreviewContent(props: ThemePreviewProps) {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(
-    () => previewThemes?.find((theme) => theme.key === 'light')?.name,
-  );
+  const [activeThemeKey, setActiveThemeKey] = React.useState('light');
   const [activePane, setActivePane] = React.useState<PreviewPane>('components');
-  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   React.useEffect(() => {
-    const defaultThemeName = isDark ? 'dark' : 'light';
-    const targetTheme =
-      previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName)?.name ||
-      previewThemes[0].name;
-    setActiveName(targetTheme);
+    setActiveThemeKey(isDark ? 'dark' : 'light');
   }, [isDark]);
 
   const backgroundPrefetchList = React.useMemo(
@@ -196,22 +227,24 @@ function ThemePreviewContent(props: ThemePreviewProps) {
     [previewThemes],
   );
 
-  const handleThemeClick = (name: string) => setActiveName(name);
+  const handleThemeClick = (themeKey: string) => setActiveThemeKey(themeKey);
 
-  const handleKeyDown = (event: React.KeyboardEvent, name: string) => {
+  const handleKeyDown = (event: React.KeyboardEvent, themeKey: string) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      handleThemeClick(name);
+      handleThemeClick(themeKey);
     }
   };
 
-  const activeTheme = previewThemes.find((previewTheme) => previewTheme.name === activeName);
+  const activeTheme =
+    previewThemes.find((previewTheme) => getPreviewThemeKey(previewTheme) === activeThemeKey) ??
+    previewThemes[0];
 
   const handleCopyTheme = async (event: React.MouseEvent) => {
     event.stopPropagation();
     const code = generateFullCopyFile({
-      themeConfig: activeTheme!.props!.theme,
-      copyCode: activeTheme!.copyCode,
+      themeConfig: activeTheme?.props?.theme,
+      copyCode: activeTheme?.copyCode,
     });
     const success = await copy(code);
     if (success) {
@@ -236,46 +269,54 @@ function ThemePreviewContent(props: ThemePreviewProps) {
   const background = activeTheme?.bgImg
     ? activeTheme.bgImg
     : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)';
+  const hasDarkBackground = !!activeTheme?.bgImgDark;
 
   return (
     <Group
       title={locale.themeTitle}
       description={locale.themeDesc}
       collapse
-      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+      titleColor={hasDarkBackground ? '#fff' : undefined}
       background={background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
       <Flex className={styles.container}>
         <Flex className={styles.wrapper} gap={16}>
           <Flex className={styles.switch} justify="space-between">
-            <Segmented
+            <Segmented<PreviewPane>
               classNames={{
-                root: styles.previewTabs,
-                item: styles.previewTabsItem,
-                label: styles.previewTabsLabel,
+                label: clsx(styles.previewTabsLabel),
+                root: clsx(styles.previewTabs, { [styles.tabsDark]: hasDarkBackground }),
+                item: clsx(styles.tabsItem, { [styles.tabsItemDark]: hasDarkBackground }),
               }}
               options={previewPaneOptions}
               value={activePane}
-              onChange={(value) => setActivePane(value as PreviewPane)}
+              onChange={setActivePane}
             />
             <Flex align="center" gap={12}>
-              {previewThemes.map((previewTheme: any) => (
-                <Tooltip placement="top" key={previewTheme.name} title={previewTheme.name}>
-                  <div
-                    className={`${styles.themeBlock} ${activeName === previewTheme.name ? styles.active : ''}`}
-                    role="tab"
-                    tabIndex={activeName === previewTheme.name ? 0 : -1}
-                    aria-selected={activeName === previewTheme.name}
-                    onClick={() => handleThemeClick(previewTheme.name)}
-                    onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
-                    style={{
-                      backgroundImage: previewTheme.icon ? `url(${previewTheme.icon})` : undefined,
-                      backgroundColor: 'rgba(229, 229, 229, 0.7)',
-                    }}
-                  />
-                </Tooltip>
-              ))}
+              {previewThemes.map((theme) => {
+                const { name, icon: Icon } = theme;
+                const themeKey = getPreviewThemeKey(theme);
+                const isSelected = activeThemeKey === themeKey;
+                return (
+                  <Tooltip placement="top" key={`item-${themeKey}`} title={name}>
+                    <div
+                      role="tab"
+                      className={clsx(styles.themeBlock, { [styles.active]: isSelected })}
+                      tabIndex={isSelected ? 0 : -1}
+                      aria-selected={isSelected}
+                      onClick={() => handleThemeClick(themeKey)}
+                      onKeyDown={(event) => handleKeyDown(event, themeKey)}
+                    >
+                      {typeof Icon === 'string' ? (
+                        <img src={Icon} alt={name} title={name} draggable={false} />
+                      ) : (
+                        <Icon />
+                      )}
+                    </div>
+                  </Tooltip>
+                );
+              })}
               <Tooltip placement="top" title={locale.copyTheme}>
                 <div className={styles.buttonBlock} onClick={handleCopyTheme}>
                   <CopyOutlined />
@@ -299,15 +340,15 @@ function ThemePreviewContent(props: ThemePreviewProps) {
           {activePane === 'components' ? (
             <ComponentsBlock
               isDark={isDark}
-              isDarkTheme={activeTheme?.bgImgDark}
-              key={activeName}
+              isDarkTheme={hasDarkBackground}
+              key={activeThemeKey}
               config={activeTheme?.props}
               className={styles.componentsBlock}
               containerClassName={styles.componentsBlockContainer}
             />
           ) : (
             <ThemeDashboard
-              key={activeName}
+              key={activeThemeKey}
               className={styles.dashboardBlock}
               config={activeTheme?.props}
               activeTheme={activeTheme}
@@ -318,14 +359,20 @@ function ThemePreviewContent(props: ThemePreviewProps) {
       </Flex>
     </Group>
   );
-}
+};
 
-export default function ThemePreview(props: ThemePreviewProps = {}) {
+const ThemePreview: React.FC<ThemePreviewProps> = (props) => {
+  const memoizedThemeConfig = React.useMemo<ThemeConfig>(() => {
+    return { algorithm: theme.defaultAlgorithm };
+  }, []);
+
   return (
-    <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+    <ConfigProvider theme={memoizedThemeConfig}>
       <App>
         <ThemePreviewContent {...props} />
       </App>
     </ConfigProvider>
   );
-}
+};
+
+export default ThemePreview;

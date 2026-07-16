@@ -80,7 +80,7 @@ const searchTransferProps = {
 };
 
 const generateData = (n = 20) => {
-  const data = [];
+  const data: TransferProps<DefaultRecordType>['dataSource'] = [];
   for (let i = 0; i < n; i++) {
     data.push({
       key: `${i}`,
@@ -818,7 +818,7 @@ describe('Transfer', () => {
       await waitFor(() => getByTitle('2/2'));
 
       rerender(
-        <Transfer
+        <Transfer<DefaultRecordType>
           {...{ ...listDisabledProps, targetKeys: ['b', 'c'] }}
           pagination={{ pageSize: 1 }}
         />,
@@ -829,7 +829,10 @@ describe('Transfer', () => {
     it('should support change pageSize', () => {
       const dataSource = generateData();
       const { container } = render(
-        <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
+        <Transfer<DefaultRecordType>
+          dataSource={dataSource}
+          pagination={{ showSizeChanger: true, simple: false }}
+        />,
       );
 
       fireEvent.mouseDown(container.querySelector('.ant-select')!);

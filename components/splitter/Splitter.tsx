@@ -229,11 +229,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
           const resizableInfo = resizableInfos[idx];
           if (resizableInfo) {
-            const ariaMinStart = (stackSizes[idx - 1] || 0) + itemPtgMinSizes[idx];
-            const ariaMinEnd = (stackSizes[idx + 1] || 100) - itemPtgMaxSizes[idx + 1];
+            const prevStackSize = Number.isFinite(stackSizes[idx - 1]) ? stackSizes[idx - 1] : 0;
+            const nextStackSize = Number.isFinite(stackSizes[idx + 1]) ? stackSizes[idx + 1] : 1;
+            const ariaMinStart = prevStackSize + itemPtgMinSizes[idx];
+            const ariaMinEnd = nextStackSize - itemPtgMaxSizes[idx + 1];
 
-            const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
-            const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
+            const ariaMaxStart = prevStackSize + itemPtgMaxSizes[idx];
+            const ariaMaxEnd = nextStackSize - itemPtgMinSizes[idx + 1];
 
             splitBar = (
               <SplitBar

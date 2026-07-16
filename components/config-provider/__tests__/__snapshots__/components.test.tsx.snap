@@ -18297,7 +18297,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18425,7 +18425,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18558,7 +18558,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18687,7 +18687,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18821,7 +18821,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -18949,7 +18949,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19082,7 +19082,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19210,7 +19210,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19343,7 +19343,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19471,7 +19471,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer-select config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content config-select-content-has-value"
@@ -19604,7 +19604,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19732,7 +19732,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19865,7 +19865,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer-select prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"
@@ -19993,7 +19993,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer-select prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-content ant-select-content-has-value"

@@ -3,7 +3,9 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css, cssVar }) => {
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+
   const illustrationBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
   };
@@ -119,14 +121,30 @@ const useIllustrationTheme = () => {
             colorInfoBg: '#E6F4FF',
             colorWarningBg: '#FFFBE6',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: '#FFF9F0',
+            footerBg: '#FFF9F0',
+            headerBg: '#FFFFFF',
+            headerColor: '#2C2C2C',
+            siderBg: '#FFF0F6',
+            triggerBg: '#FFE7BA',
+            triggerColor: '#2C2C2C',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            itemBg: 'transparent',
+            subMenuItemBg: 'transparent',
+          },
           Alert: {},
           Checkbox: {},
           Radio: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: '#2C2C2C',
+            defaultColor: '#52C41A',
+            remainingColor: '#D9F7BE',
+          },
           Steps: {},
           ColorPicker: {},
         },
@@ -215,7 +233,19 @@ const useIllustrationTheme = () => {
       radio: {},
       segmented: {},
     }),
-    [],
+    [
+      styles.buttonRoot,
+      styles.illustrationBorder,
+      styles.illustrationBox,
+      styles.inputNumberActions,
+      styles.modalContainer,
+      styles.notificationRoot,
+      styles.notificationTitle,
+      styles.popupBox,
+      styles.progressRail,
+      styles.progressTrack,
+      styles.tooltipRoot,
+    ],
   );
 };
 

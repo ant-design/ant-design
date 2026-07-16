@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const glassBorder = {
   boxShadow: [
@@ -176,8 +176,28 @@ const useGlassTheme = () => {
             colorInfoBg: 'rgba(145, 202, 255, 0.18)',
             colorWarningBg: 'rgba(255, 229, 143, 0.18)',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: 'rgba(255, 255, 255, 0.12)',
+            footerBg: 'rgba(255, 255, 255, 0.12)',
+            headerBg: 'rgba(255, 255, 255, 0.32)',
+            headerColor: 'rgba(0, 0, 0, 0.88)',
+            siderBg: 'rgba(255, 255, 255, 0.18)',
+            triggerBg: 'rgba(255, 255, 255, 0.28)',
+            triggerColor: 'rgba(0, 0, 0, 0.88)',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            groupTitleColor: 'rgba(0, 0, 0, 0.55)',
+            itemActiveBg: 'rgba(255, 255, 255, 0.24)',
+            itemBg: 'transparent',
+            itemColor: 'rgba(0, 0, 0, 0.78)',
+            itemHoverBg: 'rgba(255, 255, 255, 0.28)',
+            itemHoverColor: 'rgba(0, 0, 0, 0.88)',
+            itemSelectedBg: 'rgba(255, 255, 255, 0.36)',
+            itemSelectedColor: 'rgba(0, 0, 0, 0.88)',
+            subMenuItemBg: 'transparent',
+            subMenuItemSelectedColor: 'rgba(0, 0, 0, 0.88)',
+          },
           Alert: {},
           Modal: {},
           Card: {},
@@ -187,7 +207,11 @@ const useGlassTheme = () => {
           Select: {},
           Input: {},
           Switch: {},
-          Progress: {},
+          Progress: {
+            circleTextColor: 'rgba(0, 0, 0, 0.88)',
+            defaultColor: '#1677ff',
+            remainingColor: 'rgba(255, 255, 255, 0.28)',
+          },
           Steps: {},
           Slider: {},
           ColorPicker: {},
@@ -295,7 +319,22 @@ const useGlassTheme = () => {
       checkbox: {},
       tooltip: {},
     }),
-    [],
+    [
+      styles.app,
+      styles.buttonRoot,
+      styles.buttonRootDangerColor,
+      styles.buttonRootDefaultColor,
+      styles.cardRoot,
+      styles.dropdownRoot,
+      styles.glassBorder,
+      styles.glassBox,
+      styles.modalContainer,
+      styles.notBackdropFilter,
+      styles.notificationRoot,
+      styles.radioButtonRoot,
+      styles.segmentedRoot,
+      styles.switchRoot,
+    ],
   );
 };
 export default useGlassTheme;

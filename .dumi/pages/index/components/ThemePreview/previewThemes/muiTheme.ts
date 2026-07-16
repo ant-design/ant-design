@@ -3,7 +3,7 @@ import { raf } from '@rc-component/util';
 import { theme } from 'antd';
 import type { ConfigProviderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
@@ -245,6 +245,7 @@ const useMuiTheme = () => {
             borderRadiusLG: 4,
           },
           Progress: {
+            circleTextColor: 'rgba(33, 33, 33, 0.87)',
             defaultColor: '#1976d2',
             remainingColor: 'rgba(25, 118, 210, 0.12)',
           },
@@ -270,8 +271,20 @@ const useMuiTheme = () => {
             colorInfoBg: '#e1f5fe',
             colorWarningBg: '#fff3e0',
           },
-          Layout: {},
-          Menu: {},
+          Layout: {
+            bodyBg: '#f5f5f5',
+            footerBg: '#f5f5f5',
+            headerBg: '#1976d2',
+            headerColor: '#ffffff',
+            siderBg: '#ffffff',
+            triggerBg: '#eeeeee',
+            triggerColor: 'rgba(33, 33, 33, 0.87)',
+          },
+          Menu: {
+            activeBarBorderWidth: 0,
+            itemBg: 'transparent',
+            subMenuItemBg: 'transparent',
+          },
           Card: {},
           Tooltip: {},
           Radio: {},

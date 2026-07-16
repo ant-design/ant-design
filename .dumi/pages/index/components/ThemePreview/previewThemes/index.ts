@@ -3,6 +3,7 @@ import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
+import { SereneIcon } from '../svg-component';
 import useBlossomTheme from './blossomTheme';
 import blossomThemeSource from './blossomTheme.ts?raw';
 import useBootstrapTheme from './bootstrapTheme';
@@ -19,21 +20,23 @@ import useLarkTheme from './larkTheme';
 import larkThemeSource from './larkTheme.ts?raw';
 import useMuiTheme from './muiTheme';
 import muiThemeSource from './muiTheme.ts?raw';
+import useSereneTheme from './sereneTheme';
+import sereneThemeSource from './sereneTheme.ts?raw';
 import useShadcnTheme from './shadcnTheme';
 import shadcnThemeSource from './shadcnTheme.ts?raw';
 import useV4Theme from './v4Theme';
 import v4ThemeSource from './v4Theme.ts?raw';
 
-export type PreviewThemeConfig = {
-  icon?: string;
+export interface PreviewThemeConfig {
+  icon: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   name: string;
   key?: string;
   props?: ConfigProviderProps;
   bgImg?: string;
-  bgImgDark?: true;
+  bgImgDark?: boolean;
   copyCode?: string;
   colors?: string[];
-};
+}
 
 const locales = {
   cn: {
@@ -49,6 +52,7 @@ const locales = {
     lark: '知识协作',
     blossom: '桃花缘',
     v4: 'Ant Design V4',
+    serene: '静谧',
   },
   en: {
     default: 'Ant Design',
@@ -63,6 +67,7 @@ const locales = {
     lark: 'Document',
     blossom: 'Blossom',
     v4: 'Ant Design V4',
+    serene: 'Serene',
   },
 };
 
@@ -72,8 +77,20 @@ export const DEFAULT_COLOR = '#1677FF';
 export const PINK_COLOR = '#ED4192';
 
 const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
-  Layout: {},
-  Menu: {},
+  Layout: {
+    bodyBg: '#f5f8ff',
+    footerBg: '#f5f8ff',
+    headerBg: '#ffffff',
+    headerColor: 'rgba(0, 0, 0, 0.88)',
+    siderBg: '#ffffff',
+    triggerBg: '#f0f5ff',
+    triggerColor: 'rgba(0, 0, 0, 0.88)',
+  },
+  Menu: {
+    activeBarBorderWidth: 0,
+    itemBg: 'transparent',
+    subMenuItemBg: 'transparent',
+  },
   Button: {},
   Alert: {},
   Modal: {},
@@ -84,17 +101,60 @@ const previewThemeComponents: NonNullable<ThemeConfig['components']> = {
   Select: {},
   Input: {},
   Switch: {},
-  Progress: {},
+  Progress: {
+    circleTextColor: 'rgba(0, 0, 0, 0.88)',
+    defaultColor: DEFAULT_COLOR,
+    remainingColor: 'rgba(0, 0, 0, 0.06)',
+  },
   Steps: {},
   Slider: {},
   ColorPicker: {},
   Notification: {},
 };
 
+const darkPreviewLayoutToken: NonNullable<ThemeConfig['components']>['Layout'] = {
+  bodyBg: '#050505',
+  footerBg: '#050505',
+  headerBg: '#111111',
+  headerColor: 'rgba(255, 255, 255, 0.88)',
+  siderBg: '#050505',
+  triggerBg: '#111111',
+  triggerColor: 'rgba(255, 255, 255, 0.88)',
+};
+
+const darkPreviewMenuToken: NonNullable<ThemeConfig['components']>['Menu'] = {
+  darkItemBg: 'transparent',
+  darkItemColor: 'rgba(255, 255, 255, 0.68)',
+  darkItemHoverBg: 'rgba(255, 255, 255, 0.08)',
+  darkItemHoverColor: '#fff',
+  darkItemSelectedBg: 'rgba(22, 119, 255, 0.28)',
+  darkItemSelectedColor: '#fff',
+  darkSubMenuItemBg: 'transparent',
+};
+
+const darkPreviewProgressToken: NonNullable<ThemeConfig['components']>['Progress'] = {
+  circleTextColor: 'rgba(255, 255, 255, 0.88)',
+  defaultColor: DEFAULT_COLOR,
+  remainingColor: 'rgba(255, 255, 255, 0.12)',
+};
+
+const isDarkAlgorithm = (algorithm: ThemeConfig['algorithm']) => {
+  const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : [];
+
+  return algorithms.includes(theme.darkAlgorithm);
+};
+
 const getBasePreviewThemeProps = (algorithm: ThemeConfig['algorithm']): ConfigProviderProps => ({
   theme: {
     algorithm,
-    components: previewThemeComponents,
+    components: isDarkAlgorithm(algorithm)
+      ? {
+          ...previewThemeComponents,
+          Layout: darkPreviewLayoutToken,
+          Menu: darkPreviewMenuToken,
+          Progress: darkPreviewProgressToken,
+        }
+      : previewThemeComponents,
   },
   wave: {},
   app: {},
@@ -131,6 +191,7 @@ const usePreviewThemes = () => {
   const muiTheme = useMuiTheme();
   const shadcnTheme = useShadcnTheme();
   const bootstrapTheme = useBootstrapTheme();
+  const sereneTheme = useSereneTheme();
 
   return React.useMemo<PreviewThemeConfig[]>(() => {
     return [
@@ -228,8 +289,39 @@ const usePreviewThemes = () => {
         props: v4Theme,
         copyCode: v4ThemeSource,
       },
+      {
+        name: locale.serene,
+        icon: SereneIcon,
+        props: sereneTheme,
+        copyCode: sereneThemeSource,
+      },
     ];
-  }, [locale]);
+  }, [
+    blossomTheme,
+    bootstrapTheme,
+    cartoonTheme,
+    geekTheme,
+    glassTheme,
+    illustrationTheme,
+    larkTheme,
+    locale.blossom,
+    locale.bootstrap,
+    locale.cartoon,
+    locale.dark,
+    locale.default,
+    locale.geek,
+    locale.glass,
+    locale.illustration,
+    locale.lark,
+    locale.mui,
+    locale.serene,
+    locale.shadcn,
+    locale.v4,
+    muiTheme,
+    sereneTheme,
+    shadcnTheme,
+    v4Theme,
+  ]);
 };
 
 export default usePreviewThemes;

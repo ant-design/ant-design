@@ -73,7 +73,9 @@ export default defineConfig({
   mfsu: false,
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
-    pluginRuntimeStrategy: 'childProcesses',
+    watch: {
+      nodeModulesRegexes: ['rc-.*', '.*cssinjs.*', '@rc-component/.*'],
+    },
   },
   crossorigin: {},
   runtimePublicPath: {},
