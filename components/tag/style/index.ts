@@ -147,6 +147,19 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
         marginInlineStart: paddingInline,
       },
+
+      // Icons from third-party libraries are a bare `<svg>`, so none of the `.anticon`
+      // rules reach them: they get no spacing, and no baseline correction either — an
+      // `<svg>` has no baseline of its own, so it is aligned by its bottom margin edge
+      // (CSS 2.1 §10.8.1) and sits above the text. Give them what our own icons get.
+      // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+      '> svg': {
+        verticalAlign: '-0.125em',
+      },
+
+      '> svg + span, > span + svg': {
+        marginInlineStart: paddingInline,
+      },
     },
 
     [`&${token.componentCls}-solid`]: {
