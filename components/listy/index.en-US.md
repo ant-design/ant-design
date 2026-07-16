@@ -15,7 +15,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 ## API
 
-Common props ref：[Common props](/docs/react/common-props)
+Common props ref: [Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
