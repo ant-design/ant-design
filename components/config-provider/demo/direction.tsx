@@ -31,8 +31,23 @@ import {
   Tree,
   TreeSelect,
 } from 'antd';
+import { createStyles } from 'antd-style';
 
 type DirectionType = ConfigProviderProps['direction'];
+
+const useStyles = createStyles((props) => {
+  const { css } = props;
+  return {
+    headerExample: css`
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      vertical-align: middle;
+      background-color: #eee;
+      border-radius: 4px;
+    `,
+  };
+});
 
 const { Search } = Input;
 
@@ -134,7 +149,11 @@ const cascaderOptions = [
 
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
-const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
+const Page: React.FC<{ placement: Placement }> = (props) => {
+  const { placement } = props;
+
+  const { styles } = useStyles();
+
   const [currentStep, setCurrentStep] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [badgeCount, setBadgeCount] = useState(5);
@@ -462,7 +481,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                 <Divider titlePlacement="start">Badge example</Divider>
                 <Flex align="center" gap="middle">
                   <Badge count={badgeCount}>
-                    <a href="#" className="head-example" />
+                    <a href="#" className={styles.headerExample} />
                   </Badge>
                   <Space.Compact>
                     <Button icon={<MinusOutlined />} onClick={declineBadge} />
@@ -471,7 +490,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
                 </Flex>
                 <Flex align="center" gap="middle" style={{ marginTop: 12 }}>
                   <Badge dot={showBadge}>
-                    <a href="#" className="head-example" />
+                    <a href="#" className={styles.headerExample} />
                   </Badge>
                   <Switch onChange={onChangeBadge} checked={showBadge} />
                 </Flex>
