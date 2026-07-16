@@ -65,7 +65,7 @@ const Action: React.FC<ActionProps> = ({
       moveHandler?.(event);
     };
     return React.cloneElement(element, {
-      disabled: disabled || !active,
+      disabled: element.props.disabled || disabled || !active,
       onClick,
     });
   }

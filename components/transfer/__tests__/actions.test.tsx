@@ -43,6 +43,28 @@ describe('Actions', () => {
     expect(handleChange).toHaveBeenCalled();
   });
 
+  it('should preserve custom button disabled state', () => {
+    const handleChange = jest.fn();
+    const { getByRole } = render(
+      <Transfer
+        {...listCommonProps}
+        onChange={handleChange}
+        oneWay
+        actions={[
+          <Button key="test" disabled>
+            Custom Button
+          </Button>,
+        ]}
+      />,
+    );
+
+    const button = getByRole('button', { name: 'Custom Button' });
+    expect(button).toBeDisabled();
+
+    fireEvent.click(button);
+    expect(handleChange).not.toHaveBeenCalled();
+  });
+
   it('should accept multiple actions >= 3', () => {
     const { getByText } = render(
       <Transfer
