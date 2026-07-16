@@ -1888,7 +1888,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
+    class="ant-form-item acss-17ytqnc css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1946,7 +1946,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
+    class="ant-form-item acss-17ytqnc css-var-test-id ant-form-css-var ant-form-item-with-help ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -2004,7 +2004,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item acss-140b0ev css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
+    class="ant-form-item acss-17ytqnc css-var-test-id ant-form-css-var ant-form-item-has-feedback ant-form-item-has-success ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
