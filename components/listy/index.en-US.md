@@ -13,6 +13,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 - When the list needs grouped sections with sticky headers.
 - When you need imperative control over scroll position (jump to an item, a group, or a pixel offset).
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/group.tsx">Grouping and sticky headers</code>
+<code src="./demo/scroll-to.tsx">Scroll control</code>
+<code src="./demo/rich.tsx">Rich content</code>
+<code src="./demo/infinite.tsx">Infinite loading</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+
 ## API
 
 Common props ref: [Common props](/docs/react/common-props)
@@ -52,7 +62,11 @@ Common props ref: [Common props](/docs/react/common-props)
 | `{ key, align?, offset? }`      | Scroll to the item whose `rowKey` matches `key` |
 | `{ groupKey, align?, offset? }` | Scroll to a group header                        |
 
-`align` is `'top' \| 'bottom' \| 'auto'`; `offset` is an extra pixel offset applied after alignment.
+`align` is `'top' | 'bottom' | 'auto'`; `offset` is an extra pixel offset applied after alignment.
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
