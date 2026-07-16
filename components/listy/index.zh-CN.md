@@ -14,6 +14,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 - 列表需要分组，并让分组标题吸顶时。
 - 需要以命令式方式控制滚动位置（跳到某一项、某个分组或某个像素位置）时。
 
+## 代码演示 {#examples}
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基础用法</code>
+<code src="./demo/group.tsx">分组与吸顶</code>
+<code src="./demo/scroll-to.tsx">滚动控制</code>
+<code src="./demo/rich.tsx">复杂内容</code>
+<code src="./demo/infinite.tsx">无限加载</code>
+<code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
+
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
@@ -53,7 +63,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | `{ key, align?, offset? }`      | 滚动到 `rowKey` 等于 `key` 的数据项 |
 | `{ groupKey, align?, offset? }` | 滚动到某个分组标题                  |
 
-`align` 可选 `'top' \| 'bottom' \| 'auto'`；`offset` 为对齐后额外的像素偏移。
+`align` 可选 `'top' | 'bottom' | 'auto'`；`offset` 为对齐后额外的像素偏移。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

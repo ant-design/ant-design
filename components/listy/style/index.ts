@@ -51,7 +51,8 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
         padding: `${unit(token.paddingXS)} ${unit(itemPaddingInline)}`,
         color: token.colorTextDescription,
         fontWeight: token.fontWeightStrong,
-        backgroundColor: token.colorFillAlter,
+        backgroundColor: token.colorBgContainer,
+        backgroundImage: `linear-gradient(${token.colorFillAlter}, ${token.colorFillAlter})`,
 
         '&-sticky': {
           position: 'sticky',
