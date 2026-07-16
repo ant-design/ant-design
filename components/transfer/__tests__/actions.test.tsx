@@ -45,23 +45,34 @@ describe('Actions', () => {
 
   it('should preserve custom button disabled state', () => {
     const handleChange = jest.fn();
+    const customButtonClick = jest.fn();
+
+    const CustomButton = ({
+      disabled,
+      onClick,
+    }: {
+      disabled?: boolean;
+      onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    }) => (
+      <button type="button" aria-disabled={disabled} onClick={onClick}>
+        Custom Button
+      </button>
+    );
+
     const { getByRole } = render(
       <Transfer
         {...listCommonProps}
         onChange={handleChange}
         oneWay
-        actions={[
-          <Button key="test" disabled>
-            Custom Button
-          </Button>,
-        ]}
+        actions={[<CustomButton key="test" disabled onClick={customButtonClick} />]}
       />,
     );
 
     const button = getByRole('button', { name: 'Custom Button' });
-    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute('aria-disabled', 'true');
 
     fireEvent.click(button);
+    expect(customButtonClick).not.toHaveBeenCalled();
     expect(handleChange).not.toHaveBeenCalled();
   });
 

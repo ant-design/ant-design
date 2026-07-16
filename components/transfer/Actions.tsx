@@ -60,12 +60,16 @@ const Action: React.FC<ActionProps> = ({
 
   if (React.isValidElement(button)) {
     const element = button as ButtonElementType;
+    const mergedDisabled = element.props.disabled || disabled || !active;
     const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
+      if (mergedDisabled) {
+        return;
+      }
       element?.props?.onClick?.(event);
       moveHandler?.(event);
     };
     return React.cloneElement(element, {
-      disabled: element.props.disabled || disabled || !active,
+      disabled: mergedDisabled,
       onClick,
     });
   }
