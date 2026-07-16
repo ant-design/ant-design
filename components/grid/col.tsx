@@ -104,7 +104,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     };
 
     // Responsive flex layout
-    if (isNumber(sizeProps.flex) || sizeProps.flex) {
+    if (sizeProps.flex || sizeProps.flex === 0) {
       sizeClassObj[`${prefixCls}-${size}-flex`] = true;
       sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
     }
@@ -133,7 +133,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     mergedStyle.paddingInline = horizontalGutter;
   }
 
-  if (isNumber(flex) || flex) {
+  if (flex || flex === 0) {
     mergedStyle.flex = parseFlex(flex);
 
     // Hack for Firefox to avoid size issue
