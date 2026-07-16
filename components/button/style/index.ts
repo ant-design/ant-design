@@ -53,7 +53,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       [`${componentCls}-icon`]: {
         display: 'inline-flex',
         alignItems: 'center',
-        justifyContent: 'center',
 
         [iconCls]: {
           verticalAlign: 'middle',
@@ -101,8 +100,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-loading-icon`]: {
-        display: 'block',
-
         transition: ['width', 'opacity', 'margin']
           .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
           .join(','),
