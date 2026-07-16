@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Listy rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-listy ant-listy-rtl css-var-root ant-listy-css-var"
+  dir="rtl"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 200px; overflow-y: auto; overflow-anchor: none;"
+  >
+    <div>
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column;"
+      >
+        <div
+          class="ant-listy-item"
+        >
+          Item 0
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 1
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 2
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 3
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 4
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 5
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 6
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 7
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 8
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 9
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 10
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 11
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 12
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 13
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 14
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 15
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 16
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 17
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 18
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 19
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
