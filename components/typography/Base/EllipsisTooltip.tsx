@@ -23,7 +23,7 @@ const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
   }
 
   return (
-    <Tooltip open={isEllipsis ? undefined : false} {...tooltipProps} disabled={disabled}>
+    <Tooltip {...tooltipProps} disabled={!isEllipsis || disabled}>
       {children}
     </Tooltip>
   );
