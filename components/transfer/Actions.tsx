@@ -63,6 +63,7 @@ const Action: React.FC<ActionProps> = ({
     const mergedDisabled = element.props.disabled || disabled || !active;
     const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
       if (mergedDisabled) {
+        event.preventDefault();
         return;
       }
       element?.props?.onClick?.(event);

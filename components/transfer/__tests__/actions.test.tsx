@@ -18,6 +18,18 @@ const listCommonProps: {
   targetKeys: ['b'],
 };
 
+const CustomLink = ({
+  disabled,
+  onClick,
+}: {
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+}) => (
+  <a href="#target" aria-disabled={disabled} onClick={onClick}>
+    Custom Link
+  </a>
+);
+
 describe('Actions', () => {
   it('should handle custom button click correctly via actions', () => {
     const handleChange = jest.fn();
@@ -43,36 +55,39 @@ describe('Actions', () => {
     expect(handleChange).toHaveBeenCalled();
   });
 
-  it('should preserve custom button disabled state', () => {
-    const handleChange = jest.fn();
-    const customButtonClick = jest.fn();
-
-    const CustomButton = ({
-      disabled,
-      onClick,
-    }: {
-      disabled?: boolean;
-      onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    }) => (
-      <button type="button" aria-disabled={disabled} onClick={onClick}>
-        Custom Button
-      </button>
+  it('should preserve disabled state of custom actions', () => {
+    const { getByRole } = render(
+      <Transfer {...listCommonProps} oneWay actions={[<CustomLink key="test" disabled />]} />,
     );
+
+    const link = getByRole('link', { name: 'Custom Link' });
+    expect(link).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  it('should prevent default behavior of disabled custom actions', () => {
+    const { getByRole } = render(
+      <Transfer {...listCommonProps} oneWay actions={[<CustomLink key="test" disabled />]} />,
+    );
+
+    const link = getByRole('link', { name: 'Custom Link' });
+    expect(fireEvent.click(link)).toBe(false);
+  });
+
+  it('should prevent click handlers of disabled custom actions', () => {
+    const handleChange = jest.fn();
+    const customActionClick = jest.fn();
 
     const { getByRole } = render(
       <Transfer
         {...listCommonProps}
         onChange={handleChange}
         oneWay
-        actions={[<CustomButton key="test" disabled onClick={customButtonClick} />]}
+        actions={[<CustomLink key="test" disabled onClick={customActionClick} />]}
       />,
     );
 
-    const button = getByRole('button', { name: 'Custom Button' });
-    expect(button).toHaveAttribute('aria-disabled', 'true');
-
-    fireEvent.click(button);
-    expect(customButtonClick).not.toHaveBeenCalled();
+    fireEvent.click(getByRole('link', { name: 'Custom Link' }));
+    expect(customActionClick).not.toHaveBeenCalled();
     expect(handleChange).not.toHaveBeenCalled();
   });
 
