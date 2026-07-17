@@ -27,18 +27,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 Common props ref: [Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| items | Data source of the list | `T[]` | `[]` | - |
-| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - |
-| itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | - |
-| height | Height of the scroll container; content scrolls when it overflows | number | - | - |
-| virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | true | - |
-| sticky | Whether group headers stick to the top | boolean | false | - |
-| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - |
-| onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | - |
-| classNames | Semantic class names | `{ root?, item?, groupHeader? }` | - | - |
-| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| items | Data source of the list | `T[]` | `[]` | - | × |
+| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - | × |
+| itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | - | × |
+| height | Height of the scroll container; content scrolls when it overflows | number | - | - | × |
+| virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | true | - | × |
+| sticky | Whether group headers stick to the top | boolean | false | - | × |
+| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - | × |
+| onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | - | × |
+| classNames | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
 
 ### Group
 

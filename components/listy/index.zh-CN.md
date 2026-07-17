@@ -28,18 +28,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| items | 列表数据源 | `T[]` | `[]` | - |
-| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - |
-| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | - |
-| height | 滚动容器高度，内容超出后滚动 | number | - | - |
-| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | true | - |
-| sticky | 分组标题是否吸顶 | boolean | false | - |
-| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - |
-| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - |
-| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - |
-| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| items | 列表数据源 | `T[]` | `[]` | - | × |
+| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - | × |
+| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | - | × |
+| height | 滚动容器高度，内容超出后滚动 | number | - | - | × |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | true | - | × |
+| sticky | 分组标题是否吸顶 | boolean | false | - | × |
+| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - | × |
+| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - | × |
+| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
 
 ### Group
 
