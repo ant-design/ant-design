@@ -51,6 +51,68 @@ describe('Input.Search', () => {
     expect(container.querySelectorAll('.ant-btn[disabled]')).toHaveLength(1);
   });
 
+  it('should disable custom Button when disabled prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search disabled enterButton={<Button>ok</Button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should disable custom native button when disabled prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search disabled enterButton={<button type="button">ok</button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should preserve disabled context for custom Button', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Search enterButton={<Button>ok</Button>} onSearch={onSearch} />
+      </ConfigProvider>,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should set custom Button to loading when loading prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByLabelText, getByRole } = render(
+      <Search loading enterButton={<Button>ok</Button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(getByLabelText('loading')).toBeInTheDocument();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should disable custom native button when loading prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search loading enterButton={<button type="button">ok</button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
   it('should disable search icon when disabled prop is true', () => {
     const onSearch = jest.fn();
     const { container } = render(

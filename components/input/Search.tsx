@@ -8,7 +8,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
-import type { ButtonSemanticType } from '../button/Button';
+import type { ButtonProps, ButtonSemanticType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -165,9 +165,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const isAntdButton =
     enterButtonAsElement.type && (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
   if (isAntdButton || enterButtonAsElement.type === 'button') {
-    const enterButtonProps = enterButtonAsElement.props as { className?: string };
+    const enterButtonProps = enterButtonAsElement.props as Pick<
+      ButtonProps,
+      'className' | 'disabled' | 'loading'
+    >;
 
     button = cloneElement(enterButtonAsElement, {
+      disabled: disabled || (!isAntdButton && loading) || enterButtonProps.disabled,
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
         (
@@ -178,7 +182,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton ? { className: clsx(btnClassName, enterButtonProps.className), size } : {}),
+      ...(isAntdButton
+        ? {
+            className: clsx(btnClassName, enterButtonProps.className),
+            loading: loading || enterButtonProps.loading,
+            size,
+          }
+        : {}),
     });
   } else {
     button = (
