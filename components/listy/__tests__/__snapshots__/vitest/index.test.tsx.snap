@@ -11,7 +11,7 @@ exports[`Listy > rtl render > component should be rendered correctly in RTL dire
     style="max-height: 200px; overflow-y: hidden; overflow-anchor: none;"
   >
     <div
-      style="height: 440px; position: relative; overflow: hidden;"
+      style="height: 940px; position: relative; overflow: hidden;"
     >
       <div
         class="ant-listy-holder-inner"
@@ -47,31 +47,6 @@ exports[`Listy > rtl render > component should be rendered correctly in RTL dire
         >
           Item 5
         </div>
-        <div
-          class="ant-listy-item"
-        >
-          Item 6
-        </div>
-        <div
-          class="ant-listy-item"
-        >
-          Item 7
-        </div>
-        <div
-          class="ant-listy-item"
-        >
-          Item 8
-        </div>
-        <div
-          class="ant-listy-item"
-        >
-          Item 9
-        </div>
-        <div
-          class="ant-listy-item"
-        >
-          Item 10
-        </div>
       </div>
     </div>
   </div>
@@ -81,7 +56,7 @@ exports[`Listy > rtl render > component should be rendered correctly in RTL dire
   >
     <div
       class="ant-listy-scrollbar-thumb"
-      style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 90px; top: 0px;"
+      style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 42px; top: 0px;"
     />
   </div>
 </div>
