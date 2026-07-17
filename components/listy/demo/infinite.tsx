@@ -26,7 +26,6 @@ const App: React.FC = () => {
     }
     loadingRef.current = true;
     setLoading(true);
-    // Simulate a remote request
     setTimeout(() => {
       setItems((prev) => [...prev, ...makePage(prev.length)]);
       loadingRef.current = false;
