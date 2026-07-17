@@ -1141,8 +1141,9 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle site-result-demo-error-icon"
+          class="anticon anticon-close-circle"
           role="img"
+          style="color:red;margin-inline-end:8px"
         >
           <svg
             aria-hidden="true"
@@ -1159,7 +1160,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
             />
           </svg>
         </span>
-         Your account has been frozen. 
+        Your account has been frozen. 
         <a>
           Thaw immediately &gt;
         </a>
@@ -1169,8 +1170,9 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle site-result-demo-error-icon"
+          class="anticon anticon-close-circle"
           role="img"
+          style="color:red;margin-inline-end:8px"
         >
           <svg
             aria-hidden="true"
@@ -1187,7 +1189,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
             />
           </svg>
         </span>
-         Your account is not yet eligible to apply. 
+        Your account is not yet eligible to apply. 
         <a>
           Apply Unlock &gt;
         </a>

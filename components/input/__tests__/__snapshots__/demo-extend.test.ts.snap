@@ -6620,7 +6620,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/group.tsx extend context correctly 1`] = `
 <div
-  class="site-input-group-wrapper"
+  class="acss-pmp369"
 >
   <div
     class="ant-space-compact ant-input-group css-var-test-id ant-input-group-lg"
@@ -9484,7 +9484,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var ant-input-compact-item"
+      class="ant-input ant-input-disabled ant-input-outlined acss-1nrpcgv css-var-test-id ant-input-css-var ant-input-compact-item"
       disabled=""
       placeholder="~"
       style="width: 30px; border-inline-start: 0; border-inline-end: 0; pointer-events: none;"
@@ -9492,7 +9492,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value=""
     />
     <input
-      class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input ant-input-outlined acss-f6663l css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
