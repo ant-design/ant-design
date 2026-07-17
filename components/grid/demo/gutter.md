@@ -21,10 +21,3 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
 You can set `gutter` to a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units), for example: `px`、`rem`、`vw`、`vh` etc.
 
 > vertical gutter was supported after `3.24.0`. string type was supported after `5.28.0`.
-
-```css
-.gutter-box {
-  padding: 8px 0;
-  background: #00a0e9;
-}
-```
