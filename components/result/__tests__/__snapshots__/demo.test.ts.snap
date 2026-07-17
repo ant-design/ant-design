@@ -1141,9 +1141,8 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle"
+          class="anticon anticon-close-circle acss-bbq3ar"
           role="img"
-          style="color:red;margin-inline-end:8px"
         >
           <svg
             aria-hidden="true"
@@ -1170,9 +1169,8 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle"
+          class="anticon anticon-close-circle acss-bbq3ar"
           role="img"
-          style="color:red;margin-inline-end:8px"
         >
           <svg
             aria-hidden="true"

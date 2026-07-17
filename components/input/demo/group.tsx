@@ -15,13 +15,13 @@ import {
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles((props) => {
-  const { css, prefixCls } = props;
+  const { css, prefixCls, cssVar } = props;
   return {
     inputWrapper: css`
       position: relative;
     `,
     inputSplit: css`
-      background-color: #fff !important;
+      background-color: ${cssVar.colorBgContainer} !important;
     `,
     inputRight: css`
       border-inline-start-width: 0;

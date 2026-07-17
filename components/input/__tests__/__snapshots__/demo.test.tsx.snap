@@ -3081,7 +3081,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined acss-1nrpcgv css-var-test-id ant-input-css-var ant-input-compact-item"
+      class="ant-input ant-input-disabled ant-input-outlined acss-qc3ln3 css-var-test-id ant-input-css-var ant-input-compact-item"
       disabled=""
       placeholder="~"
       style="width:30px;border-inline-start:0;border-inline-end:0;pointer-events:none"
