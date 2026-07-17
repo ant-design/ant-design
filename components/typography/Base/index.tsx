@@ -507,7 +507,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         })}
         style={mergedStyles.actions}
         onMouseEnter={() => setIsHoveringOperations(true, true)}
-        onMouseLeave={() => setIsHoveringOperations(false)}
+        onMouseLeave={() =>
+          setIsHoveringOperations(false, {
+            // Delay 500ms for better user experience
+            ms: 500,
+          })
+        }
       >
         {expandNode}
         {editNode}
