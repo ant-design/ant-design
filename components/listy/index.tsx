@@ -38,7 +38,11 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const [, token] = useToken();
 
-  const itemHeight = Math.round(token.fontSize * token.lineHeight);
+  // Estimated row height for virtual scrolling: text line + default item
+  // vertical padding (`itemPaddingBlock` defaults to `paddingSM`) and split line.
+  const itemHeight = Math.round(
+    token.fontSize * token.lineHeight + token.paddingSM * 2 + token.lineWidth,
+  );
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
   const styleRoot = useSemanticRootStyle(style);
