@@ -143,21 +143,17 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
         display: 'none',
       },
 
-      // To ensure that a space will be placed between character and `Icon`.
-      [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
-        marginInlineStart: paddingInline,
-      },
-
-      // Icons from third-party libraries are a bare `<svg>`, so none of the `.anticon`
-      // rules reach them: they get no spacing, and no baseline correction either — an
-      // `<svg>` has no baseline of its own, so it is aligned by its bottom margin edge
-      // (CSS 2.1 §10.8.1) and sits above the text. Give them what our own icons get.
+      // Icons from third-party libraries are a bare `<svg>`, which none of the `.anticon`
+      // rules reach, so they get no baseline correction — an `<svg>` has no baseline of its
+      // own and is aligned by its bottom margin edge (CSS 2.1 §10.8.1), leaving it above the
+      // text. Give it the same correction `.anticon` carries.
       // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
       '> svg': {
         verticalAlign: '-0.125em',
       },
 
-      '> svg + span, > span + svg': {
+      // To ensure that a space will be placed between character and `Icon`.
+      [`> ${token.iconCls} + span, > span + ${token.iconCls}, > svg + span, > span + svg`]: {
         marginInlineStart: paddingInline,
       },
     },
