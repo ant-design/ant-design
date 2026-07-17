@@ -89,6 +89,20 @@ describe('Input.Search', () => {
     expect(onSearch).not.toHaveBeenCalled();
   });
 
+  it('should disable custom native button with disabled context', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Search enterButton={<button type="button">ok</button>} onSearch={onSearch} />
+      </ConfigProvider>,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
   it('should set custom Button to loading when loading prop is true', () => {
     const onSearch = jest.fn();
     const { getByLabelText, getByRole } = render(

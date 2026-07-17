@@ -9,6 +9,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
 import type { ButtonProps, ButtonSemanticType } from '../button/Button';
+import DisabledContext from '../config-provider/DisabledContext';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -93,6 +94,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     searchIcon: contextSearchIcon,
   } = useComponentConfig('inputSearch');
 
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
   const mergedProps: SearchProps = {
     ...props,
     enterButton,
@@ -171,7 +175,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     >;
 
     button = cloneElement(enterButtonAsElement, {
-      disabled: disabled || (!isAntdButton && loading) || enterButtonProps.disabled,
+      disabled: mergedDisabled || enterButtonProps.disabled || (!isAntdButton && loading),
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
         (
