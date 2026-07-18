@@ -1035,11 +1035,14 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
 
 exports[`renders components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     included=true
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1133,6 +1136,7 @@ Array [
   </div>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1214,11 +1218,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     included=false
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1306,11 +1313,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     marks & step
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1402,11 +1412,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     step=null
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
