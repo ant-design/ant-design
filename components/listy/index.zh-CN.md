@@ -30,22 +30,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - | × |
+| height | 滚动容器高度，内容超出后滚动 | number | - | - | × |
+| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | - | × |
 | items | 列表数据源 | `T[]` | `[]` | - | × |
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - | × |
-| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | - | × |
-| height | 滚动容器高度，内容超出后滚动 | number | - | - | × |
-| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | true | - | × |
 | sticky | 分组标题是否吸顶 | boolean | false | - | × |
-| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - | × |
-| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - | × |
-| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
 | styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | true | - | × |
+| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - | × |
 
 ### Group
 
-| 参数  | 说明                                 | 类型                                     |
-| ----- | ------------------------------------ | ---------------------------------------- |
-| key   | 从数据项中取出分组键                 | `(item: T) => K`                         |
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| key | 计算每条数据所属的分组键，返回值相同的数据归为一组 | `(item: T) => K` |
 | title | 渲染分组标题，入参为分组键与该组数据 | `(groupKey: K, items: T[]) => ReactNode` |
 
 ### Ref
