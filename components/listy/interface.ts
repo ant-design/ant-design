@@ -14,6 +14,7 @@ export type { ListyClassNames, ListyRef, ListyScrollToConfig, ListyStyles, Scrol
 
 export interface ListyProps<T extends AnyObject = AnyObject, K extends React.Key = React.Key>
   extends Omit<RcListyProps<T, K>, 'itemHeight' | 'direction'> {
+  rootClassName?: string;
   className?: string;
   style?: React.CSSProperties;
 }
