@@ -16,7 +16,6 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
 ) {
   const {
     prefixCls: customizePrefixCls,
-    rootClassName,
     className,
     style,
     classNames,
@@ -56,7 +55,6 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
   const rootClassNames = clsx(
     contextClassName,
     mergedClassNames.root,
-    rootClassName,
     className,
     hashId,
     cssVarCls,
