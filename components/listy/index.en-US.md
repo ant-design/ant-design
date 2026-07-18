@@ -29,22 +29,22 @@ Common props ref: [Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| classNames | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - | × |
+| height | Height of the scroll container; content scrolls when it overflows | number | - | - | × |
+| itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | - | × |
 | items | Data source of the list | `T[]` | `[]` | - | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - | × |
-| itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | - | × |
-| height | Height of the scroll container; content scrolls when it overflows | number | - | - | × |
-| virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | true | - | × |
 | sticky | Whether group headers stick to the top | boolean | false | - | × |
-| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - | × |
-| onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | - | × |
-| classNames | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | true | - | × |
+| onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | - | × |
 
 ### Group
 
 | Property | Description | Type |
 | --- | --- | --- |
-| key | Extract the group key from an item | `(item: T) => K` |
+| key | Compute the group key an item belongs to; items with the same key are grouped together | `(item: T) => K` |
 | title | Render the group header; receives the group key and its items | `(groupKey: K, items: T[]) => ReactNode` |
 
 ### Ref
