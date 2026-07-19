@@ -6,7 +6,7 @@ import type { Dayjs } from 'dayjs';
 const App: React.FC = () => {
   const { token } = theme.useToken();
   const style: React.CSSProperties = {
-    border: `1px solid ${token.colorPrimary}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
     borderRadius: '50%',
   };
   const cellRender: DatePickerProps<Dayjs>['cellRender'] = (current, info) => {
