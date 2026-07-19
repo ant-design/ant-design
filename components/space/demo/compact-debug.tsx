@@ -19,7 +19,7 @@ import {
 const selectBefore = (
   <Select
     defaultValue="http"
-    className="select-before"
+    style={{ width: 90 }}
     options={[
       { label: 'http://', value: 'http' },
       { label: 'https://', value: 'https' },
@@ -30,7 +30,7 @@ const selectBefore = (
 const selectAfter = (
   <Select
     defaultValue=".com"
-    className="select-after"
+    style={{ width: 90 }}
     options={[
       { label: '.com', value: '.com' },
       { label: '.jp', value: '.jp' },

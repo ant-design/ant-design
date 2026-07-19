@@ -1,6 +1,30 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import type { GetRef, InputRef, TableProps } from 'antd';
 import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+  return {
+    editableRow: css`
+      position: relative;
+      .editable-cell-value-wrap {
+        cursor: pointer;
+        padding: ${cssVar.paddingXXS} ${cssVar.paddingSM};
+        border-width: ${cssVar.lineWidth};
+        border-style: ${cssVar.lineType};
+        border-color: transparent;
+        border-radius: ${cssVar.borderRadiusSM};
+        transition: all ${cssVar.motionDurationFast} ${cssVar.motionEaseInOut};
+      }
+      &:hover {
+        .editable-cell-value-wrap {
+          border-color: ${cssVar.colorBorder};
+        }
+      }
+    `,
+  };
+});
 
 type FormInstance<T> = GetRef<typeof Form<T>>;
 
@@ -36,15 +60,9 @@ interface EditableCellProps {
   handleSave: (record: Item) => void;
 }
 
-const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
-  title,
-  editable,
-  children,
-  dataIndex,
-  record,
-  handleSave,
-  ...restProps
-}) => {
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = (props) => {
+  const { title, editable, children, dataIndex, record, handleSave, ...restProps } = props;
+
   const [editing, setEditing] = useState(false);
   const inputRef = useRef<InputRef>(null);
   const form = useContext(EditableContext)!;
@@ -56,7 +74,7 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
   }, [editing]);
 
   const toggleEdit = () => {
-    setEditing(!editing);
+    setEditing((prev) => !prev);
     form.setFieldsValue({ [dataIndex]: record[dataIndex] });
   };
 
@@ -80,7 +98,7 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
         name={dataIndex}
         rules={[{ required: true, message: `${title} is required.` }]}
       >
-        <Input ref={inputRef} onPressEnter={save} onBlur={save} />
+        <Input ref={inputRef} variant="filled" onPressEnter={save} onBlur={save} />
       </Form.Item>
     ) : (
       <div
@@ -106,6 +124,8 @@ interface DataType {
 type ColumnTypes = Exclude<TableProps<DataType>['columns'], undefined>;
 
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const [dataSource, setDataSource] = useState<DataType[]>([
     {
       key: '0',
@@ -155,7 +175,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const handleAdd = () => {
+  const handleAdd: React.MouseEventHandler<HTMLElement> = () => {
     const newData: DataType = {
       key: count,
       name: `Edward King ${count}`,
@@ -163,25 +183,19 @@ const App: React.FC = () => {
       address: `London, Park Lane no. ${count}`,
     };
     setDataSource([...dataSource, newData]);
-    setCount(count + 1);
+    setCount((prevCount) => prevCount + 1);
   };
 
   const handleSave = (row: DataType) => {
     const newData = [...dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
     const item = newData[index];
-    newData.splice(index, 1, {
-      ...item,
-      ...row,
-    });
+    newData.splice(index, 1, { ...item, ...row });
     setDataSource(newData);
   };
 
   const components = {
-    body: {
-      row: EditableRow,
-      cell: EditableCell,
-    },
+    body: { row: EditableRow, cell: EditableCell },
   };
 
   const columns = defaultColumns.map((col) => {
@@ -207,7 +221,7 @@ const App: React.FC = () => {
       </Button>
       <Table<DataType>
         components={components}
-        rowClassName={() => 'editable-row'}
+        rowClassName={() => styles.editableRow}
         bordered
         dataSource={dataSource}
         columns={columns as ColumnTypes}
