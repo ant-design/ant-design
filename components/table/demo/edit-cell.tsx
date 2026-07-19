@@ -189,9 +189,11 @@ const App: React.FC = () => {
   const handleSave = (row: DataType) => {
     const newData = [...dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
-    const item = newData[index];
-    newData.splice(index, 1, { ...item, ...row });
-    setDataSource(newData);
+    if (index !== -1) {
+      const item = newData[index];
+      newData.splice(index, 1, { ...item, ...row });
+      setDataSource(newData);
+    }
   };
 
   const components = {
