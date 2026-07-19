@@ -2677,7 +2677,7 @@ exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
 
 exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
+  class="ant-tabs ant-tabs-top acss-2wa7y3 css-var-test-id ant-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
