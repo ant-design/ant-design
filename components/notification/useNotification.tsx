@@ -234,10 +234,7 @@ export function useInternalNotification(
         icon: iconNode,
         actions: mergedActions,
         role,
-        classNames: {
-          ...semanticClassNames,
-          icon: clsx(typeIconCls, semanticClassNames.icon),
-        },
+        classNames: { ...semanticClassNames, icon: clsx(typeIconCls, semanticClassNames?.icon) },
         styles: semanticStyles,
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
         style,

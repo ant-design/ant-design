@@ -179,6 +179,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       if (e.defaultPrevented) {
         return;
       }
+      if (href) {
+        e.preventDefault();
+      }
       setVisible(false);
     };
 

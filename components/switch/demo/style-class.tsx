@@ -4,7 +4,7 @@ import type { GetProp, SwitchProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles((props) => {
-  const { cssVar, css } = props;
+  const { cssVar, prefixCls, css } = props;
   return {
     root: css`
       width: 40px;
@@ -14,9 +14,9 @@ const useStyle = createStyles((props) => {
       min-width: 32px;
       height: 14px;
       line-height: 14px;
-      &&.ant-switch-checked {
-        background-color: rgb(25, 118, 210, 0.5);
-        .ant-switch-handle {
+      &&.${prefixCls}-switch-checked {
+        background-color: rgba(25, 118, 210, 0.5);
+        .${prefixCls}-switch-handle {
           inset-inline-start: calc(100% - 17px);
         }
       }
