@@ -14,7 +14,7 @@ const ThrowError: React.FC = () => {
   }
   return (
     <Button danger onClick={onClick}>
-      Click me to throw a error
+      Click me to throw an error
     </Button>
   );
 };
