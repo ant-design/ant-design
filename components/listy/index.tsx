@@ -4,13 +4,13 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
-import type { ListyClassNames, ListyProps, ListyRef, ListyStyles } from './interface';
+import type { ListyProps, ListyRef, ListySemanticAllType } from './interface';
 import useStyle from './style';
 
-function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = React.Key>(
+function InternalListy<T = AnyObject, K extends React.Key = React.Key>(
   props: ListyProps<T, K>,
   ref: React.Ref<ListyRef>,
 ) {
@@ -21,6 +21,7 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
     style,
     classNames,
     styles,
+    virtual,
     ...restProps
   } = props;
 
@@ -32,25 +33,29 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('listy');
+  const { virtual: contextVirtual } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('listy', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const [, token] = useToken();
 
+  const listyToken = { ...token, ...token.Listy };
   const itemHeight = Math.round(
-    token.fontSize * token.lineHeight + token.paddingSM * 2 + token.lineWidth,
+    listyToken.fontSize * listyToken.lineHeight +
+      (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2 +
+      listyToken.lineWidth,
   );
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
   const styleRoot = useSemanticRootStyle(style);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ListyClassNames,
-    ListyStyles,
-    ListyProps<T, K>
+    ListySemanticAllType['classNames'],
+    ListySemanticAllType['styles'],
+    ListyProps
   >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props,
+    props: props as unknown as ListyProps,
   });
 
   const rootClassNames = clsx(
@@ -69,6 +74,7 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
+      virtual={virtual ?? contextVirtual}
       itemHeight={itemHeight}
       classNames={{ ...mergedClassNames, root: rootClassNames }}
       styles={mergedStyles}
@@ -76,7 +82,7 @@ function InternalListy<T extends AnyObject = AnyObject, K extends React.Key = Re
   );
 }
 
-type ListyComponent = (<T extends AnyObject = AnyObject, K extends React.Key = React.Key>(
+type ListyComponent = (<T = AnyObject, K extends React.Key = React.Key>(
   props: ListyProps<T, K> & { ref?: React.Ref<ListyRef> },
 ) => React.ReactElement) & { displayName?: string };
 
@@ -91,6 +97,8 @@ export type {
   ListyProps,
   ListyRef,
   ListyScrollToConfig,
+  ListySemanticAllType,
+  ListySemanticType,
   ListyStyles,
   ScrollAlign,
 } from './interface';
