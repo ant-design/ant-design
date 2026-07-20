@@ -85,6 +85,30 @@ describe('Listy.Semantic', () => {
     expect(item).toHaveStyle({ color: 'rgb(4, 5, 6)', padding: '2px' });
   });
 
+  it('should support function form classNames and styles', () => {
+    const { container } = render(
+      <ConfigProvider
+        listy={{
+          classNames: ({ props }) => ({ item: props.sticky ? 'context-sticky' : 'context-fn' }),
+        }}
+      >
+        <Listy<User, string>
+          height={200}
+          items={users}
+          rowKey="id"
+          itemRender={(user) => user.name}
+          classNames={({ props }) => ({ item: props.height === 200 ? 'own-fn' : 'own-other' })}
+          styles={() => ({ item: { color: 'rgb(7, 8, 9)' } })}
+        />
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector<HTMLElement>('.ant-listy-item');
+    expect(item).toHaveClass('context-fn');
+    expect(item).toHaveClass('own-fn');
+    expect(item).toHaveStyle({ color: 'rgb(7, 8, 9)' });
+  });
+
   it('should follow root style priority', () => {
     const { container } = render(
       <ConfigProvider
