@@ -39,6 +39,7 @@ demo:
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
+<code src="./demo/clear-suffix-debug.tsx" debug>清除后缀</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
 <code src="./demo/custom-label-render.tsx">自定义选中 label</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
