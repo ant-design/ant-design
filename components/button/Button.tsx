@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
+import { omit, toArray, useComposeRef, useDelayState, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -226,7 +226,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useDelayState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -252,24 +252,11 @@ const InternalCompoundedButton = React.forwardRef<
   // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
   // https://github.com/ant-design/ant-design/issues/51325
   useLayoutEffect(() => {
-    let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
-      delayTimer = setTimeout(() => {
-        delayTimer = null;
-        setInnerLoading(true);
-      }, loadingOrDelay.delay);
+      setInnerLoading(true, { ms: loadingOrDelay.delay });
     } else {
-      setInnerLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading, true);
     }
-
-    function cleanupTimer() {
-      if (delayTimer) {
-        clearTimeout(delayTimer);
-        delayTimer = null;
-      }
-    }
-
-    return cleanupTimer;
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check

@@ -11,6 +11,31 @@ import {
   ZoomOutOutlined,
 } from '@ant-design/icons';
 import { Image, Space } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, iconPrefixCls, cssVar } = props;
+  return {
+    wrapper: css`
+      padding: 0 ${cssVar.paddingLG};
+      color: ${cssVar.colorWhite};
+      font-size: ${cssVar.fontSizeXL};
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 100px;
+      .${iconPrefixCls} {
+        padding: ${cssVar.paddingSM};
+        cursor: pointer;
+        &:hover {
+          opacity: 0.3;
+        }
+        &[disabled] {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+      }
+    `,
+  };
+});
 
 const imageList = [
   'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -20,6 +45,8 @@ const imageList = [
 // you can download flipped and rotated image
 // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const [current, setCurrent] = React.useState(0);
 
   // or you can download flipped and rotated image
@@ -62,7 +89,7 @@ const App: React.FC = () => {
             },
           },
         ) => (
-          <Space size={12} className="toolbar-wrapper">
+          <Space size={12} className={styles.wrapper}>
             <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
             <RightOutlined
               disabled={current === imageList.length - 1}

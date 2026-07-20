@@ -11,13 +11,30 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { Button, Upload } from 'antd';
 import type { UploadFile, UploadProps } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css } = props;
+  return {
+    isDragging: css`
+      pointer-events: none;
+      a {
+        pointer-events: none;
+      }
+    `,
+  };
+});
 
 interface DraggableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   file: UploadFile<any>;
 }
 
-const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemProps) => {
+const DraggableUploadListItem: React.FC<DraggableUploadListItemProps> = (props) => {
+  const { styles } = useStyles();
+
+  const { originNode, file } = props;
+
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: file.uid,
   });
@@ -33,7 +50,7 @@ const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemPr
       ref={setNodeRef}
       style={style}
       // prevent preview event when drag end
-      className={isDragging ? 'is-dragging' : undefined}
+      className={isDragging ? styles.isDragging : undefined}
       {...attributes}
       {...listeners}
     >

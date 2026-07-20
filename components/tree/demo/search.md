@@ -5,9 +5,3 @@
 ## en-US
 
 Searchable Tree.
-
-```css
-.site-tree-search-value {
-  color: #f50;
-}
-```

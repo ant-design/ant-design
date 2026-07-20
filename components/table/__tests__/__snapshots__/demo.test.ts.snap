@@ -4941,8 +4941,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
 exports[`renders components/table/demo/dynamic-settings.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline css-var-test-id ant-form-css-var table-demo-control-bar"
-    style="margin-bottom:16px"
+    class="ant-form ant-form-inline css-var-test-id ant-form-css-var acss-7tnff8"
   >
     <div
       class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
@@ -7342,7 +7341,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row ant-table-row-level-0 editable-row"
+                    class="ant-table-row ant-table-row-level-0 acss-17dsthv"
                     data-row-key="0"
                   >
                     <td
@@ -7374,7 +7373,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row ant-table-row-level-0 editable-row"
+                    class="ant-table-row ant-table-row-level-0 acss-17dsthv"
                     data-row-key="1"
                   >
                     <td
@@ -7571,7 +7570,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="0"
                 >
                   <td
@@ -7600,7 +7599,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="1"
                 >
                   <td
@@ -7629,7 +7628,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="2"
                 >
                   <td
@@ -7658,7 +7657,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="3"
                 >
                   <td
@@ -7687,7 +7686,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="4"
                 >
                   <td
@@ -7716,7 +7715,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="5"
                 >
                   <td
@@ -7745,7 +7744,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="6"
                 >
                   <td
@@ -7774,7 +7773,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="7"
                 >
                   <td
@@ -7803,7 +7802,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="8"
                 >
                   <td
@@ -7832,7 +7831,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="9"
                 >
                   <td

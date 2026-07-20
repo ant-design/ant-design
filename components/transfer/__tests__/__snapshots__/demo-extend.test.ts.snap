@@ -13707,7 +13707,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
 
 exports[`renders components/transfer/demo/tree-transfer.tsx extend context correctly 1`] = `
 <div
-  class="ant-transfer ant-transfer-customize-list tree-transfer css-var-test-id"
+  class="ant-transfer ant-transfer-customize-list css-var-test-id"
 >
   <div
     class="ant-transfer-section"
