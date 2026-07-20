@@ -3958,7 +3958,8 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="margin-inline-end: 16px;"
           type="button"
         >
           <span>
@@ -4078,6 +4079,7 @@ Array [
       >
         <button
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="margin-inline-start: 16px;"
           type="button"
         >
           <span>

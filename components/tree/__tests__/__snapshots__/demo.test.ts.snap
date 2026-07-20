@@ -5714,7 +5714,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
                 >
                   <span>
                     <span
-                      class="site-tree-search-value"
+                      style="color:#f50"
                     />
                     0-0
                   </span>
@@ -5766,7 +5766,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
                 >
                   <span>
                     <span
-                      class="site-tree-search-value"
+                      style="color:#f50"
                     />
                     0-1
                   </span>
@@ -5797,7 +5797,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
                 >
                   <span>
                     <span
-                      class="site-tree-search-value"
+                      style="color:#f50"
                     />
                     0-2
                   </span>
