@@ -19,7 +19,7 @@ const App: React.FC = () => {
     padding: 48,
     overflow: 'hidden',
     background: token.colorFillAlter,
-    border: `1px solid ${token.colorBorderSecondary}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
   };
 

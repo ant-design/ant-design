@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
-import type { TableProps } from 'antd';
+import type { TableColumnsType } from 'antd';
 import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, prefixCls, cssVar } = props;
+  return {
+    editableRow: css`
+      position: relative;
+      .${prefixCls}-form-item-explain {
+        position: absolute;
+        top: 100%;
+        font-size: ${cssVar.fontSizeSM};
+      }
+    `,
+  };
+});
 
 interface DataType {
   key: string;
@@ -25,16 +40,9 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   index: number;
 }
 
-const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
-  editing,
-  dataIndex,
-  title,
-  inputType,
-  record,
-  index,
-  children,
-  ...restProps
-}) => {
+const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = (props) => {
+  const { editing, dataIndex, title, inputType, record, index, children, ...restProps } = props;
+
   const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
 
   return (
@@ -43,12 +51,7 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
         <Form.Item
           name={dataIndex}
           style={{ margin: 0 }}
-          rules={[
-            {
-              required: true,
-              message: `Please Input ${title}!`,
-            },
-          ]}
+          rules={[{ required: true, message: `Please Input ${title}!` }]}
         >
           {inputNode}
         </Form.Item>
@@ -60,6 +63,8 @@ const EditableCell: React.FC<React.PropsWithChildren<EditableCellProps>> = ({
 };
 
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const [form] = Form.useForm();
   const [data, setData] = useState<DataType[]>(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -83,10 +88,7 @@ const App: React.FC = () => {
       const index = newData.findIndex((item) => key === item.key);
       if (index > -1) {
         const item = newData[index];
-        newData.splice(index, 1, {
-          ...item,
-          ...row,
-        });
+        newData.splice(index, 1, { ...item, ...row });
         setData(newData);
         setEditingKey('');
       } else {
@@ -141,13 +143,13 @@ const App: React.FC = () => {
     },
   ];
 
-  const mergedColumns: TableProps<DataType>['columns'] = columns.map((col) => {
+  const mergedColumns = columns.map<TableColumnsType<DataType>[number]>((col) => {
     if (!col.editable) {
       return col;
     }
     return {
       ...col,
-      onCell: (record: DataType) => ({
+      onCell: (record) => ({
         record,
         inputType: col.dataIndex === 'age' ? 'number' : 'text',
         dataIndex: col.dataIndex,
@@ -160,13 +162,11 @@ const App: React.FC = () => {
   return (
     <Form form={form} component={false}>
       <Table<DataType>
-        components={{
-          body: { cell: EditableCell },
-        }}
         bordered
+        components={{ body: { cell: EditableCell } }}
         dataSource={data}
         columns={mergedColumns}
-        rowClassName="editable-row"
+        rowClassName={() => styles.editableRow}
         pagination={{ onChange: cancel }}
       />
     </Form>

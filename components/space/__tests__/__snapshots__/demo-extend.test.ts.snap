@@ -2,10 +2,10 @@
 
 exports[`renders components/space/demo/align.tsx extend context correctly 1`] = `
 <div
-  class="space-align-container"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-flex-start"
 >
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -31,7 +31,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -39,7 +39,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -65,7 +65,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -73,7 +73,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -99,7 +99,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -107,7 +107,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -133,7 +133,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -10398,7 +10398,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-before css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -10532,7 +10533,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-after css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"

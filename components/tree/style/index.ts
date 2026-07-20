@@ -173,7 +173,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           [`${treeNodeCls}.dragging:after`]: {
             position: 'absolute',
             inset: 0,
-            border: `1px solid ${token.colorPrimary}`,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorPrimary}`,
             opacity: 0,
             animationName: treeNodeFX,
             animationDuration: token.motionDurationSlow,
@@ -357,8 +357,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             top: 0,
             insetInlineEnd: token.calc(switcherSize).div(2).equal(),
             bottom: token.calc(treeNodePadding).mul(-1).equal(),
-            marginInlineStart: -1,
-            borderInlineEnd: `1px solid ${token.colorBorder}`,
+            marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
             content: '""',
           },
 
@@ -366,7 +366,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             position: 'absolute',
             width: token.calc(token.calc(switcherSize).div(2).equal()).mul(0.8).equal(),
             height: token.calc(titleHeight).div(2).equal(),
-            borderBottom: `1px solid ${token.colorBorder}`,
+            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
             content: '""',
           },
         },
@@ -435,7 +435,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             top: 0,
             insetInlineEnd: token.calc(switcherSize).div(2).equal(),
             bottom: token.calc(treeNodePadding).mul(-1).equal(),
-            borderInlineEnd: `1px solid ${token.colorBorder}`,
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
             content: '""',
           },
 
