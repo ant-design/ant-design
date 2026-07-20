@@ -1223,7 +1223,7 @@ exports[`renders components/alert/demo/error-boundary.tsx correctly 1`] = `
   type="button"
 >
   <span>
-    Click me to throw an error
+    Click to throw an error
   </span>
 </button>
 `;
