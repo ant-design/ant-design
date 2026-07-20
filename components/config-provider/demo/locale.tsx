@@ -127,7 +127,11 @@ const Page: React.FC = () => {
     <Space
       vertical
       size={[0, 16]}
-      style={{ width: '100%', paddingTop: 16, borderTop: `1px solid ${token.colorBorder}` }}
+      style={{
+        width: '100%',
+        paddingTop: token.padding,
+        borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+      }}
     >
       <Pagination defaultCurrent={1} total={50} showSizeChanger />
       <Space wrap>
@@ -154,7 +158,13 @@ const Page: React.FC = () => {
         </Popconfirm>
       </Space>
       <Transfer dataSource={[]} showSearch targetKeys={[]} />
-      <div style={{ width: 320, border: `1px solid ${token.colorBorder}`, borderRadius: 8 }}>
+      <div
+        style={{
+          width: 320,
+          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+          borderRadius: token.borderRadiusLG,
+        }}
+      >
         <Calendar fullscreen={false} value={dayjs()} />
       </div>
       <Form name="basic" autoComplete="off" labelCol={{ sm: { span: 4 } }} wrapperCol={{ span: 6 }}>
