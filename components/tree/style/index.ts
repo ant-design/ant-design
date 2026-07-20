@@ -357,7 +357,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             top: 0,
             insetInlineEnd: token.calc(switcherSize).div(2).equal(),
             bottom: token.calc(treeNodePadding).mul(-1).equal(),
-            marginInlineStart: -1,
+            marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
             borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
             content: '""',
           },
