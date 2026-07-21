@@ -19,7 +19,10 @@ const genPresetStyle = (token: TagToken) =>
           color: token.colorTextLightSolid,
         },
         [`&${token.componentCls}-filled`]: {
-          backgroundColor: lightColor,
+          // `xxxFilledBg` is resolved in `prepareComponentToken` (dark-mode-aware there;
+          // a plain passthrough of `lightColor` in light mode), since color math can't
+          // safely happen in this function under `cssVar` theming.
+          backgroundColor: token[`${colorKey}FilledBg`] ?? lightColor,
           color: textColor,
         },
       },

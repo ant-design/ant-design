@@ -8,8 +8,16 @@ import { isBright } from '../../color-picker/components/ColorPresets';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { PresetColors } from '../../theme/interface';
+import type { PresetColorKey } from '../../theme/interface';
 
-export interface ComponentToken {
+// Per-preset-color background for the `filled` variant, one flat token per color (e.g.
+// `blueFilledBg`, `purpleFilledBg`). Must stay flat: `cssVar` theming turns every top-level
+// `ComponentToken` key into its own `var(...)` reference, so a single key holding a nested
+// object cannot survive the round trip.
+type PresetFilledBgComponentToken = Partial<Record<`${PresetColorKey}FilledBg`, string>>;
+
+export interface ComponentToken extends PresetFilledBgComponentToken {
   /**
    * @desc 默认背景色
    * @descEN Default background color
@@ -238,12 +246,31 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
     ? '#000'
     : '#fff';
 
+  // In dark mode, preset palette index 1 (the filled variant's light-mode background) resolves
+  // to a near-black tint that barely stands out against `colorBgContainer`, so filled tags need
+  // a background derived from the saturated palette-6 step instead. This must be computed here
+  // (not in the style-generation function) because under `cssVar` theming, color tokens are
+  // already `var(...)` reference strings by the time the style function runs and can no longer
+  // be parsed/blended by FastColor — `prepareComponentToken` still receives real values.
+  const isDarkMode = new FastColor(token.colorBgBase).toHsl().l < 0.5;
+  const presetFilledBg = PresetColors.reduce<Record<string, string>>((prev, colorKey) => {
+    const lightColor = token[`${colorKey}1`];
+    const darkColor = token[`${colorKey}6`];
+    if (lightColor && darkColor) {
+      prev[`${colorKey}FilledBg`] = isDarkMode
+        ? new FastColor(darkColor).setA(0.15).onBackground(token.colorBgContainer).toHexString()
+        : lightColor;
+    }
+    return prev;
+  }, {});
+
   return {
     defaultBg: new FastColor(token.colorFillTertiary)
       .onBackground(token.colorBgContainer)
       .toHexString(),
     defaultColor: token.colorText,
     solidTextColor,
+    ...presetFilledBg,
   };
 };
 
