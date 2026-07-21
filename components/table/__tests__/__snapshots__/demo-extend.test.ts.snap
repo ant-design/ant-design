@@ -22175,6 +22175,254 @@ Array [
 
 exports[`renders components/table/demo/nested-table.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/nested-table-in-tabs-debug.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup>
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  />
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="true"
+                      aria-label="Collapse row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-expanded-row ant-table-expanded-row-level-1"
+                >
+                  <td
+                    class="ant-table-cell"
+                    colspan="2"
+                  >
+                    <div
+                      class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
+                    >
+                      <div
+                        aria-orientation="horizontal"
+                        class="ant-tabs-nav"
+                        role="tablist"
+                      >
+                        <div
+                          class="ant-tabs-nav-wrap"
+                        >
+                          <div
+                            class="ant-tabs-nav-list"
+                            style="transform: translate(0px, 0px);"
+                          >
+                            <div
+                              class="ant-tabs-tab ant-tabs-tab-active"
+                              data-node-key="1"
+                            >
+                              <div
+                                aria-controls="rc-tabs-test-panel-1"
+                                aria-selected="true"
+                                class="ant-tabs-tab-btn"
+                                id="rc-tabs-test-tab-1"
+                                role="tab"
+                                tabindex="0"
+                              >
+                                Tab 1
+                              </div>
+                            </div>
+                            <div
+                              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                        >
+                          <button
+                            aria-controls="rc-tabs-test-more-popup"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="ant-tabs-nav-more"
+                            id="rc-tabs-test-more"
+                            style="visibility: hidden; order: 1;"
+                            type="button"
+                          >
+                            <span
+                              aria-label="ellipsis"
+                              class="anticon anticon-ellipsis"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="ellipsis"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                          <div
+                            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          >
+                            <ul
+                              aria-label="expanded dropdown"
+                              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                              data-menu-list="true"
+                              id="rc-tabs-test-more-popup"
+                              role="listbox"
+                              tabindex="-1"
+                            />
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-tabs-body-holder"
+                      >
+                        <div
+                          class="ant-tabs-body ant-tabs-body-top"
+                        >
+                          <div
+                            aria-hidden="false"
+                            aria-labelledby="rc-tabs-test-tab-1"
+                            class="ant-tabs-content ant-tabs-content-active"
+                            id="rc-tabs-test-panel-1"
+                            role="tabpanel"
+                            tabindex="0"
+                          >
+                            <div
+                              class="css-var-test-id ant-table-css-var ant-table-wrapper"
+                            >
+                              <div
+                                aria-busy="false"
+                                aria-live="polite"
+                                class="ant-spin css-var-test-id"
+                              >
+                                <div
+                                  class="ant-spin-container"
+                                >
+                                  <div
+                                    class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
+                                  >
+                                    <div
+                                      class="ant-table-container"
+                                    >
+                                      <div
+                                        class="ant-table-content"
+                                      >
+                                        <table
+                                          style="table-layout: auto;"
+                                        >
+                                          <thead
+                                            class="ant-table-thead"
+                                          >
+                                            <tr>
+                                              <th
+                                                class="ant-table-cell"
+                                                scope="col"
+                                              >
+                                                Name
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody
+                                            class="ant-table-tbody"
+                                          >
+                                            <tr
+                                              class="ant-table-row ant-table-row-level-0"
+                                              data-row-key="0"
+                                            >
+                                              <td
+                                                class="ant-table-cell"
+                                              >
+                                                Jack
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/nested-table-in-tabs-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/order-column.tsx extend context correctly 1`] = `
 <div
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
