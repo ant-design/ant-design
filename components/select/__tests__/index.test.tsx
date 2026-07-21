@@ -87,20 +87,63 @@ describe('Select', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
-  it('should apply scroll fade styles to the prefixed list holder', () => {
+  it('should disable scroll fade by default', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls="bamboo">
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown')).not.toHaveClass(
+      'bamboo-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const { container, rerender } = render(
+      <Select scrollFade open options={[{ label: '1', value: '1' }]} />,
+    );
+
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select scrollFade={false} open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).not.toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should apply boundary-aware scroll fade styles to the prefixed list holder', () => {
     const cache = createCache();
 
     const { container } = render(
       <StyleProvider cache={cache}>
         <ConfigProvider prefixCls="bamboo">
-          <Select open options={[{ label: '1', value: '1' }]} />
+          <Select scrollFade open options={[{ label: '1', value: '1' }]} />
         </ConfigProvider>
       </StyleProvider>,
     );
 
-    expect(container.querySelector('.bamboo-select-dropdown-list-holder')).toBeTruthy();
+    expect(container.querySelector('.bamboo-select-dropdown-scroll-fade')).toBeTruthy();
     expect(extractStyle(cache, { plain: true })).toContain(
-      '.bamboo-select-dropdown-list-holder{position:relative;scrollbar-gutter:stable;',
+      '.bamboo-select-dropdown-scroll-fade .bamboo-select-dropdown-list-holder{',
+    );
+    expect(extractStyle(cache, { plain: true })).toContain(
+      'background-attachment:local,local,scroll,scroll;',
     );
   });
 

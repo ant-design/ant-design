@@ -154,6 +154,8 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /** Whether to show scroll fade hints in the popup list */
+  scrollFade?: boolean;
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -205,6 +207,7 @@ const InternalSelect = <
     classNames,
     clearIcon,
     showSearch,
+    scrollFade,
     ...rest
   } = props;
 
@@ -230,6 +233,7 @@ const InternalSelect = <
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
     removeIcon: contextRemoveIcon,
     suffixIcon: contextSuffixIcon,
+    scrollFade: contextScrollFade,
   } = useComponentConfig('select');
 
   const [, token] = useToken();
@@ -319,6 +323,7 @@ const InternalSelect = <
   const mergedAllowClear =
     finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
   const mergedShowSearch = showSearch ?? contextShowSearch;
+  const mergedScrollFade = scrollFade ?? contextScrollFade ?? false;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -363,6 +368,7 @@ const InternalSelect = <
     dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+      [`${prefixCls}-dropdown-scroll-fade`]: mergedScrollFade,
     },
     rootClassName,
     cssVarCls,

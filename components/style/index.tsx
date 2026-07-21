@@ -76,75 +76,31 @@ export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => 
   '&:focus-visible': genFocusOutline(token, offset),
 });
 
-// Scroll-driven fades: reveal each edge fade only while there is more content to
-// scroll toward, so it disappears once the matching edge is reached.
-const scrollFadeTopIn = new Keyframes('antScrollFadeTop', {
-  '0%': { opacity: 0 },
-  '100%': { opacity: 1 },
-});
-const scrollFadeBottomOut = new Keyframes('antScrollFadeBottom', {
-  '0%': { opacity: 1 },
-  '100%': { opacity: 0 },
-});
-
 interface ScrollFadeStyleOptions {
   backgroundColor?: string;
+  shadowColor?: string;
 }
 
 export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorBgElevated, controlHeightLG } = token;
+  const { colorBgElevated, colorSplit, controlHeightLG } = token;
   const backgroundColor = options?.backgroundColor ?? colorBgElevated;
+  const shadowColor = options?.shadowColor ?? colorSplit;
   const fadeSize = unit(controlHeightLG);
 
   return {
-    position: 'relative',
-    scrollbarGutter: 'stable',
-
-    '&::before, &::after': {
-      content: '""',
-      position: 'sticky',
-      display: 'block',
-      height: fadeSize,
-      pointerEvents: 'none',
-      zIndex: 1,
-      // Visible by default for browsers without scroll-driven animations.
-      // The supported path below hides each edge when its scroll boundary is reached.
-      opacity: 1,
-    },
-
-    '&::before': {
-      insetBlockStart: 0,
-      marginBlockEnd: `calc(-1 * ${fadeSize})`,
-      // Interpolate in OKLab so the fade to `transparent` stays clean.
-      backgroundImage: `linear-gradient(to bottom in oklab, ${backgroundColor}, transparent)`,
-    },
-
-    '&::after': {
-      insetBlockEnd: 0,
-      marginBlockStart: `calc(-1 * ${fadeSize})`,
-      backgroundImage: `linear-gradient(to top in oklab, ${backgroundColor}, transparent)`,
-    },
-
-    '@supports (animation-timeline: scroll())': {
-      '&::before': {
-        animationName: scrollFadeTopIn,
-        animationTimeline: 'scroll(nearest block)',
-        animationRange: `0 ${fadeSize}`,
-        animationFillMode: 'both',
-        animationTimingFunction: 'linear',
-      },
-
-      '&::after': {
-        animationName: scrollFadeBottomOut,
-        animationTimeline: 'scroll(nearest block)',
-        animationRange: `calc(100% - ${fadeSize}) 100%`,
-        animationFillMode: 'both',
-        animationTimingFunction: 'linear',
-      },
-    },
+    backgroundImage: [
+      `linear-gradient(${backgroundColor} 30%, transparent)`,
+      `linear-gradient(transparent, ${backgroundColor} 70%)`,
+      `linear-gradient(to bottom, ${shadowColor}, transparent)`,
+      `linear-gradient(to top, ${shadowColor}, transparent)`,
+    ].join(', '),
+    backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: Array.from({ length: 4 }, () => `100% ${fadeSize}`).join(', '),
+    backgroundAttachment: 'local, local, scroll, scroll',
   };
 };
 

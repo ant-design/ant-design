@@ -176,10 +176,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         backgroundColor: popupBg,
       },
 
-      [`&${componentCls}-submenu-popup ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])`]:
-        {
-          ...genScrollFadeStyle(token, { backgroundColor: popupBg }),
-        },
+      [`&${componentCls}-scroll-fade${componentCls}-vertical`]: genScrollFadeStyle(token, {
+        backgroundColor: popupBg,
+      }),
+
+      [`&${componentCls}-submenu-popup${componentCls}-scroll-fade ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])`]:
+        genScrollFadeStyle(token, { backgroundColor: popupBg }),
       // ===== 设置浮层的颜色 end =======
 
       // ====================== Horizontal ======================

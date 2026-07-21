@@ -107,6 +107,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         '&-menu-vertical': {
           maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
           overflowY: 'auto',
+        },
+
+        [`&-scroll-fade ${componentCls}-menu-vertical`]: {
           ...genScrollFadeStyle(token),
         },
 

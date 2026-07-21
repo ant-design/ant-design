@@ -59,6 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |  | × |
 | items | 菜单内容 | [ItemType\[\]](#itemtype) | - | 4.20.0 | × |
 | mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` |  | × |
+| scrollFade | 是否显示可滚动菜单的滚动渐变提示 | boolean | false | 6.6.0 | 6.6.0 |
 | multiple | 是否允许多选 | boolean | false |  | × |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] | - |  | × |
 | overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | ReactNode | `<EllipsisOutlined />` |  | × |

@@ -97,7 +97,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         // Overlay the scroll viewport with a `bg -> transparent` fade at the
         // top/bottom so long lists hint at more content. The fade sits on top of
         // the options (not behind), matching a clean elevated-bg gradient.
-        [`${componentCls}-dropdown-list-holder`]: {
+        [`&-scroll-fade ${componentCls}-dropdown-list-holder`]: {
           ...genScrollFadeStyle(token),
         },
 

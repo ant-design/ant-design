@@ -58,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  | × |
 | items | Menu item content | [ItemType\[\]](#itemtype) | - | 4.20.0 | × |
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  | × |
+| scrollFade | Whether to show scroll fade hints for scrollable menus | boolean | false | 6.6.0 | 6.6.0 |
 | multiple | Allows selection of multiple items | boolean | false |  | × |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  | × |
 | overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  | × |

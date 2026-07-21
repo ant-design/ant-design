@@ -56,6 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | popupRender | Customize popup content | (menus: ReactNode) => ReactNode | - | 5.25.0 | × |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - |  | × |
+| scrollFade | Whether to show scroll fade hints in the popup menu | boolean | false | 6.6.0 | 6.6.0 |
 | ~~overlayClassName~~ | The class name of the dropdown root element, please use `classNames.root` instead | string | - |  | × |
 | ~~overlayStyle~~ | The style of the dropdown root element, please use `styles.root` instead | CSSProperties | - |  | × |
 | placement | Placement of popup menu: `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | string | `bottomLeft` | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom`: 6.5.0 | × |

@@ -15,6 +15,7 @@ import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Layout from '../../layout';
 import OverrideContext from '../OverrideContext';
 
@@ -1316,6 +1317,35 @@ describe('Menu', () => {
     );
     const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
     expect(popup).toHaveStyle(testStyles.popup.root);
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const items = [{ key: '1', label: 'Menu 1' }];
+    const { container, rerender } = render(<Menu mode="vertical" items={items} />);
+
+    expect(container.querySelector('.ant-menu')).not.toHaveClass('ant-menu-scroll-fade');
+
+    rerender(<Menu mode="vertical" scrollFade items={items} />);
+    expect(container.querySelector('.ant-menu')).toHaveClass('ant-menu-scroll-fade');
+
+    rerender(
+      <ConfigProvider menu={{ scrollFade: true }}>
+        <Menu mode="vertical" items={items} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-menu')).toHaveClass('ant-menu-scroll-fade');
+
+    rerender(
+      <ConfigProvider menu={{ scrollFade: true }}>
+        <Menu mode="vertical" scrollFade={false} items={items} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-menu')).not.toHaveClass('ant-menu-scroll-fade');
+
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    expect(cssText).toContain('ant-menu-light.ant-menu-scroll-fade.ant-menu-vertical,');
   });
 
   it('should pass itemData in onClick with items config', () => {
