@@ -312,6 +312,20 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-rgb-input')).toBeTruthy();
   });
 
+  it('Should onFormatChange work for ColorPicker.Panel', async () => {
+    const onFormatChange = jest.fn();
+    const { container } = render(
+      <ColorPicker.Panel defaultValue="#1677ff" onFormatChange={onFormatChange} />,
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+
+    expect(onFormatChange).toHaveBeenCalledWith('rgb');
+  });
+
   it('Should hex input work', async () => {
     const { container } = render(<ColorPicker open format="hex" />);
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
@@ -477,6 +491,80 @@ describe('ColorPicker', () => {
     expect(componentContainer.querySelector('.ant-color-picker-inner-content')).not.toBeTruthy();
     expect(componentContainer.querySelector('.ant-color-picker-inner')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
+  });
+
+  it('Should ColorPicker.Panel work', () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorPicker.Panel defaultValue="#1677ff" onChange={onChange} />);
+
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-inner')).toBeTruthy();
+    expect(container.querySelector('.ant-color-picker-trigger')).toBeFalsy();
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '273B57' },
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(39, 59, 87);');
+  });
+
+  it('Should internal PurePanel work', async () => {
+    const PurePanel = ColorPicker._InternalPanelDoNotUseOrYouWillBeFired;
+    const { container } = render(<PurePanel defaultValue="#1677ff" />);
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(container.querySelector('.ant-popover-placement-bottom')).toBeTruthy();
+  });
+
+  it('Should disable ColorPicker.Panel interactions', () => {
+    const spyRect = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+
+    const onChange = jest.fn();
+    const panelProps = {
+      allowClear: true,
+      defaultValue: '#1677ff',
+      onChange,
+      presets: [
+        {
+          label: 'Preset',
+          colors: ['#f5222d'],
+        },
+      ],
+    };
+    const { container, rerender } = render(<ColorPicker.Panel {...panelProps} />);
+
+    expect(container.querySelector('.ant-color-picker-hex-input input')).not.toBeDisabled();
+
+    rerender(<ColorPicker.Panel disabled {...panelProps} />);
+
+    expect(container.querySelector('.ant-color-picker-hex-input input')).toBeDisabled();
+    expect(container.querySelector('.ant-color-picker-clear')).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
+
+    doMouseMove(container, 0, 999);
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-presets-color')!);
+
+    expect(onChange).not.toHaveBeenCalled();
+    expect(
+      container.querySelector('.ant-color-picker-color-block-inner')?.getAttribute('style'),
+    ).toEqual('background: rgb(22, 119, 255);');
+
+    spyRect.mockRestore();
   });
 
   it('Should null work as expect', async () => {

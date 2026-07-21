@@ -32,6 +32,7 @@ const PanelPicker: FC = () => {
     modeOptions,
     prefixCls,
     allowClear,
+    disabled,
     value,
     disabledAlpha,
     onChange,
@@ -138,12 +139,20 @@ const PanelPicker: FC = () => {
     fromPicker: boolean,
     info?: Info,
   ) => {
+    if (disabled) {
+      return;
+    }
+
     const nextColor = fillColor(colorValue, info);
     setPickerColor(nextColor.isGradient() ? nextColor.getColors()[activeIndex].color : nextColor);
     onChange(nextColor, fromPicker);
   };
 
   const onInternalChangeComplete = (nextColor: Color, info?: Info) => {
+    if (disabled) {
+      return;
+    }
+
     // Trigger complete event
     onChangeComplete(fillColor(nextColor, info));
 
@@ -154,6 +163,10 @@ const PanelPicker: FC = () => {
   };
 
   const onInputChange = (colorValue: AggregationColor) => {
+    if (disabled) {
+      return;
+    }
+
     onChange(fillColor(colorValue));
   };
 
@@ -166,11 +179,18 @@ const PanelPicker: FC = () => {
     operationNode = (
       <div className={`${prefixCls}-operation`}>
         {showMode && (
-          <Segmented size="small" options={modeOptions} value={mode} onChange={onModeChange} />
+          <Segmented
+            size="small"
+            options={modeOptions}
+            value={mode}
+            onChange={onModeChange}
+            disabled={disabled}
+          />
         )}
         <ColorClear
           prefixCls={prefixCls}
           value={value}
+          disabled={disabled}
           onChange={(clearColor) => {
             onChange(clearColor);
             onClear?.();
@@ -191,6 +211,7 @@ const PanelPicker: FC = () => {
       <RcColorPicker
         prefixCls={prefixCls}
         value={mergedPickerColor?.toHsb()}
+        disabled={disabled}
         disabledAlpha={disabledAlpha}
         onChange={(colorValue, info) => {
           onPickerChange(colorValue, true, info);
@@ -204,6 +225,7 @@ const PanelPicker: FC = () => {
         value={activeColor}
         onChange={onInputChange}
         prefixCls={prefixCls}
+        disabled={disabled}
         disabledAlpha={disabledAlpha}
         {...injectProps}
       />

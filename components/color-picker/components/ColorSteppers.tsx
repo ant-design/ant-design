@@ -10,6 +10,7 @@ interface ColorSteppersProps {
   value?: number;
   min?: number;
   max?: number;
+  disabled?: boolean;
   onChange?: (value: number | null) => void;
   className?: string;
   prefix?: (prefixCls: string) => React.ReactNode;
@@ -21,6 +22,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   min = 0,
   max = 100,
   value,
+  disabled,
   onChange,
   className,
   formatter,
@@ -37,8 +39,13 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       max={max}
       value={stepValue}
       formatter={formatter}
+      disabled={disabled}
       size="small"
       onChange={(step) => {
+        if (disabled) {
+          return;
+        }
+
         setInternalValue(step || 0);
         onChange?.(step);
       }}
