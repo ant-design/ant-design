@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -84,6 +85,23 @@ describe('Select', () => {
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+  });
+
+  it('should apply scroll fade styles to the prefixed list holder', () => {
+    const cache = createCache();
+
+    const { container } = render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider prefixCls="bamboo">
+          <Select open options={[{ label: '1', value: '1' }]} />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown-list-holder')).toBeTruthy();
+    expect(extractStyle(cache, { plain: true })).toContain(
+      '.bamboo-select-dropdown-list-holder{position:relative;scrollbar-gutter:stable;',
+    );
   });
 
   it('should show search icon when showSearch and open', () => {
