@@ -7,7 +7,7 @@ import { createStyles } from 'antd-style';
 const useStyles = createStyles(({ token }) => ({
   root: {
     backgroundColor: token.colorFillAlter,
-    border: `1px solid ${token.colorBorder}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
     borderRadius: token.borderRadius,
   },
 }));

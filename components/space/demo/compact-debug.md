@@ -5,13 +5,3 @@
 ## en-US
 
 Input addon debug.
-
-```css
-.select-before {
-  width: 90px;
-}
-
-.select-after {
-  width: 80px;
-}
-```
