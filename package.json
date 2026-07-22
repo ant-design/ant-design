@@ -29,6 +29,60 @@
   "sideEffects": [
     "*.css"
   ],
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "browser": "./es/index.js",
+      "node": "./lib/index.js",
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./es": {
+      "types": "./es/index.d.ts",
+      "browser": "./es/index.js",
+      "node": "./lib/index.js",
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "default": "./es/index.js"
+    },
+    "./es/*.js": "./es/*.js",
+    "./es/*.d.ts": "./es/*.d.ts",
+    "./es/*.css": "./es/*.css",
+    "./es/*.json": "./es/*.json",
+    "./es/*": {
+      "types": "./es/*.d.ts",
+      "browser": "./es/*.js",
+      "node": "./lib/*.js",
+      "import": "./es/*.js",
+      "require": "./lib/*.js",
+      "default": "./es/*.js"
+    },
+    "./lib": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./lib/*.js": "./lib/*.js",
+    "./lib/*.d.ts": "./lib/*.d.ts",
+    "./lib/*.css": "./lib/*.css",
+    "./lib/*.json": "./lib/*.json",
+    "./lib/*": {
+      "types": "./lib/*.d.ts",
+      "default": "./lib/*.js"
+    },
+    "./dist/*": "./dist/*",
+    "./locale": {
+      "types": "./locale/index.d.ts",
+      "default": "./locale/index.js"
+    },
+    "./locale/*.js": "./locale/*.js",
+    "./locale/*.d.ts": "./locale/*.d.ts",
+    "./locale/*": {
+      "types": "./locale/*.d.ts",
+      "default": "./locale/*.js"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -51,6 +105,7 @@
     "precompile": "npm run prestart",
     "compile": "npm run compileOnly",
     "compileOnly": "npm run clean && antd-tools run compile",
+    "postcompileOnly": "node scripts/generate-index-proxies.js",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run test:site",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
