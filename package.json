@@ -105,7 +105,7 @@
     "precompile": "npm run prestart",
     "compile": "npm run compileOnly",
     "compileOnly": "npm run clean && antd-tools run compile",
-    "postcompileOnly": "node scripts/generate-index-proxies.js",
+    "postcompileOnly": "node -e \"require('./.antd-tools.config.js').generateIndexProxies()\"",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run test:site",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
