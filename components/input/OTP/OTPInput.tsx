@@ -16,19 +16,45 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
+  const {
+    className,
+    value,
+    onChange,
+    onActiveChange,
+    index,
+    mask,
+    onFocus,
+    onCompositionStart,
+    onCompositionEnd,
+    ...restProps
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : value;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
+  const composingRef = React.useRef(false);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
   const onInternalChange: React.InputEventHandler<HTMLInputElement> = (e) => {
+    if (composingRef.current || (e.nativeEvent as InputEvent).isComposing) {
+      return;
+    }
+
     onChange(index, (e.target as HTMLInputElement).value);
+  };
+
+  const onInternalCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
+    composingRef.current = true;
+    onCompositionStart?.(e);
+  };
+
+  const onInternalCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
+    composingRef.current = false;
+    onCompositionEnd?.(e);
   };
 
   // ========================= Focus ==========================
@@ -80,6 +106,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
+        onCompositionStart={onInternalCompositionStart}
+        onCompositionEnd={onInternalCompositionEnd}
         onFocus={onInternalFocus}
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}

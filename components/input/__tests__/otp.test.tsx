@@ -54,6 +54,26 @@ describe('Input.OTP', () => {
     expect(onChange).toHaveBeenCalledWith(CODE);
   });
 
+  it('should ignore IME composition text before commit', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.input(input, { target: { value: 'ni' } });
+
+    expect(getText(container)).toBe('');
+    expect(onInput).not.toHaveBeenCalled();
+
+    fireEvent.compositionEnd(input);
+    fireEvent.input(input, { target: { value: '你' } });
+
+    expect(getText(container)).toBe('你');
+    expect(onInput).toHaveBeenCalledTimes(1);
+    expect(onInput).toHaveBeenCalledWith(['你']);
+  });
+
   it('backspace to delete', async () => {
     const CODE = 'LITTLE';
 
