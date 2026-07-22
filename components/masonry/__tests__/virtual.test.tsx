@@ -6,6 +6,10 @@ import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/
 
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
+  const virtualHolder = document.body.querySelector('.ant-masonry-virtual-holder');
+  if (virtualHolder) {
+    triggerResize(virtualHolder);
+  }
   await waitFakeTimer();
 };
 
@@ -79,6 +83,35 @@ describe('Masonry.virtual', () => {
     expect(afterTexts).not.toEqual(beforeTexts);
   });
 
+  it('applies upward overscan when scrolling back up', async () => {
+    const { container } = render(<Demo />);
+    await resizeMasonry();
+
+    const virtualList = container.querySelector('.ant-masonry-virtual-holder')!;
+    fireEvent.scroll(virtualList, { target: { scrollTop: 1200 } });
+    await waitFakeTimer();
+
+    fireEvent.scroll(virtualList, { target: { scrollTop: 800 } });
+    // Fire again before rAF flushes to cover pending-frame cancellation.
+    fireEvent.scroll(virtualList, { target: { scrollTop: 600 } });
+    await waitFakeTimer();
+
+    const texts = Array.from(container.querySelectorAll('.masonry-cell')).map((node) =>
+      Number(node.textContent),
+    );
+    expect(Math.min(...texts)).toBeLessThan(30);
+  });
+
+  it('cancels pending scroll frame on unmount', async () => {
+    const { container, unmount } = render(<Demo />);
+    await resizeMasonry();
+
+    const virtualList = container.querySelector('.ant-masonry-virtual-holder')!;
+    fireEvent.scroll(virtualList, { target: { scrollTop: 400 } });
+    unmount();
+    await waitFakeTimer();
+  });
+
   it('renders later items after deep scroll', async () => {
     const { container } = render(<Demo />);
     await resizeMasonry();
@@ -91,6 +124,31 @@ describe('Masonry.virtual', () => {
       Number(node.textContent),
     );
     expect(Math.max(...texts)).toBeGreaterThan(20);
+  });
+
+  it('clamps scroll offset when items shrink after deep scroll', async () => {
+    const { container, rerender } = render(<Demo />);
+    await resizeMasonry();
+
+    const virtualList = container.querySelector('.ant-masonry-virtual-holder') as HTMLElement;
+    fireEvent.scroll(virtualList, { target: { scrollTop: 2200 } });
+    await waitFakeTimer();
+
+    Object.defineProperty(virtualList, 'clientHeight', {
+      configurable: true,
+      get: () => 400,
+    });
+    Object.defineProperty(virtualList, 'scrollTop', {
+      configurable: true,
+      writable: true,
+      value: 2200,
+    });
+
+    rerender(<Demo dynamicHeights={[120, 160]} />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBe(2);
+    expect(virtualList.scrollTop).toBeLessThanOrEqual(400);
   });
 
   it('triggers onLayoutChange callback with all items', async () => {

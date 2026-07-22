@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef, isEqual, useLayoutEffect } from '@rc-component/util';
+import { composeRef, isEqual, useEvent, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -193,13 +193,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
   const styleRoot = useSemanticRootStyle(style);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, contextStyleRoot, styles, styleRoot],
-    {
-      props: mergedProps,
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MasonrySemanticAllType['classNames'],
+    MasonrySemanticAllType['styles'],
+    MasonryProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
@@ -274,8 +274,12 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   // Trigger for `onLayoutChange`
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
 
+  const triggerLayoutChange = useEvent((nextItemColumns: ItemColumnsType[]) => {
+    onLayoutChange?.(nextItemColumns.map(([item, column]) => ({ ...item, column })));
+  });
+
   useLayoutEffect(() => {
-    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
+    if (itemWithPositions.every(({ position }) => position)) {
       setItemColumns((prevItemColumns) => {
         const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
           item,
@@ -284,13 +288,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
       });
     }
-  }, [itemWithPositions, onLayoutChange]);
+  }, [itemWithPositions]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && items && items.length === itemColumns.length) {
-      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    if (items && items.length === itemColumns.length && itemColumns.length > 0) {
+      triggerLayoutChange(itemColumns);
     }
-  }, [itemColumns, items, onLayoutChange]);
+  }, [itemColumns]);
 
   // ====================== Render ======================
   return (

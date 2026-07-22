@@ -37,6 +37,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     varName,
     varRef,
   } = props;
+  const holderRef = React.useRef<HTMLDivElement>(null);
   const [scrollTop, setScrollTop] = React.useState(0);
   const [viewportHeight, setViewportHeight] = React.useState(0);
   const lastScrollTopRef = React.useRef(0);
@@ -44,7 +45,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
   const scrollRafRef = React.useRef<number | null>(null);
 
   const onHolderResize: ResizeObserverProps['onResize'] = (sizeInfo) => {
-    setViewportHeight(sizeInfo.offsetHeight || 0);
+    setViewportHeight(sizeInfo.offsetHeight);
   };
 
   React.useEffect(
@@ -55,6 +56,22 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     },
     [],
   );
+
+  // When the dataset shrinks, the previous scrollTop can sit below all items.
+  // Clamp both DOM scroll and React state so visibleItems stays non-empty.
+  React.useLayoutEffect(() => {
+    const holder = holderRef.current!;
+    const maxScrollTop = Math.max(0, totalHeight - holder.clientHeight);
+    if (holder.scrollTop > maxScrollTop) {
+      holder.scrollTop = maxScrollTop;
+    }
+
+    const nextTop = holder.scrollTop;
+    if (nextTop !== lastScrollTopRef.current) {
+      lastScrollTopRef.current = nextTop;
+      setScrollTop(nextTop);
+    }
+  }, [itemWithPositions, totalHeight]);
 
   const [itemBounds, maxSpanHeight, averageItemHeight] = React.useMemo(() => {
     const bounds = itemWithPositions
@@ -134,6 +151,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
   return (
     <ResizeObserver onResize={onHolderResize}>
       <div
+        ref={holderRef}
         className={`${prefixCls}-virtual-holder`}
         style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
         onScroll={(event) => {
@@ -153,8 +171,8 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
           style={{ height: totalHeight, position: 'relative' }}
         >
           {visibleItems.map((record) => {
-            const columnIndex = record.position?.column ?? 0;
-            const top = record.position?.top ?? 0;
+            const columnIndex = record.position!.column;
+            const top = record.position!.top;
 
             const itemStyle: CSSProperties = {
               ...mergedStyle,
