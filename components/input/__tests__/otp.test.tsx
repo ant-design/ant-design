@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import OTPInput from '../OTP/OTPInput';
 import type { OTPProps } from '../OTP';
 
 const { OTP } = Input;
@@ -66,12 +67,105 @@ describe('Input.OTP', () => {
     expect(getText(container)).toBe('');
     expect(onInput).not.toHaveBeenCalled();
 
-    fireEvent.compositionEnd(input);
+    fireEvent.compositionEnd(input, { target: { value: '你' } });
+
+    expect(getText(container)).toBe('你');
+    expect(onInput).toHaveBeenCalledTimes(1);
+    expect(onInput).toHaveBeenCalledWith(['你']);
+  });
+
+  it('should ignore input event marked as composing by native event', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+    const inputEvent = createEvent.input(input, { target: { value: 'ni' } });
+
+    Object.defineProperty(inputEvent, 'isComposing', {
+      value: true,
+    });
+    fireEvent(input, inputEvent);
+
+    expect(getText(container)).toBe('');
+    expect(onInput).not.toHaveBeenCalled();
+  });
+
+  it('should not commit twice when input fires right after compositionend', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '你' } });
     fireEvent.input(input, { target: { value: '你' } });
 
     expect(getText(container)).toBe('你');
     expect(onInput).toHaveBeenCalledTimes(1);
     expect(onInput).toHaveBeenCalledWith(['你']);
+  });
+
+  it('should still trigger input after composition dedupe', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '你' } });
+    fireEvent.input(input, { target: { value: 'a' } });
+
+    expect(getText(container)).toBe('a');
+    expect(onInput).toHaveBeenCalledTimes(2);
+    expect(onInput).toHaveBeenLastCalledWith(['a']);
+  });
+
+  it('should fill multiple cells when composition commits multiple characters', () => {
+    const onInput = jest.fn();
+    const onChange = jest.fn();
+    const { container } = render(<OTP length={2} onChange={onChange} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.input(input, { target: { value: 'nihao' } });
+    fireEvent.compositionEnd(input, { target: { value: '你好' } });
+
+    expect(getText(container)).toBe('你好');
+    expect(onInput).toHaveBeenCalledTimes(1);
+    expect(onInput).toHaveBeenCalledWith(['你', '好']);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('你好');
+  });
+
+  it('should not trigger callback when composition is cancelled without change', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '' } });
+
+    expect(getText(container)).toBe('');
+    expect(onInput).not.toHaveBeenCalled();
+  });
+
+  it('should forward composition events from OTPInput', () => {
+    const onCompositionStart = jest.fn();
+    const onCompositionEnd = jest.fn();
+    const { container } = render(
+      <OTPInput
+        index={0}
+        value=""
+        onActiveChange={jest.fn()}
+        onChange={jest.fn()}
+        onCompositionStart={onCompositionStart}
+        onCompositionEnd={onCompositionEnd}
+      />,
+    );
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input);
+
+    expect(onCompositionStart).toHaveBeenCalledTimes(1);
+    expect(onCompositionEnd).toHaveBeenCalledTimes(1);
   });
 
   it('backspace to delete', async () => {

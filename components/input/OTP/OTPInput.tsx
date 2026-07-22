@@ -35,6 +35,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
   const composingRef = React.useRef(false);
+  const composedValueRef = React.useRef<string | null>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -44,16 +45,41 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       return;
     }
 
-    onChange(index, (e.target as HTMLInputElement).value);
+    const nextValue = (e.target as HTMLInputElement).value;
+
+    if (composedValueRef.current !== null) {
+      const composedValue = composedValueRef.current;
+      composedValueRef.current = null;
+
+      if (nextValue === composedValue) {
+        return;
+      }
+    }
+
+    onChange(index, nextValue);
   };
 
   const onInternalCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composingRef.current = true;
+    composedValueRef.current = null;
     onCompositionStart?.(e);
   };
 
   const onInternalCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composingRef.current = false;
+    const nextValue = (e.target as HTMLInputElement).value;
+
+    if (nextValue !== value) {
+      composedValueRef.current = nextValue;
+      onChange(index, nextValue);
+
+      raf(() => {
+        composedValueRef.current = null;
+      });
+    } else {
+      composedValueRef.current = null;
+    }
+
     onCompositionEnd?.(e);
   };
 
