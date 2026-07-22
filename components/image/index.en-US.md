@@ -90,6 +90,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | 6.6.0 |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
 | onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - |  |
@@ -125,6 +126,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | open | Whether to display preview | boolean | - |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | 6.6.0 |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |

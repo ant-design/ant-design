@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import { genNoMotionStyle } from '../../style/motion';
+import { genNoMotionRawStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -52,7 +52,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
           display: 'block',
 
           '&::before': {
-            ...genNoMotionStyle(),
+            ...genNoMotionRawStyle(),
             content: '""',
             position: 'absolute',
             top: 0,

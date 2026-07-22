@@ -2965,7 +2965,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
 
 exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-loading demo-loadmore-list css-var-test-id"
+  class="ant-list ant-list-split ant-list-loading acss-154ja2h css-var-test-id"
 >
   <div
     aria-busy="true"

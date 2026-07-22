@@ -33,6 +33,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: TreeDataNode[]
 generateData(z);
 
 const dataList: { key: React.Key; title: string }[] = [];
+
 const generateList = (data: TreeDataNode[]) => {
   for (let i = 0; i < data.length; i++) {
     const node = data[i];
@@ -43,6 +44,7 @@ const generateList = (data: TreeDataNode[]) => {
     }
   }
 };
+
 generateList(defaultData);
 
 const getParentKey = (key: React.Key, tree: TreeDataNode[]): React.Key => {
@@ -96,7 +98,7 @@ const App: React.FC = () => {
           index > -1 ? (
             <span key={item.key}>
               {beforeStr}
-              <span className="site-tree-search-value">{searchValue}</span>
+              <span style={{ color: '#f50' }}>{searchValue}</span>
               {afterStr}
             </span>
           ) : (

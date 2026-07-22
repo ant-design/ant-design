@@ -10,3 +10,15 @@ export const genNoMotionStyle = (): CSSObject => {
     },
   };
 };
+
+/**
+ * For call sites already nested inside a pseudo-element selector.
+ */
+export const genNoMotionRawStyle = (): CSSObject => {
+  return {
+    '@media (prefers-reduced-motion: reduce)': {
+      transition: 'none',
+      animation: 'none',
+    },
+  };
+};
