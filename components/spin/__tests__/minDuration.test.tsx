@@ -1,13 +1,7 @@
 import React from 'react';
-import { debounce } from 'throttle-debounce';
 
 import Spin from '..';
 import { act, render } from '../../../tests/utils';
-
-jest.mock('throttle-debounce');
-(debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('throttle-debounce').debounce(...args),
-);
 
 describe('minDuration', () => {
   beforeEach(() => {
