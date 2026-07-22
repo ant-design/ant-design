@@ -65,6 +65,7 @@ const App: React.FC = () => {
           getPopupContainer={(node) => node.parentNode as HTMLElement}
           items={items}
           mode={menuMode}
+          scrollFade
           style={{ width: mode === 'horizontal' ? 520 : inlineCollapsed ? 80 : 256 }}
           triggerSubMenuAction={inlineCollapsed ? 'click' : 'hover'}
           {...(inlineCollapsed ? { inlineCollapsed } : {})}

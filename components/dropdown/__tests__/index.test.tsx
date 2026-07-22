@@ -610,6 +610,7 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-menu')).toHaveClass(
       'ant-dropdown-menu-scroll-fade',
     );
+    expect(container.querySelector('.ant-dropdown')).not.toHaveClass('ant-dropdown-scroll-fade');
 
     rerender(
       <ConfigProvider dropdown={{ scrollFade: true }}>
@@ -631,13 +632,6 @@ describe('Dropdown', () => {
     );
     expect(container.querySelector('.ant-dropdown-menu')).not.toHaveClass(
       'ant-dropdown-menu-scroll-fade',
-    );
-
-    const cssText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    expect(cssText).toContain(
-      'ant-dropdown-scroll-fade .ant-dropdown-menu-vertical{background-image:',
     );
   });
 });

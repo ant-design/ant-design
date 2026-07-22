@@ -94,9 +94,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         // ====================== Scroll Fade ======================
-        // Overlay the scroll viewport with a `bg -> transparent` fade at the
-        // top/bottom so long lists hint at more content. The fade sits on top of
-        // the options (not behind), matching a clean elevated-bg gradient.
+        // Select scrolls inside its virtual-list holder, unlike Dropdown/Menu,
+        // so it needs a component-specific selector around the shared style.
         [`&-scroll-fade ${componentCls}-dropdown-list-holder`]: {
           ...genScrollFadeStyle(token),
         },

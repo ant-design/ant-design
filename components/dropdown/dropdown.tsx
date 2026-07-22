@@ -272,10 +272,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     rootCls,
     contextClassName,
     mergedClassNames.root,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-scroll-fade`]: mergedScrollFade,
-    },
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
   const builtinPlacements = getPlacements({
@@ -329,9 +326,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
-        rootClassName={clsx(cssVarCls, rootCls, {
-          [`${prefixCls}-scroll-fade`]: mergedScrollFade,
-        })}
+        rootClassName={clsx(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             {direction === 'rtl' ? (

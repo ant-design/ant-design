@@ -176,12 +176,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         backgroundColor: popupBg,
       },
 
-      [`&${componentCls}-scroll-fade${componentCls}-vertical`]: genScrollFadeStyle(token, {
-        backgroundColor: popupBg,
-      }),
-
-      [`&${componentCls}-submenu-popup${componentCls}-scroll-fade ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])`]:
-        genScrollFadeStyle(token, { backgroundColor: popupBg }),
+      // Root vertical menus and popup submenu lists have different DOM shapes,
+      // but share the same fade implementation and themed popup background.
+      [`
+        &${componentCls}-scroll-fade${componentCls}-vertical,
+        &${componentCls}-submenu-popup${componentCls}-scroll-fade ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])
+      `]: genScrollFadeStyle(token, { backgroundColor: popupBg }),
       // ===== 设置浮层的颜色 end =======
 
       // ====================== Horizontal ======================

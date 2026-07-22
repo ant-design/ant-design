@@ -3033,7 +3033,7 @@ Array [
       class="ant-space-item"
     >
       <ul
-        class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
+        class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade"
         data-menu-list="true"
         role="menu"
         style="width:520px"
