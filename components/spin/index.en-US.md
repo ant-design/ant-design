@@ -21,6 +21,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 <code src="./demo/nested.tsx">Embedded mode</code>
 <code src="./demo/tip.tsx">Customized description</code>
 <code src="./demo/delayAndDebounce.tsx">Delay</code>
+<code src="./demo/min-duration.tsx" version="6.6.0">Minimum duration</code>
 <code src="./demo/custom-indicator.tsx">Custom spinning indicator</code>
 <code src="./demo/percent.tsx" version="5.18.0">Progress</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
@@ -37,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | description | Customize description content | ReactNode | - | 6.3.0 | × |
 | fullscreen | Display a backdrop with the `Spin` component | boolean | false | 5.11.0 | × |
 | indicator | React node of the spinning indicator | ReactNode | - |  | 5.20.0 |
+| minDuration | Minimum duration that the loading state remains visible after it appears. When used with `delay`, the delay is not included in `minDuration`; if `spinning` ends during the delay, the loading state does not appear. Setting `spinning` to `true` again during the minimum duration cancels the pending hide and continues the current visible period without restarting the timer | number (milliseconds) | 0 | 6.6.0 | × |
 | percent | The progress percentage, when set to `auto`, it will be an indeterminate progress | number \| 'auto' | - | 5.18.0 | × |
 | size | The size of Spin, options: `small`, `medium` and `large` | string | `medium` |  | × |
 | spinning | Whether Spin is visible | boolean | true |  | × |

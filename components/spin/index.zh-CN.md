@@ -22,6 +22,7 @@ demo:
 <code src="./demo/nested.tsx">卡片加载中</code>
 <code src="./demo/tip.tsx">自定义描述文案</code>
 <code src="./demo/delayAndDebounce.tsx">延迟</code>
+<code src="./demo/min-duration.tsx" version="6.6.0">最短展示时长</code>
 <code src="./demo/custom-indicator.tsx">自定义指示符</code>
 <code src="./demo/percent.tsx" version="5.18.0">进度</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
@@ -38,6 +39,7 @@ demo:
 | description | 可以自定义描述文案 | ReactNode | - | 6.3.0 | × |
 | fullscreen | 显示带有 `Spin` 组件的背景 | boolean | false | 5.11.0 | × |
 | indicator | 加载指示符 | ReactNode | - |  | 5.20.0 |
+| minDuration | 加载状态实际显示后的最短持续时间。与 `delay` 同时使用时，等待时间不计入 `minDuration`；如果 `spinning` 在 `delay` 内结束，加载状态不会出现。在最短持续时间内再次将 `spinning` 设为 `true` 会取消待执行的隐藏，并继续当前连续显示周期，不会重新计时 | number (毫秒) | 0 | 6.6.0 | × |
 | percent | 展示进度，当设置 `percent="auto"` 时会预估一个永远不会停止的进度 | number \| 'auto' | - | 5.18.0 | × |
 | size | 组件大小，可选值为 `small` `medium` `large` | string | `medium` |  | × |
 | spinning | 是否为加载中状态 | boolean | true |  | × |
