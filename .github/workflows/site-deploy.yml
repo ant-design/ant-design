@@ -83,7 +83,7 @@ jobs:
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
       - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1
+        uses: wearerequired/git-mirror-action@6bbc55f2f0082bca533b72dc711f7d37154d40cc # v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
