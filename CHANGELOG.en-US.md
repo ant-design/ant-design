@@ -15,6 +15,22 @@ tag: vVERSION
 
 ---
 
+## 6.5.2
+
+`2026-07-22`
+
+- 💄 Fix Button, Collapse, ColorPicker, Layout, Select, Space.Addon, Tree, and Typography borders not respecting the global `lineWidth` and `lineType` Design Tokens. [#58740](https://github.com/ant-design/ant-design/pull/58740) [#58741](https://github.com/ant-design/ant-design/pull/58741) [#58742](https://github.com/ant-design/ant-design/pull/58742) [#58743](https://github.com/ant-design/ant-design/pull/58743) [#58745](https://github.com/ant-design/ant-design/pull/58745) [#58755](https://github.com/ant-design/ant-design/pull/58755) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- Tag
+  - 💄 Fix Tag missing spacing and incorrect vertical alignment for bare `<svg>` icons from third-party icon libraries. [#58723](https://github.com/ant-design/ant-design/pull/58723) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+  - 🐞 Fix Tag navigation being triggered when clicking the close icon with both `href` and `closable` set. [#58720](https://github.com/ant-design/ant-design/pull/58720) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Table missing the top border when a bordered nested table is wrapped by Tabs or custom content. [#58746](https://github.com/ant-design/ant-design/pull/58746) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Input.Search custom `enterButton` not respecting the component's `disabled` and `loading` states. [#58726](https://github.com/ant-design/ant-design/pull/58726) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer custom action buttons passed through `actions` not preserving their own `disabled` state. [#58718](https://github.com/ant-design/ant-design/pull/58718) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Tree `rootStyle` being ignored, and deprecate it in favor of `styles.root`. [#58709](https://github.com/ant-design/ant-design/pull/58709) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Grid Col ignoring numeric `0` for the `flex` prop in regular and responsive configurations. [#58719](https://github.com/ant-design/ant-design/pull/58719) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix InputNumber not displaying `suffix` when Form feedback is enabled. [#58703](https://github.com/ant-design/ant-design/pull/58703) [@QDyanbing](https://github.com/QDyanbing)
+- ⌨️ Fix Splitter percentage-based `aria-valuemin` and `aria-valuemax` values before container measurement, and prevent `lazy` drag previews from exceeding bounds next to zero-sized panels. [#58702](https://github.com/ant-design/ant-design/pull/58702) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.5.1
 
 `2026-07-13`
