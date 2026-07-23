@@ -46,7 +46,7 @@ const useStyle = createStyles(({ css, cssVar, token }) => ({
     padding: 0.2em 0.4em;
     font-size: 0.9em;
     background: ${token.siteMarkdownCodeBg};
-    border: 1px solid ${cssVar.colorSplit};
+    border: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit};
     border-radius: ${cssVar.borderRadiusSM};
     font-family: monospace;
   `,
