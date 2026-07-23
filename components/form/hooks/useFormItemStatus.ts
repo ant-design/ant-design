@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ValidateStatus } from 'antd/es/form/FormItem';
 
-import { devUseWarning } from '../../_util/warning';
+import { useDevWarning } from '../../_util/warning';
 import { FormItemInputContext } from '../context';
 
 type UseFormItemStatus = () => {
@@ -14,7 +14,7 @@ const useFormItemStatus: UseFormItemStatus = () => {
   const { status, errors = [], warnings = [] } = React.useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Form.Item');
+    const warning = useDevWarning('Form.Item');
 
     warning(
       status !== undefined,
