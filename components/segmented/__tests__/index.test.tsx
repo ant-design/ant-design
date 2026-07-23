@@ -6,6 +6,7 @@ import Segmented from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 // Make CSSMotion working without transition
 jest.mock('@rc-component/motion/lib/util/motion', () => ({
@@ -181,6 +182,24 @@ describe('Segmented', () => {
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).not.toHaveBeenCalled();
 
+    expectMatchChecked(container, [true, false, false]);
+  });
+
+  it('should respect ConfigProvider componentDisabled', () => {
+    const handleValueChange = jest.fn();
+    const { container } = render(
+      <ConfigProvider componentDisabled>
+        <Segmented
+          options={['Daily', 'Weekly', 'Monthly']}
+          onChange={(value) => handleValueChange(value)}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector(`.${prefixCls}`)).toHaveClass(`${prefixCls}-disabled`);
+
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    expect(handleValueChange).not.toHaveBeenCalled();
     expectMatchChecked(container, [true, false, false]);
   });
 

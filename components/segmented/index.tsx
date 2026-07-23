@@ -15,6 +15,7 @@ import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeS
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import Tooltip from '../tooltip';
@@ -96,6 +97,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     style,
     vertical,
     orientation,
+    disabled: customDisabled,
     shape = 'default',
     name = defaultName,
     styles,
@@ -112,9 +114,14 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     styles: contextStyles,
   } = useComponentConfig('segmented');
 
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const mergedProps: SegmentedProps = {
     ...props,
     options,
+    disabled: mergedDisabled,
     size: customSize,
     shape,
   };
@@ -194,6 +201,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   return (
     <RcSegmented
       {...restProps}
+      disabled={mergedDisabled}
       name={name}
       className={cls}
       style={mergedStyles.root}
