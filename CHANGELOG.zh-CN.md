@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.5.2
 
-`2026-07-22`
+`2026-07-23`
 
 - 💄 修复 Button、Collapse、ColorPicker、Layout、Select、Space.Addon、Tree 和 Typography 边框未响应全局 `lineWidth` 与 `lineType` Design Token 的问题。[#58740](https://github.com/ant-design/ant-design/pull/58740) [#58741](https://github.com/ant-design/ant-design/pull/58741) [#58742](https://github.com/ant-design/ant-design/pull/58742) [#58743](https://github.com/ant-design/ant-design/pull/58743) [#58745](https://github.com/ant-design/ant-design/pull/58745) [#58755](https://github.com/ant-design/ant-design/pull/58755) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
 - Tag
