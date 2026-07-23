@@ -6,86 +6,72 @@ const antdCssPath = path.join(process.cwd(), 'components', 'style', 'antd.css');
 const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');
 const tokenMetaPath = path.join(process.cwd(), 'components', 'version', 'token-meta.json');
 
-function hasDefaultExport(source) {
-  if (/(?:^|\n)export default\b/m.test(source)) {
-    return true;
-  }
-
-  const reExportPattern = /(?:^|\n)export\s*\{([^}]*)\}\s+from/gm;
-  let match = reExportPattern.exec(source);
-
-  while (match) {
-    const hasDefault = match[1].split(',').some((specifier) => {
-      const normalized = specifier.trim();
-      return normalized === 'default' || /\bas\s+default$/.test(normalized);
-    });
-
-    if (hasDefault) {
-      return true;
-    }
-
-    match = reExportPattern.exec(source);
-  }
-
-  return false;
-}
-
-function generateIndexProxiesFor(outputDir, moduleType) {
+function collectDirectoryEntrypoints(outputDir) {
   const outputPath = path.join(process.cwd(), outputDir);
-  const indexFiles = [];
+  const entrypoints = [];
 
-  const collectIndexFiles = (directory) => {
+  const collect = (directory) => {
     fs.readdirSync(directory, { withFileTypes: true }).forEach((entry) => {
       const entryPath = path.join(directory, entry.name);
 
       if (entry.isDirectory()) {
-        collectIndexFiles(entryPath);
+        collect(entryPath);
       } else if (entry.name === 'index.js' && directory !== outputPath) {
-        indexFiles.push(entryPath);
+        entrypoints.push(path.relative(outputPath, directory).split(path.sep).join('/'));
       }
     });
   };
 
-  collectIndexFiles(outputPath);
+  collect(outputPath);
 
-  indexFiles.forEach((indexFile) => {
-    const directory = path.dirname(indexFile);
-    const importPath = `./${path.basename(directory)}/index`;
-    const declarationIndex = path.join(directory, 'index.d.ts');
-    const source = fs.readFileSync(indexFile, 'utf8');
-    const directive = source.trimStart().startsWith('"use client";') ? '"use client";\n\n' : '';
-
-    if (moduleType === 'commonjs') {
-      fs.writeFileSync(
-        `${directory}.js`,
-        `${directive}module.exports = require('${importPath}');\n`,
-      );
-    } else {
-      const exports = [`export * from '${importPath}';`];
-
-      if (hasDefaultExport(source)) {
-        exports.push(`export { default } from '${importPath}';`);
-      }
-
-      fs.writeFileSync(`${directory}.js`, `${directive}${exports.join('\n')}\n`);
-    }
-
-    if (fs.existsSync(declarationIndex)) {
-      const declaration = fs.readFileSync(declarationIndex, 'utf8');
-      const exports = [`export * from '${importPath}';`];
-
-      if (hasDefaultExport(declaration)) {
-        exports.push(`export { default } from '${importPath}';`);
-      }
-
-      fs.writeFileSync(`${directory}.d.ts`, `${exports.join('\n')}\n`);
-    }
-  });
+  return entrypoints.sort();
 }
 
-function generateIndexProxies() {
-  generateIndexProxiesFor('es', 'module');
-  generateIndexProxiesFor('lib', 'commonjs');
+function generatePackageExports() {
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  const directoryEntrypoints = collectDirectoryEntrypoints('es');
+  const baseExports = Object.entries(packageJson.exports).filter(
+    ([subpath]) => !/^\.\/(?:es|lib)\/(?!\*)/.test(subpath),
+  );
+  const esExports = {};
+  const libExports = {};
+
+  directoryEntrypoints.forEach((subpath) => {
+    const libIndex = path.join(process.cwd(), 'lib', subpath, 'index.js');
+
+    if (!fs.existsSync(libIndex)) {
+      throw new Error(`Missing CommonJS directory entrypoint: lib/${subpath}/index.js`);
+    }
+
+    esExports[`./es/${subpath}`] = {
+      types: `./es/${subpath}/index.d.ts`,
+      browser: `./es/${subpath}/index.js`,
+      node: `./lib/${subpath}/index.js`,
+      import: `./es/${subpath}/index.js`,
+      require: `./lib/${subpath}/index.js`,
+      default: `./es/${subpath}/index.js`,
+    };
+    libExports[`./lib/${subpath}`] = {
+      types: `./lib/${subpath}/index.d.ts`,
+      default: `./lib/${subpath}/index.js`,
+    };
+  });
+
+  const exports = {};
+
+  baseExports.forEach(([subpath, target]) => {
+    exports[subpath] = target;
+
+    if (subpath === './es/*') {
+      Object.assign(exports, esExports);
+    } else if (subpath === './lib/*') {
+      Object.assign(exports, libExports);
+    }
+  });
+
+  packageJson.exports = exports;
+  fs.writeFileSync(packageJsonPath, `${JSON.stringify(packageJson, null, 2)}\n`);
 }
 
 function finalizeCompile() {
@@ -119,5 +105,5 @@ module.exports = {
     finalize: finalizeDist,
   },
   bail: true,
-  generateIndexProxies,
+  generatePackageExports,
 };

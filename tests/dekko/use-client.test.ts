@@ -4,7 +4,6 @@ import fs from 'node:fs';
 
 const includeUseClient = (filename: string) =>
   fs.readFileSync(filename).toString().includes('"use client"');
-const isIndexProxy = (filename: string) => fs.existsSync(filename.slice(0, -3));
 
 $('dist/*')
   .isFile()
@@ -19,7 +18,6 @@ $('{es,lib}/*/index.js')
 // check tsx files
 $('{es,lib}/typography/*.js')
   .isFile()
-  .filter((filename: string) => !isIndexProxy(filename))
   .assert('contain use client', (filename: string) => includeUseClient(filename));
 
 $('{es,lib}/typography/Base/*.js')

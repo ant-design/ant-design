@@ -18,45 +18,80 @@ import chalk from 'chalk';
 const rootDir = path.resolve(__dirname, '../../');
 const esDir = path.join(rootDir, 'es');
 
+interface PackageJson {
+  exports?: Record<string, unknown>;
+}
+
 if (!fs.existsSync(esDir)) {
   console.error(chalk.red('`es` directory not found. Please run build first.'));
   process.exit(1);
 }
 
-const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf8'));
+const packageJson = JSON.parse(
+  fs.readFileSync(path.join(rootDir, 'package.json'), 'utf8'),
+) as PackageJson;
 
 if (!packageJson.exports) {
   console.error(chalk.red('`exports` field not found in package.json.'));
   process.exit(1);
 }
 
-for (const outputDir of ['es', 'lib']) {
-  const outputPath = path.join(rootDir, outputDir);
+const directoryEntrypoints: string[] = [];
 
-  const checkIndexProxies = (directory: string) => {
-    fs.readdirSync(directory, { withFileTypes: true }).forEach((entry) => {
-      if (!entry.isDirectory()) {
-        return;
-      }
+const collectDirectoryEntrypoints = (directory: string) => {
+  fs.readdirSync(directory, { withFileTypes: true }).forEach((entry) => {
+    if (!entry.isDirectory()) {
+      return;
+    }
 
-      const entryPath = path.join(directory, entry.name);
-      const indexPath = path.join(entryPath, 'index.js');
+    const entryPath = path.join(directory, entry.name);
+    const indexPath = path.join(entryPath, 'index.js');
 
-      if (fs.existsSync(indexPath)) {
-        for (const extension of ['.js', '.d.ts']) {
-          if (!fs.existsSync(`${entryPath}${extension}`)) {
-            throw new Error(
-              `Missing ${outputDir} index proxy: ${path.relative(rootDir, entryPath)}${extension}`,
-            );
-          }
-        }
-      }
+    if (fs.existsSync(indexPath)) {
+      directoryEntrypoints.push(path.relative(esDir, entryPath).split(path.sep).join('/'));
+    }
 
-      checkIndexProxies(entryPath);
-    });
-  };
+    collectDirectoryEntrypoints(entryPath);
+  });
+};
 
-  checkIndexProxies(outputPath);
+collectDirectoryEntrypoints(esDir);
+
+for (const subpath of directoryEntrypoints) {
+  const esExport = packageJson.exports[`./es/${subpath}`];
+  const libExport = packageJson.exports[`./lib/${subpath}`];
+
+  if (
+    JSON.stringify(esExport) !==
+    JSON.stringify({
+      types: `./es/${subpath}/index.d.ts`,
+      browser: `./es/${subpath}/index.js`,
+      node: `./lib/${subpath}/index.js`,
+      import: `./es/${subpath}/index.js`,
+      require: `./lib/${subpath}/index.js`,
+      default: `./es/${subpath}/index.js`,
+    })
+  ) {
+    throw new Error(
+      `Missing or stale directory export for ./es/${subpath}. Run \`npm run generate:exports\` after compiling.`,
+    );
+  }
+
+  if (
+    JSON.stringify(libExport) !==
+    JSON.stringify({
+      types: `./lib/${subpath}/index.d.ts`,
+      default: `./lib/${subpath}/index.js`,
+    })
+  ) {
+    throw new Error(
+      `Missing or stale directory export for ./lib/${subpath}. Run \`npm run generate:exports\` after compiling.`,
+    );
+  }
+}
+
+if (packageJson.exports['./BUG_VERSIONS.json'] !== './BUG_VERSIONS.json') {
+  throw new Error('`BUG_VERSIONS.json` is published but missing from package exports.');
 }
 
 const testCases = [
@@ -146,7 +181,7 @@ try {
     process.execPath,
     [
       '-e',
-      `[${[
+      `const entries = [${[
         'antd',
         'antd/es',
         'antd/es/input/Search',
@@ -155,10 +190,17 @@ try {
         'antd/lib/input/Search',
         'antd/locale',
         'antd/locale/en_US',
+        'antd/BUG_VERSIONS.json',
         'antd/package.json',
       ]
         .map((entry) => JSON.stringify(entry))
-        .join(',')}].forEach((entry) => require.resolve(entry));`,
+        .join(',')}];
+entries.forEach((entry) => require.resolve(entry));
+const inputFromEs = require('antd/es/input');
+const inputFromLib = require('antd/lib/input');
+if (inputFromEs !== inputFromLib) {
+  throw new Error('CommonJS explicit es and lib directory imports must resolve to the same module.');
+}`,
     ],
     {
       cwd: tmpDir,
@@ -167,6 +209,32 @@ try {
     },
   );
   console.log(chalk.green('✨ CommonJS package exports passed.'));
+
+  execFileSync(
+    process.execPath,
+    [
+      '--conditions=browser',
+      '--input-type=module',
+      '-e',
+      `const expected = new Map([
+  ['antd/es', '/es/index.js'],
+  ['antd/es/input', '/es/input/index.js'],
+  ['antd/es/input/Search', '/es/input/Search.js'],
+]);
+for (const [entry, suffix] of expected) {
+  const resolved = new URL(import.meta.resolve(entry)).pathname;
+  if (!resolved.endsWith(suffix)) {
+    throw new Error(\`\${entry} resolved to \${resolved}, expected an ES path ending in \${suffix}\`);
+  }
+}`,
+    ],
+    {
+      cwd: tmpDir,
+      stdio: 'pipe',
+      timeout: 30_000,
+    },
+  );
+  console.log(chalk.green('✨ Browser ESM package export conditions passed.'));
 } catch (error: unknown) {
   const detail =
     (error as { stdout?: Buffer })?.stdout?.toString() ||

@@ -58,6 +58,1358 @@
       "require": "./lib/*.js",
       "default": "./es/*.js"
     },
+    "./es/_util/hooks": {
+      "types": "./es/_util/hooks/index.d.ts",
+      "browser": "./es/_util/hooks/index.js",
+      "node": "./lib/_util/hooks/index.js",
+      "import": "./es/_util/hooks/index.js",
+      "require": "./lib/_util/hooks/index.js",
+      "default": "./es/_util/hooks/index.js"
+    },
+    "./es/_util/hooks/useMergeSemantic": {
+      "types": "./es/_util/hooks/useMergeSemantic/index.d.ts",
+      "browser": "./es/_util/hooks/useMergeSemantic/index.js",
+      "node": "./lib/_util/hooks/useMergeSemantic/index.js",
+      "import": "./es/_util/hooks/useMergeSemantic/index.js",
+      "require": "./lib/_util/hooks/useMergeSemantic/index.js",
+      "default": "./es/_util/hooks/useMergeSemantic/index.js"
+    },
+    "./es/_util/wave": {
+      "types": "./es/_util/wave/index.d.ts",
+      "browser": "./es/_util/wave/index.js",
+      "node": "./lib/_util/wave/index.js",
+      "import": "./es/_util/wave/index.js",
+      "require": "./lib/_util/wave/index.js",
+      "default": "./es/_util/wave/index.js"
+    },
+    "./es/affix": {
+      "types": "./es/affix/index.d.ts",
+      "browser": "./es/affix/index.js",
+      "node": "./lib/affix/index.js",
+      "import": "./es/affix/index.js",
+      "require": "./lib/affix/index.js",
+      "default": "./es/affix/index.js"
+    },
+    "./es/affix/style": {
+      "types": "./es/affix/style/index.d.ts",
+      "browser": "./es/affix/style/index.js",
+      "node": "./lib/affix/style/index.js",
+      "import": "./es/affix/style/index.js",
+      "require": "./lib/affix/style/index.js",
+      "default": "./es/affix/style/index.js"
+    },
+    "./es/alert": {
+      "types": "./es/alert/index.d.ts",
+      "browser": "./es/alert/index.js",
+      "node": "./lib/alert/index.js",
+      "import": "./es/alert/index.js",
+      "require": "./lib/alert/index.js",
+      "default": "./es/alert/index.js"
+    },
+    "./es/alert/style": {
+      "types": "./es/alert/style/index.d.ts",
+      "browser": "./es/alert/style/index.js",
+      "node": "./lib/alert/style/index.js",
+      "import": "./es/alert/style/index.js",
+      "require": "./lib/alert/style/index.js",
+      "default": "./es/alert/style/index.js"
+    },
+    "./es/anchor": {
+      "types": "./es/anchor/index.d.ts",
+      "browser": "./es/anchor/index.js",
+      "node": "./lib/anchor/index.js",
+      "import": "./es/anchor/index.js",
+      "require": "./lib/anchor/index.js",
+      "default": "./es/anchor/index.js"
+    },
+    "./es/anchor/style": {
+      "types": "./es/anchor/style/index.d.ts",
+      "browser": "./es/anchor/style/index.js",
+      "node": "./lib/anchor/style/index.js",
+      "import": "./es/anchor/style/index.js",
+      "require": "./lib/anchor/style/index.js",
+      "default": "./es/anchor/style/index.js"
+    },
+    "./es/app": {
+      "types": "./es/app/index.d.ts",
+      "browser": "./es/app/index.js",
+      "node": "./lib/app/index.js",
+      "import": "./es/app/index.js",
+      "require": "./lib/app/index.js",
+      "default": "./es/app/index.js"
+    },
+    "./es/app/style": {
+      "types": "./es/app/style/index.d.ts",
+      "browser": "./es/app/style/index.js",
+      "node": "./lib/app/style/index.js",
+      "import": "./es/app/style/index.js",
+      "require": "./lib/app/style/index.js",
+      "default": "./es/app/style/index.js"
+    },
+    "./es/auto-complete": {
+      "types": "./es/auto-complete/index.d.ts",
+      "browser": "./es/auto-complete/index.js",
+      "node": "./lib/auto-complete/index.js",
+      "import": "./es/auto-complete/index.js",
+      "require": "./lib/auto-complete/index.js",
+      "default": "./es/auto-complete/index.js"
+    },
+    "./es/avatar": {
+      "types": "./es/avatar/index.d.ts",
+      "browser": "./es/avatar/index.js",
+      "node": "./lib/avatar/index.js",
+      "import": "./es/avatar/index.js",
+      "require": "./lib/avatar/index.js",
+      "default": "./es/avatar/index.js"
+    },
+    "./es/avatar/style": {
+      "types": "./es/avatar/style/index.d.ts",
+      "browser": "./es/avatar/style/index.js",
+      "node": "./lib/avatar/style/index.js",
+      "import": "./es/avatar/style/index.js",
+      "require": "./lib/avatar/style/index.js",
+      "default": "./es/avatar/style/index.js"
+    },
+    "./es/back-top": {
+      "types": "./es/back-top/index.d.ts",
+      "browser": "./es/back-top/index.js",
+      "node": "./lib/back-top/index.js",
+      "import": "./es/back-top/index.js",
+      "require": "./lib/back-top/index.js",
+      "default": "./es/back-top/index.js"
+    },
+    "./es/back-top/style": {
+      "types": "./es/back-top/style/index.d.ts",
+      "browser": "./es/back-top/style/index.js",
+      "node": "./lib/back-top/style/index.js",
+      "import": "./es/back-top/style/index.js",
+      "require": "./lib/back-top/style/index.js",
+      "default": "./es/back-top/style/index.js"
+    },
+    "./es/badge": {
+      "types": "./es/badge/index.d.ts",
+      "browser": "./es/badge/index.js",
+      "node": "./lib/badge/index.js",
+      "import": "./es/badge/index.js",
+      "require": "./lib/badge/index.js",
+      "default": "./es/badge/index.js"
+    },
+    "./es/badge/style": {
+      "types": "./es/badge/style/index.d.ts",
+      "browser": "./es/badge/style/index.js",
+      "node": "./lib/badge/style/index.js",
+      "import": "./es/badge/style/index.js",
+      "require": "./lib/badge/style/index.js",
+      "default": "./es/badge/style/index.js"
+    },
+    "./es/border-beam": {
+      "types": "./es/border-beam/index.d.ts",
+      "browser": "./es/border-beam/index.js",
+      "node": "./lib/border-beam/index.js",
+      "import": "./es/border-beam/index.js",
+      "require": "./lib/border-beam/index.js",
+      "default": "./es/border-beam/index.js"
+    },
+    "./es/border-beam/style": {
+      "types": "./es/border-beam/style/index.d.ts",
+      "browser": "./es/border-beam/style/index.js",
+      "node": "./lib/border-beam/style/index.js",
+      "import": "./es/border-beam/style/index.js",
+      "require": "./lib/border-beam/style/index.js",
+      "default": "./es/border-beam/style/index.js"
+    },
+    "./es/breadcrumb": {
+      "types": "./es/breadcrumb/index.d.ts",
+      "browser": "./es/breadcrumb/index.js",
+      "node": "./lib/breadcrumb/index.js",
+      "import": "./es/breadcrumb/index.js",
+      "require": "./lib/breadcrumb/index.js",
+      "default": "./es/breadcrumb/index.js"
+    },
+    "./es/breadcrumb/style": {
+      "types": "./es/breadcrumb/style/index.d.ts",
+      "browser": "./es/breadcrumb/style/index.js",
+      "node": "./lib/breadcrumb/style/index.js",
+      "import": "./es/breadcrumb/style/index.js",
+      "require": "./lib/breadcrumb/style/index.js",
+      "default": "./es/breadcrumb/style/index.js"
+    },
+    "./es/button": {
+      "types": "./es/button/index.d.ts",
+      "browser": "./es/button/index.js",
+      "node": "./lib/button/index.js",
+      "import": "./es/button/index.js",
+      "require": "./lib/button/index.js",
+      "default": "./es/button/index.js"
+    },
+    "./es/button/style": {
+      "types": "./es/button/style/index.d.ts",
+      "browser": "./es/button/style/index.js",
+      "node": "./lib/button/style/index.js",
+      "import": "./es/button/style/index.js",
+      "require": "./lib/button/style/index.js",
+      "default": "./es/button/style/index.js"
+    },
+    "./es/calendar": {
+      "types": "./es/calendar/index.d.ts",
+      "browser": "./es/calendar/index.js",
+      "node": "./lib/calendar/index.js",
+      "import": "./es/calendar/index.js",
+      "require": "./lib/calendar/index.js",
+      "default": "./es/calendar/index.js"
+    },
+    "./es/calendar/style": {
+      "types": "./es/calendar/style/index.d.ts",
+      "browser": "./es/calendar/style/index.js",
+      "node": "./lib/calendar/style/index.js",
+      "import": "./es/calendar/style/index.js",
+      "require": "./lib/calendar/style/index.js",
+      "default": "./es/calendar/style/index.js"
+    },
+    "./es/card": {
+      "types": "./es/card/index.d.ts",
+      "browser": "./es/card/index.js",
+      "node": "./lib/card/index.js",
+      "import": "./es/card/index.js",
+      "require": "./lib/card/index.js",
+      "default": "./es/card/index.js"
+    },
+    "./es/card/style": {
+      "types": "./es/card/style/index.d.ts",
+      "browser": "./es/card/style/index.js",
+      "node": "./lib/card/style/index.js",
+      "import": "./es/card/style/index.js",
+      "require": "./lib/card/style/index.js",
+      "default": "./es/card/style/index.js"
+    },
+    "./es/carousel": {
+      "types": "./es/carousel/index.d.ts",
+      "browser": "./es/carousel/index.js",
+      "node": "./lib/carousel/index.js",
+      "import": "./es/carousel/index.js",
+      "require": "./lib/carousel/index.js",
+      "default": "./es/carousel/index.js"
+    },
+    "./es/carousel/style": {
+      "types": "./es/carousel/style/index.d.ts",
+      "browser": "./es/carousel/style/index.js",
+      "node": "./lib/carousel/style/index.js",
+      "import": "./es/carousel/style/index.js",
+      "require": "./lib/carousel/style/index.js",
+      "default": "./es/carousel/style/index.js"
+    },
+    "./es/cascader": {
+      "types": "./es/cascader/index.d.ts",
+      "browser": "./es/cascader/index.js",
+      "node": "./lib/cascader/index.js",
+      "import": "./es/cascader/index.js",
+      "require": "./lib/cascader/index.js",
+      "default": "./es/cascader/index.js"
+    },
+    "./es/cascader/style": {
+      "types": "./es/cascader/style/index.d.ts",
+      "browser": "./es/cascader/style/index.js",
+      "node": "./lib/cascader/style/index.js",
+      "import": "./es/cascader/style/index.js",
+      "require": "./lib/cascader/style/index.js",
+      "default": "./es/cascader/style/index.js"
+    },
+    "./es/checkbox": {
+      "types": "./es/checkbox/index.d.ts",
+      "browser": "./es/checkbox/index.js",
+      "node": "./lib/checkbox/index.js",
+      "import": "./es/checkbox/index.js",
+      "require": "./lib/checkbox/index.js",
+      "default": "./es/checkbox/index.js"
+    },
+    "./es/checkbox/style": {
+      "types": "./es/checkbox/style/index.d.ts",
+      "browser": "./es/checkbox/style/index.js",
+      "node": "./lib/checkbox/style/index.js",
+      "import": "./es/checkbox/style/index.js",
+      "require": "./lib/checkbox/style/index.js",
+      "default": "./es/checkbox/style/index.js"
+    },
+    "./es/col": {
+      "types": "./es/col/index.d.ts",
+      "browser": "./es/col/index.js",
+      "node": "./lib/col/index.js",
+      "import": "./es/col/index.js",
+      "require": "./lib/col/index.js",
+      "default": "./es/col/index.js"
+    },
+    "./es/col/style": {
+      "types": "./es/col/style/index.d.ts",
+      "browser": "./es/col/style/index.js",
+      "node": "./lib/col/style/index.js",
+      "import": "./es/col/style/index.js",
+      "require": "./lib/col/style/index.js",
+      "default": "./es/col/style/index.js"
+    },
+    "./es/collapse": {
+      "types": "./es/collapse/index.d.ts",
+      "browser": "./es/collapse/index.js",
+      "node": "./lib/collapse/index.js",
+      "import": "./es/collapse/index.js",
+      "require": "./lib/collapse/index.js",
+      "default": "./es/collapse/index.js"
+    },
+    "./es/collapse/style": {
+      "types": "./es/collapse/style/index.d.ts",
+      "browser": "./es/collapse/style/index.js",
+      "node": "./lib/collapse/style/index.js",
+      "import": "./es/collapse/style/index.js",
+      "require": "./lib/collapse/style/index.js",
+      "default": "./es/collapse/style/index.js"
+    },
+    "./es/color-picker": {
+      "types": "./es/color-picker/index.d.ts",
+      "browser": "./es/color-picker/index.js",
+      "node": "./lib/color-picker/index.js",
+      "import": "./es/color-picker/index.js",
+      "require": "./lib/color-picker/index.js",
+      "default": "./es/color-picker/index.js"
+    },
+    "./es/color-picker/components/PanelPicker": {
+      "types": "./es/color-picker/components/PanelPicker/index.d.ts",
+      "browser": "./es/color-picker/components/PanelPicker/index.js",
+      "node": "./lib/color-picker/components/PanelPicker/index.js",
+      "import": "./es/color-picker/components/PanelPicker/index.js",
+      "require": "./lib/color-picker/components/PanelPicker/index.js",
+      "default": "./es/color-picker/components/PanelPicker/index.js"
+    },
+    "./es/color-picker/style": {
+      "types": "./es/color-picker/style/index.d.ts",
+      "browser": "./es/color-picker/style/index.js",
+      "node": "./lib/color-picker/style/index.js",
+      "import": "./es/color-picker/style/index.js",
+      "require": "./lib/color-picker/style/index.js",
+      "default": "./es/color-picker/style/index.js"
+    },
+    "./es/config-provider": {
+      "types": "./es/config-provider/index.d.ts",
+      "browser": "./es/config-provider/index.js",
+      "node": "./lib/config-provider/index.js",
+      "import": "./es/config-provider/index.js",
+      "require": "./lib/config-provider/index.js",
+      "default": "./es/config-provider/index.js"
+    },
+    "./es/config-provider/style": {
+      "types": "./es/config-provider/style/index.d.ts",
+      "browser": "./es/config-provider/style/index.js",
+      "node": "./lib/config-provider/style/index.js",
+      "import": "./es/config-provider/style/index.js",
+      "require": "./lib/config-provider/style/index.js",
+      "default": "./es/config-provider/style/index.js"
+    },
+    "./es/date-picker": {
+      "types": "./es/date-picker/index.d.ts",
+      "browser": "./es/date-picker/index.js",
+      "node": "./lib/date-picker/index.js",
+      "import": "./es/date-picker/index.js",
+      "require": "./lib/date-picker/index.js",
+      "default": "./es/date-picker/index.js"
+    },
+    "./es/date-picker/generatePicker": {
+      "types": "./es/date-picker/generatePicker/index.d.ts",
+      "browser": "./es/date-picker/generatePicker/index.js",
+      "node": "./lib/date-picker/generatePicker/index.js",
+      "import": "./es/date-picker/generatePicker/index.js",
+      "require": "./lib/date-picker/generatePicker/index.js",
+      "default": "./es/date-picker/generatePicker/index.js"
+    },
+    "./es/date-picker/style": {
+      "types": "./es/date-picker/style/index.d.ts",
+      "browser": "./es/date-picker/style/index.js",
+      "node": "./lib/date-picker/style/index.js",
+      "import": "./es/date-picker/style/index.js",
+      "require": "./lib/date-picker/style/index.js",
+      "default": "./es/date-picker/style/index.js"
+    },
+    "./es/descriptions": {
+      "types": "./es/descriptions/index.d.ts",
+      "browser": "./es/descriptions/index.js",
+      "node": "./lib/descriptions/index.js",
+      "import": "./es/descriptions/index.js",
+      "require": "./lib/descriptions/index.js",
+      "default": "./es/descriptions/index.js"
+    },
+    "./es/descriptions/style": {
+      "types": "./es/descriptions/style/index.d.ts",
+      "browser": "./es/descriptions/style/index.js",
+      "node": "./lib/descriptions/style/index.js",
+      "import": "./es/descriptions/style/index.js",
+      "require": "./lib/descriptions/style/index.js",
+      "default": "./es/descriptions/style/index.js"
+    },
+    "./es/divider": {
+      "types": "./es/divider/index.d.ts",
+      "browser": "./es/divider/index.js",
+      "node": "./lib/divider/index.js",
+      "import": "./es/divider/index.js",
+      "require": "./lib/divider/index.js",
+      "default": "./es/divider/index.js"
+    },
+    "./es/divider/style": {
+      "types": "./es/divider/style/index.d.ts",
+      "browser": "./es/divider/style/index.js",
+      "node": "./lib/divider/style/index.js",
+      "import": "./es/divider/style/index.js",
+      "require": "./lib/divider/style/index.js",
+      "default": "./es/divider/style/index.js"
+    },
+    "./es/drawer": {
+      "types": "./es/drawer/index.d.ts",
+      "browser": "./es/drawer/index.js",
+      "node": "./lib/drawer/index.js",
+      "import": "./es/drawer/index.js",
+      "require": "./lib/drawer/index.js",
+      "default": "./es/drawer/index.js"
+    },
+    "./es/drawer/style": {
+      "types": "./es/drawer/style/index.d.ts",
+      "browser": "./es/drawer/style/index.js",
+      "node": "./lib/drawer/style/index.js",
+      "import": "./es/drawer/style/index.js",
+      "require": "./lib/drawer/style/index.js",
+      "default": "./es/drawer/style/index.js"
+    },
+    "./es/dropdown": {
+      "types": "./es/dropdown/index.d.ts",
+      "browser": "./es/dropdown/index.js",
+      "node": "./lib/dropdown/index.js",
+      "import": "./es/dropdown/index.js",
+      "require": "./lib/dropdown/index.js",
+      "default": "./es/dropdown/index.js"
+    },
+    "./es/dropdown/style": {
+      "types": "./es/dropdown/style/index.d.ts",
+      "browser": "./es/dropdown/style/index.js",
+      "node": "./lib/dropdown/style/index.js",
+      "import": "./es/dropdown/style/index.js",
+      "require": "./lib/dropdown/style/index.js",
+      "default": "./es/dropdown/style/index.js"
+    },
+    "./es/empty": {
+      "types": "./es/empty/index.d.ts",
+      "browser": "./es/empty/index.js",
+      "node": "./lib/empty/index.js",
+      "import": "./es/empty/index.js",
+      "require": "./lib/empty/index.js",
+      "default": "./es/empty/index.js"
+    },
+    "./es/empty/style": {
+      "types": "./es/empty/style/index.d.ts",
+      "browser": "./es/empty/style/index.js",
+      "node": "./lib/empty/style/index.js",
+      "import": "./es/empty/style/index.js",
+      "require": "./lib/empty/style/index.js",
+      "default": "./es/empty/style/index.js"
+    },
+    "./es/flex": {
+      "types": "./es/flex/index.d.ts",
+      "browser": "./es/flex/index.js",
+      "node": "./lib/flex/index.js",
+      "import": "./es/flex/index.js",
+      "require": "./lib/flex/index.js",
+      "default": "./es/flex/index.js"
+    },
+    "./es/flex/style": {
+      "types": "./es/flex/style/index.d.ts",
+      "browser": "./es/flex/style/index.js",
+      "node": "./lib/flex/style/index.js",
+      "import": "./es/flex/style/index.js",
+      "require": "./lib/flex/style/index.js",
+      "default": "./es/flex/style/index.js"
+    },
+    "./es/float-button": {
+      "types": "./es/float-button/index.d.ts",
+      "browser": "./es/float-button/index.js",
+      "node": "./lib/float-button/index.js",
+      "import": "./es/float-button/index.js",
+      "require": "./lib/float-button/index.js",
+      "default": "./es/float-button/index.js"
+    },
+    "./es/float-button/style": {
+      "types": "./es/float-button/style/index.d.ts",
+      "browser": "./es/float-button/style/index.js",
+      "node": "./lib/float-button/style/index.js",
+      "import": "./es/float-button/style/index.js",
+      "require": "./lib/float-button/style/index.js",
+      "default": "./es/float-button/style/index.js"
+    },
+    "./es/form": {
+      "types": "./es/form/index.d.ts",
+      "browser": "./es/form/index.js",
+      "node": "./lib/form/index.js",
+      "import": "./es/form/index.js",
+      "require": "./lib/form/index.js",
+      "default": "./es/form/index.js"
+    },
+    "./es/form/FormItem": {
+      "types": "./es/form/FormItem/index.d.ts",
+      "browser": "./es/form/FormItem/index.js",
+      "node": "./lib/form/FormItem/index.js",
+      "import": "./es/form/FormItem/index.js",
+      "require": "./lib/form/FormItem/index.js",
+      "default": "./es/form/FormItem/index.js"
+    },
+    "./es/form/style": {
+      "types": "./es/form/style/index.d.ts",
+      "browser": "./es/form/style/index.js",
+      "node": "./lib/form/style/index.js",
+      "import": "./es/form/style/index.js",
+      "require": "./lib/form/style/index.js",
+      "default": "./es/form/style/index.js"
+    },
+    "./es/grid": {
+      "types": "./es/grid/index.d.ts",
+      "browser": "./es/grid/index.js",
+      "node": "./lib/grid/index.js",
+      "import": "./es/grid/index.js",
+      "require": "./lib/grid/index.js",
+      "default": "./es/grid/index.js"
+    },
+    "./es/grid/style": {
+      "types": "./es/grid/style/index.d.ts",
+      "browser": "./es/grid/style/index.js",
+      "node": "./lib/grid/style/index.js",
+      "import": "./es/grid/style/index.js",
+      "require": "./lib/grid/style/index.js",
+      "default": "./es/grid/style/index.js"
+    },
+    "./es/image": {
+      "types": "./es/image/index.d.ts",
+      "browser": "./es/image/index.js",
+      "node": "./lib/image/index.js",
+      "import": "./es/image/index.js",
+      "require": "./lib/image/index.js",
+      "default": "./es/image/index.js"
+    },
+    "./es/image/style": {
+      "types": "./es/image/style/index.d.ts",
+      "browser": "./es/image/style/index.js",
+      "node": "./lib/image/style/index.js",
+      "import": "./es/image/style/index.js",
+      "require": "./lib/image/style/index.js",
+      "default": "./es/image/style/index.js"
+    },
+    "./es/input": {
+      "types": "./es/input/index.d.ts",
+      "browser": "./es/input/index.js",
+      "node": "./lib/input/index.js",
+      "import": "./es/input/index.js",
+      "require": "./lib/input/index.js",
+      "default": "./es/input/index.js"
+    },
+    "./es/input-number": {
+      "types": "./es/input-number/index.d.ts",
+      "browser": "./es/input-number/index.js",
+      "node": "./lib/input-number/index.js",
+      "import": "./es/input-number/index.js",
+      "require": "./lib/input-number/index.js",
+      "default": "./es/input-number/index.js"
+    },
+    "./es/input-number/style": {
+      "types": "./es/input-number/style/index.d.ts",
+      "browser": "./es/input-number/style/index.js",
+      "node": "./lib/input-number/style/index.js",
+      "import": "./es/input-number/style/index.js",
+      "require": "./lib/input-number/style/index.js",
+      "default": "./es/input-number/style/index.js"
+    },
+    "./es/input/OTP": {
+      "types": "./es/input/OTP/index.d.ts",
+      "browser": "./es/input/OTP/index.js",
+      "node": "./lib/input/OTP/index.js",
+      "import": "./es/input/OTP/index.js",
+      "require": "./lib/input/OTP/index.js",
+      "default": "./es/input/OTP/index.js"
+    },
+    "./es/input/style": {
+      "types": "./es/input/style/index.d.ts",
+      "browser": "./es/input/style/index.js",
+      "node": "./lib/input/style/index.js",
+      "import": "./es/input/style/index.js",
+      "require": "./lib/input/style/index.js",
+      "default": "./es/input/style/index.js"
+    },
+    "./es/layout": {
+      "types": "./es/layout/index.d.ts",
+      "browser": "./es/layout/index.js",
+      "node": "./lib/layout/index.js",
+      "import": "./es/layout/index.js",
+      "require": "./lib/layout/index.js",
+      "default": "./es/layout/index.js"
+    },
+    "./es/layout/style": {
+      "types": "./es/layout/style/index.d.ts",
+      "browser": "./es/layout/style/index.js",
+      "node": "./lib/layout/style/index.js",
+      "import": "./es/layout/style/index.js",
+      "require": "./lib/layout/style/index.js",
+      "default": "./es/layout/style/index.js"
+    },
+    "./es/list": {
+      "types": "./es/list/index.d.ts",
+      "browser": "./es/list/index.js",
+      "node": "./lib/list/index.js",
+      "import": "./es/list/index.js",
+      "require": "./lib/list/index.js",
+      "default": "./es/list/index.js"
+    },
+    "./es/list/style": {
+      "types": "./es/list/style/index.d.ts",
+      "browser": "./es/list/style/index.js",
+      "node": "./lib/list/style/index.js",
+      "import": "./es/list/style/index.js",
+      "require": "./lib/list/style/index.js",
+      "default": "./es/list/style/index.js"
+    },
+    "./es/locale": {
+      "types": "./es/locale/index.d.ts",
+      "browser": "./es/locale/index.js",
+      "node": "./lib/locale/index.js",
+      "import": "./es/locale/index.js",
+      "require": "./lib/locale/index.js",
+      "default": "./es/locale/index.js"
+    },
+    "./es/masonry": {
+      "types": "./es/masonry/index.d.ts",
+      "browser": "./es/masonry/index.js",
+      "node": "./lib/masonry/index.js",
+      "import": "./es/masonry/index.js",
+      "require": "./lib/masonry/index.js",
+      "default": "./es/masonry/index.js"
+    },
+    "./es/masonry/style": {
+      "types": "./es/masonry/style/index.d.ts",
+      "browser": "./es/masonry/style/index.js",
+      "node": "./lib/masonry/style/index.js",
+      "import": "./es/masonry/style/index.js",
+      "require": "./lib/masonry/style/index.js",
+      "default": "./es/masonry/style/index.js"
+    },
+    "./es/mentions": {
+      "types": "./es/mentions/index.d.ts",
+      "browser": "./es/mentions/index.js",
+      "node": "./lib/mentions/index.js",
+      "import": "./es/mentions/index.js",
+      "require": "./lib/mentions/index.js",
+      "default": "./es/mentions/index.js"
+    },
+    "./es/mentions/style": {
+      "types": "./es/mentions/style/index.d.ts",
+      "browser": "./es/mentions/style/index.js",
+      "node": "./lib/mentions/style/index.js",
+      "import": "./es/mentions/style/index.js",
+      "require": "./lib/mentions/style/index.js",
+      "default": "./es/mentions/style/index.js"
+    },
+    "./es/menu": {
+      "types": "./es/menu/index.d.ts",
+      "browser": "./es/menu/index.js",
+      "node": "./lib/menu/index.js",
+      "import": "./es/menu/index.js",
+      "require": "./lib/menu/index.js",
+      "default": "./es/menu/index.js"
+    },
+    "./es/menu/style": {
+      "types": "./es/menu/style/index.d.ts",
+      "browser": "./es/menu/style/index.js",
+      "node": "./lib/menu/style/index.js",
+      "import": "./es/menu/style/index.js",
+      "require": "./lib/menu/style/index.js",
+      "default": "./es/menu/style/index.js"
+    },
+    "./es/message": {
+      "types": "./es/message/index.d.ts",
+      "browser": "./es/message/index.js",
+      "node": "./lib/message/index.js",
+      "import": "./es/message/index.js",
+      "require": "./lib/message/index.js",
+      "default": "./es/message/index.js"
+    },
+    "./es/message/style": {
+      "types": "./es/message/style/index.d.ts",
+      "browser": "./es/message/style/index.js",
+      "node": "./lib/message/style/index.js",
+      "import": "./es/message/style/index.js",
+      "require": "./lib/message/style/index.js",
+      "default": "./es/message/style/index.js"
+    },
+    "./es/modal": {
+      "types": "./es/modal/index.d.ts",
+      "browser": "./es/modal/index.js",
+      "node": "./lib/modal/index.js",
+      "import": "./es/modal/index.js",
+      "require": "./lib/modal/index.js",
+      "default": "./es/modal/index.js"
+    },
+    "./es/modal/style": {
+      "types": "./es/modal/style/index.d.ts",
+      "browser": "./es/modal/style/index.js",
+      "node": "./lib/modal/style/index.js",
+      "import": "./es/modal/style/index.js",
+      "require": "./lib/modal/style/index.js",
+      "default": "./es/modal/style/index.js"
+    },
+    "./es/modal/useModal": {
+      "types": "./es/modal/useModal/index.d.ts",
+      "browser": "./es/modal/useModal/index.js",
+      "node": "./lib/modal/useModal/index.js",
+      "import": "./es/modal/useModal/index.js",
+      "require": "./lib/modal/useModal/index.js",
+      "default": "./es/modal/useModal/index.js"
+    },
+    "./es/notification": {
+      "types": "./es/notification/index.d.ts",
+      "browser": "./es/notification/index.js",
+      "node": "./lib/notification/index.js",
+      "import": "./es/notification/index.js",
+      "require": "./lib/notification/index.js",
+      "default": "./es/notification/index.js"
+    },
+    "./es/notification/style": {
+      "types": "./es/notification/style/index.d.ts",
+      "browser": "./es/notification/style/index.js",
+      "node": "./lib/notification/style/index.js",
+      "import": "./es/notification/style/index.js",
+      "require": "./lib/notification/style/index.js",
+      "default": "./es/notification/style/index.js"
+    },
+    "./es/pagination": {
+      "types": "./es/pagination/index.d.ts",
+      "browser": "./es/pagination/index.js",
+      "node": "./lib/pagination/index.js",
+      "import": "./es/pagination/index.js",
+      "require": "./lib/pagination/index.js",
+      "default": "./es/pagination/index.js"
+    },
+    "./es/pagination/style": {
+      "types": "./es/pagination/style/index.d.ts",
+      "browser": "./es/pagination/style/index.js",
+      "node": "./lib/pagination/style/index.js",
+      "import": "./es/pagination/style/index.js",
+      "require": "./lib/pagination/style/index.js",
+      "default": "./es/pagination/style/index.js"
+    },
+    "./es/popconfirm": {
+      "types": "./es/popconfirm/index.d.ts",
+      "browser": "./es/popconfirm/index.js",
+      "node": "./lib/popconfirm/index.js",
+      "import": "./es/popconfirm/index.js",
+      "require": "./lib/popconfirm/index.js",
+      "default": "./es/popconfirm/index.js"
+    },
+    "./es/popconfirm/style": {
+      "types": "./es/popconfirm/style/index.d.ts",
+      "browser": "./es/popconfirm/style/index.js",
+      "node": "./lib/popconfirm/style/index.js",
+      "import": "./es/popconfirm/style/index.js",
+      "require": "./lib/popconfirm/style/index.js",
+      "default": "./es/popconfirm/style/index.js"
+    },
+    "./es/popover": {
+      "types": "./es/popover/index.d.ts",
+      "browser": "./es/popover/index.js",
+      "node": "./lib/popover/index.js",
+      "import": "./es/popover/index.js",
+      "require": "./lib/popover/index.js",
+      "default": "./es/popover/index.js"
+    },
+    "./es/popover/style": {
+      "types": "./es/popover/style/index.d.ts",
+      "browser": "./es/popover/style/index.js",
+      "node": "./lib/popover/style/index.js",
+      "import": "./es/popover/style/index.js",
+      "require": "./lib/popover/style/index.js",
+      "default": "./es/popover/style/index.js"
+    },
+    "./es/progress": {
+      "types": "./es/progress/index.d.ts",
+      "browser": "./es/progress/index.js",
+      "node": "./lib/progress/index.js",
+      "import": "./es/progress/index.js",
+      "require": "./lib/progress/index.js",
+      "default": "./es/progress/index.js"
+    },
+    "./es/progress/style": {
+      "types": "./es/progress/style/index.d.ts",
+      "browser": "./es/progress/style/index.js",
+      "node": "./lib/progress/style/index.js",
+      "import": "./es/progress/style/index.js",
+      "require": "./lib/progress/style/index.js",
+      "default": "./es/progress/style/index.js"
+    },
+    "./es/qr-code": {
+      "types": "./es/qr-code/index.d.ts",
+      "browser": "./es/qr-code/index.js",
+      "node": "./lib/qr-code/index.js",
+      "import": "./es/qr-code/index.js",
+      "require": "./lib/qr-code/index.js",
+      "default": "./es/qr-code/index.js"
+    },
+    "./es/qr-code/style": {
+      "types": "./es/qr-code/style/index.d.ts",
+      "browser": "./es/qr-code/style/index.js",
+      "node": "./lib/qr-code/style/index.js",
+      "import": "./es/qr-code/style/index.js",
+      "require": "./lib/qr-code/style/index.js",
+      "default": "./es/qr-code/style/index.js"
+    },
+    "./es/qrcode": {
+      "types": "./es/qrcode/index.d.ts",
+      "browser": "./es/qrcode/index.js",
+      "node": "./lib/qrcode/index.js",
+      "import": "./es/qrcode/index.js",
+      "require": "./lib/qrcode/index.js",
+      "default": "./es/qrcode/index.js"
+    },
+    "./es/qrcode/style": {
+      "types": "./es/qrcode/style/index.d.ts",
+      "browser": "./es/qrcode/style/index.js",
+      "node": "./lib/qrcode/style/index.js",
+      "import": "./es/qrcode/style/index.js",
+      "require": "./lib/qrcode/style/index.js",
+      "default": "./es/qrcode/style/index.js"
+    },
+    "./es/radio": {
+      "types": "./es/radio/index.d.ts",
+      "browser": "./es/radio/index.js",
+      "node": "./lib/radio/index.js",
+      "import": "./es/radio/index.js",
+      "require": "./lib/radio/index.js",
+      "default": "./es/radio/index.js"
+    },
+    "./es/radio/style": {
+      "types": "./es/radio/style/index.d.ts",
+      "browser": "./es/radio/style/index.js",
+      "node": "./lib/radio/style/index.js",
+      "import": "./es/radio/style/index.js",
+      "require": "./lib/radio/style/index.js",
+      "default": "./es/radio/style/index.js"
+    },
+    "./es/rate": {
+      "types": "./es/rate/index.d.ts",
+      "browser": "./es/rate/index.js",
+      "node": "./lib/rate/index.js",
+      "import": "./es/rate/index.js",
+      "require": "./lib/rate/index.js",
+      "default": "./es/rate/index.js"
+    },
+    "./es/rate/style": {
+      "types": "./es/rate/style/index.d.ts",
+      "browser": "./es/rate/style/index.js",
+      "node": "./lib/rate/style/index.js",
+      "import": "./es/rate/style/index.js",
+      "require": "./lib/rate/style/index.js",
+      "default": "./es/rate/style/index.js"
+    },
+    "./es/result": {
+      "types": "./es/result/index.d.ts",
+      "browser": "./es/result/index.js",
+      "node": "./lib/result/index.js",
+      "import": "./es/result/index.js",
+      "require": "./lib/result/index.js",
+      "default": "./es/result/index.js"
+    },
+    "./es/result/style": {
+      "types": "./es/result/style/index.d.ts",
+      "browser": "./es/result/style/index.js",
+      "node": "./lib/result/style/index.js",
+      "import": "./es/result/style/index.js",
+      "require": "./lib/result/style/index.js",
+      "default": "./es/result/style/index.js"
+    },
+    "./es/row": {
+      "types": "./es/row/index.d.ts",
+      "browser": "./es/row/index.js",
+      "node": "./lib/row/index.js",
+      "import": "./es/row/index.js",
+      "require": "./lib/row/index.js",
+      "default": "./es/row/index.js"
+    },
+    "./es/row/style": {
+      "types": "./es/row/style/index.d.ts",
+      "browser": "./es/row/style/index.js",
+      "node": "./lib/row/style/index.js",
+      "import": "./es/row/style/index.js",
+      "require": "./lib/row/style/index.js",
+      "default": "./es/row/style/index.js"
+    },
+    "./es/segmented": {
+      "types": "./es/segmented/index.d.ts",
+      "browser": "./es/segmented/index.js",
+      "node": "./lib/segmented/index.js",
+      "import": "./es/segmented/index.js",
+      "require": "./lib/segmented/index.js",
+      "default": "./es/segmented/index.js"
+    },
+    "./es/segmented/style": {
+      "types": "./es/segmented/style/index.d.ts",
+      "browser": "./es/segmented/style/index.js",
+      "node": "./lib/segmented/style/index.js",
+      "import": "./es/segmented/style/index.js",
+      "require": "./lib/segmented/style/index.js",
+      "default": "./es/segmented/style/index.js"
+    },
+    "./es/select": {
+      "types": "./es/select/index.d.ts",
+      "browser": "./es/select/index.js",
+      "node": "./lib/select/index.js",
+      "import": "./es/select/index.js",
+      "require": "./lib/select/index.js",
+      "default": "./es/select/index.js"
+    },
+    "./es/select/style": {
+      "types": "./es/select/style/index.d.ts",
+      "browser": "./es/select/style/index.js",
+      "node": "./lib/select/style/index.js",
+      "import": "./es/select/style/index.js",
+      "require": "./lib/select/style/index.js",
+      "default": "./es/select/style/index.js"
+    },
+    "./es/skeleton": {
+      "types": "./es/skeleton/index.d.ts",
+      "browser": "./es/skeleton/index.js",
+      "node": "./lib/skeleton/index.js",
+      "import": "./es/skeleton/index.js",
+      "require": "./lib/skeleton/index.js",
+      "default": "./es/skeleton/index.js"
+    },
+    "./es/skeleton/style": {
+      "types": "./es/skeleton/style/index.d.ts",
+      "browser": "./es/skeleton/style/index.js",
+      "node": "./lib/skeleton/style/index.js",
+      "import": "./es/skeleton/style/index.js",
+      "require": "./lib/skeleton/style/index.js",
+      "default": "./es/skeleton/style/index.js"
+    },
+    "./es/slider": {
+      "types": "./es/slider/index.d.ts",
+      "browser": "./es/slider/index.js",
+      "node": "./lib/slider/index.js",
+      "import": "./es/slider/index.js",
+      "require": "./lib/slider/index.js",
+      "default": "./es/slider/index.js"
+    },
+    "./es/slider/style": {
+      "types": "./es/slider/style/index.d.ts",
+      "browser": "./es/slider/style/index.js",
+      "node": "./lib/slider/style/index.js",
+      "import": "./es/slider/style/index.js",
+      "require": "./lib/slider/style/index.js",
+      "default": "./es/slider/style/index.js"
+    },
+    "./es/space": {
+      "types": "./es/space/index.d.ts",
+      "browser": "./es/space/index.js",
+      "node": "./lib/space/index.js",
+      "import": "./es/space/index.js",
+      "require": "./lib/space/index.js",
+      "default": "./es/space/index.js"
+    },
+    "./es/space/style": {
+      "types": "./es/space/style/index.d.ts",
+      "browser": "./es/space/style/index.js",
+      "node": "./lib/space/style/index.js",
+      "import": "./es/space/style/index.js",
+      "require": "./lib/space/style/index.js",
+      "default": "./es/space/style/index.js"
+    },
+    "./es/spin": {
+      "types": "./es/spin/index.d.ts",
+      "browser": "./es/spin/index.js",
+      "node": "./lib/spin/index.js",
+      "import": "./es/spin/index.js",
+      "require": "./lib/spin/index.js",
+      "default": "./es/spin/index.js"
+    },
+    "./es/spin/Indicator": {
+      "types": "./es/spin/Indicator/index.d.ts",
+      "browser": "./es/spin/Indicator/index.js",
+      "node": "./lib/spin/Indicator/index.js",
+      "import": "./es/spin/Indicator/index.js",
+      "require": "./lib/spin/Indicator/index.js",
+      "default": "./es/spin/Indicator/index.js"
+    },
+    "./es/spin/style": {
+      "types": "./es/spin/style/index.d.ts",
+      "browser": "./es/spin/style/index.js",
+      "node": "./lib/spin/style/index.js",
+      "import": "./es/spin/style/index.js",
+      "require": "./lib/spin/style/index.js",
+      "default": "./es/spin/style/index.js"
+    },
+    "./es/splitter": {
+      "types": "./es/splitter/index.d.ts",
+      "browser": "./es/splitter/index.js",
+      "node": "./lib/splitter/index.js",
+      "import": "./es/splitter/index.js",
+      "require": "./lib/splitter/index.js",
+      "default": "./es/splitter/index.js"
+    },
+    "./es/splitter/style": {
+      "types": "./es/splitter/style/index.d.ts",
+      "browser": "./es/splitter/style/index.js",
+      "node": "./lib/splitter/style/index.js",
+      "import": "./es/splitter/style/index.js",
+      "require": "./lib/splitter/style/index.js",
+      "default": "./es/splitter/style/index.js"
+    },
+    "./es/statistic": {
+      "types": "./es/statistic/index.d.ts",
+      "browser": "./es/statistic/index.js",
+      "node": "./lib/statistic/index.js",
+      "import": "./es/statistic/index.js",
+      "require": "./lib/statistic/index.js",
+      "default": "./es/statistic/index.js"
+    },
+    "./es/statistic/style": {
+      "types": "./es/statistic/style/index.d.ts",
+      "browser": "./es/statistic/style/index.js",
+      "node": "./lib/statistic/style/index.js",
+      "import": "./es/statistic/style/index.js",
+      "require": "./lib/statistic/style/index.js",
+      "default": "./es/statistic/style/index.js"
+    },
+    "./es/steps": {
+      "types": "./es/steps/index.d.ts",
+      "browser": "./es/steps/index.js",
+      "node": "./lib/steps/index.js",
+      "import": "./es/steps/index.js",
+      "require": "./lib/steps/index.js",
+      "default": "./es/steps/index.js"
+    },
+    "./es/steps/style": {
+      "types": "./es/steps/style/index.d.ts",
+      "browser": "./es/steps/style/index.js",
+      "node": "./lib/steps/style/index.js",
+      "import": "./es/steps/style/index.js",
+      "require": "./lib/steps/style/index.js",
+      "default": "./es/steps/style/index.js"
+    },
+    "./es/style": {
+      "types": "./es/style/index.d.ts",
+      "browser": "./es/style/index.js",
+      "node": "./lib/style/index.js",
+      "import": "./es/style/index.js",
+      "require": "./lib/style/index.js",
+      "default": "./es/style/index.js"
+    },
+    "./es/style/motion": {
+      "types": "./es/style/motion/index.d.ts",
+      "browser": "./es/style/motion/index.js",
+      "node": "./lib/style/motion/index.js",
+      "import": "./es/style/motion/index.js",
+      "require": "./lib/style/motion/index.js",
+      "default": "./es/style/motion/index.js"
+    },
+    "./es/switch": {
+      "types": "./es/switch/index.d.ts",
+      "browser": "./es/switch/index.js",
+      "node": "./lib/switch/index.js",
+      "import": "./es/switch/index.js",
+      "require": "./lib/switch/index.js",
+      "default": "./es/switch/index.js"
+    },
+    "./es/switch/style": {
+      "types": "./es/switch/style/index.d.ts",
+      "browser": "./es/switch/style/index.js",
+      "node": "./lib/switch/style/index.js",
+      "import": "./es/switch/style/index.js",
+      "require": "./lib/switch/style/index.js",
+      "default": "./es/switch/style/index.js"
+    },
+    "./es/table": {
+      "types": "./es/table/index.d.ts",
+      "browser": "./es/table/index.js",
+      "node": "./lib/table/index.js",
+      "import": "./es/table/index.js",
+      "require": "./lib/table/index.js",
+      "default": "./es/table/index.js"
+    },
+    "./es/table/RcTable": {
+      "types": "./es/table/RcTable/index.d.ts",
+      "browser": "./es/table/RcTable/index.js",
+      "node": "./lib/table/RcTable/index.js",
+      "import": "./es/table/RcTable/index.js",
+      "require": "./lib/table/RcTable/index.js",
+      "default": "./es/table/RcTable/index.js"
+    },
+    "./es/table/hooks/useFilter": {
+      "types": "./es/table/hooks/useFilter/index.d.ts",
+      "browser": "./es/table/hooks/useFilter/index.js",
+      "node": "./lib/table/hooks/useFilter/index.js",
+      "import": "./es/table/hooks/useFilter/index.js",
+      "require": "./lib/table/hooks/useFilter/index.js",
+      "default": "./es/table/hooks/useFilter/index.js"
+    },
+    "./es/table/style": {
+      "types": "./es/table/style/index.d.ts",
+      "browser": "./es/table/style/index.js",
+      "node": "./lib/table/style/index.js",
+      "import": "./es/table/style/index.js",
+      "require": "./lib/table/style/index.js",
+      "default": "./es/table/style/index.js"
+    },
+    "./es/tabs": {
+      "types": "./es/tabs/index.d.ts",
+      "browser": "./es/tabs/index.js",
+      "node": "./lib/tabs/index.js",
+      "import": "./es/tabs/index.js",
+      "require": "./lib/tabs/index.js",
+      "default": "./es/tabs/index.js"
+    },
+    "./es/tabs/style": {
+      "types": "./es/tabs/style/index.d.ts",
+      "browser": "./es/tabs/style/index.js",
+      "node": "./lib/tabs/style/index.js",
+      "import": "./es/tabs/style/index.js",
+      "require": "./lib/tabs/style/index.js",
+      "default": "./es/tabs/style/index.js"
+    },
+    "./es/tag": {
+      "types": "./es/tag/index.d.ts",
+      "browser": "./es/tag/index.js",
+      "node": "./lib/tag/index.js",
+      "import": "./es/tag/index.js",
+      "require": "./lib/tag/index.js",
+      "default": "./es/tag/index.js"
+    },
+    "./es/tag/style": {
+      "types": "./es/tag/style/index.d.ts",
+      "browser": "./es/tag/style/index.js",
+      "node": "./lib/tag/style/index.js",
+      "import": "./es/tag/style/index.js",
+      "require": "./lib/tag/style/index.js",
+      "default": "./es/tag/style/index.js"
+    },
+    "./es/theme": {
+      "types": "./es/theme/index.d.ts",
+      "browser": "./es/theme/index.js",
+      "node": "./lib/theme/index.js",
+      "import": "./es/theme/index.js",
+      "require": "./lib/theme/index.js",
+      "default": "./es/theme/index.js"
+    },
+    "./es/theme/interface": {
+      "types": "./es/theme/interface/index.d.ts",
+      "browser": "./es/theme/interface/index.js",
+      "node": "./lib/theme/interface/index.js",
+      "import": "./es/theme/interface/index.js",
+      "require": "./lib/theme/interface/index.js",
+      "default": "./es/theme/interface/index.js"
+    },
+    "./es/theme/interface/maps": {
+      "types": "./es/theme/interface/maps/index.d.ts",
+      "browser": "./es/theme/interface/maps/index.js",
+      "node": "./lib/theme/interface/maps/index.js",
+      "import": "./es/theme/interface/maps/index.js",
+      "require": "./lib/theme/interface/maps/index.js",
+      "default": "./es/theme/interface/maps/index.js"
+    },
+    "./es/theme/themes/compact": {
+      "types": "./es/theme/themes/compact/index.d.ts",
+      "browser": "./es/theme/themes/compact/index.js",
+      "node": "./lib/theme/themes/compact/index.js",
+      "import": "./es/theme/themes/compact/index.js",
+      "require": "./lib/theme/themes/compact/index.js",
+      "default": "./es/theme/themes/compact/index.js"
+    },
+    "./es/theme/themes/dark": {
+      "types": "./es/theme/themes/dark/index.d.ts",
+      "browser": "./es/theme/themes/dark/index.js",
+      "node": "./lib/theme/themes/dark/index.js",
+      "import": "./es/theme/themes/dark/index.js",
+      "require": "./lib/theme/themes/dark/index.js",
+      "default": "./es/theme/themes/dark/index.js"
+    },
+    "./es/theme/themes/default": {
+      "types": "./es/theme/themes/default/index.d.ts",
+      "browser": "./es/theme/themes/default/index.js",
+      "node": "./lib/theme/themes/default/index.js",
+      "import": "./es/theme/themes/default/index.js",
+      "require": "./lib/theme/themes/default/index.js",
+      "default": "./es/theme/themes/default/index.js"
+    },
+    "./es/time-picker": {
+      "types": "./es/time-picker/index.d.ts",
+      "browser": "./es/time-picker/index.js",
+      "node": "./lib/time-picker/index.js",
+      "import": "./es/time-picker/index.js",
+      "require": "./lib/time-picker/index.js",
+      "default": "./es/time-picker/index.js"
+    },
+    "./es/timeline": {
+      "types": "./es/timeline/index.d.ts",
+      "browser": "./es/timeline/index.js",
+      "node": "./lib/timeline/index.js",
+      "import": "./es/timeline/index.js",
+      "require": "./lib/timeline/index.js",
+      "default": "./es/timeline/index.js"
+    },
+    "./es/timeline/style": {
+      "types": "./es/timeline/style/index.d.ts",
+      "browser": "./es/timeline/style/index.js",
+      "node": "./lib/timeline/style/index.js",
+      "import": "./es/timeline/style/index.js",
+      "require": "./lib/timeline/style/index.js",
+      "default": "./es/timeline/style/index.js"
+    },
+    "./es/tooltip": {
+      "types": "./es/tooltip/index.d.ts",
+      "browser": "./es/tooltip/index.js",
+      "node": "./lib/tooltip/index.js",
+      "import": "./es/tooltip/index.js",
+      "require": "./lib/tooltip/index.js",
+      "default": "./es/tooltip/index.js"
+    },
+    "./es/tooltip/UniqueProvider": {
+      "types": "./es/tooltip/UniqueProvider/index.d.ts",
+      "browser": "./es/tooltip/UniqueProvider/index.js",
+      "node": "./lib/tooltip/UniqueProvider/index.js",
+      "import": "./es/tooltip/UniqueProvider/index.js",
+      "require": "./lib/tooltip/UniqueProvider/index.js",
+      "default": "./es/tooltip/UniqueProvider/index.js"
+    },
+    "./es/tooltip/style": {
+      "types": "./es/tooltip/style/index.d.ts",
+      "browser": "./es/tooltip/style/index.js",
+      "node": "./lib/tooltip/style/index.js",
+      "import": "./es/tooltip/style/index.js",
+      "require": "./lib/tooltip/style/index.js",
+      "default": "./es/tooltip/style/index.js"
+    },
+    "./es/tour": {
+      "types": "./es/tour/index.d.ts",
+      "browser": "./es/tour/index.js",
+      "node": "./lib/tour/index.js",
+      "import": "./es/tour/index.js",
+      "require": "./lib/tour/index.js",
+      "default": "./es/tour/index.js"
+    },
+    "./es/tour/style": {
+      "types": "./es/tour/style/index.d.ts",
+      "browser": "./es/tour/style/index.js",
+      "node": "./lib/tour/style/index.js",
+      "import": "./es/tour/style/index.js",
+      "require": "./lib/tour/style/index.js",
+      "default": "./es/tour/style/index.js"
+    },
+    "./es/transfer": {
+      "types": "./es/transfer/index.d.ts",
+      "browser": "./es/transfer/index.js",
+      "node": "./lib/transfer/index.js",
+      "import": "./es/transfer/index.js",
+      "require": "./lib/transfer/index.js",
+      "default": "./es/transfer/index.js"
+    },
+    "./es/transfer/style": {
+      "types": "./es/transfer/style/index.d.ts",
+      "browser": "./es/transfer/style/index.js",
+      "node": "./lib/transfer/style/index.js",
+      "import": "./es/transfer/style/index.js",
+      "require": "./lib/transfer/style/index.js",
+      "default": "./es/transfer/style/index.js"
+    },
+    "./es/tree": {
+      "types": "./es/tree/index.d.ts",
+      "browser": "./es/tree/index.js",
+      "node": "./lib/tree/index.js",
+      "import": "./es/tree/index.js",
+      "require": "./lib/tree/index.js",
+      "default": "./es/tree/index.js"
+    },
+    "./es/tree-select": {
+      "types": "./es/tree-select/index.d.ts",
+      "browser": "./es/tree-select/index.js",
+      "node": "./lib/tree-select/index.js",
+      "import": "./es/tree-select/index.js",
+      "require": "./lib/tree-select/index.js",
+      "default": "./es/tree-select/index.js"
+    },
+    "./es/tree-select/style": {
+      "types": "./es/tree-select/style/index.d.ts",
+      "browser": "./es/tree-select/style/index.js",
+      "node": "./lib/tree-select/style/index.js",
+      "import": "./es/tree-select/style/index.js",
+      "require": "./lib/tree-select/style/index.js",
+      "default": "./es/tree-select/style/index.js"
+    },
+    "./es/tree/style": {
+      "types": "./es/tree/style/index.d.ts",
+      "browser": "./es/tree/style/index.js",
+      "node": "./lib/tree/style/index.js",
+      "import": "./es/tree/style/index.js",
+      "require": "./lib/tree/style/index.js",
+      "default": "./es/tree/style/index.js"
+    },
+    "./es/typography": {
+      "types": "./es/typography/index.d.ts",
+      "browser": "./es/typography/index.js",
+      "node": "./lib/typography/index.js",
+      "import": "./es/typography/index.js",
+      "require": "./lib/typography/index.js",
+      "default": "./es/typography/index.js"
+    },
+    "./es/typography/Base": {
+      "types": "./es/typography/Base/index.d.ts",
+      "browser": "./es/typography/Base/index.js",
+      "node": "./lib/typography/Base/index.js",
+      "import": "./es/typography/Base/index.js",
+      "require": "./lib/typography/Base/index.js",
+      "default": "./es/typography/Base/index.js"
+    },
+    "./es/typography/style": {
+      "types": "./es/typography/style/index.d.ts",
+      "browser": "./es/typography/style/index.js",
+      "node": "./lib/typography/style/index.js",
+      "import": "./es/typography/style/index.js",
+      "require": "./lib/typography/style/index.js",
+      "default": "./es/typography/style/index.js"
+    },
+    "./es/upload": {
+      "types": "./es/upload/index.d.ts",
+      "browser": "./es/upload/index.js",
+      "node": "./lib/upload/index.js",
+      "import": "./es/upload/index.js",
+      "require": "./lib/upload/index.js",
+      "default": "./es/upload/index.js"
+    },
+    "./es/upload/UploadList": {
+      "types": "./es/upload/UploadList/index.d.ts",
+      "browser": "./es/upload/UploadList/index.js",
+      "node": "./lib/upload/UploadList/index.js",
+      "import": "./es/upload/UploadList/index.js",
+      "require": "./lib/upload/UploadList/index.js",
+      "default": "./es/upload/UploadList/index.js"
+    },
+    "./es/upload/style": {
+      "types": "./es/upload/style/index.d.ts",
+      "browser": "./es/upload/style/index.js",
+      "node": "./lib/upload/style/index.js",
+      "import": "./es/upload/style/index.js",
+      "require": "./lib/upload/style/index.js",
+      "default": "./es/upload/style/index.js"
+    },
+    "./es/version": {
+      "types": "./es/version/index.d.ts",
+      "browser": "./es/version/index.js",
+      "node": "./lib/version/index.js",
+      "import": "./es/version/index.js",
+      "require": "./lib/version/index.js",
+      "default": "./es/version/index.js"
+    },
+    "./es/watermark": {
+      "types": "./es/watermark/index.d.ts",
+      "browser": "./es/watermark/index.js",
+      "node": "./lib/watermark/index.js",
+      "import": "./es/watermark/index.js",
+      "require": "./lib/watermark/index.js",
+      "default": "./es/watermark/index.js"
+    },
     "./lib": {
       "types": "./lib/index.d.ts",
       "default": "./lib/index.js"
@@ -70,6 +1422,682 @@
       "types": "./lib/*.d.ts",
       "default": "./lib/*.js"
     },
+    "./lib/_util/hooks": {
+      "types": "./lib/_util/hooks/index.d.ts",
+      "default": "./lib/_util/hooks/index.js"
+    },
+    "./lib/_util/hooks/useMergeSemantic": {
+      "types": "./lib/_util/hooks/useMergeSemantic/index.d.ts",
+      "default": "./lib/_util/hooks/useMergeSemantic/index.js"
+    },
+    "./lib/_util/wave": {
+      "types": "./lib/_util/wave/index.d.ts",
+      "default": "./lib/_util/wave/index.js"
+    },
+    "./lib/affix": {
+      "types": "./lib/affix/index.d.ts",
+      "default": "./lib/affix/index.js"
+    },
+    "./lib/affix/style": {
+      "types": "./lib/affix/style/index.d.ts",
+      "default": "./lib/affix/style/index.js"
+    },
+    "./lib/alert": {
+      "types": "./lib/alert/index.d.ts",
+      "default": "./lib/alert/index.js"
+    },
+    "./lib/alert/style": {
+      "types": "./lib/alert/style/index.d.ts",
+      "default": "./lib/alert/style/index.js"
+    },
+    "./lib/anchor": {
+      "types": "./lib/anchor/index.d.ts",
+      "default": "./lib/anchor/index.js"
+    },
+    "./lib/anchor/style": {
+      "types": "./lib/anchor/style/index.d.ts",
+      "default": "./lib/anchor/style/index.js"
+    },
+    "./lib/app": {
+      "types": "./lib/app/index.d.ts",
+      "default": "./lib/app/index.js"
+    },
+    "./lib/app/style": {
+      "types": "./lib/app/style/index.d.ts",
+      "default": "./lib/app/style/index.js"
+    },
+    "./lib/auto-complete": {
+      "types": "./lib/auto-complete/index.d.ts",
+      "default": "./lib/auto-complete/index.js"
+    },
+    "./lib/avatar": {
+      "types": "./lib/avatar/index.d.ts",
+      "default": "./lib/avatar/index.js"
+    },
+    "./lib/avatar/style": {
+      "types": "./lib/avatar/style/index.d.ts",
+      "default": "./lib/avatar/style/index.js"
+    },
+    "./lib/back-top": {
+      "types": "./lib/back-top/index.d.ts",
+      "default": "./lib/back-top/index.js"
+    },
+    "./lib/back-top/style": {
+      "types": "./lib/back-top/style/index.d.ts",
+      "default": "./lib/back-top/style/index.js"
+    },
+    "./lib/badge": {
+      "types": "./lib/badge/index.d.ts",
+      "default": "./lib/badge/index.js"
+    },
+    "./lib/badge/style": {
+      "types": "./lib/badge/style/index.d.ts",
+      "default": "./lib/badge/style/index.js"
+    },
+    "./lib/border-beam": {
+      "types": "./lib/border-beam/index.d.ts",
+      "default": "./lib/border-beam/index.js"
+    },
+    "./lib/border-beam/style": {
+      "types": "./lib/border-beam/style/index.d.ts",
+      "default": "./lib/border-beam/style/index.js"
+    },
+    "./lib/breadcrumb": {
+      "types": "./lib/breadcrumb/index.d.ts",
+      "default": "./lib/breadcrumb/index.js"
+    },
+    "./lib/breadcrumb/style": {
+      "types": "./lib/breadcrumb/style/index.d.ts",
+      "default": "./lib/breadcrumb/style/index.js"
+    },
+    "./lib/button": {
+      "types": "./lib/button/index.d.ts",
+      "default": "./lib/button/index.js"
+    },
+    "./lib/button/style": {
+      "types": "./lib/button/style/index.d.ts",
+      "default": "./lib/button/style/index.js"
+    },
+    "./lib/calendar": {
+      "types": "./lib/calendar/index.d.ts",
+      "default": "./lib/calendar/index.js"
+    },
+    "./lib/calendar/style": {
+      "types": "./lib/calendar/style/index.d.ts",
+      "default": "./lib/calendar/style/index.js"
+    },
+    "./lib/card": {
+      "types": "./lib/card/index.d.ts",
+      "default": "./lib/card/index.js"
+    },
+    "./lib/card/style": {
+      "types": "./lib/card/style/index.d.ts",
+      "default": "./lib/card/style/index.js"
+    },
+    "./lib/carousel": {
+      "types": "./lib/carousel/index.d.ts",
+      "default": "./lib/carousel/index.js"
+    },
+    "./lib/carousel/style": {
+      "types": "./lib/carousel/style/index.d.ts",
+      "default": "./lib/carousel/style/index.js"
+    },
+    "./lib/cascader": {
+      "types": "./lib/cascader/index.d.ts",
+      "default": "./lib/cascader/index.js"
+    },
+    "./lib/cascader/style": {
+      "types": "./lib/cascader/style/index.d.ts",
+      "default": "./lib/cascader/style/index.js"
+    },
+    "./lib/checkbox": {
+      "types": "./lib/checkbox/index.d.ts",
+      "default": "./lib/checkbox/index.js"
+    },
+    "./lib/checkbox/style": {
+      "types": "./lib/checkbox/style/index.d.ts",
+      "default": "./lib/checkbox/style/index.js"
+    },
+    "./lib/col": {
+      "types": "./lib/col/index.d.ts",
+      "default": "./lib/col/index.js"
+    },
+    "./lib/col/style": {
+      "types": "./lib/col/style/index.d.ts",
+      "default": "./lib/col/style/index.js"
+    },
+    "./lib/collapse": {
+      "types": "./lib/collapse/index.d.ts",
+      "default": "./lib/collapse/index.js"
+    },
+    "./lib/collapse/style": {
+      "types": "./lib/collapse/style/index.d.ts",
+      "default": "./lib/collapse/style/index.js"
+    },
+    "./lib/color-picker": {
+      "types": "./lib/color-picker/index.d.ts",
+      "default": "./lib/color-picker/index.js"
+    },
+    "./lib/color-picker/components/PanelPicker": {
+      "types": "./lib/color-picker/components/PanelPicker/index.d.ts",
+      "default": "./lib/color-picker/components/PanelPicker/index.js"
+    },
+    "./lib/color-picker/style": {
+      "types": "./lib/color-picker/style/index.d.ts",
+      "default": "./lib/color-picker/style/index.js"
+    },
+    "./lib/config-provider": {
+      "types": "./lib/config-provider/index.d.ts",
+      "default": "./lib/config-provider/index.js"
+    },
+    "./lib/config-provider/style": {
+      "types": "./lib/config-provider/style/index.d.ts",
+      "default": "./lib/config-provider/style/index.js"
+    },
+    "./lib/date-picker": {
+      "types": "./lib/date-picker/index.d.ts",
+      "default": "./lib/date-picker/index.js"
+    },
+    "./lib/date-picker/generatePicker": {
+      "types": "./lib/date-picker/generatePicker/index.d.ts",
+      "default": "./lib/date-picker/generatePicker/index.js"
+    },
+    "./lib/date-picker/style": {
+      "types": "./lib/date-picker/style/index.d.ts",
+      "default": "./lib/date-picker/style/index.js"
+    },
+    "./lib/descriptions": {
+      "types": "./lib/descriptions/index.d.ts",
+      "default": "./lib/descriptions/index.js"
+    },
+    "./lib/descriptions/style": {
+      "types": "./lib/descriptions/style/index.d.ts",
+      "default": "./lib/descriptions/style/index.js"
+    },
+    "./lib/divider": {
+      "types": "./lib/divider/index.d.ts",
+      "default": "./lib/divider/index.js"
+    },
+    "./lib/divider/style": {
+      "types": "./lib/divider/style/index.d.ts",
+      "default": "./lib/divider/style/index.js"
+    },
+    "./lib/drawer": {
+      "types": "./lib/drawer/index.d.ts",
+      "default": "./lib/drawer/index.js"
+    },
+    "./lib/drawer/style": {
+      "types": "./lib/drawer/style/index.d.ts",
+      "default": "./lib/drawer/style/index.js"
+    },
+    "./lib/dropdown": {
+      "types": "./lib/dropdown/index.d.ts",
+      "default": "./lib/dropdown/index.js"
+    },
+    "./lib/dropdown/style": {
+      "types": "./lib/dropdown/style/index.d.ts",
+      "default": "./lib/dropdown/style/index.js"
+    },
+    "./lib/empty": {
+      "types": "./lib/empty/index.d.ts",
+      "default": "./lib/empty/index.js"
+    },
+    "./lib/empty/style": {
+      "types": "./lib/empty/style/index.d.ts",
+      "default": "./lib/empty/style/index.js"
+    },
+    "./lib/flex": {
+      "types": "./lib/flex/index.d.ts",
+      "default": "./lib/flex/index.js"
+    },
+    "./lib/flex/style": {
+      "types": "./lib/flex/style/index.d.ts",
+      "default": "./lib/flex/style/index.js"
+    },
+    "./lib/float-button": {
+      "types": "./lib/float-button/index.d.ts",
+      "default": "./lib/float-button/index.js"
+    },
+    "./lib/float-button/style": {
+      "types": "./lib/float-button/style/index.d.ts",
+      "default": "./lib/float-button/style/index.js"
+    },
+    "./lib/form": {
+      "types": "./lib/form/index.d.ts",
+      "default": "./lib/form/index.js"
+    },
+    "./lib/form/FormItem": {
+      "types": "./lib/form/FormItem/index.d.ts",
+      "default": "./lib/form/FormItem/index.js"
+    },
+    "./lib/form/style": {
+      "types": "./lib/form/style/index.d.ts",
+      "default": "./lib/form/style/index.js"
+    },
+    "./lib/grid": {
+      "types": "./lib/grid/index.d.ts",
+      "default": "./lib/grid/index.js"
+    },
+    "./lib/grid/style": {
+      "types": "./lib/grid/style/index.d.ts",
+      "default": "./lib/grid/style/index.js"
+    },
+    "./lib/image": {
+      "types": "./lib/image/index.d.ts",
+      "default": "./lib/image/index.js"
+    },
+    "./lib/image/style": {
+      "types": "./lib/image/style/index.d.ts",
+      "default": "./lib/image/style/index.js"
+    },
+    "./lib/input": {
+      "types": "./lib/input/index.d.ts",
+      "default": "./lib/input/index.js"
+    },
+    "./lib/input-number": {
+      "types": "./lib/input-number/index.d.ts",
+      "default": "./lib/input-number/index.js"
+    },
+    "./lib/input-number/style": {
+      "types": "./lib/input-number/style/index.d.ts",
+      "default": "./lib/input-number/style/index.js"
+    },
+    "./lib/input/OTP": {
+      "types": "./lib/input/OTP/index.d.ts",
+      "default": "./lib/input/OTP/index.js"
+    },
+    "./lib/input/style": {
+      "types": "./lib/input/style/index.d.ts",
+      "default": "./lib/input/style/index.js"
+    },
+    "./lib/layout": {
+      "types": "./lib/layout/index.d.ts",
+      "default": "./lib/layout/index.js"
+    },
+    "./lib/layout/style": {
+      "types": "./lib/layout/style/index.d.ts",
+      "default": "./lib/layout/style/index.js"
+    },
+    "./lib/list": {
+      "types": "./lib/list/index.d.ts",
+      "default": "./lib/list/index.js"
+    },
+    "./lib/list/style": {
+      "types": "./lib/list/style/index.d.ts",
+      "default": "./lib/list/style/index.js"
+    },
+    "./lib/locale": {
+      "types": "./lib/locale/index.d.ts",
+      "default": "./lib/locale/index.js"
+    },
+    "./lib/masonry": {
+      "types": "./lib/masonry/index.d.ts",
+      "default": "./lib/masonry/index.js"
+    },
+    "./lib/masonry/style": {
+      "types": "./lib/masonry/style/index.d.ts",
+      "default": "./lib/masonry/style/index.js"
+    },
+    "./lib/mentions": {
+      "types": "./lib/mentions/index.d.ts",
+      "default": "./lib/mentions/index.js"
+    },
+    "./lib/mentions/style": {
+      "types": "./lib/mentions/style/index.d.ts",
+      "default": "./lib/mentions/style/index.js"
+    },
+    "./lib/menu": {
+      "types": "./lib/menu/index.d.ts",
+      "default": "./lib/menu/index.js"
+    },
+    "./lib/menu/style": {
+      "types": "./lib/menu/style/index.d.ts",
+      "default": "./lib/menu/style/index.js"
+    },
+    "./lib/message": {
+      "types": "./lib/message/index.d.ts",
+      "default": "./lib/message/index.js"
+    },
+    "./lib/message/style": {
+      "types": "./lib/message/style/index.d.ts",
+      "default": "./lib/message/style/index.js"
+    },
+    "./lib/modal": {
+      "types": "./lib/modal/index.d.ts",
+      "default": "./lib/modal/index.js"
+    },
+    "./lib/modal/style": {
+      "types": "./lib/modal/style/index.d.ts",
+      "default": "./lib/modal/style/index.js"
+    },
+    "./lib/modal/useModal": {
+      "types": "./lib/modal/useModal/index.d.ts",
+      "default": "./lib/modal/useModal/index.js"
+    },
+    "./lib/notification": {
+      "types": "./lib/notification/index.d.ts",
+      "default": "./lib/notification/index.js"
+    },
+    "./lib/notification/style": {
+      "types": "./lib/notification/style/index.d.ts",
+      "default": "./lib/notification/style/index.js"
+    },
+    "./lib/pagination": {
+      "types": "./lib/pagination/index.d.ts",
+      "default": "./lib/pagination/index.js"
+    },
+    "./lib/pagination/style": {
+      "types": "./lib/pagination/style/index.d.ts",
+      "default": "./lib/pagination/style/index.js"
+    },
+    "./lib/popconfirm": {
+      "types": "./lib/popconfirm/index.d.ts",
+      "default": "./lib/popconfirm/index.js"
+    },
+    "./lib/popconfirm/style": {
+      "types": "./lib/popconfirm/style/index.d.ts",
+      "default": "./lib/popconfirm/style/index.js"
+    },
+    "./lib/popover": {
+      "types": "./lib/popover/index.d.ts",
+      "default": "./lib/popover/index.js"
+    },
+    "./lib/popover/style": {
+      "types": "./lib/popover/style/index.d.ts",
+      "default": "./lib/popover/style/index.js"
+    },
+    "./lib/progress": {
+      "types": "./lib/progress/index.d.ts",
+      "default": "./lib/progress/index.js"
+    },
+    "./lib/progress/style": {
+      "types": "./lib/progress/style/index.d.ts",
+      "default": "./lib/progress/style/index.js"
+    },
+    "./lib/qr-code": {
+      "types": "./lib/qr-code/index.d.ts",
+      "default": "./lib/qr-code/index.js"
+    },
+    "./lib/qr-code/style": {
+      "types": "./lib/qr-code/style/index.d.ts",
+      "default": "./lib/qr-code/style/index.js"
+    },
+    "./lib/qrcode": {
+      "types": "./lib/qrcode/index.d.ts",
+      "default": "./lib/qrcode/index.js"
+    },
+    "./lib/qrcode/style": {
+      "types": "./lib/qrcode/style/index.d.ts",
+      "default": "./lib/qrcode/style/index.js"
+    },
+    "./lib/radio": {
+      "types": "./lib/radio/index.d.ts",
+      "default": "./lib/radio/index.js"
+    },
+    "./lib/radio/style": {
+      "types": "./lib/radio/style/index.d.ts",
+      "default": "./lib/radio/style/index.js"
+    },
+    "./lib/rate": {
+      "types": "./lib/rate/index.d.ts",
+      "default": "./lib/rate/index.js"
+    },
+    "./lib/rate/style": {
+      "types": "./lib/rate/style/index.d.ts",
+      "default": "./lib/rate/style/index.js"
+    },
+    "./lib/result": {
+      "types": "./lib/result/index.d.ts",
+      "default": "./lib/result/index.js"
+    },
+    "./lib/result/style": {
+      "types": "./lib/result/style/index.d.ts",
+      "default": "./lib/result/style/index.js"
+    },
+    "./lib/row": {
+      "types": "./lib/row/index.d.ts",
+      "default": "./lib/row/index.js"
+    },
+    "./lib/row/style": {
+      "types": "./lib/row/style/index.d.ts",
+      "default": "./lib/row/style/index.js"
+    },
+    "./lib/segmented": {
+      "types": "./lib/segmented/index.d.ts",
+      "default": "./lib/segmented/index.js"
+    },
+    "./lib/segmented/style": {
+      "types": "./lib/segmented/style/index.d.ts",
+      "default": "./lib/segmented/style/index.js"
+    },
+    "./lib/select": {
+      "types": "./lib/select/index.d.ts",
+      "default": "./lib/select/index.js"
+    },
+    "./lib/select/style": {
+      "types": "./lib/select/style/index.d.ts",
+      "default": "./lib/select/style/index.js"
+    },
+    "./lib/skeleton": {
+      "types": "./lib/skeleton/index.d.ts",
+      "default": "./lib/skeleton/index.js"
+    },
+    "./lib/skeleton/style": {
+      "types": "./lib/skeleton/style/index.d.ts",
+      "default": "./lib/skeleton/style/index.js"
+    },
+    "./lib/slider": {
+      "types": "./lib/slider/index.d.ts",
+      "default": "./lib/slider/index.js"
+    },
+    "./lib/slider/style": {
+      "types": "./lib/slider/style/index.d.ts",
+      "default": "./lib/slider/style/index.js"
+    },
+    "./lib/space": {
+      "types": "./lib/space/index.d.ts",
+      "default": "./lib/space/index.js"
+    },
+    "./lib/space/style": {
+      "types": "./lib/space/style/index.d.ts",
+      "default": "./lib/space/style/index.js"
+    },
+    "./lib/spin": {
+      "types": "./lib/spin/index.d.ts",
+      "default": "./lib/spin/index.js"
+    },
+    "./lib/spin/Indicator": {
+      "types": "./lib/spin/Indicator/index.d.ts",
+      "default": "./lib/spin/Indicator/index.js"
+    },
+    "./lib/spin/style": {
+      "types": "./lib/spin/style/index.d.ts",
+      "default": "./lib/spin/style/index.js"
+    },
+    "./lib/splitter": {
+      "types": "./lib/splitter/index.d.ts",
+      "default": "./lib/splitter/index.js"
+    },
+    "./lib/splitter/style": {
+      "types": "./lib/splitter/style/index.d.ts",
+      "default": "./lib/splitter/style/index.js"
+    },
+    "./lib/statistic": {
+      "types": "./lib/statistic/index.d.ts",
+      "default": "./lib/statistic/index.js"
+    },
+    "./lib/statistic/style": {
+      "types": "./lib/statistic/style/index.d.ts",
+      "default": "./lib/statistic/style/index.js"
+    },
+    "./lib/steps": {
+      "types": "./lib/steps/index.d.ts",
+      "default": "./lib/steps/index.js"
+    },
+    "./lib/steps/style": {
+      "types": "./lib/steps/style/index.d.ts",
+      "default": "./lib/steps/style/index.js"
+    },
+    "./lib/style": {
+      "types": "./lib/style/index.d.ts",
+      "default": "./lib/style/index.js"
+    },
+    "./lib/style/motion": {
+      "types": "./lib/style/motion/index.d.ts",
+      "default": "./lib/style/motion/index.js"
+    },
+    "./lib/switch": {
+      "types": "./lib/switch/index.d.ts",
+      "default": "./lib/switch/index.js"
+    },
+    "./lib/switch/style": {
+      "types": "./lib/switch/style/index.d.ts",
+      "default": "./lib/switch/style/index.js"
+    },
+    "./lib/table": {
+      "types": "./lib/table/index.d.ts",
+      "default": "./lib/table/index.js"
+    },
+    "./lib/table/RcTable": {
+      "types": "./lib/table/RcTable/index.d.ts",
+      "default": "./lib/table/RcTable/index.js"
+    },
+    "./lib/table/hooks/useFilter": {
+      "types": "./lib/table/hooks/useFilter/index.d.ts",
+      "default": "./lib/table/hooks/useFilter/index.js"
+    },
+    "./lib/table/style": {
+      "types": "./lib/table/style/index.d.ts",
+      "default": "./lib/table/style/index.js"
+    },
+    "./lib/tabs": {
+      "types": "./lib/tabs/index.d.ts",
+      "default": "./lib/tabs/index.js"
+    },
+    "./lib/tabs/style": {
+      "types": "./lib/tabs/style/index.d.ts",
+      "default": "./lib/tabs/style/index.js"
+    },
+    "./lib/tag": {
+      "types": "./lib/tag/index.d.ts",
+      "default": "./lib/tag/index.js"
+    },
+    "./lib/tag/style": {
+      "types": "./lib/tag/style/index.d.ts",
+      "default": "./lib/tag/style/index.js"
+    },
+    "./lib/theme": {
+      "types": "./lib/theme/index.d.ts",
+      "default": "./lib/theme/index.js"
+    },
+    "./lib/theme/interface": {
+      "types": "./lib/theme/interface/index.d.ts",
+      "default": "./lib/theme/interface/index.js"
+    },
+    "./lib/theme/interface/maps": {
+      "types": "./lib/theme/interface/maps/index.d.ts",
+      "default": "./lib/theme/interface/maps/index.js"
+    },
+    "./lib/theme/themes/compact": {
+      "types": "./lib/theme/themes/compact/index.d.ts",
+      "default": "./lib/theme/themes/compact/index.js"
+    },
+    "./lib/theme/themes/dark": {
+      "types": "./lib/theme/themes/dark/index.d.ts",
+      "default": "./lib/theme/themes/dark/index.js"
+    },
+    "./lib/theme/themes/default": {
+      "types": "./lib/theme/themes/default/index.d.ts",
+      "default": "./lib/theme/themes/default/index.js"
+    },
+    "./lib/time-picker": {
+      "types": "./lib/time-picker/index.d.ts",
+      "default": "./lib/time-picker/index.js"
+    },
+    "./lib/timeline": {
+      "types": "./lib/timeline/index.d.ts",
+      "default": "./lib/timeline/index.js"
+    },
+    "./lib/timeline/style": {
+      "types": "./lib/timeline/style/index.d.ts",
+      "default": "./lib/timeline/style/index.js"
+    },
+    "./lib/tooltip": {
+      "types": "./lib/tooltip/index.d.ts",
+      "default": "./lib/tooltip/index.js"
+    },
+    "./lib/tooltip/UniqueProvider": {
+      "types": "./lib/tooltip/UniqueProvider/index.d.ts",
+      "default": "./lib/tooltip/UniqueProvider/index.js"
+    },
+    "./lib/tooltip/style": {
+      "types": "./lib/tooltip/style/index.d.ts",
+      "default": "./lib/tooltip/style/index.js"
+    },
+    "./lib/tour": {
+      "types": "./lib/tour/index.d.ts",
+      "default": "./lib/tour/index.js"
+    },
+    "./lib/tour/style": {
+      "types": "./lib/tour/style/index.d.ts",
+      "default": "./lib/tour/style/index.js"
+    },
+    "./lib/transfer": {
+      "types": "./lib/transfer/index.d.ts",
+      "default": "./lib/transfer/index.js"
+    },
+    "./lib/transfer/style": {
+      "types": "./lib/transfer/style/index.d.ts",
+      "default": "./lib/transfer/style/index.js"
+    },
+    "./lib/tree": {
+      "types": "./lib/tree/index.d.ts",
+      "default": "./lib/tree/index.js"
+    },
+    "./lib/tree-select": {
+      "types": "./lib/tree-select/index.d.ts",
+      "default": "./lib/tree-select/index.js"
+    },
+    "./lib/tree-select/style": {
+      "types": "./lib/tree-select/style/index.d.ts",
+      "default": "./lib/tree-select/style/index.js"
+    },
+    "./lib/tree/style": {
+      "types": "./lib/tree/style/index.d.ts",
+      "default": "./lib/tree/style/index.js"
+    },
+    "./lib/typography": {
+      "types": "./lib/typography/index.d.ts",
+      "default": "./lib/typography/index.js"
+    },
+    "./lib/typography/Base": {
+      "types": "./lib/typography/Base/index.d.ts",
+      "default": "./lib/typography/Base/index.js"
+    },
+    "./lib/typography/style": {
+      "types": "./lib/typography/style/index.d.ts",
+      "default": "./lib/typography/style/index.js"
+    },
+    "./lib/upload": {
+      "types": "./lib/upload/index.d.ts",
+      "default": "./lib/upload/index.js"
+    },
+    "./lib/upload/UploadList": {
+      "types": "./lib/upload/UploadList/index.d.ts",
+      "default": "./lib/upload/UploadList/index.js"
+    },
+    "./lib/upload/style": {
+      "types": "./lib/upload/style/index.d.ts",
+      "default": "./lib/upload/style/index.js"
+    },
+    "./lib/version": {
+      "types": "./lib/version/index.d.ts",
+      "default": "./lib/version/index.js"
+    },
+    "./lib/watermark": {
+      "types": "./lib/watermark/index.d.ts",
+      "default": "./lib/watermark/index.js"
+    },
     "./dist/*": "./dist/*",
     "./locale": {
       "types": "./locale/index.d.ts",
@@ -81,6 +2109,7 @@
       "types": "./locale/*.d.ts",
       "default": "./locale/*.js"
     },
+    "./BUG_VERSIONS.json": "./BUG_VERSIONS.json",
     "./package.json": "./package.json"
   },
   "main": "lib/index.js",
@@ -102,10 +2131,10 @@
     "clean": "antd-tools run clean && rimraf es lib coverage locale dist report.html artifacts.zip oss-artifacts.zip",
     "clean:lockfiles": "rimraf package-lock.json yarn.lock",
     "contributors": "tsx scripts/generate-contributors.ts",
+    "generate:exports": "node -e \"require('./.antd-tools.config.js').generatePackageExports()\"",
     "precompile": "npm run prestart",
     "compile": "npm run compileOnly",
     "compileOnly": "npm run clean && antd-tools run compile",
-    "postcompileOnly": "node -e \"require('./.antd-tools.config.js').generateIndexProxies()\"",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run test:site",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
