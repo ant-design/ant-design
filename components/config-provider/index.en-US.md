@@ -199,7 +199,7 @@ The following config keys set common props for corresponding components or globa
 
 ### How to contribute a new language? {#faq-add-locale}
 
-See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-new-language).
 
 ### Date-related components locale is not working? {#faq-locale-not-work}
 

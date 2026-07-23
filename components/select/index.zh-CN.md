@@ -97,7 +97,7 @@ demo:
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  | × |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  | × |
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 | × |
-| placeholder | 选择框默认文本 | string | - |  | × |
+| placeholder | 选择框默认文本 | ReactNode | - |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | `<CloseOutlined />` |  | 6.4.0 |
