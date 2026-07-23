@@ -22,7 +22,7 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
     border-radius: 14px;
     object-fit: contain;
     background: ${cssVar.colorFillQuaternary};
-    border: 1px solid ${cssVar.colorBorderSecondary};
+    border: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary};
     padding: 8px;
     box-sizing: border-box;
     flex-shrink: 0;

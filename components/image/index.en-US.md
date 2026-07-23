@@ -166,7 +166,8 @@ type TransformAction =
   | 'wheel'
   | 'doubleClick'
   | 'move'
-  | 'dragRebound';
+  | 'dragRebound'
+  | 'reset';
 ```
 
 ### ToolbarRenderInfoType
@@ -194,6 +195,7 @@ type TransformAction =
   };
   transform: TransformType,
   current: number;
+  total: number;
   image: ImgInfo
 }
 ```
