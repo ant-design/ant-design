@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genScrollFadeStyle, resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -91,6 +91,13 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
         '&-hidden': {
           display: 'none',
+        },
+
+        // ====================== Scroll Fade ======================
+        // Select scrolls inside its virtual-list holder, unlike Dropdown/Menu,
+        // so it needs a component-specific selector around the shared style.
+        [`&-scroll-fade ${componentCls}-dropdown-list-holder`]: {
+          ...genScrollFadeStyle(token),
         },
 
         [`${componentCls}-dropdown-list-scrollbar`]: {

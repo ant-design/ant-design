@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -84,6 +85,66 @@ describe('Select', () => {
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+  });
+
+  it('should disable scroll fade by default', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls="bamboo">
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown')).not.toHaveClass(
+      'bamboo-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const { container, rerender } = render(
+      <Select scrollFade open options={[{ label: '1', value: '1' }]} />,
+    );
+
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select scrollFade={false} open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).not.toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should apply boundary-aware scroll fade styles to the prefixed list holder', () => {
+    const cache = createCache();
+
+    const { container } = render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider prefixCls="bamboo">
+          <Select scrollFade open options={[{ label: '1', value: '1' }]} />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown-scroll-fade')).toBeTruthy();
+    expect(extractStyle(cache, { plain: true })).toContain(
+      '.bamboo-select-dropdown-scroll-fade .bamboo-select-dropdown-list-holder{',
+    );
+    expect(extractStyle(cache, { plain: true })).toContain(
+      'background-attachment:local,local,scroll,scroll;',
+    );
   });
 
   it('should show search icon when showSearch and open', () => {

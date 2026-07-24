@@ -73,6 +73,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~dropdownMatchSelectWidth~~ | Determine whether the popup menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - | × |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 | × |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 | × |
+| scrollFade | Whether to show scroll fade hints in the popup list | boolean | false | 6.6.0 | 6.6.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - |  | × |
 | popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - | 5.25.0 | × |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  | × |

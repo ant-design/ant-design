@@ -584,12 +584,54 @@ describe('Dropdown', () => {
       .join('');
     const verticalRule = cssText
       .split('}')
-      .find(
-        (rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'),
-      );
+      .find((rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'));
 
     expect(verticalRule).toBeTruthy();
     expect(verticalRule).toContain('calc(100vh');
     expect(verticalRule).not.toMatch(/max-height:\s*100vh/);
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const { container, rerender } = render(
+      <Dropdown menu={{ items }} open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    expect(container.querySelector('.ant-dropdown-menu')).not.toHaveClass(
+      'ant-dropdown-menu-scroll-fade',
+    );
+
+    rerender(
+      <Dropdown scrollFade menu={{ items }} open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(container.querySelector('.ant-dropdown-menu')).toHaveClass(
+      'ant-dropdown-menu-scroll-fade',
+    );
+    expect(container.querySelector('.ant-dropdown')).not.toHaveClass('ant-dropdown-scroll-fade');
+
+    rerender(
+      <ConfigProvider dropdown={{ scrollFade: true }}>
+        <Dropdown menu={{ items }} open>
+          <button type="button">button</button>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-dropdown-menu')).toHaveClass(
+      'ant-dropdown-menu-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider dropdown={{ scrollFade: true }}>
+        <Dropdown scrollFade={false} menu={{ items }} open>
+          <button type="button">button</button>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-dropdown-menu')).not.toHaveClass(
+      'ant-dropdown-menu-scroll-fade',
+    );
   });
 });

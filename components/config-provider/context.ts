@@ -194,7 +194,7 @@ export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNa
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig &
-  Pick<MenuProps, 'expandIcon' | 'classNames' | 'styles'>;
+  Pick<MenuProps, 'expandIcon' | 'classNames' | 'styles' | 'scrollFade'>;
 
 export type TourConfig = ComponentStyleConfig &
   Pick<TourProps, 'closeIcon' | 'classNames' | 'styles'>;
@@ -295,7 +295,8 @@ export type DrawerConfig = ComponentStyleConfig &
 
 export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 
-export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
+export type DropdownConfig = ComponentStyleConfig &
+  Pick<DropdownProps, 'classNames' | 'styles' | 'scrollFade'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
@@ -345,6 +346,7 @@ export type SelectConfig = ComponentStyleConfig &
     | 'loadingIcon'
     | 'menuItemSelectedIcon'
     | 'removeIcon'
+    | 'scrollFade'
     | 'suffixIcon'
   >;
 
