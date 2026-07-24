@@ -47,9 +47,9 @@ function generatePackageExports() {
     esExports[`./es/${subpath}`] = {
       types: `./es/${subpath}/index.d.ts`,
       browser: `./es/${subpath}/index.js`,
-      node: `./lib/${subpath}/index.js`,
       import: `./es/${subpath}/index.js`,
       require: `./lib/${subpath}/index.js`,
+      node: `./lib/${subpath}/index.js`,
       default: `./es/${subpath}/index.js`,
     };
     libExports[`./lib/${subpath}`] = {

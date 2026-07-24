@@ -66,9 +66,9 @@ for (const subpath of directoryEntrypoints) {
     JSON.stringify({
       types: `./es/${subpath}/index.d.ts`,
       browser: `./es/${subpath}/index.js`,
-      node: `./lib/${subpath}/index.js`,
       import: `./es/${subpath}/index.js`,
       require: `./lib/${subpath}/index.js`,
+      node: `./lib/${subpath}/index.js`,
       default: `./es/${subpath}/index.js`,
     })
   ) {
@@ -209,6 +209,31 @@ if (inputFromEs !== inputFromLib) {
     },
   );
   console.log(chalk.green('✨ CommonJS package exports passed.'));
+
+  execFileSync(
+    process.execPath,
+    [
+      '--input-type=module',
+      '-e',
+      `const expected = new Map([
+  ['antd/es', '/es/index.js'],
+  ['antd/es/input', '/es/input/index.js'],
+  ['antd/es/input/Search', '/es/input/Search.js'],
+]);
+for (const [entry, suffix] of expected) {
+  const resolved = new URL(import.meta.resolve(entry)).pathname;
+  if (!resolved.endsWith(suffix)) {
+    throw new Error(\`\${entry} resolved to \${resolved}, expected an ES path ending in \${suffix}\`);
+  }
+}`,
+    ],
+    {
+      cwd: tmpDir,
+      stdio: 'pipe',
+      timeout: 30_000,
+    },
+  );
+  console.log(chalk.green('✨ Node ESM package export conditions passed.'));
 
   execFileSync(
     process.execPath,
