@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
 import type { Components } from '@rc-component/picker/interface';
 
-import PickerButton from '../PickerButton';
+import { NowButton, OkButton } from '../PickerButton';
 
 export default function useComponents(components?: Components) {
   return useMemo(
     () => ({
-      button: PickerButton,
+      nowButton: NowButton,
+      okButton: OkButton,
       ...components,
     }),
     [components],
