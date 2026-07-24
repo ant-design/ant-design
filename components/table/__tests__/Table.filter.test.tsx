@@ -143,6 +143,109 @@ describe('Table.filter', () => {
     });
   });
 
+  it.each(['Enter', ' '])('should open the filter dropdown with the %j key', async (key) => {
+    const { container } = render(createTable());
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.keyDown(trigger, { key });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toBeTruthy();
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+  });
+
+  it('should apply filterOnClose when closing the filter dropdown from the keyboard', async () => {
+    const { container } = render(
+      createTable({
+        dataSource: [
+          { key: 'boy', name: 'boy' },
+          { key: 'girl', name: 'girl' },
+        ],
+        columns: [{ ...column, filterMultiple: false }],
+      }),
+    );
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFor(() => {
+      expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')).toHaveLength(2);
+    });
+
+    fireEvent.click(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1]);
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+
+    await waitFor(() => {
+      expect(renderedNames(container)).toEqual(['girl']);
+    });
+  });
+
+  it.each([
+    {
+      name: 'native button',
+      filterIcon: (
+        <button type="button" className="custom-filter-icon">
+          Filter
+        </button>
+      ),
+    },
+    {
+      name: 'native link',
+      filterIcon: (
+        <a href="#filter" className="custom-filter-icon">
+          Filter
+        </a>
+      ),
+    },
+    {
+      name: 'button role',
+      filterIcon: (
+        <span role="button" className="custom-filter-icon">
+          Filter
+        </span>
+      ),
+    },
+    {
+      name: 'explicit tab stop',
+      filterIcon: (
+        <span role="checkbox" aria-checked={false} tabIndex={0} className="custom-filter-icon">
+          Filter
+        </span>
+      ),
+    },
+  ])('should leave keyboard handling to a custom $name filter icon', ({ filterIcon }) => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+            filterDropdownProps: {
+              onOpenChange,
+            },
+          },
+        ],
+      }),
+    );
+    const triggerWrapper = container.querySelector('.ant-table-filter-trigger')!;
+    const customFilterIcon = container.querySelector('.custom-filter-icon')!;
+
+    expect(triggerWrapper).not.toHaveAttribute('role');
+    expect(triggerWrapper).not.toHaveAttribute('tabindex');
+    expect(triggerWrapper).not.toHaveAttribute('aria-expanded');
+
+    fireEvent.keyDown(customFilterIcon, { key: 'Enter' });
+    expect(onOpenChange).not.toHaveBeenCalled();
+
+    fireEvent.click(customFilterIcon);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+  });
+
   it('renders empty menu correctly', () => {
     resetWarned();
 
@@ -1942,17 +2045,13 @@ describe('Table.filter', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${32}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${32}`);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
     );
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${66}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${66}`);
   });
 
   it('Columns with filters should filter correctly after reset it.', () => {
@@ -3008,17 +3107,13 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('input[type="checkbox"]')!);
 
     // The checkbox is now checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
     // The checkbox is still checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
   });
 
   it('should not crash when filterDropdown is boolean', () => {

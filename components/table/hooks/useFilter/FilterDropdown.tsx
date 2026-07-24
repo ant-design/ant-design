@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
 import { useSyncState } from '../../../_util/hooks';
-import { isFunction, isNumber } from '../../../_util/is';
+import { isFunction, isNumber, isString } from '../../../_util/is';
 import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
@@ -549,13 +549,34 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       filterIcon = <FilterFilled />;
     }
 
+    const isInteractiveFilterIcon =
+      React.isValidElement<React.HTMLAttributes<HTMLElement> & { href?: string }>(filterIcon) &&
+      ((isString(filterIcon.type) &&
+        (['button', 'input', 'select', 'textarea'].includes(filterIcon.type) ||
+          (filterIcon.type === 'a' && Boolean(filterIcon.props.href)))) ||
+        ['button', 'link'].includes(filterIcon.props.role || '') ||
+        (isNumber(filterIcon.props.tabIndex) && filterIcon.props.tabIndex >= 0));
+
     return (
       <span
-        role="button"
-        tabIndex={-1}
+        role={isInteractiveFilterIcon ? undefined : 'button'}
+        tabIndex={isInteractiveFilterIcon ? undefined : inMeasureRow ? -1 : 0}
+        aria-expanded={isInteractiveFilterIcon ? undefined : mergedVisible}
         className={clsx(`${prefixCls}-trigger`, { active: filtered })}
         onClick={(e) => {
           e.stopPropagation();
+        }}
+        onKeyDown={(e) => {
+          if (
+            e.target === e.currentTarget &&
+            !isInteractiveFilterIcon &&
+            !inMeasureRow &&
+            (e.key === 'Enter' || e.key === ' ')
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+            onVisibleChange(!mergedVisible, { source: 'trigger' });
+          }
         }}
       >
         {filterIcon}
