@@ -2102,6 +2102,73 @@ describe('Form', () => {
     });
   });
 
+  // https://github.com/ant-design/ant-design/issues/57855
+  it('should not read offsetParent on initial render when there is no error or help', () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'offsetParent',
+    );
+    const offsetParentGetter = jest.fn(() => document.body);
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
+      configurable: true,
+      get: offsetParentGetter,
+    });
+
+    try {
+      render(
+        <Form>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Form.Item key={index} name={`field-${index}`} label={`Field ${index}`}>
+              <Input />
+            </Form.Item>
+          ))}
+        </Form>,
+      );
+
+      expect(offsetParentGetter).not.toHaveBeenCalled();
+    } finally {
+      if (originalDescriptor) {
+        Object.defineProperty(HTMLElement.prototype, 'offsetParent', originalDescriptor);
+      } else {
+        delete (HTMLElement.prototype as any).offsetParent;
+      }
+    }
+  });
+
+  // https://github.com/ant-design/ant-design/issues/57855
+  // Regression pin: when help/error/warning is present, the visibility check
+  // must still run so the margin-bottom effect re-reads computed style after
+  // the item becomes visible (e.g. inside a Modal that opens later).
+  it('still reads offsetParent when help text is present', () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'offsetParent',
+    );
+    const offsetParentGetter = jest.fn(() => document.body);
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
+      configurable: true,
+      get: offsetParentGetter,
+    });
+
+    try {
+      render(
+        <Form>
+          <Form.Item name="with-help" label="Help" help="some help text">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(offsetParentGetter).toHaveBeenCalled();
+    } finally {
+      if (originalDescriptor) {
+        Object.defineProperty(HTMLElement.prototype, 'offsetParent', originalDescriptor);
+      } else {
+        delete (HTMLElement.prototype as any).offsetParent;
+      }
+    }
+  });
+
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
