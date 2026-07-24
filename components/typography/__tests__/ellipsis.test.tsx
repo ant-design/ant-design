@@ -807,4 +807,31 @@ describe('Typography.Ellipsis', () => {
     fireEvent.mouseLeave(typographyEl);
     fireEvent.mouseLeave(operationsWrapper!);
   });
+
+  // https://github.com/ant-design/ant-design/issues/56347
+  describe('isEleEllipsis probe', () => {
+    it('should collapse the probe so a short line-height does not report a false overflow', () => {
+      const ele = document.createElement('div');
+      document.body.appendChild(ele);
+
+      const appendSpy = jest.spyOn(ele, 'appendChild');
+
+      baseUtil.isEleEllipsis(ele);
+
+      const probe = appendSpy.mock.calls[0][0] as HTMLElement;
+      // The probe must not contribute its own size, otherwise an inline
+      // element's font box (taller than a small `line-height`) would stick
+      // out vertically and be mistaken for an overflow.
+      expect(probe.style.display).toBe('inline-block');
+      expect(probe.style.width).toBe('0px');
+      expect(probe.style.height).toBe('0px');
+      // Reset box model so global styles targeting `em` can not add size back.
+      expect(probe.style.margin).toBe('0px');
+      expect(probe.style.padding).toBe('0px');
+      expect(probe.style.borderWidth).toBe('0px');
+
+      appendSpy.mockRestore();
+      document.body.removeChild(ele);
+    });
+  });
 });
