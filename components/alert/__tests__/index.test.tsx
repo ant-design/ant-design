@@ -331,4 +331,25 @@ describe('Alert', () => {
     );
     expect(screen.getByRole('alert')).toHaveTextContent(/foobar/i);
   });
+
+  it('should support showIcon from ConfigProvider', () => {
+    const { container, rerender } = render(
+      <ConfigProvider alert={{ showIcon: true }}>
+        <Alert title="Info" type="info" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).not.toHaveClass('ant-alert-no-icon');
+    expect(container.querySelector('.ant-alert-icon')).toBeTruthy();
+
+    // component-level `showIcon` should override ConfigProvider
+    rerender(
+      <ConfigProvider alert={{ showIcon: true }}>
+        <Alert title="Info" type="info" showIcon={false} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-no-icon');
+    expect(container.querySelector('.ant-alert-icon')).toBeFalsy();
+  });
 });
