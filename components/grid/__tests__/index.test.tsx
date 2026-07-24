@@ -168,6 +168,7 @@ describe('Grid', () => {
     let screensVar: any = null;
     const Demo: React.FC = () => {
       const screens = useBreakpoint();
+      // eslint-disable-next-line react-hooks/globals
       screensVar = screens;
       return null;
     };
@@ -233,5 +234,93 @@ describe('Grid', () => {
     const row = container.querySelector('.ant-row-space-evenly');
     expect(row).toBeTruthy();
     expect(row).toHaveStyle({ justifyContent: 'space-evenly' });
+  });
+
+  // Grid mode tests
+  it('should support grid mode with gap', () => {
+    const { container } = render(
+      <Row grid gutter={[16, 20]}>
+        test
+      </Row>,
+    );
+    const gridEle = container.querySelector('.ant-row-grid');
+    expect(gridEle).toHaveClass('ant-row-grid');
+    expect(gridEle).toHaveStyle({
+      columnGap: '16px',
+      rowGap: '20px',
+    });
+  });
+});
+
+describe('Grid Col', () => {
+  it('should apply gridColumn from span when gridTemplateColumns is provided', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Col span={4}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    expect(container.querySelector('.ant-col-grid')).toBeTruthy();
+    expect(col).toHaveStyle({
+      gridColumn: 'span 4',
+    });
+  });
+
+  it('should support gridRow/gridArea in grid mode', () => {
+    const { container } = render(
+      <Row grid>
+        <Col gridItemConfig={{ gridRow: 'span 2', gridArea: 'header' }}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    expect(col).toHaveStyle({
+      gridRow: 'span 2',
+      gridArea: 'header',
+    });
+  });
+
+  it('should set display none when span is 0 and gridTemplateColumns is provided', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Col span={0}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    expect(col).toHaveStyle({
+      display: 'none',
+    });
+  });
+
+  it('gridItemConfig should override span={0} display:none behavior', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Col span={0} gridItemConfig={{ gridColumn: 'span 2' }}>
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    // gridItemConfig explicitly set gridColumn, so it should override span={0} display:none
+    expect(col).toHaveStyle({
+      gridColumn: 'span 2',
+    });
+    expect(col).not.toHaveStyle({
+      display: 'none',
+    });
+  });
+
+  it('span={0} should still hide when gridItemConfig does not have gridColumn', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Col span={0} gridItemConfig={{ gridRow: 'span 2' }}>
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    // gridItemConfig does not have gridColumn, so span={0} display:none should still apply
+    expect(col).toHaveStyle({
+      display: 'none',
+    });
   });
 });

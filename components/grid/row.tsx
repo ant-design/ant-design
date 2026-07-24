@@ -8,7 +8,7 @@ import { ConfigContext } from '../config-provider';
 import useBreakpoint from './hooks/useBreakpoint';
 import useGutter from './hooks/useGutter';
 import RowContext from './RowContext';
-import type { RowContextState } from './RowContext';
+import type { RowContextGutter, RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
 const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
@@ -31,7 +31,20 @@ type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
 
 type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 
+export interface GridConfig {
+  gridTemplateColumns?: string;
+  gridTemplateRows?: string;
+  gridTemplateAreas?: string;
+}
+
+export interface GridItemConfig {
+  gridColumn?: string | number;
+  gridRow?: string | number;
+  gridArea?: string;
+}
+
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
+  grid?: boolean | GridConfig;
   gutter?: Gutter | [Gutter, Gutter];
   align?: (typeof _RowAligns)[number] | ResponsiveAligns;
   justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
@@ -76,6 +89,7 @@ const useMergedPropByScreen = (
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
+    grid = false,
     justify,
     align,
     className,
@@ -98,12 +112,19 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const [hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = useGutter(gutter, screens);
+
+  const isGrid = !!grid;
+  const gridConfig = isPlainObject(grid) ? grid : undefined;
+
   const classes = clsx(
     prefixCls,
-    {
+    !isGrid && {
       [`${prefixCls}-no-wrap`]: wrap === false,
       [`${prefixCls}-${mergedJustify}`]: mergedJustify,
       [`${prefixCls}-${mergedAlign}`]: mergedAlign,
+    },
+    {
+      [`${prefixCls}-grid`]: isGrid,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -111,25 +132,28 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     cssVarCls,
   );
 
-  // Add gutter related style
   const rowStyle: React.CSSProperties = {};
-
-  if (gutters?.[0]) {
-    const horizontalGutter = isNumber(gutters[0])
-      ? `${gutters[0] / -2}px`
-      : `calc(${gutters[0]} / -2)`;
-    rowStyle.marginInline = horizontalGutter;
-  }
-
-  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
-  // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
 
-  rowStyle.rowGap = gutterV;
+  if (isGrid) {
+    const gridStyles = {
+      columnGap: gutterH !== undefined ? (isNumber(gutterH) ? `${gutterH}px` : gutterH) : undefined,
+      rowGap: gutterV !== undefined ? (isNumber(gutterV) ? `${gutterV}px` : gutterV) : undefined,
+      gridTemplateColumns: gridConfig?.gridTemplateColumns,
+      gridTemplateRows: gridConfig?.gridTemplateRows,
+      gridTemplateAreas: gridConfig?.gridTemplateAreas,
+    };
+    Object.assign(rowStyle, gridStyles);
+  } else {
+    if (gutterH) {
+      rowStyle.marginInline = isNumber(gutterH) ? `${gutterH / -2}px` : `calc(${gutterH} / -2)`;
+    }
+    rowStyle.rowGap = gutterV;
+  }
 
   const rowContext = React.useMemo<RowContextState>(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
-    [gutterH, gutterV, wrap],
+    () => ({ gutter: [gutterH, gutterV] as RowContextGutter, wrap, grid: isGrid }),
+    [gutterH, gutterV, wrap, isGrid],
   );
 
   return (
