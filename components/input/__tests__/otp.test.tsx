@@ -117,6 +117,25 @@ describe('Input.OTP', () => {
     expect(onInput).toHaveBeenLastCalledWith(['a']);
   });
 
+  it('should stop deduping input after the frame following compositionend', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <OTPInput index={0} value="" onActiveChange={jest.fn()} onChange={onChange} />,
+    );
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '你' } });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+
+    jest.runAllTimers();
+    fireEvent.input(input, { target: { value: '你' } });
+
+    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenLastCalledWith(0, '你');
+  });
+
   it('should fill multiple cells when composition commits multiple characters', () => {
     const onInput = jest.fn();
     const onChange = jest.fn();
