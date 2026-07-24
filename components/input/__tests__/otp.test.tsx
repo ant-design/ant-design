@@ -324,4 +324,77 @@ describe('Input.OTP', () => {
     expect(input).toHaveStyle('color: rgb(255, 0, 0)');
     expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
   });
+
+  // https://github.com/ant-design/ant-design/issues/52093
+  it('should ignore intermediate value while composing with IME', () => {
+    const onChange = jest.fn();
+    const { container } = render(<OTP length={1} onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    // Composition keeps firing `input` with the intermediate pinyin, which
+    // should not be written into the cell.
+    fireEvent.compositionStart(input);
+    fireEvent.input(input, { target: { value: 'wo' } });
+    expect(onChange).not.toHaveBeenCalled();
+
+    // The final value is committed only when composition ends, so every IME
+    // can input exactly one character.
+    fireEvent.compositionEnd(input, { target: { value: '我' } });
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('我');
+  });
+
+  it('should still trigger change for normal input after composing', () => {
+    const onChange = jest.fn();
+    const { container } = render(<OTP length={1} onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '我' } });
+    expect(onChange).toHaveBeenCalledWith('我');
+
+    // Latin input without composition keeps working as before.
+    fireEvent.input(input, { target: { value: 'a' } });
+    expect(onChange).toHaveBeenLastCalledWith('a');
+  });
+
+  it('should not commit twice when an extra input fires right after compositionend', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={1} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '我' } });
+    // Some browsers (e.g. Safari) emit a trailing `input` with the value that
+    // was already committed by `compositionend`; it should be ignored.
+    fireEvent.input(input, { target: { value: '我' } });
+
+    expect(onInput).toHaveBeenCalledTimes(1);
+    expect(onInput).toHaveBeenLastCalledWith(['我']);
+  });
+
+  it('should fill multiple cells when composition commits multiple characters', () => {
+    const onChange = jest.fn();
+    const { container } = render(<OTP length={2} onChange={onChange} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '你好' } });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('你好');
+    expect(getText(container)).toBe('你好');
+  });
+
+  it('should not trigger callback when composition is cancelled without change', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={1} onInput={onInput} />);
+    const input = container.querySelector('input')!;
+
+    // Composition cancelled (e.g. by `Esc`) restores the original empty value.
+    fireEvent.compositionStart(input);
+    fireEvent.compositionEnd(input, { target: { value: '' } });
+
+    expect(onInput).not.toHaveBeenCalled();
+  });
 });
