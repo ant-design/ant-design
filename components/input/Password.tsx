@@ -9,6 +9,7 @@ import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeS
 import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
+import useVariant from '../form/hooks/useVariants';
 import { useLocale } from '../locale';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef, InputSemanticAllType } from './Input';
@@ -52,6 +53,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     style,
     classNames,
     styles,
+    variant: customizeVariant,
     ...restProps
   } = props;
 
@@ -64,6 +66,8 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     iconRender: contextIconRender,
   } = useComponentConfig('inputPassword');
 
+  const [variant] = useVariant('inputPassword', customizeVariant, props.bordered, 'input');
+
   const [locale] = useLocale('global');
 
   // ===================== Disabled =====================
@@ -74,6 +78,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const mergedProps: PasswordProps = {
     ...props,
     disabled: mergedDisabled,
+    variant,
   };
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
@@ -181,6 +186,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     className: inputClassName,
     classNames: mergedClassNames,
     styles: mergedStyles,
+    variant,
   };
 
   return <Input ref={composeRef(ref, inputRef)} {...inputProps} />;
