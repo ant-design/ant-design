@@ -11,6 +11,7 @@ const App: React.FC = () => (
         Alert: {
           withDescriptionIconSize: 32,
           withDescriptionPadding: 16,
+          closeIconSize: 16,
         },
       },
     }}
@@ -21,6 +22,7 @@ const App: React.FC = () => (
       description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
+      closable
     />
   </ConfigProvider>
 );
