@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { CSSProperties } from 'react';
 import { CSSMotionList } from '@rc-component/motion';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef, isEqual, useLayoutEffect } from '@rc-component/util';
+import { composeRef, isEqual, useEvent, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -10,6 +10,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { isNumber } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
@@ -22,6 +23,8 @@ import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
+import { getItemKnownHeight, getMasonryItemStyle } from './utils';
+import VirtualMasonry from './VirtualMasonry';
 import useStyle from './style';
 
 export type Gap = number | undefined;
@@ -59,6 +62,9 @@ export interface MasonryProps<ItemDataType = any> {
 
   itemRender?: (itemInfo: MasonryItemType<ItemDataType> & { index: number }) => React.ReactNode;
 
+  /** Get item height for virtual mode when `MasonryItem.height` is not set */
+  itemHeight?: (item: MasonryItemType<ItemDataType>, index: number) => number;
+
   /** Number of columns in the masonry grid layout */
   columns?: number | Partial<Record<Breakpoint, number>>;
 
@@ -66,6 +72,9 @@ export interface MasonryProps<ItemDataType = any> {
   onLayoutChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
 
   fresh?: boolean;
+
+  /** Enable virtualized rendering for large data sets */
+  virtual?: boolean;
 }
 
 export interface MasonryRef {
@@ -73,6 +82,17 @@ export interface MasonryRef {
 }
 
 type ItemColumnsType = [item: MasonryItemType, column: number];
+export interface MasonryRenderItem<ItemDataType = unknown> {
+  item: MasonryItemType<ItemDataType>;
+  itemIndex: number;
+  itemKey: React.Key;
+  key: React.Key;
+  position?: {
+    column: number;
+    top: number;
+  };
+  layoutHeight?: number;
+}
 
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
@@ -86,8 +106,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     gutter = 0,
     items,
     itemRender,
+    itemHeight,
     onLayoutChange,
     fresh,
+    virtual,
   } = props;
 
   // ======================= MISC =======================
@@ -106,6 +128,18 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [varName, varRef] = genCssVar(rootPrefixCls, 'masonry');
+
+  const warning = devUseWarning('Masonry');
+  warning(
+    !virtual || !fresh,
+    'usage',
+    '`fresh` is not supported in virtual mode. Update `MasonryItem.height` or `itemHeight` instead.',
+  );
+  warning(
+    !virtual || !(items || []).some((item, index) => !getItemKnownHeight(item, index, itemHeight)),
+    'usage',
+    'Virtual mode requires a known height for each item. Provide `MasonryItem.height` or `itemHeight`.',
+  );
 
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -170,26 +204,50 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
-  const collectItemSize = useDelay(() => {
-    const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
-      const itemKey = item.key ?? index;
-      const itemEle = getItemRef(itemKey);
-      const rect = itemEle?.getBoundingClientRect();
-      return [itemKey, rect ? rect.height : 0, item.column];
-    });
+  const virtualItemHeights = React.useMemo<ItemHeightData[]>(() => {
+    if (!virtual) {
+      return [];
+    }
 
-    setItemHeights((prevItemsHeight) =>
-      isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
-    );
+    return mergedItems.map<ItemHeightData>((item, index) => {
+      const itemKey = item.key ?? index;
+      const height = getItemKnownHeight(item, index, itemHeight) ?? 0;
+      return [itemKey, height, item.column];
+    });
+  }, [itemHeight, mergedItems, virtual]);
+
+  const collectItemSize = useDelay(() => {
+    if (virtual) {
+      return;
+    }
+
+    setItemHeights((prevItemsHeight) => {
+      const prevHeightMap = new Map<React.Key, number>();
+      prevItemsHeight.forEach(([key, height]) => {
+        prevHeightMap.set(key, height);
+      });
+      const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
+        const itemKey = item.key ?? index;
+        const itemEle = getItemRef(itemKey);
+        const rect = itemEle?.getBoundingClientRect();
+        const measuredHeight = rect?.height ?? item.height ?? prevHeightMap.get(itemKey) ?? 0;
+
+        return [itemKey, measuredHeight, item.column];
+      });
+
+      return isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight;
+    });
   });
 
+  const positionItemHeights = virtual ? virtualItemHeights : itemHeights;
+
   const [itemPositions, totalHeight] = usePositions(
-    itemHeights,
+    positionItemHeights,
     columnCount,
     verticalGutter as number,
   );
 
-  const itemWithPositions = React.useMemo(
+  const itemWithPositions = React.useMemo<MasonryRenderItem[]>(
     () =>
       mergedItems.map((item, index) => {
         const key = item.key ?? index;
@@ -201,20 +259,27 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           itemKey: key,
           key,
           position: itemPositions.get(key),
+          layoutHeight: virtual ? getItemKnownHeight(item, index, itemHeight) : undefined,
         };
       }),
-    [mergedItems, itemPositions],
+    [itemHeight, itemPositions, mergedItems, virtual],
   );
 
   React.useEffect(() => {
-    collectItemSize();
-  }, [mergedItems, columnCount]);
+    if (!virtual) {
+      collectItemSize();
+    }
+  }, [mergedItems, columnCount, virtual]);
 
   // Trigger for `onLayoutChange`
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
 
+  const triggerLayoutChange = useEvent((nextItemColumns: ItemColumnsType[]) => {
+    onLayoutChange?.(nextItemColumns.map(([item, column]) => ({ ...item, column })));
+  });
+
   useLayoutEffect(() => {
-    if (onLayoutChange && itemWithPositions.every(({ position }) => position)) {
+    if (itemWithPositions.every(({ position }) => position)) {
       setItemColumns((prevItemColumns) => {
         const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
           item,
@@ -226,8 +291,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [itemWithPositions]);
 
   useLayoutEffect(() => {
-    if (onLayoutChange && items && items.length === itemColumns.length) {
-      onLayoutChange(itemColumns.map(([item, column]) => ({ ...item, column })));
+    if (items && items.length === itemColumns.length && itemColumns.length > 0) {
+      triggerLayoutChange(itemColumns);
     }
   }, [itemColumns]);
 
@@ -246,56 +311,84 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{ height: totalHeight, ...mergedStyles.root }}
+        style={
+          virtual
+            ? {
+                ...mergedStyles.root,
+                display: mergedStyles.root?.display ?? 'block',
+                overflow: mergedStyles.root?.overflow ?? 'hidden',
+              }
+            : {
+                height: totalHeight,
+                ...mergedStyles.root,
+              }
+        }
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}
       >
-        <CSSMotionList
-          keys={itemWithPositions}
-          component={false}
-          // Motion config
-          motionAppear
-          motionLeave
-          motionName={`${prefixCls}-item-fade`}
-        >
-          {(motionInfo, motionRef) => {
-            const {
-              item,
-              itemKey,
-              position = {},
-              itemIndex,
+        {virtual ? (
+          <VirtualMasonry
+            prefixCls={prefixCls}
+            itemWithPositions={itemWithPositions}
+            itemRender={itemRender}
+            mergedClassName={mergedClassNames.item}
+            mergedStyle={mergedStyles.item}
+            horizontalGutter={horizontalGutter as number}
+            verticalGutter={verticalGutter as number}
+            columnCount={columnCount}
+            totalHeight={totalHeight}
+            varName={varName}
+            varRef={varRef}
+          />
+        ) : (
+          <CSSMotionList
+            keys={itemWithPositions}
+            component={false}
+            // Motion config
+            motionAppear
+            motionLeave
+            motionName={`${prefixCls}-item-fade`}
+          >
+            {(motionInfo, motionRef) => {
+              const {
+                item,
+                itemKey,
+                position = {},
+                itemIndex,
 
-              key,
-              className: motionClassName,
-              style: motionStyle,
-            } = motionInfo;
-            const { column: columnIndex = 0 } = position;
+                key,
+                className: motionClassName,
+                style: motionStyle,
+              } = motionInfo;
+              const { column: columnIndex = 0 } = position;
 
-            const itemStyle: CSSProperties = {
-              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
-              top: position.top,
-              position: 'absolute',
-            };
+              const itemStyle = getMasonryItemStyle({
+                varName,
+                varRef,
+                horizontalGutter: horizontalGutter as number,
+                columnCount,
+                columnIndex,
+                top: position.top,
+              });
 
-            return (
-              <MasonryItem
-                prefixCls={prefixCls}
-                key={key}
-                item={item}
-                style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
-                className={clsx(mergedClassNames.item, motionClassName)}
-                ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
-                index={itemIndex}
-                itemRender={itemRender}
-                column={columnIndex}
-                onResize={fresh ? collectItemSize : null}
-              />
-            );
-          }}
-        </CSSMotionList>
+              return (
+                <MasonryItem
+                  prefixCls={prefixCls}
+                  key={key}
+                  item={item}
+                  style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
+                  className={clsx(mergedClassNames.item, motionClassName)}
+                  ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
+                  index={itemIndex}
+                  itemRender={itemRender}
+                  column={columnIndex}
+                  onResize={fresh ? collectItemSize : null}
+                />
+              );
+            }}
+          </CSSMotionList>
+        )}
       </div>
     </ResizeObserver>
   );

@@ -25,7 +25,7 @@ export const genMasonryStyle: GenerateStyle<MasonryToken, CSSObject> = (token) =
         direction: 'rtl',
       },
 
-      [`& > ${itemCls}`]: {
+      [`& > ${itemCls}, & ${componentCls}-virtual-inner > ${itemCls}`]: {
         boxSizing: 'border-box',
 
         // Motion
