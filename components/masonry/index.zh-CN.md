@@ -43,10 +43,10 @@ tag: 6.0.0
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  | × |
 | items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  | × |
 | itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  | × |
-| itemHeight | 虚拟模式下获取 item 高度，当未设置 `MasonryItem.height` 时使用 | `(item: MasonryItem, index: number) => number` | - | 6.0.0 | × |
+| itemHeight | 虚拟模式下获取 item 高度，当未设置 `MasonryItem.height` 时使用 | `(item: MasonryItem, index: number) => number` | - | 6.6.0 | × |
 | styles | 语义化结构 style，支持对象和函数形式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| ((info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>) | - | 6.0.0 | 6.0.0 |
 | onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |  | × |
-| virtual | 是否开启虚拟化渲染，适合大数据量场景。需要通过 `MasonryItem.height` 或 `itemHeight` 提供已知高度 | `boolean` | `false` | 6.0.0 | × |
+| virtual | 是否开启虚拟化渲染，适合大数据量场景。需要通过 `MasonryItem.height` 或 `itemHeight` 提供已知高度 | `boolean` | `false` | 6.6.0 | × |
 
 ### MasonryItem
 
