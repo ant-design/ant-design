@@ -119,10 +119,21 @@ export const ConfirmContent: React.FC<
   // 默认为 true，保持向下兼容
   const mergedOkCancel = okCancel ?? type === 'confirm';
 
-  const mergedAutoFocusButton = React.useMemo(() => {
-    const base = focusable?.autoFocusButton || autoFocusButton;
-    return base || base === null ? base : 'ok';
-  }, [autoFocusButton, focusable?.autoFocusButton]);
+  // Default to `null` so the focus goes to the dialog container instead of
+  // auto-focusing the OK button. Auto-focusing a specific button is inconsistent
+  // across opens when the dialog is reused, and pulls focus away from the
+  // dialog content. See https://github.com/ant-design/ant-design/issues/56963
+  const focusableAutoFocusButton = focusable?.autoFocusButton;
+  const hasFocusableAutoFocusButton = !!focusable && 'autoFocusButton' in focusable;
+  const mergedAutoFocusButton = React.useMemo<null | 'ok' | 'cancel'>(() => {
+    if (hasFocusableAutoFocusButton) {
+      return focusableAutoFocusButton ?? null;
+    }
+    if (autoFocusButton !== undefined) {
+      return autoFocusButton;
+    }
+    return null;
+  }, [autoFocusButton, focusableAutoFocusButton, hasFocusableAutoFocusButton]);
 
   const [locale] = useLocale('Modal');
 

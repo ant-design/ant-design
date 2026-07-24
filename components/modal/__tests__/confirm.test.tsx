@@ -1110,6 +1110,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/56963
+  it('should not autoFocus OK button by default', async () => {
+    Modal.confirm({
+      title: 'Test',
+      content: 'Test content',
+    });
+
+    await waitFakeTimer();
+
+    const okBtn = document.querySelector('.ant-modal-confirm-btns .ant-btn-primary');
+    const cancelBtn = document.querySelector('.ant-modal-confirm-btns .ant-btn-default');
+    expect(document.activeElement).not.toBe(okBtn);
+    expect(document.activeElement).not.toBe(cancelBtn);
+  });
+
   it('should support focusable global config in App.useApp modal.confirm', () => {
     const classNames = jest.fn(() => ({}));
 
