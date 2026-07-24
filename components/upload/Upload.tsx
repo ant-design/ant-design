@@ -2,7 +2,7 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
-import { useControlledState } from '@rc-component/util';
+import { useControlledState, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
@@ -89,6 +89,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
+  const mergedFileListRef = React.useRef(mergedFileList);
+  useLayoutEffect(() => {
+    mergedFileListRef.current = mergedFileList;
+  }, [mergedFileList]);
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const uploadRef = React.useRef<RcUpload>(null);
@@ -304,11 +308,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         return;
       }
 
-      const removedFileList = removeFileItem(file, mergedFileList);
+      const currentFileList = mergedFileListRef.current;
+      const removedFileList = removeFileItem(file, currentFileList);
 
       if (removedFileList) {
         currentFile = { ...file, status: 'removed' };
-        mergedFileList?.forEach((item) => {
+        currentFileList.forEach((item) => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
             item.status = 'removed';
