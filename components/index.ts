@@ -99,6 +99,14 @@ export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListItemMetaRef, ListProps } from './list';
+export { default as Listy } from './listy';
+export type {
+  ListyClassNames,
+  ListyProps,
+  ListyRef,
+  ListyScrollToConfig,
+  ListyStyles,
+} from './listy';
 export { default as Masonry } from './masonry';
 export type { MasonryProps } from './masonry';
 export { default as Mentions } from './mentions';

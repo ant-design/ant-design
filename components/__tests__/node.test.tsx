@@ -38,8 +38,12 @@ describe('node', () => {
       const option = (global as any).testConfig?.[componentName];
 
       demoList.forEach((demoFile) => {
-        const skip: string[] = option?.skip || [];
-        const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
+        const skip = option?.skip || [];
+        const test =
+          skip === true ||
+          (Array.isArray(skip) && skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)))
+            ? it.skip
+            : it;
 
         test(demoFile, () => {
           const Demo = jest.requireActual(`../../${demoFile}`).default;

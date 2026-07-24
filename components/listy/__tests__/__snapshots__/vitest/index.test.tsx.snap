@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Listy > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-listy ant-listy-rtl css-var-root ant-listy-css-var"
+  dir="rtl"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 200px; overflow-y: hidden; overflow-anchor: none;"
+  >
+    <div
+      style="height: 940px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-right: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-item"
+        >
+          Item 0
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 1
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 2
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 3
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 4
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 5
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; left: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--rc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 42px; top: 0px;"
+    />
+  </div>
+</div>
+`;

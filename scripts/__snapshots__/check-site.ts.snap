@@ -136,6 +136,10 @@ exports[`site test Component components/list en Page 1`] = `5`;
 
 exports[`site test Component components/list zh Page 1`] = `5`;
 
+exports[`site test Component components/listy en Page 1`] = `4`;
+
+exports[`site test Component components/listy zh Page 1`] = `4`;
+
 exports[`site test Component components/masonry en Page 1`] = `2`;
 
 exports[`site test Component components/masonry zh Page 1`] = `2`;

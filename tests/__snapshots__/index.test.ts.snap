@@ -37,6 +37,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "InputNumber",
   "Layout",
   "List",
+  "Listy",
   "Masonry",
   "Mentions",
   "Menu",
