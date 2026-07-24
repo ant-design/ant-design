@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Visa',
     hide: 'Dölj',
     sortable: 'sorterbar',
+    clear: 'Rensa',
   },
   Table: {
     filterTitle: 'Filtermeny',

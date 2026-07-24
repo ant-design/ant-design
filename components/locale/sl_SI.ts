@@ -19,6 +19,7 @@ const localeValues: Locale = {
     hide: 'Skrij',
     placeholder: 'Prosim izberite',
     sortable: 'razvrstljiv',
+    clear: 'Počisti',
   },
   Table: {
     filterTitle: 'Filter',

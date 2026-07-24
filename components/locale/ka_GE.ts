@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'აჩვენე',
     hide: 'დამალე',
     sortable: 'დასალაგებელი',
+    clear: 'გასუფთავება',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',

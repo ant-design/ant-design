@@ -19,6 +19,7 @@ const localeValues: Locale = {
     hide: 'Slēpt',
     placeholder: 'Lūdzu, atlasiet',
     sortable: 'šķirojams',
+    clear: 'Notīrīt',
   },
   Table: {
     filterTitle: 'Filtrēšanas izvēlne',

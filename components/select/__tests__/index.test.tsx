@@ -12,6 +12,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
+import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
 describe('Select', () => {
@@ -446,6 +447,69 @@ describe('Select', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+  });
+
+  describe('clear button accessibility', () => {
+    const props = {
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: 'jack',
+    };
+
+    it('should expose an accessible label on the clear button', () => {
+      const { container } = render(<Select {...props} allowClear />);
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should localize the clear button accessible label', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Select {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        zhCN.global?.clear,
+      );
+    });
+
+    it('should prefer a custom label from allowClear over the locale', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Select {...props} allowClear={{ label: 'Custom clear' }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        'Custom clear',
+      );
+    });
+
+    it('should render the clear button as a keyboard-focusable native button', () => {
+      const { container } = render(<Select {...props} allowClear />);
+      const clearBtn = container.querySelector<HTMLButtonElement>('.ant-select-clear')!;
+
+      // A native <button> without a negative tabindex sits in the browser tab
+      // order, so keyboard users reach it without any custom key handling.
+      expect(clearBtn.tagName).toBe('BUTTON');
+      expect(clearBtn).not.toHaveAttribute('tabindex', '-1');
+
+      clearBtn.focus();
+      expect(clearBtn).toHaveFocus();
+    });
+
+    it('should clear the value when the clear button is activated from the keyboard', () => {
+      const onClear = jest.fn();
+      const { container } = render(<Select {...props} allowClear onClear={onClear} />);
+      expect(container.querySelector('.ant-select-content-has-value')).toHaveTextContent('Jack');
+
+      fireEvent.click(container.querySelector('.ant-select-clear')!);
+
+      expect(container.querySelector('.ant-select-content-has-value')).toBeFalsy();
+      expect(onClear).toHaveBeenCalled();
     });
   });
 

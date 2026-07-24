@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'കാണിക്കുക',
     hide: 'മറയ്ക്കുക',
     sortable: 'അടുക്കാവുന്ന',
+    clear: 'മായ്ക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',

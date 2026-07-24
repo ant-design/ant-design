@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Mostra',
     hide: 'Amaga',
     sortable: 'ordenable',
+    clear: 'Neteja',
   },
   Table: {
     filterTitle: 'Filtrar el menú',

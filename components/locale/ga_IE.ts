@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Taispeáin',
     hide: 'Folaigh',
     sortable: 'insocraithe',
+    clear: 'Glan',
   },
   Table: {
     filterTitle: 'Filter menu',

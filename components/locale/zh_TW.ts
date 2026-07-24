@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '顯示',
     hide: '隱藏',
     sortable: '可排序',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',

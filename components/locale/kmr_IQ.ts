@@ -19,6 +19,7 @@ const localeValues: Locale = {
     hide: 'Veşêre',
     placeholder: 'Ji kerema xwe hilbijêre',
     sortable: 'sorkirin',
+    clear: 'Paqij bike',
   },
   Table: {
     filterTitle: 'Menuê peldanka',
