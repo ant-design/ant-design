@@ -75,9 +75,9 @@ describe('Wave component', () => {
     expect(disCnt).not.toBe(0);
   });
 
-  function getWaveStyle() {
+  function getWaveStyle(prefixCls = defaultPrefixCls) {
     const styleObj: Record<string, string> = {};
-    const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
+    const { style } = document.querySelector<HTMLElement>(`.${prefixCls}-wave`)!;
     style.cssText.split(';').forEach((kv) => {
       if (kv.trim()) {
         const cells = kv.split(':');
@@ -182,6 +182,29 @@ describe('Wave component', () => {
 
     const style = getWaveStyle();
     expect(style[varName('color')]).toBe('rgb(0, 0, 255)');
+
+    unmount();
+  });
+
+  it('support custom prefixCls and cssVar prefix', () => {
+    const customPrefixCls = 'custom-ant';
+    const [customVarName] = genCssVar(customPrefixCls, 'wave');
+
+    const { container, unmount } = render(
+      <ConfigProvider prefixCls={customPrefixCls} theme={{ cssVar: { prefix: customPrefixCls } }}>
+        <Wave>
+          <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
+            button
+          </button>
+        </Wave>
+      </ConfigProvider>,
+    );
+
+    fireEvent.click(container.querySelector('button')!);
+    waitRaf();
+
+    const style = getWaveStyle(customPrefixCls);
+    expect(style[customVarName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });

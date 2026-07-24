@@ -9,6 +9,7 @@ export type ShowWaveEffect = (
   info: {
     className: string;
     token: GlobalToken;
+    rootPrefixCls?: string;
     component?: WaveComponent;
     event: MouseEvent;
     hashId: string;
