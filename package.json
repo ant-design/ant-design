@@ -135,7 +135,7 @@
     "@rc-component/motion": "^1.3.3",
     "@rc-component/mutate-observer": "^2.0.1",
     "@rc-component/notification": "~2.0.7",
-    "@rc-component/pagination": "~1.4.0",
+    "@rc-component/pagination": "~1.5.0",
     "@rc-component/picker": "~1.11.0",
     "@rc-component/progress": "~1.0.2",
     "@rc-component/qrcode": "~2.0.0",

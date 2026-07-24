@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | Total number of data items | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 6.2.0 |
-| onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  | × |
+| onChange | Called when the page number or `pageSize` is changed. When `pageSize` changes, the third parameter `info.recommendPage` provides a recommended page number based on the new page size to help preserve the user's data position | function(page, pageSize, info?) | - | info: 6.5.0 | × |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  | × |
 
 ## Semantic DOM

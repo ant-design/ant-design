@@ -126,11 +126,17 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   };
 
   const triggerPaginationEvent =
-    (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
+    (eventName: 'onChange' | 'onShowSizeChange') =>
+    (page: number, pageSize: number, info?: { recommendPage?: number }) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
       if (pagination) {
-        pagination?.[eventName]?.(page, pageSize);
+        // Only pass info when it's defined (size change scenario)
+        if (info) {
+          pagination?.[eventName]?.(page, pageSize, info);
+        } else {
+          pagination?.[eventName]?.(page, pageSize);
+        }
       }
     };
 
