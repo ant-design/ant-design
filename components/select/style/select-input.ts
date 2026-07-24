@@ -214,6 +214,9 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
+          transition: ['opacity', 'color']
+            .map((prop) => `${prop} ${token.motionDurationMid} ease`)
+            .join(', '),
 
           '> :not(:last-child)': {
             marginInlineEnd: token.marginXS,
