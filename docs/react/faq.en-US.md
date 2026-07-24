@@ -75,6 +75,18 @@ The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works o
 
 antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
 
+## Does `antd` have a mirror in China?
+
+Yes, you can visit https://ant-design.antgroup.com.
+
+| Product/Version   | URL                                       |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://5x-ant-design.antgroup.com        |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
+
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
 Try `onChange` to change `value`, and please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
