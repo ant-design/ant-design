@@ -7,6 +7,9 @@ import { VariantContext } from '../context';
 type VariantComponents = keyof Pick<
   ConfigProviderProps,
   | 'input'
+  | 'inputPassword'
+  | 'inputSearch'
+  | 'otp'
   | 'inputNumber'
   | 'textArea'
   | 'mentions'
@@ -26,10 +29,19 @@ const useVariant = (
   component: VariantComponents,
   variant?: Variant,
   legacyBordered?: boolean,
-): [Variant, boolean] => {
-  const { variant: configVariant, [component]: componentConfig } = React.useContext(ConfigContext);
+  fallbackComponent?: VariantComponents,
+): [Variant, boolean, boolean] => {
+  const config = React.useContext(ConfigContext);
+  const { variant: configVariant, [component]: componentConfig } = config;
   const ctxVariant = React.useContext(VariantContext);
-  const configComponentVariant = componentConfig?.variant;
+  const fallbackComponentConfig = fallbackComponent ? config[fallbackComponent] : undefined;
+  const configComponentVariant = componentConfig?.variant ?? fallbackComponentConfig?.variant;
+  const isVariantConfigured =
+    typeof variant !== 'undefined' ||
+    legacyBordered === false ||
+    typeof ctxVariant !== 'undefined' ||
+    typeof configComponentVariant !== 'undefined' ||
+    typeof configVariant !== 'undefined';
 
   let mergedVariant: Variant;
   if (typeof variant !== 'undefined') {
@@ -37,12 +49,12 @@ const useVariant = (
   } else if (legacyBordered === false) {
     mergedVariant = 'borderless';
   } else {
-    // form variant > component global variant > global variant
+    // form variant > component global variant > fallback component global variant > global variant
     mergedVariant = ctxVariant ?? configComponentVariant ?? configVariant ?? 'outlined';
   }
 
   const enableVariantCls = Variants.includes(mergedVariant);
-  return [mergedVariant, enableVariantCls];
+  return [mergedVariant, enableVariantCls, isVariantConfigured];
 };
 
 export default useVariant;
