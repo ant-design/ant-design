@@ -1900,8 +1900,12 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       />
     </div>
     <div
+      aria-expanded="true"
+      aria-label="Collapse sidebar"
       class="ant-layout-sider-trigger"
+      role="button"
       style="width:200px"
+      tabindex="0"
     >
       <span
         aria-label="left"
