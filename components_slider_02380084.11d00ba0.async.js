@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,498014,t=>{"use strict";var e=t.i(391398);t.i(191788);var o=t.i(530670);t.s(["default",0,()=>(0,e.jsx)(o.Slider,{defaultValue:30,tooltip:{open:!0}})])},530670,t=>{"use strict";var e=t.i(509753);t.s(["Slider",()=>e.default])}]);

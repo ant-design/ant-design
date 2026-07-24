@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,341634,t=>{"use strict";var o=t.i(391398);t.i(191788);var r=t.i(183668),a=t.i(504909);t.s(["default",0,()=>(0,o.jsx)(a.Flex,{wrap:!0,gap:"small",children:Array.from({length:24},(t,a)=>(0,o.jsx)(r.Button,{type:"primary",children:"Button"},a))})])}]);

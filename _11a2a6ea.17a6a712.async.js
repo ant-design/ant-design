@@ -1,0 +1,10 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,697938,e=>{e.v(a=>Promise.all(["_3315f5ec.13b0d176.async.js"].map(a=>e.l(a))).then(()=>a(238922)))},549719,e=>{"use strict";var a=e.i(391398),t=e.i(191788),i=e.i(741214),l=e.i(827830),d=e.i(582225);let n=t.default.lazy(()=>e.A(697938)),s=(0,l.createStaticStyles)(({cssVar:e,css:a})=>({fallback:a`
+    width: 100%;
+    > * {
+      width: 100% !important;
+      border-radius: ${e.borderRadiusLG};
+    }
+  `,placeholder:a`
+    color: ${e.colorTextDescription};
+    font-size: ${e.fontSizeLG};
+  `})),o={cn:{placeholder:"正在载入行为模式地图..."},en:{placeholder:"Loading behavior map..."}},r=()=>{let[e]=(0,d.default)(o);return(0,a.jsx)("div",{className:s.fallback,children:(0,a.jsx)(i.Skeleton.Node,{active:!0,style:{height:600,width:"100%"},children:(0,a.jsx)("span",{className:s.placeholder,children:e.placeholder})})})};e.s(["default",0,e=>(0,a.jsx)(t.Suspense,{fallback:(0,a.jsx)(r,{}),children:(0,a.jsx)(n,{...e})})])},498935,e=>{"use strict";var a=e.i(391398);e.i(191788);var t=e.i(582225),i=e.i(549719);let l={cn:{title:"跳转页面",jumpToSpecificPage:"跳转至指定页面",adjustItemsPerPage:"调整单页展示条数",quickJump:"快速跳转",understandTotalData:"了解数据总量"},en:{title:"Navigate Pages",jumpToSpecificPage:"Jump to Specific Page",adjustItemsPerPage:"Adjust Items Per Page",quickJump:"Quick Jump",understandTotalData:"Understand Total Data"}};e.s(["default",0,()=>{let[e]=(0,t.default)(l);return(0,a.jsx)(i.default,{data:{id:"200000004",label:e.title,children:[{id:"500000061",label:e.jumpToSpecificPage,targetType:"mvp"},{id:"200000005",label:e.adjustItemsPerPage,targetType:"extension",link:"pagination-index-tab-design-demo-page-size"},{id:"200000006",label:e.quickJump,targetType:"extension",link:"pagination-index-tab-design-demo-quick-jump"},{id:"200000007",label:e.understandTotalData,targetType:"extension",link:"pagination-index-tab-design-demo-total"}]}})}])}]);

@@ -1,0 +1,11 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,272648,e=>{"use strict";var t=e.i(391398);e.i(191788);var d=e.i(504595);let a=(0,e.i(827830).createStyles)(({css:e,token:t})=>{let{antCls:d}=t;return{customTable:e`
+      ${d}-table {
+        ${d}-table-container {
+          ${d}-table-body,
+          ${d}-table-content {
+            scrollbar-width: thin;
+            scrollbar-color: #eaeaea transparent;
+          }
+        }
+      }
+    `}}),n=[{title:"Full Name",width:100,dataIndex:"name",key:"name",fixed:"start"},{title:"Age",width:100,dataIndex:"age",key:"age",fixed:"start"},{title:"Column 1",dataIndex:"address",key:"1",width:150},{title:"Column 2",dataIndex:"address",key:"2",width:150},{title:"Column 3",dataIndex:"address",key:"3",width:150},{title:"Column 4",dataIndex:"address",key:"4",width:150},{title:"Column 5",dataIndex:"address",key:"5",width:150},{title:"Column 6",dataIndex:"address",key:"6",width:150},{title:"Column 7",dataIndex:"address",key:"7",width:150},{title:"Column 8",dataIndex:"address",key:"8"},{title:"Column 9",dataIndex:"address",key:"9"},{title:"Column 10",dataIndex:"address",key:"10"},{title:"Column 11",dataIndex:"address",key:"11"},{title:"Column 12",dataIndex:"address",key:"12"},{title:"Column 13",dataIndex:"address",key:"13"},{title:"Column 14",dataIndex:"address",key:"14"},{title:"Column 15",dataIndex:"address",key:"15"},{title:"Column 16",dataIndex:"address",key:"16"},{title:"Column 17",dataIndex:"address",key:"17"},{title:"Column 18",dataIndex:"address",key:"18"},{title:"Column 19",dataIndex:"address",key:"19"},{title:"Column 20",dataIndex:"address",key:"20"},{title:"Action",key:"operation",fixed:"end",width:100,render:()=>(0,t.jsx)("a",{children:"action"})}],l=Array.from({length:100}).map((e,t)=>({key:t,name:`Edward King ${t}`,age:32,address:`London, Park Lane no. ${t}`}));e.s(["default",0,()=>{let{styles:e}=a();return(0,t.jsx)(d.Table,{className:e.customTable,columns:n,dataSource:l,scroll:{x:"max-content",y:275}})}])},504595,e=>{"use strict";var t=e.i(833663);e.s(["Table",()=>t.default])}]);

@@ -1,0 +1,5 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,591651,r=>{"use strict";var t=r.i(391398);r.i(191788);var e=r.i(504909),o=r.i(400271);let a=(0,r.i(827830).createStyles)(({token:r,css:t})=>({section:{backgroundColor:"rgba(250,250,250, 0.5)"},header:{color:r.colorPrimary},actions:t`
+    & button {
+      background-color: rgba(255, 242, 232, 0.6);
+    }
+  `})),s=Array.from({length:20}).map((r,t)=>({key:t.toString(),title:`content${t+1}`,description:`description of content${t+1}`})),n=s.filter(r=>Number(r.key)>10).map(r=>r.key),i={header:{fontWeight:"bold"}},l=r=>"warning"===r.props.status?{section:{backgroundColor:"rgba(246,255,237, 0.6)",borderColor:"#b7eb8f"},header:{color:"#8DBCC7",fontWeight:"normal"}}:{};r.s(["default",0,()=>{let{styles:r}=a(),c={dataSource:s,targetKeys:n,render:r=>r.title,classNames:r};return(0,t.jsxs)(e.Flex,{vertical:!0,gap:"large",style:{width:"100%"},children:[(0,t.jsx)(o.Transfer,{...c,status:"error",styles:i}),(0,t.jsx)(o.Transfer,{...c,status:"warning",styles:l})]})}])},400271,r=>{"use strict";var t=r.i(558424);r.s(["Transfer",()=>t.default])}]);

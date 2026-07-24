@@ -1,0 +1,4 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,323406,t=>{"use strict";var e=t.i(391398);t.i(191788);var i=t.i(504909),o=t.i(768215);let r=(0,t.i(827830).createStaticStyles)(({css:t})=>({root:t`
+    padding: 8px;
+    border-radius: 4px;
+  `})),n={itemIcon:{borderColor:"#1890ff"}},l=t=>"vertical"===t.props.orientation?{root:{padding:"10px 6px",border:"1px solid #A294F9"},itemIcon:{borderColor:"#A294F9"}}:{};t.s(["default",0,()=>{let t={classNames:r,items:[{title:"2015-09-01",content:"Create a services site"},{title:"2015-09-01 09:12:11",content:"Solve initial network problems"},{content:"Technical testing"}]};return(0,e.jsxs)(i.Flex,{vertical:!0,gap:"medium",children:[(0,e.jsx)(o.Timeline,{...t,orientation:"horizontal",styles:n}),(0,e.jsx)(o.Timeline,{...t,orientation:"vertical",styles:l})]})}])},768215,t=>{"use strict";var e=t.i(426079);t.s(["Timeline",()=>e.default])}]);

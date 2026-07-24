@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,955976,978287,e=>{"use strict";var t=e.i(716179);e.i(356995),e.s([],978287),e.i(978287),e.s(["createEventModelingServices",()=>t.createEventModelingServices],955976)}]);

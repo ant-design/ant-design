@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,34504,t=>{"use strict";var o=t.i(391398);t.i(191788);var u=t.i(820244);t.s(["default",0,()=>(0,o.jsx)(u.ColorPicker,{defaultValue:"#1677ff"})])},820244,t=>{"use strict";var o=t.i(993238);t.s(["ColorPicker",()=>o.default])}]);

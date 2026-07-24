@@ -1,0 +1,6 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,461712,s=>{"use strict";var e=s.i(391398);s.i(191788);var r=s.i(504909),a=s.i(58795);let t={root:"demo-progress-root",rail:"demo-progress-rail",track:"demo-progress-track"},o=s=>{let e=200-200*(s?.props?.percent??0)/100;return{track:{backgroundImage:`
+        linear-gradient(
+          to right,
+          hsla(${e}, 85%, 65%, 1),
+          hsla(${e+30}, 90%, 55%, 0.95)
+        )`,borderRadius:8,transition:"all 0.3s ease"},rail:{backgroundColor:"rgba(0, 0, 0, 0.1)",borderRadius:8}}};s.s(["default",0,()=>(0,e.jsxs)(r.Flex,{vertical:!0,gap:"large",children:[(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:10}),(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:20}),(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:40}),(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:60}),(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:80}),(0,e.jsx)(a.Progress,{classNames:t,styles:o,percent:99})]})])},58795,s=>{"use strict";var e=s.i(54089);s.s(["Progress",()=>e.default])}]);

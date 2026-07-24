@@ -1,0 +1,5 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,30094,o=>{"use strict";var t=o.i(391398);o.i(191788);var e=o.i(125308),r=o.i(183668),s=o.i(504909);let c=(0,o.i(827830).createStaticStyles)(({css:o})=>({root:o`
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 12px;
+  `})),i=({props:{type:o}})=>"success"===o?{root:{backgroundColor:"rgba(82, 196, 26, 0.1)",borderColor:"#b7eb8f"},icon:{color:"#52c41a"}}:"warning"===o?{root:{backgroundColor:"rgba(250, 173, 20, 0.1)",borderColor:"#ffe58f"},icon:{color:"#faad14"}}:{};o.s(["default",0,()=>{let o={showIcon:!0,classNames:{root:c.root}};return(0,t.jsxs)(s.Flex,{vertical:!0,gap:"medium",children:[(0,t.jsx)(e.Alert,{...o,title:"Object styles",type:"info",styles:{icon:{fontSize:18},section:{fontWeight:500}},action:(0,t.jsx)(r.Button,{size:"small",children:"Action"})}),(0,t.jsx)(e.Alert,{...o,title:"Function styles",type:"success",styles:i})]})}])}]);

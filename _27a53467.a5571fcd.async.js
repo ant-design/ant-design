@@ -1,0 +1,10 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,697938,e=>{e.v(t=>Promise.all(["_3315f5ec.13b0d176.async.js"].map(t=>e.l(t))).then(()=>t(238922)))},549719,e=>{"use strict";var t=e.i(391398),n=e.i(191788),l=e.i(741214),r=e.i(827830),a=e.i(582225);let d=n.default.lazy(()=>e.A(697938)),i=(0,r.createStaticStyles)(({cssVar:e,css:t})=>({fallback:t`
+    width: 100%;
+    > * {
+      width: 100% !important;
+      border-radius: ${e.borderRadiusLG};
+    }
+  `,placeholder:t`
+    color: ${e.colorTextDescription};
+    font-size: ${e.fontSizeLG};
+  `})),o={cn:{placeholder:"正在载入行为模式地图..."},en:{placeholder:"Loading behavior map..."}},s=()=>{let[e]=(0,a.default)(o);return(0,t.jsx)("div",{className:i.fallback,children:(0,t.jsx)(l.Skeleton.Node,{active:!0,style:{height:600,width:"100%"},children:(0,t.jsx)("span",{className:i.placeholder,children:e.placeholder})})})};e.s(["default",0,e=>(0,t.jsx)(n.Suspense,{fallback:(0,t.jsx)(s,{}),children:(0,t.jsx)(d,{...e})})])},662923,e=>{"use strict";var t=e.i(391398);e.i(191788);var n=e.i(582225),l=e.i(549719);let r={cn:{title:"了解页面/模块内需要关注的提示",understandAlertInfo:"了解提示信息",understandAlertContent:"了解提示内容",understandAlertType:"了解提示类型",performAlertOperations:"针对提示进行操作"},en:{title:"Understand alerts that need attention within pages/modules",understandAlertInfo:"Understand Alert Information",understandAlertContent:"Understand Alert Content",understandAlertType:"Understand Alert Type",performAlertOperations:"Perform Operations on Alerts"}};e.s(["default",0,()=>{let[e]=(0,n.default)(r);return(0,t.jsx)(l.default,{data:{id:"200000004",label:e.title,children:[{id:"500000061",label:e.understandAlertInfo,targetType:"mvp",children:[{id:"707000085",label:e.understandAlertContent,link:"alert-index-tab-design-demo-content"},{id:"707000086",label:e.understandAlertType,link:"alert-index-tab-design-demo-type"}]},{id:"200000005",label:e.performAlertOperations,targetType:"extension",link:"alert-index-tab-design-demo-action"}]}})}])}]);

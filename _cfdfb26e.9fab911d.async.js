@@ -1,0 +1,10 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,697938,e=>{e.v(s=>Promise.all(["_3315f5ec.13b0d176.async.js"].map(s=>e.l(s))).then(()=>s(238922)))},549719,e=>{"use strict";var s=e.i(391398),t=e.i(191788),a=e.i(741214),i=e.i(827830),r=e.i(582225);let l=t.default.lazy(()=>e.A(697938)),d=(0,i.createStaticStyles)(({cssVar:e,css:s})=>({fallback:s`
+    width: 100%;
+    > * {
+      width: 100% !important;
+      border-radius: ${e.borderRadiusLG};
+    }
+  `,placeholder:s`
+    color: ${e.colorTextDescription};
+    font-size: ${e.fontSizeLG};
+  `})),n={cn:{placeholder:"正在载入行为模式地图..."},en:{placeholder:"Loading behavior map..."}},o=()=>{let[e]=(0,r.default)(n);return(0,s.jsx)("div",{className:d.fallback,children:(0,s.jsx)(a.Skeleton.Node,{active:!0,style:{height:600,width:"100%"},children:(0,s.jsx)("span",{className:d.placeholder,children:e.placeholder})})})};e.s(["default",0,e=>(0,s.jsx)(t.Suspense,{fallback:(0,s.jsx)(o,{}),children:(0,s.jsx)(l,{...e})})])},523403,e=>{"use strict";var s=e.i(391398);e.i(191788);var t=e.i(582225),a=e.i(549719);let i={cn:{title:"了解任务的进度",viewTaskCompletion:"查看任务的完成程度",understandTaskProgress:"了解任务进度",understandTaskStatus:"了解任务状态",viewProgressDescription:"查看进度相关描述"},en:{title:"Understand Task Progress",viewTaskCompletion:"View Task Completion",understandTaskProgress:"Understand Task Progress",understandTaskStatus:"Understand Task Status",viewProgressDescription:"View Progress-related Description"}};e.s(["default",0,()=>{let[e]=(0,t.default)(i);return(0,s.jsx)(a.default,{data:{id:"200000004",label:e.title,children:[{id:"500000061",label:e.viewTaskCompletion,targetType:"mvp",children:[{id:"707000085",label:e.understandTaskProgress,link:"progress-index-tab-design-demo-progress"},{id:"707000086",label:e.understandTaskStatus,link:"progress-index-tab-design-demo-status"}]},{id:"200000005",label:e.viewProgressDescription,targetType:"extension",link:"progress-index-tab-design-demo-info"}]}})}])}]);

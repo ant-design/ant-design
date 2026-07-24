@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,331497,t=>{"use strict";var a=t.i(391398);t.i(191788);var e=t.i(530670);t.s(["default",0,()=>(0,a.jsx)(e.Slider,{range:{draggableTrack:!0},defaultValue:[20,50]})])},530670,t=>{"use strict";var a=t.i(509753);t.s(["Slider",()=>a.default])}]);
