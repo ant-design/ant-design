@@ -137,7 +137,7 @@ export type { RefSelectProps, SelectProps } from './select';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps, SkeletonRef } from './skeleton';
 export { default as Slider } from './slider';
-export type { SliderSingleProps } from './slider';
+export type { SliderRangeProps, SliderSingleProps } from './slider';
 export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
