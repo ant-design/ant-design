@@ -89,7 +89,7 @@ export const resolveStyleOrClass = <T = any>(
   value: T | ((config: any) => T),
   info: { props: any },
 ) => {
-  return isFunction(value) ? (value(info) as any) : value;
+  return isFunction(value) ? value(info) : value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
@@ -98,7 +98,11 @@ type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
  * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
  * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
-export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props = any>(
+export const useMergeSemantic = <
+  ClassNamesType extends AnyObject | undefined = AnyObject,
+  StylesType extends AnyObject | undefined = AnyObject,
+  Props = any,
+>(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
   info: { props: Props },
@@ -112,9 +116,12 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
     styles ? resolveStyleOrClass(styles, info) : undefined,
   );
 
-  const mergedClassNames = useSemanticClassNames(schema, ...resolvedClassNamesList);
+  const mergedClassNames = useSemanticClassNames<NonNullable<ClassNamesType>>(
+    schema,
+    ...resolvedClassNamesList,
+  );
 
-  const mergedStyles = useSemanticStyles(...resolvedStylesList);
+  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(...resolvedStylesList);
 
   return React.useMemo(() => {
     if (!schema) {

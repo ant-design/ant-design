@@ -485,7 +485,7 @@ exports[`renders components/tabs/demo/card.tsx extend context correctly 2`] = `[
 
 exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
-  class="acss-1oz6aet"
+  class="acss-1pyw6lr"
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
@@ -3958,7 +3958,8 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="margin-inline-end: 16px;"
           type="button"
         >
           <span>
@@ -4078,6 +4079,7 @@ Array [
       >
         <button
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="margin-inline-start: 16px;"
           type="button"
         >
           <span>

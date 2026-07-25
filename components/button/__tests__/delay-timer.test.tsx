@@ -29,67 +29,38 @@ const Content = () => {
 };
 
 it('Delay loading timer in Button component', () => {
-  const otherTimer = 9528;
-  jest.spyOn<Window, 'setTimeout'>(window, 'setTimeout').mockReturnValue(otherTimer);
-  jest.restoreAllMocks();
+  jest.useFakeTimers();
 
   const wrapper = render(<Content />);
+  const toggleLoading = wrapper.container.querySelector('#toggle_loading')!;
+  const toggleVisible = wrapper.container.querySelector('#toggle_visible')!;
+  const button = () => wrapper.container.querySelector('.ant-btn');
 
-  const btnTimer = 9527;
-  const setTimeoutMock = jest
-    .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
-    .mockReturnValue(btnTimer);
-  const clearTimeoutMock = jest.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
-
-  // other component may call setTimeout or clearTimeout
-  const setTimeoutCount = () => {
-    const items = setTimeoutMock.mock.calls.filter((item) => item[1] === specialDelay);
-    return items.length;
-  };
-  const clearTimeoutCount = () => {
-    const items = clearTimeoutMock.mock.calls.filter((item) => item[0] === btnTimer);
-    return items.length;
-  };
-
-  // switch loading state to true
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
-  expect(setTimeoutCount()).toBe(1);
-  expect(clearTimeoutCount()).toBe(0);
-
-  // trigger timer handler
+  fireEvent.click(toggleLoading);
+  expect(button()).not.toHaveClass('ant-btn-loading');
   act(() => {
-    const timerHandler = setTimeoutMock.mock.calls[0][0];
-
-    if (typeof timerHandler === 'function') {
-      timerHandler();
-    }
+    jest.advanceTimersByTime(specialDelay);
   });
-  expect(setTimeoutCount()).toBe(1);
-  expect(clearTimeoutCount()).toBe(0);
+  expect(button()).toHaveClass('ant-btn-loading');
 
-  // switch loading state to false
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
-  expect(setTimeoutCount()).toBe(1);
-  expect(clearTimeoutCount()).toBe(0);
+  fireEvent.click(toggleLoading);
+  expect(button()).not.toHaveClass('ant-btn-loading');
 
-  // switch loading state to true
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
-  expect(setTimeoutCount()).toBe(2);
-  expect(clearTimeoutCount()).toBe(0);
+  fireEvent.click(toggleLoading);
+  fireEvent.click(toggleLoading);
+  act(() => {
+    jest.advanceTimersByTime(specialDelay);
+  });
+  expect(button()).not.toHaveClass('ant-btn-loading');
 
-  // switch loading state to false
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
-  expect(setTimeoutCount()).toBe(2);
-  expect(clearTimeoutCount()).toBe(1);
+  fireEvent.click(toggleLoading);
+  fireEvent.click(toggleVisible);
+  act(() => {
+    jest.advanceTimersByTime(specialDelay);
+  });
+  expect(button()).not.toBeInTheDocument();
 
-  // switch loading state to true
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
-  // remove Button component
-  fireEvent.click(wrapper.container.querySelectorAll('#toggle_visible')[0]);
-  expect(setTimeoutCount()).toBe(3);
-  expect(clearTimeoutCount()).toBe(2);
-
-  jest.restoreAllMocks();
+  jest.useRealTimers();
 });
 it('Delay loading while use loading delay at first time', () => {
   const Demo = () => <Button loading={{ delay: specialDelay }} />;

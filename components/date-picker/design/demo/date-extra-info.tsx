@@ -9,10 +9,10 @@ import useLocale from '../../../../.dumi/hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ token, prefixCls }) => ({
   weekendCell: css`
     color: #ff4d4f40;
-    .ant-picker-cell-in-view & {
+    .${prefixCls}-picker-cell-in-view & {
       color: #ff4d4f;
     }
   `,
@@ -21,9 +21,9 @@ const useStyle = createStyles(({ token }) => ({
     height: 40px !important;
   `,
   detailedPicker: css`
-    .ant-picker-date-panel {
+    .${prefixCls}-picker-date-panel {
       width: auto;
-      .ant-picker-content {
+      .${prefixCls}-picker-content {
         width: auto;
       }
     }
@@ -33,28 +33,28 @@ const useStyle = createStyles(({ token }) => ({
     line-height: 12px;
     transform: scale(${10 / 12});
     color: ${token.colorTextQuaternary};
-    .ant-picker-cell-in-view & {
+    .${prefixCls}-picker-cell-in-view & {
       color: ${token.colorTextSecondary};
     }
-    .ant-picker-cell-selected & {
+    .${prefixCls}-picker-cell-selected & {
       color: #fff;
     }
   `,
   add: css`
     color: #ff4d4f80;
-    .ant-picker-cell-in-view & {
+    .${prefixCls}-picker-cell-in-view & {
       color: #ff4d4f;
     }
-    .ant-picker-cell-selected & {
+    .${prefixCls}-picker-cell-selected & {
       color: #fff;
     }
   `,
   minus: css`
     color: #52c41a80;
-    .ant-picker-cell-in-view & {
+    .${prefixCls}-picker-cell-in-view & {
       color: #52c41a;
     }
-    .ant-picker-cell-selected & {
+    .${prefixCls}-picker-cell-selected & {
       color: #fff;
     }
   `,

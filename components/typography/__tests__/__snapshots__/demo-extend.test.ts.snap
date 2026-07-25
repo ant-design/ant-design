@@ -1655,34 +1655,12 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
-    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
     style="width: 200px;"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
   </span>,
-  <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
-      class="ant-tooltip-container"
-      id="test-id"
-      role="tooltip"
-    >
-      I am ellipsis now!
-    </div>
-  </div>,
   <span
-    aria-describedby="test-id"
     class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
     style="width: 200px;"
   >
@@ -1690,26 +1668,6 @@ Array [
       Ant Design, a design language for background applications, is refined by Ant UED Team.
     </code>
   </span>,
-  <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
-      class="ant-tooltip-container"
-      id="test-id"
-      role="tooltip"
-    >
-      I am ellipsis now!
-    </div>
-  </div>,
 ]
 `;
 
@@ -2246,32 +2204,11 @@ Array [
     style="display: none;"
   >
     <span
-      aria-describedby="test-id"
       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
       style="width: 100px;"
     >
       默认 display none 样式的超长文字， 悬停 tooltip 失效了
     </span>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        I am ellipsis now!
-      </div>
-    </div>
   </div>,
   <div
     class="ant-typography ant-typography-ellipsis css-var-test-id"
@@ -2379,7 +2316,6 @@ Array [
       3. Move from copy button back to the text (without leaving the block) → ellipsis tooltip should show again.
     </div>
     <span
-      aria-describedby="test-id"
       aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
       class="ant-typography ant-typography-ellipsis css-var-test-id"
       style="width: 280px; display: block;"
@@ -2436,26 +2372,6 @@ Array [
         </div>
       </span>
     </span>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      >
-        In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-      </div>
-    </div>
   </div>,
 ]
 `;

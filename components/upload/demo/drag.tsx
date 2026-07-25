@@ -19,7 +19,8 @@ const App: React.FC = () => {
       }
       if (status === 'done') {
         messageApi.success(`${info.file.name} file uploaded successfully.`);
-      } else if (status === 'error') {
+      }
+      if (status === 'error') {
         messageApi.error(`${info.file.name} file upload failed.`);
       }
     },

@@ -72,7 +72,11 @@ export default defineConfig({
   hash: true,
   mfsu: false,
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
-  utoopack: {},
+  utoopack: {
+    watch: {
+      nodeModulesRegexes: ['rc-.*', '.*cssinjs.*', '@rc-component/.*'],
+    },
+  },
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',

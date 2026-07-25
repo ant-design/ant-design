@@ -301,7 +301,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
       border: 0,
 
       [`> ${componentCls}-item`]: {
-        borderBottom: `1px solid ${colorBorder}`,
+        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${colorBorder}`,
       },
 
       [`

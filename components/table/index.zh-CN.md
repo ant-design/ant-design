@@ -107,6 +107,7 @@ const columns = [
 <code src="./demo/virtual-list.tsx" version="5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
+<code src="./demo/nested-table-in-tabs-debug.tsx" debug>Tabs 中的嵌套表格 Debug</code>
 <code src="./demo/pagination.tsx">分页设置</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>

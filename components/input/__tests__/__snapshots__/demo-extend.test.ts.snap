@@ -6618,7 +6618,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/group.tsx extend context correctly 1`] = `
 <div
-  class="site-input-group-wrapper"
+  class="acss-pmp369"
 >
   <div
     class="ant-space-compact ant-input-group css-var-test-id ant-input-group-lg"
@@ -9482,7 +9482,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value=""
     />
     <input
-      class="ant-input ant-input-disabled ant-input-outlined site-input-split css-var-test-id ant-input-css-var ant-input-compact-item"
+      class="ant-input ant-input-disabled ant-input-outlined acss-qc3ln3 css-var-test-id ant-input-css-var ant-input-compact-item"
       disabled=""
       placeholder="~"
       style="width: 30px; border-inline-start: 0; border-inline-end: 0; pointer-events: none;"
@@ -9490,7 +9490,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value=""
     />
     <input
-      class="ant-input ant-input-outlined site-input-right css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input ant-input-outlined acss-f6663l css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -12279,7 +12279,7 @@ Array [
     value=""
   />,
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id numeric-input ant-tooltip-placement-topLeft"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id acss-10xdbvc ant-tooltip-placement-topLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div

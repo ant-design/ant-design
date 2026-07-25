@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 6.5.2
+
+`2026-07-24`
+
+- 💄 修复 Button、Collapse、ColorPicker、Layout、Select、Space.Addon、Tree 和 Typography 边框未响应全局 `lineWidth` 与 `lineType` Design Token 的问题。[#58740](https://github.com/ant-design/ant-design/pull/58740) [#58741](https://github.com/ant-design/ant-design/pull/58741) [#58742](https://github.com/ant-design/ant-design/pull/58742) [#58743](https://github.com/ant-design/ant-design/pull/58743) [#58745](https://github.com/ant-design/ant-design/pull/58745) [#58755](https://github.com/ant-design/ant-design/pull/58755) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 BorderBeam、Checkbox 和 Switch 的 reduced-motion 样式导致 Lightning CSS 压缩失败的问题。[#58707](https://github.com/ant-design/ant-design/pull/58707) [@QDyanbing](https://github.com/QDyanbing)
+- Tag
+  - 💄 修复 Tag 中第三方图标库的原生 `<svg>` 图标缺少间距且垂直对齐异常的问题。[#58723](https://github.com/ant-design/ant-design/pull/58723) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+  - 🐞 修复 Tag 同时配置 `href` 和 `closable` 时，点击关闭图标仍会触发链接跳转的问题。[#58720](https://github.com/ant-design/ant-design/pull/58720) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Input.OTP 根节点丢失 `onPointerDown`、`onAnimationEnd`、`onTransitionEnd` 和 `onScrollEnd` 等 DOM 事件回调的问题。[#58697](https://github.com/ant-design/ant-design/pull/58697) [react-component/util#794](https://github.com/react-component/util/pull/794) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 Form 在 React 19 中使用 UMD 开发构建时触发 Hook 调用顺序警告的问题。[#58417](https://github.com/ant-design/ant-design/pull/58417) [@biubiukam](https://github.com/biubiukam)
+- 💄 修复 Table 带边框的嵌套表格被 Tabs 或自定义内容包裹时缺少上边框的问题。[#58746](https://github.com/ant-design/ant-design/pull/58746) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Input.Search 自定义 `enterButton` 未响应组件 `disabled` 和 `loading` 状态的问题。[#58726](https://github.com/ant-design/ant-design/pull/58726) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Transfer 通过 `actions` 传入的自定义操作按钮未保留自身 `disabled` 状态的问题。[#58718](https://github.com/ant-design/ant-design/pull/58718) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Tree `rootStyle` 不生效的问题，并废弃该属性，推荐使用 `styles.root`。[#58709](https://github.com/ant-design/ant-design/pull/58709) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Grid Col 在普通和响应式配置中忽略 `flex` 属性数值 `0` 的问题。[#58719](https://github.com/ant-design/ant-design/pull/58719) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 InputNumber 在 Form 开启反馈状态时不显示 `suffix` 的问题。[#58703](https://github.com/ant-design/ant-design/pull/58703) [@QDyanbing](https://github.com/QDyanbing)
+- ⌨️ 修复 Splitter 在容器尺寸测量前百分比 `aria-valuemin` 和 `aria-valuemax` 取值异常，以及相邻面板尺寸为 0 时 `lazy` 拖拽预览越界的问题。[#58702](https://github.com/ant-design/ant-design/pull/58702) [@QDyanbing](https://github.com/QDyanbing)
+- 📖 修复 ant.design 首页主题预览在重新渲染时重置已选主题的问题。[#58687](https://github.com/ant-design/ant-design/pull/58687) [@meet-student](https://github.com/meet-student)
+- 📝 修正 Anchor 中文文档中 `offsetTop` 的默认值为 `0`。[#58710](https://github.com/ant-design/ant-design/pull/58710) [@dogledogle](https://github.com/dogledogle)
+
 ## 6.5.1
 
 `2026-07-13`

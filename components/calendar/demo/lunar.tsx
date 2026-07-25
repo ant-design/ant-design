@@ -22,7 +22,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
   return {
     wrapper: css`
       width: 450px;
-      border: 1px solid ${token.colorBorderSecondary};
+      border: ${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary};
       border-radius: ${token.borderRadiusOuter};
       padding: 5px;
     `,
@@ -41,7 +41,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
         background: transparent;
         transition: background-color 300ms;
         border-radius: ${token.borderRadiusOuter}px;
-        border: 1px solid transparent;
+        border: ${token.lineWidth}px ${token.lineType} transparent;
         box-sizing: border-box;
       }
       &:hover:before {
@@ -50,7 +50,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     today: css`
       &:before {
-        border: 1px solid ${token.colorPrimary};
+        border: ${token.lineWidth}px ${token.lineType} ${token.colorPrimary};
       }
     `,
     text: css`
