@@ -85,7 +85,7 @@ const useStyle = createStyles(({ cssVar, token }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 4px;
+    margin-inline-end: ${cssVar.marginXXS};
   `,
 }));
 
