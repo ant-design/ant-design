@@ -44,7 +44,7 @@ const modeOptions: { label: string; value: DemoMode }[] = [
 ];
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<DemoMode>('horizontal');
+  const [mode, setMode] = useState<DemoMode>('vertical');
 
   const inlineCollapsed = mode === 'inline-collapsed';
   const menuMode = inlineCollapsed ? 'inline' : mode;

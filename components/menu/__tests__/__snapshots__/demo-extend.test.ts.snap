@@ -6960,10 +6960,9 @@ Array [
           class="ant-segmented-group"
         >
           <label
-            class="ant-segmented-item ant-segmented-item-selected"
+            class="ant-segmented-item"
           >
             <input
-              checked=""
               class="ant-segmented-item-input"
               name="test-id"
               type="radio"
@@ -6976,9 +6975,10 @@ Array [
             </div>
           </label>
           <label
-            class="ant-segmented-item"
+            class="ant-segmented-item ant-segmented-item-selected"
           >
             <input
+              checked=""
               class="ant-segmented-item-input"
               name="test-id"
               type="radio"
@@ -7012,16 +7012,15 @@ Array [
       class="ant-space-item"
     >
       <ul
-        class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade"
         data-menu-list="true"
         role="menu"
-        style="width: 520px;"
+        style="width: 256px;"
         tabindex="0"
       >
         <li
-          class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-open ant-menu-submenu-selected"
+          class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-open ant-menu-submenu-selected"
           role="none"
-          style="opacity: 1; order: 0;"
         >
           <div
             aria-controls="rc-menu-uuid-navigation-popup"
@@ -7061,7 +7060,7 @@ Array [
             />
           </div>
           <div
-            class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu scrollable-submenu-popup ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade ant-menu-submenu-placement-bottomLeft"
+            class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu scrollable-submenu-popup ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade ant-menu-submenu-placement-rightTop"
             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <ul
@@ -7818,15 +7817,15 @@ Array [
           </div>
         </li>
         <li
-          class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+          class="ant-menu-submenu ant-menu-submenu-vertical"
           role="none"
-          style="opacity: 1; order: 1;"
         >
           <div
             aria-controls="rc-menu-uuid-applications-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-applications"
             role="menuitem"
             tabindex="-1"
           >
@@ -7858,12 +7857,117 @@ Array [
               class="ant-menu-submenu-arrow"
             />
           </div>
+          <div
+            class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade ant-menu-submenu-placement-rightTop"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-vertical"
+              data-menu-list="true"
+              id="rc-menu-uuid-applications-popup"
+              role="menu"
+            >
+              <li
+                aria-describedby="test-id"
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-application-1"
+                role="menuitem"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 1
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-container"
+                  id="test-id"
+                  role="tooltip"
+                />
+              </div>
+              <li
+                aria-describedby="test-id"
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-application-2"
+                role="menuitem"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 2
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-container"
+                  id="test-id"
+                  role="tooltip"
+                />
+              </div>
+              <li
+                aria-describedby="test-id"
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-application-3"
+                role="menuitem"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 3
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-container"
+                  id="test-id"
+                  role="tooltip"
+                />
+              </div>
+            </ul>
+          </div>
         </li>
         <li
           aria-describedby="test-id"
-          class="ant-menu-overflow-item ant-menu-item"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-settings"
           role="menuitem"
-          style="opacity: 1; order: 2;"
           tabindex="-1"
         >
           <span
@@ -7909,56 +8013,6 @@ Array [
             role="tooltip"
           />
         </div>
-        <li
-          aria-hidden="true"
-          class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
-          role="none"
-          style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
-        >
-          <div
-            aria-controls="rc-menu-uuid-rc-menu-more-popup"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-menu-submenu-title"
-            data-menu-id="rc-menu-uuid-rc-menu-more"
-            role="menuitem"
-            tabindex="-1"
-          >
-            <span
-              aria-label="ellipsis"
-              class="anticon anticon-ellipsis"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="ellipsis"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                />
-              </svg>
-            </span>
-            <i
-              class="ant-menu-submenu-arrow"
-            />
-          </div>
-          <div
-            class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var ant-menu-scroll-fade ant-menu-submenu-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-          >
-            <ul
-              class="ant-menu ant-menu-sub ant-menu-vertical"
-              data-menu-list="true"
-              id="rc-menu-uuid-rc-menu-more-popup"
-              role="menu"
-            />
-          </div>
-        </li>
       </ul>
       <div
         aria-hidden="true"
