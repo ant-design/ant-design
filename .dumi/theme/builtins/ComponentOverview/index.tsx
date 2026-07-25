@@ -1,7 +1,19 @@
 import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, BorderBeam, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
+import {
+  Affix,
+  Badge,
+  BorderBeam,
+  Card,
+  Col,
+  Divider,
+  Flex,
+  Input,
+  Row,
+  Tag,
+  Typography,
+} from 'antd';
 import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -101,6 +113,8 @@ const Overview: React.FC = () => {
   const { search: urlSearch } = useLocation();
   const { locale, formatMessage } = useIntl();
 
+  const deprecatedText = formatMessage({ id: 'app.components.overview.deprecated' });
+
   const [search, setSearch] = useState<string>(() => {
     const params = new URLSearchParams(urlSearch);
     if (params.has('s')) {
@@ -128,6 +142,7 @@ const Overview: React.FC = () => {
             subtitle: child.frontmatter?.subtitle,
             cover: child.frontmatter?.cover,
             coverDark: child.frontmatter?.coverDark,
+            tag: child.frontmatter?.tag,
             link: child.link,
           })),
         }))
@@ -206,6 +221,9 @@ const Overview: React.FC = () => {
                     /** BorderBeam 组件需要特殊处理 */
                     const isBorderBeam = component.title === 'BorderBeam';
 
+                    /** 是否是已废弃组件 */
+                    const isDeprecated = component.tag?.toUpperCase() === 'DEPRECATED';
+
                     if (!isExternalLink) {
                       url += urlSearch;
                     }
@@ -257,6 +275,10 @@ const Overview: React.FC = () => {
                       >
                         {isBorderBeam ? (
                           <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
+                        ) : isDeprecated ? (
+                          <Badge.Ribbon color="orange" text={deprecatedText}>
+                            {cardContent}
+                          </Badge.Ribbon>
                         ) : (
                           cardContent
                         )}
@@ -265,6 +287,10 @@ const Overview: React.FC = () => {
                       <Link to={url} key={`${component.title}-internal-link`}>
                         {isBorderBeam ? (
                           <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
+                        ) : isDeprecated ? (
+                          <Badge.Ribbon color="orange" text={deprecatedText}>
+                            {cardContent}
+                          </Badge.Ribbon>
                         ) : (
                           cardContent
                         )}
