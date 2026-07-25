@@ -5,6 +5,7 @@ title: Listy
 description: A high-performance list that virtualizes long data sets and supports grouping.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: 6.6.0
 ---
 
 ## When To Use
@@ -24,6 +25,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 
 ## API
+
+> Listy component is available since `antd@6.6.0`.
 
 Common props ref: [Common props](/docs/react/common-props)
 

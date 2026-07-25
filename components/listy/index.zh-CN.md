@@ -6,6 +6,7 @@ subtitle: 虚拟列表
 description: 高性能列表，对长列表进行虚拟滚动，并支持分组。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: 6.6.0
 ---
 
 ## 何时使用 {#when-to-use}
@@ -25,6 +26,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 <code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
 
 ## API
+
+> 自 `antd@6.6.0` 版本开始提供该组件。
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
