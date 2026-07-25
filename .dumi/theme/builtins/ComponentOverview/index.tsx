@@ -196,12 +196,15 @@ const Overview: React.FC = () => {
         {groups
           .filter((i) => i?.title)
           .map((group) => {
-            const components = group?.children?.filter(
-              (component) =>
-                !search.trim() ||
-                component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
-                (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
-            );
+            const children = group?.children ?? [];
+            const keyword = search.trim().toLowerCase();
+            const components = keyword
+              ? children.filter((component) => {
+                  const title = component?.title?.toLowerCase() ?? '';
+                  const subtitle = component?.subtitle?.toLowerCase() ?? '';
+                  return title.includes(keyword) || subtitle.includes(keyword);
+                })
+              : children;
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
@@ -241,8 +244,10 @@ const Overview: React.FC = () => {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'bottom right',
                             backgroundSize: '32px 32px',
-                            backgroundImage: component.tag ? `url(${component.tag})` : undefined,
                             backgroundColor: 'transparent',
+                            backgroundImage: component.backgroundImage
+                              ? `url(${component.backgroundImage})`
+                              : undefined,
                           },
                         }}
                         size="small"
