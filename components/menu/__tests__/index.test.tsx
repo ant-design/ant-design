@@ -17,6 +17,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Layout from '../../layout';
+import ScrollableSubmenu from '../demo/scrollable-submenu';
 import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
@@ -1346,6 +1347,22 @@ describe('Menu', () => {
       .map((style) => style.innerHTML)
       .join('');
     expect(cssText).toContain('ant-menu-light.ant-menu-scroll-fade.ant-menu-vertical,');
+  });
+
+  it('renders the scroll fade popup in the deterministic visual state', () => {
+    const { container } = render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <ScrollableSubmenu />
+      </TriggerMockContext.Provider>,
+    );
+
+    expect(container.querySelector('.ant-segmented-item-selected')).toHaveTextContent('Vertical');
+
+    const popup = container.querySelector('.scrollable-submenu-popup');
+    expect(popup).toBeTruthy();
+    expect(popup).not.toHaveClass('ant-menu-submenu-hidden');
+    expect(popup).toHaveClass('ant-menu-scroll-fade');
+    expect(popup?.querySelectorAll('.ant-menu-item')).toHaveLength(24);
   });
 
   it('should pass itemData in onClick with items config', () => {
