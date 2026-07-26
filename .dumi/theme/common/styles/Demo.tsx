@@ -157,7 +157,7 @@ const GlobalDemoStyles: React.FC = () => {
           }
 
           &.expand &-meta {
-            border-bottom: 1px dashed ${token.colorSplit};
+            border-bottom: ${token.lineWidth}px dashed ${token.colorSplit};
             border-radius: 0;
           }
 
@@ -187,7 +187,7 @@ const GlobalDemoStyles: React.FC = () => {
             }
 
             &:not(:first-child) {
-              border-top: 1px dashed ${token.colorSplit};
+              border-top: ${token.lineWidth}px dashed ${token.colorSplit};
             }
           }
 
@@ -195,7 +195,7 @@ const GlobalDemoStyles: React.FC = () => {
             display: flex;
             justify-content: center;
             padding: ${token.paddingSM}px 0;
-            border-top: 1px dashed ${token.colorSplit};
+            border-top: ${token.lineWidth}px dashed ${token.colorSplit};
             opacity: 0.7;
             transition: opacity ${token.motionDurationSlow};
 
@@ -246,7 +246,7 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-           &-codeblock {
+          &-codeblock {
             width: 16px;
             height: 16px;
             overflow: hidden;
