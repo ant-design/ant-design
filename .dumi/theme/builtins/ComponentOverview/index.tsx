@@ -18,6 +18,7 @@ import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import semver from 'semver';
 
 import Link from '../../common/Link';
 import SiteContext from '../../slots/SiteContext';
@@ -227,6 +228,12 @@ const Overview: React.FC = () => {
                     /** 是否是已废弃组件 */
                     const isDeprecated = component.tag?.toUpperCase() === 'DEPRECATED';
 
+                    /** 是否是 v6.0.0 及以上版本新增的组件 */
+                    const isNewComponent =
+                      component.tag &&
+                      semver.valid(component.tag) !== null &&
+                      semver.gte(component.tag, '6.0.0');
+
                     if (!isExternalLink) {
                       url += urlSearch;
                     }
@@ -271,6 +278,32 @@ const Overview: React.FC = () => {
                       </Card>
                     );
 
+                    let decoratedCardContent = cardContent;
+
+                    if (isBorderBeam) {
+                      decoratedCardContent = (
+                        <BorderBeam duration={6} lineWidth={2}>
+                          {decoratedCardContent}
+                        </BorderBeam>
+                      );
+                    }
+
+                    if (isDeprecated) {
+                      decoratedCardContent = (
+                        <Badge.Ribbon color="orange" text={deprecatedText}>
+                          {decoratedCardContent}
+                        </Badge.Ribbon>
+                      );
+                    }
+
+                    if (isNewComponent) {
+                      decoratedCardContent = (
+                        <Badge.Ribbon color="green" text={component.tag}>
+                          {decoratedCardContent}
+                        </Badge.Ribbon>
+                      );
+                    }
+
                     const linkContent = isExternalLink ? (
                       <a
                         href={url}
@@ -278,30 +311,13 @@ const Overview: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {isBorderBeam ? (
-                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
-                        ) : isDeprecated ? (
-                          <Badge.Ribbon color="orange" text={deprecatedText}>
-                            {cardContent}
-                          </Badge.Ribbon>
-                        ) : (
-                          cardContent
-                        )}
+                        {decoratedCardContent}
                       </a>
                     ) : (
                       <Link to={url} key={`${component.title}-internal-link`}>
-                        {isBorderBeam ? (
-                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
-                        ) : isDeprecated ? (
-                          <Badge.Ribbon color="orange" text={deprecatedText}>
-                            {cardContent}
-                          </Badge.Ribbon>
-                        ) : (
-                          cardContent
-                        )}
+                        {decoratedCardContent}
                       </Link>
                     );
-
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         {linkContent}
