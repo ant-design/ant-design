@@ -14,6 +14,7 @@ import { Descriptions, Divider, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import copy from 'antd/es/_util/copy';
 import kebabCase from 'lodash/kebabCase';
+import semver from 'semver';
 
 import useIssueCount from '../../../hooks/useIssueCount';
 import useLocale from '../../../hooks/useLocale';
@@ -53,9 +54,9 @@ const locales = {
 
 const branchUrl = (repo: string) => `https://github.com/${repo}/edit/master/`;
 
-function isVersionNumber(value?: string) {
-  return value && /^\d+\.\d+\.\d+$/.test(value);
-}
+const isVersion = (value?: string) => {
+  return Boolean(semver.valid(value));
+};
 
 const transformComponentName = (componentName: string) => {
   if (componentName === 'Notification' || componentName === 'Message') {
@@ -84,7 +85,7 @@ const useStyle = createStyles(({ cssVar, token }) => ({
     }
   `,
   icon: css`
-    margin-inline-end: 4px;
+    margin-inline-end: ${cssVar.marginXXS};
   `,
 }));
 
@@ -262,7 +263,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 </Flex>
               ),
             },
-            isVersionNumber(version) && {
+            isVersion(version) && {
               label: locale.version,
               children: (
                 <Typography.Text className={styles.code}>
