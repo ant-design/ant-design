@@ -160,6 +160,16 @@ describe('Input.OTP', () => {
     const { container, rerender } = render(<OTP defaultValue="bamboo" />);
     expect(getText(container)).toBe('bamboo');
 
+    // support true
+    rerender(<OTP defaultValue="bamboo" mask />);
+    expect(getText(container)).toBe('bamboo');
+    expect(
+      Array.from(container.querySelectorAll('.ant-otp-mask-icon'))
+        .map((node) => node.textContent)
+        .join(''),
+    ).toBe('••••••');
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
+
     // support string
     rerender(<OTP defaultValue="bamboo" mask="*" />);
     expect(getText(container)).toBe('bamboo');
