@@ -18,6 +18,8 @@ import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 
+export type { SliderRef };
+
 export type SliderMarks = RcSliderProps['marks'];
 
 export type SliderSemanticType = {
