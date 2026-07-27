@@ -111,6 +111,10 @@ const useStyles = createStyles(({ css }) => ({
   buttonIconLarge: css({
     fontSize: 22,
   }),
+  cardRoot: css({
+    boxShadow:
+      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12) !important',
+  }),
   inputRoot: css({
     borderColor: 'rgba(0, 0, 0, 0.23)',
     borderRadius: 4,
@@ -177,7 +181,7 @@ const useStyles = createStyles(({ css }) => ({
   }),
   modalContainerClosed: css({
     boxShadow:
-      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+      '0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)',
   }),
   modalMask: css({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -231,6 +235,12 @@ const useStyles = createStyles(({ css }) => ({
   colorPickerContent: css({
     borderRadius: 2,
   }),
+  colorPickerPopupRoot: css({
+    borderRadius: 4,
+    filter:
+      'drop-shadow(0px 5px 5px rgba(0,0,0,0.2)) drop-shadow(0px 8px 10px rgba(0,0,0,0.14)) drop-shadow(0px 3px 14px rgba(0,0,0,0.12))',
+    boxShadow: 'none',
+  }),
   colorPickerDescription: css({
     marginInlineStart: 8,
     marginInlineEnd: 8,
@@ -243,8 +253,6 @@ const useStyles = createStyles(({ css }) => ({
   }),
   notificationRoot: css({
     borderRadius: 4,
-    boxShadow:
-      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   }),
   notificationTitle: css({
@@ -272,8 +280,6 @@ const useStyles = createStyles(({ css }) => ({
     borderRadius: 4,
     backgroundColor: '#212121',
     color: '#fff',
-    boxShadow:
-      '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)',
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   }),
   tooltipRoot: css({
@@ -291,7 +297,8 @@ const useStyles = createStyles(({ css }) => ({
   }),
   popoverRoot: css({
     borderRadius: 4,
-    filter: 'none',
+    filter:
+      'drop-shadow(0px 5px 5px rgba(0,0,0,0.2)) drop-shadow(0px 8px 10px rgba(0,0,0,0.14)) drop-shadow(0px 3px 14px rgba(0,0,0,0.12))',
     boxShadow: 'none',
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   }),
@@ -299,8 +306,7 @@ const useStyles = createStyles(({ css }) => ({
     padding: 16,
     borderRadius: 4,
     backgroundColor: '#fff',
-    boxShadow:
-      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+    boxShadow: 'none',
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: 14,
     lineHeight: 1.43,
@@ -317,8 +323,7 @@ const useStyles = createStyles(({ css }) => ({
   popconfirmContainer: css({
     borderRadius: 4,
     backgroundColor: '#fff',
-    boxShadow:
-      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+    boxShadow: 'none',
   }),
   layoutRoot: css({
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -489,8 +494,9 @@ const useMuiTheme = () => {
           boxShadow:
             '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
           boxShadowSecondary:
-            '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
-          boxShadowTertiary: '0px 1px 2px 0px rgba(0,0,0,0.12)',
+            '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+          boxShadowTertiary:
+            '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
           dropShadowPopover: 'none',
 
           motionEaseInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -632,8 +638,7 @@ const useMuiTheme = () => {
             fontSize: 14,
             fontSizeSM: 14,
             lineHeightSM: 1.43,
-            boxShadowSecondary:
-              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowSecondary: 'none',
           },
           DatePicker: {
             activeBorderColor: '#1976d2',
@@ -665,8 +670,14 @@ const useMuiTheme = () => {
           Drawer: {
             zIndexPopup: 1200,
             colorBgElevated: '#fff',
-            boxShadow:
-              '0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)',
+            boxShadowDrawerLeft:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowDrawerRight:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowDrawerUp:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowDrawerDown:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             footerPaddingBlock: 8,
             footerPaddingInline: 16,
           },
@@ -812,7 +823,9 @@ const useMuiTheme = () => {
             contentPadding: '6px 16px',
             borderRadiusLG: 4,
             boxShadow:
-              '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowTertiary:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           },
           Modal: {
             titleColor: 'rgba(0, 0, 0, 0.87)',
@@ -832,7 +845,7 @@ const useMuiTheme = () => {
             zIndexPopup: 1400,
             borderRadiusLG: 4,
             boxShadow:
-              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           },
           Pagination: {
             itemActiveBg: '#1976d2',
@@ -855,7 +868,7 @@ const useMuiTheme = () => {
             titleMinWidth: 0,
             colorBgElevated: '#fff',
             dropShadowPopover:
-              'drop-shadow(0px 2px 1px rgba(0,0,0,0.2)) drop-shadow(0px 1px 1px rgba(0,0,0,0.14)) drop-shadow(0px 1px 3px rgba(0,0,0,0.12))',
+              'drop-shadow(0px 5px 5px rgba(0,0,0,0.2)) drop-shadow(0px 8px 10px rgba(0,0,0,0.14)) drop-shadow(0px 3px 14px rgba(0,0,0,0.12))',
             innerPadding: 16,
             titleMarginBottom: 8,
             titlePadding: 0,
@@ -1073,6 +1086,8 @@ const useMuiTheme = () => {
             colorBgElevated: '#fff',
             boxShadowSecondary:
               '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
+            boxShadowTertiary:
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             borderRadiusLG: 4,
             zIndexPopup: 1500,
           },
@@ -1223,7 +1238,11 @@ const useMuiTheme = () => {
         },
       },
       dropdown: {},
-      card: {},
+      card: {
+        classNames: {
+          root: styles.cardRoot,
+        },
+      },
       modal: {
         classNames: ({ props }) => ({
           root: styles.modalRoot,
@@ -1256,7 +1275,7 @@ const useMuiTheme = () => {
           content: styles.colorPickerContent,
           description: styles.colorPickerDescription,
           popup: {
-            root: styles.pickerPopupRoot,
+            root: styles.colorPickerPopupRoot,
           },
         },
       },
