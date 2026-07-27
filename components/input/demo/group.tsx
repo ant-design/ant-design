@@ -27,13 +27,13 @@ const useStyles = createStyles((props) => {
       border-inline-start-width: 0;
       &:hover,
       &:focus {
-        border-inline-start-width: 1px;
+        border-inline-start-width: ${cssVar.lineWidth};
       }
       &.${prefixCls}-input-rtl {
         border-inline-end-width: 0;
         &:hover,
         &:focus {
-          border-inline-end-width: 1px;
+          border-inline-end-width: ${cssVar.lineWidth};
         }
       }
     `,
