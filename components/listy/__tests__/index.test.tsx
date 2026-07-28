@@ -1,18 +1,18 @@
 import React from 'react';
 
 import Listy from '..';
+import type { ListyRef } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { ListyRef } from '../interface';
 
 interface DataItem {
   id: number;
   title: string;
 }
 
-const items: DataItem[] = Array.from({ length: 20 }, (_, index) => ({
+const items = Array.from<any, DataItem>({ length: 20 }, (_, index) => ({
   id: index,
   title: `Item ${index}`,
 }));
