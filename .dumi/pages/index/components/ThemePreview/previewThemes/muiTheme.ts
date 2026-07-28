@@ -103,7 +103,7 @@ const useStyles = createStyles(({ css }) => ({
   }),
   buttonElevation: css({
     boxShadow:
-      '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
   }),
   buttonIcon: css({
     fontSize: 18,
@@ -113,7 +113,7 @@ const useStyles = createStyles(({ css }) => ({
   }),
   cardRoot: css({
     boxShadow:
-      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12) !important',
+      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12) !important',
   }),
   inputRoot: css({
     borderColor: 'rgba(0, 0, 0, 0.23)',
@@ -177,11 +177,11 @@ const useStyles = createStyles(({ css }) => ({
   }),
   modalContainerOpen: css({
     boxShadow:
-      '0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)',
+      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
   }),
   modalContainerClosed: css({
     boxShadow:
-      '0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)',
+      '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
   }),
   modalMask: css({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -492,11 +492,11 @@ const useMuiTheme = () => {
           marginXL: 32,
 
           boxShadow:
-            '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+            '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           boxShadowSecondary:
             '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           boxShadowTertiary:
-            '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+            '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           dropShadowPopover: 'none',
 
           motionEaseInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -553,11 +553,11 @@ const useMuiTheme = () => {
             iconGap: 8,
             primaryColor: '#fff',
             primaryShadow:
-              '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             defaultShadow: 'none',
             dangerColor: '#fff',
             dangerShadow:
-              '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             textTextColor: '#1976d2',
             textTextHoverColor: '#1976d2',
             textTextActiveColor: '#1565c0',
@@ -697,7 +697,7 @@ const useMuiTheme = () => {
             colorBgElevated: '#1976d2',
             colorTextLightSolid: '#fff',
             boxShadowSecondary:
-              '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             borderRadiusLG: 28,
           },
           Form: {
@@ -833,7 +833,7 @@ const useMuiTheme = () => {
             titleLineHeight: 1.6,
             borderRadiusLG: 4,
             boxShadow:
-              '0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
           },
           Notification: {
             width: 384,
@@ -1007,7 +1007,7 @@ const useMuiTheme = () => {
             trackPadding: 2,
             handleBg: '#fff',
             handleShadow:
-              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             handleSize: 18,
             handleSizeSM: 14,
             innerMinMargin: 6,
