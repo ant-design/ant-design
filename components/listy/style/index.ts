@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -28,6 +29,7 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
+      ...resetComponent(token),
       position: 'relative',
       color: token.colorText,
       fontSize: token.fontSize,
@@ -35,7 +37,6 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
 
       // ======================== Item ========================
       [`${componentCls}-item`]: {
-        boxSizing: 'border-box',
         padding: `${unit(itemPaddingBlock)} ${unit(itemPaddingInline)}`,
         borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,

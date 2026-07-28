@@ -41,7 +41,7 @@ tag: 6.6.0
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - | × |
 | sticky | 分组标题是否吸顶 | boolean | false | - | × |
 | styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
-| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | true | - | × |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行 | boolean | false | - | × |
 | onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - | × |
 
 ### Group

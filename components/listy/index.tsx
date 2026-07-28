@@ -1,19 +1,45 @@
-import * as React from 'react';
+import React from 'react';
 import RcListy from '@rc-component/listy';
+import type {
+  ListyClassNames,
+  ListyRef,
+  ListyScrollToConfig,
+  ListyStyles,
+  ListyProps as RcListyProps,
+  ScrollAlign,
+} from '@rc-component/listy';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { AnyObject } from '../_util/type';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
-import type { ListyProps, ListyRef, ListySemanticAllType } from './interface';
 import useStyle from './style';
 
-function InternalListy<T = AnyObject, K extends React.Key = React.Key>(
+export type ListySemanticType = {
+  classNames?: ListyClassNames;
+  styles?: ListyStyles;
+};
+
+export type ListySemanticAllType = GenerateSemantic<ListySemanticType, ListyProps>;
+
+export interface ListyProps<T = AnyObject, K extends React.Key = React.Key> extends Omit<
+  RcListyProps<T, K>,
+  'itemHeight' | 'direction' | 'classNames' | 'styles'
+> {
+  rootClassName?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  classNames?: ListySemanticAllType['classNamesAndFn'];
+  styles?: ListySemanticAllType['stylesAndFn'];
+}
+
+const InternalListy = <T, K extends React.Key = React.Key>(
   props: ListyProps<T, K>,
   ref: React.Ref<ListyRef>,
-) {
+) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -33,6 +59,7 @@ function InternalListy<T = AnyObject, K extends React.Key = React.Key>(
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('listy');
+
   const { virtual: contextVirtual } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('listy', customizePrefixCls);
@@ -68,19 +95,21 @@ function InternalListy<T = AnyObject, K extends React.Key = React.Key>(
     rootCls,
   );
 
+  const mergedVirtual = virtual ?? contextVirtual ?? false;
+
   return (
     <RcListy<T, K>
       {...restProps}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
-      virtual={virtual ?? contextVirtual}
+      virtual={mergedVirtual}
       itemHeight={itemHeight}
       classNames={{ ...mergedClassNames, root: rootClassNames }}
       styles={mergedStyles}
     />
   );
-}
+};
 
 type ListyComponent = (<T = AnyObject, K extends React.Key = React.Key>(
   props: ListyProps<T, K> & { ref?: React.Ref<ListyRef> },
@@ -92,15 +121,6 @@ if (process.env.NODE_ENV !== 'production') {
   Listy.displayName = 'Listy';
 }
 
-export type {
-  ListyClassNames,
-  ListyProps,
-  ListyRef,
-  ListyScrollToConfig,
-  ListySemanticAllType,
-  ListySemanticType,
-  ListyStyles,
-  ScrollAlign,
-} from './interface';
+export type { ListyClassNames, ListyRef, ListyScrollToConfig, ListyStyles, ScrollAlign };
 
 export default Listy;
