@@ -12,57 +12,62 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
     >
       <div
         class="ant-listy semantic-mark-root css-var-test-id ant-listy-css-var"
-        style="width: 100%; position: relative;"
+        style="overflow-anchor: none; width: 100%;"
       >
         <div
-          class="ant-listy-holder"
+          class="ant-listy-group-section"
+          data-key="group:Design"
         >
-          <div>
-            <div
-              class="ant-listy-holder-inner"
-              style="display: flex; flex-direction: column;"
-            >
-              <div
-                class="ant-listy-group-header semantic-mark-groupHeader"
-              >
-                Design
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Olivia
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Liam
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Emma
-              </div>
-              <div
-                class="ant-listy-group-header semantic-mark-groupHeader"
-              >
-                Engineering
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Noah
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Ava
-              </div>
-              <div
-                class="ant-listy-item semantic-mark-item"
-              >
-                Ethan
-              </div>
-            </div>
+          <div
+            class="ant-listy-group-header semantic-mark-groupHeader"
+          >
+            Design
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:0"
+          >
+            Olivia
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:1"
+          >
+            Liam
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:2"
+          >
+            Emma
+          </div>
+        </div>
+        <div
+          class="ant-listy-group-section"
+          data-key="group:Engineering"
+        >
+          <div
+            class="ant-listy-group-header semantic-mark-groupHeader"
+          >
+            Engineering
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:3"
+          >
+            Noah
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:4"
+          >
+            Ava
+          </div>
+          <div
+            class="ant-listy-item semantic-mark-item"
+            data-key="item:5"
+          >
+            Ethan
           </div>
         </div>
       </div>
