@@ -18,6 +18,7 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/virtual.tsx">Virtual scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
 <code src="./demo/scroll-to.tsx">Scroll control</code>
 <code src="./demo/rich.tsx">Rich content</code>

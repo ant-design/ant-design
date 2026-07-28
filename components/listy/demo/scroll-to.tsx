@@ -9,7 +9,7 @@ interface Item {
 
 type Align = 'top' | 'bottom' | 'auto';
 
-const items: Item[] = Array.from({ length: 1000 }, (_, index) => ({
+const items = Array.from<any, Item>({ length: 1000 }, (_, index) => ({
   id: index,
   group: `Group ${Math.floor(index / 100)}`,
 }));
@@ -46,7 +46,7 @@ const App: React.FC = () => {
         </Space.Compact>
         <Button onClick={() => listRef.current?.scrollTo(0)}>Back to top</Button>
       </Flex>
-      <Listy
+      <Listy<Item>
         ref={listRef}
         items={items}
         rowKey="id"

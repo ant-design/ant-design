@@ -8,8 +8,8 @@ interface Item {
 
 const PAGE_SIZE = 50;
 
-const makePage = (offset: number): Item[] =>
-  Array.from({ length: PAGE_SIZE }, (_, index) => ({
+const makePage = (offset: number) =>
+  Array.from<any, Item>({ length: PAGE_SIZE }, (_, index) => ({
     id: offset + index,
     content: `Item ${offset + index}`,
   }));
@@ -35,7 +35,7 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="small">
-      <Listy
+      <Listy<Item>
         items={items}
         rowKey="id"
         height={400}

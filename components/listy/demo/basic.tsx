@@ -6,13 +6,13 @@ interface Item {
   content: string;
 }
 
-const items: Item[] = Array.from({ length: 10000 }, (_, index) => ({
+const items = Array.from<any, Item>({ length: 20 }, (_, index) => ({
   id: index,
   content: `Item ${index}`,
 }));
 
-const App: React.FC = () => (
-  <Listy items={items} rowKey="id" height={400} itemRender={(item) => item.content} />
-);
+const App: React.FC = () => {
+  return <Listy<Item> items={items} height={400} rowKey="id" itemRender={(item) => item.content} />;
+};
 
 export default App;

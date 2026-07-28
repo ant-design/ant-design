@@ -19,6 +19,7 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
+<code src="./demo/virtual.tsx">虚拟滚动</code>
 <code src="./demo/group.tsx">分组与吸顶</code>
 <code src="./demo/scroll-to.tsx">滚动控制</code>
 <code src="./demo/rich.tsx">复杂内容</code>

@@ -80,7 +80,7 @@ const lastNames = [
   'Turner',
 ];
 
-const contacts: Contact[] = firstNames
+const contacts = firstNames
   .flatMap((firstName, i) =>
     Array.from(
       { length: 4 },
@@ -88,14 +88,14 @@ const contacts: Contact[] = firstNames
     ),
   )
   .sort()
-  .map((name, id) => ({ id, name }));
+  .map<Contact>((name, id) => ({ id, name }));
 
 const colors = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae', '#87d068'];
 
 const colorOf = (letter: string) => colors[(letter.charCodeAt(0) - 65) % colors.length];
 
 const App: React.FC = () => (
-  <Listy
+  <Listy<Contact>
     items={contacts}
     rowKey="id"
     height={400}
