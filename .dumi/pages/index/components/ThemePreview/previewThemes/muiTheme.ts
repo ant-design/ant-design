@@ -101,10 +101,6 @@ const useStyles = createStyles(({ css }) => ({
     borderColor: '#d32f2f',
     color: '#fff',
   }),
-  buttonElevation: css({
-    boxShadow:
-      '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
-  }),
   buttonIcon: css({
     fontSize: 18,
   }),
@@ -553,11 +549,11 @@ const useMuiTheme = () => {
             iconGap: 8,
             primaryColor: '#fff',
             primaryShadow:
-              '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+              '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
             defaultShadow: 'none',
             dangerColor: '#fff',
             dangerShadow:
-              '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+              '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
             textTextColor: '#1976d2',
             textTextHoverColor: '#1976d2',
             textTextActiveColor: '#1565c0',
@@ -696,8 +692,6 @@ const useMuiTheme = () => {
           FloatButton: {
             colorBgElevated: '#1976d2',
             colorTextLightSolid: '#fff',
-            boxShadowSecondary:
-              '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)',
             borderRadiusLG: 28,
           },
           Form: {
@@ -1006,8 +1000,6 @@ const useMuiTheme = () => {
             trackMinWidthSM: 32,
             trackPadding: 2,
             handleBg: '#fff',
-            handleShadow:
-              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
             handleSize: 18,
             handleSizeSM: 14,
             innerMinMargin: 6,
@@ -1084,10 +1076,6 @@ const useMuiTheme = () => {
           },
           Tour: {
             colorBgElevated: '#fff',
-            boxShadowSecondary:
-              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
-            boxShadowTertiary:
-              '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
             borderRadiusLG: 4,
             zIndexPopup: 1500,
           },
@@ -1141,7 +1129,6 @@ const useMuiTheme = () => {
                 props.shape !== 'circle' && styles.buttonMinWidth,
                 styles.buttonEmphasis,
                 props.children && styles.buttonUppercase,
-                styles.buttonElevation,
               ),
               dashed: clsx(
                 props.shape !== 'circle' && styles.buttonMinWidth,
@@ -1155,7 +1142,6 @@ const useMuiTheme = () => {
                 props.children && styles.buttonUppercase,
                 props.type === 'dashed' && styles.buttonDashed,
                 props.children ? styles.buttonDangerSolid : styles.buttonDangerText,
-                (props.type === 'primary' || props.children) && styles.buttonElevation,
               ),
               default: undefined,
             }[
