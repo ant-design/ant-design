@@ -5,7 +5,7 @@ import { FloatButton } from 'antd';
 const App: React.FC = () => (
   <>
     <FloatButton icon={<QuestionCircleOutlined />} type="primary" style={{ insetInlineEnd: 24 }} />
-    <FloatButton icon={<QuestionCircleOutlined />} type="default" style={{ insetInlineEnd: 94 }} />
+    <FloatButton icon={<QuestionCircleOutlined />} type="+" style={{ insetInlineEnd: 94 }} />
   </>
 );
 
