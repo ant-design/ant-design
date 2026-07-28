@@ -177,11 +177,11 @@ const useStyles = createStyles(({ css }) => ({
   }),
   modalContainerOpen: css({
     boxShadow:
-      '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
   }),
   modalContainerClosed: css({
     boxShadow:
-      '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+      '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
   }),
   modalMask: css({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -298,7 +298,7 @@ const useStyles = createStyles(({ css }) => ({
   popoverRoot: css({
     borderRadius: 4,
     filter:
-      'drop-shadow(0px 3px 3px rgba(0,0,0,0.2)) drop-shadow(0px 3px 4px rgba(0,0,0,0.14)) drop-shadow(0px 1px 8px rgba(0,0,0,0.12))',
+      'drop-shadow(0px 2px 1px rgba(0,0,0,0.2)) drop-shadow(0px 1px 1px rgba(0,0,0,0.14)) drop-shadow(0px 1px 3px rgba(0,0,0,0.12))',
     boxShadow: 'none',
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   }),
@@ -823,9 +823,9 @@ const useMuiTheme = () => {
             contentPadding: '6px 16px',
             borderRadiusLG: 4,
             boxShadow:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
             boxShadowTertiary:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
           },
           Modal: {
             titleColor: 'rgba(0, 0, 0, 0.87)',
@@ -833,7 +833,7 @@ const useMuiTheme = () => {
             titleLineHeight: 1.6,
             borderRadiusLG: 4,
             boxShadow:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
           },
           Notification: {
             width: 384,
@@ -845,7 +845,7 @@ const useMuiTheme = () => {
             zIndexPopup: 1400,
             borderRadiusLG: 4,
             boxShadow:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
           },
           Pagination: {
             itemActiveBg: '#1976d2',
@@ -860,7 +860,7 @@ const useMuiTheme = () => {
           Popconfirm: {
             colorBgElevated: '#fff',
             boxShadowSecondary:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
             borderRadiusLG: 4,
             zIndexPopup: 1500,
           },
@@ -868,13 +868,13 @@ const useMuiTheme = () => {
             titleMinWidth: 0,
             colorBgElevated: '#fff',
             dropShadowPopover:
-              'drop-shadow(0px 3px 3px rgba(0,0,0,0.2)) drop-shadow(0px 3px 4px rgba(0,0,0,0.14)) drop-shadow(0px 1px 8px rgba(0,0,0,0.12))',
+              'drop-shadow(0px 2px 1px rgba(0,0,0,0.2)) drop-shadow(0px 1px 1px rgba(0,0,0,0.14)) drop-shadow(0px 1px 3px rgba(0,0,0,0.12))',
             innerPadding: 16,
             titleMarginBottom: 8,
             titlePadding: 0,
             innerContentPadding: 0,
             boxShadowSecondary:
-              '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
             borderRadiusLG: 4,
             zIndexPopup: 1500,
           },
