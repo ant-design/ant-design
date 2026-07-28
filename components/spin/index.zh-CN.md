@@ -26,6 +26,7 @@ demo:
 <code src="./demo/percent.tsx" version="5.18.0">进度</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/fullscreen.tsx">全屏</code>
+<code src="./demo/list-debug.tsx" debug>List 嵌套调试</code>
 
 ## API
 
