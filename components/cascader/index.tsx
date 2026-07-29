@@ -16,6 +16,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import type { AdjustOverflow } from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -189,6 +190,7 @@ export interface CascaderProps<
   variant?: Variant;
   classNames?: CascaderSemanticAllType['classNamesAndFn'];
   styles?: CascaderSemanticAllType['stylesAndFn'];
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
 export type CascaderAutoProps<
@@ -242,6 +244,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     clearIcon,
     removeIcon,
     suffixIcon,
+    autoAdjustOverflow,
     ...restProps
   } = props;
 
@@ -474,7 +477,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       classNames={mergedClassNames}
       styles={mergedStyles}
       {...(restProps as any)}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={mergedBuiltinPlacements({
+        builtinPlacements,
+        popupOverflow,
+        autoAdjustOverflow,
+      })}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
