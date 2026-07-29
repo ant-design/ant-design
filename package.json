@@ -168,6 +168,7 @@
     "@ant-design/x": "^2.7.0",
     "@ant-design/x-sdk": "^2.7.0",
     "@antfu/eslint-config": "~9.2.0",
+    "@babel/plugin-transform-class-static-block": "^7.29.7",
     "@biomejs/biome": "^2.5.0",
     "@blazediff/core": "^1.9.1",
     "@codecov/webpack-plugin": "^2.0.1",
