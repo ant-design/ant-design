@@ -453,8 +453,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx correctly 1`] = `
           Suffix
         </button>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -476,7 +478,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
   </div>
   <div
@@ -507,8 +509,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx correctly 1`] = `
           value=""
         />
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -530,7 +534,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
   </div>
 </div>

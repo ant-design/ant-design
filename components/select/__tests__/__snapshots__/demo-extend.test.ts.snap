@@ -954,8 +954,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           Suffix
         </button>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -977,7 +979,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -1007,16 +1009,16 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -1088,8 +1090,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           value=""
         />
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1111,7 +1115,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -1141,16 +1145,16 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
