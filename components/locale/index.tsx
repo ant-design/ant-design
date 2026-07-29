@@ -62,6 +62,10 @@ export interface Locale {
     singleColor: string;
     gradientColor: string;
   };
+  Sider?: {
+    expand?: string;
+    collapse?: string;
+  };
 }
 
 export interface LocaleProviderProps {

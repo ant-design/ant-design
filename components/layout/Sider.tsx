@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
+import { useLocale } from '../locale';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
 
@@ -105,6 +106,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   // =========================== Prefix ===========================
   const { getPrefixCls, direction } = useContext(ConfigContext);
+  const [siderLocale] = useLocale('Sider');
   const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -160,7 +162,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const rawWidth = collapsed ? collapsedWidth : width;
   // use "px" as fallback unit for width
   const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
-  const triggerLabel = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+  const triggerLabel = collapsed ? siderLocale.expand : siderLocale.collapse;
   // special trigger when collapsedWidth == 0
   const zeroWidthTrigger =
     Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (

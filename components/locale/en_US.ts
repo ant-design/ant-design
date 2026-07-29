@@ -147,6 +147,10 @@ const localeValues: Locale = {
     singleColor: 'Single',
     gradientColor: 'Gradient',
   },
+  Sider: {
+    expand: 'Expand sidebar',
+    collapse: 'Collapse sidebar',
+  },
 };
 
 export default localeValues;

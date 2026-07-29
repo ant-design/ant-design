@@ -148,6 +148,10 @@ const localeValues: Locale = {
     singleColor: '单色',
     gradientColor: '渐变色',
   },
+  Sider: {
+    expand: '展开侧边栏',
+    collapse: '收起侧边栏',
+  },
 };
 
 export default localeValues;

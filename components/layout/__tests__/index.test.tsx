@@ -6,6 +6,8 @@ import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import zhCN from '../../locale/zh_CN';
 import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
@@ -395,6 +397,20 @@ describe('Sider', () => {
 
     fireEvent.keyDown(trigger, { key: ' ' });
     expect(onCollapse).toHaveBeenCalledWith(false, 'clickTrigger');
+  });
+
+  it('should localize trigger aria-label via locale config', () => {
+    const { container } = render(
+      <ConfigProvider locale={zhCN}>
+        <Sider collapsible>Sider</Sider>
+      </ConfigProvider>,
+    );
+
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+    expect(trigger).toHaveAttribute('aria-label', '收起侧边栏');
+
+    fireEvent.click(trigger);
+    expect(trigger).toHaveAttribute('aria-label', '展开侧边栏');
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {
