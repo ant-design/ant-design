@@ -19,7 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/align.tsx" version="5.19.0">方向</code>
 <code src="./demo/more.tsx">更多</code>
-<code src="./demo/changer.tsx">改变</code>
+<code src="./demo/changer.tsx" version="6.6.0">改变</code>
 <code src="./demo/jump.tsx">跳转</code>
 <code src="./demo/mini.tsx">尺寸</code>
 <code src="./demo/simple.tsx">简洁</code>
@@ -60,6 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | showTotal | 用于显示数据总量和当前数据顺序 | function(total, range) | - |  | × |
 | simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - |  | × |
 | size | 组件尺寸 | `large` \| `medium` \| `small` | `medium` |  | × |
+| sizeChangerRender | 自定义 `pageSize` 切换器 | (info: { disabled: boolean; size: number; onSizeChange: (value: string \| number) => void; 'aria-label': string; className: string; options: { label: string; value: string \| number }\[] }) => ReactNode | - | 6.6.0 | × |
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | 数据总数 | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  | 6.2.0 |

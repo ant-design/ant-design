@@ -136,4 +136,24 @@ describe('Pagination', () => {
     // Expect `input` is `readonly`
     expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
   });
+
+  it('should support custom sizeChangerRender', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Pagination
+        defaultCurrent={1}
+        total={500}
+        showSizeChanger
+        sizeChangerRender={({ className, onSizeChange }) => (
+          <button className={className} type="button" onClick={() => onSizeChange(15)}>
+            Custom size changer
+          </button>
+        )}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-pagination-options-size-changer')!);
+    expect(onChange).toHaveBeenCalledWith(1, 15);
+  });
 });

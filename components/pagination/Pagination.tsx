@@ -78,6 +78,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     locale: customLocale,
     responsive,
     showSizeChanger,
+    sizeChangerRender: customSizeChangerRender,
     selectComponentClass,
     pageSizeOptions,
     styles,
@@ -150,7 +151,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   }, [pageSizeOptions]);
 
   // Render size changer
-  const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
+  const defaultSizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
     const {
       disabled,
       size: pageSize,
@@ -292,7 +293,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         totalBoundaryShowSizeChanger={
           restProps.totalBoundaryShowSizeChanger ?? contextTotalBoundaryShowSizeChanger
         }
-        sizeChangerRender={sizeChangerRender}
+        sizeChangerRender={customSizeChangerRender ?? defaultSizeChangerRender}
       />
     </>
   );

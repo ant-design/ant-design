@@ -14,6 +14,13 @@ describe('Pagination types', () => {
             console.log(value);
           },
         }}
+        sizeChangerRender={({ size, onSizeChange }) => (
+          <input
+            type="number"
+            value={size}
+            onChange={(event) => onSizeChange(event.target.value)}
+          />
+        )}
       />
     );
     expect(Demo).toBeTruthy();
