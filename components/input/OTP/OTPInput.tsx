@@ -18,7 +18,8 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 const DEFAULT_MASK_VALUE = '•';
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
+  const { className, value, onChange, onActiveChange, index, mask, onFocus, type, ...restProps } =
+    props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : DEFAULT_MASK_VALUE;
@@ -77,8 +78,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
       <Input
         aria-label={`OTP Input ${index + 1}`}
-        type={mask ? 'password' : 'text'}
         {...restProps}
+        type={type ?? (mask ? 'password' : 'text')}
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
