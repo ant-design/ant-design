@@ -46,9 +46,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(container.querySelector('.test-hex-input input')!, {
       target: { value: 631515 },
     });
-    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toBe(
-      '631515',
-    );
+    expect(container.querySelector('.test-hex-input input')?.getAttribute('value')).toBe('631515');
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
