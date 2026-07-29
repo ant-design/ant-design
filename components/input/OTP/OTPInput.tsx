@@ -16,19 +16,71 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
+  const {
+    className,
+    value,
+    onChange,
+    onActiveChange,
+    index,
+    mask,
+    onFocus,
+    onCompositionStart,
+    onCompositionEnd,
+    ...restProps
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : value;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
+  const composingRef = React.useRef(false);
+  const composedValueRef = React.useRef<string | null>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
   const onInternalChange: React.InputEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, (e.target as HTMLInputElement).value);
+    if (composingRef.current || (e.nativeEvent as InputEvent).isComposing) {
+      return;
+    }
+
+    const nextValue = (e.target as HTMLInputElement).value;
+
+    if (composedValueRef.current !== null) {
+      const composedValue = composedValueRef.current;
+      composedValueRef.current = null;
+
+      if (nextValue === composedValue) {
+        return;
+      }
+    }
+
+    onChange(index, nextValue);
+  };
+
+  const onInternalCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
+    composingRef.current = true;
+    composedValueRef.current = null;
+    onCompositionStart?.(e);
+  };
+
+  const onInternalCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
+    composingRef.current = false;
+    const nextValue = (e.target as HTMLInputElement).value;
+
+    if (nextValue !== value) {
+      composedValueRef.current = nextValue;
+      onChange(index, nextValue);
+
+      raf(() => {
+        composedValueRef.current = null;
+      });
+    } else {
+      composedValueRef.current = null;
+    }
+
+    onCompositionEnd?.(e);
   };
 
   // ========================= Focus ==========================
@@ -80,6 +132,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
+        onCompositionStart={onInternalCompositionStart}
+        onCompositionEnd={onInternalCompositionEnd}
         onFocus={onInternalFocus}
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}
