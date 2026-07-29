@@ -29,7 +29,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -138,7 +138,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -223,7 +223,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -600,7 +600,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -710,7 +710,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -794,7 +794,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -929,7 +929,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1085,7 +1085,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1264,7 +1264,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1363,7 +1363,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1462,7 +1462,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1525,7 +1525,7 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
   />
   <div
     class="ant-slider-tracks"
-    style="left: 0%; width: 20%; background: linear-gradient(to right, rgb(135,208,104) 0%, rgb(159,207,123) 100%);"
+    style="left: 0%; width: 20%;"
   />
   <div
     class="ant-slider-track ant-slider-track-1"
@@ -1605,7 +1605,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1714,7 +1714,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
   />
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -1749,7 +1749,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     />
     <div
       class="ant-slider-track"
-      style="left: 0%; width: 30%; background-image: linear-gradient(180deg, #91caff, #1677ff);"
+      style="left: 0%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -1763,12 +1763,12 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left: 30%; transform: translateX(-50%); border-color: rgb(22, 119, 255); box-shadow: 0 2px 8px #1677ff;"
+      style="left: 30%; transform: translateX(-50%); border-color: #1677ff; box-shadow: 0 2px 8px #1677ff;"
       tabindex="0"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1796,7 +1796,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     />
     <div
       class="ant-slider-track"
-      style="top: 0%; height: 30%; background-image: linear-gradient(180deg, #722cc0, #722ed1);"
+      style="top: 0%; height: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -1810,12 +1810,12 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
       aria-valuenow="30"
       class="ant-slider-handle acss-4cyuny"
       role="slider"
-      style="top: 30%; transform: translateY(-50%); border-color: rgb(114, 46, 209); box-shadow: 0 2px 8px #722ed1;"
+      style="top: 30%; transform: translateY(-50%); border-color: #722ed1; box-shadow: 0 2px 8px #722ed1;"
       tabindex="0"
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1868,7 +1868,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1914,7 +1914,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1968,7 +1968,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"

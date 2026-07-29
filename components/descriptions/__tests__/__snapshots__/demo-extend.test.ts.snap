@@ -2367,7 +2367,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
   </div>
   <div
     class="ant-descriptions acss-ven0qr ant-descriptions-bordered css-var-test-id"
-    style="border-radius: 8px; border: 1px solid rgb(205, 193, 255);"
+    style="border-radius: 8px; border: 1px solid #cdc1ff;"
   >
     <div
       class="ant-descriptions-header"

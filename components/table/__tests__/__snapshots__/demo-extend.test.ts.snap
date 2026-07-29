@@ -2134,7 +2134,7 @@ Array [
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -2192,7 +2192,7 @@ Array [
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -2233,7 +2233,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -2278,7 +2278,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -2390,7 +2390,7 @@ Array [
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -3596,7 +3596,7 @@ Array [
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -3637,7 +3637,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -3682,7 +3682,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -4006,7 +4006,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -4143,7 +4143,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -4313,7 +4313,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                         </div>
                         <div
                           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-tooltip-arrow"
@@ -4359,7 +4359,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -6679,7 +6679,7 @@ Array [
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -6737,7 +6737,7 @@ Array [
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -6778,7 +6778,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -6823,7 +6823,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -6935,7 +6935,7 @@ Array [
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -8162,7 +8162,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                       </a>
                       <div
                         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-popover-arrow"
@@ -8279,7 +8279,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                       </a>
                       <div
                         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popconfirm ant-popover-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-popover-arrow"
@@ -9056,7 +9056,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div>
               <div
@@ -9571,7 +9571,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9600,7 +9600,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9629,7 +9629,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9658,7 +9658,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9704,7 +9704,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9733,7 +9733,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9762,7 +9762,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9791,7 +9791,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9837,7 +9837,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9866,7 +9866,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9895,7 +9895,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -9924,7 +9924,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                     </span>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-topLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -10756,7 +10756,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -11257,7 +11257,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -11315,7 +11315,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -11394,7 +11394,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -11439,7 +11439,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -11737,7 +11737,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -12036,7 +12036,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -12094,7 +12094,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -12173,7 +12173,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -12218,7 +12218,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -12523,7 +12523,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                   style="height: 0px;"
                 >
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -12532,7 +12532,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -12541,7 +12541,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -13694,7 +13694,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div>
               <div
@@ -13830,7 +13830,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; min-width: 100%; width: calc(50% + 700px);"
+              style="table-layout: fixed; min-width: 100%; width: calc(700px + 50%);"
             >
               <colgroup>
                 <col
@@ -13901,7 +13901,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -13942,7 +13942,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -13987,7 +13987,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -14124,7 +14124,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -14203,7 +14203,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow-x: auto; overflow-y: scroll; max-height: 235px;"
           >
             <table
-              style="width: calc(50% + 700px); min-width: 100%; table-layout: fixed;"
+              style="width: calc(700px + 50%); min-width: 100%; table-layout: fixed;"
             >
               <colgroup>
                 <col
@@ -14238,7 +14238,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                   style="height: 0px;"
                 >
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14280,7 +14280,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14344,7 +14344,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -14365,7 +14365,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14374,7 +14374,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14383,7 +14383,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14392,7 +14392,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14401,7 +14401,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -14410,7 +14410,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -15133,7 +15133,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div>
               <div
@@ -15327,7 +15327,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         </div>
                         <div
                           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-tooltip-arrow"
@@ -15373,7 +15373,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -15414,7 +15414,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -15459,7 +15459,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -15519,7 +15519,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               </div>
                               <div
                                 class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var ant-dropdown-menu-submenu-placement-rightTop"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <ul
                                   class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
@@ -15556,7 +15556,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   </li>
                                   <div
                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                   >
                                     <div
                                       class="ant-tooltip-arrow"
@@ -15601,7 +15601,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   </li>
                                   <div
                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                   >
                                     <div
                                       class="ant-tooltip-arrow"
@@ -15716,7 +15716,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       </span>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -15775,7 +15775,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -15816,7 +15816,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -15861,7 +15861,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -16961,7 +16961,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -17098,7 +17098,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -17139,7 +17139,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -17184,7 +17184,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -17229,7 +17229,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -17347,7 +17347,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         </div>
                         <div
                           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-tooltip-arrow"
@@ -17393,7 +17393,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       </span>
                       <div
                         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -17518,7 +17518,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                   style="height: 0px;"
                 >
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -17560,7 +17560,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -17602,7 +17602,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0; border-bottom: 0; height: 0px;"
                   >
                     <div
                       style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -17672,7 +17672,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                           </div>
                           <div
                             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div
                               class="ant-tooltip-arrow"
@@ -17991,7 +17991,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -18076,7 +18076,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -18161,7 +18161,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
                     </div>
                     <div
                       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                     >
                       <div
                         class="ant-tooltip-arrow"
@@ -18919,7 +18919,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -19769,7 +19769,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -19792,7 +19792,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -19823,7 +19823,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -19933,7 +19933,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -19956,7 +19956,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -19987,7 +19987,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20097,7 +20097,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -20120,7 +20120,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20151,7 +20151,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20665,7 +20665,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -20688,7 +20688,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20719,7 +20719,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20829,7 +20829,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -20852,7 +20852,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20883,7 +20883,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -20993,7 +20993,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -21016,7 +21016,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21047,7 +21047,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21561,7 +21561,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -21584,7 +21584,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21615,7 +21615,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21725,7 +21725,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -21748,7 +21748,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21779,7 +21779,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21889,7 +21889,7 @@ Array [
                                               </a>
                                               <div
                                                 class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                               >
                                                 <ul
                                                   class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -21912,7 +21912,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -21943,7 +21943,7 @@ Array [
                                                   </li>
                                                   <div
                                                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                                                   >
                                                     <div
                                                       class="ant-tooltip-arrow"
@@ -22318,7 +22318,7 @@ exports[`renders components/table/demo/nested-table-in-tabs-debug.tsx extend con
                           </button>
                           <div
                             class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <ul
                               aria-label="expanded dropdown"
@@ -23515,7 +23515,7 @@ Array [
                           </div>
                           <div
                             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div
                               class="ant-tooltip-arrow"
@@ -23561,7 +23561,7 @@ Array [
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -23602,7 +23602,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -23647,7 +23647,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -23760,7 +23760,7 @@ Array [
                       </div>
                       <div
                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-tooltip-arrow"
@@ -23852,7 +23852,7 @@ Array [
                           </div>
                           <div
                             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div
                               class="ant-tooltip-arrow"
@@ -23898,7 +23898,7 @@ Array [
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-table-css-var css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -23939,7 +23939,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -23984,7 +23984,7 @@ Array [
                               </li>
                               <div
                                 class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                               >
                                 <div
                                   class="ant-tooltip-arrow"
@@ -25422,7 +25422,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -25445,7 +25445,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -25476,7 +25476,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -25507,7 +25507,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -25538,7 +25538,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -25569,7 +25569,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -28870,7 +28870,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -28893,7 +28893,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -28924,7 +28924,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -28955,7 +28955,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             </li>
                             <div
                               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-tooltip-arrow"
@@ -29937,7 +29937,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
         >
           <div
             class="ant-table-title"
-            style="background-image: linear-gradient(90deg, #6a5acd, #836fff); color: rgb(255, 255, 255); font-size: 1.25rem; font-weight: 600; padding: 12px 16px;"
+            style="color: rgb(255, 255, 255); font-size: 1.25rem; font-weight: 600; padding: 12px 16px;"
           >
             Table Function Styles
           </div>
@@ -29957,28 +29957,28 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);"
                     >
                       Address
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);"
                     >
                       Description
                     </th>

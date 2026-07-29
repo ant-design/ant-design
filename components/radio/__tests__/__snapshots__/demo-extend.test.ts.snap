@@ -546,7 +546,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
 
 exports[`renders components/radio/demo/debug-group-width.tsx extend context correctly 1`] = `
 <div
-  style="width: 280px; border: 1px solid rgb(238, 238, 238); padding: 16px;"
+  style="width: 280px; border: 1px solid #eee; padding: 16px;"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -1583,7 +1583,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-large"
 >
   <div
-    style="flex: 1 1 0%;"
+    style="flex: 1;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
@@ -1673,7 +1673,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </div>
   </div>
   <div
-    style="flex: 1 1 0%;"
+    style="flex: 1;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"

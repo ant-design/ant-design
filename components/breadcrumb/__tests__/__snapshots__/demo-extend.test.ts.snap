@@ -149,7 +149,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottom"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -178,7 +178,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -215,7 +215,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -252,7 +252,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -423,7 +423,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottom"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -450,7 +450,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -485,7 +485,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -594,7 +594,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottom"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -623,7 +623,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -660,7 +660,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -697,7 +697,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -882,7 +882,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
   <nav
     aria-label="Breadcrumb with Object"
     class="ant-breadcrumb acss-14g82y5 css-var-test-id"
-    style="border: 1px solid rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
+    style="border: 1px solid #f0f0f0; padding: 8px; border-radius: 4px;"
   >
     <ol>
       <li
@@ -921,7 +921,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
   <nav
     aria-label="Breadcrumb with Function"
     class="ant-breadcrumb acss-14g82y5 css-var-test-id"
-    style="border: 1px solid rgb(245, 239, 255); padding: 8px; border-radius: 4px;"
+    style="border: 1px solid #f5efff; padding: 8px; border-radius: 4px;"
   >
     <ol>
       <li

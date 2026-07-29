@@ -1324,7 +1324,7 @@ Array [
   </div>,
   <div
     class="ant-result ant-result-success css-var-test-id demo-result-root--success"
-    style="background-color: rgb(246, 255, 237); border-color: rgb(82, 196, 26);"
+    style="background-color: rgb(246, 255, 237); border-color: #52c41a;"
   >
     <div
       class="ant-result-icon"

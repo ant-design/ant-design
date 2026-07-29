@@ -1858,7 +1858,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     class="ant-alert ant-alert-success ant-alert-outlined acss-hrwuh css-var-test-id"
     data-show="true"
     role="alert"
-    style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"
+    style="background-color: rgba(82, 196, 26, 0.1); border-color: #b7eb8f;"
   >
     <span
       class="ant-alert-icon"

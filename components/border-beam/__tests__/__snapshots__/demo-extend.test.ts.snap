@@ -118,7 +118,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
 
 exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 1`] = `
 <div
-  style="position: relative; width: 420px; background: rgb(255, 255, 255); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
+  style="position: relative; width: 420px; background: rgb(255, 255, 255); border: 1px solid #f0f0f0; border-radius: 8px;"
 >
   <div
     style="min-height: 160px; padding: 24px; color: rgba(0, 0, 0, 0.88); line-height: 1.5715;"

@@ -34,7 +34,7 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var semantic-mark-popup-root ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1;"
         >
           <div
             class="ant-popover-arrow"
@@ -78,7 +78,7 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                          style="background-color: rgb(0, 106, 255);"
                         />
                       </div>
                     </div>
@@ -93,7 +93,6 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
-                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -115,7 +114,6 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
-                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"

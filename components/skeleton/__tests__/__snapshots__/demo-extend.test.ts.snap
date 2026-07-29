@@ -839,7 +839,7 @@ exports[`renders components/skeleton/demo/style-class.tsx extend context correct
     >
       <span
         class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
-        style="border: 1px solid rgb(170, 170, 170);"
+        style="border: 1px solid #aaa;"
       />
     </div>
     <div
@@ -847,7 +847,7 @@ exports[`renders components/skeleton/demo/style-class.tsx extend context correct
     >
       <h3
         class="ant-skeleton-title"
-        style="border: 1px solid rgb(170, 170, 170);"
+        style="border: 1px solid #aaa;"
       />
     </div>
   </div>

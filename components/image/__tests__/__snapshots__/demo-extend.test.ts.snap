@@ -958,7 +958,7 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
     aria-label="Example image"
     class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
     role="button"
-    style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
+    style="width: 160px; border: 2px solid #a594f9; border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
     tabindex="0"
   >
     <img
