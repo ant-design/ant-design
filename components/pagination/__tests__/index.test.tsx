@@ -137,18 +137,20 @@ describe('Pagination', () => {
     expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
   });
 
-  it('should support custom sizeChangerRender', () => {
+  it('should support custom size changer component', () => {
     const onChange = jest.fn();
     const { container } = render(
       <Pagination
         defaultCurrent={1}
         total={500}
         showSizeChanger
-        sizeChangerRender={({ className, onSizeChange }) => (
-          <button className={className} type="button" onClick={() => onSizeChange(15)}>
-            Custom size changer
-          </button>
-        )}
+        components={{
+          sizeChanger: ({ className, onSizeChange }) => (
+            <button className={className} type="button" onClick={() => onSizeChange(15)}>
+              Custom size changer
+            </button>
+          ),
+        }}
         onChange={onChange}
       />,
     );

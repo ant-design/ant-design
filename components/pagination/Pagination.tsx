@@ -42,13 +42,21 @@ export type PaginationSemanticType = {
 export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
 export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
+  extends Omit<
+    RcPaginationProps,
+    'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles' | 'sizeChangerRender'
+  > {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: SizeType;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
+  components?: {
+    sizeChanger?: React.ComponentType<
+      Parameters<NonNullable<RcPaginationProps['sizeChangerRender']>>[0]
+    >;
+  };
   showSizeChanger?: boolean | SelectProps;
   /** @deprecated Not official support. Will be removed in next major version. */
   selectComponentClass?: any;
@@ -78,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     locale: customLocale,
     responsive,
     showSizeChanger,
-    sizeChangerRender: customSizeChangerRender,
+    components,
     selectComponentClass,
     pageSizeOptions,
     styles,
@@ -151,7 +159,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   }, [pageSizeOptions]);
 
   // Render size changer
-  const defaultSizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
+  const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
+    const SizeChangerComponent = components?.sizeChanger;
+    if (SizeChangerComponent) {
+      return <SizeChangerComponent {...info} />;
+    }
+
     const {
       disabled,
       size: pageSize,
@@ -293,7 +306,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         totalBoundaryShowSizeChanger={
           restProps.totalBoundaryShowSizeChanger ?? contextTotalBoundaryShowSizeChanger
         }
-        sizeChangerRender={customSizeChangerRender ?? defaultSizeChangerRender}
+        sizeChangerRender={sizeChangerRender}
       />
     </>
   );

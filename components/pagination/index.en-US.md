@@ -18,7 +18,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/align.tsx" version="5.19.0">Align</code>
 <code src="./demo/more.tsx">More</code>
-<code src="./demo/changer.tsx" version="6.6.0">Changer</code>
+<code src="./demo/changer.tsx">Changer</code>
+<code src="./demo/components.tsx" version="6.6.0">Custom component</code>
 <code src="./demo/jump.tsx">Jumper</code>
 <code src="./demo/mini.tsx">Size</code>
 <code src="./demo/simple.tsx">Simple mode</code>
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | align | Align | start \| center \| end | - | 5.19.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| components | Customize internal components | { sizeChanger?: React.ComponentType } | - | 6.6.0 | × |
 | current | Current page number | number | - |  | × |
 | defaultCurrent | Default initial page number | number | 1 |  | × |
 | defaultPageSize | Default number of data items per page | number | 10 |  | × |
@@ -59,7 +61,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | showTotal | To display the total number and range | function(total, range) | - |  | × |
 | simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  | × |
 | size | Component size | `large` \| `medium` \| `small` | `medium` |  | × |
-| sizeChangerRender | Customize the `pageSize` changer | (info: { disabled: boolean; size: number; onSizeChange: (value: string \| number) => void; 'aria-label': string; className: string; options: { label: string; value: string \| number }\[] }) => ReactNode | - | 6.6.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | Total number of data items | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 6.2.0 |
