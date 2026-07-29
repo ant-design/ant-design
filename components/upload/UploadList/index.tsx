@@ -97,7 +97,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     if (isFunction(onDownload)) {
       onDownload(file);
     } else if (file.url) {
-      window.open(file.url);
+      window.open(file.url, '_blank', 'noopener');
     }
   };
 
