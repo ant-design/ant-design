@@ -90,7 +90,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div>
               <div
@@ -224,7 +224,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div>
               <div
@@ -475,7 +475,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           </div>
           <div
             class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div>
               <div
@@ -717,7 +717,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -893,7 +893,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -1511,7 +1511,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -3073,7 +3073,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -3198,7 +3198,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -3326,7 +3326,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -3454,7 +3454,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -3583,7 +3583,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
   >
     <div>
       <div
@@ -3814,7 +3814,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -4966,7 +4966,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container ant-picker-month-panel-container"
@@ -5236,7 +5236,7 @@ Array [
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -5423,7 +5423,7 @@ Array [
   <textarea
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Autosize height with minimum and maximum number of lines"
-    style="resize: none; height: -8px; max-height: -8px;"
+    style="resize: none; max-height: -8px;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -5431,7 +5431,7 @@ Array [
   <textarea
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Controlled autosize"
-    style="resize: none; height: -6px; min-height: -2px; max-height: -6px;"
+    style="resize: none; min-height: -2px; max-height: -6px;"
   />,
 ]
 `;
@@ -5586,7 +5586,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
   </span>
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear ant-input-outlined css-var-test-id ant-input-css-var"
-    style="border: 2px solid #000;"
+    style="border: 2px solid rgb(0, 0, 0);"
   >
     <textarea
       class="ant-input"
@@ -5860,7 +5860,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -6728,7 +6728,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -6798,7 +6798,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -7098,7 +7098,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -7309,7 +7309,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -7980,7 +7980,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -9143,7 +9143,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9268,7 +9268,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9398,7 +9398,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9551,7 +9551,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9657,7 +9657,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9779,7 +9779,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -9909,7 +9909,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
     >
       <div>
         <div
@@ -10993,7 +10993,7 @@ Array [
       </span>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -11916,14 +11916,14 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     name="input-fn"
     placeholder="Function"
-    style="border-color: #696fc7;"
+    style="border-color: rgb(105, 111, 199);"
     type="text"
     value=""
   />
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     data-count="8"
-    style="border-color: #bde3c3;"
+    style="border-color: rgb(189, 227, 195);"
   >
     <textarea
       class="ant-input"
@@ -11945,7 +11945,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
   </span>
   <span
     class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-medium css-var-test-id ant-input-css-var acss-c5jr4n"
-    style="border-color: #f5d3c4;"
+    style="border-color: rgb(245, 211, 196);"
   >
     <input
       class="ant-input"
@@ -12002,7 +12002,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 1"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12020,7 +12020,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 2"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12038,7 +12038,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 3"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12056,7 +12056,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 4"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12074,7 +12074,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 5"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12092,7 +12092,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
         aria-label="OTP Input 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
-        style="border-color: #6e8cfb; width: 32px;"
+        style="border-color: rgb(110, 140, 251); width: 32px;"
         type="text"
         value=""
       />
@@ -12106,13 +12106,13 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
       class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
       name="search-fn"
       placeholder="Search"
-      style="color: rgb(77, 168, 218); border-color: #4da8da;"
+      style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
       type="search"
       value=""
     />
     <button
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-input-search-btn"
-      style="color: rgb(77, 168, 218); border-color: #4da8da;"
+      style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
       type="button"
     >
       <span
@@ -12248,7 +12248,7 @@ Array [
   />,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -12284,7 +12284,7 @@ Array [
   />,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id acss-10xdbvc ant-tooltip-placement-topLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"

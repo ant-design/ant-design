@@ -372,6 +372,7 @@ describe('Typography copy', () => {
   });
 
   it('locale text for button tooltip', async () => {
+    jest.useFakeTimers();
     const { container } = render(
       <Base component="p" copyable>
         test
@@ -384,6 +385,7 @@ describe('Typography copy', () => {
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
     await sleep(0);
     expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Copied');
+    jest.useRealTimers();
   });
 
   it('copy array children', () => {

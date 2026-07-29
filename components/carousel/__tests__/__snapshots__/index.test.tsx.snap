@@ -12,7 +12,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       />
     </div>
   </div>
@@ -31,7 +31,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -65,7 +65,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -99,7 +99,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"
@@ -133,7 +133,7 @@ exports[`Carousel should works for dotPosition top 1`] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="false"

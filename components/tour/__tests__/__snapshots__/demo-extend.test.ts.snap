@@ -76,7 +76,7 @@ Array [
   </div>,
   <div
     class="ant-tour css-var-test-id ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -249,7 +249,7 @@ Array [
   </div>,
   <div
     class="ant-tour css-var-test-id ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -406,7 +406,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             />
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -473,7 +473,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             />
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -540,7 +540,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             />
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -607,7 +607,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             />
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -632,7 +632,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tour css-var-test-id ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -793,7 +793,7 @@ Array [
   </div>,
   <div
     class="ant-tour css-var-test-id ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -952,7 +952,7 @@ Array [
   </div>,
   <div
     class="ant-tour css-var-test-id ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -1126,7 +1126,7 @@ Array [
   </div>,
   <div
     class="ant-tour css-var-test-id ant-tour-primary ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-arrow"
@@ -1236,7 +1236,7 @@ Array [
   </button>,
   <div
     class="ant-tour css-var-test-id"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-panel"
@@ -1687,14 +1687,14 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
   />
   <div
     class="ant-tour css-var-test-id acss-1rj0z6b ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-panel"
     >
       <div
         class="ant-tour-section acss-1ts3ij4"
-        style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border: 2px solid #4096ff;"
+        style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border: 2px solid rgb(64, 150, 255);"
       >
         <button
           aria-label="Close"
@@ -1779,7 +1779,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
   </div>
   <div
     class="ant-tour css-var-test-id acss-1rj0z6b ant-tour-primary ant-tour-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-panel"
@@ -1858,7 +1858,7 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
           >
             <button
               class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-tour-next-btn"
-              style="border: 1px solid #cdc1ff; color: rgb(205, 193, 255);"
+              style="border: 1px solid rgb(205, 193, 255); color: rgb(205, 193, 255);"
               type="button"
             >
               <span>

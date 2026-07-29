@@ -17,7 +17,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -71,7 +71,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -86,6 +86,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -107,6 +108,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -184,7 +186,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -397,7 +399,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -441,7 +443,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -456,6 +458,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -477,6 +480,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -554,7 +558,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -772,7 +776,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -816,7 +820,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -831,6 +835,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -852,6 +857,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -929,7 +935,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -1139,7 +1145,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1183,7 +1189,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -1198,6 +1204,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -1219,6 +1226,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -1296,7 +1304,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -1515,7 +1523,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -1559,7 +1567,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -1574,6 +1582,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -1595,6 +1604,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -1672,7 +1682,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -1885,7 +1895,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -1929,7 +1939,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -1944,6 +1954,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -2021,7 +2032,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -2174,7 +2185,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -2218,7 +2229,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -2233,6 +2244,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -2254,6 +2266,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -2331,7 +2344,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -2556,7 +2569,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -2600,7 +2613,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -2615,6 +2628,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -2636,6 +2650,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(23,120,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -2713,7 +2728,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -3144,7 +3159,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -3188,7 +3203,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -3203,6 +3218,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -3224,6 +3240,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -3301,7 +3318,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -3729,6 +3746,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-color-picker-color-block-inner"
+          style="background: linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%);"
         />
       </div>
       <div
@@ -3748,7 +3766,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -3830,6 +3848,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
               >
                 <div
                   class="ant-slider-rail ant-color-picker-slider-rail"
+                  style="background: linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%);"
                 />
                 <div
                   class="ant-slider-step"
@@ -3877,7 +3896,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 149, 255);"
+                      style="background-color: rgb(0, 149, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -3892,6 +3911,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -3913,6 +3933,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(16,143,233) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -3990,7 +4011,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -4194,6 +4215,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
       >
         <div
           class="ant-color-picker-color-block-inner"
+          style="background: linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%);"
         />
       </div>
       <div
@@ -4213,7 +4235,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -4252,6 +4274,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
               >
                 <div
                   class="ant-slider-rail ant-color-picker-slider-rail"
+                  style="background: linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%);"
                 />
                 <div
                   class="ant-slider-step"
@@ -4299,7 +4322,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 149, 255);"
+                      style="background-color: rgb(0, 149, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -4314,6 +4337,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -4335,6 +4359,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(16,143,233) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -4412,7 +4437,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -4644,7 +4669,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -4696,7 +4721,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-color-picker-saturation"
-                            style="background-color: rgb(0, 106, 255);"
+                            style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                           />
                         </div>
                       </div>
@@ -4711,6 +4736,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
+                              style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                             />
                             <div
                               class="ant-slider-step"
@@ -4732,6 +4758,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
+                              style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                             />
                             <div
                               class="ant-slider-step"
@@ -4809,7 +4836,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       </div>
                       <div
                         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                       >
                         <div>
                           <div
@@ -5035,7 +5062,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -5649,7 +5676,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-color-picker-saturation"
-                            style="background-color: rgb(0, 106, 255);"
+                            style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                           />
                         </div>
                       </div>
@@ -5664,6 +5691,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
+                              style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                             />
                             <div
                               class="ant-slider-step"
@@ -5685,6 +5713,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-slider-rail ant-color-picker-slider-rail"
+                              style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                             />
                             <div
                               class="ant-slider-step"
@@ -5762,7 +5791,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       </div>
                       <div
                         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                       >
                         <div>
                           <div
@@ -5979,7 +6008,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -6023,7 +6052,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -6038,6 +6067,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -6059,6 +6089,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -6136,7 +6167,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -6778,7 +6809,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottom"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -6822,7 +6853,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -6837,6 +6868,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -6858,6 +6890,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -6935,7 +6968,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 150; width: 68px;"
                 >
                   <div>
                     <div
@@ -7160,7 +7193,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -7204,7 +7237,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -7219,6 +7252,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -7240,6 +7274,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -7317,7 +7352,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -7527,7 +7562,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -7571,7 +7606,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -7586,6 +7621,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -7607,6 +7643,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -7684,7 +7721,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -7894,7 +7931,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -7938,7 +7975,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -7953,6 +7990,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -7974,6 +8012,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -8051,7 +8090,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -8274,7 +8313,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -8318,7 +8357,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -8333,6 +8372,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -8354,6 +8394,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -8431,7 +8472,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -8646,7 +8687,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -8690,7 +8731,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -8705,6 +8746,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -8726,6 +8768,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -8803,7 +8846,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -9018,7 +9061,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
         </div>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -9062,7 +9105,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(0, 106, 255);"
+                          style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                         />
                       </div>
                     </div>
@@ -9077,6 +9120,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -9098,6 +9142,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-slider-rail ant-color-picker-slider-rail"
+                            style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                           />
                           <div
                             class="ant-slider-step"
@@ -9175,7 +9220,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                     >
                       <div>
                         <div
@@ -9400,7 +9445,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
       </div>
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; border: 1px solid #fff;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(255, 255, 255);"
       >
         <div
           class="ant-popover-container"
@@ -9436,7 +9481,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       </div>
                       <div
                         class="ant-color-picker-saturation"
-                        style="background-color: rgb(0, 106, 255);"
+                        style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                       />
                     </div>
                   </div>
@@ -9451,6 +9496,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                         />
                         <div
                           class="ant-slider-step"
@@ -9472,6 +9518,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                         />
                         <div
                           class="ant-slider-step"
@@ -9549,7 +9596,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
                       <div
@@ -9763,7 +9810,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
       </div>
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; border: 1px solid #722ed1;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(114, 46, 209);"
       >
         <div
           class="ant-popover-container"
@@ -9799,7 +9846,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       </div>
                       <div
                         class="ant-color-picker-saturation"
-                        style="background-color: rgb(106, 0, 255);"
+                        style="background-color: rgb(106, 0, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                       />
                     </div>
                   </div>
@@ -9814,6 +9861,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                         />
                         <div
                           class="ant-slider-step"
@@ -9835,6 +9883,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
+                          style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(114,46,209) 100%);"
                         />
                         <div
                           class="ant-slider-step"
@@ -9912,7 +9961,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                   >
                     <div>
                       <div
@@ -10137,7 +10186,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -10191,7 +10240,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -10206,6 +10255,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -10227,6 +10277,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -10304,7 +10355,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -10521,7 +10572,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -10565,7 +10616,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -10580,6 +10631,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -10601,6 +10653,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -10678,7 +10731,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -10912,7 +10965,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
     </div>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -10956,7 +11009,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 106, 255);"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                     />
                   </div>
                 </div>
@@ -10971,6 +11024,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -10992,6 +11046,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                       />
                       <div
                         class="ant-slider-step"
@@ -11069,7 +11124,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                 >
                   <div>
                     <div
@@ -11280,7 +11335,7 @@ Array [
   </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -11324,7 +11379,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -11339,6 +11394,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -11360,6 +11416,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -11437,7 +11494,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div
@@ -11650,7 +11707,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
@@ -11694,7 +11751,7 @@ Array [
                   </div>
                   <div
                     class="ant-color-picker-saturation"
-                    style="background-color: rgb(0, 106, 255);"
+                    style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                   />
                 </div>
               </div>
@@ -11709,6 +11766,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -11730,6 +11788,7 @@ Array [
                   >
                     <div
                       class="ant-slider-rail ant-color-picker-slider-rail"
+                      style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
                     />
                     <div
                       class="ant-slider-step"
@@ -11807,7 +11866,7 @@ Array [
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
               >
                 <div>
                   <div

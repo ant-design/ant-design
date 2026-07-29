@@ -3,7 +3,7 @@
 exports[`Cascader can be selected 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -139,7 +139,7 @@ exports[`Cascader can be selected 1`] = `
 exports[`Cascader can be selected 2`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -293,7 +293,7 @@ exports[`Cascader can be selected 2`] = `
 exports[`Cascader can be selected 3`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -447,7 +447,7 @@ exports[`Cascader can be selected 3`] = `
 exports[`Cascader can be selected in RTL direction 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -579,7 +579,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 exports[`Cascader can be selected in RTL direction 2`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -729,7 +729,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 exports[`Cascader can be selected in RTL direction 3`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -1005,7 +1005,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
 exports[`Cascader popup correctly with defaultValue 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -1287,7 +1287,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 exports[`Cascader should render custom notFoundContent when search returns no results 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div>
     <div
@@ -1319,7 +1319,7 @@ exports[`Cascader should render custom notFoundContent when search returns no re
 exports[`Cascader should render not found content 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div>
     <div
@@ -1397,7 +1397,7 @@ exports[`Cascader should render not found content 1`] = `
 exports[`Cascader should show not found content when options.length is 0 1`] = `
 <div
   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div>
     <div

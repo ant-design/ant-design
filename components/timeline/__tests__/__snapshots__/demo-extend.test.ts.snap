@@ -1906,7 +1906,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #1890ff;"
+          style="border-color: rgb(24, 144, 255);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1939,7 +1939,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #1890ff;"
+          style="border-color: rgb(24, 144, 255);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1972,7 +1972,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #1890ff;"
+          style="border-color: rgb(24, 144, 255);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -1991,7 +1991,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
   </ol>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-14g82y5"
-    style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid #a294f9;"
+    style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -2001,7 +2001,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #a294f9;"
+          style="border-color: rgb(162, 148, 249);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -2034,7 +2034,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #a294f9;"
+          style="border-color: rgb(162, 148, 249);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
@@ -2067,7 +2067,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-          style="border-color: #a294f9;"
+          style="border-color: rgb(162, 148, 249);"
         />
         <div
           class="ant-steps-item-section ant-timeline-item-section"
