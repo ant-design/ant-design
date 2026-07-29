@@ -407,6 +407,60 @@ describe('Sider', () => {
     ).toBe('rgb(255, 153, 102)');
   });
 
+  it('should support keyboard trigger on zero width trigger', () => {
+    const onCollapse = jest.fn();
+
+    const { container } = render(
+      <Sider collapsedWidth={0} collapsible onCollapse={onCollapse}>
+        Sider
+      </Sider>,
+    );
+
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-zero-width-trigger')!;
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    expect(trigger).toHaveAttribute('aria-label', 'Collapse sidebar');
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+
+    fireEvent.keyDown(trigger, { key: 'Escape' });
+    expect(onCollapse).not.toHaveBeenCalled();
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger).toHaveAttribute('aria-label', 'Expand sidebar');
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    expect(onCollapse).toHaveBeenCalledWith(false, 'clickTrigger');
+  });
+
+  it('should support keyboard trigger on default trigger', () => {
+    const onCollapse = jest.fn();
+
+    const { container } = render(
+      <Sider collapsible onCollapse={onCollapse}>
+        Sider
+      </Sider>,
+    );
+
+    const trigger = container.querySelector<HTMLElement>('.ant-layout-sider-trigger')!;
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    expect(trigger).toHaveAttribute('aria-label', 'Collapse sidebar');
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+
+    fireEvent.keyDown(trigger, { key: 'Tab' });
+    expect(onCollapse).not.toHaveBeenCalled();
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger).toHaveAttribute('aria-label', 'Expand sidebar');
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    expect(onCollapse).toHaveBeenCalledWith(false, 'clickTrigger');
+  });
+
   it('should be able to customize zero width trigger by trigger prop', () => {
     const { container } = render(
       <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
