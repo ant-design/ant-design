@@ -25,11 +25,6 @@ const expectSuffixNotHitTarget = async (testPage: Page) => {
 };
 
 describe('Select image', () => {
-  imageDemoTest('select', {
-    mobile: ['basic.tsx'],
-    skip: ['debug-flip-shift.tsx'],
-  });
-
   describe('clear suffix hover', () => {
     describe('interactive suffix', () => {
       imageTest(
@@ -51,18 +46,19 @@ describe('Select image', () => {
         { hoverSelector: '.ant-select-allow-clear:not(.ant-select-show-arrow)' },
       );
     });
+  });
 
-    describe('touch', () => {
-      beforeAll(async () => {
-        await jestPuppeteer.resetPage();
-      });
+  imageDemoTest('select', {
+    mobile: ['basic.tsx'],
+    skip: ['debug-flip-shift.tsx'],
+  });
 
-      imageTest(
-        React.createElement(ClearSuffixDebug),
-        'select-clear-suffix-debug-touch',
-        clearSuffixDebugFilename,
-        { beforeScreenshot: expectSuffixNotHitTarget, mobile: true },
-      );
-    });
+  describe('clear suffix touch', () => {
+    imageTest(
+      React.createElement(ClearSuffixDebug),
+      'select-clear-suffix-debug-touch',
+      clearSuffixDebugFilename,
+      { beforeScreenshot: expectSuffixNotHitTarget, mobile: true },
+    );
   });
 });
