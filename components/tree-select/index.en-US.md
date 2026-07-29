@@ -40,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type | × |
+| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean \| AdjustOverflow | true | 6.6.0 | × |
 | ~~autoClearSearchValue~~ | If auto clear search input value when multiple select is selected/deselected | boolean | true |  | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
