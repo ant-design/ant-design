@@ -41,7 +41,7 @@ Common props ref: [Common props](/docs/react/common-props)
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - | × |
 | sticky | Whether group headers stick to the top | boolean | false | - | × |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
-| virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | false | - | × |
+| virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | - | × |
 | onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | - | × |
 
 ### Group
