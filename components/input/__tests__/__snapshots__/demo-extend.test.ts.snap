@@ -10384,7 +10384,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 1"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
@@ -10396,7 +10396,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 2"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
@@ -10408,7 +10408,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 3"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
@@ -10420,7 +10420,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 4"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
@@ -10432,7 +10432,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 5"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
@@ -10444,7 +10444,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
         aria-label="OTP Input 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
-        type="text"
+        type="password"
         value=""
       />
     </span>
