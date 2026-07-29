@@ -261,17 +261,19 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     return '';
   };
 
-  const setCurrentActiveLink = useEvent((link: string) => {
-    // FIXME: Seems a bug since this compare is not equals
-    // `activeLinkRef` is parsed value which will always trigger `onChange` event.
-    if (activeLinkRef.current === link) {
+  const setCurrentActiveLink = useEvent((link: string, forceTriggerChange = false) => {
+    // https://github.com/ant-design/ant-design/issues/30584
+    const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
+    const isSameLink = activeLinkRef.current === newLink;
+
+    if (isSameLink && !forceTriggerChange) {
       return;
     }
 
-    // https://github.com/ant-design/ant-design/issues/30584
-    const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
-    setActiveLink(newLink);
-    activeLinkRef.current = newLink;
+    if (!isSameLink) {
+      setActiveLink(newLink);
+      activeLinkRef.current = newLink;
+    }
 
     // onChange should respect the original link (which may caused by
     // window scroll or user click), not the new link
@@ -296,7 +298,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const handleScrollTo = React.useCallback<(link: string, targetOffsetParams?: number) => void>(
     (link, targetOffsetParams) => {
       const previousActiveLink = activeLinkRef.current;
-      setCurrentActiveLink(link);
+      setCurrentActiveLink(link, previousActiveLink !== link);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
         return;

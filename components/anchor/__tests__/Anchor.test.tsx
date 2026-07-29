@@ -671,6 +671,30 @@ describe('Anchor Render', () => {
       expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
     });
 
+    it('should not trigger onChange repeatedly when scrolling with getCurrentAnchor', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const onChange = jest.fn();
+      const getCurrentAnchor = jest.fn(() => `#${hash2}`);
+      render(
+        <Anchor
+          onChange={onChange}
+          getCurrentAnchor={getCurrentAnchor}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
+      );
+
+      onChange.mockClear();
+      getCurrentAnchor.mockClear();
+      fireEvent.scroll(window);
+      fireEvent.scroll(window);
+      expect(getCurrentAnchor).toHaveBeenCalledTimes(2);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
     // https://github.com/ant-design/ant-design/issues/34784
     it('getCurrentAnchor have default link as argument', () => {
       const hash1 = getHashUrl();
