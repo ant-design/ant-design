@@ -226,6 +226,51 @@ describe('Select', () => {
     expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
   });
 
+  it('should schedule fade updates when the list is resized', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+    const originResizeObserver = global.ResizeObserver;
+    let resizeObserverCallback: ResizeObserverCallback | undefined;
+
+    global.ResizeObserver = class ResizeObserverMock {
+      constructor(callback: ResizeObserverCallback) {
+        resizeObserverCallback = callback;
+      }
+
+      observe() {}
+
+      disconnect() {}
+    } as unknown as typeof ResizeObserver;
+
+    try {
+      const { container } = render(<Select scrollFade open options={options} />);
+      const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+      const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+      Object.defineProperties(holder, {
+        clientHeight: { configurable: true, value: 256 },
+        scrollHeight: { configurable: true, value: 1024 },
+      });
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      holder.scrollTop = 38;
+      act(() => {
+        resizeObserverCallback?.([], {} as ResizeObserver);
+        jest.runAllTimers();
+      });
+
+      expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+      expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+    } finally {
+      global.ResizeObserver = originResizeObserver;
+    }
+  });
+
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);
