@@ -184,8 +184,10 @@ export type { TransferProps, TransferRef } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
+  TreeInstance,
   AntTreeNodeProps as TreeNodeProps,
   TreeProps,
+  UseTreeConfig as TreeUseTreeConfig,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
 export type { TreeSelectProps } from './tree-select';
