@@ -1347,6 +1347,9 @@ describe('Menu', () => {
       .map((style) => style.innerHTML)
       .join('');
     expect(cssText).toContain('ant-menu-light.ant-menu-scroll-fade.ant-menu-vertical,');
+    expect(cssText).toContain(
+      'linear-gradient(to bottom in oklab, var(--ant-menu-popup-bg), transparent)',
+    );
   });
 
   it('renders the scroll fade popup in the deterministic visual state', () => {

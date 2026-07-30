@@ -127,7 +127,7 @@ describe('Select', () => {
     );
   });
 
-  it('should apply boundary-aware scroll fade styles to the prefixed list holder', () => {
+  it('should render background-colored fade overlays on the prefixed list frame', () => {
     const cache = createCache();
 
     const { container } = render(
@@ -139,12 +139,91 @@ describe('Select', () => {
     );
 
     expect(container.querySelector('.bamboo-select-dropdown-scroll-fade')).toBeTruthy();
-    expect(extractStyle(cache, { plain: true })).toContain(
-      '.bamboo-select-dropdown-scroll-fade .bamboo-select-dropdown-list-holder{',
+    const cssText = extractStyle(cache, { plain: true });
+    expect(cssText).toContain('.bamboo-select-dropdown-scroll-fade .bamboo-select-dropdown-list{');
+    expect(cssText).toContain('--bamboo-select-scroll-fade-top-height:0px;');
+    expect(cssText).toContain('--bamboo-select-scroll-fade-bottom-height:0px;');
+    expect(cssText).toContain('inset-inline-end:10px;');
+    expect(cssText).toContain('pointer-events:none;z-index:1;transition:height 75ms linear;');
+    expect(cssText).toContain('transition:height 75ms linear;');
+    expect(cssText).toContain('height:var(--bamboo-select-scroll-fade-top-height);');
+    expect(cssText).toContain('height:var(--bamboo-select-scroll-fade-bottom-height);');
+    expect(cssText).toMatch(
+      /linear-gradient\(to bottom in oklab,\s*var\(--bamboo-color-bg-elevated\),\s*transparent\)/,
     );
-    expect(extractStyle(cache, { plain: true })).toContain(
-      'background-attachment:local,local,scroll,scroll;',
+    expect(cssText).toMatch(
+      /linear-gradient\(to bottom in oklab,\s*transparent,\s*var\(--bamboo-color-bg-elevated\)\)/,
     );
+    expect(cssText).not.toContain('background-attachment:local,local,scroll,scroll;');
+  });
+
+  it('should update fade overlay heights from the list holder scroll boundaries', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+
+    const { container } = render(<Select scrollFade open options={options} />);
+    const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+    const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+    Object.defineProperties(holder, {
+      clientHeight: { configurable: true, value: 256 },
+      scrollHeight: { configurable: true, value: 1024 },
+    });
+
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('0px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+
+    holder.scrollTop = 38;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+
+    holder.scrollTop = 768;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('76px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('0px');
+  });
+
+  it('should start updating fade heights when options mount after the popup opens', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+
+    const { container, rerender } = render(<Select scrollFade open options={[]} />);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    rerender(<Select scrollFade open options={options} />);
+    const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+    const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+    Object.defineProperties(holder, {
+      clientHeight: { configurable: true, value: 256 },
+      scrollHeight: { configurable: true, value: 1024 },
+    });
+
+    holder.scrollTop = 38;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
   });
 
   it('should show search icon when showSearch and open', () => {

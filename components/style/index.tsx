@@ -85,17 +85,17 @@ export const genScrollFadeStyle = (
   token: AliasToken,
   options?: ScrollFadeStyleOptions,
 ): CSSObject => {
-  const { colorBgElevated, colorSplit, controlHeightLG } = token;
+  const { colorBgElevated, controlHeightLG } = token;
   const backgroundColor = options?.backgroundColor ?? colorBgElevated;
-  const shadowColor = options?.shadowColor ?? colorSplit;
+  const shadowColor = options?.shadowColor ?? backgroundColor;
   const fadeSize = unit(controlHeightLG);
 
   return {
     backgroundImage: [
       `linear-gradient(${backgroundColor} 30%, transparent)`,
       `linear-gradient(transparent, ${backgroundColor} 70%)`,
-      `linear-gradient(to bottom, ${shadowColor}, transparent)`,
-      `linear-gradient(to top, ${shadowColor}, transparent)`,
+      `linear-gradient(to bottom in oklab, ${shadowColor}, transparent)`,
+      `linear-gradient(to top in oklab, ${shadowColor}, transparent)`,
     ].join(', '),
     backgroundPosition: '0 0, 0 100%, 0 0, 0 100%',
     backgroundRepeat: 'no-repeat',

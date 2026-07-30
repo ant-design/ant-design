@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genScrollFadeStyle, resetComponent, textEllipsis } from '../../style';
+import { getScrollFadeVariables, scrollFadeScrollbarGutter } from '../../_util/scrollFade';
+import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -30,6 +31,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
 const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls } = token;
+  const scrollFadeVariables = getScrollFadeVariables(componentCls);
 
   const selectItemCls = `${componentCls}-item`;
 
@@ -94,10 +96,33 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         // ====================== Scroll Fade ======================
-        // Select scrolls inside its virtual-list holder, unlike Dropdown/Menu,
-        // so it needs a component-specific selector around the shared style.
-        [`&-scroll-fade ${componentCls}-dropdown-list-holder`]: {
-          ...genScrollFadeStyle(token),
+        // Select scrolls inside its virtual-list holder. Keep the fade overlays on the
+        // surrounding list frame so they stay fixed while the holder content scrolls.
+        [`&-scroll-fade ${componentCls}-dropdown-list`]: {
+          [scrollFadeVariables.top]: '0px',
+          [scrollFadeVariables.bottom]: '0px',
+
+          '&::before, &::after': {
+            position: 'absolute',
+            insetInlineStart: 0,
+            insetInlineEnd: scrollFadeScrollbarGutter,
+            pointerEvents: 'none',
+            zIndex: 1,
+            transition: 'height 75ms linear',
+            content: '""',
+          },
+
+          '&::before': {
+            top: 0,
+            height: `var(${scrollFadeVariables.top})`,
+            backgroundImage: `linear-gradient(to bottom in oklab, ${token.colorBgElevated}, transparent)`,
+          },
+
+          '&::after': {
+            bottom: 0,
+            height: `var(${scrollFadeVariables.bottom})`,
+            backgroundImage: `linear-gradient(to bottom in oklab, transparent, ${token.colorBgElevated})`,
+          },
         },
 
         [`${componentCls}-dropdown-list-scrollbar`]: {
