@@ -374,7 +374,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(keys, checkStatus !== 'all');
         },
       },
       pagination
