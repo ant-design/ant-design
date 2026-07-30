@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Tree } from 'antd';
 import type { GetRef, TreeDataNode } from 'antd';
 
@@ -20,20 +20,12 @@ const treeData: TreeDataNode[] = [
 const App: React.FC = () => {
   const controlledRef = useRef<GetRef<typeof Tree>>(null);
   const uncontrolledRef = useRef<GetRef<typeof Tree>>(null);
-  const pendingScrollRef = useRef(false);
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([ROOT_KEY]);
   const { getPath } = Tree.useTree(treeData, {});
 
-  useEffect(() => {
-    if (pendingScrollRef.current) {
-      pendingScrollRef.current = false;
-      controlledRef.current?.scrollTo({ key: TARGET_KEY, align: 'top' });
-    }
-  }, [expandedKeys]);
-
   const scrollTo = () => {
-    pendingScrollRef.current = true;
     setExpandedKeys(getPath(TARGET_KEY).map(({ key }) => key));
+    controlledRef.current?.scrollTo({ key: TARGET_KEY, align: 'top' });
     uncontrolledRef.current?.scrollTo({ key: TARGET_KEY, align: 'top', autoExpand: true });
   };
 
