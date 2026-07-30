@@ -105,12 +105,18 @@ function StatusProvider({
     return context;
   }, [
     mergedValidateStatus,
+    errors,
+    warnings,
     hasFeedback,
+    feedbackIcons,
     noStyle,
+    name,
     parentIsFormItemInput,
     parentStatus,
     itemPrefixCls,
     parentHasFeedback,
+    parentFeedbackIcon,
+    parentName,
   ]);
 
   // ======================= Render =======================
