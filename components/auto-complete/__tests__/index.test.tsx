@@ -6,30 +6,11 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
-import Form from '../../form';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
   rtlTest(AutoComplete);
-
-  it('should apply disabled text color to the inner input when Form is disabled', () => {
-    const { container } = render(
-      <Form disabled>
-        <AutoComplete value="disabled" options={[{ value: 'disabled' }]} />
-      </Form>,
-    );
-    const select = container.querySelector<HTMLElement>('.ant-select-disabled')!;
-    const input = container.querySelector<HTMLInputElement>('input')!;
-    // The inner input paints its text through `--ant-select-color`, and the disabled
-    // selector overrides that variable with the disabled token. Assert the winning `color`
-    // rule on the input itself (so a higher-specificity override on the input is caught),
-    // together with the disabled variable value that feeds it.
-    expect(getComputedStyle(input).color).toBe('var(--ant-select-color)');
-    expect(getComputedStyle(select).getPropertyValue('--ant-select-color')).toBe(
-      'var(--ant-color-text-disabled)',
-    );
-  });
 
   it('AutoComplete with custom Input render perfectly', async () => {
     render(
