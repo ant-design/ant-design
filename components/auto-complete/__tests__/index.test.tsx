@@ -13,13 +13,19 @@ describe('AutoComplete', () => {
   mountTest(AutoComplete);
   rtlTest(AutoComplete);
 
-  it('should use disabled text color when Form is disabled', () => {
+  it('should apply disabled text color to the inner input when Form is disabled', () => {
     const { container } = render(
       <Form disabled>
         <AutoComplete value="disabled" options={[{ value: 'disabled' }]} />
       </Form>,
     );
     const select = container.querySelector<HTMLElement>('.ant-select-disabled')!;
+    const input = container.querySelector<HTMLInputElement>('input')!;
+    // The inner input paints its text through `--ant-select-color`, and the disabled
+    // selector overrides that variable with the disabled token. Assert the winning `color`
+    // rule on the input itself (so a higher-specificity override on the input is caught),
+    // together with the disabled variable value that feeds it.
+    expect(getComputedStyle(input).color).toBe('var(--ant-select-color)');
     expect(getComputedStyle(select).getPropertyValue('--ant-select-color')).toBe(
       'var(--ant-color-text-disabled)',
     );
