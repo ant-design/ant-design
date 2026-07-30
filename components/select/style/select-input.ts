@@ -89,7 +89,7 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputFocusVisibleStyle = (token: SelectToken, outlineColor: string): CSSObject => ({
-  outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
+  outline: `${unit(token.lineWidthFocus)} ${token.lineType} ${outlineColor}`,
   outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
   transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
 });
@@ -214,6 +214,9 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
+          transition: ['opacity', 'color']
+            .map((prop) => `${prop} ${token.motionDurationMid} ease`)
+            .join(', '),
 
           '> :not(:last-child)': {
             marginInlineEnd: token.marginXS,

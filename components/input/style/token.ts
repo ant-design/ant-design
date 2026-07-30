@@ -111,6 +111,7 @@ export const initComponentToken = (
     fontSize,
     lineHeight,
     lineWidth,
+    lineWidthFocus,
     controlHeightSM,
     controlHeightLG,
     fontSizeLG,
@@ -142,7 +143,8 @@ export const initComponentToken = (
   const paddingBlockLG =
     Math.ceil(((controlHeightLG - mergedFontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth;
 
-  return {
+  const componentToken = {
+    lineWidthFocus: lineWidthFocus === 0 ? 0 : lineWidth,
     paddingBlock: Math.max(paddingBlock, 0),
     paddingBlockSM: Math.max(paddingBlockSM, 0),
     paddingBlockLG: Math.max(paddingBlockLG, 0),
@@ -161,4 +163,6 @@ export const initComponentToken = (
     inputFontSizeLG: mergedFontSizeLG,
     inputFontSizeSM: mergedFontSizeSM,
   };
+
+  return componentToken;
 };
