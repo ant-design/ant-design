@@ -24,7 +24,7 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="small">
-      <Button onClick={scrollTo}>scrollTo</Button>
+      <Button onClick={scrollTo}>scrollTo: {TARGET_KEY}</Button>
       <Tree
         ref={treeRef}
         height={200}
