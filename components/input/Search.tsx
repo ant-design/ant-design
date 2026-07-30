@@ -8,9 +8,11 @@ import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeS
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
-import type { ButtonSemanticType } from '../button/Button';
+import type { ButtonProps, ButtonSemanticType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import useVariant from '../form/hooks/useVariants';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -75,7 +77,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
-    variant,
+    variant: customizeVariant,
     onPressEnter: customOnPressEnter,
     classNames,
     styles,
@@ -93,9 +95,20 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     searchIcon: contextSearchIcon,
   } = useComponentConfig('inputSearch');
 
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+  const [mergedVariant, , isVariantConfigured] = useVariant(
+    'inputSearch',
+    customizeVariant,
+    props.bordered,
+  );
+  const variant = isVariantConfigured ? mergedVariant : undefined;
+  const [inputVariant] = useVariant('inputSearch', customizeVariant, props.bordered, 'input');
+
   const mergedProps: SearchProps = {
     ...props,
     enterButton,
+    variant,
   };
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
@@ -172,9 +185,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const isAntdButton =
     enterButtonAsElement.type && (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
   if (isAntdButton || enterButtonAsElement.type === 'button') {
-    const enterButtonProps = enterButtonAsElement.props as { className?: string };
+    const enterButtonProps = enterButtonAsElement.props as Pick<
+      ButtonProps,
+      'className' | 'disabled' | 'loading'
+    >;
 
     button = cloneElement(enterButtonAsElement, {
+      disabled: mergedDisabled || enterButtonProps.disabled || (!isAntdButton && loading),
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
         (
@@ -185,7 +202,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onSearch(e);
       },
       key: 'enterButton',
-      ...(isAntdButton ? { className: clsx(btnClassName, enterButtonProps.className), size } : {}),
+      ...(isAntdButton
+        ? {
+            className: clsx(btnClassName, enterButtonProps.className),
+            loading: loading || enterButtonProps.loading,
+            size,
+          }
+        : {}),
     });
   } else {
     button = (
@@ -256,7 +279,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       prefixCls: inputPrefixCls,
       type: 'search',
       size,
-      variant,
+      variant: inputVariant,
       onPressEnter,
       onCompositionStart: handleOnCompositionStart,
       onCompositionEnd: handleOnCompositionEnd,

@@ -398,7 +398,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       getTooltipContainer={mergedGetPopupContainer}
       destroyOnHidden={mergedDestroyOnHidden}
     >
-      {tempOpen ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
 

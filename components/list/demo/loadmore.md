@@ -5,9 +5,3 @@
 ## en-US
 
 Load more list with `loadMore` property.
-
-```css
-.demo-loadmore-list {
-  min-height: 350px;
-}
-```

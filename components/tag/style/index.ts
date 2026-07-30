@@ -143,8 +143,22 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
         display: 'none',
       },
 
+      // Icons from third-party libraries are a bare `<svg>`, which none of the `.anticon`
+      // rules reach. An `<svg>` has no baseline of its own, so it is aligned by its bottom
+      // margin edge (CSS 2.1 §10.8.1) and rides above the text. Centre it instead: unlike an
+      // `.anticon` (whose `<svg>` is always `1em`, so a fixed `-0.125em` nudge suffices), a
+      // third-party `<svg>` may be sized in `px`, so the correction must not depend on size.
+      // `vertical-align: middle` centres the margin box on the x-height line; `margin-block-end`
+      // then lifts it by half its own value onto the cap-height centre (capHeight − xHeight ≈
+      // 0.2em across typical fonts), keeping it centred at any icon size.
+      // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+      '> svg': {
+        verticalAlign: 'middle',
+        marginBlockEnd: '0.2em',
+      },
+
       // To ensure that a space will be placed between character and `Icon`.
-      [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
+      [`> ${token.iconCls} + span, > span + ${token.iconCls}, > svg + span, > span + svg`]: {
         marginInlineStart: paddingInline,
       },
     },

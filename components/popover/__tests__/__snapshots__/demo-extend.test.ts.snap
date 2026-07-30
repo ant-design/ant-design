@@ -1124,10 +1124,14 @@ Array [
         class="ant-popover-content"
       >
         <div>
-          <p>
+          <p
+            style="margin: 0px;"
+          >
             Content
           </p>
-          <p>
+          <p
+            style="margin: 0px;"
+          >
             Content
           </p>
         </div>

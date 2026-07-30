@@ -6,7 +6,7 @@ import type { Dayjs } from 'dayjs';
 
 const useStyles = createStyles(({ token }) => ({
   root: {
-    border: `1px solid ${token.colorPrimary}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
     width: 200,
   },
 }));

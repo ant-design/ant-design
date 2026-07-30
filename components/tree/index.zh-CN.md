@@ -68,7 +68,7 @@ demo:
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  | × |
 | motion | 自定义树的动画配置 | CSSMotionProps | - |  | × |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  | × |
-| rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | 4.20.0 | × |
+| ~~rootStyle~~ | Tree 最外层样式，请使用 `styles.root` 替代 | CSSProperties | - | 4.20.0 | × |
 | selectable | 是否可选中 | boolean | true |  | × |
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string\[] | - |  | × |
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  | × |

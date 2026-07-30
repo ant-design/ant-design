@@ -495,6 +495,19 @@ describe('Splitter', () => {
         'NaN',
       );
     });
+
+    it('should render percentage-based aria value range before resize', () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ defaultSize: 100, min: 100, max: 200 }, { min: 100, max: 200 }, { min: '20%' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-splitter-bar-dragger')[1]).toHaveAttribute(
+        'aria-valuemax',
+        '80',
+      );
+    });
   });
 
   // ============================= Collapsible =============================

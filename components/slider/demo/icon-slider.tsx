@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
 import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
-import { Slider } from 'antd';
+import { Flex, Slider } from 'antd';
+import { createStyles } from 'antd-style';
+import { clsx } from 'clsx';
+
+const useStyles = createStyles((props) => {
+  const { css, iconPrefixCls, cssVar } = props;
+  return {
+    wrapper: css`
+      position: relative;
+      .${iconPrefixCls} {
+        color: ${cssVar.colorTextQuaternary};
+        font-size: ${cssVar.fontSizeLG};
+        transition: color ${cssVar.motionDurationFast} ${cssVar.motionEaseInOutCirc};
+        &.isActive {
+          color: ${cssVar.colorPrimary};
+        }
+      }
+    `,
+    slider: css`
+      flex: 1;
+      width: 100%;
+    `,
+  };
+});
 
 interface IconSliderProps {
   max: number;
@@ -9,18 +32,19 @@ interface IconSliderProps {
 
 const IconSlider: React.FC<IconSliderProps> = (props) => {
   const { max, min } = props;
+
+  const { styles } = useStyles();
+
   const [value, setValue] = useState(0);
 
   const mid = Number(((max - min) / 2).toFixed(5));
-  const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
-  const nextColorCls = value >= mid ? 'icon-wrapper-active' : undefined;
 
   return (
-    <div className="icon-wrapper">
-      <FrownOutlined className={preColorCls} />
-      <Slider {...props} onChange={setValue} value={value} />
-      <SmileOutlined className={nextColorCls} />
-    </div>
+    <Flex justify="space-between" align="center" gap="small" className={styles.wrapper}>
+      <FrownOutlined className={clsx({ isActive: value < mid })} />
+      <Slider {...props} onChange={setValue} value={value} className={styles.slider} />
+      <SmileOutlined className={clsx({ isActive: value >= mid })} />
+    </Flex>
   );
 };
 

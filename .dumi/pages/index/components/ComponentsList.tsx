@@ -65,7 +65,7 @@ const useStyle = createStyles(({ cssVar }, isDark: boolean) => {
   return {
     card: css`
       border-radius: ${cssVar.borderRadius};
-      border: 1px solid ${isDark ? cssVar.colorBorder : 'transparent'};
+      border: ${cssVar.lineWidth} ${cssVar.lineType} ${isDark ? cssVar.colorBorder : 'transparent'};
       background-color: ${isDark ? cssVar.colorBgContainer : '#f5f8ff'};
       padding: ${cssVar.paddingXL};
       flex: none;

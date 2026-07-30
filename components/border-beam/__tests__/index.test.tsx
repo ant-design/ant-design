@@ -14,6 +14,8 @@ describe('BorderBeam', () => {
   const [varName] = genCssVar(defaultPrefixCls, 'border-beam');
   const getBeamElement = (container: HTMLElement) =>
     container.querySelector<HTMLElement>('.ant-border-beam')!;
+  const getBeamElements = (container: HTMLElement) =>
+    container.querySelectorAll<HTMLElement>('.ant-border-beam');
 
   it('should inject the beam effect into the child host', async () => {
     const { container } = render(
@@ -163,6 +165,32 @@ describe('BorderBeam', () => {
     );
 
     expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
+  });
+
+  it('should render the configured number of evenly distributed beams', async () => {
+    const { container, rerender } = render(
+      <BorderBeam>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElements(container)).toHaveLength(1);
+      expect(getBeamElement(container).style.getPropertyValue(varName('delay'))).toBe('');
+    });
+
+    rerender(
+      <BorderBeam count={3} duration={12}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElements(container)).toHaveLength(3);
+    expect(
+      Array.from(getBeamElements(container), (item) =>
+        item.style.getPropertyValue(varName('delay')),
+      ),
+    ).toEqual(['', '-4s', '-8s']);
   });
 
   it('should support customizing the beam size', async () => {

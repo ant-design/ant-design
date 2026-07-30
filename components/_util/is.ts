@@ -18,7 +18,9 @@ export const isPlainObject = <T extends object = object>(val: any): val is T => 
   return val !== null && typeof val === 'object';
 };
 
-export const isFunction = (val: any): val is (...args: any[]) => any => {
+export const isFunction = <Value, Args extends unknown[], Result>(
+  val: Value | ((...args: Args) => Result),
+): val is (...args: Args) => Result => {
   return typeof val === 'function';
 };
 

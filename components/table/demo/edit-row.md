@@ -7,11 +7,3 @@
 ## en-US
 
 Table with editable rows.
-
-```css
-.editable-row .ant-form-item-explain {
-  position: absolute;
-  top: 100%;
-  font-size: 12px;
-}
-```
