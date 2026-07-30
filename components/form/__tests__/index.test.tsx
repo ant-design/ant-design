@@ -2080,6 +2080,44 @@ describe('Form', () => {
     );
   });
 
+  it('Form.Item.useStatus should update messages while validate status is unchanged', () => {
+    const formRef = React.createRef<FormInstance>();
+
+    const StatusItem: React.FC = () => {
+      const { errors, warnings } = Form.Item.useStatus();
+      return (
+        <>
+          <div className="test-error">{errors[0]}</div>
+          <div className="test-warning">{warnings[0]}</div>
+        </>
+      );
+    };
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Form.Item name="field">
+          <StatusItem />
+        </Form.Item>
+      </Form>,
+    );
+
+    act(() => {
+      formRef.current?.setFields([
+        { name: 'field', errors: ['First error'], warnings: ['First warning'] },
+      ]);
+    });
+    expect(container.querySelector('.test-error')).toHaveTextContent('First error');
+    expect(container.querySelector('.test-warning')).toHaveTextContent('First warning');
+
+    act(() => {
+      formRef.current?.setFields([
+        { name: 'field', errors: ['Second error'], warnings: ['Second warning'] },
+      ]);
+    });
+    expect(container.querySelector('.test-error')).toHaveTextContent('Second error');
+    expect(container.querySelector('.test-warning')).toHaveTextContent('Second warning');
+  });
+
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
