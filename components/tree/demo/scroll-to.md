@@ -1,7 +1,7 @@
 ## zh-CN
 
-非受控模式可使用 `autoExpand` 展开目标节点。受控模式可使用 `Tree.useTree` 获取节点路径并更新 `expandedKeys`。
+受控模式可使用 `Tree.useTree` 获取节点路径并更新 `expandedKeys`，然后滚动到目标节点。
 
 ## en-US
 
-Use `autoExpand` to expand the target node in uncontrolled mode. In controlled mode, use `Tree.useTree` to get the node path and update `expandedKeys`.
+In controlled mode, use `Tree.useTree` to get the node path and update `expandedKeys` before scrolling to the target node.
