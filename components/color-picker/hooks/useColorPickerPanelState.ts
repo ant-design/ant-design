@@ -48,7 +48,7 @@ export default function useColorPickerPanelState(
     defaultValue,
     format,
     defaultFormat,
-    disabledAlpha = false,
+    disabledAlpha,
     onFormatChange,
     onChange,
     onChangeComplete,
