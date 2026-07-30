@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Checkbox, Tree } from 'antd';
+import { Button, Tree } from 'antd';
 import type { GetRef, TreeDataNode } from 'antd';
 
 const ROOT_KEY = 'root';
@@ -9,37 +9,18 @@ const treeData: TreeDataNode[] = [
   {
     key: ROOT_KEY,
     title: 'Root',
-    children: Array.from({ length: 20 }, (_, index) =>
-      index === 12
-        ? {
-            key: TARGET_KEY,
-            title: 'Nested Node',
-            children: [
-              {
-                key: `${TARGET_KEY}-0`,
-                title: 'Nested Node 0',
-                children: [{ key: `${TARGET_KEY}-0-0`, title: 'Nested Node 0-0' }],
-              },
-              { key: `${TARGET_KEY}-1`, title: 'Nested Node 1' },
-            ],
-          }
-        : {
-            key: `${ROOT_KEY}-${index}`,
-            title: `Node ${index}`,
-          },
-    ),
+    children: Array.from({ length: 20 }, (_, index) => ({
+      key: index === 12 ? TARGET_KEY : `${ROOT_KEY}-${index}`,
+      title: index === 12 ? 'Nested Node' : `Node ${index}`,
+      children: index === 12 ? [{ key: `${TARGET_KEY}-0`, title: 'Nested Node Child' }] : undefined,
+    })),
   },
 ];
 
-interface TreeGroupProps {
-  resetAll: () => void;
-}
-
-const TreeGroup: React.FC<TreeGroupProps> = ({ resetAll }) => {
+const App: React.FC = () => {
   const controlledRef = useRef<GetRef<typeof Tree>>(null);
   const uncontrolledRef = useRef<GetRef<typeof Tree>>(null);
   const pendingScrollRef = useRef(false);
-  const [virtual, setVirtual] = useState(true);
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([ROOT_KEY]);
   const { getPath } = Tree.useTree(treeData, {});
 
@@ -52,28 +33,19 @@ const TreeGroup: React.FC<TreeGroupProps> = ({ resetAll }) => {
 
   const scrollTo = () => {
     pendingScrollRef.current = true;
-    setExpandedKeys((currentKeys) => [
-      ...new Set([...currentKeys, ...getPath(TARGET_KEY).map((entity) => entity.key)]),
-    ]);
+    setExpandedKeys(getPath(TARGET_KEY).map(({ key }) => key));
     uncontrolledRef.current?.scrollTo({ key: TARGET_KEY, align: 'top', autoExpand: true });
   };
 
   const treeProps = {
     height: 200,
     treeData,
-    virtual,
   };
 
   return (
     <>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16 }}>
-        <Checkbox checked={virtual} onChange={(event) => setVirtual(event.target.checked)}>
-          Virtual
-        </Checkbox>
-        <Button onClick={resetAll}>resetAll</Button>
-        <Button onClick={scrollTo}>scrollTo</Button>
-      </div>
-      <div style={{ display: 'flex', gap: 24 }}>
+      <Button onClick={scrollTo}>scrollTo</Button>
+      <div style={{ display: 'flex', gap: 24, marginTop: 16 }}>
         <div style={{ flex: 1, minWidth: 0 }}>
           <h3>Controlled</h3>
           <Tree
@@ -89,16 +61,6 @@ const TreeGroup: React.FC<TreeGroupProps> = ({ resetAll }) => {
         </div>
       </div>
     </>
-  );
-};
-
-const App: React.FC = () => {
-  const [id, setId] = useState(0);
-
-  return (
-    <div key={id}>
-      <TreeGroup resetAll={() => setId((current) => current + 1)} />
-    </div>
   );
 };
 

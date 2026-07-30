@@ -9,8 +9,10 @@ const { DirectoryTree } = Tree;
 
 describe('Tree.TypeScript', () => {
   it('support useTree', () => {
-    const { result } = renderHook(() => Tree.useTree([{ key: 'bamboo', title: 'Bamboo' }], {}));
-    expect(result.current.getPath('bamboo')).toHaveLength(1);
+    const { result } = renderHook(() =>
+      Tree.useTree([{ key: 'bamboo', children: [{ key: 'little' }] }], {}),
+    );
+    expect(result.current.getPath('little').map(({ key }) => key)).toEqual(['bamboo', 'little']);
   });
 
   it('without generic', () => {
