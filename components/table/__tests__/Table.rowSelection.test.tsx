@@ -652,6 +652,13 @@ describe('Table.rowSelection', () => {
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
       expect(onChange).toHaveBeenCalledWith([0, 1, 2], expect.anything(), { type: 'all' });
+
+      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      expect(
+        container.querySelector<HTMLInputElement>(
+          'tbody tr[data-row-key="3"] input[type="checkbox"]',
+        )?.checked,
+      ).toBe(false);
     });
 
     it('SELECTION_INVERT', () => {
