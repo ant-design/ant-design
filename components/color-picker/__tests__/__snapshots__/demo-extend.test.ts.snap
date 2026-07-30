@@ -1593,7 +1593,7 @@ Array [
                       aria-valuemax="359"
                       aria-valuemin="0"
                       aria-valuenow="215"
-                      class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                      class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-disabled ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
                     />
@@ -1614,7 +1614,7 @@ Array [
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="100"
-                      class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                      class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-disabled ant-color-picker-slider-handle"
                       role="slider"
                       style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
                     />
@@ -4694,12 +4694,12 @@ exports[`renders components/color-picker/demo/panel.tsx extend context correctly
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -4755,16 +4755,16 @@ exports[`renders components/color-picker/demo/panel.tsx extend context correctly
                   </div>
                 </div>
                 <div
-                  class="rc-virtual-list"
+                  class="ant-select-dropdown-list"
                   style="position: relative;"
                 >
                   <div
-                    class="rc-virtual-list-holder"
+                    class="ant-select-dropdown-list-holder"
                     style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
-                        class="rc-virtual-list-holder-inner"
+                        class="ant-select-dropdown-list-holder-inner"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
