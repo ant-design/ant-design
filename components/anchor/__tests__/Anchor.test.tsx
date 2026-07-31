@@ -735,6 +735,36 @@ describe('Anchor Render', () => {
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
     });
 
+    it('should apply getCurrentAnchor once when it changes', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const hash3 = getHashUrl();
+      const Demo: React.FC<{ mappedLink: string }> = ({ mappedLink }) => (
+        <Anchor
+          getCurrentAnchor={(link) => {
+            if (link === `#${hash1}`) {
+              return `#${hash2}`;
+            }
+            if (link === `#${hash2}`) {
+              return `#${mappedLink}`;
+            }
+            return link;
+          }}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+            { key: hash3, href: `#${hash3}`, title: hash3 },
+          ]}
+        />
+      );
+      const { container, rerender } = render(<Demo mappedLink={hash2} />);
+      fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+
+      rerender(<Demo mappedLink={hash3} />);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+    });
+
     it('should render correctly when href is null', () => {
       expect(() => {
         render(

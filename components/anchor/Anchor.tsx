@@ -167,6 +167,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
   const activeLinkRef = React.useRef<string | null>(activeLink);
+  const rawActiveLinkRef = React.useRef<string | null>(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNodeRef = React.useRef<HTMLSpanElement>(null);
@@ -262,6 +263,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   };
 
   const setCurrentActiveLink = useEvent((link: string, forceTriggerChange = false) => {
+    rawActiveLinkRef.current = link;
+
     // https://github.com/ant-design/ant-design/issues/30584
     const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
     const isSameLink = activeLinkRef.current === newLink;
@@ -406,7 +409,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   React.useEffect(() => {
     if (isFunction(getCurrentAnchor)) {
-      setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
+      setCurrentActiveLink(rawActiveLinkRef.current || '');
     }
   }, [getCurrentAnchor]);
 
