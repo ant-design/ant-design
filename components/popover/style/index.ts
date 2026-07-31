@@ -76,7 +76,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     titleMinWidth,
     fontWeightStrong,
     innerPadding,
-    dropShadowPopover,
+    boxShadowSecondary,
     colorTextHeading,
     borderRadiusLG,
     zIndexPopup,
@@ -108,7 +108,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
-        filter: dropShadowPopover,
 
         // When use `autoArrow`, origin will follow the arrow position
         [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
@@ -137,6 +136,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius: borderRadiusLG,
+          boxShadow: boxShadowSecondary,
           padding: innerPadding,
         },
 
@@ -157,7 +157,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {

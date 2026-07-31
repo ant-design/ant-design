@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { warning } from '@rc-component/util';
 
 import Popover from '..';
@@ -6,7 +7,7 @@ import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { TooltipRef } from '../../tooltip';
+import Tooltip, { type TooltipRef } from '../../tooltip';
 
 const { resetWarned } = warning;
 
@@ -25,6 +26,27 @@ describe('Popover', () => {
     expect(container.querySelector('.bamboo')).toBeFalsy();
     fireEvent.click(container.querySelector('span')!);
     expect(container.querySelector('.bamboo')).toBeTruthy();
+  });
+
+  it('should not use a filtered ancestor for popup shadows', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Popover open content="popover">
+          <span>trigger</span>
+        </Popover>
+        <Tooltip open title="tooltip">
+          <span>trigger</span>
+        </Tooltip>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).not.toContain('filter:drop-shadow');
+    expect(styleText).toMatch(/\.ant-popover-container[^}]*box-shadow:/);
+    expect(styleText).toMatch(/\.ant-tooltip-container[^}]*box-shadow:/);
   });
 
   it('should support defaultOpen', () => {
