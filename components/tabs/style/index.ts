@@ -768,6 +768,18 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         [`${tabCls}-icon:not(:last-child)`]: {
           marginInlineEnd: token.marginSM,
         },
+
+        // Icons from third-party libraries render as a bare `<svg>` inside the icon wrapper,
+        // which the `.anticon` reset never reaches. An `<svg>` has no baseline of its own, so it
+        // is aligned by its bottom margin edge (CSS 2.1 §10.8.1) and rides above the label.
+        // `vertical-align: middle` centres its margin box on the x-height line; `margin-block-end`
+        // then lifts it by half its own value onto the cap-height centre (capHeight − xHeight ≈
+        // 0.2em across typical fonts), keeping it centred at any icon size.
+        // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+        [`${tabCls}-icon > svg`]: {
+          verticalAlign: 'middle',
+          marginBlockEnd: '0.2em',
+        },
       },
 
       '&-remove': {
