@@ -73,6 +73,120 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
 
 exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/breadcrumb/demo/collapsed.tsx extend context correctly 1`] = `
+<nav
+  class="ant-breadcrumb ant-breadcrumb-with-collapse css-var-test-id"
+>
+  <ol>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href=""
+        >
+          Home
+        </a>
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <span
+        class="ant-breadcrumb-ellipsis-icon"
+        role="presentation"
+      >
+        ...
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-item ant-breadcrumb-item-hidden"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href=""
+        >
+          Application Center
+        </a>
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator ant-breadcrumb-item-hidden"
+    >
+      /
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-item ant-breadcrumb-item-hidden"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href=""
+        >
+          Application List
+        </a>
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator ant-breadcrumb-item-hidden"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href=""
+        >
+          Application
+        </a>
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Function
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`renders components/breadcrumb/demo/collapsed.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/breadcrumb/demo/component-token.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb css-var-test-id"

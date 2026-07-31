@@ -5,7 +5,7 @@ import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 
@@ -451,5 +451,99 @@ describe('Breadcrumb', () => {
       </ConfigProvider>,
     );
     getByText('666');
+  });
+
+  describe('collapsed', () => {
+    const collapseItems = [
+      { title: 'Home' },
+      { title: 'Application Center' },
+      { title: 'Application List' },
+      { title: 'Application' },
+      { title: 'Function' },
+    ];
+
+    it('should collapse middle items when collapsed with keepCount', () => {
+      const { container } = render(<Breadcrumb collapsed keepCount={3} items={collapseItems} />);
+
+      const ellipsisItem = container
+        .querySelector('.ant-breadcrumb-ellipsis-icon')
+        ?.closest('.ant-breadcrumb-item');
+      expect(ellipsisItem).toBeTruthy();
+      expect(ellipsisItem).not.toHaveClass('ant-breadcrumb-item-hidden');
+      // 5 crumbs + ellipsis
+      expect(container.querySelectorAll('.ant-breadcrumb-item')).toHaveLength(6);
+      expect(
+        container.querySelectorAll('.ant-breadcrumb-item.ant-breadcrumb-item-hidden'),
+      ).toHaveLength(2);
+      expect(screen.getByText('Home')).toBeTruthy();
+      expect(screen.getByText('Application')).toBeTruthy();
+      expect(screen.getByText('Function')).toBeTruthy();
+      expect(screen.getByText('Application Center').closest('.ant-breadcrumb-item')).toHaveClass(
+        'ant-breadcrumb-item-hidden',
+      );
+      expect(screen.getByText('Application List').closest('.ant-breadcrumb-item')).toHaveClass(
+        'ant-breadcrumb-item-hidden',
+      );
+    });
+
+    it('should expand all items when hovering ellipsis', () => {
+      const { container } = render(<Breadcrumb collapsed keepCount={3} items={collapseItems} />);
+
+      fireEvent.mouseEnter(container.querySelector('.ant-breadcrumb-ellipsis-icon')!);
+
+      const ellipsisItem = container
+        .querySelector('.ant-breadcrumb-ellipsis-icon')
+        ?.closest('.ant-breadcrumb-item');
+      expect(ellipsisItem).toHaveClass('ant-breadcrumb-item-hidden');
+      expect(
+        screen.getByText('Application Center').closest('.ant-breadcrumb-item'),
+      ).not.toHaveClass('ant-breadcrumb-item-hidden');
+      expect(screen.getByText('Application List').closest('.ant-breadcrumb-item')).not.toHaveClass(
+        'ant-breadcrumb-item-hidden',
+      );
+    });
+
+    it('should collapse again when mouse leaves breadcrumb', () => {
+      const { container } = render(<Breadcrumb collapsed keepCount={3} items={collapseItems} />);
+
+      fireEvent.mouseEnter(container.querySelector('.ant-breadcrumb-ellipsis-icon')!);
+      expect(
+        screen.getByText('Application Center').closest('.ant-breadcrumb-item'),
+      ).not.toHaveClass('ant-breadcrumb-item-hidden');
+
+      fireEvent.mouseLeave(container.querySelector('.ant-breadcrumb')!);
+      expect(
+        container.querySelector('.ant-breadcrumb-ellipsis-icon')?.closest('.ant-breadcrumb-item'),
+      ).not.toHaveClass('ant-breadcrumb-item-hidden');
+      expect(screen.getByText('Application Center').closest('.ant-breadcrumb-item')).toHaveClass(
+        'ant-breadcrumb-item-hidden',
+      );
+    });
+
+    it('should not collapse when items length is less than or equal to keepCount', () => {
+      const { container } = render(
+        <Breadcrumb
+          collapsed
+          keepCount={3}
+          items={[{ title: 'Home' }, { title: 'Application' }, { title: 'Function' }]}
+        />,
+      );
+
+      expect(container.querySelector('.ant-breadcrumb-ellipsis-icon')).toBeNull();
+      expect(container.querySelectorAll('.ant-breadcrumb-item')).toHaveLength(3);
+      expect(
+        container.querySelectorAll('.ant-breadcrumb-item.ant-breadcrumb-item-hidden'),
+      ).toHaveLength(0);
+    });
+
+    it('should not collapse when keepCount is not provided', () => {
+      const { container } = render(<Breadcrumb collapsed items={collapseItems} />);
+
+      expect(container.querySelector('.ant-breadcrumb-ellipsis-icon')).toBeNull();
+      expect(container.querySelectorAll('.ant-breadcrumb-item')).toHaveLength(5);
+      expect(
+        container.querySelectorAll('.ant-breadcrumb-item.ant-breadcrumb-item-hidden'),
+      ).toHaveLength(0);
+    });
   });
 });

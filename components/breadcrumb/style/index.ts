@@ -64,6 +64,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         margin: 0,
         padding: 0,
         listStyle: 'none',
+        alignItems: 'center',
       },
 
       [`${componentCls}-item a`]: {
@@ -125,6 +126,66 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         a: {
           '&:hover': {
             backgroundColor: 'transparent',
+          },
+        },
+      },
+
+      [`${componentCls}-ellipsis-icon`]: {
+        color: token.linkColor,
+        cursor: 'pointer',
+        transition: [
+          `color ${token.motionDurationMid}`,
+          `background-color ${token.motionDurationMid}`,
+        ].join(','),
+        padding: `0 ${unit(token.paddingXXS)}`,
+        borderRadius: token.borderRadiusSM,
+        height: token.fontHeight,
+        display: 'inline-block',
+        marginInline: calc(token.marginXXS).mul(-1).equal(),
+
+        '&:hover': {
+          color: token.linkHoverColor,
+          backgroundColor: token.colorBgTextHover,
+        },
+      },
+
+      // Collapse transition: only when collapsed mode is enabled
+      [`&${componentCls}-with-collapse`]: {
+        [`${componentCls}-item`]: {
+          maxWidth: '40em',
+          whiteSpace: 'nowrap',
+          transition: [
+            `max-width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+            `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+            `margin ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ].join(','),
+        },
+
+        [`${componentCls}-separator`]: {
+          maxWidth: '2em',
+          whiteSpace: 'nowrap',
+          transition: [
+            `max-width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+            `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+            `margin ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ].join(','),
+        },
+
+        // Only clip when hidden — visible items must not overflow:hidden,
+        // otherwise link hover padding is clipped by negative marginInline.
+        [`${componentCls}-item-hidden`]: {
+          maxWidth: 0,
+          opacity: 0,
+          margin: 0,
+          overflow: 'hidden',
+          pointerEvents: 'none',
+        },
+      },
+
+      '@media (prefers-reduced-motion: reduce)': {
+        [`&${componentCls}-with-collapse`]: {
+          [`${componentCls}-item, ${componentCls}-separator`]: {
+            transition: 'none',
           },
         },
       },

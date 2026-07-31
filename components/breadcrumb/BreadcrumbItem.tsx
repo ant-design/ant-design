@@ -37,10 +37,23 @@ export interface BreadcrumbItemProps extends SeparatorType {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  /** Hide item with transition when breadcrumb is collapsed */
+  hidden?: boolean;
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, dropdownProps, href, dropdownIcon } = props;
+  const {
+    prefixCls,
+    separator = '/',
+    children,
+    menu,
+    dropdownProps,
+    href,
+    dropdownIcon,
+    className,
+    style,
+    hidden,
+  } = props;
   const breadcrumbContext = React.useContext(BreadcrumbContext);
   const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
   /** If overlay is have Wrap a Dropdown */
@@ -89,12 +102,22 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
     return (
       <>
         <li
-          className={clsx(`${prefixCls}-item`, mergedClassNames?.item)}
-          style={mergedStyles?.item}
+          className={clsx(
+            `${prefixCls}-item`,
+            { [`${prefixCls}-item-hidden`]: hidden },
+            className,
+            mergedClassNames?.item,
+          )}
+          style={{ ...mergedStyles?.item, ...style }}
+          aria-hidden={hidden || undefined}
         >
           {link}
         </li>
-        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
+        {separator && (
+          <BreadcrumbSeparator className={hidden ? `${prefixCls}-item-hidden` : undefined}>
+            {separator}
+          </BreadcrumbSeparator>
+        )}
       </>
     );
   }

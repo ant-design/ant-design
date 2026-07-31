@@ -24,6 +24,7 @@ demo:
 <code src="./demo/withParams.tsx">带有参数的</code>
 <code src="./demo/separator.tsx">分隔符</code>
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
+<code src="./demo/collapsed.tsx" version="6.6.0">折叠</code>
 <code src="./demo/separator-component.tsx">独立的分隔符</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
@@ -38,9 +39,11 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| collapsed | 是否折叠中间项，悬浮省略号时展示全部 | boolean | false | 6.6.0 | × |
 | dropdownIcon | 自定义下拉图标 | ReactNode | `<DownOutlined />` | 6.2.0 | 6.2.0 |
 | items | 路由栈信息（>=5.3.0 推荐使用，旧版请使用 `Breadcrumb.Item` 子组件方式） | [ItemType\[\]](#itemtype) | - | 5.3.0 | × |
 | itemRender | 自定义链接函数，和 react-router 配合使用，详见[示例](#use-with-browserhistory) | (route, params, routes, paths) => ReactNode | - |  | × |
+| keepCount | 折叠时保留的项数量 | number | - | 6.6.0 | × |
 | params | 路由的参数 | object | - |  | × |
 | separator | 分隔符自定义 | ReactNode | `/` |  | 6.0.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
