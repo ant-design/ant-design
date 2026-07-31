@@ -28,7 +28,7 @@ demo:
 <code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
-<code src="./demo/scroll-to.tsx">滚动到嵌套节点</code>
+<code src="./demo/scroll-to.tsx" version="6.6.0">滚动到嵌套节点</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
 <code src="./demo/block-node.tsx">占据整行</code>
