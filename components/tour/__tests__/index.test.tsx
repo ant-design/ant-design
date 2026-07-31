@@ -125,6 +125,17 @@ describe('Tour', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
+  it('step props do not accept indicatorsRender/actionsRender', () => {
+    const step: NonNullable<TourProps['steps']>[number] = {
+      title: 'Step',
+      // @ts-expect-error: indicatorsRender is only valid on Tour, not on a step
+      indicatorsRender: () => null,
+      // @ts-expect-error: actionsRender is only valid on Tour, not on a step
+      actionsRender: () => null,
+    };
+    expect(step.title).toBe('Step');
+  });
+
   it('button props onClick', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
