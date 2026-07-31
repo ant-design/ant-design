@@ -9,18 +9,18 @@ interface Item {
 
 type Align = 'top' | 'bottom' | 'auto';
 
-const items = Array.from<any, Item>({ length: 1000 }, (_, index) => ({
+const items = Array.from<any, Item>({ length: 60 }, (_, index) => ({
   id: index,
-  group: `Group ${Math.floor(index / 100)}`,
+  group: `Group ${Math.floor(index / 10)}`,
 }));
 
-const groups = Array.from({ length: 10 }, (_, index) => `Group ${index}`);
+const groups = Array.from({ length: 6 }, (_, index) => `Group ${index}`);
 
 const App: React.FC = () => {
   const listRef = React.useRef<ListyRef>(null);
   const [align, setAlign] = React.useState<Align>('top');
-  const [key, setKey] = React.useState<number | null>(600);
-  const [groupKey, setGroupKey] = React.useState('Group 5');
+  const [key, setKey] = React.useState<number | null>(40);
+  const [groupKey, setGroupKey] = React.useState('Group 3');
   const [scrollTop, setScrollTop] = React.useState(0);
 
   return (
@@ -28,7 +28,7 @@ const App: React.FC = () => {
       <Flex gap="small" wrap align="center">
         <Segmented<Align> options={['top', 'bottom', 'auto']} value={align} onChange={setAlign} />
         <Space.Compact>
-          <InputNumber min={0} max={999} value={key} onChange={setKey} style={{ width: 70 }} />
+          <InputNumber min={0} max={59} value={key} onChange={setKey} style={{ width: 70 }} />
           <Button onClick={() => listRef.current?.scrollTo({ key: key ?? 0, align })}>
             Scroll to item
           </Button>

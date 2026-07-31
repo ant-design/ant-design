@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Listy
-description: A high-performance list that virtualizes long data sets and supports grouping.
+description: A high-performance list that supports grouping and can virtualize long data sets.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 tag: 6.6.0
@@ -10,7 +10,7 @@ tag: 6.6.0
 
 ## When To Use
 
-- When you need to render a long list without paying the cost of mounting every row — Listy virtualizes and only renders the rows in view.
+- When you need to render a long list without paying the cost of mounting every row — enable `virtual` to render only the rows in view.
 - When the list needs grouped sections with sticky headers.
 - When you need imperative control over scroll position (jump to an item, a group, or a pixel offset).
 

@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: Listy
 subtitle: 虚拟列表
-description: 高性能列表，对长列表进行虚拟滚动，并支持分组。
+description: 高性能列表，支持分组，并可为长列表开启虚拟滚动。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 tag: 6.6.0
@@ -11,7 +11,7 @@ tag: 6.6.0
 
 ## 何时使用 {#when-to-use}
 
-- 需要渲染长列表，又不想为每一行都付出挂载成本时 —— Listy 会进行虚拟滚动，只渲染视口内的行。
+- 需要渲染长列表，又不想为每一行都付出挂载成本时 —— 开启 `virtual` 后只渲染视口内的行。
 - 列表需要分组，并让分组标题吸顶时。
 - 需要以命令式方式控制滚动位置（跳到某一项、某个分组或某个像素位置）时。
 

@@ -36,6 +36,7 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="small">
       <Listy<Item>
+        virtual
         items={items}
         rowKey="id"
         height={400}

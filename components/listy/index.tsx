@@ -25,10 +25,8 @@ export type ListySemanticType = {
 
 export type ListySemanticAllType = GenerateSemantic<ListySemanticType, ListyProps>;
 
-export interface ListyProps<T = AnyObject, K extends React.Key = React.Key> extends Omit<
-  RcListyProps<T, K>,
-  'itemHeight' | 'direction' | 'classNames' | 'styles'
-> {
+export interface ListyProps<T = AnyObject, K extends React.Key = React.Key>
+  extends Omit<RcListyProps<T, K>, 'itemHeight' | 'direction' | 'classNames' | 'styles'> {
   rootClassName?: string;
   className?: string;
   style?: React.CSSProperties;

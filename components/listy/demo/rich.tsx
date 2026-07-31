@@ -25,7 +25,7 @@ const colorOf = (user: string) => colors[users.indexOf(user) % colors.length];
 
 const pad = (value: number) => String(value).padStart(2, '0');
 
-const notifications = Array.from<any, Notification>({ length: 5000 }, (_, index) => ({
+const notifications = Array.from<any, Notification>({ length: 12 }, (_, index) => ({
   id: index,
   user: users[index % users.length],
   message: messages[index % messages.length],
@@ -34,7 +34,6 @@ const notifications = Array.from<any, Notification>({ length: 5000 }, (_, index)
 
 const App: React.FC = () => (
   <Listy<Notification>
-    virtual
     items={notifications}
     rowKey="id"
     height={400}
