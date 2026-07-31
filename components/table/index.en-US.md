@@ -79,6 +79,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>size</code>
 <code src="./demo/bordered.tsx">border, title and footer</code>
 <code src="./demo/expand.tsx">Expandable Row</code>
+<code src="./demo/expand-force-render.tsx" version="6.6.0">Force render expanded rows</code>
 <code src="./demo/expand-sticky.tsx" debug>Customizable expansion position</code>
 <code src="./demo/order-column.tsx">Order Specific Column</code>
 <code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
