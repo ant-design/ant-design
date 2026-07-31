@@ -25,7 +25,7 @@ const treeData = [
 ];
 
 const App: React.FC = () => (
-  <InternalTreeSelect defaultValue="0-0" style={{ width: '100%' }} treeData={treeData} />
+  <InternalTreeSelect defaultValue="lucy" style={{ width: '100%' }} treeData={treeData} />
 );
 
 export default App;

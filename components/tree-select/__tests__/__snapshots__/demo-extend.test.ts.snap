@@ -2260,9 +2260,9 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
   >
     <div
       class="ant-select-content ant-select-content-has-value"
-      title="Node1"
+      title="lucy"
     >
-      Node1
+      lucy
       <input
         aria-autocomplete="list"
         aria-controls="test-id_list"
@@ -2308,12 +2308,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
   >
     <div>
       <div>
-        <span
-          aria-live="assertive"
-          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-        >
-          0-0
-        </span>
         <div
           class="ant-select-tree"
         >
@@ -2331,7 +2325,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
             </div>
           </div>
           <div
-            aria-activedescendant="test-id-0-0"
             class="ant-select-tree-list"
             role="tree"
             style="position: relative;"
@@ -2348,8 +2341,8 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                   <div
                     aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="true"
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-active"
+                    aria-selected="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
                     id="test-id-0-0"
                     role="treeitem"
@@ -2382,7 +2375,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                       </span>
                     </span>
                     <span
-                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close ant-select-tree-node-selected"
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
                       title="Node1"
                     >
                       <span
