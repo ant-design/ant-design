@@ -574,9 +574,9 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content ant-select-content-has-value"
-      title="lucy"
+      title="Node1"
     >
-      lucy
+      Node1
       <input
         aria-autocomplete="list"
         aria-expanded="false"
