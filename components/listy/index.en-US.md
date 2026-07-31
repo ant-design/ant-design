@@ -20,10 +20,10 @@ tag: 6.6.0
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/virtual.tsx">Virtual scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
-<code src="./demo/scroll-to.tsx">Scroll control</code>
 <code src="./demo/rich.tsx">Rich content</code>
 <code src="./demo/infinite.tsx">Infinite loading</code>
 <code src="./demo/style-class.tsx">Custom semantic dom styling</code>
+<code src="./demo/scroll-to.tsx" debug>Scroll control</code>
 
 ## API
 

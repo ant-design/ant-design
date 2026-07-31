@@ -21,10 +21,10 @@ tag: 6.6.0
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/virtual.tsx">虚拟滚动</code>
 <code src="./demo/group.tsx">分组与吸顶</code>
-<code src="./demo/scroll-to.tsx">滚动控制</code>
 <code src="./demo/rich.tsx">复杂内容</code>
 <code src="./demo/infinite.tsx">无限加载</code>
 <code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
+<code src="./demo/scroll-to.tsx" debug>滚动控制</code>
 
 ## API
 
