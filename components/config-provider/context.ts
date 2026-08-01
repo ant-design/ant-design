@@ -328,7 +328,12 @@ export type FloatButtonGroupConfig = ComponentStyleConfig &
 export type PaginationConfig = ComponentStyleConfig &
   Pick<
     PaginationProps,
-    'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'
+    | 'showSizeChanger'
+    | 'totalBoundaryShowSizeChanger'
+    | 'classNames'
+    | 'styles'
+    | 'variant'
+    | 'shape'
   >;
 
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;

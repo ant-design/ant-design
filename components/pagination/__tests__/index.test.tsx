@@ -122,6 +122,55 @@ describe('Pagination', () => {
     });
   });
 
+  describe('variant and shape', () => {
+    it('should use text variant by default', () => {
+      const { container } = render(<Pagination defaultCurrent={1} total={50} />);
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-variant-text');
+      expect(container.querySelector('.ant-pagination-round')).toBeFalsy();
+    });
+
+    it.each(['outlined', 'solid', 'filled', 'text'] as const)(
+      'should support variant=%s',
+      (variant) => {
+        const { container } = render(
+          <Pagination defaultCurrent={1} total={50} variant={variant} />,
+        );
+        expect(container.querySelector('.ant-pagination')).toHaveClass(
+          `ant-pagination-variant-${variant}`,
+        );
+      },
+    );
+
+    it('should support shape=round', () => {
+      const { container } = render(<Pagination defaultCurrent={1} total={50} shape="round" />);
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-round');
+    });
+
+    it('should follow ConfigProvider pagination variant and shape', () => {
+      const { container } = render(
+        <ConfigProvider pagination={{ variant: 'solid', shape: 'round' }}>
+          <Pagination defaultCurrent={1} total={50} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-solid',
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-round');
+    });
+
+    it('should prioritize component props over ConfigProvider', () => {
+      const { container } = render(
+        <ConfigProvider pagination={{ variant: 'solid', shape: 'round' }}>
+          <Pagination defaultCurrent={1} total={50} variant="outlined" shape="default" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-outlined',
+      );
+      expect(container.querySelector('.ant-pagination-round')).toBeFalsy();
+    });
+  });
+
   it('showSizeChanger support showSearch=false', () => {
     const { container } = render(
       <Pagination

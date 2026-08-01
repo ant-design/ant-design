@@ -83,7 +83,9 @@ export interface ComponentToken {
  * @descEN Token for Pagination component
  */
 export interface PaginationToken
-  extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
+  extends FullToken<'Pagination'>,
+    SharedComponentToken,
+    SharedInputToken {
   /**
    * @desc 输入框轮廓偏移量
    * @descEN Outline offset of input
@@ -642,6 +644,186 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
   };
 };
 
+const genPaginationVariantStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  const itemAndLink = `${componentCls}-item, ${componentCls}-item-link`;
+
+  return {
+    // ======================== Outlined ========================
+    [`&${componentCls}-variant-outlined`]: {
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        '&:hover button': {
+          borderColor: token.colorPrimaryHover,
+          backgroundColor: token.itemBg,
+        },
+
+        [`${componentCls}-item-link`]: {
+          backgroundColor: token.itemLinkBg,
+          borderColor: token.colorBorder,
+        },
+
+        [`&:hover ${componentCls}-item-link`]: {
+          borderColor: token.colorPrimary,
+          backgroundColor: token.itemBg,
+          color: token.colorPrimary,
+        },
+
+        [`&${componentCls}-disabled`]: {
+          [`${componentCls}-item-link`]: {
+            borderColor: token.colorBorder,
+            color: token.colorTextDisabled,
+          },
+        },
+      },
+
+      [`${componentCls}-item`]: {
+        backgroundColor: token.itemBg,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+
+        [`&:hover:not(${componentCls}-item-active)`]: {
+          borderColor: token.colorPrimary,
+          backgroundColor: token.itemBg,
+
+          a: {
+            color: token.colorPrimary,
+          },
+        },
+
+        '&-active': {
+          borderColor: token.colorPrimary,
+        },
+      },
+    },
+
+    // ========================= Solid ==========================
+    [`&${componentCls}-variant-solid`]: {
+      [`${componentCls}-item`]: {
+        borderColor: 'transparent',
+
+        [`&:not(${componentCls}-item-active)`]: {
+          '&:hover': {
+            backgroundColor: token.colorPrimaryBg,
+          },
+
+          '&:active': {
+            backgroundColor: token.colorPrimaryBgHover,
+          },
+        },
+
+        '&-active': {
+          backgroundColor: token.colorPrimary,
+          borderColor: 'transparent',
+
+          a: {
+            color: token.colorTextLightSolid,
+          },
+
+          '&:hover': {
+            backgroundColor: token.colorPrimaryHover,
+            borderColor: 'transparent',
+          },
+
+          '&:hover a': {
+            color: token.colorTextLightSolid,
+          },
+        },
+      },
+
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        [`&:hover ${componentCls}-item-link`]: {
+          backgroundColor: token.colorPrimaryBg,
+          color: token.colorPrimary,
+        },
+
+        [`&:active ${componentCls}-item-link`]: {
+          backgroundColor: token.colorPrimaryBgHover,
+        },
+      },
+    },
+
+    // ========================= Filled =========================
+    [`&${componentCls}-variant-filled`]: {
+      [itemAndLink]: {
+        backgroundColor: token.colorFillTertiary,
+        borderColor: 'transparent',
+      },
+
+      [`${componentCls}-item`]: {
+        [`&:not(${componentCls}-item-active)`]: {
+          '&:hover': {
+            backgroundColor: token.colorFillSecondary,
+          },
+
+          '&:active': {
+            backgroundColor: token.colorFill,
+          },
+        },
+
+        '&-active': {
+          backgroundColor: token.colorPrimaryBg,
+          borderColor: 'transparent',
+
+          a: {
+            color: token.colorPrimary,
+          },
+
+          '&:hover': {
+            backgroundColor: token.colorPrimaryBgHover,
+            borderColor: 'transparent',
+          },
+
+          '&:hover a': {
+            color: token.colorPrimaryHover,
+          },
+        },
+      },
+
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        [`${componentCls}-item-link`]: {
+          backgroundColor: token.colorFillTertiary,
+          borderColor: 'transparent',
+        },
+
+        [`&:hover ${componentCls}-item-link`]: {
+          backgroundColor: token.colorFillSecondary,
+        },
+
+        [`&:active ${componentCls}-item-link`]: {
+          backgroundColor: token.colorFill,
+        },
+      },
+    },
+
+    // ========================== Text ==========================
+    // Default styles already match `text` variant; class kept for API consistency.
+  };
+};
+
+const genPaginationShapeStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  const itemSelectors = [
+    `${componentCls}-item`,
+    `${componentCls}-prev`,
+    `${componentCls}-next`,
+    `${componentCls}-jump-prev`,
+    `${componentCls}-jump-next`,
+  ].join(', ');
+
+  return {
+    [`&${componentCls}-round`]: {
+      [itemSelectors]: {
+        borderRadius: 9999,
+      },
+
+      [`${componentCls}-item-link`]: {
+        borderRadius: 9999,
+      },
+    },
+  };
+};
+
 const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
@@ -710,6 +892,10 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
 
       // input variant style
       ...genPaginationInputVariantStyle(token),
+
+      // page item variant / shape
+      ...genPaginationVariantStyle(token),
+      ...genPaginationShapeStyle(token),
 
       // size style
       ...genPaginationSmallStyle(token),
