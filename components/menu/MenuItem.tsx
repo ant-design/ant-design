@@ -110,7 +110,7 @@ const MenuItem: GenericComponent = (props) => {
   } else {
     // When collapsed, use controlled state to prevent flash during transitions
     // ref: https://github.com/ant-design/ant-design/issues/56528
-    tooltipProps.open = tooltipOpen;
+    tooltipProps.open = tooltipConfig?.open ?? tooltipOpen;
     tooltipProps.onOpenChange = (open) => {
       setTooltipOpen(open);
       tooltipConfig?.onOpenChange?.(open);
