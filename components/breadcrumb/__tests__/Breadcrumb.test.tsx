@@ -536,6 +536,16 @@ describe('Breadcrumb', () => {
       ).toHaveLength(0);
     });
 
+    it('should not collapse when keepCount is less than 1', () => {
+      const { container } = render(<Breadcrumb collapsed keepCount={0} items={collapseItems} />);
+
+      expect(container.querySelector('.ant-breadcrumb-ellipsis-icon')).toBeNull();
+      expect(container.querySelectorAll('.ant-breadcrumb-item')).toHaveLength(5);
+      expect(
+        container.querySelectorAll('.ant-breadcrumb-item.ant-breadcrumb-item-hidden'),
+      ).toHaveLength(0);
+    });
+
     it('should not collapse when keepCount is not provided', () => {
       const { container } = render(<Breadcrumb collapsed items={collapseItems} />);
 

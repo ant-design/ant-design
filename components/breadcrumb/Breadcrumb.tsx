@@ -326,9 +326,10 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
       };
     });
 
-    const displayIndexes = collapseEnabled
-      ? getCollapsedDisplayIndexes(preparedCrumbs.length, keepCount!)
-      : preparedCrumbs.map((_, index) => index);
+    const displayIndexes =
+      collapsed && isNumber(keepCount)
+        ? getCollapsedDisplayIndexes(preparedCrumbs.length, keepCount)
+        : preparedCrumbs.map((_, index) => index);
 
     const headCount = collapseEnabled && keepCount! > 1 ? 1 : 0;
     const tailCount = collapseEnabled ? keepCount! - headCount : 0;
