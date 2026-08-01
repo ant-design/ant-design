@@ -4877,7 +4877,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-right"
         >
           <li
             aria-disabled="true"
@@ -5113,7 +5113,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-right"
         >
           <li
             aria-disabled="true"
@@ -5456,7 +5456,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-right"
         >
           <li
             aria-disabled="true"

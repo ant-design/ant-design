@@ -18202,7 +18202,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
 exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18330,7 +18330,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18463,7 +18463,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
 exports[`ConfigProvider components Pagination configProvider componentDisabled 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18592,7 +18592,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18726,7 +18726,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 exports[`ConfigProvider components Pagination configProvider componentSize large 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-large css-var-root"
+    class="config-pagination config-pagination-large config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18854,7 +18854,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18987,7 +18987,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 exports[`ConfigProvider components Pagination configProvider componentSize medium 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-medium css-var-root"
+    class="config-pagination config-pagination-medium config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19115,7 +19115,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19248,7 +19248,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
 exports[`ConfigProvider components Pagination configProvider componentSize small 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19376,7 +19376,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini config-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19509,7 +19509,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
 exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
-    class="ant-pagination css-var-root"
+    class="ant-pagination ant-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19637,7 +19637,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-pagination ant-pagination-small ant-pagination-mini css-var-root"
+    class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19770,7 +19770,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
 exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
-    class="prefix-Pagination css-var-root"
+    class="prefix-Pagination prefix-Pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19898,7 +19898,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
   </ul>
   <ul
-    class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini css-var-root"
+    class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini prefix-Pagination-variant-text css-var-root"
   >
     <li
       aria-disabled="true"
