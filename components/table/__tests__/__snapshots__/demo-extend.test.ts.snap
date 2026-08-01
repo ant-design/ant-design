@@ -250,7 +250,7 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -472,7 +472,7 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -794,7 +794,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -3425,7 +3425,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -3845,7 +3845,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -4548,7 +4548,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -7970,7 +7970,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -8368,7 +8368,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -8818,7 +8818,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9379,7 +9379,7 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9950,7 +9950,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -10254,7 +10254,7 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -10595,7 +10595,7 @@ exports[`renders components/table/demo/expand-sticky.tsx extend context correctl
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -11576,7 +11576,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -12355,7 +12355,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -13556,7 +13556,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -14895,7 +14895,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15998,7 +15998,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -16435,7 +16435,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -16799,7 +16799,7 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -17806,7 +17806,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -18291,7 +18291,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -18636,7 +18636,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -19394,7 +19394,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20297,7 +20297,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21193,7 +21193,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -22089,7 +22089,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -22703,7 +22703,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -22970,7 +22970,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
         class="ant-spin-container"
       >
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-start css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-start css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -23286,7 +23286,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -24133,7 +24133,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -24276,7 +24276,7 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -24655,7 +24655,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -25211,7 +25211,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -25993,7 +25993,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -26389,7 +26389,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -29120,7 +29120,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -29339,7 +29339,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -29552,7 +29552,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -29833,7 +29833,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding: 10px;"
         >
           <li
@@ -30074,7 +30074,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding: 10px;"
         >
           <li
@@ -30389,7 +30389,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -31094,7 +31094,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -31574,7 +31574,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"

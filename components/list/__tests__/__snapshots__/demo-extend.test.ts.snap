@@ -3353,7 +3353,7 @@ Array [
       class="ant-list-pagination"
     >
       <ul
-        class="ant-pagination ant-pagination-center css-var-test-id"
+        class="ant-pagination ant-pagination-center ant-pagination-variant-text css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4533,7 +4533,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination ant-pagination-end css-var-test-id"
+      class="ant-pagination ant-pagination-end ant-pagination-variant-text css-var-test-id"
     >
       <li
         aria-disabled="true"

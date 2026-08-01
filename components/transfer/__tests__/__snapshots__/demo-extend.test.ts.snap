@@ -4911,7 +4911,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
@@ -5514,7 +5514,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
@@ -7457,7 +7457,7 @@ Array [
           </li>
         </ul>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
         >
           <li
             aria-disabled="true"
@@ -7975,7 +7975,7 @@ Array [
           </li>
         </ul>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
         >
           <li
             aria-disabled="true"
@@ -13116,7 +13116,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-text ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
