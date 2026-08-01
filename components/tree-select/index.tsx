@@ -15,6 +15,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import type { AdjustOverflow } from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -115,6 +116,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
   disabled?: boolean;
   status?: InputStatus;
   variant?: Variant;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
@@ -204,6 +206,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     treeCheckStrictly,
     styles,
     classNames,
+    autoAdjustOverflow,
     ...restProps
   } = props;
 
@@ -418,7 +421,11 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       disabled={mergedDisabled}
       {...selectProps}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={mergedBuiltinPlacements({
+        builtinPlacements,
+        popupOverflow,
+        autoAdjustOverflow,
+      })}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}

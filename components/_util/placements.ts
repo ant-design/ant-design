@@ -17,12 +17,12 @@ export interface PlacementsConfig {
   visibleFirst?: boolean;
 }
 
-export function getOverflowOptions(
-  placement: string,
-  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
-  arrowWidth: number,
+type Overflow = NonNullable<AlignType['overflow']>;
+
+export function getMergedOverflow(
+  baseOverflow: Overflow,
   autoAdjustOverflow?: boolean | AdjustOverflow,
-) {
+): Overflow {
   if (autoAdjustOverflow === false) {
     return {
       adjustX: false,
@@ -30,9 +30,23 @@ export function getOverflowOptions(
     };
   }
 
-  const overflow = isPlainObject(autoAdjustOverflow) ? autoAdjustOverflow : {};
+  return {
+    ...baseOverflow,
+    ...(isPlainObject(autoAdjustOverflow) ? autoAdjustOverflow : {}),
+  };
+}
 
-  const baseOverflow: AlignType['overflow'] = {};
+export function getOverflowOptions(
+  placement: string,
+  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
+  arrowWidth: number,
+  autoAdjustOverflow?: boolean | AdjustOverflow,
+) {
+  if (autoAdjustOverflow === false) {
+    return getMergedOverflow({}, autoAdjustOverflow);
+  }
+
+  const baseOverflow: Overflow = {};
 
   switch (placement) {
     case 'top':
@@ -50,10 +64,7 @@ export function getOverflowOptions(
       break;
   }
 
-  const mergedOverflow = {
-    ...baseOverflow,
-    ...overflow,
-  };
+  const mergedOverflow = getMergedOverflow(baseOverflow, autoAdjustOverflow);
 
   // Support auto shift
   if (!mergedOverflow.shiftX) {

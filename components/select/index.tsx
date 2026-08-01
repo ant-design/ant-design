@@ -18,6 +18,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import normalizeIcon from '../_util/normalizeIcon';
+import type { AdjustOverflow } from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -123,6 +124,7 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
 export interface SelectProps<
@@ -205,6 +207,7 @@ const InternalSelect = <
     classNames,
     clearIcon,
     showSearch,
+    autoAdjustOverflow,
     ...rest
   } = props;
 
@@ -451,7 +454,11 @@ const InternalSelect = <
       style={mergedStyles.root}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      builtinPlacements={mergedBuiltinPlacements({
+        builtinPlacements,
+        popupOverflow,
+        autoAdjustOverflow,
+      })}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}

@@ -53,6 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | `clearIcon`: 6.4.0 |
+| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean \| AdjustOverflow | true | 6.6.0 | × |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  | × |
