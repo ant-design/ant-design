@@ -629,6 +629,38 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
+    // https://github.com/ant-design/ant-design/issues/58842
+    it('SELECTION_ALL should skip disabled rows on other pages', () => {
+      jest.useFakeTimers();
+      const onChange = jest.fn();
+      const { container } = render(
+        createTable({
+          pagination: { pageSize: 2 },
+          rowSelection: {
+            onChange,
+            getCheckboxProps: (record) => ({ disabled: record.key === 3 }),
+            selections: [Table.SELECTION_ALL],
+          },
+        }),
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+      expect(onChange).toHaveBeenCalledWith([0, 1, 2], expect.anything(), { type: 'all' });
+
+      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      expect(
+        container.querySelector<HTMLInputElement>(
+          'tbody tr[data-row-key="3"] input[type="checkbox"]',
+        )?.checked,
+      ).toBe(false);
+    });
+
     it('SELECTION_INVERT', () => {
       jest.useFakeTimers();
       const onChange = jest.fn();
