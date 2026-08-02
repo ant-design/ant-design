@@ -1,1 +1,5 @@
 !.dumi*
+
+# 排除顶层 Markdown 文件，避免与 Surge Clean URL 路由冲突
+
+components/*.md
