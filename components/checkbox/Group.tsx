@@ -124,7 +124,7 @@ const CheckboxGroup = React.forwardRef(
       ? memoizedOptions.map<React.ReactNode>((option) => (
           <Checkbox
             prefixCls={prefixCls}
-            key={option.value.toString()}
+            key={String(option.value)}
             disabled={'disabled' in option ? option.disabled : restProps.disabled}
             value={option.value}
             checked={value.includes(option.value)}

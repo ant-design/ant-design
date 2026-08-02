@@ -237,6 +237,20 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalledWith([1]);
   });
 
+  it('should support undefined value', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <Checkbox.Group
+        options={[{ value: undefined, label: 'undefined' }, 'Pear', 'Orange']}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
+    expect(onChange).toHaveBeenCalledWith([undefined]);
+  });
+
   it('should store latest checkbox value if changed', () => {
     const onChange = jest.fn();
 
