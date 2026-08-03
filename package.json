@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.5.2",
+  "version": "6.5.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -187,7 +187,7 @@
     "@npmcli/run-script": "^11.0.0",
     "@octokit/rest": "^22.0.1",
     "@prettier/sync": "^0.6.1",
-    "@rc-component/virtual-list": "^1.0.2",
+    "@rc-component/virtual-list": "~1.4.0",
     "@size-limit/file": "^13.0.0",
     "@stackblitz/sdk": "^1.11.0",
     "@testing-library/dom": "^10.4.1",
@@ -215,7 +215,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.6",
     "@types/progress": "^2.0.7",
-    "@types/react": "19.2.17",
+    "@types/react": "19.2.18",
     "@types/react-dom": "^19.2.3",
     "@types/react-highlight-words": "^0.20.1",
     "@types/semver": "^7.7.1",
