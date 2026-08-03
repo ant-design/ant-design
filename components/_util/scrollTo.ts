@@ -13,10 +13,29 @@ interface ScrollToOptions {
   duration?: number;
 }
 
-export default function scrollTo(y: number, options: ScrollToOptions = {}) {
+const scrollTo = (y: number, options: ScrollToOptions = {}) => {
   const { getContainer = () => window, callback, duration = 450 } = options;
   const container = getContainer();
   const scrollTop = getScroll(container);
+
+  const scroll = (top: number) => {
+    if (isWindow(container)) {
+      container.scrollTo(window.pageXOffset, top);
+    } else if (isDocument(container)) {
+      container.documentElement.scrollTop = top;
+    } else {
+      container.scrollTop = top;
+    }
+  };
+
+  if (duration <= 0) {
+    scroll(y);
+    if (isFunction(callback)) {
+      callback();
+    }
+    return () => {};
+  }
+
   const startTime = Date.now();
 
   let rafId: number;
@@ -25,13 +44,7 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     const timestamp = Date.now();
     const time = timestamp - startTime;
     const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration);
-    if (isWindow(container)) {
-      container.scrollTo(window.pageXOffset, nextScrollTop);
-    } else if (isDocument(container)) {
-      container.documentElement.scrollTop = nextScrollTop;
-    } else {
-      container.scrollTop = nextScrollTop;
-    }
+    scroll(nextScrollTop);
     if (time < duration) {
       rafId = raf(frameFunc);
     } else if (isFunction(callback)) {
@@ -43,4 +56,6 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   return () => {
     raf.cancel(rafId);
   };
-}
+};
+
+export default scrollTo;
