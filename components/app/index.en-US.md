@@ -142,4 +142,4 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### CSS Var doesn't work inside `<App component={false}>` {#faq-css-var-component-false}
 
-Ant Design v6 uses CSS variables by default. App needs a valid HTML element to hold its CSS variable class name. When `component` is `false`, App only provides context without rendering a root DOM node, so no App root class name or default styles are applied. Keep the default `div` or specify another valid element when these styles are required.
+Ant Design v6 uses CSS variables by default. App needs a valid HTML element to hold its CSS variable class name. When `component` is `false`, App only provides context without rendering a root DOM node, so no App root class name or default styles are applied. The `className`, `rootClassName`, and `style` properties cannot be applied in this mode and trigger a development warning. Keep the default `div` or specify another valid element when these styles are required.

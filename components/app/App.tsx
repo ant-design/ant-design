@@ -75,6 +75,18 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
 
   const devWarning = useDevWarning('App');
 
+  const hasRootProps = Boolean(
+    className || rootClassName || style || contextClassName || contextStyle,
+  );
+
+  // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526
+  // https://github.com/ant-design/ant-design/issues/58876
+  devWarning(
+    component !== false || !hasRootProps,
+    'usage',
+    'When using cssVar, ensure `component` is assigned a valid React component string.',
+  );
+
   devWarning(
     !ref || component !== false,
     'usage',
