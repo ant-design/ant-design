@@ -698,6 +698,40 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
     <li
       class="ant-breadcrumb-item"
     >
+      <a
+        class="ant-breadcrumb-link"
+        href=""
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M3 3v18h18"
+          />
+          <path
+            d="M7 14l4-4 3 3 5-6"
+          />
+        </svg>
+        <span>
+          Dashboard
+        </span>
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <span
         class="ant-breadcrumb-link"
       >

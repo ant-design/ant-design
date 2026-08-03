@@ -74,7 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 |  |
+| duration | Time to return to top (ms). This property is ignored when enables reduced motion (`prefers-reduced-motion: reduce`) | number | 450 |  |
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | A callback function, which can be executed when you click the button | () => void | - |  |

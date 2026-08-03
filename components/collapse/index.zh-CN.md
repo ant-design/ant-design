@@ -22,6 +22,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 <code src="./demo/mix.tsx">面板嵌套</code>
 <code src="./demo/borderless.tsx">简洁风格</code>
 <code src="./demo/custom.tsx">自定义面板</code>
+<code src="./demo/icon.tsx">面板图标</code>
 <code src="./demo/noarrow.tsx">隐藏箭头</code>
 <code src="./demo/extra.tsx">额外节点</code>
 <code src="./demo/ghost.tsx">幽灵折叠面板</code>
