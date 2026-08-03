@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | Total number of data items | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 6.2.0 |
-| variant | Style variant of page items | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 6.6.0 | 6.6.0 |
+| variant | Style variant of page items. Also applies to size changer and quick jumper unless overridden | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 6.6.0 | 6.6.0 |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  | × |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  | × |
 

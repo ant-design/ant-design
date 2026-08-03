@@ -120,8 +120,15 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const [inputVariant, enableInputVariantCls] = useVariant('input');
 
   // ============================ Variant =============================
+  const hasPaginationVariant = variant !== undefined || contextVariant !== undefined;
   const mergedVariant = variant ?? contextVariant ?? 'outlined';
   const mergedShape = shape ?? contextShape ?? 'default';
+
+  // Nested Input (quick jumper / simple): pagination variant > ConfigProvider input variant
+  const nestedInputVariant = hasPaginationVariant ? mergedVariant : inputVariant;
+  const enableNestedInputCls = hasPaginationVariant
+    ? nestedInputVariant !== 'outlined'
+    : enableInputVariantCls && inputVariant !== 'outlined';
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: PaginationProps = {
@@ -195,6 +202,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         getPopupContainer={(triggerNode) => triggerNode.parentNode}
         aria-label={ariaLabel}
         options={options}
+        {...(hasPaginationVariant ? { variant: mergedVariant } : {})}
         {...mergedShowSizeChangerSelectProps}
         value={selectedValue}
         onChange={(nextSize, option) => {
@@ -273,7 +281,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     {
       [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
-      [`${prefixCls}-${inputVariant}`]: enableInputVariantCls && inputVariant !== 'outlined',
+      [`${prefixCls}-${nestedInputVariant}`]: enableNestedInputCls,
       /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',

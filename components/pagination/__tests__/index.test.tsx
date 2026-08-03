@@ -171,6 +171,41 @@ describe('Pagination', () => {
       );
       expect(container.querySelector('.ant-pagination-round')).toBeFalsy();
     });
+
+    it('should sync variant to quick jumper input and size changer select', () => {
+      const { container } = render(
+        <Pagination
+          defaultCurrent={1}
+          total={500}
+          variant="filled"
+          showQuickJumper
+          showSizeChanger
+        />,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-filled');
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-filled',
+      );
+      expect(container.querySelector('.ant-select')).toHaveClass('ant-select-filled');
+    });
+
+    it('should allow showSizeChanger.variant to override pagination variant', () => {
+      const { container } = render(
+        <Pagination
+          defaultCurrent={1}
+          total={500}
+          variant="filled"
+          showSizeChanger={{ variant: 'borderless' }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-filled',
+      );
+      expect(container.querySelector('.ant-select')).toHaveClass('ant-select-borderless');
+      expect(container.querySelector('.ant-select-filled')).toBeFalsy();
+    });
   });
 
   it('showSizeChanger support showSearch=false', () => {
