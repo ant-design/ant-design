@@ -109,8 +109,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
-const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (isPlainObject(showSearch)) {
+const getShowSearchOption = (showSearch: boolean | TransferSearchOption): TransferSearchOption => {
+  if (isPlainObject<TransferSearchOption>(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
@@ -166,7 +166,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const listPrefixCls = `${prefixCls}-list`;
 
   const searchOptions = getShowSearchOption(showSearch);
-  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue ?? '');
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
