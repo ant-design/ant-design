@@ -82,7 +82,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526
   // https://github.com/ant-design/ant-design/issues/58876
   devWarning(
-    component !== false || !hasRootProps,
+    !(cssVarCls && component === false && hasRootProps),
     'usage',
     'When using cssVar, ensure `component` is assigned a valid React component string.',
   );
