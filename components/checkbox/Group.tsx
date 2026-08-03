@@ -3,7 +3,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isString } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
@@ -71,16 +71,18 @@ const CheckboxGroup = React.forwardRef(
       }
     }, [restProps.value]);
 
-    const memoizedOptions = React.useMemo<CheckboxOptionType<T>[]>(
-      () =>
-        options.map<CheckboxOptionType<T>>((option: any) => {
-          if (typeof option === 'string' || isNumber(option)) {
+    const memoizedOptions = React.useMemo(() => {
+      return options
+        .map((option) => {
+          if (isString(option) || isNumber(option)) {
             return { label: option, value: option };
           }
           return option;
-        }),
-      [options],
-    );
+        })
+        .filter(
+          (item): item is CheckboxOptionType<T> => isNonNullable(item) && isNonNullable(item.value),
+        );
+    }, [options]);
 
     const cancelValue = (val: T) => {
       setRegisteredValues((prevValues) => prevValues.filter((v) => v !== val));
@@ -120,16 +122,12 @@ const CheckboxGroup = React.forwardRef(
 
     const domProps = omit(restProps, ['value', 'disabled']);
 
-    const childrenNode = options.length
-      ? memoizedOptions.map<React.ReactNode>((option, index) => {
-          const mergedKey = isNonNullable(option.value)
-            ? `value-${option.value}`
-            : `nullable-${index}`;
-
-          return (
+    const childrenNode =
+      Array.isArray(memoizedOptions) && memoizedOptions.length > 0
+        ? memoizedOptions.map((option) => (
             <Checkbox
               prefixCls={prefixCls}
-              key={mergedKey}
+              key={option.value.toString()}
               disabled={'disabled' in option ? option.disabled : restProps.disabled}
               value={option.value}
               checked={value.includes(option.value)}
@@ -142,9 +140,8 @@ const CheckboxGroup = React.forwardRef(
             >
               {option.label}
             </Checkbox>
-          );
-        })
-      : children;
+          ))
+        : children;
 
     const memoizedContext = React.useMemo<CheckboxGroupContext<any>>(
       () => ({
