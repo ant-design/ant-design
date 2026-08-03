@@ -304,8 +304,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             setSelectedKeys(
               data.reduce<Key[]>((keys, record, index) => {
                 const key = getRowKey(record, index);
-                const checkProps = checkboxPropsMap.get(key);
-                if (!checkProps?.disabled || derivedSelectedKeySet.has(key)) {
+                if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
                   keys.push(key);
                 }
                 return keys;
@@ -376,6 +375,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     tableLocale.selectInvert,
     tableLocale.selectNone,
     checkboxPropsMap,
+    isCheckboxDisabled,
     derivedSelectedKeySet,
     data,
     pageData,
