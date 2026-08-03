@@ -113,8 +113,9 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       };
 
       if (sizeProps.flex || sizeProps.flex === 0) {
-      sizeClassObj[`${prefixCls}-${size}-flex`] = true;
-      sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+        sizeClassObj[`${prefixCls}-${size}-flex`] = true;
+        sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+      }
     }
   });
 
