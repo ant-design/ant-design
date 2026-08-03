@@ -237,18 +237,25 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalledWith([1]);
   });
 
-  it('should support undefined value', () => {
+  it('should support undefined and null as option value', () => {
     const onChange = jest.fn();
 
     const { container } = render(
       <Checkbox.Group
-        options={[{ value: undefined, label: 'undefined' }, 'Pear', 'Orange']}
+        options={[
+          { value: undefined, label: 'undefined' },
+          { value: null, label: 'null' },
+        ]}
         onChange={onChange}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
+    const [undefinedCheckbox, nullCheckbox] = container.querySelectorAll('.ant-checkbox-wrapper');
+
+    fireEvent.click(undefinedCheckbox);
     expect(onChange).toHaveBeenCalledWith([undefined]);
+    fireEvent.click(nullCheckbox);
+    expect(onChange).toHaveBeenCalledWith([null, undefined]);
   });
 
   it('should store latest checkbox value if changed', () => {
