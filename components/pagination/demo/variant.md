@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过单选切换 `variant` 与 `shape`，预览页码按钮的不同形态组合。
+通过单选切换 `variant` 与 `shape`，并预览基础分页、`showSizeChanger`、`showQuickJumper` 等场景。
 
 ## en-US
 
-Use radio groups to switch `variant` and `shape`, and preview different page item styles.
+Switch `variant` and `shape` with radio groups, and preview basic pagination, `showSizeChanger`, `showQuickJumper`, and more.

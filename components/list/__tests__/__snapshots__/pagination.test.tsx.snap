@@ -2,7 +2,7 @@
 
 exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
-  class="ant-pagination ant-pagination-end ant-pagination-variant-text css-var-root"
+  class="ant-pagination ant-pagination-end ant-pagination-variant-outlined css-var-root"
 >
   <li
     aria-disabled="true"
@@ -125,7 +125,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination ant-pagination-end ant-pagination-variant-text my-page css-var-root"
+      class="ant-pagination ant-pagination-end ant-pagination-variant-outlined my-page css-var-root"
     >
       <li
         aria-disabled="true"
@@ -220,7 +220,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination ant-pagination-end ant-pagination-variant-text css-var-root"
+  class="ant-pagination ant-pagination-end ant-pagination-variant-outlined css-var-root"
 >
   <li
     aria-disabled="false"

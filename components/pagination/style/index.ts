@@ -651,93 +651,47 @@ const genPaginationVariantStyle: GenerateStyle<PaginationToken, CSSObject> = (to
 
   return {
     // ======================== Outlined ========================
-    [`&${componentCls}-variant-outlined`]: {
-      [`${componentCls}-prev, ${componentCls}-next`]: {
-        '&:hover button': {
-          borderColor: token.colorPrimaryHover,
-          backgroundColor: token.itemBg,
-        },
+    // Default styles already match Input-like `outlined` (previous default appearance).
 
-        [`${componentCls}-item-link`]: {
-          backgroundColor: token.itemLinkBg,
-          borderColor: token.colorBorder,
-        },
+    // ======================= Borderless =======================
+    [`&${componentCls}-variant-borderless`]: {
+      [`${componentCls}-item`]: {
+        borderColor: 'transparent',
+        backgroundColor: 'transparent',
 
-        [`&:hover ${componentCls}-item-link`]: {
-          borderColor: token.colorPrimary,
-          backgroundColor: token.itemBg,
-          color: token.colorPrimary,
-        },
+        [`&:not(${componentCls}-item-active)`]: {
+          '&:hover': {
+            backgroundColor: token.colorBgTextHover,
+          },
 
-        [`&${componentCls}-disabled`]: {
-          [`${componentCls}-item-link`]: {
-            borderColor: token.colorBorder,
-            color: token.colorTextDisabled,
+          '&:active': {
+            backgroundColor: token.colorBgTextActive,
           },
         },
-      },
 
-      [`${componentCls}-item`]: {
-        backgroundColor: token.itemBg,
-        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-
-        [`&:hover:not(${componentCls}-item-active)`]: {
-          borderColor: token.colorPrimary,
-          backgroundColor: token.itemBg,
+        '&-active': {
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
 
           a: {
             color: token.colorPrimary,
           },
-        },
-
-        '&-active': {
-          borderColor: token.colorPrimary,
-        },
-      },
-    },
-
-    // ========================= Solid ==========================
-    [`&${componentCls}-variant-solid`]: {
-      [`${componentCls}-item`]: {
-        borderColor: 'transparent',
-
-        [`&:not(${componentCls}-item-active)`]: {
-          '&:hover': {
-            backgroundColor: token.colorPrimaryBg,
-          },
-
-          '&:active': {
-            backgroundColor: token.colorPrimaryBgHover,
-          },
-        },
-
-        '&-active': {
-          backgroundColor: token.colorPrimary,
-          borderColor: 'transparent',
-
-          a: {
-            color: token.colorTextLightSolid,
-          },
 
           '&:hover': {
-            backgroundColor: token.colorPrimaryHover,
+            backgroundColor: token.colorBgTextHover,
             borderColor: 'transparent',
           },
 
           '&:hover a': {
-            color: token.colorTextLightSolid,
+            color: token.colorPrimaryHover,
           },
         },
       },
 
       [`${componentCls}-prev, ${componentCls}-next`]: {
-        [`&:hover ${componentCls}-item-link`]: {
-          backgroundColor: token.colorPrimaryBg,
-          color: token.colorPrimary,
-        },
-
-        [`&:active ${componentCls}-item-link`]: {
-          backgroundColor: token.colorPrimaryBgHover,
+        [`${componentCls}-item-link`]: {
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
         },
       },
     },
@@ -795,8 +749,71 @@ const genPaginationVariantStyle: GenerateStyle<PaginationToken, CSSObject> = (to
       },
     },
 
-    // ========================== Text ==========================
-    // Default styles already match `text` variant; class kept for API consistency.
+    // ======================= Underlined =======================
+    [`&${componentCls}-variant-underlined`]: {
+      [`${componentCls}-item`]: {
+        borderWidth: `${unit(token.lineWidth)} 0`,
+        borderStyle: `${token.lineType} none`,
+        borderColor: `transparent transparent ${token.colorBorder} transparent`,
+        borderRadius: 0,
+        backgroundColor: 'transparent',
+
+        [`&:not(${componentCls}-item-active)`]: {
+          '&:hover': {
+            backgroundColor: 'transparent',
+            borderColor: `transparent transparent ${token.colorPrimary} transparent`,
+
+            a: {
+              color: token.colorPrimary,
+            },
+          },
+
+          '&:active': {
+            backgroundColor: 'transparent',
+          },
+        },
+
+        '&-active': {
+          backgroundColor: 'transparent',
+          borderColor: `transparent transparent ${token.colorPrimary} transparent`,
+
+          a: {
+            color: token.colorPrimary,
+          },
+
+          '&:hover': {
+            backgroundColor: 'transparent',
+            borderColor: `transparent transparent ${token.colorPrimaryHover} transparent`,
+          },
+
+          '&:hover a': {
+            color: token.colorPrimaryHover,
+          },
+        },
+      },
+
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        borderRadius: 0,
+
+        [`${componentCls}-item-link`]: {
+          borderWidth: `${unit(token.lineWidth)} 0`,
+          borderStyle: `${token.lineType} none`,
+          borderColor: `transparent transparent ${token.colorBorder} transparent`,
+          borderRadius: 0,
+          backgroundColor: 'transparent',
+        },
+
+        [`&:hover ${componentCls}-item-link`]: {
+          backgroundColor: 'transparent',
+          borderColor: `transparent transparent ${token.colorPrimary} transparent`,
+          color: token.colorPrimary,
+        },
+      },
+
+      [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
+        borderRadius: 0,
+      },
+    },
   };
 };
 

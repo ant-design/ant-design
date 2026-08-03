@@ -15,6 +15,7 @@ import { clsx } from 'clsx';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
+import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -41,7 +42,7 @@ export type PaginationSemanticType = {
 
 export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
-export type PaginationVariant = 'outlined' | 'solid' | 'filled' | 'text';
+export type PaginationVariant = Variant;
 
 export type PaginationShape = 'default' | 'round';
 
@@ -119,7 +120,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const [inputVariant, enableInputVariantCls] = useVariant('input');
 
   // ============================ Variant =============================
-  const mergedVariant = variant ?? contextVariant ?? 'text';
+  const mergedVariant = variant ?? contextVariant ?? 'outlined';
   const mergedShape = shape ?? contextShape ?? 'default';
 
   // =========== Merged Props for Semantic ==========

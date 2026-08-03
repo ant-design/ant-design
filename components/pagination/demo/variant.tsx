@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
-import { Flex, Pagination, Radio, Typography } from 'antd';
+import { Divider, Flex, Pagination, Radio, Typography } from 'antd';
 import type { PaginationProps } from 'antd';
 
-const variants: NonNullable<PaginationProps['variant']>[] = ['text', 'outlined', 'filled', 'solid'];
+const variants: NonNullable<PaginationProps['variant']>[] = [
+  'outlined',
+  'filled',
+  'borderless',
+  'underlined',
+];
 const shapes: NonNullable<PaginationProps['shape']>[] = ['default', 'round'];
 
 const App: React.FC = () => {
-  const [variant, setVariant] = useState<PaginationProps['variant']>('text');
+  const [variant, setVariant] = useState<PaginationProps['variant']>('outlined');
   const [shape, setShape] = useState<PaginationProps['shape']>('default');
+
+  const sharedProps: Pick<PaginationProps, 'variant' | 'shape'> = { variant, shape };
 
   return (
     <Flex vertical gap="middle">
@@ -29,13 +36,34 @@ const App: React.FC = () => {
           options={shapes.map((item) => ({ label: item, value: item }))}
         />
       </Flex>
+
+      <Divider titlePlacement="start">Basic</Divider>
+      <Pagination {...sharedProps} defaultCurrent={1} total={50} />
+
+      <Divider titlePlacement="start">showSizeChanger</Divider>
+      <Pagination {...sharedProps} defaultCurrent={1} total={500} showSizeChanger />
+
+      <Divider titlePlacement="start">showQuickJumper</Divider>
+      <Pagination {...sharedProps} defaultCurrent={1} total={500} showQuickJumper />
+
+      <Divider titlePlacement="start">showSizeChanger + showQuickJumper</Divider>
       <Pagination
+        {...sharedProps}
         defaultCurrent={1}
-        total={99999}
-        pageSize={1}
-        variant={variant}
-        shape={shape}
-        showSizeChanger={false}
+        total={500}
+        showSizeChanger
+        showQuickJumper
+        showTotal={(total) => `Total ${total} items`}
+      />
+
+      <Divider titlePlacement="start">disabled</Divider>
+      <Pagination
+        {...sharedProps}
+        disabled
+        defaultCurrent={1}
+        total={500}
+        showSizeChanger
+        showQuickJumper
       />
     </Flex>
   );
