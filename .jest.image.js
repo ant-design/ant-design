@@ -6,7 +6,7 @@ module.exports = {
   moduleNameMapper,
   modulePathIgnorePatterns,
   transform: {
-    '^.+\\.(ts|tsx|js|mjs)$': './tests/jestCodePreprocessor',
+    '^.+\\.(ts|tsx|js|mjs)$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
