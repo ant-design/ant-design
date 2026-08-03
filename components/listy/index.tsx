@@ -66,11 +66,8 @@ const InternalListy = <T, K extends React.Key = React.Key>(
   const [, token] = useToken();
 
   const listyToken = { ...token, ...token.Listy };
-  const itemHeight = Math.round(
-    listyToken.fontSize * listyToken.lineHeight +
-      (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2 +
-      listyToken.lineWidth,
-  );
+  const itemHeight =
+    listyToken.fontHeight + (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2;
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
   const styleRoot = useSemanticRootStyle(style);

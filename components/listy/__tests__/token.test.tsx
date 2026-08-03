@@ -24,13 +24,18 @@ describe('Listy.Token', () => {
     mockItemHeights.length = 0;
   });
 
-  it('derives itemHeight estimate from Listy component token', () => {
+  it('derives itemHeight estimate from font height and Listy component token', () => {
     const node = (
       <Listy height={200} items={[{ id: 1 }]} rowKey="id" itemRender={(item) => String(item.id)} />
     );
 
     render(node);
     const defaultItemHeight = mockItemHeights[0];
+
+    mockItemHeights.length = 0;
+    render(<ConfigProvider theme={{ token: { lineWidth: 5 } }}>{node}</ConfigProvider>);
+
+    expect(mockItemHeights[0]).toBe(defaultItemHeight);
 
     mockItemHeights.length = 0;
     render(
