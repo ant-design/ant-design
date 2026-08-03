@@ -238,16 +238,16 @@ describe('App', () => {
       expect(container.querySelector('section.ant-app')).toBeTruthy();
     });
 
-    it('should warn if component is false and cssVarCls is not empty', () => {
-      render(
+    it('should not warn if component is false', () => {
+      const { container } = render(
         <ConfigProvider>
-          <App component={false} />
+          <App component={false}>
+            <p />
+          </App>
         </ConfigProvider>,
       );
-
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
-      );
+      expect(container.querySelector<HTMLDivElement>('.ant-app')).toBeNull();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
 
     it('should warn if component is false and ref is not empty', () => {

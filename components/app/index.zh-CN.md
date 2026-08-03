@@ -143,4 +143,4 @@ export default () => {
 
 ### CSS Var 在 `<App component={false}>` 内不起作用 {#faq-css-var-component-false}
 
-请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。
+Ant Design v6 默认使用 CSS 变量。App 需要一个有效的 HTML 元素来承载 CSS 变量类名。将 `component` 设置为 `false` 时，App 仅提供上下文而不渲染根 DOM 节点，因此不会应用 App 根节点的类名和默认样式。如需这些样式，请保留默认的 `div` 或指定其他有效元素。

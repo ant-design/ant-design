@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { clsx } from 'clsx';
 
 import type { AnyObject, CustomComponent } from '../_util/type';
-import { devUseWarning } from '../_util/warning';
+import { useDevWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
@@ -58,6 +58,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   );
 
   const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
+
   const [notificationApi, notificationContextHolder] = useNotification(
     mergedAppConfig.notification,
   );
@@ -72,14 +73,9 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
     [messageApi, notificationApi, ModalApi],
   );
 
-  // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526
-  devUseWarning('App')(
-    !(cssVarCls && component === false),
-    'usage',
-    'When using cssVar, ensure `component` is assigned a valid React component string.',
-  );
+  const devWarning = useDevWarning('App');
 
-  devUseWarning('App')(
+  devWarning(
     !ref || component !== false,
     'usage',
     '`ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
