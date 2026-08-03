@@ -1,1 +1,6 @@
 !.dumi*
+
+# Exclude raw Markdown outputs to avoid conflicts with Surge clean URL routing.
+changelog*.md
+components/*.md
+docs/**/*.md
