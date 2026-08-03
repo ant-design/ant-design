@@ -28,6 +28,7 @@ demo:
 <code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
+<code src="./demo/scroll-to.tsx" version="6.6.0">滚动到嵌套节点</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
 <code src="./demo/block-node.tsx">占据整行</code>
@@ -133,7 +134,19 @@ demo:
 
 | 名称 | 说明 |
 | --- | --- |
-| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number; autoExpand?: boolean }) | 虚拟滚动下，滚动到指定 key 条目。非受控模式下可通过 `autoExpand` 展开目标节点 |
+
+### Tree Hooks
+
+#### Tree.useTree
+
+`type Tree.useTree = (treeData: DataNode[], config: { fieldNames?: FieldNames }) => TreeInstance`
+
+提供 Tree 数据工具。`getPath(key)` 返回从根节点到目标节点的实体路径，可用于在受控模式下更新 `expandedKeys`。
+
+```tsx
+const { getPath } = Tree.useTree(treeData, {});
+```
 
 ## Semantic DOM
 

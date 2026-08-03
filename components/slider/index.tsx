@@ -18,6 +18,8 @@ import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 
+export type { SliderRef };
+
 export type SliderMarks = RcSliderProps['marks'];
 
 export type SliderSemanticType = {
@@ -306,12 +308,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       function proxyEvent(
         eventName: keyof React.DOMAttributes<HTMLElement>,
         event: React.SyntheticEvent,
-        triggerRestPropsEvent?: boolean,
       ) {
-        if (triggerRestPropsEvent) {
-          (restProps as any)[eventName]?.(event);
-        }
-
         (nodeProps as any)[eventName]?.(event);
       }
 
@@ -332,13 +329,11 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
         },
         onFocus: (e) => {
           setFocusOpen(true, true);
-          restProps.onFocus?.(e);
-          proxyEvent('onFocus', e, true);
+          proxyEvent('onFocus', e);
         },
         onBlur: (e) => {
           setFocusOpen(false);
-          restProps.onBlur?.(e);
-          proxyEvent('onBlur', e, true);
+          proxyEvent('onBlur', e);
         },
       };
 

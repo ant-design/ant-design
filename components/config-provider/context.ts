@@ -256,15 +256,15 @@ export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type InputPasswordConfig = ComponentStyleConfig &
-  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender' | 'variant'>;
 
 export type InputSearchConfig = ComponentStyleConfig &
-  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon' | 'variant'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
+export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {

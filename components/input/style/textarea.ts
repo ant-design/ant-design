@@ -23,6 +23,10 @@ const genTextAreaStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
       transition: `all ${token.motionDurationSlow}`,
       resize: 'vertical',
 
+      '@media (hover: none) and (pointer: coarse)': {
+        resize: 'none',
+      },
+
       [`&${componentCls}-mouse-active`]: {
         transition: `all ${token.motionDurationSlow}, height 0s, width 0s`,
       },

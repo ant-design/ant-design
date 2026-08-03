@@ -6,7 +6,7 @@ export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
-export type { AlertProps, ErrorBoundaryProps } from './alert';
+export type { AlertProps, AlertRef, ErrorBoundaryProps } from './alert';
 export { default as Anchor } from './anchor';
 export type { AnchorLinkProps, AnchorProps } from './anchor';
 export { default as App } from './app';
@@ -33,9 +33,9 @@ export type { CardGridRef } from './card';
 export type { CardMetaProps } from './card/CardMeta';
 export type { CardMetaRef } from './card/CardMeta';
 export { default as Carousel } from './carousel';
-export type { CarouselProps } from './carousel';
+export type { CarouselProps, CarouselRef } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderAutoProps, CascaderProps } from './cascader';
+export type { CascaderAutoProps, CascaderProps, CascaderRef } from './cascader';
 export type { CascaderPanelAutoProps, CascaderPanelProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type {
@@ -100,9 +100,9 @@ export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListItemMetaRef, ListProps } from './list';
 export { default as Masonry } from './masonry';
-export type { MasonryProps } from './masonry';
+export type { MasonryProps, MasonryRef } from './masonry';
 export { default as Mentions } from './mentions';
-export type { MentionProps, MentionsProps } from './mentions';
+export type { MentionProps, MentionsProps, MentionsRef } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
@@ -123,7 +123,7 @@ export { default as QRCode } from './qr-code';
 export type { QRCodeRef } from './qr-code';
 export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
 export { default as Radio } from './radio';
-export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
+export type { RadioChangeEvent, RadioGroupProps, RadioProps, RadioRef } from './radio';
 export { default as Rate } from './rate';
 export type { RateProps } from './rate';
 export { default as Result } from './result';
@@ -137,7 +137,7 @@ export type { RefSelectProps, SelectProps } from './select';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps, SkeletonRef } from './skeleton';
 export { default as Slider } from './slider';
-export type { SliderSingleProps } from './slider';
+export type { SliderRangeProps, SliderRef, SliderSingleProps } from './slider';
 export { default as Space } from './space';
 export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
@@ -145,7 +145,12 @@ export type { SpinProps, SpinRef } from './spin';
 export { default as Splitter } from './splitter';
 export type { SplitterProps, SplitterRef } from './splitter';
 export { default as Statistic } from './statistic';
-export type { CountdownProps, StatisticProps, StatisticTimerProps } from './statistic';
+export type {
+  CountdownProps,
+  StatisticProps,
+  StatisticRef,
+  StatisticTimerProps,
+} from './statistic';
 export { default as Steps } from './steps';
 export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
@@ -158,9 +163,10 @@ export type {
   ColumnType as TableColumnType,
   TablePaginationConfig,
   TableProps,
+  TableRef,
 } from './table';
 export { default as Tabs } from './tabs';
-export type { TabPaneProps, TabsProps } from './tabs';
+export type { TabPaneProps, TabsProps, TabsRef } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
@@ -170,7 +176,7 @@ export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';
 export type { TimelineItemProps, TimelineProps } from './timeline';
 export { default as Tooltip } from './tooltip';
-export type { TooltipProps } from './tooltip';
+export type { TooltipProps, TooltipRef } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
@@ -178,15 +184,17 @@ export type { TransferProps, TransferRef } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
+  TreeInstance,
   AntTreeNodeProps as TreeNodeProps,
   TreeProps,
+  UseTreeConfig as TreeUseTreeConfig,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
 export type { TreeSelectProps } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { DraggerProps, UploadFile, UploadProps } from './upload';
+export type { DraggerProps, UploadFile, UploadProps, UploadRef } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type {
