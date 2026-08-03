@@ -33,7 +33,11 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: site
-          path: _site/
+          path: |
+            _site/
+            !_site/**/.*
+            _site/.surgeignore
+          include-hidden-files: true
           retention-days: 5
       # Upload PR id for next workflow use
       - name: Save PR number
