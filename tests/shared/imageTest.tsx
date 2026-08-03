@@ -9,7 +9,7 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import type { HTTPRequest, Viewport } from 'puppeteer';
+import type { HTTPRequest, Page, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
@@ -43,9 +43,11 @@ const imageSnapshotFontFamily = [
 ].join(', ');
 
 interface ImageTestOptions {
+  beforeScreenshot?: (testPage: Page) => Promise<void>;
   onlyViewport?: boolean;
   ssr?: boolean | string[];
   openTriggerClassName?: string;
+  hoverSelector?: string;
   mobile?: boolean;
 }
 
@@ -252,6 +254,10 @@ export default function imageTest(
         openTriggerClassName || '',
       );
 
+      if (options.hoverSelector) {
+        await page.hover(options.hoverSelector);
+      }
+
       // Wait for fonts to be ready and the layout to settle BEFORE measuring
       // the page size. Otherwise the rendered width/height may shift after the
       // screenshot is taken, making the visual diff flaky.
@@ -272,6 +278,8 @@ export default function imageTest(
           });
         });
       });
+
+      await options.beforeScreenshot?.(page);
 
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
