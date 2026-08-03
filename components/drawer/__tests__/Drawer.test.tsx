@@ -97,7 +97,7 @@ describe('Drawer', () => {
     triggerMotion();
 
     let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
-    expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+    expect(drawerWrapper).toHaveProperty('style.width', '20vw');
 
     rerender(
       <Drawer open size="500" getContainer={false}>
