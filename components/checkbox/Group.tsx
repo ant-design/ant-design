@@ -3,7 +3,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { isNumber } from '../_util/is';
+import { isNonNullable, isNumber } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
@@ -121,23 +121,29 @@ const CheckboxGroup = React.forwardRef(
     const domProps = omit(restProps, ['value', 'disabled']);
 
     const childrenNode = options.length
-      ? memoizedOptions.map<React.ReactNode>((option) => (
-          <Checkbox
-            prefixCls={prefixCls}
-            key={String(option.value)}
-            disabled={'disabled' in option ? option.disabled : restProps.disabled}
-            value={option.value}
-            checked={value.includes(option.value)}
-            onChange={option.onChange}
-            className={clsx(`${groupPrefixCls}-item`, option.className)}
-            style={option.style}
-            title={option.title}
-            id={option.id}
-            required={option.required}
-          >
-            {option.label}
-          </Checkbox>
-        ))
+      ? memoizedOptions.map<React.ReactNode>((option, index) => {
+          const mergedKey = isNonNullable(option.value)
+            ? option.value.toString()
+            : `checkbox-${index}`;
+
+          return (
+            <Checkbox
+              prefixCls={prefixCls}
+              key={mergedKey}
+              disabled={'disabled' in option ? option.disabled : restProps.disabled}
+              value={option.value}
+              checked={value.includes(option.value)}
+              onChange={option.onChange}
+              className={clsx(`${groupPrefixCls}-item`, option.className)}
+              style={option.style}
+              title={option.title}
+              id={option.id}
+              required={option.required}
+            >
+              {option.label}
+            </Checkbox>
+          );
+        })
       : children;
 
     const memoizedContext = React.useMemo<CheckboxGroupContext<any>>(
