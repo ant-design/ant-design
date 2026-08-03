@@ -123,8 +123,8 @@ const CheckboxGroup = React.forwardRef(
     const childrenNode = options.length
       ? memoizedOptions.map<React.ReactNode>((option, index) => {
           const mergedKey = isNonNullable(option.value)
-            ? option.value.toString()
-            : `checkbox-${index}`;
+            ? `value-${option.value}`
+            : `nullable-${index}`;
 
           return (
             <Checkbox
