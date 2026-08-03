@@ -34,16 +34,16 @@ tag: 6.6.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
-| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - | × |
-| height | 滚动容器高度，内容超出后滚动 | number | - | - | × |
-| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | - | × |
-| items | 列表数据源 | `T[]` | `[]` | - | × |
-| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - | × |
-| sticky | 分组标题是否吸顶 | boolean | false | - | × |
-| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
-| virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | - | × |
-| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | - | × |
+| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 6.6.0 | × |
+| height | 滚动容器高度，内容超出后滚动 | number | - | 6.6.0 | × |
+| itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
+| items | 列表数据源 | `T[]` | `[]` | 6.6.0 | × |
+| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
+| sticky | 分组标题是否吸顶 | boolean | false | 6.6.0 | × |
+| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | 6.6.0 | × |
+| onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | 6.6.0 | × |
 
 ### Group
 
@@ -56,9 +56,9 @@ tag: 6.6.0
 
 | 名称     | 说明                             | 类型                                |
 | -------- | -------------------------------- | ----------------------------------- |
-| scrollTo | 滚动到某个位置、某一项或某个分组 | `(config?: ScrollToConfig) => void` |
+| scrollTo | 滚动到某个位置、某一项或某个分组 | `(config?: ListyScrollToConfig) => void` |
 
-`ScrollToConfig` 为以下之一：
+`ListyScrollToConfig` 为以下之一：
 
 | 形态                            | 说明                                |
 | ------------------------------- | ----------------------------------- |
@@ -73,6 +73,6 @@ tag: 6.6.0
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Listy"></ComponentTokenTable>
