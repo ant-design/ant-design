@@ -182,7 +182,7 @@ describe('Carousel', () => {
 
     it('should not overflow when children are removed', async () => {
       const ref = React.createRef<CarouselRef>();
-      const { rerender } = render(
+      const { container, rerender } = render(
         <Carousel ref={ref}>
           <div>1</div>
           <div>2</div>
@@ -195,11 +195,11 @@ describe('Carousel', () => {
       // Wait for initial render
       await waitFakeTimer();
 
-      // Go to fourth slide (index 4)
+      // Go to fifth slide (index 4)
       ref.current?.goTo(4);
       await waitFakeTimer();
 
-      // Verify we are on slide 3
+      // Verify we are on slide 5
       expect(ref.current?.innerSlider.state.currentSlide).toBe(4);
 
       // Reduce to 2 children - should not overflow, should stay at valid index
@@ -210,8 +210,11 @@ describe('Carousel', () => {
         </Carousel>,
       );
 
+      await waitFakeTimer();
+
       // Should clamp to valid index (1), not overflow to non-existent slide
       expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+      expect(container.querySelector('.slick-active')).toHaveTextContent('2');
     });
   });
 
