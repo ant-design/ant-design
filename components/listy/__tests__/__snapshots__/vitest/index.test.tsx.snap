@@ -1,0 +1,130 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Listy > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-listy ant-listy-rtl css-var-root ant-listy-css-var"
+  dir="rtl"
+  style="max-height: 200px; overflow-y: auto; overflow-anchor: none;"
+>
+  <div
+    class="ant-listy-item"
+    data-key="item:0"
+  >
+    Item 0
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:1"
+  >
+    Item 1
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:2"
+  >
+    Item 2
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:3"
+  >
+    Item 3
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:4"
+  >
+    Item 4
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:5"
+  >
+    Item 5
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:6"
+  >
+    Item 6
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:7"
+  >
+    Item 7
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:8"
+  >
+    Item 8
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:9"
+  >
+    Item 9
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:10"
+  >
+    Item 10
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:11"
+  >
+    Item 11
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:12"
+  >
+    Item 12
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:13"
+  >
+    Item 13
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:14"
+  >
+    Item 14
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:15"
+  >
+    Item 15
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:16"
+  >
+    Item 16
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:17"
+  >
+    Item 17
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:18"
+  >
+    Item 18
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:19"
+  >
+    Item 19
+  </div>
+</div>
+`;
