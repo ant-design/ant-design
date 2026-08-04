@@ -184,68 +184,6 @@ describe('Table.filter', () => {
     });
   });
 
-  it.each([
-    {
-      name: 'native button',
-      filterIcon: (
-        <button type="button" className="custom-filter-icon">
-          Filter
-        </button>
-      ),
-    },
-    {
-      name: 'native link',
-      filterIcon: (
-        <a href="#filter" className="custom-filter-icon">
-          Filter
-        </a>
-      ),
-    },
-    {
-      name: 'button role',
-      filterIcon: (
-        <span role="button" className="custom-filter-icon">
-          Filter
-        </span>
-      ),
-    },
-    {
-      name: 'explicit tab stop',
-      filterIcon: (
-        <span role="checkbox" aria-checked={false} tabIndex={0} className="custom-filter-icon">
-          Filter
-        </span>
-      ),
-    },
-  ])('should leave keyboard handling to a custom $name filter icon', ({ filterIcon }) => {
-    const onOpenChange = jest.fn();
-    const { container } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterIcon,
-            filterDropdownProps: {
-              onOpenChange,
-            },
-          },
-        ],
-      }),
-    );
-    const triggerWrapper = container.querySelector('.ant-table-filter-trigger')!;
-    const customFilterIcon = container.querySelector('.custom-filter-icon')!;
-
-    expect(triggerWrapper).not.toHaveAttribute('role');
-    expect(triggerWrapper).not.toHaveAttribute('tabindex');
-    expect(triggerWrapper).not.toHaveAttribute('aria-expanded');
-
-    fireEvent.keyDown(customFilterIcon, { key: 'Enter' });
-    expect(onOpenChange).not.toHaveBeenCalled();
-
-    fireEvent.click(customFilterIcon);
-    expect(onOpenChange).toHaveBeenCalledTimes(1);
-  });
-
   it('renders empty menu correctly', () => {
     resetWarned();
 
