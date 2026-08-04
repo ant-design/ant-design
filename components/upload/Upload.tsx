@@ -2,7 +2,7 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
-import { useControlledState, useLayoutEffect } from '@rc-component/util';
+import { useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
@@ -89,10 +89,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
-  const mergedFileListRef = React.useRef(mergedFileList);
-  useLayoutEffect(() => {
-    mergedFileListRef.current = mergedFileList;
-  }, [mergedFileList]);
+  const getMergedFileList = useEvent(() => mergedFileList);
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const uploadRef = React.useRef<RcUpload>(null);
@@ -308,7 +305,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         return;
       }
 
-      const currentFileList = mergedFileListRef.current;
+      const currentFileList = getMergedFileList();
       const removedFileList = removeFileItem(file, currentFileList);
 
       if (removedFileList) {
