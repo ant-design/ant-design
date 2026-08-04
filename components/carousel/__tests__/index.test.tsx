@@ -179,6 +179,40 @@ describe('Carousel', () => {
       // Should stay on second slide instead of jumping to first
       expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
     });
+
+    it('should not overflow when children are removed', async () => {
+      const ref = React.createRef<CarouselRef>();
+      const { rerender } = render(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </Carousel>,
+      );
+
+      // Wait for initial render
+      await waitFakeTimer();
+
+      // Go to fourth slide (index 4)
+      ref.current?.goTo(4);
+      await waitFakeTimer();
+
+      // Verify we are on slide 3
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(4);
+
+      // Reduce to 2 children - should not overflow, should stay at valid index
+      rerender(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+        </Carousel>,
+      );
+
+      // Should clamp to valid index (1), not overflow to non-existent slide
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+    });
   });
 
   describe('dots precise control by plain object', () => {
