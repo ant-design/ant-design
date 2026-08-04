@@ -245,6 +245,13 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         )}
         <div className={`${prefixCls}-view`}>
           <table>
+            {!bordered && (
+              <colgroup>
+                {Array.from({ length: mergedColumn }, (_, index) => (
+                  <col key={index} style={{ width: `${100 / mergedColumn}%` }} />
+                ))}
+              </colgroup>
+            )}
             <tbody>
               {rows.map((row, index) => (
                 <Row

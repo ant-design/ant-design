@@ -8,6 +8,11 @@ exports[`Descriptions Descriptions support colon 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -47,6 +52,11 @@ exports[`Descriptions Descriptions support style 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -80,6 +90,11 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -118,6 +133,17 @@ exports[`Descriptions column is number 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 33.333333333333336%;"
+        />
+        <col
+          style="width: 33.333333333333336%;"
+        />
+        <col
+          style="width: 33.333333333333336%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -217,6 +243,11 @@ exports[`Descriptions number 0 should render correct 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -258,6 +289,11 @@ exports[`Descriptions should items work 1`] = `
       class="ant-descriptions-view"
     >
       <table>
+        <colgroup>
+          <col
+            style="width: 100%;"
+          />
+        </colgroup>
         <tbody>
           <tr
             class="ant-descriptions-row"
@@ -343,6 +379,11 @@ exports[`Descriptions should work with React Fragment 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -427,6 +468,11 @@ exports[`Descriptions vertical layout 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
@@ -586,6 +632,11 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
     class="ant-descriptions-view"
   >
     <table>
+      <colgroup>
+        <col
+          style="width: 100%;"
+        />
+      </colgroup>
       <tbody>
         <tr
           class="ant-descriptions-row"
