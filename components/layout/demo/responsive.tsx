@@ -52,7 +52,7 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const [useMode, setUseMode] = useState<'breakpoint' | 'hook'>('hook');
+  const [useMode, setUseMode] = useState<'breakpoint' | 'hook'>('breakpoint');
 
   const currentYear = new Date().getFullYear();
 
