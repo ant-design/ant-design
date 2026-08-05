@@ -120,7 +120,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
       goTo(newIndex, false);
     }
-  }, [count, initialSlide, isRTL]);
+  }, [initialSlide, isRTL]);
 
   // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {

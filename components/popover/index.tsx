@@ -47,8 +47,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     placement = 'top',
     trigger,
     children,
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     onOpenChange,
     overlayStyle = {},
     styles,
@@ -65,7 +65,12 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   } = useComponentConfig('popover');
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -131,8 +136,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       arrow={mergedArrow}
       placement={placement}
       trigger={mergedTrigger}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       {...restProps}
       prefixCls={prefixCls}
       classNames={{

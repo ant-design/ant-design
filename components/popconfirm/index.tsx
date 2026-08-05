@@ -65,6 +65,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     arrow: popconfirmArrow,
     classNames,
     disabled = false,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     ...restProps
   } = props;
   const {
@@ -75,10 +77,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
   const mergedTrigger = trigger || contextTrigger || 'click';
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
@@ -150,6 +157,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       classNames={{
         root: rootClassNames,
         container: mergedClassNames.container,

@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 6.5.3
+
+`2026-07-31`
+
+- Input
+  - 🐞 Fix Input.OTP using `type="text"` when `mask` is a string while preserving explicit `type` values. [#58835](https://github.com/ant-design/ant-design/pull/58835) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Input.OTP displaying the original value when `mask` is `true`. [#58805](https://github.com/ant-design/ant-design/pull/58805) [@cyphercodes](https://github.com/cyphercodes)
+  - 💄 Fix Input.TextArea resize handle rendering as a dot on touch devices. [#58812](https://github.com/ant-design/ant-design/pull/58812) [@pupuking723](https://github.com/pupuking723)
+- Typography
+  - ⚡️ Improve Typography ellipsis tooltip performance in large lists. [#58806](https://github.com/ant-design/ant-design/pull/58806) [@lkxdsb](https://github.com/lkxdsb)
+  - 🐞 Fix Typography editable textarea font size not matching the edited content. [#58551](https://github.com/ant-design/ant-design/pull/58551) [@gaurav0107](https://github.com/gaurav0107)
+- 🐞 Fix DatePicker.RangePicker submitting unconfirmed partial values on blur when using `showTime` and `allowEmpty`. [#58803](https://github.com/ant-design/ant-design/pull/58803) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form.Item `useStatus` returning stale errors and warnings when the validation status remains unchanged. [#58815](https://github.com/ant-design/ant-design/pull/58815) [@afc163](https://github.com/afc163)
+- 🐞 Fix Slider triggering `onFocus` and `onBlur` callbacks multiple times. [#58711](https://github.com/ant-design/ant-design/pull/58711) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Spin standalone indicators being mispositioned when nested in another Spin. [#58801](https://github.com/ant-design/ant-design/pull/58801) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Table controlled filter dropdown selections not updating while open. [#58816](https://github.com/ant-design/ant-design/pull/58816) [@afc163](https://github.com/afc163)
+- 🐞 Fix Upload default download links allowing newly opened tabs to access the opener page. [#58817](https://github.com/ant-design/ant-design/pull/58817) [@afc163](https://github.com/afc163)
+- 💄 Fix incomplete Icon base styles when `theme.zeroRuntime` or CSS layers are enabled. [#58763](https://github.com/ant-design/ant-design/pull/58763) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Select suffix icons and selected content overlapping the clear icon with custom theme colors. [#58581](https://github.com/ant-design/ant-design/pull/58581) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Tabs third-party `<svg>` icons not vertically aligning with labels. [#58847](https://github.com/ant-design/ant-design/pull/58847) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+
 ## 6.5.2
 
 `2026-07-24`
