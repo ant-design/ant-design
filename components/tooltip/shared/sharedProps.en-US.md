@@ -13,8 +13,8 @@
 | destroyOnHidden | Whether destroy dom when close | boolean | false | 5.25.0 | × |
 | fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 | × |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
-| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  | Tooltip: ✅, Popover: ✅, Popconfirm: ✅ |
-| mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  | Tooltip: ✅, Popover: ✅, Popconfirm: ✅ |
+| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  | Tooltip: 6.6.0, Popover: 6.6.0, Popconfirm: 6.6.0 |
+| mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  | Tooltip: 6.6.0, Popover: 6.6.0, Popconfirm: 6.6.0 |
 | ~~overlayClassName~~ | Class name of the tooltip card, please use `classNames.root` instead | string | - |  | × |
 | ~~overlayStyle~~ | Style of the tooltip card, please use `styles.root` | React.CSSProperties | - |  | × |
 | ~~overlayInnerStyle~~ | Style of the tooltip inner content, please use `styles.container` instead | React.CSSProperties | - |  | × |
