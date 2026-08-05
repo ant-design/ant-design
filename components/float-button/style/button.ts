@@ -72,6 +72,45 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           lineHeight: 1,
         },
 
+        [`${componentCls}-progress-holder`]: {
+          position: 'relative',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: varRef('size'),
+          height: varRef('size'),
+        },
+
+        [`${componentCls}-progress`]: {
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+        },
+
+        [`${componentCls}-progress-icon`]: {
+          position: 'relative',
+          zIndex: 1,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+
+        [`${componentCls}-progress-trail`]: {
+          fill: 'none',
+          stroke: token.colorBorderSecondary,
+          strokeWidth: token.lineWidthBold,
+        },
+
+        [`${componentCls}-progress-path`]: {
+          fill: 'none',
+          stroke: token.colorPrimary,
+          strokeWidth: token.lineWidthBold,
+          strokeDasharray: 1,
+          strokeDashoffset: 1,
+          strokeLinecap: 'round',
+        },
+
         // Icon Only will has large icon Size
         [`&${componentCls}-icon-only`]: {
           [iconCls]: {

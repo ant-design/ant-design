@@ -1019,6 +1019,12 @@ exports[`renders components/float-button/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/float-button/demo/progress-ring.tsx correctly 1`] = `
+<div
+  style="height:200vh"
+/>
+`;
+
 exports[`renders components/float-button/demo/render-panel.tsx correctly 1`] = `
 <div
   style="display:flex;column-gap:16px;align-items:center"

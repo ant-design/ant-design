@@ -1372,6 +1372,14 @@ exports[`renders components/float-button/demo/placement.tsx extend context corre
 
 exports[`renders components/float-button/demo/placement.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/float-button/demo/progress-ring.tsx extend context correctly 1`] = `
+<div
+  style="height: 200vh;"
+/>
+`;
+
+exports[`renders components/float-button/demo/progress-ring.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="display: flex; column-gap: 16px; align-items: center;"
