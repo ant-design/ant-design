@@ -47,9 +47,11 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <embed src="./shared/sharedProps.en-US.md"></embed>
 
-### ConfigProvider - tooltip {#config-provider-tooltip}
+### ConfigProvider - tooltip.unique {#config-provider-tooltip-unique}
 
-You can configure global settings for Tooltip through ConfigProvider:
+You can configure global unique display for Tooltip through ConfigProvider. When `unique` is set to `true`, only one Tooltip under the ConfigProvider will be displayed at the same time, providing better user experience and smooth transition effects.
+
+Note: After configuration, properties like `getContainer`, `arrow` etc. will be ignored.
 
 ```tsx
 import { Button, ConfigProvider, Space, Tooltip } from 'antd';
@@ -57,8 +59,6 @@ import { Button, ConfigProvider, Space, Tooltip } from 'antd';
 export default () => (
   <ConfigProvider
     tooltip={{
-      mouseEnterDelay: 1.5,
-      mouseLeaveDelay: 0.5,
       unique: true,
     }}
   >
@@ -73,9 +73,6 @@ export default () => (
   </ConfigProvider>
 );
 ```
-
-- `mouseEnterDelay` / `mouseLeaveDelay`: Configure global delay for tooltip show/hide. The component's own props will override the global settings.
-- `unique`: When set to `true`, only one Tooltip under the ConfigProvider will be displayed at the same time, providing better user experience and smooth transition effects. Note: After configuration, properties like `getContainer`, `arrow` etc. will be ignored.
 
 ## Semantic DOM
 

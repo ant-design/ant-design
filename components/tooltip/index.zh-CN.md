@@ -49,9 +49,11 @@ demo:
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
 
-### ConfigProvider - tooltip {#config-provider-tooltip}
+### ConfigProvider - tooltip.unique {#config-provider-tooltip-unique}
 
-可以通过 ConfigProvider 全局配置 Tooltip：
+可以通过 ConfigProvider 全局配置 Tooltip 的唯一性显示。当 `unique` 设置为 `true` 时，同一时间 ConfigProvider 下的 Tooltip 只会显示一个，提供更好的用户体验和平滑的过渡效果。
+
+注意：配置后 `getContainer`、`arrow` 等属性将会失效。
 
 ```tsx
 import { Button, ConfigProvider, Space, Tooltip } from 'antd';
@@ -59,8 +61,6 @@ import { Button, ConfigProvider, Space, Tooltip } from 'antd';
 export default () => (
   <ConfigProvider
     tooltip={{
-      mouseEnterDelay: 1.5,
-      mouseLeaveDelay: 0.5,
       unique: true,
     }}
   >
@@ -75,9 +75,6 @@ export default () => (
   </ConfigProvider>
 );
 ```
-
-- `mouseEnterDelay` / `mouseLeaveDelay`：全局配置 Tooltip 显示/隐藏的延迟时间。组件自身的属性会覆盖全局配置。
-- `unique`：设置为 `true` 时，同一时间 ConfigProvider 下的 Tooltip 只会显示一个，提供更好的用户体验和平滑的过渡效果。注意：配置后 `getContainer`、`arrow` 等属性将会失效。
 
 ## Semantic DOM
 
