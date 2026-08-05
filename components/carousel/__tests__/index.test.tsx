@@ -147,6 +147,75 @@ describe('Carousel', () => {
       );
       expect(container.querySelectorAll('.slick-dots li')[1]).toHaveClass('slick-active');
     });
+
+    it('should keep current slide when children are added', async () => {
+      const ref = React.createRef<CarouselRef>();
+      const { rerender } = render(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+        </Carousel>,
+      );
+
+      // Wait for initial render
+      await waitFakeTimer();
+
+      // Go to second slide (index 1)
+      ref.current?.goTo(1);
+      await waitFakeTimer();
+
+      // Verify we are on slide 1
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+
+      // Add new child
+      rerender(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+
+      // Should stay on second slide instead of jumping to first
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+    });
+
+    it('should not overflow when children are removed', async () => {
+      const ref = React.createRef<CarouselRef>();
+      const { container, rerender } = render(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </Carousel>,
+      );
+
+      // Wait for initial render
+      await waitFakeTimer();
+
+      // Go to fifth slide (index 4)
+      ref.current?.goTo(4);
+      await waitFakeTimer();
+
+      // Verify we are on slide 5
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(4);
+
+      // Reduce to 2 children - should not overflow, should stay at valid index
+      rerender(
+        <Carousel ref={ref}>
+          <div>1</div>
+          <div>2</div>
+        </Carousel>,
+      );
+
+      await waitFakeTimer();
+
+      // Should clamp to valid index (1), not overflow to non-existent slide
+      expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+      expect(container.querySelector('.slick-active')).toHaveTextContent('2');
+    });
   });
 
   describe('dots precise control by plain object', () => {
@@ -303,19 +372,19 @@ describe('Carousel', () => {
         { placement: 'end', expectedVertical: true },
         { placement: 'top', expectedVertical: false },
         { placement: 'bottom', expectedVertical: false },
-      ])('should set vertical=$expectedVertical for $placement', ({
-        placement,
-        expectedVertical,
-      }) => {
-        const { container } = render(<Demo dotPlacement={placement} />);
-        const carousel = container.querySelector('.ant-carousel-vertical');
+      ])(
+        'should set vertical=$expectedVertical for $placement',
+        ({ placement, expectedVertical }) => {
+          const { container } = render(<Demo dotPlacement={placement} />);
+          const carousel = container.querySelector('.ant-carousel-vertical');
 
-        if (expectedVertical) {
-          expect(carousel).toBeTruthy();
-        } else {
-          expect(carousel).toBeFalsy();
-        }
-      });
+          if (expectedVertical) {
+            expect(carousel).toBeTruthy();
+          } else {
+            expect(carousel).toBeFalsy();
+          }
+        },
+      );
     });
   });
   describe('RTL Direction', () => {
