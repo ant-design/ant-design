@@ -190,6 +190,20 @@ describe('BackTop', () => {
     expect(getProgressOffset(container)).toBeCloseTo(1);
   });
 
+  it('keeps progress stable when target resolves to null', async () => {
+    const { container } = render(
+      <BackTop
+        visibilityHeight={0}
+        showProgress
+        target={(() => null) as unknown as () => HTMLElement | Window | Document}
+      />,
+    );
+
+    await waitFakeTimer();
+
+    expect(getProgressOffset(container)).toBeCloseTo(1);
+  });
+
   it('keeps actual progress independent from visibilityHeight', async () => {
     setElementScrollMetrics(document.documentElement, {
       scrollTop: 700,
