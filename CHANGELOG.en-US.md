@@ -15,6 +15,48 @@ tag: vVERSION
 
 ---
 
+## 6.5.3
+
+`2026-07-31`
+
+- Input
+  - 🐞 Fix Input.OTP using `type="text"` when `mask` is a string while preserving explicit `type` values. [#58835](https://github.com/ant-design/ant-design/pull/58835) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Input.OTP displaying the original value when `mask` is `true`. [#58805](https://github.com/ant-design/ant-design/pull/58805) [@cyphercodes](https://github.com/cyphercodes)
+  - 💄 Fix Input.TextArea resize handle rendering as a dot on touch devices. [#58812](https://github.com/ant-design/ant-design/pull/58812) [@pupuking723](https://github.com/pupuking723)
+- Typography
+  - ⚡️ Improve Typography ellipsis tooltip performance in large lists. [#58806](https://github.com/ant-design/ant-design/pull/58806) [@lkxdsb](https://github.com/lkxdsb)
+  - 🐞 Fix Typography editable textarea font size not matching the edited content. [#58551](https://github.com/ant-design/ant-design/pull/58551) [@gaurav0107](https://github.com/gaurav0107)
+- 🐞 Fix DatePicker.RangePicker submitting unconfirmed partial values on blur when using `showTime` and `allowEmpty`. [#58803](https://github.com/ant-design/ant-design/pull/58803) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form.Item `useStatus` returning stale errors and warnings when the validation status remains unchanged. [#58815](https://github.com/ant-design/ant-design/pull/58815) [@afc163](https://github.com/afc163)
+- 🐞 Fix Slider triggering `onFocus` and `onBlur` callbacks multiple times. [#58711](https://github.com/ant-design/ant-design/pull/58711) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Spin standalone indicators being mispositioned when nested in another Spin. [#58801](https://github.com/ant-design/ant-design/pull/58801) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Table controlled filter dropdown selections not updating while open. [#58816](https://github.com/ant-design/ant-design/pull/58816) [@afc163](https://github.com/afc163)
+- 🐞 Fix Upload default download links allowing newly opened tabs to access the opener page. [#58817](https://github.com/ant-design/ant-design/pull/58817) [@afc163](https://github.com/afc163)
+- 💄 Fix incomplete Icon base styles when `theme.zeroRuntime` or CSS layers are enabled. [#58763](https://github.com/ant-design/ant-design/pull/58763) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Select suffix icons and selected content overlapping the clear icon with custom theme colors. [#58581](https://github.com/ant-design/ant-design/pull/58581) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Tabs third-party `<svg>` icons not vertically aligning with labels. [#58847](https://github.com/ant-design/ant-design/pull/58847) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+
+## 6.5.2
+
+`2026-07-24`
+
+- 💄 Fix Button, Collapse, ColorPicker, Layout, Select, Space.Addon, Tree, and Typography borders not respecting the global `lineWidth` and `lineType` Design Tokens. [#58740](https://github.com/ant-design/ant-design/pull/58740) [#58741](https://github.com/ant-design/ant-design/pull/58741) [#58742](https://github.com/ant-design/ant-design/pull/58742) [#58743](https://github.com/ant-design/ant-design/pull/58743) [#58745](https://github.com/ant-design/ant-design/pull/58745) [#58755](https://github.com/ant-design/ant-design/pull/58755) [@li-jia-nan](https://github.com/li-jia-nan) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix BorderBeam, Checkbox, and Switch reduced-motion styles causing Lightning CSS minification failures. [#58707](https://github.com/ant-design/ant-design/pull/58707) [@QDyanbing](https://github.com/QDyanbing)
+- Tag
+  - 💄 Fix Tag missing spacing and incorrect vertical alignment for bare `<svg>` icons from third-party icon libraries. [#58723](https://github.com/ant-design/ant-design/pull/58723) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+  - 🐞 Fix Tag navigation being triggered when clicking the close icon with both `href` and `closable` set. [#58720](https://github.com/ant-design/ant-design/pull/58720) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Input.OTP dropping root DOM event handlers including `onPointerDown`, `onAnimationEnd`, `onTransitionEnd`, and `onScrollEnd`. [#58697](https://github.com/ant-design/ant-design/pull/58697) [react-component/util#794](https://github.com/react-component/util/pull/794) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Form triggering a hook-order warning in React 19 when using the UMD development build. [#58417](https://github.com/ant-design/ant-design/pull/58417) [@biubiukam](https://github.com/biubiukam)
+- 💄 Fix Table missing the top border when a bordered nested table is wrapped by Tabs or custom content. [#58746](https://github.com/ant-design/ant-design/pull/58746) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Input.Search custom `enterButton` not respecting the component's `disabled` and `loading` states. [#58726](https://github.com/ant-design/ant-design/pull/58726) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer custom action buttons passed through `actions` not preserving their own `disabled` state. [#58718](https://github.com/ant-design/ant-design/pull/58718) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Tree `rootStyle` being ignored, and deprecate it in favor of `styles.root`. [#58709](https://github.com/ant-design/ant-design/pull/58709) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Grid Col ignoring numeric `0` for the `flex` prop in regular and responsive configurations. [#58719](https://github.com/ant-design/ant-design/pull/58719) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix InputNumber not displaying `suffix` when Form feedback is enabled. [#58703](https://github.com/ant-design/ant-design/pull/58703) [@QDyanbing](https://github.com/QDyanbing)
+- ⌨️ Fix Splitter percentage-based `aria-valuemin` and `aria-valuemax` values before container measurement, and prevent `lazy` drag previews from exceeding bounds next to zero-sized panels. [#58702](https://github.com/ant-design/ant-design/pull/58702) [@QDyanbing](https://github.com/QDyanbing)
+- 📖 Fix the ant.design homepage theme preview resetting the selected theme during rerenders. [#58687](https://github.com/ant-design/ant-design/pull/58687) [@meet-student](https://github.com/meet-student)
+- 📝 Correct Anchor `offsetTop` default value to `0` in the Chinese documentation. [#58710](https://github.com/ant-design/ant-design/pull/58710) [@dogledogle](https://github.com/dogledogle)
+
 ## 6.5.1
 
 `2026-07-13`

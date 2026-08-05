@@ -5,25 +5,3 @@
 ## en-US
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
-
-```css
-.events {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.events .ant-badge-status {
-  width: 100%;
-  overflow: hidden;
-  font-size: 12px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.notes-month {
-  font-size: 28px;
-  text-align: center;
-}
-.notes-month section {
-  font-size: 28px;
-}
-```

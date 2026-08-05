@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loadedKeys | (Controlled) Set loaded tree nodes. Need to work with `loadData` | string\[] | \[] |  | × |
 | motion | Custom motion config for the tree | CSSMotionProps | - |  | × |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  | × |
-| rootStyle | Style on the root element | CSSProperties | - | 4.20.0 | × |
+| ~~rootStyle~~ | Style on the root element, please use `styles.root` instead | CSSProperties | - | 4.20.0 | × |
 | selectable | Whether it can be selected | boolean | true |  | × |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  | × |
 | showIcon | Controls whether to display the `icon` node (no default style) | boolean | false |  | × |

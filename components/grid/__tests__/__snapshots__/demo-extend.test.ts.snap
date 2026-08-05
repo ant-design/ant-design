@@ -92,7 +92,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-start css-var-test-id"
+    class="ant-row ant-row-start acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -132,7 +132,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-center css-var-test-id"
+    class="ant-row ant-row-center acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -172,7 +172,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-end css-var-test-id"
+    class="ant-row ant-row-end acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -212,7 +212,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-space-between css-var-test-id"
+    class="ant-row ant-row-space-between acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -252,7 +252,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-space-around css-var-test-id"
+    class="ant-row ant-row-space-around acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -292,7 +292,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-space-evenly css-var-test-id"
+    class="ant-row ant-row-space-evenly acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -339,7 +339,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-center ant-row-top css-var-test-id"
+    class="ant-row ant-row-center ant-row-top acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -395,7 +395,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-space-around ant-row-middle css-var-test-id"
+    class="ant-row ant-row-space-around ant-row-middle acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -451,7 +451,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row ant-row-space-between ant-row-bottom css-var-test-id"
+    class="ant-row ant-row-space-between ant-row-bottom acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-4 css-var-test-id"
@@ -514,7 +514,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row css-var-test-id"
+    class="ant-row acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-6 ant-col-order-4 css-var-test-id"
@@ -554,7 +554,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-row css-var-test-id"
+    class="ant-row acss-1obg1u7 css-var-test-id"
   >
     <div
       class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4 css-var-test-id"
@@ -732,7 +732,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -742,7 +742,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -752,7 +752,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -762,7 +762,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -793,7 +793,7 @@ Array [
       style="padding-inline: 4px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -803,7 +803,7 @@ Array [
       style="padding-inline: 4px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -813,7 +813,7 @@ Array [
       style="padding-inline: 4px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -823,7 +823,7 @@ Array [
       style="padding-inline: 4px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -854,7 +854,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -864,7 +864,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -874,7 +874,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -884,7 +884,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -894,7 +894,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -904,7 +904,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -914,7 +914,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -924,7 +924,7 @@ Array [
       style="padding-inline: 8px;"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -955,7 +955,7 @@ Array [
       style="padding-inline: calc(2rem / 2);"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -965,7 +965,7 @@ Array [
       style="padding-inline: calc(2rem / 2);"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -975,7 +975,7 @@ Array [
       style="padding-inline: calc(2rem / 2);"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -985,7 +985,7 @@ Array [
       style="padding-inline: calc(2rem / 2);"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="padding: 8px 0px; background-color: rgb(0, 146, 255);"
       >
         col-6
       </div>
@@ -1401,66 +1401,82 @@ Array [
     style="margin-inline: -8px; row-gap: 16px;"
   >
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
@@ -1471,40 +1487,48 @@ Array [
     style="margin-inline: -8px; row-gap: 16px;"
   >
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
     <div
-      class="ant-col ant-col-6 css-var-test-id"
+      class="ant-col ant-col-6 acss-4kxmit css-var-test-id"
       style="padding-inline: 8px;"
     >
-      <div>
+      <div
+        class="acss-z934bs"
+      >
         Column
       </div>
     </div>
   </div>,
   <pre
-    class="demo-code"
+    class="acss-6vvz38"
   >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
@@ -1518,7 +1542,7 @@ Array [
 &lt;/Row&gt;
   </pre>,
   <pre
-    class="demo-code"
+    class="acss-6vvz38"
   >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;

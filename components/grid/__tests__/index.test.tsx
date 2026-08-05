@@ -64,6 +64,17 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should support zero flex', () => {
+    const { container } = render(<Col flex={0} />);
+    expect(container.firstElementChild).toHaveStyle({ flex: '0 0 auto' });
+  });
+
+  it('should support responsive zero flex', () => {
+    const { container } = render(<Col xs={{ flex: 0 }} />);
+    expect(container.firstElementChild).toHaveClass('ant-col-xs-flex');
+    expect(container.firstElementChild).toHaveStyle({ '--ant-col-xs-flex': '0 0 auto' });
+  });
+
   it('should render Row', () => {
     const { asFragment } = render(<Row />);
     expect(asFragment().firstChild).toMatchSnapshot();

@@ -105,6 +105,7 @@ const columns = [
 <code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
+<code src="./demo/nested-table-in-tabs-debug.tsx" debug>Nested Table in Tabs Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
