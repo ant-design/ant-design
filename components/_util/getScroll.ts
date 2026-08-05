@@ -6,7 +6,7 @@ export const isWindow = (obj: any): obj is Window => {
 
 export const isDocument = (val: Document | HTMLElement): val is Document => {
   return (
-    val instanceof Document ||
+    (typeof Document !== 'undefined' && val instanceof Document) ||
     val.constructor.name === 'HTMLDocument' ||
     val.nodeType === window.Node.DOCUMENT_NODE
   );
@@ -20,7 +20,7 @@ const getScroll = (target: HTMLElement | Window | Document | null): number => {
   let result = 0;
   if (isWindow(target)) {
     result = target.pageYOffset;
-  } else if (target instanceof Document) {
+  } else if (target && isDocument(target)) {
     result = target.documentElement.scrollTop;
   } else if (target instanceof HTMLElement) {
     result = target.scrollTop;
