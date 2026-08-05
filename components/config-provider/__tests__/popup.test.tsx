@@ -135,4 +135,45 @@ describe('ConfigProvider.Popup', () => {
       expect(baseElement.querySelector('.ant-tooltip')).toBeTruthy();
     });
   });
+
+  describe('config tooltip delay', () => {
+    it('should support mouseEnterDelay and mouseLeaveDelay global config', () => {
+      render(
+        <ConfigProvider tooltip={{ mouseEnterDelay: 1.5, mouseLeaveDelay: 0.5 }}>
+          <Tooltip title="title">
+            <button type="button">tooltip</button>
+          </Tooltip>
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().mouseEnterDelay).toBe(1.5);
+      expect(triggerProps().mouseLeaveDelay).toBe(0.5);
+    });
+
+    it('component props should override global config', () => {
+      render(
+        <ConfigProvider tooltip={{ mouseEnterDelay: 1.5, mouseLeaveDelay: 0.5 }}>
+          <Tooltip title="title" mouseEnterDelay={2} mouseLeaveDelay={1}>
+            <button type="button">tooltip</button>
+          </Tooltip>
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().mouseEnterDelay).toBe(2);
+      expect(triggerProps().mouseLeaveDelay).toBe(1);
+    });
+
+    it('should use default value when no global config', () => {
+      render(
+        <ConfigProvider>
+          <Tooltip title="title">
+            <button type="button">tooltip</button>
+          </Tooltip>
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().mouseEnterDelay).toBe(0.1);
+      expect(triggerProps().mouseLeaveDelay).toBe(0.1);
+    });
+  });
 });

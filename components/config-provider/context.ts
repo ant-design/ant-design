@@ -352,7 +352,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type TooltipConfig = Pick<
   TooltipProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画

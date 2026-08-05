@@ -168,8 +168,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     motion,
     getPopupContainer,
     placement = 'top',
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
+    mouseEnterDelay,
+    mouseLeaveDelay,
 
     rootClassName,
 
@@ -205,7 +205,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
@@ -361,8 +366,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       prefixCls={prefixCls}
       classNames={{
         root: rootClassNames,
