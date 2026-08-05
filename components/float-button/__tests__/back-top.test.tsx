@@ -36,14 +36,13 @@ describe('BackTop', () => {
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
-    const { container } = render(<BackTop />);
+    const { container } = render(<BackTop visibilityHeight={0} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
       document.documentElement.scrollTop = y;
     });
     window.scrollTo(0, 400);
-    fireEvent.scroll(window);
     await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(400);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
@@ -115,7 +114,9 @@ describe('BackTop', () => {
   });
 
   it('renders progress ring when showProgress is enabled', () => {
-    const { container } = render(<BackTop visibilityHeight={0} showProgress />);
+    const { container } = render(
+      <BackTop visibilityHeight={0} showProgress target={() => window} />,
+    );
 
     expect(container.querySelector('.ant-float-btn-progress')).toBeTruthy();
   });
@@ -140,10 +141,12 @@ describe('BackTop', () => {
       clientHeight: 1000,
     });
 
-    const { container } = render(<BackTop visibilityHeight={0} showProgress />);
+    const { container } = render(
+      <BackTop visibilityHeight={0} showProgress target={() => window} />,
+    );
 
     window.scrollTo(0, 500);
-    fireEvent.scroll(window);
+    window.dispatchEvent(new Event('resize'));
     await waitFakeTimer();
 
     expect(getProgressOffset(container)).toBeCloseTo(0.5);
@@ -188,35 +191,21 @@ describe('BackTop', () => {
   });
 
   it('keeps actual progress independent from visibilityHeight', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
-      Object.defineProperty(window, 'pageYOffset', {
-        configurable: true,
-        value: y,
-        writable: true,
-      });
-      Object.defineProperty(document.documentElement, 'scrollTop', {
-        configurable: true,
-        value: y,
-        writable: true,
-      });
-    });
-
     setElementScrollMetrics(document.documentElement, {
-      scrollTop: 0,
+      scrollTop: 700,
       scrollHeight: 2000,
       clientHeight: 1000,
     });
 
-    const { container } = render(<BackTop visibilityHeight={600} showProgress />);
+    const { container } = render(
+      <BackTop visibilityHeight={600} showProgress target={() => document} />,
+    );
 
-    window.scrollTo(0, 700);
-    fireEvent.scroll(window);
+    fireEvent.scroll(document);
     await waitFakeTimer();
 
     expect(container.querySelector('.ant-float-btn')).toBeTruthy();
     expect(getProgressOffset(container)).toBeCloseTo(0.3);
-
-    scrollToSpy.mockRestore();
   });
 
   it('uses square progress path when group shape overrides BackTop shape', () => {

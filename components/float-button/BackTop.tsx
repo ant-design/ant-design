@@ -87,10 +87,12 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     internalRef.current?.ownerDocument || window;
 
-  const syncScrollState = (targetNode: HTMLElement | Window | Document | null) => {
+  const syncVisibleState = (targetNode: HTMLElement | Window | Document | null) => {
     const scrollTop = getScroll(targetNode);
     setVisible(scrollTop >= visibilityHeight);
+  };
 
+  const syncProgressState = (targetNode: HTMLElement | Window | Document | null) => {
     if (showProgress) {
       setScrollProgress(getScrollProgress(targetNode));
     }
@@ -98,27 +100,40 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
-      syncScrollState(e.target);
+      syncVisibleState(e.target);
+      syncProgressState(e.target);
     },
   );
 
   useEffect(() => {
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    const handleResize = throttleByAnimationFrame(() => {
-      syncScrollState(getTarget());
-    });
 
-    syncScrollState(container);
+    syncVisibleState(container);
+    syncProgressState(container);
     container?.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
     return () => {
       handleScroll.cancel();
-      handleResize.cancel();
       container?.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
     };
   }, [showProgress, target, visibilityHeight]);
+
+  useEffect(() => {
+    if (!showProgress) {
+      return;
+    }
+
+    const getTarget = target || getDefaultTarget;
+    const handleResize = throttleByAnimationFrame(() => {
+      syncProgressState(getTarget());
+    });
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      handleResize.cancel();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [showProgress, target]);
 
   const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
