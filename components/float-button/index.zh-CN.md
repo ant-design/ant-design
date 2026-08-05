@@ -73,12 +73,12 @@ demo:
 
 ### FloatButton.BackTop
 
-| 参数             | 说明                               | 类型              | 默认值       | 版本 |
-| ---------------- | ---------------------------------- | ----------------- | ------------ | ---- |
-| duration         | 回到顶部所需时间（ms）             | number            | 450          |      |
-| target           | 设置需要监听其滚动事件的元素       | () => HTMLElement | () => window |      |
-| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number            | 400          |      |
-| onClick          | 点击按钮的回调函数                 | () => void        | -            |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| duration | 回到顶部所需时间（ms）；开启“减弱动态效果”（`prefers-reduced-motion: reduce`）时不生效 | number | 450 |  |
+| target | 设置需要监听其滚动事件的元素 | () => HTMLElement | () => window |  |
+| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number | 400 |  |
+| onClick | 点击按钮的回调函数 | () => void | - |  |
 
 ## Semantic DOM
 
