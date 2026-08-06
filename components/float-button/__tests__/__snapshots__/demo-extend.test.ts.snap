@@ -1373,65 +1373,31 @@ exports[`renders components/float-button/demo/placement.tsx extend context corre
 exports[`renders components/float-button/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/progress-ring.tsx extend context correctly 1`] = `
-Array [
-  <div
-    style="height: 200vh;"
-  />,
-  <button
-    class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
-    type="button"
-  >
-    <span
-      class="ant-btn-icon ant-float-btn-icon"
-    >
-      <span
-        class="ant-float-btn-progress-holder"
-      >
-        <svg
-          aria-hidden="true"
-          class="ant-float-btn-progress"
-          data-shape="circle"
-          viewBox="0 0 100 100"
-        >
-          <path
-            class="ant-float-btn-progress-trail"
-            d="M 50 8 A 42 42 0 1 1 49.999 8"
-            pathLength="1"
-          />
-          <path
-            class="ant-float-btn-progress-path"
-            d="M 50 8 A 42 42 0 1 1 49.999 8"
-            pathLength="1"
-            style="stroke-dashoffset: 1;"
-          />
-        </svg>
-        <span
-          class="ant-float-btn-progress-icon"
-        >
-          <span
-            aria-label="vertical-align-top"
-            class="anticon anticon-vertical-align-top"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="vertical-align-top"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-    </span>
-  </button>,
-]
+<div
+  style="height: 300vh; padding: 10px;"
+>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+</div>
 `;
 
 exports[`renders components/float-button/demo/progress-ring.tsx extend context correctly 2`] = `[]`;
