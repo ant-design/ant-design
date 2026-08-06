@@ -92,6 +92,7 @@ export interface ProgressProps extends ProgressAriaProps {
   gapPosition?: GapPosition;
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
   steps?: number | { count: number; gap: number };
+  vertical?: boolean;
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
   rounding?: (step: number) => number;
@@ -113,6 +114,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
+    vertical,
     percentPosition = {},
     ...restProps
   } = props;
@@ -293,6 +295,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
+        vertical={vertical}
         percentPosition={{
           align: infoAlign,
           type: infoPosition,
@@ -323,6 +326,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       [`${prefixCls}-line`]: isPureLineType,
       [`${prefixCls}-line-align-${infoAlign}`]: isPureLineType,
       [`${prefixCls}-line-position-${infoPosition}`]: isPureLineType,
+      [`${prefixCls}-line-vertical`]: isPureLineType && vertical,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-small`]: size === 'small',

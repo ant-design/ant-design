@@ -35,6 +35,7 @@ demo:
 <code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 <code src="./demo/info-position.tsx" version="5.18.0">改变进度数值位置</code>
+<code src="./demo/vertical.tsx">垂直进度条</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
@@ -53,6 +54,7 @@ demo:
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - | - | × |
 | strokeColor | 进度条的色彩 | string | - | - | × |
 | strokeLinecap | 进度条的样式 | `round` \| `butt` \| `square`，区别详见 [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - | × |
+| vertical | 是否使用垂直方向（仅支持 type="line"） | boolean | false | 6.6.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - | × |
 | ~~trailColor~~ | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - | × |
