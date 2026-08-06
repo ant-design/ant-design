@@ -10,7 +10,7 @@ const App: React.FC = () => (
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
-    <FloatButton.BackTop showProgress />
+    <FloatButton.BackTop showProgress visibilityHeight={0} />
   </div>
 );
 
