@@ -1,16 +1,4 @@
-import { isNonNullable, isNumber } from './is';
-
-export const isWindow = (obj: any): obj is Window => {
-  return isNonNullable(obj) && obj === obj.window;
-};
-
-export const isDocument = (val: Document | HTMLElement): val is Document => {
-  return (
-    (typeof Document !== 'undefined' && val instanceof Document) ||
-    val.constructor.name === 'HTMLDocument' ||
-    val.nodeType === window.Node.DOCUMENT_NODE
-  );
-};
+import { isDocument, isHTMLElement, isNumber, isWindow } from './is';
 
 const getScroll = (target: HTMLElement | Window | Document | null): number => {
   if (typeof window === 'undefined') {
@@ -20,9 +8,9 @@ const getScroll = (target: HTMLElement | Window | Document | null): number => {
   let result = 0;
   if (isWindow(target)) {
     result = target.pageYOffset;
-  } else if (target && isDocument(target)) {
+  } else if (isDocument(target)) {
     result = target.documentElement.scrollTop;
-  } else if (target instanceof HTMLElement) {
+  } else if (isHTMLElement(target)) {
     result = target.scrollTop;
   } else if (target) {
     // According to the type inference, the `target` is `never` type.
