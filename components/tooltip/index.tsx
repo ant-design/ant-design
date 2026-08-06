@@ -298,6 +298,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     builtinPlacements: tooltipPlacements,
     getPopupContainer: mergedGetPopupContainer,
     destroyOnHidden: mergedDestroyOnHidden,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
   };
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);

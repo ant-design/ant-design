@@ -131,6 +131,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayStyle,
     styles,
     classNames,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
   };
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
