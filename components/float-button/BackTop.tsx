@@ -166,7 +166,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           className={`${prefixCls}-progress-path`}
           d={progressPath}
           pathLength="1"
-          style={{ strokeDashoffset: 1 - scrollProgress }}
+          style={{ strokeDashoffset: `${1 - scrollProgress}` }}
         />
       </svg>
       <span className={`${prefixCls}-progress-icon`}>{mergedIcon}</span>

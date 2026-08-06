@@ -79,6 +79,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           justifyContent: 'center',
           width: varRef('size'),
           height: varRef('size'),
+          marginBlock: token.calc(token.paddingXXS).add(token.lineWidth).mul(-1).equal(),
         },
 
         [`${componentCls}-progress`]: {
@@ -106,8 +107,8 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           fill: 'none',
           stroke: token.colorPrimary,
           strokeWidth: token.lineWidthBold,
-          strokeDasharray: 1,
-          strokeDashoffset: 1,
+          strokeDasharray: '1',
+          strokeDashoffset: '1',
           strokeLinecap: 'round',
         },
 

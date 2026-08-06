@@ -281,7 +281,9 @@ describe('BackTop', () => {
       clientHeight: 1000,
     });
 
-    const { container } = render(<BackTop visibilityHeight={0} showProgress />);
+    const { container } = render(
+      <BackTop visibilityHeight={0} showProgress target={() => window} />,
+    );
 
     window.scrollTo(0, 500);
     fireEvent.scroll(window);
