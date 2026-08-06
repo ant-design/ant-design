@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
@@ -8,14 +8,10 @@ import scrollTo from '../_util/scrollTo';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import { GroupContext } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type {
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonRef,
-  FloatButtonShape,
-} from './FloatButton';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
 import useScroll from './hooks/useScroll';
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
@@ -37,17 +33,13 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 
 const defaultIcon = <VerticalAlignTopOutlined />;
 
-const getProgressPath = (shape: FloatButtonShape) =>
-  shape === 'square'
-    ? 'M 26 8 H 74 A 18 18 0 0 1 92 26 V 74 A 18 18 0 0 1 74 92 H 26 A 18 18 0 0 1 8 74 V 26 A 18 18 0 0 1 26 8 Z'
-    : 'M 50 8 A 42 42 0 1 1 49.999 8';
-
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const { backTopIcon: contextIcon } = useComponentConfig('floatButton');
 
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,
@@ -88,39 +80,18 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const [varName] = genCssVar(rootPrefixCls, 'float-btn');
 
   const groupShape = useContext(GroupContext)?.shape;
 
   const mergedShape = groupShape || shape;
 
-  const progressIcon = useMemo(() => {
-    const progressPath = getProgressPath(mergedShape);
-    return (
-      <span className={`${prefixCls}-progress-holder`}>
-        <svg
-          aria-hidden="true"
-          className={`${prefixCls}-progress`}
-          data-shape={mergedShape}
-          viewBox="0 0 100 100"
-        >
-          <path className={`${prefixCls}-progress-trail`} d={progressPath} pathLength="1" />
-          <path
-            className={`${prefixCls}-progress-path`}
-            d={progressPath}
-            pathLength="1"
-            style={{ strokeDashoffset: `${1 - scrollProgress}` }}
-          />
-        </svg>
-        <span className={`${prefixCls}-progress-icon`}>{mergedIcon}</span>
-      </span>
-    );
-  }, [mergedIcon, mergedShape, prefixCls, scrollProgress]);
-
   const contentProps: FloatButtonProps = {
     prefixCls,
-    icon: showProgress ? progressIcon : mergedIcon,
+    icon: mergedIcon,
     type,
     shape: mergedShape,
+    style: showProgress ? { [varName('progress')]: `${scrollProgress}turn`, ...style } : style,
     ...restProps,
   };
 
@@ -131,7 +102,9 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           ref={composeRef(internalRef, setRef)}
           {...contentProps}
           onClick={scrollToTop}
-          className={clsx(className, motionClassName)}
+          className={clsx(className, motionClassName, {
+            [`${prefixCls}-progress`]: showProgress,
+          })}
         />
       )}
     </CSSMotion>

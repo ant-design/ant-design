@@ -9,6 +9,13 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'float-btn');
+  const [buttonVarName, buttonVarRef] = genCssVar(antCls, 'btn');
+
+  const getProgressBackground = (backgroundColor: string) =>
+    [
+      `linear-gradient(${backgroundColor}, ${backgroundColor})`,
+      `conic-gradient(${token.colorPrimary} ${varRef('progress', '0turn')}, ${token.colorBorderSecondary} 0)`,
+    ].join(', ');
 
   const badgeCls = `${componentCls}-badge`;
 
@@ -72,44 +79,28 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           lineHeight: 1,
         },
 
-        [`${componentCls}-progress-holder`]: {
-          position: 'relative',
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: varRef('size'),
-          height: varRef('size'),
-          marginBlock: token.calc(token.paddingXXS).add(token.lineWidth).mul(-1).equal(),
-        },
+        [`&${componentCls}-progress`]: {
+          [buttonVarName('border-width')]: unit(token.lineWidthBold),
+          [buttonVarName('border-color')]: 'transparent',
+          [buttonVarName('border-color-hover')]: 'transparent',
+          [buttonVarName('border-color-active')]: 'transparent',
+          [buttonVarName('border-color-disabled')]: 'transparent',
+          backgroundImage: getProgressBackground(buttonVarRef('bg-color')),
+          backgroundOrigin: 'border-box',
+          backgroundClip: 'padding-box, border-box',
 
-        [`${componentCls}-progress`]: {
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-        },
+          [`&:not(:disabled):not(${antCls}-btn-disabled)`]: {
+            '&:hover': {
+              backgroundImage: getProgressBackground(buttonVarRef('bg-color-hover')),
+            },
+            '&:active': {
+              backgroundImage: getProgressBackground(buttonVarRef('bg-color-active')),
+            },
+          },
 
-        [`${componentCls}-progress-icon`]: {
-          position: 'relative',
-          zIndex: 1,
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-
-        [`${componentCls}-progress-trail`]: {
-          fill: 'none',
-          stroke: token.colorBorderSecondary,
-          strokeWidth: token.lineWidthBold,
-        },
-
-        [`${componentCls}-progress-path`]: {
-          fill: 'none',
-          stroke: token.colorPrimary,
-          strokeWidth: token.lineWidthBold,
-          strokeDasharray: '1',
-          strokeDashoffset: '1',
-          strokeLinecap: 'round',
+          [`&:disabled, &${antCls}-btn-disabled`]: {
+            backgroundImage: getProgressBackground(buttonVarRef('bg-color-disabled')),
+          },
         },
 
         // Icon Only will has large icon Size

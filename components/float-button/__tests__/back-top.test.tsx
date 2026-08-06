@@ -20,9 +20,11 @@ const setElementScrollMetrics = (
 };
 
 const getProgressOffset = (container: HTMLElement) =>
+  1 -
   Number.parseFloat(
-    container.querySelector<SVGPathElement>('.ant-float-btn-progress-path')?.style
-      .strokeDashoffset || 'NaN',
+    container
+      .querySelector<HTMLButtonElement>('.ant-float-btn-progress')
+      ?.style.getPropertyValue('--ant-float-btn-progress') || 'NaN',
   );
 
 describe('BackTop', () => {
@@ -118,7 +120,10 @@ describe('BackTop', () => {
       <BackTop visibilityHeight={0} showProgress target={() => window} />,
     );
 
-    expect(container.querySelector('.ant-float-btn-progress')).toBeTruthy();
+    const button = container.querySelector<HTMLButtonElement>('.ant-float-btn');
+    expect(button).toHaveClass('ant-float-btn-progress');
+    expect(button?.style.getPropertyValue('--ant-float-btn-progress')).toBe('0turn');
+    expect(button?.querySelector('.ant-float-btn-progress-holder')).toBeFalsy();
   });
 
   it('computes window target progress', async () => {
@@ -222,7 +227,7 @@ describe('BackTop', () => {
     expect(getProgressOffset(container)).toBeCloseTo(0.3);
   });
 
-  it('uses square progress path when group shape overrides BackTop shape', () => {
+  it('supports progress ring when group shape overrides BackTop shape', () => {
     const { container } = render(
       <FloatButton.Group shape="square">
         <BackTop visibilityHeight={0} showProgress />
@@ -230,9 +235,7 @@ describe('BackTop', () => {
     );
 
     expect(container.querySelector('.ant-float-btn-square')).toBeTruthy();
-    expect(container.querySelector('.ant-float-btn-progress')?.getAttribute('data-shape')).toBe(
-      'square',
-    );
+    expect(container.querySelector('.ant-float-btn-progress')).toBeTruthy();
   });
 
   it('rebinds progress calculation when target changes', async () => {
