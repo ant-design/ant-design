@@ -54,9 +54,9 @@ export const isDocument = (val: Document | HTMLElement | null): val is Document 
   );
 };
 
-export const isHTMLElement = (val: Document | HTMLElement | null): val is HTMLElement => {
+export const isHTMLElement = (val?: unknown): val is HTMLElement => {
   if (!isNonNullable(val)) {
     return false;
   }
-  return val instanceof HTMLElement || val.nodeType === window.Node.ELEMENT_NODE;
+  return typeof HTMLElement !== 'undefined' && val instanceof HTMLElement;
 };
