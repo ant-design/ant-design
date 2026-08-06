@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
@@ -30,6 +30,10 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
+  /**
+   * @since 6.6.0
+   * @default false
+   */
   showProgress?: boolean;
 }
 
@@ -84,6 +88,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const mergedIcon = icon ?? contextIcon ?? defaultIcon;
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
+
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
@@ -160,32 +165,33 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const groupShape = useContext(GroupContext)?.shape;
 
   const mergedShape = groupShape || shape;
-  const progressPath = getProgressPath(mergedShape);
-  const progressIcon = showProgress ? (
-    <span className={`${prefixCls}-progress-holder`}>
-      <svg
-        aria-hidden="true"
-        className={`${prefixCls}-progress`}
-        data-shape={mergedShape}
-        viewBox="0 0 100 100"
-      >
-        <path className={`${prefixCls}-progress-trail`} d={progressPath} pathLength="1" />
-        <path
-          className={`${prefixCls}-progress-path`}
-          d={progressPath}
-          pathLength="1"
-          style={{ strokeDashoffset: `${1 - scrollProgress}` }}
-        />
-      </svg>
-      <span className={`${prefixCls}-progress-icon`}>{mergedIcon}</span>
-    </span>
-  ) : (
-    mergedIcon
-  );
+
+  const progressIcon = useMemo(() => {
+    const progressPath = getProgressPath(mergedShape);
+    return (
+      <span className={`${prefixCls}-progress-holder`}>
+        <svg
+          aria-hidden="true"
+          className={`${prefixCls}-progress`}
+          data-shape={mergedShape}
+          viewBox="0 0 100 100"
+        >
+          <path className={`${prefixCls}-progress-trail`} d={progressPath} pathLength="1" />
+          <path
+            className={`${prefixCls}-progress-path`}
+            d={progressPath}
+            pathLength="1"
+            style={{ strokeDashoffset: `${1 - scrollProgress}` }}
+          />
+        </svg>
+        <span className={`${prefixCls}-progress-icon`}>{mergedIcon}</span>
+      </span>
+    );
+  }, [mergedIcon, mergedShape, prefixCls, scrollProgress]);
 
   const contentProps: FloatButtonProps = {
     prefixCls,
-    icon: progressIcon,
+    icon: showProgress ? progressIcon : mergedIcon,
     type,
     shape: mergedShape,
     ...restProps,
