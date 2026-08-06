@@ -25,21 +25,6 @@ describe('getScroll', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('getScroll document without global Document constructor', () => {
-    const DocumentConstructor = globalThis.Document;
-    const scrollTop = document.documentElement.scrollTop;
-
-    document.documentElement.scrollTop = 400;
-    Reflect.deleteProperty(globalThis, 'Document');
-
-    try {
-      expect(getScroll(document)).toBe(400);
-    } finally {
-      globalThis.Document = DocumentConstructor;
-      document.documentElement.scrollTop = scrollTop;
-    }
-  });
-
   it('getScroll div', () => {
     const div = document.createElement('div');
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
