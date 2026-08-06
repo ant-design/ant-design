@@ -4,7 +4,8 @@ import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import getScroll, { isDocument, isWindow } from '../_util/getScroll';
+import getScroll from '../_util/getScroll';
+import { isDocument, isHTMLElement, isWindow } from '../_util/is';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -41,11 +42,18 @@ const getProgressPath = (shape: FloatButtonShape) =>
 
 const getScrollProgress = (target: HTMLElement | Window | Document | null): number => {
   const scrollTop = getScroll(target);
-  const scrollElement = isWindow(target)
-    ? target.document.documentElement
-    : target && isDocument(target)
-      ? target.documentElement
-      : target;
+
+  let scrollElement: HTMLElement | Document | null = null;
+
+  if (isWindow(target)) {
+    scrollElement = target.document.documentElement;
+  } else if (isDocument(target)) {
+    scrollElement = target.documentElement;
+  } else if (isHTMLElement(target)) {
+    scrollElement = target;
+  } else {
+    scrollElement = null;
+  }
 
   if (!scrollElement) {
     return 0;
