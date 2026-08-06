@@ -198,7 +198,7 @@
     "@types/adm-zip": "^0.5.8",
     "@types/ali-oss": "^6.23.3",
     "@types/cli-progress": "^3.11.6",
-    "@types/css-tree": "^2.3.11",
+    "@types/css-tree": "^3.0.0",
     "@types/fs-extra": "^11.0.4",
     "@types/gtag.js": "^0.0.20",
     "@types/http-server": "^0.12.4",
