@@ -62,19 +62,23 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressActiveMotionDuration: string;
 }
 
-const genAntProgressActive = (isRtl?: boolean) => {
-  const direction = isRtl ? '100%' : '-100%';
-  return new Keyframes(`antProgress${isRtl ? 'RTL' : 'LTR'}Active`, {
+const genAntProgressActive = (isRtl?: boolean, isVertical?: boolean) => {
+  const direction = isVertical ? '100%' : isRtl ? '100%' : '-100%';
+  const translate = isVertical ? 'translate3d(0, 100%, 0)' : `translate3d(${direction}, 0, 0)`;
+  const scale = isVertical ? 'scaleY' : 'scaleX';
+  const initialTransform = `${translate} ${scale}(0)`;
+
+  return new Keyframes(`antProgress${isRtl ? 'RTL' : 'LTR'}Active${isVertical ? 'Vertical' : ''}`, {
     '0%': {
-      transform: `translateX(${direction}) scaleX(0)`,
+      transform: initialTransform,
       opacity: 0.1,
     },
     '20%': {
-      transform: `translateX(${direction}) scaleX(0)`,
+      transform: initialTransform,
       opacity: 0.5,
     },
     to: {
-      transform: 'translateX(0) scaleX(1)',
+      transform: `translate3d(0, 0, 0) ${scale}(1)`,
       opacity: 0,
     },
   });
@@ -141,6 +145,12 @@ const genLineStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
         gap: token.marginXS,
       },
 
+      // Vertical mode - override width
+      [`&${componentCls}-line-vertical`]: {
+        width: 'max-content',
+        height: '100%',
+      },
+
       [`${componentCls}-rail`]: {
         flex: 'auto',
         background: token.remainingColor,
@@ -158,10 +168,17 @@ const genLineStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
           backgroundColor: token.colorBgContainer,
           borderRadius: 'inherit',
           opacity: 0,
-          animationName: genAntProgressActive(),
+          animationName: genAntProgressActive(false, false),
           animationDuration: token.progressActiveMotionDuration,
           animationTimingFunction: token.motionEaseOutQuint,
           animationIterationCount: 'infinite',
+        },
+      },
+
+      // Vertical mode animation
+      [`&${componentCls}-line-vertical`]: {
+        [`&${componentCls}-status-active ${componentCls}-track:after`]: {
+          animationName: genAntProgressActive(false, true),
         },
       },
 
@@ -205,6 +222,23 @@ const genLineStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: token.marginXXS,
+      },
+
+      // >>>>> Vertical
+      [`${componentCls}-body-vertical`]: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        gap: token.marginXXS,
+      },
+
+      [`${componentCls}-body-vertical ${componentCls}-track`]: {
+        insetBlockEnd: 0,
+        insetBlockStart: 'auto',
+        insetInlineStart: 0,
+        width: '100%',
+        minWidth: 'auto',
+        minHeight: 'max-content',
       },
 
       // >>> Inner

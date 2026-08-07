@@ -34,6 +34,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 <code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
+<code src="./demo/vertical.tsx" version="6.6.0">Vertical Progress</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
@@ -52,6 +53,8 @@ Properties that shared by all types.
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - | - | × |
 | strokeColor | The color of progress bar | string | - | - | × |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - | × |
+| orientation | Orientation of the progress bar (type="line" only) | `horizontal` \| `vertical` | `horizontal` | 6.6.0 | × |
+| vertical | Whether to use vertical direction (type="line" only). When coexists with `orientation`, `orientation` takes priority | boolean | false | 6.6.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - | × |
 | ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - | × |
@@ -62,7 +65,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| steps | The total step count | number | - | - |
+| steps | The total step count. Vertical orientation is not supported when `steps` is set (`orientation="vertical"` / `vertical` are ignored) | number | - | - |
 | rounding | The function to round the value | (step: number) => number | Math.round | 5.24.0 |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
 | percentPosition | Progress value position, passed in object, `align` indicates the horizontal position of the value, `type` indicates whether the value is inside or outside the progress bar | { align: string; type: string } | { align: \"end\", type: \"outer\" } | 5.18.0 |

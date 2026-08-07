@@ -17,6 +17,7 @@ import { getSize, getSuccessPercent, validProgress } from './utils';
 interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   direction?: DirectionType;
+  vertical?: boolean;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
   classNames: NonNullable<ProgressSemanticAllType['classNames']>;
@@ -61,11 +62,12 @@ export const sortGradient = (gradients: StringGradients) => {
 export const handleGradient = (
   strokeColor: ProgressGradient,
   directionConfig?: DirectionType,
+  vertical?: boolean,
 ): React.CSSProperties => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
-    direction = directionConfig === 'rtl' ? 'to left' : 'to right',
+    direction = vertical ? 'to top' : directionConfig === 'rtl' ? 'to left' : 'to right',
     ...rest
   } = strokeColor;
   if (Object.keys(rest).length !== 0) {
@@ -82,7 +84,8 @@ const Line: React.FC<LineProps> = (props) => {
     prefixCls,
     classNames,
     styles,
-    direction: directionConfig,
+    direction,
+    vertical,
     percent,
     size,
     strokeWidth,
@@ -116,7 +119,7 @@ const Line: React.FC<LineProps> = (props) => {
   const railStyle: React.CSSProperties = {
     backgroundColor: mergedRailColor || undefined,
     borderRadius,
-    height,
+    ...(vertical ? { width: height } : { height }),
   };
 
   // ======================== Tracks ========================
@@ -124,23 +127,42 @@ const Line: React.FC<LineProps> = (props) => {
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor, directionConfig)
+      ? handleGradient(strokeColor, direction, vertical)
       : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
 
   const percentTrackStyle: React.CSSProperties = {
-    width: `${validProgress(percent)}%`,
-    height,
     borderRadius,
     ...backgroundProps,
+    ...(vertical
+      ? {
+          width: '100%',
+          height: `${validProgress(percent)}%`,
+          position: 'absolute',
+          top: 'auto',
+          bottom: 0,
+        }
+      : {
+          width: `${validProgress(percent)}%`,
+          height,
+        }),
   };
 
   const successPercent = getSuccessPercent(props);
 
   const successTrackStyle: React.CSSProperties = {
-    width: `${validProgress(successPercent)}%`,
-    height,
     borderRadius,
     backgroundColor: success?.strokeColor,
+    ...(vertical
+      ? {
+          width: '100%',
+          height: `${validProgress(successPercent)}%`,
+          position: 'absolute',
+          bottom: 0,
+        }
+      : {
+          width: `${validProgress(successPercent)}%`,
+          height,
+        }),
   };
 
   // ======================== Render ========================
@@ -148,8 +170,9 @@ const Line: React.FC<LineProps> = (props) => {
     <div
       className={clsx(`${prefixCls}-body`, classNames.body, {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
+        [`${prefixCls}-body-vertical`]: vertical,
       })}
-      style={{ width: width > 0 ? width : '100%', ...styles.body }}
+      style={vertical ? styles.body : { width: width > 0 ? width : '100%', ...styles.body }}
     >
       {/************** Rail **************/}
       <div
