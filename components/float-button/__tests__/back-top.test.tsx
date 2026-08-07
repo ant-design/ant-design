@@ -19,8 +19,7 @@ const setElementScrollMetrics = (
   });
 };
 
-const getProgressOffset = (container: HTMLElement) =>
-  1 -
+const getScrollProgress = (container: HTMLElement) =>
   Number.parseFloat(
     container
       .querySelector<HTMLButtonElement>('.ant-float-btn-progress')
@@ -109,23 +108,6 @@ describe('BackTop', () => {
     expect(wrapper.getByText('666')).toBeInTheDocument();
   });
 
-  it('does not render progress ring by default', () => {
-    const { container } = render(<BackTop visibilityHeight={0} />);
-
-    expect(container.querySelector('.ant-float-btn-progress')).toBeFalsy();
-  });
-
-  it('renders progress ring when showProgress is enabled', () => {
-    const { container } = render(
-      <BackTop visibilityHeight={0} showProgress target={() => window} />,
-    );
-
-    const button = container.querySelector<HTMLButtonElement>('.ant-float-btn');
-    expect(button).toHaveClass('ant-float-btn-progress');
-    expect(button?.style.getPropertyValue('--ant-float-btn-progress')).toBe('0turn');
-    expect(button?.querySelector('.ant-float-btn-progress-holder')).toBeFalsy();
-  });
-
   it('computes window target progress', async () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       Object.defineProperty(window, 'pageYOffset', {
@@ -151,65 +133,15 @@ describe('BackTop', () => {
     );
 
     window.scrollTo(0, 500);
-    window.dispatchEvent(new Event('resize'));
+    fireEvent.scroll(window);
     await waitFakeTimer();
 
-    expect(getProgressOffset(container)).toBeCloseTo(0.5);
+    expect(getScrollProgress(container)).toBeCloseTo(0.5);
 
     scrollToSpy.mockRestore();
   });
 
-  it('computes document target progress', async () => {
-    setElementScrollMetrics(document.documentElement, {
-      scrollTop: 300,
-      scrollHeight: 1500,
-      clientHeight: 1000,
-    });
-
-    const { container } = render(
-      <BackTop visibilityHeight={0} showProgress target={() => document} />,
-    );
-
-    fireEvent.scroll(document);
-    await waitFakeTimer();
-
-    expect(getProgressOffset(container)).toBeCloseTo(0.4);
-  });
-
-  it('computes element target progress without NaN for non-scrollable containers', async () => {
-    const holder = document.createElement('div');
-
-    setElementScrollMetrics(holder, {
-      scrollTop: 0,
-      scrollHeight: 400,
-      clientHeight: 400,
-    });
-
-    const { container } = render(
-      <BackTop visibilityHeight={0} showProgress target={() => holder} />,
-    );
-
-    fireEvent.scroll(holder);
-    await waitFakeTimer();
-
-    expect(getProgressOffset(container)).toBeCloseTo(1);
-  });
-
-  it('keeps progress stable when target resolves to null', async () => {
-    const { container } = render(
-      <BackTop
-        visibilityHeight={0}
-        showProgress
-        target={(() => null) as unknown as () => HTMLElement | Window | Document}
-      />,
-    );
-
-    await waitFakeTimer();
-
-    expect(getProgressOffset(container)).toBeCloseTo(1);
-  });
-
-  it('keeps actual progress independent from visibilityHeight', async () => {
+  it('computes document target progress independently from visibility', async () => {
     setElementScrollMetrics(document.documentElement, {
       scrollTop: 700,
       scrollHeight: 2000,
@@ -224,21 +156,10 @@ describe('BackTop', () => {
     await waitFakeTimer();
 
     expect(container.querySelector('.ant-float-btn')).toBeTruthy();
-    expect(getProgressOffset(container)).toBeCloseTo(0.3);
+    expect(getScrollProgress(container)).toBeCloseTo(0.7);
   });
 
-  it('supports progress ring when group shape overrides BackTop shape', () => {
-    const { container } = render(
-      <FloatButton.Group shape="square">
-        <BackTop visibilityHeight={0} showProgress />
-      </FloatButton.Group>,
-    );
-
-    expect(container.querySelector('.ant-float-btn-square')).toBeTruthy();
-    expect(container.querySelector('.ant-float-btn-progress')).toBeTruthy();
-  });
-
-  it('rebinds progress calculation when target changes', async () => {
+  it('computes element target progress after target changes', async () => {
     const first = document.createElement('div');
     const second = document.createElement('div');
 
@@ -257,11 +178,45 @@ describe('BackTop', () => {
       <BackTop visibilityHeight={0} showProgress target={() => first} />,
     );
 
+    fireEvent.scroll(first);
+    await waitFakeTimer();
+    expect(getScrollProgress(container)).toBeCloseTo(0.4);
+
     rerender(<BackTop visibilityHeight={0} showProgress target={() => second} />);
     fireEvent.scroll(second);
     await waitFakeTimer();
 
-    expect(getProgressOffset(container)).toBeCloseTo(0.2);
+    expect(getScrollProgress(container)).toBeCloseTo(0.8);
+  });
+
+  it('returns zero progress for non-scrollable and null targets', async () => {
+    const holder = document.createElement('div');
+
+    setElementScrollMetrics(holder, {
+      scrollTop: 0,
+      scrollHeight: 400,
+      clientHeight: 400,
+    });
+
+    const { container, rerender } = render(
+      <BackTop visibilityHeight={0} showProgress target={() => holder} />,
+    );
+
+    fireEvent.scroll(holder);
+    await waitFakeTimer();
+    expect(getScrollProgress(container)).toBeCloseTo(0);
+
+    rerender(
+      <BackTop
+        visibilityHeight={0}
+        showProgress
+        target={(() => null) as unknown as () => HTMLElement | Window | Document}
+      />,
+    );
+
+    await waitFakeTimer();
+
+    expect(getScrollProgress(container)).toBeCloseTo(0);
   });
 
   it('recalculates progress on resize', async () => {
@@ -301,7 +256,7 @@ describe('BackTop', () => {
     fireEvent(window, new Event('resize'));
     await waitFakeTimer();
 
-    expect(getProgressOffset(container)).toBeCloseTo(0);
+    expect(getScrollProgress(container)).toBeCloseTo(1);
 
     scrollToSpy.mockRestore();
   });

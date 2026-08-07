@@ -48,9 +48,9 @@ export const isDocument = (val: Document | HTMLElement | null): val is Document 
     return false;
   }
   return (
-    (typeof Document !== 'undefined' && val instanceof Document) ||
-    val.constructor?.name === 'HTMLDocument' ||
-    (typeof window !== 'undefined' && val.nodeType === window.Node.DOCUMENT_NODE)
+    val instanceof Document ||
+    val.constructor.name === 'HTMLDocument' ||
+    val.nodeType === window.Node.DOCUMENT_NODE
   );
 };
 
