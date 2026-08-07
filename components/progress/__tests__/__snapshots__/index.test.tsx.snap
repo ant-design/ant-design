@@ -267,7 +267,7 @@ exports[`Progress render format 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -302,7 +302,7 @@ exports[`Progress render inner info position 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 20px;"
+      style="height: 20px;"
     >
       <div
         class="ant-progress-track"
@@ -334,7 +334,7 @@ exports[`Progress render negative progress 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -365,7 +365,7 @@ exports[`Progress render negative successPercent 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -400,7 +400,7 @@ exports[`Progress render normal progress 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -431,7 +431,7 @@ exports[`Progress render out-of-range progress 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -479,7 +479,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -584,7 +584,7 @@ exports[`Progress render strokeColor 2`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -615,7 +615,7 @@ exports[`Progress render strokeColor 3`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -705,7 +705,7 @@ exports[`Progress render successColor progress 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -854,7 +854,7 @@ exports[`Progress render trailColor progress 1`] = `
   >
     <div
       class="ant-progress-rail"
-      style="background-color: rgb(255, 255, 255); width: 100%; height: 8px;"
+      style="background-color: rgb(255, 255, 255); height: 8px;"
     >
       <div
         class="ant-progress-track"
@@ -885,7 +885,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
   >
     <div
       class="ant-progress-rail"
-      style="width: 100%; height: 8px;"
+      style="height: 8px;"
     >
       <div
         class="ant-progress-track"

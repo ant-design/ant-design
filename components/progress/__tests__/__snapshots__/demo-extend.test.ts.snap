@@ -818,7 +818,7 @@ Array [
         >
           <div
             class="ant-progress-rail"
-            style="width: 100%; height: 8px;"
+            style="height: 8px;"
           >
             <div
               class="ant-progress-track"
@@ -850,7 +850,7 @@ Array [
         >
           <div
             class="ant-progress-rail"
-            style="width: 100%; height: 6px;"
+            style="height: 6px;"
           >
             <div
               class="ant-progress-track"
@@ -882,7 +882,7 @@ Array [
         >
           <div
             class="ant-progress-rail"
-            style="width: 100%; height: 20px;"
+            style="height: 20px;"
           >
             <div
               class="ant-progress-track"
@@ -1654,7 +1654,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 1
       >
         <div
           class="ant-progress-rail"
-          style="width: 100%; height: 8px;"
+          style="height: 8px;"
         >
           <div
             class="ant-progress-track"
@@ -1926,7 +1926,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -1954,7 +1954,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2477,7 +2477,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 20px;"
+        style="height: 20px;"
       >
         <div
           class="ant-progress-track"
@@ -2506,7 +2506,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 20px;"
+        style="height: 20px;"
       >
         <div
           class="ant-progress-track"
@@ -2535,7 +2535,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 20px;"
+        style="height: 20px;"
       >
         <div
           class="ant-progress-track"
@@ -2564,7 +2564,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 20px;"
+        style="height: 20px;"
       >
         <div
           class="ant-progress-track"
@@ -2593,7 +2593,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 20px;"
+        style="height: 20px;"
       >
         <div
           class="ant-progress-track"
@@ -2622,7 +2622,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2650,7 +2650,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2695,7 +2695,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 6px;"
+        style="height: 6px;"
       >
         <div
           class="ant-progress-track"
@@ -2723,7 +2723,7 @@ exports[`renders components/progress/demo/info-position.tsx extend context corre
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2777,7 +2777,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2805,7 +2805,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2833,7 +2833,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2879,7 +2879,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2924,7 +2924,7 @@ exports[`renders components/progress/demo/line.tsx extend context correctly 1`] 
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -2956,7 +2956,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 6px;"
+        style="height: 6px;"
       >
         <div
           class="ant-progress-track"
@@ -2984,7 +2984,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 6px;"
+        style="height: 6px;"
       >
         <div
           class="ant-progress-track"
@@ -3012,7 +3012,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 6px;"
+        style="height: 6px;"
       >
         <div
           class="ant-progress-track"
@@ -3058,7 +3058,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 6px;"
+        style="height: 6px;"
       >
         <div
           class="ant-progress-track"
@@ -3112,7 +3112,7 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
     >
       <div
         class="ant-progress-rail"
-        style="border-radius: 0; width: 100%; height: 8px;"
+        style="border-radius: 0; height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -3262,7 +3262,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     >
       <div
         class="ant-progress-rail"
-        style="width: 100%; height: 8px;"
+        style="height: 8px;"
       >
         <div
           class="ant-progress-track"
@@ -3481,7 +3481,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       >
         <div
           class="ant-progress-rail"
-          style="width: 100%; height: 8px;"
+          style="height: 8px;"
         >
           <div
             class="ant-progress-track"
@@ -3509,7 +3509,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       >
         <div
           class="ant-progress-rail"
-          style="width: 100%; height: 6px;"
+          style="height: 6px;"
         >
           <div
             class="ant-progress-track"
@@ -3537,7 +3537,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       >
         <div
           class="ant-progress-rail"
-          style="width: 100%; height: 20px;"
+          style="height: 20px;"
         >
           <div
             class="ant-progress-track"
@@ -4244,7 +4244,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4272,7 +4272,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4300,7 +4300,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4328,7 +4328,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4356,7 +4356,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4384,7 +4384,7 @@ exports[`renders components/progress/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; height: 8px;"
+        style="background-color: rgba(0, 0, 0, 0.1); border-radius: 8px; height: 8px;"
       >
         <div
           class="ant-progress-track demo-progress-track"

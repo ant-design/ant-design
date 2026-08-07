@@ -132,7 +132,7 @@ exports[`renders components/progress/demo/_semantic.tsx correctly 1`] = `
             >
               <div
                 class="ant-progress-rail semantic-mark-rail"
-                style="width: 100%; height: 8px;"
+                style="height: 8px;"
               >
                 <div
                   class="ant-progress-track semantic-mark-track"

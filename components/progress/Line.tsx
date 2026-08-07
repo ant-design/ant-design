@@ -118,7 +118,7 @@ const Line: React.FC<LineProps> = (props) => {
   const railStyle: React.CSSProperties = {
     backgroundColor: mergedRailColor || undefined,
     borderRadius,
-    ...(vertical ? { width: height } : { width: '100%', height }),
+    ...(vertical ? { width: height } : { height }),
   };
 
   // ======================== Tracks ========================
