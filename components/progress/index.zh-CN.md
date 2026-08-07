@@ -35,7 +35,7 @@ demo:
 <code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 <code src="./demo/info-position.tsx" version="5.18.0">改变进度数值位置</code>
-<code src="./demo/vertical.tsx" version=“6.6.0”>垂直进度条</code>
+<code src="./demo/vertical.tsx" version="6.6.0">垂直进度条</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 
 ## API
