@@ -275,6 +275,14 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
 
     warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+
+    if (steps && isVertical) {
+      warning(
+        false,
+        'usage',
+        '`steps` does not support vertical orientation. The `orientation="vertical"` and `vertical` props are ignored when `steps` is set.',
+      );
+    }
   }
 
   // ======================== Render ========================

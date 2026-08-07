@@ -298,6 +298,15 @@ describe('Progress', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('should warning if use `steps` with vertical orientation', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress steps={5} orientation="vertical" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `steps` does not support vertical orientation. The `orientation="vertical"` and `vertical` props are ignored when `steps` is set.',
+    );
+    errorSpy.mockRestore();
+  });
+
   it('should warnning if use `width` prop', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} width={100} />);
