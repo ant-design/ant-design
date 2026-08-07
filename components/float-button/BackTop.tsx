@@ -76,7 +76,11 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   }, [target]);
 
   const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
-    scrollTo(0, { getContainer: target || getDefaultTarget, duration });
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    scrollTo(0, {
+      getContainer: target || getDefaultTarget,
+      duration: prefersReducedMotion?.matches ? 0 : duration,
+    });
     onClick?.(e);
   };
 

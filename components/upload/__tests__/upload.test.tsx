@@ -1160,7 +1160,7 @@ describe('Upload', () => {
   });
 
   it('container ref', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<UploadRef<any>>();
     render(<Upload ref={ref} />);
     expect(ref.current?.nativeElement).toBeTruthy();
     expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();

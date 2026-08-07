@@ -34,6 +34,22 @@ describe('BackTop', () => {
     scrollToSpy.mockRestore();
   });
 
+  it('should scroll to top immediately when reduced motion is enabled', () => {
+    jest.spyOn(window, 'matchMedia').mockReturnValueOnce({ matches: true } as MediaQueryList);
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+      window.scrollY = y;
+      window.pageYOffset = y;
+      document.documentElement.scrollTop = y;
+    });
+    window.scrollTo(0, 400);
+
+    const { container } = render(<BackTop visibilityHeight={0} />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
+
+    expect(document.documentElement.scrollTop).toBe(0);
+    scrollToSpy.mockRestore();
+  });
+
   it('support onClick', () => {
     const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} visibilityHeight={0} />);

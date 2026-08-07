@@ -43,7 +43,7 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
     };
 
     // Return
-    return [filledClassNames, filledStyles];
+    return [filledClassNames, filledStyles] as const;
   }, [mergedClassNames, mergedStyles, popupClassName, popupStyle]);
 };
 
