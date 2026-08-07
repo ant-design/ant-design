@@ -34,7 +34,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 <code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
-<code src="./demo/vertical.tsx">Vertical Progress</code>
+<code src="./demo/vertical.tsx" version="6.6.0">Vertical Progress</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
