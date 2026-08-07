@@ -146,6 +146,20 @@ describe('Progress', () => {
     );
   });
 
+  it('get correct line-gradient in vertical mode', () => {
+    expect(handleGradient({ from: 'test', to: 'test' }, undefined, true).background).toBe(
+      'linear-gradient(to top, test, test)',
+    );
+    expect(handleGradient({}, undefined, true).background).toBe(
+      'linear-gradient(to top, #1677FF, #1677FF)',
+    );
+    // Explicit `direction` should not be overridden by vertical
+    expect(
+      handleGradient({ from: 'test', to: 'test', direction: 'to bottom' }, undefined, true)
+        .background,
+    ).toBe('linear-gradient(to bottom, test, test)');
+  });
+
   it('sort gradients correctly', () => {
     expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
       'test10 10%, test20 20%, test30 30%',
@@ -214,6 +228,15 @@ describe('Progress', () => {
     );
     const track = container.querySelector('.ant-progress-track');
     expect(track).toHaveStyle({ background: '#52c41a' });
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with object strokeColor gradient', () => {
+    const { container } = render(
+      <Progress percent={60} orientation="vertical" strokeColor={{ from: '#aaa', to: '#bbb' }} />,
+    );
+    const track = container.querySelector('.ant-progress-track');
+    expect(track).toHaveStyle({ background: 'linear-gradient(to top, #aaa, #bbb)' });
     expect(container.firstChild).toMatchSnapshot();
   });
 

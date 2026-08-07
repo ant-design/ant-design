@@ -62,11 +62,12 @@ export const sortGradient = (gradients: StringGradients) => {
 export const handleGradient = (
   strokeColor: ProgressGradient,
   directionConfig?: DirectionType,
+  vertical?: boolean,
 ): React.CSSProperties => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
-    direction = directionConfig === 'rtl' ? 'to left' : 'to right',
+    direction = vertical ? 'to top' : directionConfig === 'rtl' ? 'to left' : 'to right',
     ...rest
   } = strokeColor;
   if (Object.keys(rest).length !== 0) {
@@ -126,7 +127,7 @@ const Line: React.FC<LineProps> = (props) => {
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor, direction)
+      ? handleGradient(strokeColor, direction, vertical)
       : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
 
   const percentTrackStyle: React.CSSProperties = {

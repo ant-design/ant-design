@@ -38,6 +38,11 @@ const App: React.FC = () => (
     />
     <Progress percent={60} orientation="vertical" strokeWidth={20} railColor="#b2f0f2" />
     <Progress percent={90} orientation="vertical" styles={stylesFn} status="active" />
+    <Progress
+      percent={75}
+      orientation="vertical"
+      strokeColor={{ from: '#108ee9', to: '#87d068' }}
+    />
   </Flex>
 );
 
