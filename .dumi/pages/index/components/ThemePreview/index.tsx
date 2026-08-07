@@ -229,11 +229,27 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
 
   const handleThemeClick = (themeKey: string) => setActiveThemeKey(themeKey);
 
-  const handleKeyDown = (event: React.KeyboardEvent, themeKey: string) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    const keys = previewThemes.map((t) => getPreviewThemeKey(t));
+    const currentIndex = keys.indexOf(activeThemeKey);
+    if (currentIndex === -1) return;
+
+    let nextIndex: number;
+    if (event.key === 'ArrowRight') {
       event.preventDefault();
-      handleThemeClick(themeKey);
+      nextIndex = (currentIndex + 1) % keys.length;
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      nextIndex = (currentIndex - 1 + keys.length) % keys.length;
+    } else {
+      return;
     }
+
+    const nextKey = keys[nextIndex];
+    setActiveThemeKey(nextKey);
+    containerRef.current?.querySelector<HTMLDivElement>(`[data-theme-key="${nextKey}"]`)?.focus();
   };
 
   const activeTheme =
@@ -293,7 +309,7 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
               value={activePane}
               onChange={setActivePane}
             />
-            <Flex align="center" gap={12}>
+            <Flex align="center" gap={12} ref={containerRef} onKeyDown={handleKeyDown}>
               {previewThemes.map((theme) => {
                 const { name, icon: Icon } = theme;
                 const themeKey = getPreviewThemeKey(theme);
@@ -305,8 +321,8 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
                       className={clsx(styles.themeBlock, { [styles.active]: isSelected })}
                       tabIndex={isSelected ? 0 : -1}
                       aria-selected={isSelected}
+                      data-theme-key={themeKey}
                       onClick={() => handleThemeClick(themeKey)}
-                      onKeyDown={(event) => handleKeyDown(event, themeKey)}
                     >
                       {typeof Icon === 'string' ? (
                         <img src={Icon} alt={name} title={name} draggable={false} />

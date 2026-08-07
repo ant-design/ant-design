@@ -1,8 +1,8 @@
 import { raf } from '@rc-component/util';
 
 import { easeInOutCubic } from './easings';
-import getScroll, { isDocument, isWindow } from './getScroll';
-import { isFunction } from './is';
+import getScroll from './getScroll';
+import { isDocument, isFunction, isWindow } from './is';
 
 interface ScrollToOptions {
   /** Scroll container, default as window */
