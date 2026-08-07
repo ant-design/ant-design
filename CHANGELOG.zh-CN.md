@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 6.5.4
+
+`2026-08-07`
+
+- 🐞 修复 Alert 的 `closable` 配置对象仅包含 `onClose` 时不显示关闭按钮的问题。[#58885](https://github.com/ant-design/ant-design/pull/58885) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Checkbox.Group 的 `options` 包含空值选项或空值 `value` 时崩溃的问题。[#58879](https://github.com/ant-design/ant-design/pull/58879) [@GuillaumeZ2SS](https://github.com/GuillaumeZ2SS)
+- 🐞 修复 App 使用 `component={false}` 时产生不必要的 CSS 变量警告，并在此模式下无法应用根节点属性时给出提示。[#58877](https://github.com/ant-design/ant-design/pull/58877) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Table 全选数据时仍会选中其他分页中禁用行的问题。[#58843](https://github.com/ant-design/ant-design/pull/58843) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Transfer 筛选后取消全选行为异常的问题。[#58844](https://github.com/ant-design/ant-design/pull/58844) [@thlovey](https://github.com/thlovey)
+- 💄 修复 BackTop 滚动动画未遵循 `prefers-reduced-motion` 设置的问题。[#58849](https://github.com/ant-design/ant-design/pull/58849) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Breadcrumb、Collapse、Segmented、Tabs 和 Tag 使用第三方图标库的原生 `<svg>` 图标时可能出现对齐异常、间距缺失，或在 CSS reset 下换行的问题。[#58862](https://github.com/ant-design/ant-design/pull/58862) [#58868](https://github.com/ant-design/ant-design/pull/58868) [#58869](https://github.com/ant-design/ant-design/pull/58869) [#58870](https://github.com/ant-design/ant-design/pull/58870) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- 💄 修复 AutoComplete 禁用状态下文本未使用禁用文字颜色的问题。[#58838](https://github.com/ant-design/ant-design/pull/58838) [@lazerg](https://github.com/lazerg)
+- 🤖 修复 Tour 暴露无法在单个步骤中使用的 `indicatorsRender` 和 `actionsRender` TypeScript 类型定义的问题。[#58859](https://github.com/ant-design/ant-design/pull/58859) [@lazerg](https://github.com/lazerg)
+
 ## 6.5.3
 
 `2026-07-31`
