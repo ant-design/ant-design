@@ -56,6 +56,7 @@ import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import type { ItemType } from 'antd/es/menu/interface';
 import { clsx } from 'clsx';
 import useSWR from 'swr';
+import type { SWRConfiguration } from 'swr';
 
 const { Title, Text } = Typography;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
@@ -279,6 +280,21 @@ const stepsItems: StepItem[] = [
   { title: 'Waiting' },
 ];
 
+interface Contributor {
+  avatar_url: string;
+  login: string;
+  html_url?: string;
+}
+
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
+const swrConfig: SWRConfiguration<Contributor[], Error> = {
+  dedupingInterval: 1000 * 60 * 60 * 12, // 12 hours
+  revalidateOnFocus: false,
+  revalidateOnReconnect: false,
+  errorRetryCount: 3,
+};
+
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const {
     config,
@@ -291,21 +307,22 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { styles } = useStyle();
 
-  const { data: contributors } = useSWR<{ avatar_url: string; login: string }[]>(
+  const { data: contributors, isLoading } = useSWR<Contributor[], Error>(
     'https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100',
-    (url) => fetch(url).then((res) => res.json()),
-    {
-      dedupingInterval: 1000 * 60 * 60 * 12, // 12 hours
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    },
+    fetcher,
+    swrConfig,
   );
 
   const avatarGroupList = useMemo(() => {
-    if (!contributors?.length) return [];
+    if (isLoading) {
+      return [];
+    }
+    if (!Array.isArray(contributors) || !contributors?.length) {
+      return [];
+    }
     const shuffled = [...contributors].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
-  }, [contributors]);
+  }, [contributors, isLoading]);
 
   const { theme, ...restConfig } = config || {};
 
