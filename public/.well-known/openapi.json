@@ -1,0 +1,98 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Ant Design Public Discovery",
+    "version": "1.0.0",
+    "description": "Public, unauthenticated discovery endpoints for ant.design documentation and agent metadata."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Ant Design documentation homepage",
+        "responses": {
+          "200": {
+            "description": "Homepage HTML with RFC 8288 Link discovery headers."
+          }
+        }
+      }
+    },
+    "/.well-known/api-catalog": {
+      "get": {
+        "summary": "RFC 9727 API catalog",
+        "responses": {
+          "200": {
+            "description": "Linkset JSON API catalog.",
+            "content": {
+              "application/linkset+json": {}
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent-skills/index.json": {
+      "get": {
+        "summary": "Agent skills discovery index",
+        "responses": {
+          "200": {
+            "description": "Agent Skills Discovery RFC v0.2.0 index."
+          }
+        }
+      }
+    },
+    "/.well-known/mcp/server-card.json": {
+      "get": {
+        "summary": "MCP server card",
+        "responses": {
+          "200": {
+            "description": "MCP Server Card for the ant.design web documentation surface."
+          }
+        }
+      }
+    },
+    "/.well-known/oauth-protected-resource": {
+      "get": {
+        "summary": "OAuth protected resource metadata",
+        "responses": {
+          "200": {
+            "description": "Metadata stating that ant.design currently exposes no OAuth-protected public API."
+          }
+        }
+      }
+    },
+    "/.well-known/oauth-authorization-server": {
+      "get": {
+        "summary": "OAuth authorization server metadata",
+        "responses": {
+          "200": {
+            "description": "OAuth metadata for anonymous agent discovery."
+          }
+        }
+      }
+    },
+    "/.well-known/jwks.json": {
+      "get": {
+        "summary": "JSON Web Key Set",
+        "responses": {
+          "200": {
+            "description": "Empty JWKS for the anonymous public documentation flow."
+          }
+        }
+      }
+    },
+    "/auth.md": {
+      "get": {
+        "summary": "Auth.md agent registration notes",
+        "responses": {
+          "200": {
+            "description": "Markdown describing the current public authentication and registration posture."
+          }
+        }
+      }
+    }
+  }
+}

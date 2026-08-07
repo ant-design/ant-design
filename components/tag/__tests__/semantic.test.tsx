@@ -3,6 +3,11 @@ import React from 'react';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import Tag from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Tag.Semantic', () => {
   it('support classNames and styles as objects', () => {
@@ -189,5 +194,23 @@ describe('Tag.Semantic', () => {
         fontWeight: 'bold',
       });
     });
+  });
+  it('checkableTagGroup should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Tag.CheckableTagGroup
+          options={['Bamboo']}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-tag-checkable-group'));
   });
 });

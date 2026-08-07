@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb.ItemRender > render as expect 1`] = `
+<div>
+  <nav
+    class="ant-breadcrumb css-var-root"
+  >
+    <ol>
+      <li
+        class="ant-breadcrumb-item"
+      >
+        <a
+          class="my-link"
+          data-path="/"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        aria-hidden="true"
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li
+        class="ant-breadcrumb-item"
+      >
+        <a
+          class="my-link"
+          data-path="/bamboo"
+        >
+          Bamboo
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

@@ -174,4 +174,21 @@ describe('DatePicker.Semantic', () => {
     const largeRootElement = container.querySelector('.ant-picker');
     expect(largeRootElement).toHaveStyle('font-size: 18px');
   });
+
+  it('should pass props to RangePicker semantic callbacks', () => {
+    const classNamesFn = (info: { props: Record<string, unknown> }) => ({
+      root: info.props.disabled ? 'disabled-root' : 'enabled-root',
+    });
+    const stylesFn = (info: { props: Record<string, unknown> }) => ({
+      root: { fontSize: info.props.size === 'large' ? '18px' : '14px' },
+    });
+
+    const { container } = render(
+      <DatePicker.RangePicker disabled size="large" classNames={classNamesFn} styles={stylesFn} />,
+    );
+    const rootElement = container.querySelector('.ant-picker');
+
+    expect(rootElement).toHaveClass('disabled-root');
+    expect(rootElement).toHaveStyle('font-size: 18px');
+  });
 });

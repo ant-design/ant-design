@@ -1,5 +1,5 @@
 import React from 'react';
-import { MailOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
 import { Flex, Menu, Segmented } from 'antd';
 import type { MenuProps } from 'antd';
 
@@ -50,8 +50,8 @@ const items: MenuItem[] = [
   },
   {
     key: 'SubMenu',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
     children: [
       {
         key: 'g1',
@@ -69,11 +69,11 @@ const items: MenuItem[] = [
 const groupItem: MenuItem[] = [
   {
     key: 'grp',
-    label: 'Group',
+    label: 'Navigation Three',
     type: 'group',
     children: [
-      { key: '13', label: 'Option 13' },
-      { key: '14', label: 'Option 14' },
+      { key: '3', label: 'Option 3' },
+      { key: '4', label: 'Option 4' },
     ],
   },
 ];
@@ -96,6 +96,11 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
     setCurrent(e.key);
   };
 
+  const getPopupContainer = React.useCallback<NonNullable<MenuProps['getPopupContainer']>>(
+    () => divRef.current?.parentElement?.parentElement || divRef.current!,
+    [],
+  );
+
   return (
     <Flex vertical gap="medium" ref={divRef} align="center">
       <Segmented<ModeType> options={['horizontal', 'vertical', 'inline']} onChange={setMode} />
@@ -107,7 +112,7 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
           items={item}
           styles={{
             root: {
-              width: mode === 'horizontal' ? 310 : 230,
+              width: mode === 'horizontal' ? 480 : 230,
             },
             popup: {
               root: {
@@ -117,7 +122,7 @@ const Block: React.FC<MenuProps & ExternalProps> = (props) => {
           }}
           {...restProps}
           openKeys={['SubMenu']}
-          getPopupContainer={() => divRef.current!}
+          getPopupContainer={getPopupContainer}
         />
       </div>
     </Flex>

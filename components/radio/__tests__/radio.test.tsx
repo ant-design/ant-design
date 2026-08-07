@@ -30,6 +30,19 @@ describe('Radio', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('should support uncontrolled checked state', () => {
+    const onChange = jest.fn();
+    const { getByRole } = render(<Radio onChange={onChange}>Radio</Radio>);
+    const input = getByRole('radio');
+
+    expect(input).not.toBeChecked();
+
+    fireEvent.click(input);
+
+    expect(input).toBeChecked();
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();

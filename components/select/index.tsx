@@ -1,18 +1,19 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
-import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
-import RcSelect, { OptGroup, Option } from '@rc-component/select';
-import type { OptionProps } from '@rc-component/select/lib/Option';
 import type {
   BaseOptionType,
+  BaseSelectRef,
   DefaultOptionType,
+  OptionProps,
+  SelectProps as RcSelectProps,
   SearchConfig,
-} from '@rc-component/select/lib/Select';
+} from '@rc-component/select';
+import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -41,7 +42,13 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
+export type {
+  BaseOptionType,
+  DefaultOptionType,
+  OptionProps,
+  BaseSelectRef as RefSelectProps,
+  SearchConfig,
+};
 
 export interface LabeledValue {
   key?: string;
@@ -330,9 +337,16 @@ const InternalSelect = <
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SelectSemanticAllType['classNames'],
+    SelectSemanticAllType['styles'],
+    SelectProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps as unknown as SelectProps,
     },
@@ -434,7 +448,7 @@ const InternalSelect = <
       styles={mergedStyles}
       showSearch={mergedShowSearch}
       {...selectProps}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}

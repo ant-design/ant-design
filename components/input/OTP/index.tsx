@@ -2,7 +2,7 @@ import * as React from 'react';
 import { pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
@@ -40,10 +40,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onInput'
-> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -153,13 +151,16 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     length,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    OTPSemanticAllType['classNames'],
+    OTPSemanticAllType['styles'],
+    OTPProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,
@@ -331,7 +332,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         contextClassName,
         mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       role="group"
     >
       <FormItemInputContext.Provider value={proxyFormContext}>

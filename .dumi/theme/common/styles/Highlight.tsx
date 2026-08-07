@@ -22,8 +22,8 @@ const Highlight: React.FC = () => {
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
           line-height: 2;
           white-space: pre;
-          background: white;
-          border: 1px solid #e9e9e9;
+          background: ${token.colorBgContainer};
+          border: 1px solid ${token.colorBorderSecondary};
           border-radius: ${token.borderRadius}px;
         }
 

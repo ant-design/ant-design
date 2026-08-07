@@ -121,7 +121,7 @@ describe('Drawer', () => {
     });
     expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
     fireEvent.click(container.querySelector('.Two-level .ant-drawer-close')!);
-    expect(container.querySelector('.childrenDrawer')?.innerHTML).toEqual('false');
+    expect(container.querySelector('.childrenDrawer')?.innerHTML).toBe('false');
   });
 
   it('render top MultiDrawer', () => {

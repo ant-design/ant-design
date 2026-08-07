@@ -1,6 +1,5 @@
 import React from 'react';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
-import { warning } from '@rc-component/util';
+import { spyElementPrototype, warning } from '@rc-component/util';
 
 import Popconfirm from '..';
 import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
@@ -139,6 +138,17 @@ describe('Popconfirm', () => {
     });
     expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
     jest.useRealTimers();
+  });
+
+  it('should render title when it is the number 0', () => {
+    const { container } = render(
+      <Popconfirm title={0} open>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const titleNode = container.querySelector('.ant-popconfirm-title');
+    expect(titleNode).not.toBe(null);
+    expect(titleNode?.textContent).toContain('0');
   });
 
   it('should trigger onConfirm and onCancel', async () => {
@@ -290,7 +300,7 @@ describe('Popconfirm', () => {
       </div>,
     );
 
-    expect(container.textContent).toEqual('Test');
+    expect(container.textContent).toBe('Test');
 
     fireEvent.click(container.querySelector('.clickTarget')!);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);

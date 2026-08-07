@@ -270,6 +270,9 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenCalled();
     expect(pushStateSpy).not.toHaveBeenCalled();
     expect(replaceStateSpy).not.toHaveBeenCalled();
+    scrollToSpy.mockRestore();
+    pushStateSpy.mockRestore();
+    replaceStateSpy.mockRestore();
   });
 
   it('targetOffset prop', async () => {
@@ -452,7 +455,7 @@ describe('Anchor Render', () => {
 
   it('replaces item href in browser history (external href)', () => {
     const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
-    const pushStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+    const pushStateSpy = jest.spyOn(window.history, 'pushState').mockImplementation(() => {});
     const hash = getHashUrl();
     const href = `http://www.example.com/#${hash}`;
     const title = hash;

@@ -17,7 +17,8 @@ const stylesObject: TabsProps['styles'] = {
   header: { backgroundColor: 'rgba(245,245,245,0.5)' },
   item: { fontWeight: 'bold', color: '#1890ff', padding: `6px 10px` },
   indicator: { backgroundColor: 'rgba(255,77,79, 0.3)', height: 4 },
-  content: { backgroundColor: 'rgba(230,247,255,0.8)', padding: 16 },
+  body: { backgroundColor: 'rgba(230,247,255,0.8)' },
+  content: { padding: 16 },
 };
 
 const stylesFn: TabsProps['styles'] = (info): GetProp<TabsProps, 'styles', 'Return'> => {

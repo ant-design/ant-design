@@ -16,6 +16,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken, CSSObject> = (toke
     paddingXXS,
     INTERNAL_FIXED_ITEM_MARGIN,
     lineWidth,
+    lineType,
     colorIcon,
     colorIconHover,
     inputPaddingHorizontalBase,
@@ -91,7 +92,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken, CSSObject> = (toke
 
         [`${componentCls}-selection-item`]: {
           lineHeight: `calc(${varRef('multi-item-height')} - ${lineWidth} * 2)`,
-          border: `${lineWidth} solid ${varRef('multi-item-border-color')}`,
+          border: `${lineWidth} ${lineType} ${varRef('multi-item-border-color')}`,
           display: 'flex',
           marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
           marginInlineEnd: calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),

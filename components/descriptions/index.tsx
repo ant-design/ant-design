@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -60,11 +60,9 @@ export type DescriptionsSemanticAllType = GenerateSemantic<
   DescriptionsProps
 >;
 
-export interface DescriptionsProps {
+export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
-  className?: string;
   rootClassName?: string;
-  style?: React.CSSProperties;
   bordered?: boolean;
   /**
    * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
@@ -90,7 +88,6 @@ export interface DescriptionsProps {
   classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
   styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
-  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
@@ -139,12 +136,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     });
   }
   // Column count
+  // Mobile-first cascade: try the user-supplied map first (scanning large→small
+  // over cumulative min-width screens, so a lower breakpoint like `md` is still
+  // "active" on an `lg` viewport).  Only fall back to DEFAULT_COLUMN_MAP when
+  // no user-supplied breakpoint is active at all.
   const mergedColumn = React.useMemo(() => {
     if (isNumber(column)) {
       return column;
     }
 
-    return matchScreen(screens, { ...DEFAULT_COLUMN_MAP, ...column }) ?? 3;
+    return matchScreen(screens, column) ?? matchScreen(screens, DEFAULT_COLUMN_MAP) ?? 3;
   }, [screens, column]);
 
   // Items with responsive
@@ -163,13 +164,16 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsSemanticAllType['classNames'],
+    DescriptionsSemanticAllType['styles'],
+    DescriptionsProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ======================== Render ========================
   const memoizedValue = React.useMemo<DescriptionsContextProps>(
@@ -213,7 +217,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...mergedStyles.root, ...style }}
+        style={mergedStyles.root}
         {...restProps}
       >
         {(title || extra) && (

@@ -1,5 +1,5 @@
 import type { CSSMotionProps } from '@rc-component/motion';
-import type { AnimatedConfig } from '@rc-component/tabs/lib/interface';
+import type { AnimatedConfig } from '@rc-component/tabs';
 
 import type { TabsProps } from '..';
 import { isPlainObject } from '../../_util/is';

@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import type { TabBarExtraMap } from '@rc-component/tabs/es/interface';
 import { Button, Checkbox, Divider, Tabs } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
@@ -7,13 +6,15 @@ const CheckboxGroup = Checkbox.Group;
 const operations = <Button>Extra Action</Button>;
 
 const operationsSlot: Record<PositionType, React.ReactNode> = {
-  left: <Button className="tabs-extra-demo-button">Left Extra Action</Button>,
-  right: <Button>Right Extra Action</Button>,
+  left: <Button style={{ marginInlineEnd: 16 }}>Left Extra Action</Button>,
+  right: <Button style={{ marginInlineStart: 16 }}>Right Extra Action</Button>,
 };
 
 const options = ['left', 'right'];
 
 type PositionType = 'left' | 'right';
+
+type TabBarExtraMap = Partial<Record<PositionType, React.ReactNode>>;
 
 const items = Array.from({ length: 3 }).map((_, i) => {
   const id = String(i + 1);

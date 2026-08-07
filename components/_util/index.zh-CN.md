@@ -51,6 +51,10 @@ const Context = React.createContext<InternalContextProps>({ name: 'Ant Design' }
 type ContextType = GetProps<typeof Context>; // InternalContextProps
 ```
 
+### 与 `React.ComponentProps` 的区别 {#react-componentprops-diff}
+
+`React.ComponentProps` 是 React 官方提供的通用工具类型，用于获取原生标签或 React 组件接受的 props，例如 `React.ComponentProps<'button'>` 或 `React.ComponentProps<typeof Button>`，而 `GetProps` 则是 Ant Design 提供的补充类型：它不支持原生标签名，但除了 React 组件外，还可以直接获取 `React.Context` 的 value 类型，或者透传已经拿到的 props 类型对象。
+
 ## GetProp
 
 获取组件的单个 `props` 或者 `context` 属性定义。它已经将 `NonNullable` 进行了封装，所以不用再考虑为空的情况：
@@ -65,7 +69,7 @@ type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```
 
-同时，支持通过第三个参数 `'Return'` 获取函数属性的返回值类型：
+同时，支持通过第三个参数 `Return` 获取函数属性的返回值类型：
 
 ```tsx
 import type { GetProp } from 'antd';

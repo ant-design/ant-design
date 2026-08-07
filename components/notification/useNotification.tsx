@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks';
 import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -191,6 +191,7 @@ export function useInternalNotification(
         });
       }
       const mergedTitle = title ?? message;
+      const hasTitle = isReactRenderable(mergedTitle);
       const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(
@@ -223,22 +224,13 @@ export function useInternalNotification(
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        title: mergedTitle,
+        title: hasTitle ? mergedTitle : null,
         description,
         icon: iconNode,
         actions: mergedActions,
         role,
-        classNames: {
-          ...semanticClassNames,
-          icon: clsx(typeIconCls, semanticClassNames.icon),
-        },
-        styles: {
-          ...semanticStyles,
-          root: {
-            ...contextStyle,
-            ...semanticStyles.root,
-          },
-        },
+        classNames: { ...semanticClassNames, icon: clsx(typeIconCls, semanticClassNames?.icon) },
+        styles: { ...semanticStyles, root: { ...contextStyle, ...semanticStyles?.root } },
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
         style,
         closable: mergedClosable,

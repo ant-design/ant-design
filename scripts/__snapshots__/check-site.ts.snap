@@ -280,6 +280,6 @@ exports[`site test Component components/upload en Page 1`] = `5`;
 
 exports[`site test Component components/upload zh Page 1`] = `5`;
 
-exports[`site test Component components/watermark en Page 1`] = `2`;
+exports[`site test Component components/watermark en Page 1`] = `3`;
 
-exports[`site test Component components/watermark zh Page 1`] = `2`;
+exports[`site test Component components/watermark zh Page 1`] = `3`;

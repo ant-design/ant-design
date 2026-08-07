@@ -128,11 +128,11 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### App
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| component | Config render element, if `false` will not create DOM node | ComponentType \| false | div | 5.11.0 |
-| message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 |
-| notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| component | Config render element, if `false` will not create DOM node | ComponentType \| false | div | 5.11.0 | × |
+| message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 | × |
+| notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 | × |
 
 ## Design Token
 
@@ -142,4 +142,4 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### CSS Var doesn't work inside `<App component={false}>` {#faq-css-var-component-false}
 
-Make sure the App `component` is a valid html tag, so when you're turning on CSS variables, there's a container to hold the CSS class name. If not set, it defaults to the `div` tag. If set to `false`, no additional DOM nodes will be created, and no default styles will be provided.
+Ant Design v6 uses CSS variables by default. App needs a valid HTML element to hold its CSS variable class name. When `component` is `false`, App only provides context without rendering a root DOM node, so no App root class name or default styles are applied. The `className`, `rootClassName`, and `style` properties cannot be applied in this mode and trigger a development warning. Keep the default `div` or specify another valid element when these styles are required.

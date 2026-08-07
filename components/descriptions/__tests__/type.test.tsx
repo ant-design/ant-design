@@ -166,6 +166,35 @@ describe('Descriptions.Item span property types', () => {
     expect(items[3]).toHaveAttribute('colSpan', '3'); // 填充第二行剩余的列
   });
 
+  // 测试原生 HTML 属性的类型支持与透传
+  it('should accept and forward native HTML attributes to the root element', () => {
+    const handleClick = jest.fn();
+    const { container } = render(
+      <Descriptions
+        id="custom-id"
+        lang="en"
+        role="group"
+        data-testid="custom-descriptions"
+        aria-label="info"
+        tabIndex={0}
+        onClick={handleClick}
+        items={[{ key: '1', label: 'Label', children: 'Content' }]}
+      />,
+    );
+
+    const root = container.querySelector<HTMLDivElement>('.ant-descriptions');
+    expect(root).not.toBeNull();
+    expect(root).toHaveAttribute('id', 'custom-id');
+    expect(root).toHaveAttribute('lang', 'en');
+    expect(root).toHaveAttribute('role', 'group');
+    expect(root).toHaveAttribute('data-testid', 'custom-descriptions');
+    expect(root).toHaveAttribute('aria-label', 'info');
+    expect(root).toHaveAttribute('tabIndex', '0');
+
+    root!.click();
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
   // 测试所有响应式断点
   it('should support all responsive breakpoints', () => {
     const { container } = render(

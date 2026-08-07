@@ -3,20 +3,13 @@ import { BugOutlined } from '@ant-design/icons';
 import { Button, Drawer, Flex, Popover, Tag, Timeline, Typography } from 'antd';
 import type { TimelineItemProps } from 'antd';
 import { createStyles } from 'antd-style';
-import useSWR from 'swr';
 
+import type { ChangelogInfo } from '../../../hooks/useChangelog';
+import useChangelog from '../../../hooks/useChangelog';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import { matchDeprecated } from '../../utils';
 import Link from '../Link';
-
-interface ChangelogInfo {
-  version: string;
-  changelog: string;
-  refs: string[];
-  contributors: string[];
-  releaseDate: string;
-}
 
 const useStyle = createStyles(({ cssVar, token, css }) => ({
   listWrap: css`
@@ -102,7 +95,11 @@ const locales = {
   },
 };
 
-const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
+interface ParseChangelogProps {
+  changelog: string;
+}
+
+const ParseChangelog: React.FC<ParseChangelogProps> = (props) => {
   const { changelog = '' } = props;
 
   const parsedChangelog = React.useMemo(() => {
@@ -145,7 +142,12 @@ const ParseChangelog: React.FC<{ changelog: string }> = (props) => {
   return <span>{parsedChangelog}</span>;
 };
 
-const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, contributors }) => {
+interface RefLinksProps {
+  refs: string[];
+  contributors: string[];
+}
+
+const RefLinks: React.FC<RefLinksProps> = ({ refs, contributors }) => {
   const { styles } = useStyle();
 
   return (
@@ -180,18 +182,24 @@ const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, 
   );
 };
 
-const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ changelogList }) => {
+interface RenderChangelogListProps {
+  changelogList: ChangelogInfo[];
+}
+
+const RenderChangelogList: React.FC<RenderChangelogListProps> = ({ changelogList }) => {
   const elements: React.ReactNode[] = [];
   const { styles } = useStyle();
   const len = changelogList.length;
   for (let i = 0; i < len; i += 1) {
     const { refs, changelog, contributors } = changelogList[i];
     // Check if the next line is an image link and append it to the current line
-    if (i + 1 < len && changelogList[i + 1].changelog.trim().startsWith('<img')) {
-      const imgDom = new DOMParser().parseFromString(changelogList[i + 1].changelog, 'text/html');
-      const imgElement = imgDom.querySelector<HTMLImageElement>('img');
+    const nextChangelog = changelogList[i + 1]?.changelog || '';
+    if (i + 1 < len && nextChangelog.trim().startsWith('<img')) {
+      const parser = new DOMParser();
+      const document = parser.parseFromString(nextChangelog, 'text/html');
+      const imgElement = document.querySelector<HTMLImageElement>('img');
       elements.push(
-        <li key={i}>
+        <li key={`img-${i}`}>
           <ParseChangelog changelog={changelog} />
           <RefLinks refs={refs} contributors={contributors} />
           <br />
@@ -206,7 +214,7 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
       i += 1; // Skip the next line
     } else {
       elements.push(
-        <li key={i}>
+        <li key={`changelog-${i}`}>
           <ParseChangelog changelog={changelog} />
           <RefLinks refs={refs} contributors={contributors} />
         </li>,
@@ -214,28 +222,6 @@ const RenderChangelogList: React.FC<{ changelogList: ChangelogInfo[] }> = ({ cha
     }
   }
   return <ul className={styles.listWrap}>{elements}</ul>;
-};
-
-const useChangelog = (componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] => {
-  const logFileName = `components-changelog-${lang}.json`;
-
-  const { data, error, isLoading } = useSWR(
-    `component-changelog-${lang}`,
-    () => import(`../../../preset/${logFileName}`),
-  );
-
-  if (error || isLoading) {
-    return [];
-  }
-
-  const component = componentPath.replace(/-/g, '');
-  const componentName = Object.keys(data).find(
-    (name) => name.toLowerCase() === component.toLowerCase(),
-  );
-  if (!componentName) {
-    return [];
-  }
-  return data?.[componentName] || [];
 };
 
 const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) => {

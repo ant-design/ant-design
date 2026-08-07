@@ -637,7 +637,7 @@ Array [
         aria-label="basic image"
         class="ant-image css-var-test-id ant-image-css-var"
         role="button"
-        style="width: 200px; height: 200px;"
+        style="width: 200px; height: 200px; border-radius: 8px;"
         tabindex="0"
       >
         <img
@@ -658,6 +658,7 @@ Array [
         </div>
         <div
           class="ant-image-cover ant-image-cover-center"
+          style="border-radius: 8px;"
         />
       </div>
     </div>
@@ -900,7 +901,7 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
       <div
         class="ant-space-item"
       >
-        示例
+        Preview
       </div>
     </div>
   </div>
@@ -936,14 +937,14 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
-    aria-label="示例图片"
+    aria-label="Example image"
     class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
     role="button"
     style="width: 160px;"
     tabindex="0"
   >
     <img
-      alt="示例图片"
+      alt="Example image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px;"
@@ -954,14 +955,14 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
     />
   </div>
   <div
-    aria-label="示例图片"
+    aria-label="Example image"
     class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
     role="button"
     style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
     tabindex="0"
   >
     <img
-      alt="示例图片"
+      alt="Example image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px; filter: grayscale(50%);"

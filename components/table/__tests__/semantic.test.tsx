@@ -4,6 +4,11 @@ import Table from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import type { InternalTableProps, TableProps } from '../InternalTable';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 type DeepRequired<T> = T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
 type RequiredClassNames = DeepRequired<GetProp<TableProps, 'classNames', 'Return'>>;
@@ -299,5 +304,25 @@ describe('Table', () => {
     expect(pagination).toHaveStyle({
       borderTop: '1px solid #d9d9d9',
     });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        table={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Table
+          columns={[{ title: 'Name', dataIndex: 'name' }]}
+          dataSource={[{ key: '1', name: 'Bamboo' }]}
+          pagination={false}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-table-wrapper'));
   });
 });

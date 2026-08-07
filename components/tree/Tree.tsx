@@ -2,14 +2,14 @@ import type { Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import type { CSSMotionProps } from '@rc-component/motion';
-import type { BasicDataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
+import type { BasicDataNode, DataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
-import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import initCollapseMotion from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -48,8 +48,8 @@ export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: React.ReactNode | ((data: DataNode) => React.ReactNode);
-  key?: Key;
-  eventKey?: Key;
+  key?: React.Key;
+  eventKey?: React.Key;
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
@@ -90,13 +90,13 @@ export interface AntTreeNodeMouseEvent {
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
-  expandedKeys: Key[];
+  expandedKeys: React.Key[];
 }
 
 export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
-  dragNodesKeys: Key[];
+  dragNodesKeys: React.Key[];
   dropPosition: number;
   dropToGap?: boolean;
   event: React.MouseEvent<HTMLElement>;
@@ -142,11 +142,14 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     | 'switcherIcon'
     | 'classNames'
     | 'styles'
+    | 'rootStyle'
   > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeSemanticAllType['classNamesAndFn'];
   styles?: TreeSemanticAllType['stylesAndFn'];
+  /** @deprecated Please use `styles.root` instead */
+  rootStyle?: React.CSSProperties;
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */
@@ -162,21 +165,21 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   /** Expand the corresponding tree node by default */
   defaultExpandParent?: boolean;
   /** Expand the specified tree node by default */
-  defaultExpandedKeys?: Key[];
+  defaultExpandedKeys?: React.Key[];
   /** (Controlled) Expand the specified tree node */
-  expandedKeys?: Key[];
+  expandedKeys?: React.Key[];
   /** (Controlled) Tree node with checked checkbox */
-  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
+  checkedKeys?: React.Key[] | { checked: React.Key[]; halfChecked: React.Key[] };
   /** Tree node with checkbox checked by default */
-  defaultCheckedKeys?: Key[];
+  defaultCheckedKeys?: React.Key[];
   /** (Controlled) Set the selected tree node */
-  selectedKeys?: Key[];
+  selectedKeys?: React.Key[];
   /** Tree node selected by default */
-  defaultSelectedKeys?: Key[];
+  defaultSelectedKeys?: React.Key[];
   selectable?: boolean;
   /** Click on the tree node to trigger */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  loadedKeys?: Key[];
+  loadedKeys?: React.Key[];
   /** Set the node to be draggable (IE>8) */
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;
@@ -215,10 +218,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion: customMotion,
     style,
     rootClassName,
+    rootStyle,
     classNames,
     styles,
     icon,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Tree');
+    warning.deprecated(!rootStyle, 'rootStyle', 'styles.root');
+  }
 
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
@@ -242,13 +251,15 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const rootStyleRoot = useSemanticRootStyle(rootStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeSemanticAllType['classNames'],
+    TreeSemanticAllType['styles'],
+    TreeProps
+  >([contextClassNames, classNames], [contextStyles, rootStyleRoot, styles], {
+    props: mergedProps,
+  });
 
   const newProps = {
     ...mergedProps,

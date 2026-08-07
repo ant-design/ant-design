@@ -10,6 +10,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Flex from '../flex';
 import Space from '../space';
@@ -82,6 +83,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     onOpenChange,
     open: customOpen,
     onClick: onTriggerButtonClick,
+    disabled: customDisabled,
     ...floatButtonProps
   } = props;
 
@@ -105,6 +107,10 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
 
+  // ========================== Disabled ==========================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
@@ -123,6 +129,9 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const clickTrigger = trigger === 'click';
 
   const triggerOpen = useEvent((nextOpen: boolean) => {
+    if (mergedDisabled) {
+      return;
+    }
     if (open !== nextOpen) {
       setOpen(nextOpen);
       onOpenChange?.(nextOpen);
@@ -184,6 +193,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     shape,
     type,
     placement: mergedPlacement,
+    disabled: mergedDisabled,
   };
 
   // ============================ Styles ============================
@@ -305,6 +315,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
               aria-label={props['aria-label']}
               className={`${groupPrefixCls}-trigger`}
               onClick={onInternalTriggerButtonClick}
+              disabled={mergedDisabled}
               {...floatButtonProps}
             />
           </GroupContext.Provider>

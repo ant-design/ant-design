@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import { fireEvent, render } from '../../../tests/utils';
 import Base from '../Base';
@@ -58,7 +58,7 @@ describe('Typography.Editable', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
 
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr + suffix);
+    expect(wrapper.querySelector('textarea')?.textContent).toBe(fullStr + suffix);
 
     unmount();
   });
@@ -74,7 +74,7 @@ describe('Typography.Editable', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
 
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr);
+    expect(wrapper.querySelector('textarea')?.textContent).toBe(fullStr);
 
     unmount();
   });

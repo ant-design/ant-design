@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
@@ -24,7 +24,25 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
       onChange(genColor);
     }
   };
-  return <div className={clsx(`${prefixCls}-clear`, className)} style={style} onClick={onClick} />;
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onClick();
+    }
+  };
+
+  return (
+    <div
+      role="button"
+      aria-label="Clear color"
+      tabIndex={0}
+      className={clsx(`${prefixCls}-clear`, className)}
+      style={style}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+    />
+  );
 };
 
 export default ColorClear;

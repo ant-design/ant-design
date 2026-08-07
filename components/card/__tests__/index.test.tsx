@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
-import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
+import type { TabBarExtraContent } from '@rc-component/tabs';
 import userEvent from '@testing-library/user-event';
 
 import type { CardMetaProps, CardProps } from '..';
@@ -263,7 +263,7 @@ describe('Card', () => {
     const { container } = render(
       <Card
         title="Card title"
-        cover="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+        cover="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
         extra="More"
         classNames={customClassNames}
         styles={customStyles}
@@ -272,7 +272,7 @@ describe('Card', () => {
         <Meta
           classNames={customClassNames}
           styles={customStyles}
-          avatar={<img alt="testimg" src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+          avatar={<img alt="testimg" src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
           title="Card Meta title"
           description="This is the description"
         />

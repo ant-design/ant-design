@@ -63,7 +63,7 @@ And which you should avoid doing:
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How to use other data-time lib like Moment.js?
+## How to use other date-time lib like Moment.js?
 
 Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
@@ -74,6 +74,18 @@ The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works o
 ## Why does modifying props in mutable way not trigger a component update?
 
 antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
+
+## Does `antd` have a mirror in China?
+
+Yes, you can visit https://ant-design.antgroup.com.
+
+| Product/Version   | URL                                       |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://5x-ant-design.antgroup.com        |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
@@ -177,7 +189,7 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
-2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
+2. Use [App.useApp](/components/app#basic-usage) to get message/notification/modal instance.
 
 ## Why shouldn't I use component internal props or state with ref?
 

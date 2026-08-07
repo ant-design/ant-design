@@ -36,64 +36,64 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Typography.Text
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
-| delete | Deleted line style | boolean | false |  |
-| disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
-| ellipsis | Display ellipsis when text overflows, can't configure expandable, rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  |
-| italic | Italic style | boolean | false | 4.16.0 |
-| keyboard | Keyboard style | boolean | false | 4.3.0 |
-| mark | Marked style | boolean | false |  |
-| strong | Bold style | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | Underlined style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | Code style | boolean | false |  | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  | × |
+| delete | Deleted line style | boolean | false |  | × |
+| disabled | Disabled content | boolean | false |  | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | Display ellipsis when text overflows, can't configure expandable, rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  | × |
+| italic | Italic style | boolean | false | 4.16.0 | × |
+| keyboard | Keyboard style | boolean | false | 4.3.0 | × |
+| mark | Marked style | boolean | false |  | × |
+| strong | Bold style | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | Underlined style | boolean | false |  | × |
+| onClick | Set the handler to handle click event | (event) => void | - |  | × |
 
 ### Typography.Title
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
-| delete | Deleted line style | boolean | false |  |
-| disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
-| italic | Italic style | boolean | false | 4.16.0 |
-| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
-| mark | Marked style | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | Underlined style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | Code style | boolean | false |  | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  | × |
+| delete | Deleted line style | boolean | false |  | × |
+| disabled | Disabled content | boolean | false |  | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  | × |
+| italic | Italic style | boolean | false | 4.16.0 | × |
+| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 | × |
+| mark | Marked style | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | Underlined style | boolean | false |  | × |
+| onClick | Set the handler to handle click event | (event) => void | - |  | × |
 
 ### Typography.Paragraph
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
-| delete | Deleted line style | boolean | false |  |
-| disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
-| italic | Italic style | boolean | false | 4.16.0 |
-| mark | Marked style | boolean | false |  |
-| strong | Bold style | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
-| underline | Underlined style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
+| code | Code style | boolean | false |  | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  | × |
+| delete | Deleted line style | boolean | false |  | × |
+| disabled | Disabled content | boolean | false |  | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  | × |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  | × |
+| italic | Italic style | boolean | false | 4.16.0 | × |
+| mark | Marked style | boolean | false |  | × |
+| strong | Bold style | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
+| underline | Underlined style | boolean | false |  | × |
+| onClick | Set the handler to handle click event | (event) => void | - |  | × |
 
 ### actions
 

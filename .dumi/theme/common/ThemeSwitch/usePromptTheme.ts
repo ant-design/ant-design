@@ -3,6 +3,12 @@ import { XStream } from '@ant-design/x-sdk';
 
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 
+type ThemeStreamData = {
+  lane?: string;
+  payload?: string;
+  type?: string;
+};
+
 const fetchTheme = async (
   prompt: string,
   update: (currentFullContent: string) => void,
@@ -36,13 +42,46 @@ const fetchTheme = async (
     for await (const chunk of XStream({
       readableStream: response.body,
     })) {
-      if (chunk.event === 'message') {
-        const data = JSON.parse(chunk.data) as {
-          lane: string;
-          payload: string;
-        };
+      if (!chunk.data || chunk.data === '[DONE]') {
+        continue;
+      }
 
-        const payload = JSON.parse(data.payload) as {
+      if (chunk.event !== 'message' && chunk.event !== 'error') {
+        continue;
+      }
+
+      let data: ThemeStreamData;
+
+      try {
+        data = JSON.parse(chunk.data) as ThemeStreamData;
+      } catch (error) {
+        if (chunk.event === 'error') {
+          throw new Error(chunk.data);
+        }
+
+        throw error;
+      }
+
+      if (chunk.event === 'error' || data.type === 'error') {
+        let errorMessage = 'Failed to generate theme';
+
+        try {
+          const payload = JSON.parse(data.payload || '{}') as {
+            errorMsg?: string;
+          };
+
+          errorMessage = payload.errorMsg || errorMessage;
+        } catch {
+          if (data.payload) {
+            errorMessage = data.payload;
+          }
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      if (chunk.event === 'message') {
+        const payload = JSON.parse(data.payload || '{}') as {
           text: string;
         };
 
@@ -71,6 +110,7 @@ export default function usePromptTheme(
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
   const [resText, setResText] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string>();
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const submitPrompt = async (nextPrompt: string) => {
@@ -91,6 +131,7 @@ export default function usePromptTheme(
 
     setLoading(true);
     setResText('');
+    setErrorMessage(undefined);
 
     try {
       const data = await fetchTheme(
@@ -111,10 +152,19 @@ export default function usePromptTheme(
         console.warn('Request was aborted');
       } else {
         console.error('Failed to generate theme:', error);
+        setErrorMessage(
+          error instanceof SyntaxError
+            ? 'Failed to parse the generated theme. Please try again.'
+            : error instanceof Error
+              ? error.message
+              : 'Failed to generate theme',
+        );
       }
     } finally {
-      setLoading(false);
-      abortControllerRef.current = null;
+      if (abortControllerRef.current === abortController) {
+        setLoading(false);
+        abortControllerRef.current = null;
+      }
     }
   };
 
@@ -126,5 +176,12 @@ export default function usePromptTheme(
     }
   };
 
-  return [submitPrompt, loading, prompt, getJsonText(resText), cancelRequest] as const;
+  return [
+    submitPrompt,
+    loading,
+    prompt,
+    getJsonText(resText),
+    cancelRequest,
+    errorMessage,
+  ] as const;
 }

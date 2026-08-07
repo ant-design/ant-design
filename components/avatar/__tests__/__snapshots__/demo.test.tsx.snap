@@ -422,7 +422,7 @@ Array [
           class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
-            src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+            src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
           />
         </span>
         <span
@@ -613,7 +613,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
-        src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+        src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
       />
     </span>
     <a
@@ -691,7 +691,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
-        src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
+        src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
       />
     </span>
     <span
@@ -728,7 +728,7 @@ Array [
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
-        src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
+        src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
       />
     </span>
     <span

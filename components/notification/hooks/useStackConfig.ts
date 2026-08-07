@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { StackConfig } from '@rc-component/notification/es/hooks/useStack';
+import type { StackConfig } from '@rc-component/notification';
 
 import { isPlainObject } from '../../_util/is';
 

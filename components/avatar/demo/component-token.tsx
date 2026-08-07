@@ -38,7 +38,7 @@ const App: React.FC = () => (
           style: { color: '#f56a00', backgroundColor: '#fde3cf' },
         }}
       >
-        <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" />
+        <Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=2" />
         <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
         <Tooltip title="Ant User" placement="top">
           <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />

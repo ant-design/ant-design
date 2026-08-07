@@ -2,10 +2,12 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { TableToken } from './index';
 
 const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
+    antCls,
     componentCls,
     lineWidth,
     lineType,
@@ -16,6 +18,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     calc,
   } = token;
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
+  const [varName, varRef] = genCssVar(antCls, 'table');
 
   const getSizeBorderStyle = (
     size: 'small' | 'medium',
@@ -38,6 +41,8 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}-wrapper`]: {
+      [varName('nested-border-top')]: tableBorder,
+
       [`${componentCls}${componentCls}-bordered`]: {
         // ============================ Title =============================
         [`> ${componentCls}-title`]: {
@@ -49,6 +54,15 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         [`> ${componentCls}-container`]: {
           borderInlineStart: tableBorder,
           borderTop: tableBorder,
+
+          '&:first-child': {
+            borderTop: varRef('nested-border-top', tableBorder),
+          },
+
+          [`> ${componentCls}-header${componentCls}-sticky-holder`]: {
+            marginTop: calc(lineWidth).mul(-1).equal(),
+            borderTop: tableBorder,
+          },
 
           [`> ${componentCls}-content, > ${componentCls}-header, > ${componentCls}-body, > ${componentCls}-summary`]:
             {
@@ -71,10 +85,15 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 },
 
                 // Fixed right should provides additional border
+                // Only add separator border when there are multiple fixed-right columns
+                // (i.e. fix-right-first is not also fix-right-last), otherwise the
+                // ::after border doubles up with the cell's own borderInlineEnd and
+                // creates a spurious extra vertical line. See #56287.
                 '> thead > tr, > tbody > tr, > tfoot > tr': {
-                  [`> ${componentCls}-cell-fix-right-first::after`]: {
-                    borderInlineEnd: tableBorder,
-                  },
+                  [`> ${componentCls}-cell-fix-right-first:not(${componentCls}-cell-fix-right-last)::after`]:
+                    {
+                      borderInlineEnd: tableBorder,
+                    },
                 },
 
                 // ========================== Expandable ==========================
@@ -134,9 +153,11 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       // ============================ Nested ============================
       [`${componentCls}-cell`]: {
-        [`${componentCls}-container:first-child`]: {
-          // :first-child to avoid the case when bordered and title is set
-          borderTop: 0,
+        [`
+          > ${componentCls}-wrapper:only-child,
+          > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
+        `]: {
+          [varName('nested-border-top')]: 0,
         },
         // https://github.com/ant-design/ant-design/issues/35577
         '&-scrollbar:not([rowspan])': {

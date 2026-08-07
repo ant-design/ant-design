@@ -2,11 +2,9 @@ import * as React from 'react';
 import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from '@rc-component/table';
-import type { FixedType } from '@rc-component/table/lib/interface';
-import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
-import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
-import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
-import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
+import type { FixedType } from '@rc-component/table';
+import { arrAdd, arrDel, conductCheck, convertDataToEntities } from '@rc-component/tree';
+import type { DataNode } from '@rc-component/tree';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -198,8 +196,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     return map;
   }, [flattedData, getRowKey, getCheckboxProps]);
 
-  const isCheckboxDisabled: GetCheckDisabled<RecordType> = useCallback(
-    (r: RecordType) => {
+  const isCheckboxDisabled = useCallback(
+    (r: RecordType): boolean => {
       const rowKey = getRowKey(r);
       let checkboxProps: Partial<CheckboxProps> | undefined;
       if (checkboxPropsMap.has(rowKey)) {
@@ -306,8 +304,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             setSelectedKeys(
               data.reduce<Key[]>((keys, record, index) => {
                 const key = getRowKey(record, index);
-                const checkProps = checkboxPropsMap.get(key);
-                if (!checkProps?.disabled || derivedSelectedKeySet.has(key)) {
+                if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
                   keys.push(key);
                 }
                 return keys;
@@ -378,6 +375,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     tableLocale.selectInvert,
     tableLocale.selectNone,
     checkboxPropsMap,
+    isCheckboxDisabled,
     derivedSelectedKeySet,
     data,
     pageData,
@@ -537,9 +535,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
+          const defaultAriaLabel = `Select row ${index + 1}`;
           return {
             node: (
               <Radio
+                aria-label={defaultAriaLabel}
                 {...checkboxProps}
                 checked={checked}
                 onClick={(e) => {
@@ -574,10 +574,14 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           } else {
             mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
           }
+          const defaultAriaLabel = checked
+            ? `Row ${index + 1} selected`
+            : `Select row ${index + 1}`;
           // Record checked
           return {
             node: (
               <Checkbox
+                aria-label={defaultAriaLabel}
                 {...checkboxProps}
                 indeterminate={mergedIndeterminate}
                 checked={checked}
@@ -590,7 +594,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   const { nativeEvent } = event;
                   const { shiftKey } = nativeEvent;
                   const currentSelectedIndex = recordKeys.indexOf(key);
-                  const isMultiple = derivedSelectedKeys.some((item) => recordKeys.includes(item));
+                  const isMultiple =
+                    derivedSelectedKeySet.size > 0 &&
+                    recordKeys.some((key) => derivedSelectedKeySet.has(key));
 
                   if (shiftKey && checkStrictly && isMultiple) {
                     const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);

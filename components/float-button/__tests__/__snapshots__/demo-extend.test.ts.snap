@@ -693,9 +693,6 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
               />
@@ -824,9 +821,6 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
               />
@@ -875,6 +869,62 @@ Array [
 `;
 
 exports[`renders components/float-button/demo/controlled.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/draggable.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-describedby="float-button-draggable"
+    aria-disabled="false"
+    aria-roledescription="draggable"
+    class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
+    role="button"
+    style="transform: translate3d(0px, 0px, 0); cursor: grab;"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon ant-float-btn-icon"
+    >
+      <span
+        aria-label="file-text"
+        class="anticon anticon-file-text"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="file-text"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>,
+  <div
+    id="float-button-draggable"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-0"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/float-button/demo/draggable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/float-button/demo/group.tsx extend context correctly 1`] = `
 Array [

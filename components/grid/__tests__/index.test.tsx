@@ -64,6 +64,17 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should support zero flex', () => {
+    const { container } = render(<Col flex={0} />);
+    expect(container.firstElementChild).toHaveStyle({ flex: '0 0 auto' });
+  });
+
+  it('should support responsive zero flex', () => {
+    const { container } = render(<Col xs={{ flex: 0 }} />);
+    expect(container.firstElementChild).toHaveClass('ant-col-xs-flex');
+    expect(container.firstElementChild).toHaveStyle({ '--ant-col-xs-flex': '0 0 auto' });
+  });
+
   it('should render Row', () => {
     const { asFragment } = render(<Row />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -130,7 +141,7 @@ describe('Grid', () => {
     const called: number = (global as any).unsubscribeCnt;
 
     unmount();
-    expect((global as any).unsubscribeCnt).toEqual(called + 1);
+    expect((global as any).unsubscribeCnt).toBe(called + 1);
   });
 
   it('should work correct when gutter is string', () => {

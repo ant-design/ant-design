@@ -81,8 +81,12 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   return (
     <div
       style={
-        background?.startsWith('https')
-          ? { backgroundImage: `url(${background})` }
+        background?.startsWith('https') || background?.startsWith('linear-gradient')
+          ? {
+              backgroundImage: background?.startsWith('linear-gradient')
+                ? background
+                : `url(${background})`,
+            }
           : { backgroundColor: background }
       }
       className={styles.box}
@@ -117,6 +121,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
             style={{
               color: titleColor,
               marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
+              marginTop: token.marginSM,
             }}
           >
             {description}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import Upload from '..';
 import type { UploadProps } from '..';
@@ -178,5 +179,24 @@ describe('Upload.Semantic', () => {
     const itemElement = container.querySelector('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
     expect(itemElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+  });
+
+  it('should use error color for picture placeholder icon in error status', () => {
+    const cache = createCache();
+
+    render(
+      <StyleProvider cache={cache}>
+        <Upload
+          listType="picture-card"
+          defaultFileList={[{ uid: '1', name: 'test.png', status: 'error' }]}
+        />
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain(
+      '.ant-upload-list-item-error .ant-upload-list-item-thumbnail.ant-upload-list-item-file .anticon{color:var(--ant-color-error);}',
+    );
   });
 });

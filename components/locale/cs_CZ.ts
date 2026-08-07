@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/cs_CZ';
+import Pagination from '@rc-component/pagination/locale/cs_CZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/cs_CZ';
@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zavřít',
     show: 'Zobrazit',
     hide: 'Skrýt',
+    sortable: 'seřadit',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -63,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'Označit vše',
     removeAll: 'Odznačit vše',
     selectInvert: 'Opačný výběr',
+    deselectAll: 'Zrušte výběr všech dat',
   },
   Upload: {
     uploading: 'Nahrávání...',
@@ -82,6 +84,7 @@ const localeValues: Locale = {
     copy: 'Kopírovat',
     copied: 'Zkopírované',
     expand: 'Zvětšit',
+    collapse: 'kolaps',
   },
   Form: {
     optional: '(nepovinné)',

@@ -123,12 +123,12 @@ exports[`renders components/select/demo/_semantic.tsx correctly 1`] = `
                 aria-expanded="true"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input semantic-mark-input"
                 id="test-id"
                 role="combobox"
                 style="--select-input-width: 0;"
-                type="search"
+                type="text"
                 value=""
               />
             </div>

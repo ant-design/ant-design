@@ -1,0 +1,490 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<input
+  class="ant-input ant-input-rtl ant-input-outlined css-var-root ant-input-css-var"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > rtl render > component should be rendered correctly in RTL direction 2`] = `null`;
+
+exports[`Input > should support maxLength 1`] = `
+<input
+  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+  maxlength="3"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > should support size 1`] = `
+<input
+  class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input > should support size in form 1`] = `
+<form
+  class="ant-form ant-form-horizontal ant-form-large css-var-root ant-form-css-var"
+>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-root"
+    >
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-lg ant-input-outlined css-var-root ant-input-css-var"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Input allowClear > semantic dom snapshot 1`] = `
+<div>
+  <span
+    class="ant-input-affix-wrapper ant-input-outlined custom-class css-var-root ant-input-css-var"
+    style="background-color: red;"
+  >
+    <span
+      class="ant-input-prefix custom-prefix"
+      style="color: blue;"
+    >
+      prefix
+    </span>
+    <input
+      class="ant-input custom-input"
+      style="color: red;"
+      type="text"
+      value="123"
+    />
+    <span
+      class="ant-input-suffix custom-suffix"
+      style="color: yellow;"
+    >
+      <span
+        class="ant-input-show-count-suffix ant-input-show-count-has-suffix custom-count"
+        style="color: green;"
+      >
+        3
+      </span>
+      suffix
+    </span>
+  </span>
+  <span
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var"
+    style="background-color: red;"
+  >
+    <span
+      class="ant-input-wrapper ant-input-group"
+    >
+      <span
+        class="ant-input-affix-wrapper ant-input-outlined"
+      >
+        <span
+          class="ant-input-prefix custom-prefix"
+          style="color: blue;"
+        >
+          prefix
+        </span>
+        <input
+          class="ant-input custom-input"
+          style="color: red;"
+          type="text"
+          value="123"
+        />
+        <span
+          class="ant-input-suffix custom-suffix"
+          style="color: yellow;"
+        >
+          <span
+            class="ant-input-show-count-suffix ant-input-show-count-has-suffix custom-count"
+            style="color: green;"
+          >
+            3
+          </span>
+          suffix
+        </span>
+      </span>
+      <span
+        class="ant-input-group-addon"
+      >
+        addon
+      </span>
+    </span>
+  </span>
+  <input
+    class="ant-input custom-input ant-input-outlined custom-class css-var-root ant-input-css-var"
+    style="color: red; background-color: red;"
+    type="text"
+    value="123"
+  />
+  <span
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var"
+    style="background-color: red;"
+  >
+    <span
+      class="ant-input-wrapper ant-input-group"
+    >
+      <input
+        class="ant-input custom-input ant-input-outlined"
+        style="color: red;"
+        type="text"
+        value="123"
+      />
+      <span
+        class="ant-input-group-addon"
+      >
+        addon
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Input allowClear > should change type when click 1`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value="111"
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should change type when click 2`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 1`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 2`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if defaultValue is undefined, null or empty string 3`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 1`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 2`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input allowClear > should not show icon if value is undefined, null or empty string 3`] = `
+<span
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
+>
+  <input
+    class="ant-input"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-input-clear-icon ant-input-clear-icon-hidden"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </span>
+</span>
+`;

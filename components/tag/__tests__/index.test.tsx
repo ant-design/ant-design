@@ -6,14 +6,17 @@ import { CheckCircleOutlined, CloseCircleOutlined, LinkedinOutlined } from '@ant
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, createEvent, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 (global as any).isVisible = true;
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => (global as any).isVisible,
+  };
 });
 
 function waitRaf() {
@@ -61,6 +64,23 @@ describe('Tag', () => {
       jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+  });
+
+  it('should prevent navigation when closing a link tag', () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <Tag href="#target" closable onClose={onClose}>
+        Link
+      </Tag>,
+    );
+    const closeIcon = container.querySelector('.ant-tag-close-icon')!;
+    const clickEvent = createEvent.click(closeIcon);
+
+    fireEvent(closeIcon, clickEvent);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(clickEvent.defaultPrevented).toBe(true);
+    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
   });
 
   it('show close button by closeIcon', () => {
@@ -140,7 +160,7 @@ describe('Tag', () => {
       const onClick = jest.fn();
       const { container } = render(
         <Tag disabled>
-          <a href="https://ant.design" onClick={onClick}>
+          <a href="https://ant.design" aria-label="Ant Design website" onClick={onClick}>
             Link
           </a>
         </Tag>,
@@ -179,6 +199,37 @@ describe('Tag', () => {
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
+    });
+
+    it('should have checkbox aria attributes', () => {
+      const { container, rerender } = render(<Tag.CheckableTag checked={false} />);
+      expect(container.querySelector('.ant-tag')).toHaveAttribute('role', 'checkbox');
+      expect(container.querySelector('.ant-tag')).toHaveAttribute('aria-checked', 'false');
+
+      rerender(<Tag.CheckableTag checked />);
+      expect(container.querySelector('.ant-tag')).toHaveAttribute('aria-checked', 'true');
+    });
+
+    it('should trigger onChange by Space key', () => {
+      const onChange = jest.fn();
+      const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
+      fireEvent.keyDown(container.querySelector('.ant-tag')!, { key: ' ' });
+      expect(onChange).toHaveBeenCalledWith(true);
+    });
+
+    it('should not trigger onChange when key event is prevented', () => {
+      const onChange = jest.fn();
+      const onKeyDown = jest.fn((e: React.KeyboardEvent<HTMLSpanElement>) => {
+        e.preventDefault();
+      });
+      const { container } = render(
+        <Tag.CheckableTag checked={false} onChange={onChange} onKeyDown={onKeyDown} />,
+      );
+
+      fireEvent.keyDown(container.querySelector('.ant-tag')!, { key: ' ' });
+
+      expect(onKeyDown).toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it('should support ref', () => {
@@ -265,10 +316,38 @@ describe('Tag', () => {
   });
   it('should support aria-* in closable', () => {
     const { container } = render(<Tag closable={{ closeIcon: 'X', 'aria-label': 'CloseBtn' }} />);
-    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toEqual(
+    expect(container.querySelector('.ant-tag-close-icon')?.getAttribute('aria-label')).toBe(
       'CloseBtn',
     );
-    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+    expect(container.querySelector('.ant-tag-close-icon')).toHaveAttribute('role', 'button');
+    expect(container.querySelector('.ant-tag-close-icon')?.textContent).toBe('X');
+  });
+
+  it.each(['Enter', ' '])('should close by %s key', (key) => {
+    const onClose = jest.fn();
+    const { container } = render(<Tag closable onClose={onClose} />);
+    expect(container.querySelector('.ant-tag-close-icon')).toHaveAttribute('role', 'button');
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+
+    fireEvent.keyDown(container.querySelector('.ant-tag-close-icon')!, { key });
+
+    expect(onClose).toHaveBeenCalled();
+    expect(onClose.mock.calls[0][0].type).toBe('click');
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
+  });
+  it('should not close when closeIcon key event is prevented', () => {
+    const onClose = jest.fn();
+    const onKeyDown = jest.fn((e: React.KeyboardEvent<HTMLSpanElement>) => {
+      e.preventDefault();
+    });
+    const { container } = render(
+      <Tag closable closeIcon={<span onKeyDown={onKeyDown}>X</span>} onClose={onClose} />,
+    );
+
+    fireEvent.keyDown(container.querySelector('.ant-tag-close-icon')!, { key: 'Enter' });
+
+    expect(onKeyDown).toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
   });
   it('should apply classNames and styles correctly', () => {
     const customClassNames = {

@@ -36,17 +36,17 @@ demo:
 
 #### Checkbox
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultChecked | 初始是否选中 | boolean | false |  |
-| disabled | 失效状态 | boolean | false |  |
-| indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  |
-| onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  |
-| onBlur | 失去焦点时的回调 | function() | - |  |
-| onFocus | 获得焦点时的回调 | function() | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | 指定当前是否选中 | boolean | false |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| defaultChecked | 初始是否选中 | boolean | false |  | × |
+| disabled | 失效状态 | boolean | false |  | × |
+| indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  | × |
+| onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  | × |
+| onBlur | 失去焦点时的回调 | function() | - |  | × |
+| onFocus | 获得焦点时的回调 | function() | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
 #### Checkbox.Group
 

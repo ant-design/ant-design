@@ -135,6 +135,10 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               backgroundColor: token.optionActiveBg,
             },
 
+            [`&-selected${selectItemCls}-option-active:not(${selectItemCls}-option-disabled)`]: {
+              backgroundColor: token.controlItemBgActiveHover,
+            },
+
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
                 backgroundColor: token.colorBgContainerDisabled,

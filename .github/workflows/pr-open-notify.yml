@@ -14,7 +14,7 @@ concurrency:
 jobs:
   send-to-dingtalk:
     if: github.repository == 'ant-design/ant-design'
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: send to dingtalk

@@ -17,6 +17,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
+      font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;

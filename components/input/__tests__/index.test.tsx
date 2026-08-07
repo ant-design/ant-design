@@ -116,8 +116,8 @@ describe('Input', () => {
     const ref = React.createRef<InputRef>();
     const { container } = render(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
     ref.current?.setSelectionRange(valLength, valLength);
-    expect(container.querySelector('input')?.selectionStart).toEqual(5);
-    expect(container.querySelector('input')?.selectionEnd).toEqual(5);
+    expect(container.querySelector('input')?.selectionStart).toBe(5);
+    expect(container.querySelector('input')?.selectionEnd).toBe(5);
   });
 
   it('warning for Input.Group', () => {
@@ -366,18 +366,18 @@ describe('Input allowClear', () => {
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input allowClear />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
-    expect(container.querySelector('input')?.value).toEqual('111');
+    expect(container.querySelector('input')?.value).toBe('111');
     expect(asFragment().firstChild).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
     const wrappers = [null, undefined, ''].map((val) => render(<Input allowClear value={val} />));
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('input')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -389,7 +389,7 @@ describe('Input allowClear', () => {
       render(<Input allowClear defaultValue={val} />),
     );
     wrappers.forEach(({ asFragment, container }) => {
-      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('input')?.value).toBe('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
       expect(asFragment().firstChild).toMatchSnapshot();
     });
@@ -484,10 +484,10 @@ describe('Input allowClear', () => {
 
     container.querySelector('input')?.focus();
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
-    expect(container.querySelector('input')?.value).toEqual('111');
+    expect(container.querySelector('input')?.value).toBe('111');
 
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(container.querySelector('input')?.value).toEqual('');
+    expect(container.querySelector('input')?.value).toBe('');
 
     unmount();
   });

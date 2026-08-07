@@ -15,10 +15,18 @@ import type { IconName, IconsMeta } from './meta';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
+  All = 'All',
   Filled = 'Filled',
   Outlined = 'Outlined',
   TwoTone = 'TwoTone',
 }
+
+// Theme order used by the "All" view to expand each base icon.
+const THEME_ORDER: ReadonlyArray<ThemeType> = [
+  ThemeType.Outlined,
+  ThemeType.Filled,
+  ThemeType.TwoTone,
+];
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
@@ -35,13 +43,33 @@ interface IconSearchState {
   searchKey: string;
 }
 
-const NEW_ICON_NAMES: ReadonlyArray<string> = [];
+const NEW_ICON_VERSION = '6.5.0';
+
+const NEW_ICON_NAMES: ReadonlyArray<string> = [
+  'AnthropicFilled',
+  'ClaudeFilled',
+  'GeminiFilled',
+  'MistralFilled',
+  'DeepSeekFilled',
+  'QwenFilled',
+  'PerplexityFilled',
+  'HuggingFaceFilled',
+  'OllamaFilled',
+  'ReplicateFilled',
+  'ElevenLabsFilled',
+  'TelegramFilled',
+  'MastodonFilled',
+  'ThreadsFilled',
+  'SnapchatFilled',
+];
+
+const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]));
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
-    theme: ThemeType.Outlined,
+    theme: ThemeType.All,
   });
   const token = useTheme();
 
@@ -97,9 +125,9 @@ const IconSearch: React.FC = () => {
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
     const matchedCategories = Object.values(merged)
       .map((item) => {
-        item.icons = item.icons
-          .map((iconName) => iconName + theme)
-          .filter((iconName) => allIcons[iconName]);
+        const icons = item.icons.flatMap((iconName) => resolveIconNames(iconName, theme));
+
+        item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons;
 
         return item;
       })
@@ -112,6 +140,7 @@ const IconSearch: React.FC = () => {
         theme={theme}
         icons={icons}
         newIcons={NEW_ICON_NAMES}
+        newIconVersion={NEW_ICON_VERSION}
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
@@ -131,6 +160,11 @@ const IconSearch: React.FC = () => {
 
   const memoizedOptions = React.useMemo<SegmentedOptions<ThemeType>>(
     () => [
+      {
+        value: ThemeType.All,
+        icon: <AntdIcons.AppstoreOutlined />,
+        label: intl.formatMessage({ id: 'app.docs.components.icon.all' }),
+      },
       {
         value: ThemeType.Outlined,
         icon: <Icon component={OutlinedIcon} />,
@@ -169,6 +203,7 @@ const IconSearch: React.FC = () => {
             allowClear
             autoFocus
             size="large"
+            variant="filled"
             onChange={handleSearchIcon}
           />
         </div>
@@ -184,6 +219,34 @@ type MatchedCategory = {
   category: string;
   icons: string[];
 };
+
+// Map a base icon name to the concrete component name(s) to render for a theme.
+function resolveIconNames(baseName: string, theme: ThemeType): string[] {
+  if (theme === ThemeType.All) {
+    return THEME_ORDER.map((item) => baseName + item).filter((iconName) => allIcons[iconName]);
+  }
+
+  return allIcons[baseName + theme] ? [baseName + theme] : [];
+}
+
+function groupNewIcons(icons: string[]) {
+  const firstNewIconIndex = icons.findIndex((iconName) => NEW_ICON_ORDER.has(iconName));
+
+  if (firstNewIconIndex === -1) {
+    return icons;
+  }
+
+  const newIcons = icons
+    .filter((iconName) => NEW_ICON_ORDER.has(iconName))
+    .sort((a, b) => NEW_ICON_ORDER.get(a)! - NEW_ICON_ORDER.get(b)!);
+  const restIcons = icons.filter((iconName) => !NEW_ICON_ORDER.has(iconName));
+
+  return [
+    ...restIcons.slice(0, firstNewIconIndex),
+    ...newIcons,
+    ...restIcons.slice(firstNewIconIndex),
+  ];
+}
 
 function matchCategoriesFromTag(searchKey: string, metaInfo: IconsMeta) {
   if (!searchKey) {

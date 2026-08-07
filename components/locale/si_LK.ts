@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/si_LK';
+import Pagination from '@rc-component/pagination/locale/si_LK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/si_LK';
@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'වසන්න',
     show: 'පෙන්වන්න',
     hide: 'සඟවන්න',
+    sortable: 'වර්ග කළ හැකි',
   },
   Table: {
     filterTitle: 'පෙරහන්',
@@ -63,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'සියළු දත්ත තෝරන්න',
     removeAll: 'සියළු දත්ත ඉවතලන්න',
     selectInvert: 'වත්මන් පිටුව යටියනය',
+    deselectAll: 'සියලු දත්ත තේරීම ඉවත් කරන්න',
   },
   Upload: {
     uploading: 'උඩුගත වෙමින්...',
@@ -82,6 +84,7 @@ const localeValues: Locale = {
     copy: 'පිටපත්',
     copied: 'පිටපත් විය',
     expand: 'විහිදුවන්න',
+    collapse: 'හකුළන්න',
   },
   Form: {
     optional: '(විකල්පයකි)',
@@ -132,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${pattern} රටාවට ${label} නොගැළපේ',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR කේතය කල් ඉකුත් විය',
+    refresh: 'නැවුම් කරන්න',
+    scanned: 'ස්කෑන් කළා',
+  },
+  ColorPicker: {
+    presetEmpty: 'හිස්',
+    transparent: 'විනිවිද පෙනෙන',
+    singleColor: 'තනි වර්ණය',
+    gradientColor: 'Gradient වර්ණය',
   },
 };
 

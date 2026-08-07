@@ -120,7 +120,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         [`${componentCls}-zero-width-trigger`]: {
           color: lightTriggerColor,
           background: lightTriggerBg,
-          border: `1px solid ${bodyBg}`, // Safe to modify to any other color
+          border: `${unit(token.lineWidth)} ${token.lineType} ${bodyBg}`, // Safe to modify to any other color
           borderInlineStart: 0,
         },
       },

@@ -128,13 +128,13 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                 tabindex="-1"
               >
                 <span
-                  aria-label="mail"
-                  class="anticon anticon-mail ant-menu-item-icon semantic-mark-itemIcon"
+                  aria-label="appstore"
+                  class="anticon anticon-appstore ant-menu-item-icon semantic-mark-itemIcon"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="mail"
+                    data-icon="appstore"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -142,14 +142,14 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+                      d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
                     />
                   </svg>
                 </span>
                 <span
                   class="ant-menu-title-content"
                 >
-                  Navigation One
+                  Navigation Two
                 </span>
                 <i
                   class="ant-menu-submenu-arrow"
@@ -232,9 +232,9 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
               <div
                 class="ant-menu-item-group-title semantic-mark-itemTitle"
                 role="presentation"
-                title="Group"
+                title="Navigation Three"
               >
-                Group
+                Navigation Three
               </div>
               <ul
                 class="ant-menu-item-group-list semantic-mark-list"
@@ -242,7 +242,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
               >
                 <li
                   class="ant-menu-item semantic-mark-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-13"
+                  data-menu-id="rc-menu-uuid-3"
                   role="menuitem"
                   style="padding-left: 24px;"
                   tabindex="-1"
@@ -250,12 +250,12 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                   <span
                     class="ant-menu-title-content semantic-mark-itemContent"
                   >
-                    Option 13
+                    Option 3
                   </span>
                 </li>
                 <li
                   class="ant-menu-item semantic-mark-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-14"
+                  data-menu-id="rc-menu-uuid-4"
                   role="menuitem"
                   style="padding-left: 24px;"
                   tabindex="-1"
@@ -263,7 +263,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                   <span
                     class="ant-menu-title-content semantic-mark-itemContent"
                   >
-                    Option 14
+                    Option 4
                   </span>
                 </li>
               </ul>

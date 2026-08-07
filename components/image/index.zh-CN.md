@@ -41,18 +41,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 ### Image
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| alt | 图像描述 | string | - |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| fallback | 加载失败容错地址 | string | - |  |
-| height | 图像高度 | string \| number | - |  |
-| placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  |
-| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
-| src | 图片地址 | string | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| width | 图像宽度 | string \| number | - |  |
-| onError | 加载错误回调 | (event: Event) => void | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| alt | 图像描述 | string | - |  | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| fallback | 加载失败容错地址 | string | - |  | 5.28.0 |
+| height | 图像高度 | string \| number | - |  | × |
+| placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  | × |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  | `preview.closeIcon`: 5.14.0，`preview.mask`: 6.0.0，`preview.mask.closable`: 6.4.0 |
+| src | 图片地址 | string | - |  | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| width | 图像宽度 | string \| number | - |  | × |
+| onError | 加载错误回调 | (event: Event) => void | - |  | × |
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
@@ -85,7 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | ~~maskClassName~~ | 缩略图遮罩类名，请使用 `classNames.cover` 替换 | string | - |  |
 | maxScale | 最大缩放倍数 | number | 50 |  |
 | minScale | 最小缩放倍数 | number | 1 |  |
-| movable | 是否可移动 | boolean | true |  |
+| movable | 预览图片大于视口时是否可拖拽移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
 | rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
@@ -122,7 +122,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | ~~maskClassName~~ | 缩略图遮罩类名，请使用 `classNames.cover` 替换 | string | - |  |
 | minScale | 最小缩放倍数 | number | 1 |  |
 | maxScale | 最大放大倍数 | number | 50 |  |
-| movable | 是否可移动 | boolean | true |  |
+| movable | 预览图片大于视口时是否可拖拽移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
 | ~~rootClassName~~ | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧，请使用 `classNames.root` 替换 | string | - |  |
 | styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |

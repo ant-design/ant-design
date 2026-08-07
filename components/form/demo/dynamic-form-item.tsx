@@ -1,6 +1,29 @@
 import React from 'react';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+  return {
+    dynamicDeleteButton: css`
+      position: relative;
+      top: ${cssVar.marginXXS};
+      margin: 0 ${cssVar.marginXS};
+      color: #999;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all ${cssVar.motionDurationSlow} ease;
+      &:hover {
+        color: #777;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    `,
+  };
+});
 
 const formItemLayout = {
   labelCol: {
@@ -21,6 +44,8 @@ const formItemLayoutWithOutLabel = {
 };
 
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
@@ -49,7 +74,7 @@ const App: React.FC = () => {
             {fields.map((field, index) => (
               <Form.Item
                 {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                label={index === 0 ? 'Passengers' : ''}
+                label={index === 0 ? 'Passengers' : undefined}
                 required={false}
                 key={field.key}
               >
@@ -69,7 +94,7 @@ const App: React.FC = () => {
                 </Form.Item>
                 {fields.length > 1 ? (
                   <MinusCircleOutlined
-                    className="dynamic-delete-button"
+                    className={styles.dynamicDeleteButton}
                     onClick={() => remove(field.name)}
                   />
                 ) : null}

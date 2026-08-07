@@ -7,7 +7,7 @@ import { composeRef, omit, toArray, useControlledState, useLayoutEffect } from '
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNonNullable } from '../../_util/is';
+import { isFunction, isReactRenderable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -298,7 +298,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     return isLineClampSupport;
-  }, [needMeasureEllipsis, isTextOverflowSupport, isLineClampSupport]);
+  }, [needMeasureEllipsis, rows, isLineClampSupport, isTextOverflowSupport]);
 
   // We use effect to change from css ellipsis to js ellipsis.
   // To make SSR still can see the ellipsis.
@@ -325,6 +325,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
   const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
   const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
+  const isHoveringTypographyRef = React.useRef(false);
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -340,24 +341,22 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   // >>>>> Native ellipsis
-  React.useEffect(() => {
+  const measureNativeEllipsis = React.useCallback(() => {
     const textEle = typographyRef.current;
 
     if (enableEllipsis && needNativeEllipsisMeasure && textEle) {
       const currentEllipsis = isEleEllipsis(textEle);
-
-      if (isNativeEllipsis !== currentEllipsis) {
-        setIsNativeEllipsis(currentEllipsis);
-      }
+      setIsNativeEllipsis((prev) => (prev === currentEllipsis ? prev : currentEllipsis));
     }
-  }, [
-    enableEllipsis,
-    needNativeEllipsisMeasure,
-    children,
-    cssLineClamp,
-    isNativeVisible,
-    ellipsisWidth,
-  ]);
+  }, [enableEllipsis, needNativeEllipsisMeasure]);
+
+  // Keep the result current while the Typography is hovered, but do not force every
+  // Typography instance to read layout during a bulk render or resize.
+  React.useEffect(() => {
+    if (isHoveringTypographyRef.current) {
+      measureNativeEllipsis();
+    }
+  }, [measureNativeEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
 
   // https://github.com/ant-design/ant-design/issues/36786
   // Use IntersectionObserver to check if element is invisible
@@ -388,7 +387,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return undefined;
     }
     return [editConfig.text, children, title, tooltipProps.title].find(isValidText);
-  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
+  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis, editConfig.text]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -477,7 +476,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         locale={textLocale}
         onCopy={onCopyClick}
         loading={copyLoading}
-        iconOnly={!isNonNullable(children)}
+        iconOnly={!isReactRenderable(children)}
         className={mergedClassNames.action}
         style={mergedStyles.action}
       />
@@ -530,10 +529,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         >
           <InternalTypography
             onMouseEnter={(e) => {
+              isHoveringTypographyRef.current = true;
+              measureNativeEllipsis();
               setIsHoveringTypography(true);
               onMouseEnter?.(e);
             }}
             onMouseLeave={(e) => {
+              isHoveringTypographyRef.current = false;
               setIsHoveringTypography(false);
               onMouseLeave?.(e);
             }}

@@ -226,6 +226,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
               backgroundColor: colorPrimary,
 
               '&:hover': {
+                color: colorTextLightSolid,
                 backgroundColor: primaryPrevBtnBg,
                 borderColor: 'transparent',
               },

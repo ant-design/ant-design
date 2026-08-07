@@ -9,6 +9,44 @@ import remarkAnchor from './.dumi/remarkAnchor';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
+const alibabaSansFonts = [
+  {
+    weight: 300,
+    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*1GSgSYDD_aIAAAAAQsAAAAgAegCCAQ/AlibabaSans-Light.woff2',
+  },
+  {
+    weight: 400,
+    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*2zEUQqnPNesAAAAAQtAAAAgAegCCAQ/AlibabaSans-Regular.woff2',
+  },
+  {
+    weight: 500,
+    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Medium.woff2',
+  },
+  {
+    weight: 600,
+    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2',
+  },
+  {
+    weight: 700,
+    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Heavy.woff2',
+  },
+] as const;
+
+const alibabaSansFontFaceStyle = alibabaSansFonts
+  .map(
+    ({ weight, url }) => `
+@font-face {
+  font-family: 'AlibabaSans';
+  font-style: normal;
+  font-weight: ${weight};
+  font-display: optional;
+  src: url('${url}') format('woff2');
+}`,
+  )
+  .join('\n');
+
+const isCloudflarePages = process.env.CF_PAGES === '1';
+
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
 
@@ -27,16 +65,23 @@ export default defineConfig({
   ssr:
     process.env.NODE_ENV === 'production'
       ? {
-          builder: 'mako',
+          // Cloudflare Pages may crash utoopack loader child processes with SIGBUS.
+          builder: isCloudflarePages ? 'mako' : 'utoopack',
         }
       : false,
   hash: true,
   mfsu: false,
-  mako: ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
+  utoopack: {
+    watch: {
+      nodeModulesRegexes: ['rc-.*', '.*cssinjs.*', '@rc-component/.*'],
+    },
+  },
   crossorigin: {},
   runtimePublicPath: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
+  styles: [alibabaSansFontFaceStyle],
   resolve: {
     docDirs: [{ type: 'doc', dir: 'docs' }],
     atomDirs: [{ type: 'component', dir: 'components' }],
@@ -54,8 +99,6 @@ export default defineConfig({
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
     antd: path.join(__dirname, 'components'),
-    // https://github.com/ant-design/ant-design/issues/46628
-    '@ant-design/icons$': '@ant-design/icons/lib',
   },
   extraRehypePlugins: [rehypeAntd, rehypeChangelog],
   extraRemarkPlugins: [remarkAntd, remarkAnchor],
@@ -75,6 +118,13 @@ export default defineConfig({
           analyzerPort: 'auto',
         },
   links: [
+    ...alibabaSansFonts.map(({ url }) => ({
+      rel: 'preload',
+      as: 'font',
+      href: url,
+      type: 'font/woff2',
+      crossorigin: 'anonymous',
+    })),
     {
       rel: 'prefetch',
       as: 'font',
@@ -148,7 +198,7 @@ export default defineConfig({
           return /\\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
         } else if (pathname === '/') {
           return '/index-cn';
-        } else if (pathname.indexOf('/') === pathname.length - 1) {
+        } else if (pathname.endsWith('/')) {
           return pathname.replace(/\\/$/, '-cn/');
         }
         return pathname + '-cn';
@@ -191,7 +241,6 @@ export default defineConfig({
   scripts: [
     {
       src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
-      async: true,
     },
     {
       async: true,

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { render, unmount } from '@rc-component/util/lib/React/render';
+import { render, unmount } from '@rc-component/util';
 
 import { isFunction } from '../_util/is';
 import warning from '../_util/warning';

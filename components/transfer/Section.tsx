@@ -34,7 +34,12 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter((data) => !data.disabled).map((data) => data.key);
+  return items.reduce<TransferKey[]>((keys, data) => {
+    if (!data.disabled) {
+      keys.push(data.key);
+    }
+    return keys;
+  }, []);
 }
 
 function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
@@ -104,8 +109,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
-const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (isPlainObject(showSearch)) {
+const getShowSearchOption = (showSearch: boolean | TransferSearchOption): TransferSearchOption => {
+  if (isPlainObject<TransferSearchOption>(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
@@ -161,7 +166,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const listPrefixCls = `${prefixCls}-list`;
 
   const searchOptions = getShowSearchOption(showSearch);
-  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue ?? '');
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -231,13 +236,13 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       filterRenderItems.push(renderedItem);
     });
     return [filterItems, filterRenderItems] as const;
-  }, [dataSource, filterValue]);
+  }, [dataSource, filterValue, filterOption, direction]);
 
   const checkedActiveItems = useMemo<RecordType[]>(() => {
     return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
   }, [checkedKeys, filteredItems]);
 
-  const checkStatus = useMemo<string>(() => {
+  const checkStatus = useMemo<'none' | 'all' | 'part'>(() => {
     if (checkedActiveItems.length === 0) {
       return 'none';
     }
@@ -299,16 +304,13 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={dataSource.filter((d) => !d.disabled).length === 0 || disabled}
+      disabled={!dataSource.some((d) => !d.disabled) || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${listPrefixCls}-checkbox`}
       onChange={() => {
         // Only select enabled items
-        onItemSelectAll?.(
-          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-          checkStatus !== 'all',
-        );
+        onItemSelectAll?.(getEnabledItemKeys(filteredItems), checkStatus !== 'all');
       }}
     />
   );
@@ -372,7 +374,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(keys, checkStatus !== 'all');
         },
       },
       pagination

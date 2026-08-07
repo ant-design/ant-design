@@ -57,7 +57,7 @@ exports[`renders components/card/demo/_semantic.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
                   />
                 </span>
               </div>
@@ -887,7 +887,7 @@ exports[`renders components/card/demo/_semantic_meta.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
-                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+                    src="https://api.dicebear.com/10.x/lorelei/svg?seed=8"
                   />
                 </span>
               </div>

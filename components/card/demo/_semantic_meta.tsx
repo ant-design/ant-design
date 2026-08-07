@@ -30,7 +30,7 @@ const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
       <Card style={{ width: 300 }}>
         <Meta
           {...props}
-          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+          avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=8" />}
           title="Card Meta title"
           description="This is the description"
         />

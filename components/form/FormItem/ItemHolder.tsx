@@ -1,7 +1,6 @@
 import * as React from 'react';
-import type { Meta } from '@rc-component/form/lib/interface';
-import { omit, useLayoutEffect } from '@rc-component/util';
-import isVisible from '@rc-component/util/lib/Dom/isVisible';
+import type { Meta } from '@rc-component/form';
+import { isVisible, omit, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';

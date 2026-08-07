@@ -1,15 +1,30 @@
 /
-  Link: </.well-known/api-catalog.json>; rel="https://ant.design/rel/api-catalog"; type="application/linkset+json"
-  Link: </.well-known/agent-skills/index.json>; rel="https://ant.design/rel/agent-skills"; type="application/json"
-  Link: </.well-known/mcp/server-card.json>; rel="https://ant.design/rel/mcp-server"; type="application/json"
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: </.well-known/openapi.json>; rel="service-desc"; type="application/openapi+json"
+  Link: </docs/react/introduce>; rel="service-doc"; type="text/html"
   Link: </llms.txt>; rel="service-doc"; type="text/plain"
+  Link: </llms-full.txt>; rel="service-desc"; type="text/plain"
   Link: </.well-known/agent-card.json>; rel="describedby"; type="application/json"
+  Link: </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"
+  Link: </.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
 
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+
 /.well-known/api-catalog.json
-  Content-Type: application/linkset+json
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+
+/.well-known/openapi.json
+  Content-Type: application/openapi+json
+
+/.well-known/jwks.json
+  Content-Type: application/jwk-set+json
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json
 
 /.well-known/agent-skills/index.json
   Content-Type: application/json
@@ -22,3 +37,6 @@
 
 /.well-known/agent-card.json
   Content-Type: application/json
+
+/auth.md
+  Content-Type: text/markdown; charset=utf-8

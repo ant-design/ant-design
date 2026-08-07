@@ -117,6 +117,7 @@ const MenuItem: GenericComponent = (props) => {
         ...props.style,
       }}
       title={typeof title === 'string' ? title : undefined}
+      itemData={props?.itemData ?? { ...props, key: props.eventKey }}
     >
       {cloneElement(icon, (oriProps) => ({
         className: clsx(

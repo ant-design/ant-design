@@ -6,6 +6,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -35,6 +37,19 @@ export type CollapseType = 'clickTrigger' | 'responsive';
 
 export type SiderTheme = 'light' | 'dark';
 
+export type SiderSemanticType = {
+  classNames?: {
+    root?: string;
+    body?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+  };
+};
+
+export type SiderSemanticAllType = GenerateSemantic<SiderSemanticType, SiderProps>;
+
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   collapsible?: boolean;
@@ -49,6 +64,8 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: Breakpoint;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
+  classNames?: SiderSemanticAllType['classNamesAndFn'];
+  styles?: SiderSemanticAllType['stylesAndFn'];
 }
 
 export interface SiderState {
@@ -81,6 +98,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     breakpoint,
     onCollapse,
     onBreakpoint,
+    classNames,
+    styles,
     ...otherProps
   } = props;
   const { siderHook } = useContext(LayoutContext);
@@ -102,6 +121,26 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     }
     onCollapse?.(value, type);
   };
+
+  const semanticProps: SiderProps = {
+    ...props,
+    collapsed,
+    defaultCollapsed,
+    theme,
+    style,
+    collapsible,
+    reverseArrow,
+    width,
+    collapsedWidth,
+    zeroWidthTriggerStyle,
+    breakpoint,
+    onCollapse,
+    onBreakpoint,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
+    props: semanticProps,
+  });
 
   // =========================== Prefix ===========================
   const { getPrefixCls, direction } = useContext(ConfigContext);
@@ -204,6 +243,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       [`${prefixCls}-zero-width`]: Number.parseFloat(siderWidth) === 0,
     },
     className,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
@@ -215,8 +255,18 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
 
   return (
     <SiderContext.Provider value={contextValue}>
-      <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
-        <div className={`${prefixCls}-children`}>{children}</div>
+      <aside
+        className={siderCls}
+        {...divProps}
+        style={{ ...mergedStyles.root, ...divStyle }}
+        ref={ref}
+      >
+        <div
+          className={clsx(`${prefixCls}-children`, mergedClassNames.body)}
+          style={mergedStyles.body}
+        >
+          {children}
+        </div>
         {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
       </aside>
     </SiderContext.Provider>

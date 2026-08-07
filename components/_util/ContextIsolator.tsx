@@ -2,13 +2,13 @@ import React from 'react';
 
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
-import { isNonNullable } from './is';
+import { isReactRenderable } from './is';
 
 const ContextIsolator: React.FC<
   Readonly<React.PropsWithChildren<Partial<Record<'space' | 'form', boolean>>>>
 > = (props) => {
   const { space, form, children } = props;
-  if (!isNonNullable(children)) {
+  if (!isReactRenderable(children)) {
     return null;
   }
   let result: React.ReactNode = children;

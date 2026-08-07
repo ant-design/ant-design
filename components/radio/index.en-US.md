@@ -64,14 +64,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Radio/Radio.Button
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| checked | Specifies whether the radio is selected | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
-| defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |  |
-| disabled | Disable radio | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
-| value | According to value for comparison, to determine whether the selected | any | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | Specifies whether the radio is selected | boolean | false |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| defaultChecked | Specifies the initial state: whether or not the radio is selected | boolean | false |  | × |
+| disabled | Disable radio | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| value | According to value for comparison, to determine whether the selected | any | - |  | × |
 
 ### Radio.Group
 

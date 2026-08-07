@@ -87,6 +87,7 @@ exports[`Table.filter override custom filter correctly 1`] = `
 exports[`Table.filter renders custom content correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <div
     class="custom-filter-dropdown"
@@ -568,6 +569,7 @@ exports[`Table.filter renders filter correctly 1`] = `
 exports[`Table.filter renders menu correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <ul
     class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
@@ -702,6 +704,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 exports[`Table.filter renders radio filter correctly 1`] = `
 <div
   class="ant-table-filter-dropdown"
+  role="presentation"
 >
   <ul
     class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"

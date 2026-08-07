@@ -88,7 +88,7 @@ const App: React.FC = () => {
         }}
       >
         <Form.Item name="content" label="Content">
-          <Input placeholder="请输入" />
+          <Input placeholder="Please enter" />
         </Form.Item>
         <Form.Item name="color" label="Color">
           <ColorPicker />

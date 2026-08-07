@@ -1,1 +1,6 @@
 !.dumi*
+
+# 排除 components/*.md（raw markdown 输出），避免与 Surge Clean URL 路由冲突
+changelog*.md
+components/*.md
+docs/**/*.md

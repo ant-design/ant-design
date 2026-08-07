@@ -87,7 +87,7 @@ const App: React.FC = () => (
     <Space.Compact block>
       <DatePicker.RangePicker style={{ width: '70%' }} />
       <Input style={{ width: '30%' }} defaultValue="input content" />
-      <Button type="primary">查询</Button>
+      <Button type="primary">Search</Button>
     </Space.Compact>
     <Space.Compact block>
       <Input style={{ width: '30%' }} defaultValue="input content" />

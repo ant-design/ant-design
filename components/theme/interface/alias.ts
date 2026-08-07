@@ -627,6 +627,8 @@ export interface AliasToken extends MapToken {
   /** @internal */
   boxShadowPopoverArrow: string;
   /** @internal */
+  dropShadowPopover: string;
+  /** @internal */
   boxShadowCard: string;
   /** @internal */
   boxShadowDrawerRight: string;

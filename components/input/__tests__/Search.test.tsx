@@ -26,6 +26,15 @@ describe('Input.Search', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should preserve custom Button className', () => {
+    const { container } = render(
+      <Search enterButton={<Button className="custom-search-button">ok</Button>} />,
+    );
+    const button = container.querySelector('button');
+    expect(button).toHaveClass('ant-input-search-btn');
+    expect(button).toHaveClass('custom-search-button');
+  });
+
   it('should support enterButton null', () => {
     expect(() => {
       render(<Search enterButton={null} />);
@@ -57,6 +66,82 @@ describe('Input.Search', () => {
   it('should disable enter button when disabled prop is true', () => {
     const { container } = render(<Search placeholder="input search text" enterButton disabled />);
     expect(container.querySelectorAll('.ant-btn[disabled]')).toHaveLength(1);
+  });
+
+  it('should disable custom Button when disabled prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search disabled enterButton={<Button>ok</Button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should disable custom native button when disabled prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search disabled enterButton={<button type="button">ok</button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should preserve disabled context for custom Button', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Search enterButton={<Button>ok</Button>} onSearch={onSearch} />
+      </ConfigProvider>,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should disable custom native button with disabled context', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Search enterButton={<button type="button">ok</button>} onSearch={onSearch} />
+      </ConfigProvider>,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should set custom Button to loading when loading prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByLabelText, getByRole } = render(
+      <Search loading enterButton={<Button>ok</Button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(getByLabelText('loading')).toBeInTheDocument();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
+  });
+
+  it('should disable custom native button when loading prop is true', () => {
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search loading enterButton={<button type="button">ok</button>} onSearch={onSearch} />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onSearch).not.toHaveBeenCalled();
   });
 
   it('should disable search icon when disabled prop is true', () => {
@@ -399,6 +484,26 @@ describe('Input.Search', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-input-search-btn')).toHaveTextContent('bamboo');
+    });
+  });
+
+  it('should support ConfigProvider className and style', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputSearch={{
+          className: 'bamboo',
+          style: { color: 'rgb(255, 0, 0)', backgroundColor: 'rgb(0, 255, 0)' },
+        }}
+      >
+        <Search style={{ color: 'rgb(0, 0, 255)' }} />
+      </ConfigProvider>,
+    );
+
+    const root = container.querySelector('.ant-input-search');
+    expect(root).toHaveClass('bamboo');
+    expect(root).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      backgroundColor: 'rgb(0, 255, 0)',
     });
   });
 });

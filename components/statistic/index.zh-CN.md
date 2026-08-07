@@ -32,20 +32,20 @@ demo:
 
 #### Statistic
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classNames | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| decimalSeparator | 设置小数点 | string | `.` |  |
-| formatter | 自定义数值展示 | (value) => ReactNode | - |  |
-| groupSeparator | 设置千分位标识符 | string | `,` |  |
-| loading | 数值是否加载中 | boolean | false | 4.8.0 |
-| precision | 数值精度 | number | - |  |
-| prefix | 设置数值的前缀 | ReactNode | - |  |
-| styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  |
-| suffix | 设置数值的后缀 | ReactNode | - |  |
-| title | 数值的标题 | ReactNode | - |  |
-| value | 数值内容 | string \| number | - |  |
-| ~~valueStyle~~ | 设置数值区域的样式，请使用 `styles.content` 替代 | CSSProperties | - |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| decimalSeparator | 设置小数点 | string | `.` |  | × |
+| formatter | 自定义数值展示 | (value) => ReactNode | - |  | × |
+| groupSeparator | 设置千分位标识符 | string | `,` |  | × |
+| loading | 数值是否加载中 | boolean | false | 4.8.0 | × |
+| precision | 数值精度 | number | - |  | × |
+| prefix | 设置数值的前缀 | ReactNode | - |  | × |
+| styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  | 6.0.0 |
+| suffix | 设置数值的后缀 | ReactNode | - |  | × |
+| title | 数值的标题 | ReactNode | - |  | × |
+| value | 数值内容 | string \| number | - |  | × |
+| ~~valueStyle~~ | 设置数值区域的样式，请使用 `styles.content` 替代 | CSSProperties | - |  | × |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
@@ -67,14 +67,14 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| type | 计时类型，正计时或者倒计时 | `countdown` `countup` | - |  |
+| type | 计时类型，倒计时或者正计时 | `countdown` \| `countup` | - |  |
 | format | 格式化倒计时展示，参考 [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
 | prefix | 设置数值的前缀 | ReactNode | - |  |
 | suffix | 设置数值的后缀 | ReactNode | - |  |
 | title | 数值的标题 | ReactNode | - |  |
-| value | 数值内容 | number | - |  |
+| value | `countdown` 模式下为目标时间，`countup` 模式下为起始时间（毫秒时间戳） | number | - |  |
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
-| onFinish | 倒计时完成时触发, 指定为 `countup` 此属性不生效 | () => void | - |  |
+| onFinish | 倒计时完成时触发，指定为 `countup` 时此属性不生效 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
 ## Semantic DOM

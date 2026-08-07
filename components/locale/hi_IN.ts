@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/hi_IN';
+import Pagination from '@rc-component/pagination/locale/hi_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/hi_IN';
@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'बंद',
     show: 'दिखाएं',
     hide: 'छुपाएं',
+    sortable: 'क्रमबद्ध',
   },
   Table: {
     filterTitle: 'सूची बंद करें',
@@ -35,6 +36,8 @@ const localeValues: Locale = {
     triggerDesc: 'अवरोही क्रमित करने के लिए क्लिक करें',
     triggerAsc: 'आरोही क्रमित करने के लिए क्लिक करें',
     cancelSort: 'छँटाई रद्द करने के लिए क्लिक करें',
+    filterCheckAll: 'सभी आइटम चुनें',
+    filterSearchPlaceholder: 'फ़िल्टर में खोजें',
   },
   Tour: {
     Next: 'अगाड़ा',
@@ -61,6 +64,7 @@ const localeValues: Locale = {
     selectAll: 'सभी डेटा का चयन करें',
     removeAll: 'सभी डेटा हटाएं',
     selectInvert: 'वर्तमान पृष्ठ को उल्टा करें',
+    deselectAll: 'सभी डेटा का चयन रद्द करें',
   },
   Upload: {
     uploading: 'अपलोड हो रहा...',
@@ -80,6 +84,7 @@ const localeValues: Locale = {
     copy: 'प्रतिलिपि',
     copied: 'कॉपी किया गया',
     expand: 'विस्तार',
+    collapse: 'पतन',
   },
   Form: {
     optional: '(ऐच्छिक)',
@@ -130,6 +135,17 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} पैटर्न से मेल नहीं खाता',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR कोड समाप्त हो गया',
+    refresh: 'ताज़ा करें',
+    scanned: 'स्कैन किया गया',
+  },
+  ColorPicker: {
+    presetEmpty: 'ख़ाली',
+    transparent: 'पारदर्शी',
+    singleColor: 'एकल रंग',
+    gradientColor: 'ढाल का रंग',
   },
 };
 

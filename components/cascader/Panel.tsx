@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
 import { Panel } from '@rc-component/cascader';
-import type { PickType } from '@rc-component/cascader/lib/Panel';
 import { clsx } from 'clsx';
 
 import type { CascaderProps, DefaultOptionType } from '.';
@@ -15,7 +14,10 @@ import useStyle from './style';
 import usePanelStyle from './style/panel';
 import useIcons from './hooks/useIcons';
 
-export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
+type RcPanelProps = React.ComponentProps<typeof Panel>;
+type RcPanelPickType = Extract<keyof RcPanelProps, keyof RcCascaderProps>;
+
+export type PanelPickType = Exclude<RcPanelPickType, 'checkable'> | 'multiple' | 'rootClassName';
 
 export type CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -84,7 +86,7 @@ function CascaderPanel<
 
   return (
     <Panel
-      {...(props as Pick<RcCascaderProps, PickType>)}
+      {...(props as Pick<RcCascaderProps, RcPanelPickType>)}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
       className={clsx(className, hashId, rootClassName, cssVarCls, rootCls)}

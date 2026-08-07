@@ -18,14 +18,14 @@ describe('Ribbon', () => {
           <div />
         </Badge.Ribbon>,
       );
-      expect(wrapperStart.querySelectorAll('.ant-ribbon-placement-start').length).toEqual(1);
+      expect(wrapperStart.querySelectorAll('.ant-ribbon-placement-start').length).toBe(1);
 
       const { container: wrapperEnd } = render(
         <Badge.Ribbon placement="end">
           <div />
         </Badge.Ribbon>,
       );
-      expect(wrapperEnd.querySelectorAll('.ant-ribbon-placement-end').length).toEqual(1);
+      expect(wrapperEnd.querySelectorAll('.ant-ribbon-placement-end').length).toBe(1);
     });
   });
 
@@ -36,7 +36,7 @@ describe('Ribbon', () => {
           <div />
         </Badge.Ribbon>,
       );
-      expect(container.querySelectorAll('.ant-ribbon-color-green').length).toEqual(1);
+      expect(container.querySelectorAll('.ant-ribbon-color-green').length).toBe(1);
     });
     it('works with custom color', () => {
       const { container, rerender } = render(
@@ -71,7 +71,7 @@ describe('Ribbon', () => {
           <div />
         </Badge.Ribbon>,
       );
-      expect(container.querySelector('.ant-ribbon')?.textContent).toEqual('cool');
+      expect(container.querySelector('.ant-ribbon')?.textContent).toBe('cool');
     });
     it('works with element', () => {
       const { container } = render(
@@ -79,7 +79,7 @@ describe('Ribbon', () => {
           <div />
         </Badge.Ribbon>,
       );
-      expect(container.querySelectorAll('.cool').length).toEqual(1);
+      expect(container.querySelectorAll('.cool').length).toBe(1);
     });
   });
   it('should apply custom styles to Badge.Ribbon', () => {

@@ -147,7 +147,7 @@ git push origin fix-branch
 
 ```
 npm run install-react-16
-npm run test componet/XXX
+npm run test component/XXX
 ```
 
 ## 十. 成为 Collaborator

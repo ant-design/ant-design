@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import Splitter from '..';
 import type { SplitterProps } from '..';
@@ -253,7 +253,7 @@ describe('Splitter', () => {
 
   it('Splitter.Panel is syntactic sugar', () => {
     const { container } = render(<Splitter.Panel />);
-    expect(container.innerHTML).toEqual('');
+    expect(container.innerHTML).toBe('');
   });
 
   // ============================== Resizable ==============================
@@ -481,6 +481,19 @@ describe('Splitter', () => {
       );
       expect(container.querySelector('[aria-valuemax]')?.getAttribute('aria-valuemax')).not.toBe(
         'NaN',
+      );
+    });
+
+    it('should render percentage-based aria value range before resize', () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ defaultSize: 100, min: 100, max: 200 }, { min: 100, max: 200 }, { min: '20%' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-splitter-bar-dragger')[1]).toHaveAttribute(
+        'aria-valuemax',
+        '80',
       );
     });
   });
@@ -1006,6 +1019,30 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledWith([true, false], [0, 100]);
 
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onCollapse).toHaveBeenCalledTimes(2);
+      expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
+    });
+
+    it('should trigger onCollapse when collapse button keydown', async () => {
+      const onCollapse = jest.fn();
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          onCollapse={onCollapse}
+        />,
+      );
+
+      await resizeSplitter();
+
+      fireEvent.keyDown(container.querySelector('.ant-splitter-bar-collapse-start')!, {
+        key: 'Enter',
+      });
+      expect(onCollapse).toHaveBeenCalledTimes(1);
+      expect(onCollapse).toHaveBeenCalledWith([true, false], [0, 100]);
+
+      fireEvent.keyDown(container.querySelector('.ant-splitter-bar-collapse-end')!, {
+        key: ' ',
+      });
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });

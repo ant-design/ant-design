@@ -2,7 +2,7 @@
 group:
   title: AI
   order: 0.9
-order: 1
+order: 2
 title: LLMs.txt
 tag: New
 ---
@@ -22,6 +22,7 @@ We provide several aggregated files to help AI tools access our documentation:
 | File | Description |
 | --- | --- |
 | [llms.txt](https://ant.design/llms.txt) | Navigation file with links to all documentation and components |
+| [design.md](https://ant.design/design.md) | Design language description (default light theme) for AI design tools (Figma Make, Stitch, etc.), conformant with the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) format |
 | [llms-full.txt](https://ant.design/llms-full.txt) | Complete component documentation (English) with implementation details and examples |
 | [llms-full-cn.txt](https://ant.design/llms-full-cn.txt) | Complete component documentation (Chinese) |
 | [llms-semantic.md](https://ant.design/llms-semantic.md) | Semantic component descriptions (English) with DOM structure and usage patterns |

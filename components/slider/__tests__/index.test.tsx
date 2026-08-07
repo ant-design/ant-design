@@ -37,6 +37,19 @@ describe('Slider', () => {
     jest.useRealTimers();
   });
 
+  it('should trigger focus and blur events once', () => {
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
+    const { container } = render(<Slider onFocus={onFocus} onBlur={onBlur} />);
+    const handle = container.querySelector('.ant-slider-handle')!;
+
+    fireEvent.focus(handle);
+    expect(onFocus).toHaveBeenCalledTimes(1);
+
+    fireEvent.blur(handle);
+    expect(onBlur).toHaveBeenCalledTimes(1);
+  });
+
   it('should show tooltip when hovering slider handler', async () => {
     const { container } = render(<Slider defaultValue={30} />);
 
@@ -55,7 +68,7 @@ describe('Slider', () => {
     );
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
-    expect(tooltipProps().placement).toEqual('left');
+    expect(tooltipProps().placement).toBe('left');
   });
 
   it('support autoAdjustOverflow', () => {

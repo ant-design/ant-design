@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isNumber, isString } from '../_util/is';
+import { isNumber, isReactRenderable, isString } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';
@@ -29,7 +29,7 @@ function splitCNCharsBySpace(
   style?: React.CSSProperties,
   className?: string,
 ) {
-  if (!isNonNullable(child) || child === '') {
+  if (!isReactRenderable(child)) {
     return;
   }
 

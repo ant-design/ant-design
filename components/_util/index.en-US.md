@@ -50,6 +50,10 @@ const Context = React.createContext<InternalContextProps>({ name: 'Ant Design' }
 type ContextType = GetProps<typeof Context>; // InternalContextProps
 ```
 
+### Difference from `React.ComponentProps` {#react-componentprops-diff}
+
+`React.ComponentProps` is the official React utility type for getting props accepted by intrinsic elements or React components, such as `React.ComponentProps<'button'>` or `React.ComponentProps<typeof Button>`. `GetProps` is an Ant Design supplementary type: it does not support intrinsic element names, but besides React components, it can also directly extract the value type from `React.Context`, or pass through an existing props type object.
+
 ## GetProp
 
 Get the single `props` or `context` property definition of the component. It has encapsulated `NonNullable`, so you don't have to worry about it being empty:
@@ -64,7 +68,7 @@ type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```
 
-Also supports getting the return type of a function property through the third parameter `'Return'`:
+Also supports getting the return type of a function property through the third parameter `Return`:
 
 ```tsx
 import type { GetProp } from 'antd';

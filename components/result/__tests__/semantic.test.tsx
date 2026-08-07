@@ -4,6 +4,11 @@ import type { ResultProps } from '..';
 import Result from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Result.Semantic', () => {
   it('should apply custom styles to Result', () => {
@@ -88,5 +93,23 @@ describe('Result.Semantic', () => {
 
     expect(resultElement).toHaveClass('default-result');
     expect(resultElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        result={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Result
+          title="Result"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-result'));
   });
 });

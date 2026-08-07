@@ -6,6 +6,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -145,7 +146,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       open={open}
       onOpenChange={settingOpen}
       overlay={
-        titleNode || contentNode ? (
+        isReactRenderable(titleNode) || isReactRenderable(contentNode) ? (
           <Overlay
             prefixCls={prefixCls}
             title={titleNode}

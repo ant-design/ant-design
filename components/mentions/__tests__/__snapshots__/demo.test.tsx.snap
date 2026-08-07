@@ -16,7 +16,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -58,7 +57,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -100,7 +98,6 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
-        tabindex="-1"
         type="button"
       >
         <span

@@ -176,6 +176,13 @@ Chinese:
 - 文档/站点样式微调（不影响组件本身）
 - chore、build、ci 类型的 commit
 
+依赖升级默认跳过，但不能机械按 `chore` 跳过。遇到 `rc-component`、`@ant-design/icons` 或其他运行时依赖升级时，必须额外核查是否带来以下用户可感知影响；如果有，必须保留并解释影响：
+
+- 组件新增能力、行为变化或可访问性变化
+- TypeScript 定义外露变化（例如 antd props 继承到的新属性、回调参数或语义化类型）
+- 包体积收益或运行时代码减少
+- 默认图标、样式或交互变化
+
 遇到上述类型，在 `~changelog.md` 中标记 `Skip: true`，最终写入时过滤掉。
 
 ##### Changelog 合规校验
@@ -195,6 +202,10 @@ Chinese:
 | 描述开发者影响，不描述实现细节 | `Fix Select height when empty` | `Remove minHeight CSS property` |
 | **新组件必须描述功能用途** | `🔥 Add BorderBeam component for animated border beam effect along container edges.` | `🔥 Add BorderBeam component.` |
 | **新属性必须说明用途或效果** | `🆕 Add Input \`allowClear.disabled\` prop to disable the clear button while keeping it visible.` | `🆕 Add Input \`allowClear.disabled\` support.` |
+| **从用户/开发者视角描述效果** | `📖 Improve AI agent support for ant.design.` | `📖 Add .well-known metadata.` |
+| **Token 改动列出具体 token** | `🆕 Add Collapse \`headerPaddingSM\` and \`contentPaddingSM\` tokens.` | `🆕 Add Collapse size tokens.` |
+
+文案校验时逐条追问："用户或开发者看到的变化是什么？" 如果答案只是"传递某配置"、"修改某 runtime"、"增加某 metadata"、"调整内部结构"，说明文案仍是实现视角，必须改写为可感知效果。
 
 **Emoji 规范**（完整版，从 CLAUDE.md 同步）：
 
@@ -349,11 +360,36 @@ const componentNames = [
 - 跳过 `chore:`、`test:`、`ci:`、`build:` 类型的 commit
 - 跳过纯文档/站点改动（不影响组件 API 和行为的）
 - 跳过纯测试更新和工具链升级
+- 依赖升级默认跳过；但 `rc-component`、`@ant-design/icons` 或其他运行时依赖升级如果带来组件能力、运行时行为、可访问性、TypeScript 外露类型或包体积收益，必须保留并写清用户/开发者影响
+
+#### 发布重点提炼
+
+正式发布版本 changelog 不只是 PR 列表，必须先提炼跨版本亮点并放在普通组件条目前面。优先寻找并置顶这些类型：
+
+- 影响产品定位或使用方式的跨版本能力，例如 `DESIGN.md`、AI 设计工具支持、agent discovery、LLMs/MCP/CLI 能力
+- 用户能直接感知的重要视觉资产或内置能力，例如新增 Icon 集合，并列出具体新增图标
+- 明确的包体积、性能或运行时收益
+- 多个 PR 共同构成的一项能力，合并成一条重点说明，并列出相关 PR
+
+重点条目可以使用 `🔥`，但每条仍只能选择一个 Emoji。
+
+#### 体积分析流程
+
+当发布版本出现明显 size-limit 变化，或依赖升级可能影响体积时，必须先分析再写 changelog：
+
+1. 拉取当前 release PR 和上一个 release PR 的 size-limit 评论，记录最终 `antd.min.js`、`antd-with-locales.min.js` 等关键包体积数值。
+2. 计算相对上个版本的最终差值，不只记录单个 PR 的增减。
+3. 扫描本版本区间内各 PR 的 size-limit 评论，定位主要增减来源。
+4. 检查 `package.json` 运行时依赖升级，尤其是 `rc-component`、`@ant-design/icons`、picker/select/upload/icon 相关包。
+5. 必要时对比 npm 包或构建产物，避免把全部收益错误归因给某个单独 PR（例如只写 Icon，而忽略 picker 精简运行时代码）。
+6. Changelog 里写最终用户/开发者能理解的收益和主要来源，例如"完整包体积下降，主要来自 DatePicker/TimePicker runtime 精简与 Icon/Upload 默认图标优化"。
 
 #### 分组逻辑
 
-- **同一组件有 2 条及以上改动时**，使用 `- 组件名` 作为分类标题，改动条目缩进列在其下
-- **单项改动直接写单行条目，不需要分组标题**。即使组件名已出现在条目正文中，也不单独写 `- 组件名` 分组行
+- **分组必须以最终有效 changelog 条目数量为准**：同一组件最终有 2 条及以上时，才使用 `- 组件名` 分组；最终只有 1 条时，必须输出为顶层单行条目，即使组件名已出现在条目正文中，也不单独写 `- 组件名` 分组行。
+- 完成过滤、合并、移动条目后，必须重新统计每个分组；移动到 Icon、跨组件、TypeScript、文档/网站等分类后的原组件也要重新统计，拆平所有只剩 1 条的组件分组。
+- 组件分组排序按有效条目数降序排列；条目数相同再按重要性和现有 changelog 风格排序。
+- 发布版本整体排序按影响优先：跨版本重点变化最前，其次是条目较多或影响较大的组件分组，再是普通单行条目。
 
 **示例（多条）**：
 
@@ -441,29 +477,35 @@ npm run lint:changelog
    ├── 有 changelog → 提取 → **校验合规性** → 不合规则改写
    └── 无 changelog → 根据 PR title/body/diff **自动生成**符合规范的描述
    ↓
-8. 识别组件 category
+8. 核查运行时依赖升级（尤其 rc-component / icons）是否带来能力、类型或体积收益
    ↓
-9. 追加写入 ~changelog.md
+9. 识别组件 category
    ↓
-10. 过滤无效 commit（交互确认）
+10. 追加写入 ~changelog.md
     ↓
-11. 分组处理（按组件名）
+11. 过滤无效 commit（交互确认）
     ↓
-12. 检查描述规范性（交互确认）
+12. 提炼发布重点（DESIGN.md、Icon、包体积、AI agent 支持等跨版本亮点）
     ↓
-13. 重新生成不符合规范的描述（如需要）
+13. 如存在明显体积变化，按体积分析流程归因并补充说明
     ↓
-14. 预览确认（交互确认）
+14. 分组处理并排序（按最终有效条目数重算，单条组件拆平）
     ↓
-15. 可选：更新 package.json 版本（npm version）
+15. 检查描述规范性（交互确认）
     ↓
-16. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+16. 重新生成不符合规范的描述（如需要）
     ↓
-17. **运行 `npm run lint:changelog` 校验，有报错则修正并重新写入**
+17. 预览确认（交互确认）
     ↓
-18. 清理临时文件 ~changelog.md
+18. 可选：更新 package.json 版本（npm version）
     ↓
-19. （可选）创建发布 PR，PR body 中直接包含完整的中英文 changelog 内容
+19. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+    ↓
+20. **运行 `npm run lint:changelog` 校验，有报错则修正并重新写入**
+    ↓
+21. 清理临时文件 ~changelog.md
+    ↓
+22. （可选）创建发布 PR，PR body 中直接包含完整的中英文 changelog 内容
 ```
 
 ## 所需命令

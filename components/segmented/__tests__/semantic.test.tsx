@@ -4,6 +4,11 @@ import { AppstoreOutlined } from '@ant-design/icons';
 import Segmented from '..';
 import type { SegmentedProps, SegmentedValue } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Segmented.Semantic', () => {
   it('support function classNames and styles', () => {
@@ -147,5 +152,23 @@ describe('Segmented.Semantic', () => {
     expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
     expect(itemElement).toHaveStyle({ color: customStyles.item.color });
     expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        segmented={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Segmented
+          options={['Daily', 'Weekly']}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-segmented'));
   });
 });

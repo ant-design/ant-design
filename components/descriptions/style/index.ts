@@ -154,10 +154,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
+        // #54268 used `width: 0` with `min-width: 100%` to avoid oversized
+        // intrinsic widths in max-content ancestors. Keep the wrapper at
+        // `width: 100%` so it remains measurable in shrink-to-fit containers
+        // like Popover (#58574), while the inner table preserves the minimum.
         width: '100%',
         borderRadius: token.borderRadiusLG,
         table: {
-          width: '100%',
+          minWidth: '100%',
           tableLayout: 'fixed',
           borderCollapse: 'collapse',
         },

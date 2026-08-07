@@ -1,12 +1,13 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
+import { pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isNonNullable } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -140,7 +141,10 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> {
+export interface TransferProps<RecordType = any> extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onScroll' | 'children'
+> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -226,6 +230,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onChange,
     onSearch,
     onSelectChange,
+    ...restProps
   } = props;
 
   const {
@@ -483,9 +488,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return listStyle || {};
   };
 
-  const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
-
-  const { hasFeedback, status } = formItemContext;
+  const { hasFeedback, status } = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
   const getLocale = (transferLocale: TransferLocale) => ({
     ...transferLocale,
@@ -496,18 +499,25 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive =
-    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const leftActive = rightDataSource.some(
+    (data) => isNonNullable(data.key) && targetSelectedKeys.includes(data.key) && !data.disabled,
+  );
 
-  const rightActive =
-    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
-      .length > 0;
+  const rightActive = leftDataSource.some(
+    (data) => isNonNullable(data.key) && sourceSelectedKeys.includes(data.key) && !data.disabled,
+  );
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TransferSemanticAllType['classNames'],
+    TransferSemanticAllType['styles'],
+    TransferProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -580,6 +590,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const targetSectionClassNames = getMergedSectionClassNames('target');
   const sourceSectionStyles = getMergedSectionStyles('source');
   const targetSectionStyles = getMergedSectionStyles('target');
+  const rootProps = pickAttrs(restProps, {
+    aria: true,
+    data: true,
+  });
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -598,7 +612,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div className={cls} style={{ ...contextStyle, ...mergedStyles.root, ...style }}>
+    <div {...rootProps} className={cls} style={mergedStyles.root}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}

@@ -118,6 +118,7 @@
   "app.docs.color.pick-primary": "Pick your primary color",
   "app.docs.color.pick-background": "Pick your background color",
   "app.docs.components.icon.search.placeholder": "Search {total} icons here, click icon to copy code",
+  "app.docs.components.icon.all": "All",
   "app.docs.components.icon.outlined": "Outlined",
   "app.docs.components.icon.filled": "Filled",
   "app.docs.components.icon.two-tone": "Two Tone",
@@ -129,6 +130,7 @@
   "app.docs.components.icon.category.logo": "Brand and Logos",
   "app.docs.resource.design": "Design",
   "app.docs.resource.develop": "Develop",
+  "app.components.overview.deprecated": "Deprecated",
   "app.components.overview.search": "Search in components",
   "app.implementation.community": "community",
   "app.implementation.official": "official"

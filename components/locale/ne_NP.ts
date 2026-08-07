@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/en_US';
+import Pagination from '@rc-component/pagination/locale/en_US';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/en_US';
@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'बन्द',
     show: 'देखाउनुहोस्',
     hide: 'लुकाउनुहोस्',
+    sortable: 'क्रमबद्ध',
   },
   Table: {
     filterTitle: 'फिल्टर मेनु',

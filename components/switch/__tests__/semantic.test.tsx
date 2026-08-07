@@ -7,6 +7,11 @@ import Switch from '..';
 import type { GetProp } from '../../_util/type';
 import Flex from '../../flex';
 import Space from '../../space';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`
@@ -149,5 +154,19 @@ describe('Switch style-class demo', () => {
         }),
       }),
     );
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        switch={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Switch styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style} />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-switch'));
   });
 });

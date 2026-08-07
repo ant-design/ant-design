@@ -33,16 +33,16 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Masonry
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| columns | Number of columns, can be a fixed value or a responsive configuration | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  |
-| fresh | Whether to continuously monitor the size changes of child items | `boolean` | `false` |  |
-| gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  |
-| items | Masonry items | [MasonryItem](#masonryitem)[] | - |  |
-| itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| columns | Number of columns, can be a fixed value or a responsive configuration | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  | × |
+| fresh | Whether to continuously monitor the size changes of child items | `boolean` | `false` |  | × |
+| gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  | × |
+| items | Masonry items | [MasonryItem](#masonryitem)[] | - |  | × |
+| itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |  | × |
 
 ### MasonryItem
 

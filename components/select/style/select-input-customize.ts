@@ -4,7 +4,18 @@ import type { GenerateStyle } from '../../theme/interface';
 import type { SelectToken } from './token';
 
 const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { antCls, componentCls } = token;
+
+  const transparentBackground: CSSObject = {
+    background: 'transparent',
+  };
+  const disabledCustomizedInputSelector = [
+    '> input[disabled]',
+    '> textarea[disabled]',
+    `> ${componentCls}-input`,
+    `> ${antCls}-input-affix-wrapper-disabled`,
+    `> ${antCls}-input-search`,
+  ].join(', ');
 
   return {
     [`&${componentCls}-customize`]: {
@@ -24,6 +35,16 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
         '&-value': {
           display: 'none',
         },
+      },
+
+      [`&${componentCls}-filled ${componentCls}-content`]: {
+        [`${antCls}-input-filled`]: transparentBackground,
+      },
+
+      [`&${componentCls}-disabled ${componentCls}-content`]: {
+        [disabledCustomizedInputSelector]: transparentBackground,
+
+        'input[disabled], textarea[disabled]': transparentBackground,
       },
     },
   };

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { render } from '@rc-component/util/lib/React/render';
+import { render } from '@rc-component/util';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';

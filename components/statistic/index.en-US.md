@@ -31,20 +31,20 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Statistic
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| decimalSeparator | The decimal separator | string | `.` |  |
-| formatter | Customize value display logic | (value) => ReactNode | - |  |
-| groupSeparator | Group separator | string | `,` |  |
-| loading | Loading status of Statistic | boolean | false | 4.8.0 |
-| precision | The precision of input value | number | - |  |
-| prefix | The prefix node of value | ReactNode | - |  |
-| styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| suffix | The suffix node of value | ReactNode | - |  |
-| title | Display title | ReactNode | - |  |
-| value | Display value | string \| number | - |  |
-| ~~valueStyle~~ | Set value section style, please use `styles.content` instead | CSSProperties | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| decimalSeparator | The decimal separator | string | `.` |  | × |
+| formatter | Customize value display logic | (value) => ReactNode | - |  | × |
+| groupSeparator | Group separator | string | `,` |  | × |
+| loading | Loading status of Statistic | boolean | false | 4.8.0 | × |
+| precision | The precision of input value | number | - |  | × |
+| prefix | The prefix node of value | ReactNode | - |  | × |
+| styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| suffix | The suffix node of value | ReactNode | - |  | × |
+| title | Display title | ReactNode | - |  | × |
+| value | Display value | string \| number | - |  | × |
+| ~~valueStyle~~ | Set value section style, please use `styles.content` instead | CSSProperties | - |  | × |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
@@ -66,14 +66,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| type | time counter down or up | `countdown` `countup` | - |  |
+| type | Timer direction, count down or count up | `countdown` \| `countup` | - |  |
 | format | Format as [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
 | prefix | The prefix node of value | ReactNode | - |  |
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
-| value | Set target countdown time | number | - |  |
+| value | Target time for `countdown`, or start time for `countup` (timestamp in ms) | number | - |  |
 | valueStyle | Set value section style | CSSProperties | - |  |
-| onFinish | Trigger when time's up, only to be called when type is `countdown` | () => void | - |  |
+| onFinish | Trigger when time's up, only called when type is `countdown` | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
 
 ## Semantic DOM

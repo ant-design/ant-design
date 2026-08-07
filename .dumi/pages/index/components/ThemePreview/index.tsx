@@ -1,168 +1,211 @@
 import * as React from 'react';
-import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
-import { App, Button, ConfigProvider, Flex, theme, Tooltip } from 'antd';
+import { BgColorsOutlined, CopyOutlined } from '@ant-design/icons';
+import { App, ConfigProvider, Flex, Segmented, theme, Tooltip } from 'antd';
+import type { ThemeConfig } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
+import { Link, useLocation } from 'dumi';
 
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
+import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
+import * as utils from '../../../../theme/utils';
 import Group from '../Group';
-import ComponentsBlock from './ComponentsBlock';
-import usePreviewThemes from './previewThemes';
+import ComponentsBlock from '../PreviewPane/Components';
+import { ThemeDashboard } from '../Theme';
 import type { PreviewThemeConfig } from './previewThemes';
+import usePreviewThemes from './previewThemes';
 import { generateFullCopyFile } from './themeCodeUtils';
+
+const PREVIEW_CARD_RADIUS = 16;
 
 const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
     themeDesc: '开放样式算法与语义化结构，让你与 AI 一起轻松定制主题',
-    aiGenerate: 'AI 生成主题',
+    aiGenerate: 'AI 主题生成',
     aiGenerateDesc: '用一句话描述你想要的风格',
     copyTheme: '复制主题代码',
     copySuccess: '已复制',
+    exploreThemes: '探索主题',
+    editTheme: '主题编辑',
+    contribution: '贡献',
   },
   en: {
     themeTitle: 'Flexible theme customization',
     themeDesc:
       'Open style algorithms and semantic structures make it easy for you and AI to customize themes',
-    aiGenerate: 'AI Generate Theme',
+    aiGenerate: 'AI Theme Generator',
     aiGenerateDesc: 'Describe your desired style',
     copyTheme: 'Copy theme code',
     copySuccess: 'Copied',
+    exploreThemes: 'Explore Themes',
+    editTheme: 'Theme Editor',
+    contribution: 'Contribution',
   },
 };
 
 const useStyles = createStyles(({ css, cssVar }) => ({
   container: css({
     width: '100%',
-    color: cssVar.colorText,
-    lineHeight: cssVar.lineHeight,
-    fontSize: cssVar.fontSize,
-    fontFamily: cssVar.fontFamily,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  }),
-
-  // List
-  list: css({
-    flex: 'auto',
-    margin: 0,
-    padding: 0,
-    listStyleType: 'none',
-    display: 'flex',
     flexDirection: 'column',
-    gap: cssVar.paddingSM,
-  }),
-  listItem: css({
-    margin: 0,
-    fontSize: cssVar.fontSizeLG,
-    lineHeight: cssVar.lineHeightLG,
-    paddingBlock: cssVar.padding,
-    paddingInline: cssVar.paddingLG,
-    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
-    borderRadius: cssVar.borderRadius,
-    borderColor: 'transparent',
-    transition: `all ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
-    cursor: 'pointer',
-
-    '&:hover:not(.active):not(.dark)': {
-      borderColor: cssVar.colorPrimaryBorder,
-      backgroundColor: cssVar.colorPrimaryBg,
-    },
-
-    '&:focus-visible': {
-      outline: `2px solid ${cssVar.colorPrimary}`,
-      outlineOffset: 2,
-    },
-
-    '&.active': {
-      borderColor: cssVar.colorPrimary,
-      backgroundColor: cssVar.colorPrimaryBg,
-      color: cssVar.colorPrimary,
-    },
-
-    // ========= Dark =========
-    '&.dark': {
-      color: cssVar.colorTextLightSolid,
-      backgroundColor: 'transparent',
-
-      '&:hover, &.active': {
-        borderColor: cssVar.colorTextLightSolid,
-        backgroundColor: 'transparent',
-      },
-    },
+    alignItems: 'center',
   }),
 
-  copyButton: css({
-    opacity: 0,
-    transition: `opacity ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
-    flexShrink: 0,
-
-    '&.visible': {
-      opacity: 1,
-    },
-
-    '&.dark': {
-      color: cssVar.colorTextLightSolid,
-
-      '&:hover': {
-        backgroundColor: 'rgba(255, 255, 255, 0.08)',
-      },
-      '&:active': {
-        backgroundColor: 'rgba(255, 255, 255, 0.12)',
-      },
-    },
+  wrapper: css({
+    width: '100%',
+    maxWidth: 1320,
+    flexDirection: 'column',
+    alignItems: 'stretch',
   }),
 
-  // AI Generate Item
-  aiGenerateItem: css({
-    borderStyle: 'dashed',
-    opacity: 0.7,
-    cursor: 'pointer',
-    paddingInline: cssVar.padding,
-  }),
-
-  aiGenerateContent: css({
-    position: 'relative',
-    zIndex: 1,
-  }),
-
-  aiGenerateIcon: css({
-    fontSize: 14,
-    marginInlineEnd: 6,
-    opacity: 0.6,
-  }),
-
-  aiGenerateDesc: css({
-    fontSize: cssVar.fontSizeSM,
-    opacity: 0.5,
-    marginTop: 2,
-    fontWeight: 400,
-  }),
-
-  // Components
+  // ======= 组件预览区域 =======
   componentsBlockContainer: css({
-    flex: 'auto',
     display: 'flex',
-    padding: cssVar.paddingXL,
     justifyContent: 'center',
-    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
-    borderRadius: cssVar.borderRadius,
-    boxShadow: cssVar.boxShadow,
+    alignItems: 'center',
+    width: '100%',
   }),
+
   componentsBlock: css({
-    flex: 'none',
-    maxWidth: `calc(420px + ${cssVar.paddingXL} * 2)`,
+    width: '100%',
+    maxWidth: 1320,
+    margin: '0 auto',
+  }),
+  dashboardBlock: css({
+    width: '100%',
+    maxWidth: 1320,
+    margin: '0 auto',
+  }),
+  previewTabs: css({
+    padding: 3,
+    borderRadius: 100,
+    background: cssVar.colorFillQuaternary,
+    '.ant-segmented-group': {
+      gap: 2,
+    },
+    '.ant-segmented-thumb': {
+      borderRadius: 100,
+      background: cssVar.colorBgElevated,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+    },
+    '@media (max-width: 768px)': {
+      width: '60%',
+    },
+  }),
+  tabsDark: css({
+    backgroundColor: 'rgba(255, 255, 255, 0.14)',
+    backdropFilter: 'blur(18px)',
+    boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
+    '.ant-segmented-thumb': {
+      backgroundColor: 'rgba(255, 255, 255, 0.96)',
+      boxShadow: '0 8px 18px rgba(0,0,0,0.24)',
+    },
+  }),
+  tabsItem: css({
+    minWidth: 112,
+    borderRadius: 100,
+    color: cssVar.colorTextTertiary,
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+    '@media (max-width: 768px)': {
+      flex: 1,
+      minWidth: 0,
+      paddingInline: 12,
+      fontSize: 16,
+    },
+  }),
+  tabsItemDark: css({
+    color: 'rgba(255, 255, 255, 0.78)',
+    '&:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover': {
+      color: '#fff',
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+  }),
+  previewTabsLabel: css({
+    minHeight: 30,
+    lineHeight: '30px',
+  }),
+  themeBlock: css({
+    height: 20,
+    width: 20,
+    fontSize: 20,
+    borderRadius: '100%',
+    overflow: 'hidden',
+    cursor: 'pointer',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    outline: `2px solid ${cssVar.colorBgLayout}`,
+    backgroundColor: cssVar.colorBgLayout,
+    transition: ['background-color', 'transform', 'opacity']
+      .map((prop) => `${prop} ${cssVar.motionDurationFast}`)
+      .join(', '),
+    '&:hover, &:focus-within': {
+      outline: `2px solid ${cssVar.colorPrimaryBorder}`,
+      transform: 'scale(1.1)',
+    },
+    '> img': {
+      fontSize: 0,
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '100%',
+    },
+  }),
+  active: css({
+    outline: `2px solid ${cssVar.colorPrimaryBorder}`,
+  }),
+  switch: css({
+    alignItems: 'center',
+    gap: 16,
+    '@media (max-width: 1200px)': {
+      justifyContent: 'center',
+      flexDirection: 'column',
+    },
+  }),
+  buttonBlock: css({
+    height: 28,
+    width: 28,
+    borderRadius: '50%',
+    fontSize: 15,
+    color: cssVar.colorPrimaryBorder,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: cssVar.colorBgLayout,
+    },
+    '@media (max-width: 1200px)': {
+      display: 'none',
+    },
   }),
 }));
+
+type PreviewPane = 'components' | 'dashboard';
+
+const previewPaneOptions: { label: string; value: PreviewPane }[] = [
+  { label: 'Components', value: 'components' },
+  { label: 'Dashboard', value: 'dashboard' },
+];
+
+const getPreviewThemeKey = (previewTheme: PreviewThemeConfig) =>
+  previewTheme.key ?? previewTheme.name;
 
 export interface ThemePreviewProps {
   onOpenPromptDrawer?: () => void;
 }
 
-function ThemePreviewContent(props: ThemePreviewProps) {
+const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const { onOpenPromptDrawer } = props;
+  const { pathname, search } = useLocation();
+  const isZhCN = utils.isZhCN(pathname);
   const [locale] = useLocale(locales);
   const { styles } = useStyles();
   const isDark = React.use(DarkContext);
@@ -170,52 +213,61 @@ function ThemePreviewContent(props: ThemePreviewProps) {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
-  const [copiedName, setCopiedName] = React.useState<string | null>(null);
-  const [hoveredName, setHoveredName] = React.useState<string | null>(null);
-  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [activeThemeKey, setActiveThemeKey] = React.useState('light');
+  const [activePane, setActivePane] = React.useState<PreviewPane>('components');
+
+  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   React.useEffect(() => {
-    const defaultThemeName = isDark ? 'dark' : 'light';
-
-    const targetTheme =
-      previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName)?.name ||
-      previewThemes[0].name;
-
-    setActiveName(targetTheme);
+    setActiveThemeKey(isDark ? 'dark' : 'light');
   }, [isDark]);
 
-  // 收集所有背景图片用于预加载
   const backgroundPrefetchList = React.useMemo(
-    () => previewThemes.map((theme) => theme.bgImg).filter((img): img is string => !!img),
+    () => previewThemes.map((t) => t.bgImg).filter((img): img is string => !!img),
     [previewThemes],
   );
 
-  const handleThemeClick = (name: string) => {
-    setActiveName(name);
-  };
+  const handleThemeClick = (themeKey: string) => setActiveThemeKey(themeKey);
 
-  const handleKeyDown = (event: React.KeyboardEvent, name: string) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    const keys = previewThemes.map((t) => getPreviewThemeKey(t));
+    const currentIndex = keys.indexOf(activeThemeKey);
+    if (currentIndex === -1) return;
+
+    let nextIndex: number;
+    if (event.key === 'ArrowRight') {
       event.preventDefault();
-      handleThemeClick(name);
+      nextIndex = (currentIndex + 1) % keys.length;
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      nextIndex = (currentIndex - 1 + keys.length) % keys.length;
+    } else {
+      return;
     }
+
+    const nextKey = keys[nextIndex];
+    setActiveThemeKey(nextKey);
+    containerRef.current?.querySelector<HTMLDivElement>(`[data-theme-key="${nextKey}"]`)?.focus();
   };
 
-  const handleCopyTheme = async (event: React.MouseEvent, previewTheme: PreviewThemeConfig) => {
+  const activeTheme =
+    previewThemes.find((previewTheme) => getPreviewThemeKey(previewTheme) === activeThemeKey) ??
+    previewThemes[0];
+
+  const handleCopyTheme = async (event: React.MouseEvent) => {
     event.stopPropagation();
     const code = generateFullCopyFile({
-      themeConfig: previewTheme.props?.theme,
-      copyCode: previewTheme.copyCode,
+      themeConfig: activeTheme?.props?.theme,
+      copyCode: activeTheme?.copyCode,
     });
     const success = await copy(code);
     if (success) {
       if (copyTimerRef.current) {
         clearTimeout(copyTimerRef.current);
       }
-      setCopiedName(previewTheme.name);
       message.success(locale.copySuccess);
-      copyTimerRef.current = setTimeout(() => setCopiedName(null), 2000);
     }
   };
 
@@ -228,102 +280,115 @@ function ThemePreviewContent(props: ThemePreviewProps) {
     [],
   );
 
-  const activeTheme = previewThemes.find((previewTheme) => previewTheme.name === activeName);
+  const editPath = utils.getLocalizedPathname('/theme-editor-cn', isZhCN, search);
+
+  const background = activeTheme?.bgImg
+    ? activeTheme.bgImg
+    : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)';
+  const hasDarkBackground = !!activeTheme?.bgImgDark;
 
   return (
     <Group
       title={locale.themeTitle}
       description={locale.themeDesc}
-      background={activeTheme?.bgImg}
-      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+      collapse
+      titleColor={hasDarkBackground ? '#fff' : undefined}
+      background={background}
       backgroundPrefetchList={backgroundPrefetchList}
     >
-      <Flex className={styles.container} gap="large">
-        <div
-          style={{
-            display: 'flex',
-          }}
-        >
-          <div className={styles.list} role="tablist" aria-label="Theme selection">
-            {previewThemes.map((previewTheme) => (
-              <div
-                className={clsx(
-                  styles.listItem,
-                  activeName === previewTheme.name && 'active',
-                  activeTheme?.bgImgDark && 'dark',
-                )}
-                key={previewTheme.name}
-                role="tab"
-                tabIndex={activeName === previewTheme.name ? 0 : -1}
-                aria-selected={activeName === previewTheme.name}
-                onClick={() => handleThemeClick(previewTheme.name)}
-                onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
-                onMouseEnter={() => setHoveredName(previewTheme.name)}
-                onMouseLeave={() => setHoveredName(null)}
-                style={{ marginBottom: 8 }}
-              >
-                <Flex justify="space-between" align="center">
-                  <span>{previewTheme.name}</span>
-                  <Tooltip title={locale.copyTheme}>
-                    <Button
-                      className={clsx(
-                        styles.copyButton,
-                        (hoveredName === previewTheme.name || copiedName === previewTheme.name) &&
-                          'visible',
-                        activeTheme?.bgImgDark && 'dark',
-                      )}
-                      type="text"
-                      size="small"
-                      icon={copiedName === previewTheme.name ? <CheckOutlined /> : <CopyOutlined />}
-                      onClick={(e) => handleCopyTheme(e, previewTheme)}
-                      aria-label={locale.copyTheme}
-                    />
-                  </Tooltip>
-                </Flex>
-              </div>
-            ))}
-            {/* AI 生成主题 - 最后一个选项 */}
-            <div
-              className={clsx(
-                styles.listItem,
-                styles.aiGenerateItem,
-                activeTheme?.bgImgDark && 'dark',
-              )}
-              role="tab"
-              tabIndex={0}
-              onClick={onOpenPromptDrawer}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  onOpenPromptDrawer?.();
-                }
+      <Flex className={styles.container}>
+        <Flex className={styles.wrapper} gap={16}>
+          <Flex className={styles.switch} justify="space-between">
+            <Segmented<PreviewPane>
+              classNames={{
+                label: clsx(styles.previewTabsLabel),
+                root: clsx(styles.previewTabs, { [styles.tabsDark]: hasDarkBackground }),
+                item: clsx(styles.tabsItem, { [styles.tabsItemDark]: hasDarkBackground }),
               }}
-            >
-              <div className={styles.aiGenerateContent}>
-                <span className={styles.aiGenerateIcon}>🎨</span>
-                <span>{locale.aiGenerate}</span>
-              </div>
-              <div className={styles.aiGenerateDesc}>{locale.aiGenerateDesc}</div>
-            </div>
-          </div>
-        </div>
-        <ComponentsBlock
-          key={activeName}
-          config={activeTheme?.props}
-          className={styles.componentsBlock}
-          containerClassName={styles.componentsBlockContainer}
-        />
+              options={previewPaneOptions}
+              value={activePane}
+              onChange={setActivePane}
+            />
+            <Flex align="center" gap={12} ref={containerRef} onKeyDown={handleKeyDown}>
+              {previewThemes.map((theme) => {
+                const { name, icon: Icon } = theme;
+                const themeKey = getPreviewThemeKey(theme);
+                const isSelected = activeThemeKey === themeKey;
+                return (
+                  <Tooltip placement="top" key={`item-${themeKey}`} title={name}>
+                    <div
+                      role="tab"
+                      className={clsx(styles.themeBlock, { [styles.active]: isSelected })}
+                      tabIndex={isSelected ? 0 : -1}
+                      aria-selected={isSelected}
+                      data-theme-key={themeKey}
+                      onClick={() => handleThemeClick(themeKey)}
+                    >
+                      {typeof Icon === 'string' ? (
+                        <img src={Icon} alt={name} title={name} draggable={false} />
+                      ) : (
+                        <Icon />
+                      )}
+                    </div>
+                  </Tooltip>
+                );
+              })}
+              <Tooltip placement="top" title={locale.copyTheme}>
+                <div className={styles.buttonBlock} onClick={handleCopyTheme}>
+                  <CopyOutlined />
+                </div>
+              </Tooltip>
+              <Tooltip placement="top" title={locale.editTheme}>
+                <Link to={editPath} target="_blank" rel="noreferrer" title="editTheme">
+                  <div className={styles.buttonBlock}>
+                    <BgColorsOutlined />
+                  </div>
+                </Link>
+              </Tooltip>
+              <Tooltip placement="top" title={locale.aiGenerate}>
+                <div className={styles.buttonBlock} onClick={onOpenPromptDrawer}>
+                  <ThemeIcon />
+                </div>
+              </Tooltip>
+            </Flex>
+          </Flex>
+          {/* ===== 组件预览区域 ===== */}
+          {activePane === 'components' ? (
+            <ComponentsBlock
+              isDark={isDark}
+              isDarkTheme={hasDarkBackground}
+              key={activeThemeKey}
+              config={activeTheme?.props}
+              className={styles.componentsBlock}
+              containerClassName={styles.componentsBlockContainer}
+            />
+          ) : (
+            <ThemeDashboard
+              key={activeThemeKey}
+              className={styles.dashboardBlock}
+              config={activeTheme?.props}
+              activeTheme={activeTheme}
+              style={{ borderRadius: PREVIEW_CARD_RADIUS }}
+            />
+          )}
+        </Flex>
       </Flex>
     </Group>
   );
-}
+};
 
-export default function ThemePreview(props: ThemePreviewProps = {}) {
+const ThemePreview: React.FC<ThemePreviewProps> = (props) => {
+  const memoizedThemeConfig = React.useMemo<ThemeConfig>(() => {
+    return { algorithm: theme.defaultAlgorithm };
+  }, []);
+
   return (
-    <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+    <ConfigProvider theme={memoizedThemeConfig}>
       <App>
         <ThemePreviewContent {...props} />
       </App>
     </ConfigProvider>
   );
-}
+};
+
+export default ThemePreview;

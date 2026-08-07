@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { DefaultRecordType } from '@rc-component/table/lib/interface';
+import type { DefaultRecordType } from '@rc-component/table';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import type { SelectAllLabel, TransferProps } from '..';
@@ -80,7 +80,7 @@ const searchTransferProps = {
 };
 
 const generateData = (n = 20) => {
-  const data = [];
+  const data: TransferProps<DefaultRecordType>['dataSource'] = [];
   for (let i = 0; i < n; i++) {
     data.push({
       key: `${i}`,
@@ -105,6 +105,23 @@ describe('Transfer', () => {
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should only forward data and aria attributes to root element', () => {
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        data-testid="transfer-testid"
+        aria-label="transfer-label"
+        id="transfer-id"
+        title="transfer-title"
+      />,
+    );
+    const rootNode = container.querySelector('.ant-transfer');
+    expect(rootNode).toHaveAttribute('data-testid', 'transfer-testid');
+    expect(rootNode).toHaveAttribute('aria-label', 'transfer-label');
+    expect(rootNode).not.toHaveAttribute('id');
+    expect(rootNode).not.toHaveAttribute('title');
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -801,7 +818,7 @@ describe('Transfer', () => {
       await waitFor(() => getByTitle('2/2'));
 
       rerender(
-        <Transfer
+        <Transfer<DefaultRecordType>
           {...{ ...listDisabledProps, targetKeys: ['b', 'c'] }}
           pagination={{ pageSize: 1 }}
         />,
@@ -812,7 +829,10 @@ describe('Transfer', () => {
     it('should support change pageSize', () => {
       const dataSource = generateData();
       const { container } = render(
-        <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
+        <Transfer<DefaultRecordType>
+          dataSource={dataSource}
+          pagination={{ showSizeChanger: true, simple: false }}
+        />,
       );
 
       fireEvent.mouseDown(container.querySelector('.ant-select')!);

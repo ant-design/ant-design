@@ -2,6 +2,11 @@ import React from 'react';
 
 import Mentions from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Mentions.Semantic', () => {
   it('support classNames and styles as functions', () => {
@@ -34,5 +39,23 @@ describe('Mentions.Semantic', () => {
     const style = mentionsElement?.getAttribute('style');
     expect(style).toContain('opacity: 1');
     expect(style).toContain('background-color: white');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        mentions={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Mentions
+          options={[{ value: 'test', label: 'test' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-mentions'));
   });
 });

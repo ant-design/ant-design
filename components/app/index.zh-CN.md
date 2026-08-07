@@ -129,11 +129,11 @@ export default () => {
 
 ### App
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 |
-| message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
-| notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 | × |
+| message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 | × |
+| notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 | × |
 
 ## 主题变量（Design Token）{#design-token}
 
@@ -143,4 +143,4 @@ export default () => {
 
 ### CSS Var 在 `<App component={false}>` 内不起作用 {#faq-css-var-component-false}
 
-请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。
+Ant Design v6 默认使用 CSS 变量。App 需要一个有效的 HTML 元素来承载 CSS 变量类名。将 `component` 设置为 `false` 时，App 仅提供上下文而不渲染根 DOM 节点，因此不会应用 App 根节点的类名和默认样式。在此模式下无法应用 `className`、`rootClassName` 和 `style` 属性，并会在开发环境下触发警告。如需消费这些样式，请保留默认的 `div` 或指定其他有效元素。

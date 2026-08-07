@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/lib/locale/th_TH';
+import Pagination from '@rc-component/pagination/locale/th_TH';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/th_TH';
@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'ปิด',
     show: 'แสดง',
     hide: 'ซ่อน',
+    sortable: 'จัดเรียงได้',
   },
   Table: {
     filterTitle: 'ตัวกรอง',

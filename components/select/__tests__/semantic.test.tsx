@@ -3,6 +3,11 @@ import * as React from 'react';
 import Select from '..';
 import type { SelectProps, SelectSemanticAllType } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Select.Semantic', () => {
   const options = [
@@ -204,5 +209,23 @@ describe('Select.Semantic', () => {
       background: '#f5f5f5',
       opacity: '0.6',
     });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        select={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Select
+          options={options}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-select'));
   });
 });

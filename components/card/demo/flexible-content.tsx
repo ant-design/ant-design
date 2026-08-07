@@ -6,6 +6,7 @@ const { Meta } = Card;
 const App: React.FC = () => (
   <Card
     hoverable
+    variant="borderless"
     style={{ width: 240 }}
     cover={
       <img

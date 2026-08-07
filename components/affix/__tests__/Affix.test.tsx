@@ -167,7 +167,7 @@ describe('Affix Render', () => {
       await waitFakeTimer();
       const secondAffixStyle = affixStyleEle ? affixStyleEle.getAttribute('style') : null;
 
-      expect(firstAffixStyle).toEqual(secondAffixStyle);
+      expect(firstAffixStyle).toBe(secondAffixStyle);
     });
   });
 

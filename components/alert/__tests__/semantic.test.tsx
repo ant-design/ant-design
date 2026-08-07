@@ -5,6 +5,10 @@ import Alert from '..';
 import type { AlertProps } from '..';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Alert.Semantic', () => {
   it('should support classNames and styles as functions', () => {
@@ -87,5 +91,23 @@ describe('Alert.Semantic', () => {
     });
     expect(iconElement).toHaveStyle({ fontSize: contextStyles.icon?.fontSize });
     expect(titleElement).toHaveStyle({ fontWeight: componentStyles.title?.fontWeight });
+  });
+  it('should follow root style priority', () => {
+    render(
+      <ConfigProvider
+        alert={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Alert
+          title="Test Alert"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-alert'));
   });
 });

@@ -65,12 +65,12 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
         style="--select-input-width: 0;"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -123,12 +123,12 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="off"
+      autocomplete="new-password"
       class="ant-select-input"
       id="test-id"
       readonly=""
       role="combobox"
-      type="search"
+      type="text"
       value=""
     />
   </div>

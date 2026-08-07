@@ -1,9 +1,10 @@
-import type {
-  MenuDividerType as RcMenuDividerType,
-  MenuItemGroupType as RcMenuItemGroupType,
-  MenuItemType as RcMenuItemType,
-  SubMenuType as RcSubMenuType,
-} from '@rc-component/menu/lib/interface';
+import type { MenuProps as RcMenuProps } from '@rc-component/menu';
+
+type RcItemType = NonNullable<NonNullable<RcMenuProps['items']>[number]>;
+type RcMenuDividerType = Extract<RcItemType, { type: 'divider' }>;
+type RcMenuItemGroupType = Extract<RcItemType, { type: 'group' }>;
+type RcMenuItemType = Extract<RcItemType, { type?: 'item' }>;
+type RcSubMenuType = Extract<RcItemType, { type?: 'submenu' }>;
 
 export type DataAttributes = {
   [Key in `data-${string}`]: unknown;

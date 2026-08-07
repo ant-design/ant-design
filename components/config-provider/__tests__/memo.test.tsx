@@ -44,10 +44,10 @@ describe('ConfigProvider', () => {
 
     const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(startCalledTimes);
+    expect(spy.mock.calls.length).toBe(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
+    expect(spy.mock.calls.length).toBe(startCalledTimes + 1);
   });
 
   it('should not generate new context config in nested ConfigProvider when render', () => {
@@ -75,9 +75,9 @@ describe('ConfigProvider', () => {
 
     const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(startCalledTimes);
+    expect(spy.mock.calls.length).toBe(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
+    expect(spy.mock.calls.length).toBe(startCalledTimes + 1);
   });
 });

@@ -65,7 +65,7 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
           {...restProps}
         />
       </Flex>
-      <div style={{ flex: 1, position: 'relative', minHeight: 500, width: '100%' }} ref={holderRef}>
+      <div style={{ flex: 1, position: 'relative', minHeight: 360, width: '100%' }} ref={holderRef}>
         <Image.PreviewGroup
           items={[
             'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',

@@ -15,7 +15,7 @@ const useTooltipProps = (
     if (isValidElement(tooltip)) {
       return { title: tooltip };
     }
-    if (isPlainObject(tooltip)) {
+    if (isPlainObject<TooltipProps>(tooltip)) {
       return { title: editConfigText ?? children, ...tooltip };
     }
     return { title: tooltip };

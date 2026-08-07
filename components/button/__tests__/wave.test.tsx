@@ -16,9 +16,12 @@ jest.mock('react-dom', () => {
   return realReactDOM;
 });
 
-jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
-  const mockFn = () => true;
-  return mockFn;
+jest.mock('@rc-component/util', () => {
+  const util = jest.requireActual('@rc-component/util');
+  return {
+    ...util,
+    isVisible: () => true,
+  };
 });
 
 describe('click wave effect', () => {

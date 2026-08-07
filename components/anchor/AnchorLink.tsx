@@ -108,7 +108,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
         className={titleClassName}
         style={mergedStyles?.itemTitle}
         href={href}
-        title={typeof title === 'string' ? title : ''}
+        title={typeof title === 'string' ? title : undefined}
         target={target}
         onClick={handleClick}
       >

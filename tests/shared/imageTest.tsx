@@ -9,10 +9,11 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import type { HTTPRequest, Viewport } from 'puppeteer';
+import type { HTTPRequest, Page, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
+import type { ThemeConfig } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -28,10 +29,25 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
+// 修复截图快照里面的中文是乱码的问题
+const imageSnapshotFontFamily = [
+  'Arial',
+  '"PingFang SC"',
+  '"Hiragino Sans GB"',
+  '"Microsoft YaHei"',
+  '"Noto Sans CJK SC"',
+  '"Noto Sans SC"',
+  '"Source Han Sans SC"',
+  '"WenQuanYi Micro Hei"',
+  'sans-serif',
+].join(', ');
+
 interface ImageTestOptions {
+  beforeScreenshot?: (testPage: Page) => Promise<void>;
   onlyViewport?: boolean;
   ssr?: boolean | string[];
   openTriggerClassName?: string;
+  hoverSelector?: string;
   mobile?: boolean;
 }
 
@@ -112,6 +128,7 @@ export default function imageTest(
 
   afterEach(() => {
     page.removeAllListeners('request'); // 保证没有历史残留
+    MockDate.reset();
   });
 
   afterAll(async () => {
@@ -150,9 +167,17 @@ export default function imageTest(
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
 
-      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.goto(`file://${process.cwd()}/tests/index.html`, {
+        waitUntil: 'domcontentloaded',
+      });
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-      await page.addStyleTag({ content: '*{animation: none!important;}' });
+      // Disable animation & transition (including pseudo-elements like
+      // `::before`/`::after`, used by Menu/Tabs/Carousel active bars) to avoid
+      // capturing intermediate frames, which makes the rendered width/content
+      // flaky across runs.
+      await page.addStyleTag({
+        content: '*,*::before,*::after{animation: none!important; transition: none!important;}',
+      });
 
       const cache = createCache();
 
@@ -229,6 +254,33 @@ export default function imageTest(
         openTriggerClassName || '',
       );
 
+      if (options.hoverSelector) {
+        await page.hover(options.hoverSelector);
+      }
+
+      // Wait for fonts to be ready and the layout to settle BEFORE measuring
+      // the page size. Otherwise the rendered width/height may shift after the
+      // screenshot is taken, making the visual diff flaky.
+      await page.evaluate(async () => {
+        // Wait fonts ready, but cap it at 1000ms as a safety net so a stuck
+        // font load can never hang the screenshot.
+        await Promise.race([
+          document.fonts?.ready ?? Promise.resolve(),
+          new Promise((resolve) => setTimeout(resolve, 1000)),
+        ]);
+        // Always settle the layout with raf * 2, regardless of which branch
+        // above resolved first.
+        await new Promise((resolve) => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              resolve(true);
+            });
+          });
+        });
+      });
+
+      await options.beforeScreenshot?.(page);
+
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
@@ -241,21 +293,6 @@ export default function imageTest(
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
 
-      await page.waitForFunction(() =>
-        Promise.race([
-          // timeout 100ms
-          new Promise((resolve) => setTimeout(() => resolve(true), 100)),
-          // raf * 2
-          new Promise((resolve) => {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                resolve(true);
-              });
-            });
-          }),
-        ]),
-      );
-
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
@@ -265,25 +302,38 @@ export default function imageTest(
 
   if (!options.mobile) {
     Object.entries(themes).forEach(([key, algorithm]) => {
-      const configTheme = {
+      const configTheme: ThemeConfig = {
         algorithm,
         token: {
-          fontFamily: 'Arial',
+          fontFamily: imageSnapshotFontFamily,
         },
       };
 
       test(
         `component image screenshot should correct ${key}`,
         `.${key}`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <div
+          key={`theme-${key}`}
+          style={{
+            padding: '24px 12px',
+            backgroundColor: key === 'dark' ? '#000' : undefined,
+            fontFamily: imageSnapshotFontFamily,
+          }}
+        >
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
     });
-
-    // Mobile Snapshot
   } else {
-    test(identifier, `.mobile`, component, true);
+    // Mobile Snapshot
+    test(
+      identifier,
+      `.mobile`,
+      <div style={{ fontFamily: imageSnapshotFontFamily }} key={`mobile-${identifier}`}>
+        {component}
+      </div>,
+      true,
+    );
   }
 }
 

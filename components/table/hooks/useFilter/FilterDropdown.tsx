@@ -241,11 +241,11 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
 
   React.useEffect(() => {
-    if (!visible) {
+    if (!mergedVisible) {
       return;
     }
     onSelectKeys({ selectedKeys: wrapStringListType(propFilteredKeys) });
-  }, [propFilteredKeys]);
+  }, [propFilteredKeys, mergedVisible]);
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -267,10 +267,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
   // clear search value after close filter dropdown
   React.useEffect(() => {
-    if (!visible) {
+    if (!mergedVisible) {
       setSearchValue('');
     }
-  }, [visible]);
+  }, [mergedVisible]);
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys?: string[]) => {

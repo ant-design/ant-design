@@ -134,6 +134,24 @@ describe('Dropdown', () => {
     error.mockRestore();
   });
 
+  it.each([
+    { placement: 'left', motionCls: 'ant-slide-right' },
+    { placement: 'leftTop', motionCls: 'ant-slide-right' },
+    { placement: 'leftBottom', motionCls: 'ant-slide-right' },
+    { placement: 'right', motionCls: 'ant-slide-left' },
+    { placement: 'rightTop', motionCls: 'ant-slide-left' },
+    { placement: 'rightBottom', motionCls: 'ant-slide-left' },
+  ] as const)('should support horizontal placement %s', ({ placement, motionCls }) => {
+    render(
+      <Dropdown menu={{ items }} open placement={placement}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    const popup = document.querySelector(`.ant-dropdown-placement-${placement}`);
+    expect(popup).toBeTruthy();
+    expect(popup).toHaveClass(motionCls);
+  });
+
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
     render(
@@ -551,5 +569,27 @@ describe('Dropdown', () => {
     expect(itemIcon).toHaveStyle(objectStyles.itemIcon);
     expect(itemContent).toHaveStyle(objectStyles.itemContent);
     expect(itemTitle).toHaveStyle(objectStyles.itemTitle);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/56044
+  it('vertical menu should keep viewport spacing instead of full 100vh', () => {
+    render(
+      <Dropdown menu={{ items }} open>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    const verticalRule = cssText
+      .split('}')
+      .find(
+        (rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'),
+      );
+
+    expect(verticalRule).toBeTruthy();
+    expect(verticalRule).toContain('calc(100vh');
+    expect(verticalRule).not.toMatch(/max-height:\s*100vh/);
   });
 });

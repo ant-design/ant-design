@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useAllowClear } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -50,16 +50,17 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps extends Omit<
-  RcInputProps,
-  | 'wrapperClassName'
-  | 'groupClassName'
-  | 'inputClassName'
-  | 'affixWrapperClassName'
-  | 'classes'
-  | 'classNames'
-  | 'styles'
-> {
+export interface InputProps
+  extends Omit<
+    RcInputProps,
+    | 'wrapperClassName'
+    | 'groupClassName'
+    | 'inputClassName'
+    | 'affixWrapperClassName'
+    | 'classes'
+    | 'classNames'
+    | 'styles'
+  > {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
@@ -174,13 +175,16 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputSemanticAllType['classNames'],
+    InputSemanticAllType['styles'],
+    InputProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -193,7 +197,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Input');
 
-    // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffixRef.current) {
         warning(
@@ -244,7 +247,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={mergedStyles.root}
       styles={mergedStyles}
       suffix={suffixNode}
       allowClear={mergedAllowClear}

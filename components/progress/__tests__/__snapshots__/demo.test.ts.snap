@@ -258,7 +258,7 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
     </div>
   </div>
   <span>
-    代码发布
+    Code release
   </span>
 </div>
 `;

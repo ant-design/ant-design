@@ -3,6 +3,11 @@ import React from 'react';
 import Descriptions from '..';
 import type { DescriptionsProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Descriptions.Semantic', () => {
   it('should apply custom styles to Descriptions', () => {
@@ -154,5 +159,23 @@ describe('Descriptions.Semantic', () => {
     expect(container.querySelector('.ant-descriptions-item-content')).toHaveStyle({
       background: 'blue',
     });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        descriptions={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Descriptions
+          items={[{ key: '1', label: 'UserName', children: 'Bamboo' }]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-descriptions'));
   });
 });

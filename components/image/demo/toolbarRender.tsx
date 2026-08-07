@@ -10,7 +10,32 @@ import {
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
-import { Image, Slider, Space } from 'antd';
+import { Image, Space } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, iconPrefixCls, cssVar } = props;
+  return {
+    wrapper: css`
+      padding: 0 ${cssVar.paddingLG};
+      color: ${cssVar.colorWhite};
+      font-size: ${cssVar.fontSizeXL};
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 100px;
+      .${iconPrefixCls} {
+        padding: ${cssVar.paddingSM};
+        cursor: pointer;
+        &:hover {
+          opacity: 0.3;
+        }
+        &[disabled] {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+      }
+    `,
+  };
+});
 
 const imageList = [
   'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -20,6 +45,8 @@ const imageList = [
 // you can download flipped and rotated image
 // https://codesandbox.io/s/zi-ding-yi-gong-ju-lan-antd-5-7-0-forked-c9jvmp
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const [current, setCurrent] = React.useState(0);
 
   // or you can download flipped and rotated image
@@ -61,43 +88,23 @@ const App: React.FC = () => {
               onReset,
             },
           },
-        ) => {
-          const handleScaleChange = (nextScale: number) => {
-            // `@rc-component/image` v1.7.x no longer exposes an `onChangeScale` action.
-            // We approximate scale changes by triggering one step of zoom in/out.
-            if (nextScale > scale) {
-              onZoomIn();
-            } else if (nextScale < scale) {
-              onZoomOut();
-            }
-          };
-
-          return (
-            <Space size={12} className="toolbar-wrapper">
-              <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
-              <RightOutlined
-                disabled={current === imageList.length - 1}
-                onClick={() => onActive?.(1)}
-              />
-              <DownloadOutlined onClick={onDownload} />
-              <SwapOutlined rotate={90} onClick={onFlipY} />
-              <SwapOutlined onClick={onFlipX} />
-              <RotateLeftOutlined onClick={onRotateLeft} />
-              <RotateRightOutlined onClick={onRotateRight} />
-              <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
-              <Slider
-                min={1}
-                max={50}
-                step={0.1}
-                value={scale}
-                styles={{ root: { width: 100, marginInline: 12 } }}
-                onChange={handleScaleChange}
-              />
-              <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
-              <UndoOutlined onClick={onReset} />
-            </Space>
-          );
-        },
+        ) => (
+          <Space size={12} className={styles.wrapper}>
+            <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
+            <RightOutlined
+              disabled={current === imageList.length - 1}
+              onClick={() => onActive?.(1)}
+            />
+            <DownloadOutlined onClick={onDownload} />
+            <SwapOutlined rotate={90} onClick={onFlipY} />
+            <SwapOutlined onClick={onFlipX} />
+            <RotateLeftOutlined onClick={onRotateLeft} />
+            <RotateRightOutlined onClick={onRotateRight} />
+            <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
+            <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
+            <UndoOutlined onClick={onReset} />
+          </Space>
+        ),
         onChange: (index) => {
           setCurrent(index);
         },

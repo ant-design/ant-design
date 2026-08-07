@@ -2,10 +2,10 @@
 
 exports[`renders components/space/demo/align.tsx extend context correctly 1`] = `
 <div
-  class="space-align-container"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-flex-start"
 >
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -31,7 +31,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -39,7 +39,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -65,7 +65,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -73,7 +73,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -99,7 +99,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -107,7 +107,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -133,7 +133,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -472,12 +472,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -680,12 +680,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
               style="--select-input-width: 0;"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -901,7 +901,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <button
               class="ant-input-clear-icon"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -1014,12 +1013,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1281,7 +1280,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="Last year (Control + left)"
+                      aria-label="Last year"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1291,7 +1290,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="Previous month (PageUp)"
+                      aria-label="Previous month"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1321,7 +1320,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </button>
                     </div>
                     <button
-                      aria-label="Next month (PageDown)"
+                      aria-label="Next month"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1331,7 +1330,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="Next year (Control + right)"
+                      aria-label="Next year"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1959,7 +1958,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -1969,7 +1968,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -1999,7 +1998,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2010,7 +2009,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2501,7 +2500,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2512,7 +2511,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2543,7 +2542,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -2553,7 +2552,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3049,7 +3048,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         type="button"
       >
         <span>
-          查 询
+          Search
         </span>
       </button>
     </div>
@@ -3185,7 +3184,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3195,7 +3194,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3225,7 +3224,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3236,7 +3235,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3727,7 +3726,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3738,7 +3737,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3769,7 +3768,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3779,7 +3778,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -4284,12 +4283,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4409,12 +4408,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4542,12 +4541,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4698,12 +4697,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4828,7 +4827,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
@@ -6492,12 +6491,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8235,11 +8234,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8780,7 +8779,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
       >
         <div
+          aria-label="Clear color"
           class="ant-color-picker-clear"
+          role="button"
+          tabindex="0"
         />
       </div>
       <div
@@ -8909,12 +8911,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="test-id"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -9382,9 +9384,6 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
             viewBox="64 64 896 896"
             width="1em"
           >
-            <defs>
-              <style />
-            </defs>
             <path
               d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
             />
@@ -10399,7 +10398,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-before css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -10410,12 +10410,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -10533,7 +10533,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-after css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -10544,12 +10545,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -11006,12 +11007,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -11548,7 +11549,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header"
                         >
                           <button
-                            aria-label="Last year (Control + left)"
+                            aria-label="Last year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11558,7 +11559,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             />
                           </button>
                           <button
-                            aria-label="Previous month (PageUp)"
+                            aria-label="Previous month"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11588,7 +11589,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             </button>
                           </div>
                           <button
-                            aria-label="Next month (PageDown)"
+                            aria-label="Next month"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -11598,7 +11599,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             />
                           </button>
                           <button
-                            aria-label="Next year (Control + right)"
+                            aria-label="Next year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -12190,12 +12191,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -12399,12 +12400,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -12639,7 +12640,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12649,7 +12650,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12679,7 +12680,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -12690,7 +12691,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13181,7 +13182,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13192,7 +13193,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13223,7 +13224,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13233,7 +13234,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13821,12 +13822,12 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -14107,12 +14108,12 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -15931,12 +15932,12 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

@@ -278,15 +278,15 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
       >
         <span
           class="ant-progress-indicator"
-          title="进行中，已完成60%"
+          title="In progress, 60% complete"
         >
-          进行中，已完成60%
+          In progress, 60% complete
         </span>
       </div>
     </div>
   </div>
   <span>
-    代码发布
+    Code release
   </span>
 </div>
 `;

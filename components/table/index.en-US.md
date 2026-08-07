@@ -85,6 +85,7 @@ const columns = [
 <code src="./demo/tree-data.tsx">Tree data</code>
 <code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
+<code src="./demo/auto-height.tsx">Auto height</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
@@ -104,6 +105,7 @@ const columns = [
 <code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
+<code src="./demo/nested-table-in-tabs-debug.tsx" debug>Nested Table in Tabs Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
@@ -119,39 +121,39 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Table
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| bordered | Whether to show all table borders | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| column | Shared props applied to columns when the same property is not defined on the column itself | Partial<[ColumnType](#column)> | - | 6.4.0 |
-| columns | Columns of table | [ColumnsType](#column)\[] | - |  |
-| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
-| dataSource | Data record array to be displayed | object\[] | - |  |
-| expandable | Config expandable content | [expandable](#expandable) | - |  |
-| footer | Table footer renderer | function(currentPageData) | - |  |
-| getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
-| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#api) | false |  |
-| locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) |  |
-| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object \| `false` | - |  |
-| rowClassName | Row's className | function(record, index): string | - |  |
-| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
-| rowSelection | Row selection [config](#rowselection) | object | - |  |
-| rowHoverable | Row hover | boolean | true | 5.16.0 |
-| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
-| showHeader | Whether to show table header | boolean | true |  |
-| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 |
-| size | Size of table | `large` \| `medium` \| `small` | `large` |  |
-| sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
-| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| summary | Summary content | (currentData) => ReactNode | - |  |
-| tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
-| title | Table title renderer | function(currentPageData) | - |  |
-| virtual | Support virtual list | boolean | - | 5.9.0 |
-| onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
-| onHeaderRow | Set props on per header row | function(columns, index) | - |  |
-| onRow | Set props on per row | function(record, index) | - |  |
-| onScroll | Triggered when the table body is scrolled. Note that only vertical scrolling will trigger the event when `virtual` | function(event) | - | 5.16.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| bordered | Whether to show all table borders | boolean | false |  | × |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.1 |
+| column | Shared props applied to columns when the same property is not defined on the column itself | Partial<[ColumnType](#column)> | - | 6.4.0 | × |
+| columns | Columns of table | [ColumnsType](#column)\[] | - |  | × |
+| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  | × |
+| dataSource | Data record array to be displayed | object\[] | - |  | × |
+| expandable | Config expandable content | [expandable](#expandable) | - |  | `expandable.expandIcon`: 5.14.0 |
+| footer | Table footer renderer | function(currentPageData) | - |  | × |
+| getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  | × |
+| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#api) | false |  | × |
+| locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) |  | × |
+| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object \| `false` | - |  | × |
+| rowClassName | Row's className | function(record, index): string | - |  | × |
+| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  | `string`: 6.0.0, `function`: 6.1.0 |
+| rowSelection | Row selection [config](#rowselection) | object | - |  | × |
+| rowHoverable | Row hover | boolean | true | 5.16.0 | × |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  | 6.3.0 |
+| showHeader | Whether to show table header | boolean | true |  | × |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 | × |
+| size | Size of table | `large` \| `medium` \| `small` | `large` |  | × |
+| sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  | × |
+| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.1 |
+| summary | Summary content | (currentData) => ReactNode | - |  | × |
+| tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  | × |
+| title | Table title renderer | function(currentPageData) | - |  | × |
+| virtual | Support virtual list | boolean | - | 5.9.0 | × |
+| onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  | × |
+| onHeaderRow | Set props on per header row | function(columns, index) | - |  | × |
+| onRow | Set props on per row | function(record, index) | - |  | × |
+| onScroll | Triggered when the table body is scrolled. Note that only vertical scrolling will trigger the event when `virtual` | function(event) | - | 5.16.0 | × |
 
 ### Table ref
 
@@ -284,6 +286,7 @@ Properties for row selection.
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4.0 |
 | renderCell | Renderer of the table cell. Same as `render` in column | (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode | - | 4.1.0 |
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
+| defaultSelectedRowKeys | Default selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | 5.5.0 |
@@ -392,6 +395,10 @@ In order to improve user experience, Pagination show size changer by default whe
 ### Why Table fully render when state change? {#faq-state-update-rerender}
 
 Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. You can use `column.shouldCellUpdate` to control render.
+
+### How should I troubleshoot Table performance issues? {#faq-table-performance}
+
+React DevTools may add extra overhead when profiling complex tables, especially with many rows or cells. If you notice obvious lag, please try disabling React DevTools or testing in a clean browser environment first. If the performance issue can still be reproduced in a normal runtime, feel free to provide a minimal reproduction so we can continue to investigate.
 
 ### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 

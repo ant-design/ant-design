@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util';
 
 import Tooltip from '..';
 import type { GetRef } from '../../_util/type';

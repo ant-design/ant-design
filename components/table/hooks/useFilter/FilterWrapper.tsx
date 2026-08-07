@@ -21,6 +21,7 @@ const FilterDropdownMenuWrapper = React.forwardRef<
     onClick={(e) => e.stopPropagation()}
     onKeyDown={onKeyDown}
     ref={ref}
+    role="presentation"
   >
     {props.children}
   </div>

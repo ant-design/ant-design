@@ -4,6 +4,11 @@ import Skeleton from '..';
 import type { SkeletonProps } from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const genSkeleton = (props?: SkeletonProps) => render(<Skeleton {...props} />);
 
@@ -148,5 +153,22 @@ describe('Skeleton.Semantic', () => {
     expect(titleElement).toHaveClass('demo-skeleton-title-active');
     expect(paragraphElement).toHaveStyle({ padding: '6px' });
     expect(paragraphElement).toHaveClass('demo-skeleton-paragraph-active');
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        skeleton={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Skeleton
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-skeleton'));
   });
 });

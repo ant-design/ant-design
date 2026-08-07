@@ -129,7 +129,7 @@ In addition to basic information like result status and guidance operations, it 
 
 ### Relevant Modules or Components
 
-- [Form Page](/components/form-cn/)
+- [Form Page](/components/form/)
 
 ### External Reference Articles
 

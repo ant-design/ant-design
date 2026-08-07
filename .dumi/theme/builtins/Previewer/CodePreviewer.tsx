@@ -70,8 +70,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const location = useLocation();
 
-  const entryName = 'index.tsx';
-  const entryCode = asset.dependencies[entryName].value;
+  const entryName = asset.entry ?? 'index.tsx';
+  const entryCode = asset.dependencies[entryName]?.value ?? '';
 
   const demoContainerRef = useRef<HTMLElement>(null);
   const {
@@ -241,7 +241,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           {description && (
             <div
               className="code-box-description"
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: description }}
             />
           )}

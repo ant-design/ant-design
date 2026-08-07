@@ -3,6 +3,11 @@ import React from 'react';
 import Button from '..';
 import type { ButtonProps } from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('Button.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
@@ -35,5 +40,21 @@ describe('Button.Semantic', () => {
     );
 
     expect(container.querySelector('.ant-btn')).toHaveStyle({ background: 'blue' });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        button={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Button styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-btn'));
   });
 });

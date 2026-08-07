@@ -11,7 +11,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: 'ant design',
-      avatar: 'https://api.dicebear.com/7.x/miniavs/svg?seed=10',
+      avatar: 'https://api.dicebear.com/10.x/lorelei/svg?seed=10',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:

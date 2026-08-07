@@ -1247,6 +1247,96 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            left
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            leftBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap:wrap"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightTop
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            right
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          type="button"
+        >
+          <span>
+            rightBottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1297,6 +1387,21 @@ exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
     </div>
   </div>
 </a>
+`;
+
+exports[`renders components/dropdown/demo/selection.tsx correctly 1`] = `
+Array [
+  <span
+    aria-hidden="true"
+    class="ant-dropdown-trigger acss-1iewsaa"
+    style="left:-9999px;top:-9999px"
+  />,
+  <div
+    class="acss-18r2uqq"
+  >
+    Select any text in this paragraph to open a Dropdown menu near the selection. This is useful for actions such as masking sensitive words, marking entities, or searching the selected keyword. Example data: Alice, phone 13800138000, ID 110101199001011234.
+  </div>,
+]
 `;
 
 exports[`renders components/dropdown/demo/style-class.tsx correctly 1`] = `

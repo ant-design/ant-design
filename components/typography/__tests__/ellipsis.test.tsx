@@ -1,5 +1,5 @@
 import React from 'react';
-import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util';
 
 import {
   act,
@@ -99,7 +99,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(container.firstChild?.textContent).toEqual('Bamboo is Little ...');
+    expect(container.firstChild?.textContent).toBe('Bamboo is Little ...');
     expect(onEllipsis).toHaveBeenCalledWith(true);
     onEllipsis.mockReset();
 
@@ -109,7 +109,7 @@ describe('Typography.Ellipsis', () => {
         {fullStr}
       </Base>,
     );
-    expect(container.textContent).toEqual('Bamboo is Little Light Bamboo is Litt...');
+    expect(container.textContent).toBe('Bamboo is Little Light Bamboo is Litt...');
     expect(onEllipsis).not.toHaveBeenCalled();
 
     // Third resize
@@ -118,7 +118,7 @@ describe('Typography.Ellipsis', () => {
         {fullStr}
       </Base>,
     );
-    expect(container.querySelector('p')?.textContent).toEqual(fullStr);
+    expect(container.querySelector('p')?.textContent).toBe(fullStr);
     expect(onEllipsis).toHaveBeenCalledWith(false);
 
     unmount();
@@ -139,7 +139,7 @@ describe('Typography.Ellipsis', () => {
         wrapper.querySelector<HTMLDivElement>('.ant-typography-ellipsis-multiple-line')
           ?.style as any
       )?.WebkitLineClamp,
-    ).toEqual('2');
+    ).toBe('2');
   });
 
   it('should skip native ellipsis measure when tooltip is not configured', async () => {
@@ -156,6 +156,41 @@ describe('Typography.Ellipsis', () => {
     await waitFakeTimer();
 
     expect(ellipsisSpy).not.toHaveBeenCalled();
+    ellipsisSpy.mockRestore();
+  });
+
+  it('should only measure native ellipsis while the typography is hovered', async () => {
+    const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
+    const ref = React.createRef<HTMLElement>();
+
+    const { baseElement } = render(
+      <Base ellipsis={{ tooltip: true }} component="p" ref={ref}>
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(ellipsisSpy).not.toHaveBeenCalled();
+
+    fireEvent.mouseEnter(ref.current!);
+    expect(ellipsisSpy).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
+
+    ellipsisSpy.mockReturnValue(false);
+    offsetWidth = 101;
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    expect(ellipsisSpy).toHaveBeenCalledTimes(2);
+    expect(baseElement.querySelector('.ant-tooltip-open')).toBeNull();
+
+    fireEvent.mouseLeave(ref.current!);
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    expect(ellipsisSpy).toHaveBeenCalledTimes(2);
     ellipsisSpy.mockRestore();
   });
 
@@ -179,9 +214,9 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.firstChild?.textContent).toEqual('Ant Design, a des...');
+    expect(wrapper.firstChild?.textContent).toBe('Ant Design, a des...');
     const ellipsisSpans = wrapper.querySelectorAll('span[aria-hidden]');
-    expect(ellipsisSpans[ellipsisSpans.length - 1].textContent).toEqual('...');
+    expect(ellipsisSpans[ellipsisSpans.length - 1].textContent).toBe('...');
     onEllipsis.mockReset();
 
     unmount();
@@ -199,7 +234,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is...--suffix');
+    expect(wrapper.querySelector('p')?.textContent).toBe('Bamboo is...--suffix');
     unmount();
   });
 
@@ -219,7 +254,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toEqual(
+    expect(wrapper.querySelector('p')?.textContent).toBe(
       '...--The information is very important',
     );
 
@@ -228,7 +263,7 @@ describe('Typography.Ellipsis', () => {
         {fullStr}
       </Base>,
     );
-    expect(wrapper.querySelector('p')?.textContent).toEqual(
+    expect(wrapper.querySelector('p')?.textContent).toBe(
       'Ba...--The information is very important',
     );
 
@@ -237,7 +272,7 @@ describe('Typography.Ellipsis', () => {
         {fullStr}
       </Base>,
     );
-    expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr + suffix);
+    expect(wrapper.querySelector('p')?.textContent).toBe(fullStr + suffix);
 
     unmount();
   });
@@ -259,7 +294,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.textContent).toEqual('Bamboo is Little...');
+    expect(wrapper.textContent).toBe('Bamboo is Little...');
   });
 
   it('should expandable work', async () => {
@@ -276,7 +311,7 @@ describe('Typography.Ellipsis', () => {
 
     fireEvent.click(container.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
-    expect(container.querySelector('p')?.textContent).toEqual(fullStr);
+    expect(container.querySelector('p')?.textContent).toBe(fullStr);
   });
 
   it('should collapsible work', async () => {
@@ -298,13 +333,13 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+    expect(wrapper.querySelector('p')?.textContent).toBe(`Bamboo is L...OpenIt`);
 
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}CloseIt`);
+    expect(wrapper.querySelector('p')?.textContent).toBe(`${fullStr}CloseIt`);
 
     fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
+    expect(wrapper.querySelector('p')?.textContent).toBe(`Bamboo is L...OpenIt`);
   });
 
   it('should have custom expand style', async () => {
@@ -319,7 +354,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.ant-typography-expand')?.textContent).toEqual('more');
+    expect(container.querySelector('.ant-typography-expand')?.textContent).toBe('more');
   });
 
   describe('native css ellipsis', () => {
@@ -329,8 +364,9 @@ describe('Typography.Ellipsis', () => {
     });
 
     // https://github.com/ant-design/ant-design/issues/36786
-    it('Tooltip should recheck on parent visible change', () => {
+    it('Tooltip should measure on hover and recheck on parent visible change', () => {
       const originIntersectionObserver = global.IntersectionObserver;
+      const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
 
       let elementChangeCallback: () => void;
       const observeFn = jest.fn();
@@ -354,14 +390,23 @@ describe('Typography.Ellipsis', () => {
 
       expect(observeFn).toHaveBeenCalled();
 
-      // Hide first
+      const typography = container.querySelector<HTMLElement>('.ant-typography')!;
+      Object.defineProperty(typography, 'offsetParent', {
+        configurable: true,
+        get: () => null,
+      });
+
+      // offsetParent can stay null for a hoverable element, such as fixed positioned content.
       act(() => {
         elementChangeCallback?.();
       });
+      fireEvent.mouseEnter(typography);
+      expect(ellipsisSpy).toHaveBeenCalledTimes(1);
 
       // Trigger visible should trigger recheck
       let getOffsetParent = false;
-      Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
+      Object.defineProperty(typography, 'offsetParent', {
+        configurable: true,
         get: () => {
           getOffsetParent = true;
           return document.body;
@@ -372,10 +417,12 @@ describe('Typography.Ellipsis', () => {
       });
 
       expect(getOffsetParent).toBeTruthy();
+      expect(ellipsisSpy).toHaveBeenCalledTimes(2);
 
       unmount();
       expect(disconnectFn).toHaveBeenCalled();
 
+      ellipsisSpy.mockRestore();
       global.IntersectionObserver = originIntersectionObserver;
     });
 
@@ -531,14 +578,14 @@ describe('Typography.Ellipsis', () => {
     const { container: titleWrapper } = render(
       <Base component={undefined} title="bamboo" ellipsis={{ expandable: true }} />,
     );
-    expect(titleWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
+    expect(titleWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toBe(
       'bamboo',
     );
 
     const { container: tooltipWrapper } = render(
       <Base component={undefined} ellipsis={{ expandable: true, tooltip: 'little' }} />,
     );
-    expect(tooltipWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
+    expect(tooltipWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toBe(
       'little',
     );
   });

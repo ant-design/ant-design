@@ -4,6 +4,11 @@ import Anchor from '..';
 import type { AnchorProps } from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 const classNames: AnchorProps['classNames'] = (
   info,
@@ -75,5 +80,23 @@ describe('Anchor.Semantic', () => {
     expect(root).toHaveStyle({ color: customStyles.root.color });
     expect(title).toHaveStyle({ color: customStyles.itemTitle.color });
     expect(indicator).toHaveStyle({ color: customStyles.indicator.color });
+  });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        anchor={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Anchor
+          items={items}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-anchor-wrapper'));
   });
 });

@@ -22,6 +22,14 @@ import Robot from './Robot';
 import Safety from './Safety';
 import Schedule from './Schedule';
 import Transaction from './Transaction';
+import type { IconMetaSchema } from './tags';
+
+const logoMeta = (tags: string[]) =>
+  ({
+    contributors: ['ant-design'],
+    tags,
+    category: 'logo',
+  }) as const satisfies IconMetaSchema;
 
 const all = {
   AccountBook,
@@ -54,6 +62,21 @@ const all = {
   Safety,
   Schedule,
   Transaction,
+  Telegram: logoMeta(['telegram', 'social', 'message']),
+  Mastodon: logoMeta(['mastodon', 'social']),
+  Threads: logoMeta(['threads', 'social']),
+  Snapchat: logoMeta(['snapchat', 'social']),
+  Anthropic: logoMeta(['anthropic', 'ai', 'llm']),
+  Claude: logoMeta(['claude', 'anthropic', 'ai', 'llm']),
+  Gemini: logoMeta(['gemini', 'google', 'ai', 'llm']),
+  Mistral: logoMeta(['mistral', 'ai', 'llm']),
+  DeepSeek: logoMeta(['deepseek', 'deep seek', 'deep-seek', 'ai', 'llm']),
+  Qwen: logoMeta(['qwen', 'tongyi', 'ai', 'llm']),
+  Perplexity: logoMeta(['perplexity', 'ai', 'llm', 'search']),
+  HuggingFace: logoMeta(['huggingface', 'hugging face', 'hugging-face', 'ai', 'llm']),
+  Ollama: logoMeta(['ollama', 'ai', 'llm']),
+  Replicate: logoMeta(['replicate', 'ai', 'llm']),
+  ElevenLabs: logoMeta(['elevenlabs', 'eleven labs', 'eleven-labs', 'ai', 'voice']),
 };
 
 export type IconsMeta = typeof all;

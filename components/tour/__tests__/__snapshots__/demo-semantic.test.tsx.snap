@@ -11,7 +11,7 @@ exports[`renders components/tour/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-16 acss-my3sst css-var-test-id"
     >
       <div
-        style="width: 100%; height: 825px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;"
+        style="width: 100%; height: 600px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;"
       >
         <button
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
@@ -67,6 +67,7 @@ exports[`renders components/tour/demo/_semantic.tsx correctly 1`] = `
                 <img
                   alt="tour.png"
                   src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+                  style="width: 360px; max-width: 100%;"
                 />
               </div>
               <div

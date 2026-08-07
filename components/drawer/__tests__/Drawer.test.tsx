@@ -97,7 +97,7 @@ describe('Drawer', () => {
     triggerMotion();
 
     let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
-    expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+    expect(drawerWrapper).toHaveProperty('style.width', '20vw');
 
     rerender(
       <Drawer open size="500" getContainer={false}>
@@ -476,7 +476,7 @@ describe('Drawer', () => {
       for (let j = initialFontSize; j < fontSize2; j += 1) {
         expect(container2.outerHTML).toContain(`font-size: ${j}px`);
       }
-      expect(container1.outerHTML).toEqual(container2.outerHTML);
+      expect(container1.outerHTML).toBe(container2.outerHTML);
     });
   });
   it('should support aria-* and closeIcon by closable', () => {

@@ -2196,6 +2196,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -2437,6 +2438,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2536,6 +2538,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2635,6 +2638,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2734,6 +2738,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 4"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2833,6 +2838,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 5"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2932,6 +2938,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 6"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3031,6 +3038,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 7"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3130,6 +3138,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 8"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3229,6 +3238,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 9"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3328,6 +3338,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 10"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3589,6 +3600,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -3998,6 +4010,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4134,6 +4147,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -4349,6 +4363,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -5545,8 +5560,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx extend context c
 exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-inline css-var-test-id ant-form-css-var table-demo-control-bar"
-    style="margin-bottom: 16px;"
+    class="ant-form ant-form-inline css-var-test-id ant-form-css-var acss-7tnff8"
   >
     <div
       class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-inline"
@@ -6727,6 +6741,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -6968,6 +6983,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7067,6 +7083,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7166,6 +7183,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7265,6 +7283,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 4"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7364,6 +7383,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 5"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7463,6 +7483,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 6"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7562,6 +7583,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 7"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7661,6 +7683,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 8"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7760,6 +7783,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 9"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7859,6 +7883,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 10"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -8104,7 +8129,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row ant-table-row-level-0 editable-row"
+                    class="ant-table-row ant-table-row-level-0 acss-17dsthv"
                     data-row-key="0"
                   >
                     <td
@@ -8221,7 +8246,7 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row ant-table-row-level-0 editable-row"
+                    class="ant-table-row ant-table-row-level-0 acss-17dsthv"
                     data-row-key="1"
                   >
                     <td
@@ -8498,7 +8523,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="0"
                 >
                   <td
@@ -8527,7 +8552,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="1"
                 >
                   <td
@@ -8556,7 +8581,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="2"
                 >
                   <td
@@ -8585,7 +8610,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="3"
                 >
                   <td
@@ -8614,7 +8639,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="4"
                 >
                   <td
@@ -8643,7 +8668,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="5"
                 >
                   <td
@@ -8672,7 +8697,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="6"
                 >
                   <td
@@ -8701,7 +8726,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="7"
                 >
                   <td
@@ -8730,7 +8755,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="8"
                 >
                   <td
@@ -8759,7 +8784,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
+                  class="ant-table-row ant-table-row-level-0 acss-1yudmlp"
                   data-row-key="9"
                 >
                   <td
@@ -8915,7 +8940,25 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
               <span
                 class="ant-pagination-item-ellipsis"
               >
-                •••
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
           </a>
@@ -8967,7 +9010,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -8979,11 +9022,11 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -10717,6 +10760,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11275,6 +11319,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -11696,6 +11741,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -12052,6 +12098,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             class="ant-table-filter-dropdown-search"
@@ -13601,7 +13648,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -13613,11 +13660,11 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -13858,6 +13905,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -14969,7 +15017,25 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
               <span
                 class="ant-pagination-item-ellipsis"
               >
-                •••
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
           </a>
@@ -15021,7 +15087,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -15033,11 +15099,11 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -15311,6 +15377,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -15712,6 +15779,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -16897,6 +16965,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -17033,6 +17102,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <ul
                             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -17327,6 +17397,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       >
                         <div
                           class="ant-table-filter-dropdown"
+                          role="presentation"
                         >
                           <div
                             style="padding: 8px;"
@@ -18643,24 +18714,31 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                 <span
                   class="ant-pagination-item-ellipsis"
                 >
-                  •••
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </div>
             </a>
           </li>
           <li
-            class="ant-pagination-item ant-pagination-item-11 ant-pagination-item-after-jump-prev"
-            tabindex="0"
-            title="11"
-          >
-            <a
-              rel="nofollow"
-            >
-              11
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-12"
+            class="ant-pagination-item ant-pagination-item-12 ant-pagination-item-after-jump-prev"
             tabindex="0"
             title="12"
           >
@@ -18682,7 +18760,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             </a>
           </li>
           <li
-            class="ant-pagination-item ant-pagination-item-14"
+            class="ant-pagination-item ant-pagination-item-14 ant-pagination-item-before-jump-next"
             tabindex="0"
             title="14"
           >
@@ -18690,17 +18768,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               rel="nofollow"
             >
               14
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-15 ant-pagination-item-before-jump-next"
-            tabindex="0"
-            title="15"
-          >
-            <a
-              rel="nofollow"
-            >
-              15
             </a>
           </li>
           <li
@@ -18736,7 +18803,25 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                 <span
                   class="ant-pagination-item-ellipsis"
                 >
-                  •••
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </div>
             </a>
@@ -18788,7 +18873,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
             class="ant-pagination-options"
           >
             <div
-              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -18800,11 +18885,11 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -22090,6 +22175,254 @@ Array [
 
 exports[`renders components/table/demo/nested-table.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/nested-table-in-tabs-debug.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup>
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  />
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="true"
+                      aria-label="Collapse row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-expanded-row ant-table-expanded-row-level-1"
+                >
+                  <td
+                    class="ant-table-cell"
+                    colspan="2"
+                  >
+                    <div
+                      class="ant-tabs ant-tabs-top css-var-test-id ant-tabs-css-var"
+                    >
+                      <div
+                        aria-orientation="horizontal"
+                        class="ant-tabs-nav"
+                        role="tablist"
+                      >
+                        <div
+                          class="ant-tabs-nav-wrap"
+                        >
+                          <div
+                            class="ant-tabs-nav-list"
+                            style="transform: translate(0px, 0px);"
+                          >
+                            <div
+                              class="ant-tabs-tab ant-tabs-tab-active"
+                              data-node-key="1"
+                            >
+                              <div
+                                aria-controls="rc-tabs-test-panel-1"
+                                aria-selected="true"
+                                class="ant-tabs-tab-btn"
+                                id="rc-tabs-test-tab-1"
+                                role="tab"
+                                tabindex="0"
+                              >
+                                Tab 1
+                              </div>
+                            </div>
+                            <div
+                              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                        >
+                          <button
+                            aria-controls="rc-tabs-test-more-popup"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="ant-tabs-nav-more"
+                            id="rc-tabs-test-more"
+                            style="visibility: hidden; order: 1;"
+                            type="button"
+                          >
+                            <span
+                              aria-label="ellipsis"
+                              class="anticon anticon-ellipsis"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="ellipsis"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                          <div
+                            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                          >
+                            <ul
+                              aria-label="expanded dropdown"
+                              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                              data-menu-list="true"
+                              id="rc-tabs-test-more-popup"
+                              role="listbox"
+                              tabindex="-1"
+                            />
+                            <div
+                              aria-hidden="true"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-tabs-body-holder"
+                      >
+                        <div
+                          class="ant-tabs-body ant-tabs-body-top"
+                        >
+                          <div
+                            aria-hidden="false"
+                            aria-labelledby="rc-tabs-test-tab-1"
+                            class="ant-tabs-content ant-tabs-content-active"
+                            id="rc-tabs-test-panel-1"
+                            role="tabpanel"
+                            tabindex="0"
+                          >
+                            <div
+                              class="css-var-test-id ant-table-css-var ant-table-wrapper"
+                            >
+                              <div
+                                aria-busy="false"
+                                aria-live="polite"
+                                class="ant-spin css-var-test-id"
+                              >
+                                <div
+                                  class="ant-spin-container"
+                                >
+                                  <div
+                                    class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
+                                  >
+                                    <div
+                                      class="ant-table-container"
+                                    >
+                                      <div
+                                        class="ant-table-content"
+                                      >
+                                        <table
+                                          style="table-layout: auto;"
+                                        >
+                                          <thead
+                                            class="ant-table-thead"
+                                          >
+                                            <tr>
+                                              <th
+                                                class="ant-table-cell"
+                                                scope="col"
+                                              >
+                                                Name
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody
+                                            class="ant-table-tbody"
+                                          >
+                                            <tr
+                                              class="ant-table-row ant-table-row-level-0"
+                                              data-row-key="0"
+                                            >
+                                              <td
+                                                class="ant-table-cell"
+                                              >
+                                                Jack
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/nested-table-in-tabs-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/order-column.tsx extend context correctly 1`] = `
 <div
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
@@ -22210,6 +22543,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22256,6 +22590,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22302,6 +22637,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22348,6 +22684,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 4"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23228,6 +23565,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -23564,6 +23902,7 @@ Array [
                         >
                           <div
                             class="ant-table-filter-dropdown"
+                            role="presentation"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -24163,6 +24502,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             name="John Brown"
                             type="checkbox"
@@ -24202,6 +24542,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
@@ -24241,6 +24582,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             name="Joe Black"
                             type="checkbox"
@@ -24280,6 +24622,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
+                            aria-label="Select row 4"
                             class="ant-checkbox-input"
                             disabled=""
                             name="Disabled User"
@@ -24506,6 +24849,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24542,6 +24886,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24578,6 +24923,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24614,6 +24960,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 4"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24650,6 +24997,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 5"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24686,6 +25034,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 6"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24722,6 +25071,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 7"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24758,6 +25108,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 8"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24794,6 +25145,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 9"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24830,6 +25182,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 10"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25278,6 +25631,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25314,6 +25668,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25350,6 +25705,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25386,6 +25742,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 4"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25422,6 +25779,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 5"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25458,6 +25816,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 6"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25494,6 +25853,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 7"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25530,6 +25890,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 8"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25566,6 +25927,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 9"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25602,6 +25964,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 10"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25841,6 +26204,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25879,6 +26243,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25917,6 +26282,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 5"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25955,6 +26321,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 7"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25993,6 +26360,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 9"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -28649,6 +29017,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 1"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -28685,6 +29054,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 2"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -28721,6 +29091,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
+                          aria-label="Select row 3"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29284,7 +29655,7 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-small css-var-test-id ant-table-css-var"
+          class="ant-table ant-table-small css-var-test-id ant-table-css-var ant-table-virtual ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fix-end-shadow-show ant-table-fixed-header ant-table-scroll-horizontal"
         >
           <div
             class="ant-table-title"
@@ -29295,11 +29666,26 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
             class="ant-table-container"
           >
             <div
-              class="ant-table-content"
+              class="ant-table-header"
+              style="overflow: hidden;"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout: fixed; min-width: 100%; width: 4px;"
               >
+                <colgroup>
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -29330,86 +29716,114 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
                     </th>
                   </tr>
                 </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Jim Green
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Sydney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
-                    </td>
-                  </tr>
-                </tbody>
               </table>
+            </div>
+            <div
+              class="ant-table-tbody-virtual ant-table-tbody"
+              style="position: relative;"
+            >
+              <div
+                class="ant-table-tbody-virtual-holder"
+                style="max-height: 300px; overflow-y: auto; overflow-anchor: none;"
+              >
+                <div>
+                  <div
+                    class="ant-table-tbody-virtual-holder-inner"
+                    style="display: flex; flex-direction: column;"
+                  >
+                    <div
+                      class="ant-table-row"
+                      data-row-key="1"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        John Brown
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        New York No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="2"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Jim Green
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        42
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        London No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="3"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Joe Black
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        Sydney No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -29889,6 +30303,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29935,6 +30350,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30201,6 +30617,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30254,6 +30671,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30307,6 +30725,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30360,6 +30779,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30413,6 +30833,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30466,6 +30887,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30519,6 +30941,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30572,6 +30995,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30625,6 +31049,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30922,6 +31347,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 1"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30968,6 +31394,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 2"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31014,6 +31441,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 3"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31060,6 +31488,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 4"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31106,6 +31535,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
+                            aria-label="Select row 5"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />

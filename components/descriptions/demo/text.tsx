@@ -12,31 +12,31 @@ interface DataType {
 const dataSource: DataType[] = [
   {
     key: '1',
-    name: '胡彦斌',
+    name: 'John Brown',
     age: 32,
-    address: '西湖区湖底公园1号',
+    address: 'No. 1 Lake Park',
   },
   {
     key: '2',
-    name: '胡彦祖',
+    name: 'Jim Green',
     age: 42,
-    address: '西湖区湖底公园1号',
+    address: 'No. 1 Lake Park',
   },
 ];
 
 const columns: TableProps<DataType>['columns'] = [
   {
-    title: '姓名',
+    title: 'Name',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: '年龄',
+    title: 'Age',
     dataIndex: 'age',
     key: 'age',
   },
   {
-    title: '住址',
+    title: 'Address',
     dataIndex: 'address',
     key: 'address',
   },
