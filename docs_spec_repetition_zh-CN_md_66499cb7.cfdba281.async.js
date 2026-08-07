@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,167858,t=>{"use strict";t.s(["texts",0,[{value:"相同的元素在整个界面中不断重复，不仅可以有效降低用户的学习成本，也可以帮助用户识别出这些元素之间的关联性。",paraId:0},{value:"重复元素可以是一条粗线、一种线框，某种相同的颜色、设计要素、设计风格，某种格式、空间关系等。",paraId:1}]])}]);

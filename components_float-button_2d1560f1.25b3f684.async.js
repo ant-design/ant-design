@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,925487,t=>{"use strict";var o=t.i(391398);t.i(191788);var u=t.i(897283);t.s(["default",0,()=>(0,o.jsx)(u.FloatButton,{onClick:()=>console.log("onClick")})])},897283,t=>{"use strict";var o=t.i(297150);t.s(["FloatButton",()=>o.default])}]);

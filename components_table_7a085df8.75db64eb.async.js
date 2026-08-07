@@ -1,0 +1,11 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,530503,e=>{"use strict";var a=e.i(391398);e.i(191788);var r=e.i(504909),l=e.i(504595),n=e.i(974398);let t=(0,e.i(827830).createStyles)(({css:e,token:a})=>{let{antCls:r}=a;return{customTable:e`
+      ${r}-table {
+        ${r}-table-container {
+          ${r}-table-body,
+          ${r}-table-content {
+            scrollbar-width: thin;
+            scrollbar-color: #eaeaea transparent;
+          }
+        }
+      }
+    `}}),{Text:i}=n.Typography,m=[{title:"Name",dataIndex:"name"},{title:"Borrow",dataIndex:"borrow"},{title:"Repayment",dataIndex:"repayment"}],o=[{key:"1",name:"John Brown",borrow:10,repayment:33},{key:"2",name:"Jim Green",borrow:100,repayment:0},{key:"3",name:"Joe Black",borrow:10,repayment:10},{key:"4",name:"Jim Red",borrow:75,repayment:45}],d=[{title:"Name",dataIndex:"name",fixed:!0,width:100},{title:"Description",dataIndex:"description"}],s=Array.from({length:20}).map((e,a)=>({key:a,name:["Light","Bamboo","Little"][a%3],description:"Everything that has a beginning, has an end."}));e.s(["default",0,()=>{let{styles:e}=t();return(0,a.jsxs)(r.Flex,{vertical:!0,gap:"small",children:[(0,a.jsx)(l.Table,{bordered:!0,className:e.customTable,columns:m,dataSource:o,pagination:!1,summary:e=>{let r=0,n=0;return e.forEach(({borrow:e,repayment:a})=>{r+=e,n+=a}),(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(l.Table.Summary.Row,{children:[(0,a.jsx)(l.Table.Summary.Cell,{index:0,children:"Total"}),(0,a.jsx)(l.Table.Summary.Cell,{index:1,children:(0,a.jsx)(i,{type:"danger",children:r})}),(0,a.jsx)(l.Table.Summary.Cell,{index:2,children:(0,a.jsx)(i,{children:n})})]}),(0,a.jsxs)(l.Table.Summary.Row,{children:[(0,a.jsx)(l.Table.Summary.Cell,{index:0,children:"Balance"}),(0,a.jsx)(l.Table.Summary.Cell,{index:1,colSpan:2,children:(0,a.jsx)(i,{type:"danger",children:r-n})})]})]})}}),(0,a.jsx)(l.Table,{className:e.customTable,columns:d,dataSource:s,pagination:!1,scroll:{x:2e3,y:500},bordered:!0,summary:()=>(0,a.jsx)(l.Table.Summary,{fixed:!0,children:(0,a.jsxs)(l.Table.Summary.Row,{children:[(0,a.jsx)(l.Table.Summary.Cell,{index:0,children:"Summary"}),(0,a.jsx)(l.Table.Summary.Cell,{index:1,children:"This is a summary content"})]})})})]})}])},504595,e=>{"use strict";var a=e.i(833663);e.s(["Table",()=>a.default])}]);
