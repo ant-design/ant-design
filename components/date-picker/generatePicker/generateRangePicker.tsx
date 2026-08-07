@@ -122,13 +122,13 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const mergedDisabled = customDisabled ?? disabled;
 
     // =========== Merged Props for Semantic ===========
-    const mergedProps = {
+    const mergedProps: DateRangePickerProps = {
       ...props,
       size: mergedSize,
       disabled: mergedDisabled,
       status: customStatus,
       variant: customVariant,
-    } as DateRangePickerProps;
+    };
 
     const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<DateRangePickerProps>(
       pickerType,
