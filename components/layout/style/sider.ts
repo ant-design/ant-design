@@ -33,7 +33,9 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       // fix firefox can't set width smaller than content on flex item
       minWidth: 0,
       background: siderBg,
-      transition: `all ${motionDurationMid}, background 0s`,
+      // Use specific properties instead of `all` to avoid shaking the trigger icon
+      // when the sider width changes. See https://github.com/ant-design/ant-design/issues/56196
+      transition: `width ${motionDurationMid}, min-width ${motionDurationMid}, max-width ${motionDurationMid}, flex 0s, background 0s`,
 
       '&-has-trigger': {
         paddingBottom: triggerHeight,
@@ -70,7 +72,9 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         textAlign: 'center',
         background: triggerBg,
         cursor: 'pointer',
-        transition: `all ${motionDurationMid}`,
+        // Only transition width and color, not position, to keep the trigger icon
+        // in sync with the sider width animation. See: https://github.com/ant-design/ant-design/issues/56196
+        transition: `width ${motionDurationMid}, color ${motionDurationMid}, background ${motionDurationMid}`,
       },
 
       [`${componentCls}-zero-width-trigger`]: {
