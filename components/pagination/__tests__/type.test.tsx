@@ -19,11 +19,11 @@ describe('Pagination types', () => {
           },
         }}
         components={{
-          sizeChanger: ({ size, onSizeChange }) => (
+          sizeChanger: ({ value, onChange }) => (
             <input
               type="number"
-              value={size}
-              onChange={(event) => onSizeChange(event.target.value)}
+              value={value}
+              onChange={(event) => onChange(event.target.valueAsNumber)}
             />
           ),
         }}

@@ -6,20 +6,20 @@ type SizeChangerComponent = Required<NonNullable<PaginationProps['components']>>
 type GetProps<T> = T extends React.ComponentType<infer P> ? P : never;
 
 const SizeChanger = (props: GetProps<SizeChangerComponent>) => {
-  const { disabled, size, onSizeChange, 'aria-label': ariaLabel, className } = props;
+  const { disabled, value, onChange, className } = props;
 
   return (
     <InputNumber
-      aria-label={ariaLabel}
+      aria-label="Page Size"
       className={className}
       disabled={disabled}
       min={1}
       precision={0}
       style={{ width: 100 }}
-      value={size}
-      onChange={(value) => {
-        if (value !== null) {
-          onSizeChange(value);
+      value={value}
+      onChange={(nextValue) => {
+        if (nextValue !== null) {
+          onChange(nextValue);
         }
       }}
     />

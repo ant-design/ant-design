@@ -20,7 +20,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/align.tsx" version="5.19.0">方向</code>
 <code src="./demo/more.tsx">更多</code>
 <code src="./demo/changer.tsx">改变</code>
-<code src="./demo/components.tsx" version="6.6.0">定制组件</code>
 <code src="./demo/jump.tsx">跳转</code>
 <code src="./demo/mini.tsx">尺寸</code>
 <code src="./demo/simple.tsx">简洁</code>
@@ -28,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/total.tsx">总数</code>
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/components.tsx" version="6.6.0">定制组件</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/variant-debug.tsx" debug>变体 Debug</code>

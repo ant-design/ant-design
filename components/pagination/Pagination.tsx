@@ -53,9 +53,12 @@ export interface PaginationProps
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
   components?: {
-    sizeChanger?: React.ComponentType<
-      Parameters<NonNullable<RcPaginationProps['sizeChangerRender']>>[0]
-    >;
+    sizeChanger?: React.ComponentType<{
+      value: number;
+      onChange: (value: number) => void;
+      disabled: boolean;
+      className: string;
+    }>;
   };
   showSizeChanger?: boolean | SelectProps;
   /** @deprecated Not official support. Will be removed in next major version. */
@@ -160,11 +163,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   // Render size changer
   const sizeChangerRender: RcPaginationProps['sizeChangerRender'] = (info) => {
-    const SizeChangerComponent = components?.sizeChanger;
-    if (SizeChangerComponent) {
-      return <SizeChangerComponent {...info} />;
-    }
-
     const {
       disabled,
       size: pageSize,
@@ -173,6 +171,18 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       className: sizeChangerClassName,
       options,
     } = info;
+
+    const SizeChangerComponent = components?.sizeChanger;
+    if (SizeChangerComponent) {
+      return (
+        <SizeChangerComponent
+          value={pageSize}
+          onChange={onSizeChange}
+          disabled={!!disabled}
+          className={sizeChangerClassName}
+        />
+      );
+    }
 
     const { className: propSizeChangerClassName, onChange: propSizeChangerOnChange } =
       mergedShowSizeChangerSelectProps || {};

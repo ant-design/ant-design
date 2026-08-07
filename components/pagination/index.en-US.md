@@ -19,7 +19,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/align.tsx" version="5.19.0">Align</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
-<code src="./demo/components.tsx" version="6.6.0">Custom component</code>
 <code src="./demo/jump.tsx">Jumper</code>
 <code src="./demo/mini.tsx">Size</code>
 <code src="./demo/simple.tsx">Simple mode</code>
@@ -27,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/total.tsx">Total number</code>
 <code src="./demo/all.tsx">Show All</code>
 <code src="./demo/itemRender.tsx">Prev and next</code>
+<code src="./demo/components.tsx" version="6.6.0">Custom component</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>component Token</code>
 <code src="./demo/variant-debug.tsx" debug>Variant Debug</code>
