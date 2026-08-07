@@ -63,25 +63,22 @@ interface ProgressToken extends FullToken<'Progress'> {
 }
 
 const genAntProgressActive = (isRtl?: boolean, isVertical?: boolean) => {
-  let direction: string;
-  if (isVertical) {
-    direction = '100%';
-  } else {
-    direction = isRtl ? '100%' : '-100%';
-  }
-  const translate = isVertical ? 'translateY' : 'translateX';
+  const direction = isVertical ? '100%' : isRtl ? '100%' : '-100%';
+  const translate = isVertical ? 'translate3d(0, 100%, 0)' : `translate3d(${direction}, 0, 0)`;
   const scale = isVertical ? 'scaleY' : 'scaleX';
+  const initialTransform = `${translate} ${scale}(0)`;
+
   return new Keyframes(`antProgress${isRtl ? 'RTL' : 'LTR'}Active${isVertical ? 'Vertical' : ''}`, {
     '0%': {
-      transform: `${translate}(${direction}) ${scale}(0)`,
+      transform: initialTransform,
       opacity: 0.1,
     },
     '20%': {
-      transform: `${translate}(${direction}) ${scale}(0)`,
+      transform: initialTransform,
       opacity: 0.5,
     },
     to: {
-      transform: `${translate}(0) ${scale}(1)`,
+      transform: `translate3d(0, 0, 0) ${scale}(1)`,
       opacity: 0,
     },
   });

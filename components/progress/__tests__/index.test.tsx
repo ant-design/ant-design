@@ -176,55 +176,80 @@ describe('Progress', () => {
     errorSpy.mockRestore();
   });
 
-  it('should support vertical', () => {
-    const { container: wrapper, rerender } = render(<Progress percent={60} vertical />);
+  it('should support orientation', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={60} orientation="vertical" />,
+    );
     expect(wrapper.querySelector('.ant-progress-line-vertical')).toBeTruthy();
     expect(wrapper.querySelector('.ant-progress-body-vertical')).toBeTruthy();
     expect(wrapper.firstChild).toMatchSnapshot();
 
-    rerender(<Progress percent={80} vertical status="exception" />);
+    rerender(<Progress percent={80} orientation="vertical" status="exception" />);
     expect(wrapper.querySelector('.ant-progress-status-exception')).toBeTruthy();
     expect(wrapper.firstChild).toMatchSnapshot();
 
-    rerender(<Progress percent={100} vertical status="success" />);
+    rerender(<Progress percent={100} orientation="vertical" status="success" />);
     expect(wrapper.querySelector('.ant-progress-status-success')).toBeTruthy();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('should support vertical with strokeColor', () => {
-    const { container } = render(<Progress percent={60} vertical strokeColor="#52c41a" />);
+  it('should support vertical as syntactic sugar of orientation', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Progress percent={60} vertical />);
+    // `vertical` is kept as syntactic sugar, not a deprecated API
+    expect(errorSpy).not.toHaveBeenCalled();
+    expect(container.querySelector('.ant-progress-line-vertical')).toBeTruthy();
+    expect(container.querySelector('.ant-progress-body-vertical')).toBeTruthy();
+    errorSpy.mockRestore();
+  });
+
+  it('orientation should take priority over vertical', () => {
+    const { container } = render(<Progress percent={60} vertical orientation="horizontal" />);
+    expect(container.querySelector('.ant-progress-line-vertical')).toBeFalsy();
+  });
+
+  it('should support orientation with strokeColor', () => {
+    const { container } = render(
+      <Progress percent={60} orientation="vertical" strokeColor="#52c41a" />,
+    );
     const track = container.querySelector('.ant-progress-track');
     expect(track).toHaveStyle({ background: '#52c41a' });
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support vertical with success', () => {
+  it('should support orientation with success', () => {
     const { container } = render(
-      <Progress percent={80} vertical success={{ percent: 30, strokeColor: '#fff' }} />,
+      <Progress
+        percent={80}
+        orientation="vertical"
+        success={{ percent: 30, strokeColor: '#fff' }}
+      />,
     );
     const track = container.querySelector('.ant-progress-track-success');
     expect(track).toHaveStyle({ backgroundColor: '#fff' });
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support vertical with strokeWidth', () => {
-    const { container } = render(<Progress percent={60} vertical strokeWidth={20} />);
+  it('should support orientation with strokeWidth', () => {
+    const { container } = render(<Progress percent={60} orientation="vertical" strokeWidth={20} />);
     const rail = container.querySelector('.ant-progress-rail');
     expect(rail).toHaveStyle({ width: '20px' });
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support vertical with active status', () => {
-    const { container } = render(<Progress percent={50} vertical status="active" />);
+  it('should support orientation with active status', () => {
+    const { container } = render(<Progress percent={50} orientation="vertical" status="active" />);
     expect(container.querySelector('.ant-progress-status-active')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should support vertical with showInfo', () => {
-    const { container, rerender } = render(<Progress percent={60} vertical showInfo />);
+  it('should support orientation with showInfo', () => {
+    const { container, rerender } = render(
+      <Progress percent={60} orientation="vertical" showInfo />,
+    );
     expect(container.querySelector('.ant-progress-indicator')).toBeTruthy();
 
-    rerender(<Progress percent={60} vertical showInfo={false} />);
+    rerender(<Progress percent={60} orientation="vertical" showInfo={false} />);
     expect(container.querySelector('.ant-progress-indicator')).toBeFalsy();
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -25,13 +25,19 @@ const stylesFn: ProgressProps['styles'] = (info) => {
 
 const App: React.FC = () => (
   <Flex gap={8} style={{ height: 300 }}>
-    <Progress percent={30} vertical />
-    <Progress percent={70} status="exception" vertical />
-    <Progress percent={100} status="success" vertical />
-    <Progress percent={50} vertical showInfo={false} strokeLinecap="butt" />
-    <Progress percent={80} success={{ percent: 60 }} vertical strokeColor="#e9224d" size="small" />
-    <Progress percent={60} vertical strokeWidth={20} railColor="#b2f0f2" />
-    <Progress percent={90} vertical styles={stylesFn} status="active" />
+    <Progress percent={30} orientation="vertical" />
+    <Progress percent={70} status="exception" orientation="vertical" />
+    <Progress percent={100} status="success" orientation="vertical" />
+    <Progress percent={50} orientation="vertical" showInfo={false} strokeLinecap="butt" />
+    <Progress
+      percent={80}
+      success={{ percent: 60 }}
+      orientation="vertical"
+      strokeColor="#e9224d"
+      size="small"
+    />
+    <Progress percent={60} orientation="vertical" strokeWidth={20} railColor="#b2f0f2" />
+    <Progress percent={90} orientation="vertical" styles={stylesFn} status="active" />
   </Flex>
 );
 

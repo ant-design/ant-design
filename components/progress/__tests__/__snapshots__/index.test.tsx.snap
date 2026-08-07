@@ -902,40 +902,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
-exports[`Progress should support steps 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info css-var-root"
-  role="progressbar"
->
-  <div
-    class="ant-progress-steps-body"
-  >
-    <div
-      class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
-    />
-    <div
-      class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
-    />
-    <div
-      class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
-    />
-    <span
-      class="ant-progress-indicator"
-      title="0%"
-    >
-      0%
-    </span>
-  </div>
-</div>
-`;
-
-exports[`Progress should support vertical 1`] = `
+exports[`Progress should support orientation 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -965,7 +932,7 @@ exports[`Progress should support vertical 1`] = `
 </div>
 `;
 
-exports[`Progress should support vertical 2`] = `
+exports[`Progress should support orientation 2`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1013,7 +980,7 @@ exports[`Progress should support vertical 2`] = `
 </div>
 `;
 
-exports[`Progress should support vertical 3`] = `
+exports[`Progress should support orientation 3`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1060,7 +1027,7 @@ exports[`Progress should support vertical 3`] = `
 </div>
 `;
 
-exports[`Progress should support vertical with active status 1`] = `
+exports[`Progress should support orientation with active status 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1090,7 +1057,7 @@ exports[`Progress should support vertical with active status 1`] = `
 </div>
 `;
 
-exports[`Progress should support vertical with showInfo 1`] = `
+exports[`Progress should support orientation with showInfo 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1114,7 +1081,7 @@ exports[`Progress should support vertical with showInfo 1`] = `
 </div>
 `;
 
-exports[`Progress should support vertical with strokeColor 1`] = `
+exports[`Progress should support orientation with strokeColor 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1144,7 +1111,7 @@ exports[`Progress should support vertical with strokeColor 1`] = `
 </div>
 `;
 
-exports[`Progress should support vertical with strokeWidth 1`] = `
+exports[`Progress should support orientation with strokeWidth 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1174,7 +1141,7 @@ exports[`Progress should support vertical with strokeWidth 1`] = `
 </div>
 `;
 
-exports[`Progress should support vertical with success 1`] = `
+exports[`Progress should support orientation with success 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -1203,6 +1170,39 @@ exports[`Progress should support vertical with success 1`] = `
       title="80%"
     >
       80%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress should support steps 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="0"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info css-var-root"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-steps-body"
+  >
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <div
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
+    <span
+      class="ant-progress-indicator"
+      title="0%"
+    >
+      0%
     </span>
   </div>
 </div>
