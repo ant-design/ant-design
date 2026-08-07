@@ -232,9 +232,11 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    const keys = previewThemes.map((t) => getPreviewThemeKey(t));
+    const keys = previewThemes.map<string>(getPreviewThemeKey);
     const currentIndex = keys.indexOf(activeThemeKey);
-    if (currentIndex === -1) return;
+    if (currentIndex === -1) {
+      return;
+    }
 
     let nextIndex: number;
     if (event.key === 'ArrowRight') {
@@ -249,7 +251,10 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
 
     const nextKey = keys[nextIndex];
     setActiveThemeKey(nextKey);
-    containerRef.current?.querySelector<HTMLDivElement>(`[data-theme-key="${nextKey}"]`)?.focus();
+    const element = containerRef.current?.querySelector<HTMLDivElement>(
+      `[data-theme-key="${nextKey}"]`,
+    );
+    element?.focus();
   };
 
   const activeTheme =
@@ -285,6 +290,7 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const background = activeTheme?.bgImg
     ? activeTheme.bgImg
     : 'linear-gradient(180deg, #ffffff 0%, #F5F8FF 100%)';
+
   const hasDarkBackground = !!activeTheme?.bgImgDark;
 
   return (
