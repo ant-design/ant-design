@@ -23,9 +23,12 @@ describe('antd dist files', () => {
       return <Form>{count}</Form>;
     };
 
-    const { container } = render(<Test />);
-    expect(container).toHaveTextContent('1');
-    expect(errorSpy.mock.calls.flat().join(' ')).not.toContain('change in the order of Hooks');
-    errorSpy.mockRestore();
+    try {
+      const { container } = render(<Test />);
+      expect(container).toHaveTextContent('1');
+      expect(errorSpy.mock.calls.flat().join(' ')).not.toContain('change in the order of Hooks');
+    } finally {
+      errorSpy.mockRestore();
+    }
   });
 });
