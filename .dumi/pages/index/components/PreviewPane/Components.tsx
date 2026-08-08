@@ -55,6 +55,8 @@ import { createStyles } from 'antd-style';
 import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import type { ItemType } from 'antd/es/menu/interface';
 import { clsx } from 'clsx';
+import useSWR from 'swr';
+import type { SWRConfiguration } from 'swr';
 
 const { Title, Text } = Typography;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
@@ -265,15 +267,6 @@ const tagList: TagProps[] = [
   { icon: <FacebookOutlined />, color: '#3b5999', content: 'Facebook' },
 ];
 
-const avatarGroupList = [
-  'https://avatars.githubusercontent.com/u/507615?v=4',
-  'https://avatars.githubusercontent.com/u/5378891?v=4',
-  'https://avatars.githubusercontent.com/u/49217418?v=4',
-  'https://avatars.githubusercontent.com/u/117748716?v=4',
-  'https://avatars.githubusercontent.com/u/59312002?v=4',
-  'https://avatars.githubusercontent.com/u/82765353?v=4',
-];
-
 const buttonList: ButtonProps[] = [
   { type: 'primary', children: 'Primary button' },
   { danger: true, children: 'Danger button' },
@@ -287,6 +280,21 @@ const stepsItems: StepItem[] = [
   { title: 'Waiting' },
 ];
 
+interface Contributor {
+  avatar_url: string;
+  login: string;
+  html_url?: string;
+}
+
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
+const swrConfig: SWRConfiguration<Contributor[], Error> = {
+  dedupingInterval: 1000 * 60 * 60 * 12, // 12 hours
+  revalidateOnFocus: false,
+  revalidateOnReconnect: false,
+  errorRetryCount: 3,
+};
+
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const {
     config,
@@ -298,6 +306,23 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   } = props;
 
   const { styles } = useStyle();
+
+  const { data: contributors, isLoading } = useSWR<Contributor[], Error>(
+    'https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100',
+    fetcher,
+    swrConfig,
+  );
+
+  const avatarGroupList = useMemo(() => {
+    if (isLoading) {
+      return [];
+    }
+    if (!Array.isArray(contributors) || !contributors?.length) {
+      return [];
+    }
+    const shuffled = [...contributors].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
+  }, [contributors, isLoading]);
 
   const { theme, ...restConfig } = config || {};
 
@@ -337,7 +362,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   <div>
                     <Flex vertical gap="middle">
                       <Flex gap="middle">
-                        <Input placeholder="antd@email.com" />
+                        <Input placeholder="hi@example.com" />
                         <Select
                           placeholder="Select one"
                           className={styles.selectInput}
@@ -448,8 +473,8 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 <div className={styles.colCenter}>
                   <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
-                      {avatarGroupList.map((src) => (
-                        <Avatar key={src} size={46} src={src} />
+                      {avatarGroupList.map(({ src, name }) => (
+                        <Avatar key={src} size={46} src={src} aria-label={`Contributor: ${name}`} />
                       ))}
                       <Avatar size={46} className={styles.avatarExtra}>
                         +5
@@ -523,7 +548,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   >
                     <Avatar
                       size={50}
-                      src="https://avatars.githubusercontent.com/u/27722486?v=4"
+                      src="https://github.com/ant-design.png?size=50"
                       className={styles.signupAvatar}
                     />
                     <Title level={4}>Create an account</Title>
