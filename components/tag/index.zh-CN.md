@@ -27,6 +27,7 @@ demo:
 <code src="./demo/status.tsx">预设状态的标签</code>
 <code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
 <code src="./demo/draggable.tsx">可拖拽标签</code>
+<code src="./demo/dark.tsx" debug>暗色模式</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/disabled.tsx" debug>禁用标签</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
