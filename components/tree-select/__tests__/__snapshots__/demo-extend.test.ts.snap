@@ -2427,7 +2427,11 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: Seems \`scrollTo\` with \`rc-virtual-list\` reach the max limitation. Please fire issue for us. Thanks.",
+]
+`;
 
 exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div

@@ -86,14 +86,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       });
     }
 
-    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-      pickerType,
-      classNames,
-      styles,
-      popupClassName || dropdownClassName,
-      popupStyle,
-    );
-
     const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -128,6 +120,24 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
     const mergedDisabled = customDisabled ?? disabled;
+
+    // =========== Merged Props for Semantic ===========
+    const mergedProps: DateRangePickerProps = {
+      ...props,
+      size: mergedSize,
+      disabled: mergedDisabled,
+      status: customStatus,
+      variant: customVariant,
+    };
+
+    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<DateRangePickerProps>(
+      pickerType,
+      classNames,
+      styles,
+      popupClassName || dropdownClassName,
+      popupStyle,
+      mergedProps,
+    );
 
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);

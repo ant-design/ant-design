@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 <code src="./demo/mix.tsx">Nested panel</code>
 <code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/custom.tsx">Custom Panel</code>
+<code src="./demo/icon.tsx">Panel with icon</code>
 <code src="./demo/noarrow.tsx">No arrow</code>
 <code src="./demo/extra.tsx">Extra node</code>
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
