@@ -290,6 +290,8 @@ const botExcludes = [
   'dependabot',
   'dependabot[bot]',
   'gemini-code-assist[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
   'depfu[bot]',
 ];
 
