@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '表示',
     hide: '非表示',
     sortable: '並べ替え可能',
+    clear: 'クリア',
   },
   Table: {
     filterTitle: 'フィルター',

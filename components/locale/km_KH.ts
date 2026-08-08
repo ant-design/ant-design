@@ -19,6 +19,7 @@ const localeValues: Locale = {
     hide: 'លាក់',
     placeholder: 'សូមជ្រើសរើស',
     sortable: 'អាចតម្រៀបបាន។',
+    clear: 'សម្អាត',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',

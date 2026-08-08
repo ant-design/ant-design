@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Erakutsi',
     hide: 'Ezkutatu',
     sortable: 'ordenagarria',
+    clear: 'Garbitu',
   },
   Table: {
     filterTitle: 'Iragazi menua',

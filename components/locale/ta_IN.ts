@@ -20,6 +20,7 @@ const localeValues: Locale = {
     show: 'காட்டு',
     hide: 'மறை',
     sortable: 'வரிசைப்படுத்தக்கூடிய',
+    clear: 'அழி',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',

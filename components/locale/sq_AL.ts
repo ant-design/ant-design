@@ -28,6 +28,7 @@ const localeValues: Locale = {
     show: 'Shfaq',
     hide: 'Fshih',
     sortable: 'i renditshëm',
+    clear: 'Pastro',
   },
   Table: {
     filterTitle: 'Menuja e filtrimit',

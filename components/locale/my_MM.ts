@@ -20,6 +20,7 @@ const localeValues: Locale = {
     show: 'ပြပါ',
     hide: 'ဖျောက်ပါ',
     sortable: 'အမျိုးအစားခွဲနိုင်သည်။',
+    clear: 'ရှင်းလင်းရန်',
   },
   Table: {
     filterTitle: 'စစ်ထုတ်ခြင်း မီနူ',

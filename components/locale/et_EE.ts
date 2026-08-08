@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Näita',
     hide: 'Peida',
     sortable: 'sorteeritav',
+    clear: 'Tühjenda',
   },
   Table: {
     filterTitle: 'Filtri menüü',

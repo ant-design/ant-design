@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Mostra',
     hide: 'Nascondi',
     sortable: 'ordinabile',
+    clear: 'Cancella',
   },
   Table: {
     filterTitle: 'Menù Filtro',
