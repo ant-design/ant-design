@@ -9,9 +9,10 @@ interface ColorAlphaInputProps {
   prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabled?: boolean;
 }
 
-const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange }) => {
+const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange, disabled }) => {
   const colorAlphaInputPrefixCls = `${prefixCls}-alpha-input`;
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
@@ -20,6 +21,10 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
   const alphaValue = value || internalValue;
 
   const handleAlphaChange = (step: number | null) => {
+    if (disabled) {
+      return;
+    }
+
     const hsba = alphaValue.toHsb();
     hsba.a = (step || 0) / 100;
     const genColor = generateColor(hsba);
@@ -35,6 +40,7 @@ const ColorAlphaInput: FC<ColorAlphaInputProps> = ({ prefixCls, value, onChange 
       prefixCls={prefixCls}
       formatter={(step) => `${step}%`}
       className={colorAlphaInputPrefixCls}
+      disabled={disabled}
       onChange={handleAlphaChange}
     />
   );
