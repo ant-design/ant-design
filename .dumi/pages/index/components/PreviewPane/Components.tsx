@@ -297,7 +297,7 @@ interface Contributor {
   avatar_url: string;
   login: string;
   html_url: string;
-  type: 'User' | 'Bot';
+  type: 'User' | 'Organization' | 'Bot';
 }
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
