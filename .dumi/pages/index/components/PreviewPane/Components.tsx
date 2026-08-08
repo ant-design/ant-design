@@ -280,10 +280,24 @@ const stepsItems: StepItem[] = [
   { title: 'Waiting' },
 ];
 
+const botExcludes = [
+  'ant-design-bot',
+  'github-actions',
+  'github-actions[bot]',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
+  'gemini-code-assist[bot]',
+  'depfu[bot]',
+];
+
 interface Contributor {
   avatar_url: string;
   login: string;
-  html_url?: string;
+  html_url: string;
+  type: 'User' | 'Bot';
 }
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
@@ -320,7 +334,15 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     if (!Array.isArray(contributors) || !contributors?.length) {
       return [];
     }
-    const shuffled = [...contributors].sort(() => Math.random() - 0.5);
+    const filtered = contributors.filter((contributor) => {
+      const { login, type } = contributor;
+      const name = login.toLowerCase();
+      if (type === 'Bot') {
+        return false;
+      }
+      return !botExcludes.some((item) => name.includes(item));
+    });
+    const shuffled = filtered.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
   }, [contributors, isLoading]);
 
