@@ -149,6 +149,38 @@ describe('Masonry', () => {
     );
   });
 
+  it('does not re-emit onLayoutChange when callback identity changes', async () => {
+    const callCountRef = { current: 0 };
+    const items = heights.map((height, index) => ({
+      key: `item-${index}`,
+      data: height,
+    }));
+
+    const DemoWithInlineCallback = () => {
+      const [, forceUpdate] = React.useState(0);
+
+      return (
+        <DemoMasonry
+          columns={3}
+          items={items}
+          onLayoutChange={() => {
+            callCountRef.current += 1;
+            // Guard: stop before React maximum update depth if regression returns.
+            if (callCountRef.current < 5) {
+              forceUpdate((count) => count + 1);
+            }
+          }}
+        />
+      );
+    };
+
+    render(<DemoWithInlineCallback />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(callCountRef.current).toBe(1);
+  });
+
   it('should handle responsive columns', async () => {
     minWidth = '576px';
 

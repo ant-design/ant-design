@@ -664,6 +664,124 @@ exports[`renders components/masonry/demo/image.tsx extend context correctly 1`] 
 
 exports[`renders components/masonry/demo/image.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/masonry/demo/masonry-virtual.tsx extend context correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height: 600px; display: block; overflow: hidden;"
+>
+  <div
+    class="ant-masonry-virtual-holder"
+    style="height: 100%; overflow-y: auto; overflow-x: hidden;"
+  >
+    <div
+      class="ant-masonry-virtual-inner"
+      style="height: 123184px; position: relative;"
+    >
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 0px; position: absolute;"
+      >
+        <div
+          style="height: 120px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 1"
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 136px; position: absolute;"
+      >
+        <div
+          style="height: 157px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 2"
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 309px; position: absolute;"
+      >
+        <div
+          style="height: 194px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 3"
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 519px; position: absolute;"
+      >
+        <div
+          style="height: 231px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 4"
+            src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 766px; position: absolute;"
+      >
+        <div
+          style="height: 128px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 5"
+            src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 910px; position: absolute;"
+      >
+        <div
+          style="height: 165px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 6"
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item ant-masonry-item-fade"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); top: 1091px; position: absolute;"
+      >
+        <div
+          style="height: 202px; border-radius: 8px; overflow: hidden; background: rgb(245, 245, 245);"
+        >
+          <img
+            alt="Photo 7"
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=640&auto=format"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/masonry/demo/masonry-virtual.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/masonry/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-masonry css-var-test-id"
