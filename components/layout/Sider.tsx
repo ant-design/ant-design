@@ -188,6 +188,23 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     handleSetCollapsed(!collapsed, 'clickTrigger');
   };
 
+  const handleTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
+    if (event.target === event.currentTarget && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      toggle();
+    }
+  };
+
+  const triggerAccessibilityProps: React.HTMLAttributes<HTMLElement> = !trigger
+    ? {
+        role: 'button',
+        tabIndex: 0,
+        'aria-label': collapsed ? 'Expand sidebar' : 'Collapse sidebar',
+        'aria-expanded': !collapsed,
+        onKeyDown: handleTriggerKeyDown,
+      }
+    : {};
+
   const divProps = omit(otherProps, ['collapsed']);
   const rawWidth = collapsed ? collapsedWidth : width;
   // use "px" as fallback unit for width
@@ -196,6 +213,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const zeroWidthTrigger =
     Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
+        {...triggerAccessibilityProps}
         onClick={toggle}
         className={clsx(
           `${prefixCls}-zero-width-trigger`,
@@ -219,7 +237,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const triggerDom =
     trigger !== null
       ? zeroWidthTrigger || (
-          <div className={`${prefixCls}-trigger`} onClick={toggle} style={{ width: siderWidth }}>
+          <div
+            {...triggerAccessibilityProps}
+            className={`${prefixCls}-trigger`}
+            onClick={toggle}
+            style={{ width: siderWidth }}
+          >
             {trigger || defaultTrigger}
           </div>
         )

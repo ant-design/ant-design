@@ -552,10 +552,22 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     return (
       <span
         role="button"
-        tabIndex={-1}
+        tabIndex={inMeasureRow ? -1 : 0}
+        aria-expanded={mergedVisible}
         className={clsx(`${prefixCls}-trigger`, { active: filtered })}
         onClick={(e) => {
           e.stopPropagation();
+        }}
+        onKeyDown={(e) => {
+          if (
+            e.target === e.currentTarget &&
+            !inMeasureRow &&
+            (e.key === 'Enter' || e.key === ' ')
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+            onVisibleChange(!mergedVisible, { source: 'trigger' });
+          }
         }}
       >
         {filterIcon}

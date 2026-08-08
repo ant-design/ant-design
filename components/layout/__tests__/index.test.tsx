@@ -102,6 +102,71 @@ describe('Layout', () => {
     ).toBe(true);
   });
 
+  it.each([
+    {
+      name: 'default',
+      collapsedWidth: 80,
+      selector: '.ant-layout-sider-trigger',
+      key: 'Enter',
+    },
+    {
+      name: 'zero width',
+      collapsedWidth: 0,
+      selector: '.ant-layout-sider-zero-width-trigger',
+      key: ' ',
+    },
+  ])(
+    'should support keyboard interaction on the $name trigger',
+    ({ collapsedWidth, selector, key }) => {
+      const onCollapse = jest.fn();
+      const { container } = render(
+        <Sider collapsible collapsedWidth={collapsedWidth} onCollapse={onCollapse}>
+          Sider
+        </Sider>,
+      );
+      const trigger = container.querySelector<HTMLElement>(selector)!;
+
+      expect(trigger).toHaveAttribute('role', 'button');
+      expect(trigger).toHaveAttribute('tabindex', '0');
+      expect(trigger).toHaveAttribute('aria-label', 'Collapse sidebar');
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+      fireEvent.keyDown(trigger, { key });
+
+      expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+      expect(trigger).toHaveAttribute('aria-label', 'Expand sidebar');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    },
+  );
+
+  it('should leave keyboard handling to a custom interactive trigger', () => {
+    const onCollapse = jest.fn();
+    const { container } = render(
+      <Sider
+        collapsible
+        trigger={
+          <button type="button" className="custom-sider-trigger">
+            Toggle
+          </button>
+        }
+        onCollapse={onCollapse}
+      >
+        Sider
+      </Sider>,
+    );
+    const triggerWrapper = container.querySelector('.ant-layout-sider-trigger')!;
+    const customTrigger = container.querySelector('.custom-sider-trigger')!;
+
+    expect(triggerWrapper).not.toHaveAttribute('role');
+    expect(triggerWrapper).not.toHaveAttribute('tabindex');
+
+    fireEvent.keyDown(customTrigger, { key: 'Enter' });
+    expect(onCollapse).not.toHaveBeenCalled();
+
+    fireEvent.click(customTrigger);
+    expect(onCollapse).toHaveBeenCalledTimes(1);
+  });
+
   it('should have 50% width of sidebar', async () => {
     const { container } = render(
       <Layout>
