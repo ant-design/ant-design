@@ -23,6 +23,7 @@ demo:
 <code src="./demo/withParams.tsx">With Params</code>
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
+<code src="./demo/collapsed.tsx" version="6.6.0">Collapsed</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
@@ -37,9 +38,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| collapsed | Whether to collapse middle items. Hover the ellipsis to show all items | boolean | false | 6.6.0 | × |
 | dropdownIcon | Custom dropdown icon | ReactNode | `<DownOutlined />` | 6.2.0 | 6.2.0 |
 | items | The routing stack information of router (>=5.3.0 recommended, use `Breadcrumb.Item` children for older versions) | [ItemType\[\]](#itemtype) | - | 5.3.0 | × |
 | itemRender | Custom item renderer, work with react-router, see [example](#use-with-browserhistory) | (route, params, routes, paths) => ReactNode | - |  | × |
+| keepCount | Number of items to keep when collapsed | number | - | 6.6.0 | × |
 | params | Routing parameters | object | - |  | × |
 | separator | Custom separator | ReactNode | `/` |  | 6.0.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
