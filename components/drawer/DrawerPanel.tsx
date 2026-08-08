@@ -8,6 +8,7 @@ import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
+import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -155,13 +156,18 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     [onClose, prefixCls, closablePlacement, mergedClassNames.close, mergedStyles.close],
   );
 
-  const [mergedClosable, mergedCloseIcon] = useClosable(
+  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = useClosable(
     pickClosable(props),
     pickClosable(drawerContext),
     {
       closable: true,
       closeIconRender: customCloseIconRender,
     },
+  );
+
+  const mergedCloseButton = cloneElement<React.ButtonHTMLAttributes<HTMLButtonElement>>(
+    mergedCloseIcon,
+    { disabled: closeBtnIsDisabled },
   );
 
   const renderHeader = () => {
@@ -176,7 +182,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         })}
       >
         <div className={`${prefixCls}-header-title`}>
-          {closablePlacement === 'start' && mergedCloseIcon}
+          {closablePlacement === 'start' && mergedCloseButton}
           {title && (
             <div
               className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
@@ -195,7 +201,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
             {extra}
           </div>
         )}
-        {closablePlacement === 'end' && mergedCloseIcon}
+        {closablePlacement === 'end' && mergedCloseButton}
       </div>
     );
   };
