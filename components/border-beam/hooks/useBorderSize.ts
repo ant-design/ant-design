@@ -5,7 +5,8 @@ import { isSameBorderWidth } from '../util';
 import type { BorderWidth } from '../util';
 
 const parseBorderWidth = (value: string) => {
-  return isNumber(value) ? Number.parseFloat(value) : 0;
+  const size = Number.parseFloat(value);
+  return isNumber(size) ? size : 0;
 };
 
 const useBorderSize = (domNode: Element | null) => {
