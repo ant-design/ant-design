@@ -71,13 +71,3 @@ For performance reasons, whether `children` can host the beam and its positionin
 `BorderBeam` renders the beam layer as a child of the actual container and directly inherits its radius through `border-radius: inherit`. For a single-container child such as `Card`, the beam automatically follows the container radius. For more complex child trees, make sure the radius is set on the actual container root.
 
 The radius stays in sync through CSS inheritance, without being read or measured during initialization. Later changes made through `className`, responsive styles, or CSS variables are automatically reflected by the beam layer.
-
-For example:
-
-```tsx
-const radius = 24;
-
-<BorderBeam>
-  <Card style={{ borderRadius: radius }} />
-</BorderBeam>;
-```

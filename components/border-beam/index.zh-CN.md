@@ -72,13 +72,3 @@ tag: 6.4.0
 `BorderBeam` 会将流光层渲染为实际容器的子节点，并通过 `border-radius: inherit` 直接继承容器圆角。对于 `Card` 这类单容器子节点，流光边框会自动与容器圆角对齐；若子节点结构较复杂，请确保圆角设置在实际容器根节点上。
 
 圆角通过 CSS 继承实时生效，无需在初始化时读取或重新测量。后续通过 `className`、响应式样式或 CSS 变量修改容器圆角时，流光层也会自动同步。
-
-例如：
-
-```tsx
-const radius = 24;
-
-<BorderBeam>
-  <Card style={{ borderRadius: radius }} />
-</BorderBeam>;
-```
