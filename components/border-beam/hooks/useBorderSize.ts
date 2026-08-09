@@ -14,6 +14,7 @@ const useBorderSize = (domNode: Element | null) => {
 
   React.useEffect(() => {
     if (!domNode) {
+      setBorderWidth([0, 0, 0, 0]);
       return;
     }
 
