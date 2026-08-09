@@ -280,10 +280,26 @@ const stepsItems: StepItem[] = [
   { title: 'Waiting' },
 ];
 
+const botExcludes = [
+  'ant-design-bot',
+  'github-actions',
+  'github-actions[bot]',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
+  'gemini-code-assist[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
+  'depfu[bot]',
+];
+
 interface Contributor {
   avatar_url: string;
   login: string;
-  html_url?: string;
+  html_url: string;
+  type: 'User' | 'Organization' | 'Bot';
 }
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
@@ -320,7 +336,15 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     if (!Array.isArray(contributors) || !contributors?.length) {
       return [];
     }
-    const shuffled = [...contributors].sort(() => Math.random() - 0.5);
+    const filtered = contributors.filter((contributor) => {
+      const { login, type } = contributor;
+      const name = login.toLowerCase();
+      if (type === 'Bot') {
+        return false;
+      }
+      return !botExcludes.some((item) => name.includes(item));
+    });
+    const shuffled = filtered.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
   }, [contributors, isLoading]);
 
@@ -474,9 +498,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
                       {avatarGroupList.map(({ src, name }) => (
-                        <Avatar key={src} size={46} src={src} aria-label={`Contributor: ${name}`} />
+                        <Avatar
+                          key={src}
+                          size={46}
+                          src={src}
+                          draggable={false}
+                          alt={`Contributor: ${name}`}
+                          aria-label={`Contributor: ${name}`}
+                        />
                       ))}
-                      <Avatar size={46} className={styles.avatarExtra}>
+                      <Avatar size={46} draggable={false} className={styles.avatarExtra}>
                         +5
                       </Avatar>
                     </Avatar.Group>
@@ -517,6 +548,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         shape="square"
                         size={60}
                         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                        draggable={false}
                       />
                       <div className={styles.profileInfo}>
                         <Title level={5} className={styles.profileTitle}>
@@ -550,6 +582,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       size={50}
                       src="https://github.com/ant-design.png?size=50"
                       className={styles.signupAvatar}
+                      draggable={false}
                     />
                     <Title level={4}>Create an account</Title>
                     <Text type="secondary" className={styles.signupText}>
