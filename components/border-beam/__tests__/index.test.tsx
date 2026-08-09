@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -244,16 +245,18 @@ describe('BorderBeam', () => {
   });
 
   it('should inherit child border radius', async () => {
+    const cache = createCache();
     const { container } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 12 }}>content</div>
-      </BorderBeam>,
+      <StyleProvider cache={cache}>
+        <BorderBeam>
+          <div style={{ borderRadius: 12 }}>content</div>
+        </BorderBeam>
+      </StyleProvider>,
     );
-
     await waitFor(() => {
       const beamElement = getBeamElement(container);
       expect(getComputedStyle(beamElement.parentElement!).borderRadius).toBe('12px');
-      expect(getComputedStyle(beamElement).borderRadius).toBe('inherit');
+      expect(extractStyle(cache, { plain: true })).toContain('border-radius:inherit');
     });
   });
 
