@@ -243,7 +243,7 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('');
   });
 
-  it('should infer child border radius from computed style', async () => {
+  it('should inherit child border radius', async () => {
     const { container } = render(
       <BorderBeam>
         <div style={{ borderRadius: 12 }}>content</div>
@@ -251,21 +251,9 @@ describe('BorderBeam', () => {
     );
 
     await waitFor(() => {
-      expect(getBeamElement(container).style.getPropertyValue(varName('border-radius'))).toBe(
-        '12px',
-      );
-    });
-
-    const { container: cssVarContainer } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 'var(--beam-radius)' }}>content</div>
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      expect(getBeamElement(cssVarContainer).style.getPropertyValue(varName('border-radius'))).toBe(
-        'var(--beam-radius)',
-      );
+      const beamElement = getBeamElement(container);
+      expect(getComputedStyle(beamElement.parentElement!).borderRadius).toBe('12px');
+      expect(getComputedStyle(beamElement).borderRadius).toBe('inherit');
     });
   });
 
