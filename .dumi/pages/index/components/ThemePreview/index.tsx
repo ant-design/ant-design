@@ -232,6 +232,12 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+    if (!event.target.hasAttribute('data-theme-key')) {
+      return;
+    }
     const keys = previewThemes.map<string>(getPreviewThemeKey);
     const currentIndex = keys.indexOf(activeThemeKey);
     if (currentIndex === -1) {
