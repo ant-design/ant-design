@@ -57,7 +57,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ============================= Host =============================
   const [childNode, childDomNode] = useChildDom(children);
-  const { borderWidth, borderRadius } = useBorderSize(childDomNode);
+  const borderWidth = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
 
   // ============================ Border ============================
@@ -81,7 +81,6 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
           ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
           [varName('inset-offset')]: insetOffset,
-          [varName('border-radius')]: borderRadius,
         }}
       />
     </>
