@@ -30,12 +30,15 @@ const transformIgnorePatterns = [
   '[/\\\\]dist[/\\\\]antd.*\\.js$',
 ];
 
-function getTestRegex(libDir) {
-  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir)) {
+const getTestRegex = (libDir) => {
+  if (libDir === 'dist') {
+    return '(demo|dist)\\.test\\.(j|t)sx?$';
+  }
+  if (['lib', 'es', 'dist-min'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';
-}
+};
 
 const shouldIgnoreSemantic =
   ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
