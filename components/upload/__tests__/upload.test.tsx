@@ -3,7 +3,7 @@ import type { UploadRequestOption } from '@rc-component/upload';
 import { produce } from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
 
-import type { RcFile, UploadFile, UploadProps } from '..';
+import type { RcFile, UploadFile, UploadProps, UploadRef } from '..';
 import Upload from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -1079,7 +1079,7 @@ describe('Upload', () => {
   });
 
   it('container ref', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<UploadRef<any>>();
     render(<Upload ref={ref} />);
     expect(ref.current?.nativeElement).toBeTruthy();
     expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
