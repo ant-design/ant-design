@@ -144,17 +144,17 @@ exports[`renders components/border-beam/demo/count.tsx extend context correctly 
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-delay: -2s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-delay: -2s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-delay: -4s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-delay: -4s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
   <div
@@ -181,12 +181,12 @@ exports[`renders components/border-beam/demo/count.tsx extend context correctly 
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
 </div>
