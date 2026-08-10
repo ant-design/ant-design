@@ -4,17 +4,25 @@ import { isNumber } from '../../_util/is';
 import { isSameBorderWidth } from '../util';
 import type { BorderWidth } from '../util';
 
-const parseBorderWidth = (value: string) => {
-  const size = Number.parseFloat(value);
+const DEFAULT_BORDER_WIDTH: BorderWidth = [0, 0, 0, 0];
+
+const normalizeValue = (val: string) => {
+  const size = Number.parseFloat(val);
   return isNumber(size) ? size : 0;
 };
 
 const useBorderSize = (domNode: Element | null) => {
-  const [borderWidth, setBorderWidth] = React.useState<BorderWidth>([0, 0, 0, 0]);
+  const [borderWidth, setBorderWidth] = React.useState<BorderWidth>(DEFAULT_BORDER_WIDTH);
 
   React.useEffect(() => {
     if (!domNode) {
-      setBorderWidth([0, 0, 0, 0]);
+      setBorderWidth((prev) => {
+        if (isSameBorderWidth(prev, DEFAULT_BORDER_WIDTH)) {
+          return prev;
+        } else {
+          return DEFAULT_BORDER_WIDTH;
+        }
+      });
       return;
     }
 
@@ -22,10 +30,10 @@ const useBorderSize = (domNode: Element | null) => {
       getComputedStyle(domNode);
 
     const nextBorderWidth: BorderWidth = [
-      parseBorderWidth(borderTopWidth),
-      parseBorderWidth(borderRightWidth),
-      parseBorderWidth(borderBottomWidth),
-      parseBorderWidth(borderLeftWidth),
+      normalizeValue(borderTopWidth),
+      normalizeValue(borderRightWidth),
+      normalizeValue(borderBottomWidth),
+      normalizeValue(borderLeftWidth),
     ];
 
     setBorderWidth((prev) => {
