@@ -1,5 +1,6 @@
 import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { renderHook } from '@testing-library/react';
 
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -7,6 +8,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFor } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import useBorderSize from '../hooks/useBorderSize';
 
 describe('BorderBeam', () => {
   mountTest(() => <BorderBeam>content</BorderBeam>);
@@ -142,6 +144,19 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('inset-offset'))).toBe(
       'calc(-1 * 2em)',
     );
+  });
+
+  it('should reset the inferred border width when the host becomes unavailable', () => {
+    const host = document.createElement('div');
+    host.style.border = '2px solid red';
+    const initialProps: { domNode: Element | null } = { domNode: host };
+    const { result, rerender } = renderHook(
+      ({ domNode }: { domNode: Element | null }) => useBorderSize(domNode),
+      { initialProps },
+    );
+    expect(result.current).toEqual([2, 2, 2, 2]);
+    rerender({ domNode: null });
+    expect(result.current).toEqual([0, 0, 0, 0]);
   });
 
   it('should support customizing the beam loop duration', async () => {
