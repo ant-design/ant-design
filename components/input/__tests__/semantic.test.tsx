@@ -140,6 +140,24 @@ describe('Input.Semantic', () => {
     expect(count).toHaveStyle(testStyles.count);
   });
 
+  it('search should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputSearch={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.Search
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-search'));
+  });
+
   it('password should support classNames and styles', () => {
     const { container } = render(
       <Input.Password
@@ -170,6 +188,24 @@ describe('Input.Semantic', () => {
     expect(clear).toHaveStyle(testStyles.clear);
     expect(count).toHaveClass(testClassNames.count);
     expect(count).toHaveStyle(testStyles.count);
+  });
+
+  it('password should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        inputPassword={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Input.Password
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-input-affix-wrapper'));
   });
 
   it('otp should support classNames and styles', () => {

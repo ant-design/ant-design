@@ -20,6 +20,7 @@ demo:
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/search-variant-debug.tsx" debug>Variant Config Debug</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
@@ -116,6 +117,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - | 6.0.0 | 6.0.0 |
 | searchIcon | Customize the search icon | ReactNode | - | 6.4.0 | 6.4.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 
 Supports all props of `Input`.
 
@@ -126,6 +128,7 @@ Supports all props of `Input`.
 | classNames | Semantic DOM class | Record<[SemanticDOM](#semantic-password), string> | - | 5.4.0 | 6.4.0 |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 | 6.4.0 |
 | styles | Semantic DOM style | Record<[SemanticDOM](#semantic-password), CSSProperties> | - | 5.4.0 | 6.4.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  | × |
 
 ### Input.OTP
@@ -149,7 +152,7 @@ Added in `5.16.0`.
 | length | The number of input elements | number | 6 |  | × |
 | status | Set validation status | 'error' \| 'warning' | - |  | × |
 | size | The size of the input box | `small` \| `medium` \| `large` | `medium` |  | × |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | × |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | 6.6.0 |
 | value | The input content value | string | - |  | × |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  | × |
 | onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` | × |

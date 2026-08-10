@@ -15,6 +15,14 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       // ========================== Row ==========================
       [`${componentCls}-tbody-virtual`]: {
+        [`${componentCls}-tbody-virtual-scrollbar`]: {
+          cursor: 'pointer',
+
+          '&:hover': {
+            backgroundColor: token.colorFillQuaternary,
+          },
+        },
+
         [`${componentCls}-tbody-virtual-holder-inner`]: {
           [`
             & > ${componentCls}-row,

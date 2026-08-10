@@ -1571,7 +1571,6 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"

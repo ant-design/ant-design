@@ -23,6 +23,15 @@ describe('Descriptions', () => {
     errorSpy.mockRestore();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Descriptions>>();
+    const { container } = render(
+      <Descriptions ref={ref} items={[{ key: 'name', label: 'Name', children: 'Ant Design' }]} />,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-descriptions'));
+  });
+
   it('when max-width: 575px, column=1', () => {
     const wrapper = render(
       <Descriptions>

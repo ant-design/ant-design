@@ -129,6 +129,22 @@ describe('Tag.Semantic', () => {
     expect(closeElement).toHaveClass('close-filled');
     expect(closeElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Tag styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Bamboo
+        </Tag>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-tag'));
+  });
   it('checkableTagGroup support classNames and styles as objects', () => {
     const { container } = render(
       <Tag.CheckableTagGroup

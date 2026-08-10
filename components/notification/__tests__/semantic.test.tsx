@@ -2,6 +2,10 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
 import notification, { actWrapper } from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
@@ -392,5 +396,40 @@ describe('notification semantic styles and classNames', () => {
       color: 'rgb(128, 128, 128)', // from config
       margin: '10px', // from props
     });
+  });
+
+  it('should follow notice root style priority', () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+          styles: semanticRootStylePriority.styles,
+          style: semanticRootStylePriority.style,
+        });
+      };
+
+      return (
+        <ConfigProvider
+          notification={{
+            styles: semanticRootStylePriority.contextStyles,
+            style: semanticRootStylePriority.contextStyle,
+          }}
+        >
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    fireEvent.click(container.querySelector('button')!);
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-notification-notice'));
   });
 });

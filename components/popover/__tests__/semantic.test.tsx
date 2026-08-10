@@ -2,6 +2,11 @@ import React from 'react';
 
 import Popover from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Popover.Semantic', () => {
   it('should support static classNames and styles', () => {
@@ -53,5 +58,28 @@ describe('Popover.Semantic', () => {
     expect(contentElement).toHaveClass('custom-container');
     expect(popoverElement).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
     expect(contentElement).toHaveStyle({ padding: '16px' });
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        popover={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Popover
+          open
+          title="Test"
+          content="Content"
+          styles={semanticRootStylePriority.styles}
+          overlayStyle={semanticRootStylePriority.style}
+        >
+          <span>Test</span>
+        </Popover>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-popover'));
   });
 });

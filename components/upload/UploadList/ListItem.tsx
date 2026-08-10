@@ -3,6 +3,7 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
+import { useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
@@ -91,14 +92,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     }, [status]);
 
     // Delay to show the progress bar
-    const [showProgress, setShowProgress] = React.useState(false);
+    const [showProgress, setShowProgress] = useDelayState(false);
     React.useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowProgress(true);
-      }, 300);
-      return () => {
-        clearTimeout(timer);
-      };
+      setShowProgress(true, { ms: 300 });
     }, []);
 
     const iconNode = iconRender(file);

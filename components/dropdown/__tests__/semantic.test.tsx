@@ -3,6 +3,11 @@ import type { MenuProps } from '../../menu';
 import Dropdown from '..';
 import { SaveOutlined } from '@ant-design/icons';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Dropdown.Semantic', () => {
   it('support classNames and styles', () => {
@@ -75,5 +80,27 @@ describe('Dropdown.Semantic', () => {
     expect(itemContent).toHaveStyle(testStyles.itemContent);
     expect(itemTitle).toHaveClass(testClassNames.itemTitle);
     expect(itemTitle).toHaveStyle(testStyles.itemTitle);
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        dropdown={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Dropdown
+          open
+          menu={{ items: [{ key: '1', label: '1st menu item' }] }}
+          styles={semanticRootStylePriority.styles}
+          overlayStyle={semanticRootStylePriority.style}
+        >
+          <button type="button">button</button>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-dropdown'));
   });
 });

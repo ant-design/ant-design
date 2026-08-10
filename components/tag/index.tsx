@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
@@ -127,23 +127,26 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     };
 
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-      {
-        props: mergedProps,
-      },
-    );
+    const contextStyleRoot = useSemanticRootStyle(contextStyle);
+    const styleRoot = useSemanticRootStyle(style);
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      TagSemanticAllType['classNames'],
+      TagSemanticAllType['styles'],
+      TagProps
+    >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+      props: mergedProps,
+    });
 
     const tagStyle = React.useMemo(() => {
-      let nextTagStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
+      let nextTagStyle: React.CSSProperties = mergedStyles.root;
 
       if (!mergedDisabled) {
         nextTagStyle = { ...customTagStyle, ...nextTagStyle };
       }
 
       return nextTagStyle;
-    }, [mergedStyles.root, contextStyle, style, customTagStyle, mergedDisabled]);
+    }, [mergedStyles.root, customTagStyle, mergedDisabled]);
 
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls);

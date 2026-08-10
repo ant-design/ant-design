@@ -1,5 +1,8 @@
 import React from 'react';
 
+import type { FormInstance } from '../../form';
+import Form from '../../form';
+import Input from '../../input';
 import type { TableProps } from '..';
 import Table from '..';
 import { fireEvent, render } from '../../../tests/utils';
@@ -43,6 +46,36 @@ describe('Table.expand', () => {
     const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('force renders expanded form fields before expansion', async () => {
+    const formRef = React.createRef<FormInstance>();
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Table
+          columns={columns}
+          dataSource={[John]}
+          expandable={{
+            forceRender: true,
+            expandedRowRender: (record) => (
+              <Form.Item
+                name={['expanded', record.key]}
+                rules={[{ required: true, message: 'Required' }]}
+              >
+                <Input />
+              </Form.Item>
+            ),
+          }}
+        />
+      </Form>,
+    );
+
+    expect(container.querySelector('.ant-table-expanded-row')).toHaveStyle({ display: 'none' });
+    expect(container.querySelector('input')).toBeTruthy();
+    await expect(formRef.current!.validateFields({ validateOnly: true })).rejects.toMatchObject({
+      errorFields: [{ name: ['expanded', '1'], errors: ['Required'] }],
+    });
   });
 
   it('expandRowByClick should not block click icon', () => {
