@@ -295,7 +295,6 @@ exports[`Form form should support disabled 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -373,7 +372,6 @@ exports[`Form form should support disabled 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -451,7 +449,6 @@ exports[`Form form should support disabled 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"

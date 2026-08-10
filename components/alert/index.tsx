@@ -1,7 +1,7 @@
 import InternalAlert from './Alert';
 import ErrorBoundary from './ErrorBoundary';
 
-export type { AlertProps } from './Alert';
+export type { AlertProps, AlertRef } from './Alert';
 
 export type { ErrorBoundaryProps } from './ErrorBoundary';
 

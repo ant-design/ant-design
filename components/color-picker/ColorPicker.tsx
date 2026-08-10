@@ -3,7 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import type { GetProp } from '../_util/type';
@@ -22,7 +22,13 @@ import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useModeColor from './hooks/useModeColor';
-import type { ColorFormatType, ColorPickerProps, ModeType, TriggerPlacement } from './interface';
+import type {
+  ColorFormatType,
+  ColorPickerProps,
+  ColorPickerSemanticAllType,
+  ModeType,
+  TriggerPlacement,
+} from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
@@ -101,9 +107,16 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ColorPickerSemanticAllType['classNames'],
+    ColorPickerSemanticAllType['styles'],
+    ColorPickerProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -262,8 +275,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
   // ============================ zIndex ============================
 
   return (
@@ -307,7 +318,6 @@ const ColorPicker: CompoundedComponent = (props) => {
           activeIndex={popupOpen ? activeIndex : -1}
           open={popupOpen}
           className={mergedCls}
-          style={mergedStyle}
           classNames={mergedClassNames}
           styles={mergedStyles}
           prefixCls={prefixCls}

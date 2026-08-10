@@ -453,7 +453,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         UnClearable
       </div>
@@ -493,7 +492,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Customized clear icon
       </div>
@@ -538,7 +536,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         input here
       </div>
@@ -578,7 +575,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         control mode
       </div>
@@ -684,16 +680,16 @@ Array [
         />
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1056,7 +1052,6 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx extend 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -1237,16 +1232,16 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
                     </div>
                   </div>
                   <div
-                    class="rc-virtual-list"
+                    class="ant-select-dropdown-list"
                     style="position: relative;"
                   >
                     <div
-                      class="rc-virtual-list-holder"
+                      class="ant-select-dropdown-list-holder"
                       style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                     >
                       <div>
                         <div
-                          class="rc-virtual-list-holder-inner"
+                          class="ant-select-dropdown-list-holder-inner"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
@@ -1319,16 +1314,16 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1431,16 +1426,16 @@ exports[`renders components/auto-complete/demo/filled-custom-debug.tsx extend co
                     </div>
                   </div>
                   <div
-                    class="rc-virtual-list"
+                    class="ant-select-dropdown-list"
                     style="position: relative;"
                   >
                     <div
-                      class="rc-virtual-list-holder"
+                      class="ant-select-dropdown-list-holder"
                       style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                     >
                       <div>
                         <div
-                          class="rc-virtual-list-holder-inner"
+                          class="ant-select-dropdown-list-holder-inner"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
@@ -1583,7 +1578,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -1648,7 +1642,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -1789,7 +1782,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -1896,7 +1888,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2054,7 +2045,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2254,7 +2244,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2459,7 +2448,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2678,7 +2666,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         try to type \`b\`
       </div>
@@ -2714,16 +2701,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -2799,7 +2786,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         input here
       </div>
@@ -2902,16 +2888,16 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -3011,7 +2997,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -3051,7 +3036,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -3097,7 +3081,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         object styles
       </div>
@@ -3133,16 +3116,16 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -3250,7 +3233,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         function styles
       </div>
@@ -3286,16 +3268,16 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -3485,7 +3467,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Outlined
       </div>
@@ -3523,7 +3504,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Filled
       </div>
@@ -3561,7 +3541,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Borderless
       </div>
@@ -3599,7 +3578,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Underlined
       </div>

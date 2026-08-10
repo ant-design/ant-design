@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -178,6 +178,8 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // ========================= Clickable ==========================
+      [`${itemCls}[role='button']:focus-visible`]: genFocusOutline(token),
+
       [`${itemCls}[role='button']:not(${itemCls}-active):hover`]: {
         cursor: 'pointer',
       },

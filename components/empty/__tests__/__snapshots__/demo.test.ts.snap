@@ -125,7 +125,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           />
           <input
             aria-autocomplete="list"
@@ -184,7 +183,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           />
           <input
             aria-autocomplete="list"
@@ -243,7 +241,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           />
           <input
             aria-autocomplete="list"

@@ -51,7 +51,11 @@ export interface AvatarGroupProps {
   shape?: 'circle' | 'square';
 }
 
-const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
+export interface AvatarGroupRef {
+  nativeElement: HTMLDivElement;
+}
+
+const AvatarGroup = React.forwardRef<AvatarGroupRef, AvatarGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -104,6 +108,12 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     }),
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   const mergeCount = max?.count || maxCount;
   const numOfChildren = childrenWithProps.length;
   if (mergeCount && mergeCount < numOfChildren) {
@@ -130,7 +140,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
     return (
       <AvatarContextProvider shape={shape} size={size}>
-        <div className={cls} style={style}>
+        <div ref={nativeElementRef} className={cls} style={style}>
           {childrenShow}
         </div>
       </AvatarContextProvider>
@@ -139,11 +149,11 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
   return (
     <AvatarContextProvider shape={shape} size={size}>
-      <div className={cls} style={style}>
+      <div ref={nativeElementRef} className={cls} style={style}>
         {childrenWithProps}
       </div>
     </AvatarContextProvider>
   );
-};
+});
 
 export default AvatarGroup;

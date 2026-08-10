@@ -22,6 +22,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/hover.tsx">鼠标悬浮时显示</code>
+<code src="./demo/count.tsx" version="6.6.0">多条流光</code>
 <code src="./demo/custom-container.tsx">自定义容器</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
@@ -40,6 +41,7 @@ tag: 6.4.0
 | --- | --- | --- | --- | --- | --- |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
+| count | 流光数量 | number | 1 | 6.6.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |
 | lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | 6.5.0 | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | 6.4.0 | × |

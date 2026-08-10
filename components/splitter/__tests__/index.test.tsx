@@ -75,6 +75,18 @@ describe('Splitter', () => {
     jest.useRealTimers();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Splitter>>();
+    const { container } = render(
+      <Splitter ref={ref}>
+        <Splitter.Panel>First</Splitter.Panel>
+        <Splitter.Panel>Second</Splitter.Panel>
+      </Splitter>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-splitter'));
+  });
+
   it('should correct render', () => {
     const { container } = render(<SplitterDemo />);
     expect(container.querySelector('.ant-splitter')).toBeTruthy();
