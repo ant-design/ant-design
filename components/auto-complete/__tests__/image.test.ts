@@ -6,19 +6,38 @@ import CustomizeClearDebug from '../demo/customize-clear-debug';
 
 const customizeClearDebugFilename = 'components/auto-complete/demo/customize-clear-debug.tsx';
 const customizeClearSelector = '.ant-select-customize.ant-select-allow-clear';
+const customizeClearInputSelector = `${customizeClearSelector}:has(input.ant-select-input)`;
+const customizeClearTextAreaSelector = `${customizeClearSelector}:has(textarea.ant-select-input)`;
 
-const expectContentNotShifted = async (testPage: Page) => {
-  const marginInlineEnd = await testPage.evaluate((selector) => {
-    const content = document.querySelector<HTMLElement>(selector);
+const hoverAndExpectContentNotShifted = async (testPage: Page, selector: string) => {
+  await testPage.hover(selector);
 
-    if (!content) {
-      throw new Error(`Missing content: ${selector}`);
+  const { hovered, marginInlineEnd } = await testPage.evaluate((rootSelector) => {
+    const root = document.querySelector<HTMLElement>(rootSelector);
+
+    if (!root) {
+      throw new Error(`Missing root: ${rootSelector}`);
     }
 
-    return getComputedStyle(content).marginInlineEnd;
-  }, `${customizeClearSelector} .ant-select-content`);
+    const content = root.querySelector<HTMLElement>('.ant-select-content');
 
+    if (!content) {
+      throw new Error(`Missing content: ${rootSelector}`);
+    }
+
+    return {
+      hovered: root.matches(':hover'),
+      marginInlineEnd: getComputedStyle(content).marginInlineEnd,
+    };
+  }, selector);
+
+  expect(hovered).toBe(true);
   expect(marginInlineEnd).toBe('0px');
+};
+
+const expectContentNotShifted = async (testPage: Page) => {
+  await hoverAndExpectContentNotShifted(testPage, customizeClearInputSelector);
+  await hoverAndExpectContentNotShifted(testPage, customizeClearTextAreaSelector);
 };
 
 describe('AutoComplete image', () => {
@@ -27,14 +46,11 @@ describe('AutoComplete image', () => {
       React.createElement(CustomizeClearDebug),
       'auto-complete-customize-clear-debug-hover',
       customizeClearDebugFilename,
-      {
-        beforeScreenshot: expectContentNotShifted,
-        hoverSelector: customizeClearSelector,
-      },
+      { beforeScreenshot: expectContentNotShifted },
     );
   });
 
   imageDemoTest('auto-complete', {
-    skip: ['row-selection-debug.tsx'],
+    skip: ['customize-clear-debug.tsx', 'row-selection-debug.tsx'],
   });
 });
