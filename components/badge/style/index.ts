@@ -117,6 +117,11 @@ const antStatusProcessing = new Keyframes('antStatusProcessing', {
   '100%': { transform: 'scale(2.4)', opacity: 0 },
 });
 
+const antStatusProcessingDark = new Keyframes('antStatusProcessingDark', {
+  '0%': { transform: 'scale(0.8)', opacity: 0.85 },
+  '100%': { transform: 'scale(2.4)', opacity: 0 },
+});
+
 const antZoomBadgeIn = new Keyframes('antZoomBadgeIn', {
   '0%': { transform: 'scale(0) translate(50%, -50%)', opacity: 0 },
   '100%': { transform: 'scale(1) translate(50%, -50%)' },
@@ -287,6 +292,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
             animationIterationCount: 'infinite',
             animationTimingFunction: 'ease-in-out',
             content: '""',
+          },
+          '.ant-dark &': {
+            '&::after': {
+              animationName: antStatusProcessingDark,
+            },
           },
         },
         [`${componentCls}-status-default`]: {
