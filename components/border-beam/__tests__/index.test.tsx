@@ -9,6 +9,7 @@ import { render, waitFor } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import useBorderSize from '../hooks/useBorderSize';
+import type { BorderWidth } from '../util';
 
 describe('BorderBeam', () => {
   mountTest(() => <BorderBeam>content</BorderBeam>);
@@ -147,15 +148,13 @@ describe('BorderBeam', () => {
   });
 
   it('should reset the inferred border width when the host becomes unavailable', () => {
-    const host = document.createElement('div');
-    host.style.border = '2px solid red';
-    const initialProps: { domNode: Element | null } = { domNode: host };
-    const { result, rerender } = renderHook(
-      ({ domNode }: { domNode: Element | null }) => useBorderSize(domNode),
-      { initialProps },
-    );
-    expect(result.current).toEqual([2, 2, 2, 2]);
-    rerender({ domNode: null });
+    const element = document.createElement('div');
+    element.style.border = '4px solid #fff';
+    const { result, rerender } = renderHook<BorderWidth, HTMLElement>(useBorderSize, {
+      initialProps: element,
+    });
+    expect(result.current).toEqual([4, 4, 4, 4]);
+    rerender(undefined);
     expect(result.current).toEqual([0, 0, 0, 0]);
   });
 
