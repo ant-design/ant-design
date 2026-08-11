@@ -863,10 +863,18 @@ describe('Transfer', () => {
     });
   });
 
-  it('remove by click icon', () => {
+  it('should use the component locale for one-way item removal', () => {
     const onChange = jest.fn();
-    const { container } = render(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
-    fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
+    const { getByRole } = render(
+      <Transfer
+        {...listCommonProps}
+        locale={{ remove: 'Remove target item' }}
+        onChange={onChange}
+        oneWay
+      />,
+    );
+
+    fireEvent.click(getByRole('button', { name: 'Remove target item' }));
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 
