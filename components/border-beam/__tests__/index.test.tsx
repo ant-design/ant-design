@@ -1,4 +1,6 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { renderHook } from '@testing-library/react';
 
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -6,6 +8,8 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFor } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import useBorderSize from '../hooks/useBorderSize';
+import type { BorderWidth } from '../util';
 
 describe('BorderBeam', () => {
   mountTest(() => <BorderBeam>content</BorderBeam>);
@@ -143,6 +147,17 @@ describe('BorderBeam', () => {
     );
   });
 
+  it('should reset the inferred border width when the host becomes unavailable', () => {
+    const element = document.createElement('div');
+    element.style.border = '4px solid #fff';
+    const { result, rerender } = renderHook<BorderWidth, HTMLElement>(useBorderSize, {
+      initialProps: element,
+    });
+    expect(result.current).toEqual([4, 4, 4, 4]);
+    rerender(undefined);
+    expect(result.current).toEqual([0, 0, 0, 0]);
+  });
+
   it('should support customizing the beam loop duration', async () => {
     const { container, rerender } = render(
       <BorderBeam duration={12}>
@@ -271,29 +286,19 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('');
   });
 
-  it('should infer child border radius from computed style', async () => {
+  it('should inherit child border radius', async () => {
+    const cache = createCache();
     const { container } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 12 }}>content</div>
-      </BorderBeam>,
+      <StyleProvider cache={cache}>
+        <BorderBeam>
+          <div style={{ borderRadius: 12 }}>content</div>
+        </BorderBeam>
+      </StyleProvider>,
     );
-
     await waitFor(() => {
-      expect(getBeamElement(container).style.getPropertyValue(varName('border-radius'))).toBe(
-        '12px',
-      );
-    });
-
-    const { container: cssVarContainer } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 'var(--beam-radius)' }}>content</div>
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      expect(getBeamElement(cssVarContainer).style.getPropertyValue(varName('border-radius'))).toBe(
-        'var(--beam-radius)',
-      );
+      const beamElement = getBeamElement(container);
+      expect(getComputedStyle(beamElement.parentElement!).borderRadius).toBe('12px');
+      expect(extractStyle(cache, { plain: true })).toContain('border-radius:inherit');
     });
   });
 
