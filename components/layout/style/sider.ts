@@ -33,7 +33,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       // fix firefox can't set width smaller than content on flex item
       minWidth: 0,
       background: siderBg,
-      transition: `all ${motionDurationMid}, background 0s`,
+      transition: `flex ${motionDurationMid}, max-width ${motionDurationMid}, min-width ${motionDurationMid}, background 0s`,
 
       '&-has-trigger': {
         paddingBottom: triggerHeight,

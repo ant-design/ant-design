@@ -228,7 +228,6 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const divStyle: React.CSSProperties = {
     ...style,
     flex: `0 0 ${siderWidth}`,
-    maxWidth: siderWidth, // Fix width transition bug in IE11
     minWidth: siderWidth, // https://github.com/ant-design/ant-design/issues/6349
     width: siderWidth,
   };
