@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'दाखवा',
     hide: 'लपवा',
     sortable: 'वर्गीकरण करण्यायोग्य',
-    clear: 'साफ करा',
   },
   Table: {
     filterTitle: 'फिल्टर मेनू',

@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'Εμφάνιση',
     hide: 'Απόκρυψη',
     sortable: 'διαλογήσιμος',
-    clear: 'Καθαρισμός',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',

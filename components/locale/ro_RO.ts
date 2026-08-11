@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'Arată',
     hide: 'Ascunde',
     sortable: 'sortabil',
-    clear: 'Șterge',
   },
   Table: {
     filterTitle: 'Filtrează',

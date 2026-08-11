@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'إظهار',
     hide: 'إخفاء',
     sortable: 'قابل للفرز',
-    clear: 'مسح',
   },
   Table: {
     filterTitle: 'الفلاتر',

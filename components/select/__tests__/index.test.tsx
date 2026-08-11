@@ -13,6 +13,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
+import deDE from '../../locale/de_DE';
 import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
@@ -480,6 +481,17 @@ describe('Select', () => {
         'aria-label',
         zhCN.global?.clear,
       );
+    });
+
+    it('should fall back to English for locales that do not translate `clear`', () => {
+      expect(deDE.global).not.toHaveProperty('clear');
+
+      const { container } = render(
+        <ConfigProvider locale={deDE}>
+          <Select {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
     });
 
     it('should prefer a custom label from allowClear over the locale', () => {

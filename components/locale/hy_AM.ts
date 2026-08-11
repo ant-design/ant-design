@@ -67,7 +67,6 @@ const localeValues: Locale = {
     show: 'Ցույց տալ',
     hide: 'Թաքցնել',
     sortable: 'տեսակավորելի',
-    clear: 'Մաքրել',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',

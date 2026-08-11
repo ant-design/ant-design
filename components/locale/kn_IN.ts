@@ -20,7 +20,6 @@ const localeValues: Locale = {
     show: 'ತೋರಿಸಿ',
     hide: 'ಮರೆಮಾಡಿ',
     sortable: 'ವಿಂಗಡಿಸಬಹುದಾದ',
-    clear: 'ತೆರವುಗೊಳಿಸಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',

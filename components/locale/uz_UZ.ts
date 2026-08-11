@@ -24,7 +24,6 @@ const localeValues: Locale = {
     show: "Ko'rsat",
     hide: 'Yashir',
     sortable: 'saralanadigan',
-    clear: 'Tozalash',
   },
   Table: {
     filterTitle: 'Filtr',

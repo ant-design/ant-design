@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'Rodyti',
     hide: 'Slėpti',
     sortable: 'rūšiuojami',
-    clear: 'Išvalyti',
   },
   Table: {
     filterTitle: 'Filtras',

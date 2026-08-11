@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'הצג',
     hide: 'הסתר',
     sortable: 'ניתן למיין',
-    clear: 'נקה',
   },
   Table: {
     filterTitle: 'תפריט סינון',

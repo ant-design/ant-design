@@ -19,7 +19,6 @@ const localeValues: Locale = {
     hide: 'Piilota',
     placeholder: 'Ole hyvä ja valitse',
     sortable: 'lajiteltava',
-    clear: 'Tyhjennä',
   },
   Table: {
     filterTitle: 'Suodatus valikko',

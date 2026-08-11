@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'Прикажи',
     hide: 'Сокриј',
     sortable: 'подредливи',
-    clear: 'Исчисти',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',

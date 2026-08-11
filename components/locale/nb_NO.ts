@@ -19,7 +19,6 @@ const localeValues: Locale = {
     sortable: 'sorterbar',
     show: 'Vis',
     hide: 'Skjul',
-    clear: 'Tøm',
   },
   Table: {
     filterTitle: 'Filtermeny',

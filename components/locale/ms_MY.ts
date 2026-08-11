@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'Tunjukkan',
     hide: 'Sembunyikan',
     sortable: 'boleh disusun',
-    clear: 'Kosongkan',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',

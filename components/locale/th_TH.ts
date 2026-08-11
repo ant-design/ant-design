@@ -19,7 +19,6 @@ const localeValues: Locale = {
     show: 'แสดง',
     hide: 'ซ่อน',
     sortable: 'จัดเรียงได้',
-    clear: 'ล้าง',
   },
   Table: {
     filterTitle: 'ตัวกรอง',
