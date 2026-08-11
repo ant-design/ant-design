@@ -241,7 +241,7 @@ Review 完整 Diff → 验证 Finding → 修复成立的问题 → 运行相关
 
 CI 则负责验证另一组客观条件：相关测试、类型检查、代码规范、覆盖率、构建和必要的视觉回归。对于带有 UI 变化的 PR，还应该检查部署预览，而不是只看任务显示绿色。
 
-#58885 的首轮 CI 覆盖了 lint、构建、Node 测试、React 18 与最新 React 矩阵、dist 与 dist-min、覆盖率、包体积、预览部署和视觉回归。所有自动检查最终通过，修改行覆盖率为 100%，视觉报告也明确显示没有发现差异。
+PR #58885 的首轮 CI 覆盖了 lint、构建、Node 测试、React 18 与最新 React 矩阵、dist 与 dist-min、覆盖率、包体积、预览部署和视觉回归。所有自动检查最终通过，修改行覆盖率为 100%，视觉报告也明确显示没有发现差异。
 
 ![PR #58885 的自动检查全部通过](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*jZqiQoiEwGkAAAAATOAAAAgAegCCAQ/original)
 
