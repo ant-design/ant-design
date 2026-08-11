@@ -99,7 +99,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
-        filter: dropShadowPopover,
 
         ...sharedTransformOrigin,
 
@@ -110,12 +109,17 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         [varName('arrow-background-color')]: tooltipBg,
 
         // Wrapper for the tooltip content
-        [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
+        [`${componentCls}-container`]: [
+          sharedBodyStyle,
+          { filter: dropShadowPopover },
+          initFadeMotion(token, true),
+        ],
 
         [`&:has(~ ${componentCls}-unique-container)`]: {
           [`${componentCls}-container`]: {
             border: 'none',
             background: 'transparent',
+            filter: 'none',
           },
         },
 
@@ -167,7 +171,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
+    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {
