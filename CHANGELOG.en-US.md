@@ -41,6 +41,7 @@ tag: vVERSION
 - Select
   - 🐞 Fix Select placeholder remaining visible when an ancestor is hidden. [#58572](https://github.com/ant-design/ant-design/pull/58572) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 Fix Select clear icon showing a native button background in dark mode. [#58928](https://github.com/ant-design/ant-design/pull/58928) [@zombieJ](https://github.com/zombieJ)
+  - ⌨️ Fix Select clear button not clearing the value when pressing Enter or Space. [react-component/select#1247](https://github.com/react-component/select/pull/1247) [@Pareder](https://github.com/Pareder)
 - 🐞 Fix Drawer close button remaining interactive when `closable.disabled` is enabled. [#58853](https://github.com/ant-design/ant-design/pull/58853) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Carousel jumping to the first slide when children are dynamically added. [#58845](https://github.com/ant-design/ant-design/pull/58845) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Button layout shift when the `loading` animation starts. [#58690](https://github.com/ant-design/ant-design/pull/58690) [#58712](https://github.com/ant-design/ant-design/pull/58712) [@zombieJ](https://github.com/zombieJ)

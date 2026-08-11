@@ -41,6 +41,7 @@ tag: vVERSION
 - Select
   - 🐞 修复 Select 占位文本在祖先元素隐藏时仍然可见的问题。[#58572](https://github.com/ant-design/ant-design/pull/58572) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Select 清除图标在暗色模式下显示原生按钮背景的问题。[#58928](https://github.com/ant-design/ant-design/pull/58928) [@zombieJ](https://github.com/zombieJ)
+  - ⌨️ 修复 Select 清除按钮按 Enter 或空格键时无法清除值的问题。[react-component/select#1247](https://github.com/react-component/select/pull/1247) [@Pareder](https://github.com/Pareder)
 - 🐞 修复 Drawer 启用 `closable.disabled` 后关闭按钮仍可交互的问题。[#58853](https://github.com/ant-design/ant-design/pull/58853) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Carousel 动态添加子项时自动跳回第一张的问题。[#58845](https://github.com/ant-design/ant-design/pull/58845) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Button 开始 `loading` 动画时的布局跳动问题。[#58690](https://github.com/ant-design/ant-design/pull/58690) [#58712](https://github.com/ant-design/ant-design/pull/58712) [@zombieJ](https://github.com/zombieJ)
