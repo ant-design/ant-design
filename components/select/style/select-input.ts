@@ -236,7 +236,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // ==========================================================
         '&-disabled': {
           background: token.colorBgContainerDisabled,
-          color: token.colorTextDisabled,
+          [varName('color')]: token.colorTextDisabled,
           cursor: 'not-allowed',
 
           input: {

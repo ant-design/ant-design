@@ -70,16 +70,6 @@ For performance reasons, whether `children` can host the beam and its positionin
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 
-`BorderBeam` reads the computed `border-radius` from the actual container during initialization. This works best for a single-container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result.
+`BorderBeam` renders the beam layer as a child of the actual container and directly inherits its radius through `border-radius: inherit`. For a single-container child such as `Card`, the beam automatically follows the container radius. For more complex child trees, make sure the radius is set on the actual container root.
 
-For performance reasons, the radius is not continuously measured after the initial calculation. Later radius changes caused by size, ancestor styles, or internal child state are not guaranteed to resync automatically. The running beam may still apply internal motion smoothing.
-
-For example:
-
-```tsx
-const radius = 24;
-
-<BorderBeam>
-  <Card style={{ borderRadius: radius }} />
-</BorderBeam>;
-```
+The radius stays in sync through CSS inheritance, without being read or measured during initialization. Later changes made through `className`, responsive styles, or CSS variables are automatically reflected by the beam layer.

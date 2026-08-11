@@ -49,20 +49,20 @@ describe('Alert', () => {
     errSpy.mockRestore();
   });
 
-  it('onClose and closable.onClose', async () => {
+  it('should use closable.onClose without requiring closeIcon', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
     const handleClosableClose = jest.fn();
-    const { container } = render(
+    render(
       <Alert
         title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
-        closable={{ onClose: handleClosableClose, closeIcon: true }}
+        closable={{ onClose: handleClosableClose }}
         onClose={onClose}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+    fireEvent.click(screen.getByRole('button'));
 
     expect(onClose).toHaveBeenCalledTimes(0);
     expect(handleClosableClose).toHaveBeenCalledTimes(1);

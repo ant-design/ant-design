@@ -15,6 +15,74 @@ tag: vVERSION
 
 ---
 
+## 6.6.0
+
+`2026-08-10`
+
+- 🔥 Add Listy component for high-performance virtualized lists with grouping, sticky headers, and imperative scrolling. [#58724](https://github.com/ant-design/ant-design/pull/58724) [@aojunhao123](https://github.com/aojunhao123)
+- ConfigProvider
+  - 🆕 Add ConfigProvider `focusOutline` theme token to control shared focus outlines across Input, Select, Rate, Steps, Splitter, and other components. [#58647](https://github.com/ant-design/ant-design/pull/58647) [#58708](https://github.com/ant-design/ant-design/pull/58708) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add ConfigProvider global `variant` configuration for Input.Search, Input.Password, and Input.OTP. [#58784](https://github.com/ant-design/ant-design/pull/58784) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 Add ConfigProvider global `mouseEnterDelay` and `mouseLeaveDelay` configuration for Tooltip, Popover, and Popconfirm. [#58892](https://github.com/ant-design/ant-design/pull/58892) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🌐 Localization
+  - 🇦🇱 Add Albanian `sq_AL` locale support. [#58618](https://github.com/ant-design/ant-design/pull/58618) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Add Tree `useTree` for retrieving node paths and support `scrollTo({ autoExpand: true })` to expand target nodes before scrolling. [#58841](https://github.com/ant-design/ant-design/pull/58841) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Add FloatButton.BackTop `showProgress` to display the current scroll progress around the button. [#58894](https://github.com/ant-design/ant-design/pull/58894) [@ZQDesigned](https://github.com/ZQDesigned)
+- 🆕 Add Table `expandable.forceRender` to render expanded row content before its first expansion. [#58860](https://github.com/ant-design/ant-design/pull/58860) [@nikzanda](https://github.com/nikzanda)
+- 🆕 Add Pagination `components.sizeChanger` to customize the page-size changer, including in Table pagination. [#58831](https://github.com/ant-design/ant-design/pull/58831) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 Add Mentions `popupRender` to customize suggestion dropdown rendering. [#58582](https://github.com/ant-design/ant-design/pull/58582) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Add Tabs `more.popupRender` to customize the overflow dropdown content. [#58651](https://github.com/ant-design/ant-design/pull/58651) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Add BorderBeam `count` to display multiple evenly distributed beams around the container border. [#58691](https://github.com/ant-design/ant-design/pull/58691) [@meet-student](https://github.com/meet-student)
+- 🆕 Add Image `preview.wheel` to control mouse wheel zoom in preview. [#58728](https://github.com/ant-design/ant-design/pull/58728) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Add Alert `borderRadius` component token to customize its corner radius. [#57765](https://github.com/ant-design/ant-design/pull/57765) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Add `nativeElement` ref support to Avatar.Group, Badge.Ribbon, Breadcrumb, Calendar, Card.Grid, Card.Meta, Carousel, Descriptions, Divider, Empty, FloatButton.Group, List.Item.Meta, QRCode, Result, Skeleton, Space.Compact, Spin, Splitter, Transfer, and Watermark. [#58627](https://github.com/ant-design/ant-design/pull/58627) [#58628](https://github.com/ant-design/ant-design/pull/58628) [#58629](https://github.com/ant-design/ant-design/pull/58629) [#58630](https://github.com/ant-design/ant-design/pull/58630) [#58631](https://github.com/ant-design/ant-design/pull/58631) [#58632](https://github.com/ant-design/ant-design/pull/58632) [#58633](https://github.com/ant-design/ant-design/pull/58633) [#58634](https://github.com/ant-design/ant-design/pull/58634) [#58635](https://github.com/ant-design/ant-design/pull/58635) [#58636](https://github.com/ant-design/ant-design/pull/58636) [#58637](https://github.com/ant-design/ant-design/pull/58637) [#58638](https://github.com/ant-design/ant-design/pull/58638) [#58639](https://github.com/ant-design/ant-design/pull/58639) [#58640](https://github.com/ant-design/ant-design/pull/58640) [#58641](https://github.com/ant-design/ant-design/pull/58641) [#58642](https://github.com/ant-design/ant-design/pull/58642) [#58643](https://github.com/ant-design/ant-design/pull/58643) [#58644](https://github.com/ant-design/ant-design/pull/58644) [#58645](https://github.com/ant-design/ant-design/pull/58645) [#58667](https://github.com/ant-design/ant-design/pull/58667) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🤖 Export missing public Props and Ref types for Alert, Carousel, Cascader, Masonry, Mentions, Radio, Slider, Statistic, Table, Tabs, Tooltip, and Upload. [#58700](https://github.com/ant-design/ant-design/pull/58700) [#58798](https://github.com/ant-design/ant-design/pull/58798) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix semantic style precedence for Calendar, ColorPicker, DatePicker, Divider, Dropdown, Input, Masonry, Popover, Popconfirm, QRCode, Space, Spin, Tag, TimePicker, Tooltip, Typography, Badge, Drawer, FloatButton, Image, Message, Modal, Notification, Steps, Timeline, Tour, and Upload when combining ConfigProvider and component-level `style` and `styles` settings. [#58550](https://github.com/ant-design/ant-design/pull/58550) [#58564](https://github.com/ant-design/ant-design/pull/58564) [@QDyanbing](https://github.com/QDyanbing)
+- Select
+  - 🐞 Fix Select placeholder remaining visible when an ancestor is hidden. [#58572](https://github.com/ant-design/ant-design/pull/58572) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Select clear icon showing a native button background in dark mode. [#58928](https://github.com/ant-design/ant-design/pull/58928) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Drawer close button remaining interactive when `closable.disabled` is enabled. [#58853](https://github.com/ant-design/ant-design/pull/58853) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Carousel jumping to the first slide when children are dynamically added. [#58845](https://github.com/ant-design/ant-design/pull/58845) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Button layout shift when the `loading` animation starts. [#58690](https://github.com/ant-design/ant-design/pull/58690) [#58712](https://github.com/ant-design/ant-design/pull/58712) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Typography ellipsis tooltip closing before users can interact with its popup, and improve its hover behavior around action buttons. [#58661](https://github.com/ant-design/ant-design/pull/58661) [#58722](https://github.com/ant-design/ant-design/pull/58722) [@zombieJ](https://github.com/zombieJ)
+- 💄 Improve Select, Tree, and Table virtual scrollbar track feedback, and support clicking the Table scrollbar track to jump. [#58625](https://github.com/ant-design/ant-design/pull/58625) [#58658](https://github.com/ant-design/ant-design/pull/58658) [@QDyanbing](https://github.com/QDyanbing)
+
+## 6.5.4
+
+`2026-08-07`
+
+- 🐞 Fix Alert not showing the close button when the `closable` configuration object only contains `onClose`. [#58885](https://github.com/ant-design/ant-design/pull/58885) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Checkbox.Group crashing when `options` contains nullish entries or values. [#58879](https://github.com/ant-design/ant-design/pull/58879) [@GuillaumeZ2SS](https://github.com/GuillaumeZ2SS)
+- 🐞 Fix App emitting an unnecessary CSS variable warning with `component={false}`, while warning when root props cannot be applied in this mode. [#58877](https://github.com/ant-design/ant-design/pull/58877) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Table selecting disabled rows on other pages when selecting all data. [#58843](https://github.com/ant-design/ant-design/pull/58843) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer deselect-all behavior after filtering. [#58844](https://github.com/ant-design/ant-design/pull/58844) [@thlovey](https://github.com/thlovey)
+- 🐞 Fix DatePicker `RangePicker` semantic callbacks not receiving forwarded props. [#58905](https://github.com/ant-design/ant-design/pull/58905) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix FloatButton.BackTop scroll animation not respecting `prefers-reduced-motion`. [#58849](https://github.com/ant-design/ant-design/pull/58849) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix bare `<svg>` icons from third-party icon libraries being misaligned, missing spacing, or breaking onto separate lines in Breadcrumb, Collapse, Segmented, Tabs, and Tag. [#58862](https://github.com/ant-design/ant-design/pull/58862) [#58868](https://github.com/ant-design/ant-design/pull/58868) [#58869](https://github.com/ant-design/ant-design/pull/58869) [#58870](https://github.com/ant-design/ant-design/pull/58870) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+- 💄 Fix AutoComplete disabled text not using the disabled text color. [#58838](https://github.com/ant-design/ant-design/pull/58838) [@lazerg](https://github.com/lazerg)
+- 🤖 Fix Tour exposing unusable per-step `indicatorsRender` and `actionsRender` TypeScript definitions. [#58859](https://github.com/ant-design/ant-design/pull/58859) [@lazerg](https://github.com/lazerg)
+
+## 6.5.3
+
+`2026-07-31`
+
+- Input
+  - 🐞 Fix Input.OTP using `type="text"` when `mask` is a string while preserving explicit `type` values. [#58835](https://github.com/ant-design/ant-design/pull/58835) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Input.OTP displaying the original value when `mask` is `true`. [#58805](https://github.com/ant-design/ant-design/pull/58805) [@cyphercodes](https://github.com/cyphercodes)
+  - 💄 Fix Input.TextArea resize handle rendering as a dot on touch devices. [#58812](https://github.com/ant-design/ant-design/pull/58812) [@pupuking723](https://github.com/pupuking723)
+- Typography
+  - ⚡️ Improve Typography ellipsis tooltip performance in large lists. [#58806](https://github.com/ant-design/ant-design/pull/58806) [@lkxdsb](https://github.com/lkxdsb)
+  - 🐞 Fix Typography editable textarea font size not matching the edited content. [#58551](https://github.com/ant-design/ant-design/pull/58551) [@gaurav0107](https://github.com/gaurav0107)
+- 🐞 Fix DatePicker.RangePicker submitting unconfirmed partial values on blur when using `showTime` and `allowEmpty`. [#58803](https://github.com/ant-design/ant-design/pull/58803) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Form.Item `useStatus` returning stale errors and warnings when the validation status remains unchanged. [#58815](https://github.com/ant-design/ant-design/pull/58815) [@afc163](https://github.com/afc163)
+- 🐞 Fix Slider triggering `onFocus` and `onBlur` callbacks multiple times. [#58711](https://github.com/ant-design/ant-design/pull/58711) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Spin standalone indicators being mispositioned when nested in another Spin. [#58801](https://github.com/ant-design/ant-design/pull/58801) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Table controlled filter dropdown selections not updating while open. [#58816](https://github.com/ant-design/ant-design/pull/58816) [@afc163](https://github.com/afc163)
+- 🐞 Fix Upload default download links allowing newly opened tabs to access the opener page. [#58817](https://github.com/ant-design/ant-design/pull/58817) [@afc163](https://github.com/afc163)
+- 💄 Fix incomplete Icon base styles when `theme.zeroRuntime` or CSS layers are enabled. [#58763](https://github.com/ant-design/ant-design/pull/58763) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Select suffix icons and selected content overlapping the clear icon with custom theme colors. [#58581](https://github.com/ant-design/ant-design/pull/58581) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Tabs third-party `<svg>` icons not vertically aligning with labels. [#58847](https://github.com/ant-design/ant-design/pull/58847) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
+
 ## 6.5.2
 
 `2026-07-24`
