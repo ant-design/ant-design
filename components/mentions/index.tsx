@@ -37,6 +37,7 @@ export type MentionPlacement = 'top' | 'bottom';
 export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number];
 type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
+/** @deprecated Please use the `options` prop with `MentionsOptionProps` instead. */
 export interface OptionProps {
   value: string;
   children: React.ReactNode;

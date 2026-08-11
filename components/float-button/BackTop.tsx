@@ -14,6 +14,7 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
 import useScroll from './hooks/useScroll';
 
+/** @deprecated Please use `FloatButtonBackTopProps` instead. */
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   visibilityHeight?: number;
   onClick?: React.MouseEventHandler<FloatButtonElement>;
@@ -30,6 +31,8 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
    */
   showProgress?: boolean;
 }
+
+export type FloatButtonBackTopProps = BackTopProps;
 
 const defaultIcon = <VerticalAlignTopOutlined />;
 

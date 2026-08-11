@@ -1,5 +1,19 @@
 import * as React from 'react';
 
+import type {
+  AvatarGroupProps,
+  BackTopProps,
+  FloatButtonBackTopProps,
+  InputGroupProps,
+  MentionsOptionProps,
+  SelectOptionProps,
+} from '../..';
+import type { GroupProps as LegacyAvatarGroupProps } from '../../avatar';
+import type { BackTopProps as LegacyStandaloneBackTopProps } from '../../back-top';
+import type { BackTopProps as LegacyFloatButtonBackTopProps } from '../../float-button';
+import type { GroupProps as LegacyInputGroupProps } from '../../input';
+import type { OptionProps as LegacyMentionsOptionProps } from '../../mentions';
+import type { OptionProps as LegacySelectOptionProps } from '../../select';
 import type { GetProp, GetProps, GetRef } from '../type';
 
 describe('type', () => {
@@ -107,6 +121,41 @@ describe('type', () => {
       type FuncReturn = GetProp<Props, 'classNames', 'Return'>;
       const result: FuncReturn = { another: '123' };
       expect(result).toBeTruthy();
+    });
+  });
+
+  describe('root type exports', () => {
+    it('exports component-prefixed props types and keeps legacy names compatible', () => {
+      const avatarGroupProps: AvatarGroupProps = {};
+      const legacyAvatarGroupProps: LegacyAvatarGroupProps = avatarGroupProps;
+
+      const inputGroupProps: InputGroupProps = {};
+      const legacyInputGroupProps: LegacyInputGroupProps = inputGroupProps;
+
+      const mentionsOptionProps: MentionsOptionProps = { value: 'bamboo' };
+      const legacyMentionsOptionProps: LegacyMentionsOptionProps = {
+        value: 'bamboo',
+        children: 'Bamboo',
+      };
+
+      const selectOptionProps: SelectOptionProps = { value: 'bamboo', children: 'Bamboo' };
+      const legacySelectOptionProps: LegacySelectOptionProps = selectOptionProps;
+
+      const floatButtonBackTopProps: FloatButtonBackTopProps = {};
+      const legacyFloatButtonBackTopProps: LegacyFloatButtonBackTopProps = floatButtonBackTopProps;
+
+      const backTopProps: BackTopProps = {};
+      const legacyStandaloneBackTopProps: LegacyStandaloneBackTopProps = backTopProps;
+
+      expect([
+        legacyAvatarGroupProps,
+        legacyInputGroupProps,
+        mentionsOptionProps,
+        legacyMentionsOptionProps,
+        legacySelectOptionProps,
+        legacyFloatButtonBackTopProps,
+        legacyStandaloneBackTopProps,
+      ]).toBeTruthy();
     });
   });
 });

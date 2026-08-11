@@ -14,9 +14,12 @@ export type { AppProps } from './app';
 export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
-export type { AvatarGroupRef, AvatarProps } from './avatar';
+export type { AvatarGroupProps, AvatarGroupRef, AvatarProps } from './avatar';
 export { default as BackTop } from './back-top';
-export type { BackTopProps } from './back-top';
+export type {
+  /** @deprecated Please use `FloatButtonBackTopProps` instead. */
+  BackTopProps,
+} from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps, RibbonRef } from './badge';
 export { default as BorderBeam } from './border-beam';
@@ -74,6 +77,7 @@ export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
 export type {
+  FloatButtonBackTopProps,
   FloatButtonGroupProps,
   FloatButtonGroupRef,
   FloatButtonProps,
@@ -92,7 +96,7 @@ export { default as Grid } from './grid';
 export { default as Image } from './image';
 export type { ImageProgressConfig, ImageProps, PlaceholderType } from './image';
 export { default as Input } from './input';
-export type { InputProps, InputRef } from './input';
+export type { InputGroupProps, InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';
 export type { InputNumberProps } from './input-number';
 export { default as Layout } from './layout';
@@ -110,7 +114,7 @@ export type {
 export { default as Masonry } from './masonry';
 export type { MasonryProps, MasonryRef } from './masonry';
 export { default as Mentions } from './mentions';
-export type { MentionProps, MentionsProps, MentionsRef } from './mentions';
+export type { MentionProps, MentionsOptionProps, MentionsProps, MentionsRef } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
@@ -141,7 +145,7 @@ export type { RowProps } from './row';
 export { default as Segmented } from './segmented';
 export type { SegmentedProps } from './segmented';
 export { default as Select } from './select';
-export type { RefSelectProps, SelectProps } from './select';
+export type { RefSelectProps, SelectOptionProps, SelectProps } from './select';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps, SkeletonRef } from './skeleton';
 export { default as Slider } from './slider';

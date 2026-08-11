@@ -45,10 +45,13 @@ type RawValue = string | number;
 export type {
   BaseOptionType,
   DefaultOptionType,
+  /** @deprecated Please use `SelectOptionProps` instead. */
   OptionProps,
   BaseSelectRef as RefSelectProps,
   SearchConfig,
 };
+
+export type SelectOptionProps = OptionProps;
 
 export interface LabeledValue {
   key?: string;
