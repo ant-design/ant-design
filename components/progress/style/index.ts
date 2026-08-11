@@ -63,7 +63,7 @@ interface ProgressToken extends FullToken<'Progress'> {
 }
 
 const genAntProgressActive = (isRtl?: boolean, isVertical?: boolean) => {
-  const direction = isVertical ? '100%' : isRtl ? '100%' : '-100%';
+  const direction = isRtl ? '100%' : '-100%';
   const translate = isVertical ? 'translate3d(0, 100%, 0)' : `translate3d(${direction}, 0, 0)`;
   const scale = isVertical ? 'scaleY' : 'scaleX';
   const initialTransform = `${translate} ${scale}(0)`;
@@ -147,7 +147,7 @@ const genLineStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
 
       // Vertical mode - override width
       [`&${componentCls}-line-vertical`]: {
-        width: 'max-content',
+        width: 'auto',
         height: '100%',
       },
 

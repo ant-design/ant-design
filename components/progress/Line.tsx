@@ -113,13 +113,13 @@ const Line: React.FC<LineProps> = (props) => {
   // ========================= Size =========================
   const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
 
-  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
+  const [extent, thickness] = getSize(mergedSize, 'line', { strokeWidth });
 
   // ========================= Rail =========================
   const railStyle: React.CSSProperties = {
     backgroundColor: mergedRailColor || undefined,
     borderRadius,
-    ...(vertical ? { width: height } : { height }),
+    ...(vertical ? { width: thickness } : { height: thickness }),
   };
 
   // ======================== Tracks ========================
@@ -143,7 +143,7 @@ const Line: React.FC<LineProps> = (props) => {
         }
       : {
           width: `${validProgress(percent)}%`,
-          height,
+          height: thickness,
         }),
   };
 
@@ -161,7 +161,7 @@ const Line: React.FC<LineProps> = (props) => {
         }
       : {
           width: `${validProgress(successPercent)}%`,
-          height,
+          height: thickness,
         }),
   };
 
@@ -172,7 +172,7 @@ const Line: React.FC<LineProps> = (props) => {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
         [`${prefixCls}-body-vertical`]: vertical,
       })}
-      style={vertical ? styles.body : { width: width > 0 ? width : '100%', ...styles.body }}
+      style={vertical ? styles.body : { width: extent > 0 ? extent : '100%', ...styles.body }}
     >
       {/************** Rail **************/}
       <div
