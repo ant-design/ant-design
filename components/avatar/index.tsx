@@ -3,9 +3,9 @@ import type { AvatarGroupProps } from './AvatarGroup';
 import AvatarGroup from './AvatarGroup';
 
 export type { AvatarProps } from './Avatar';
-export type { AvatarGroupProps, AvatarGroupRef } from './AvatarGroup';
+export type { AvatarGroupRef } from './AvatarGroup';
 
-/** @deprecated Please use `AvatarGroupProps` */
+/** @deprecated Please use `AvatarGroupProps` instead. */
 export type GroupProps = AvatarGroupProps;
 
 type CompoundedComponent = typeof InternalAvatar & {

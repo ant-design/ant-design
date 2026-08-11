@@ -8,7 +8,6 @@ import TextArea from './TextArea';
 export type {
   /** @deprecated Please use `InputGroupProps` instead. */
   GroupProps,
-  InputGroupProps,
 } from './Group';
 export type { InputProps, InputRef } from './Input';
 export type { PasswordProps } from './Password';

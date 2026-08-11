@@ -51,8 +51,6 @@ export type {
   SearchConfig,
 };
 
-export type SelectOptionProps = OptionProps;
-
 export interface LabeledValue {
   key?: string;
   value: RawValue;
@@ -132,15 +130,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
