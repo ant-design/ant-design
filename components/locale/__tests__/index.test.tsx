@@ -86,6 +86,7 @@ import {
   Transfer,
 } from '../..';
 import type { TableProps } from '../..';
+import { isFunction, isNonNullable, isPlainObject, isString } from '../../_util/is';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import arEG from '../../locale/ar_EG';
@@ -240,6 +241,66 @@ const locales = [
   uzUZ,
 ];
 
+const createPlaceholder = (name: string): string => `\${${name}}`;
+
+const placeholderParityExceptions = new Map<string, string[]>([
+  ['ms-my.string.min', [createPlaceholder('min')]],
+  ['ms-my.string.max', [createPlaceholder('max')]],
+  ['ms-my.number.min', [createPlaceholder('min')]],
+  ['ms-my.number.max', [createPlaceholder('max')]],
+]);
+
+const getPlaceholders = (value: unknown): string[] => {
+  return isString(value) ? [...value.matchAll(/\$\{[^{}]+\}/g)].map(([token]) => token).sort() : [];
+};
+
+const collectFormMessageMismatches = (
+  expected: unknown,
+  actual: unknown,
+  locale: string,
+  path = '',
+): string[] => {
+  if (isString(expected)) {
+    if (isFunction(actual)) {
+      return [];
+    }
+
+    if (!isString(actual)) {
+      return [`${locale}.${path}: expected a string message`];
+    }
+
+    const expectedPlaceholders =
+      placeholderParityExceptions.get(`${locale}.${path}`) ?? getPlaceholders(expected);
+    const actualPlaceholders = getPlaceholders(actual);
+    return JSON.stringify(expectedPlaceholders) === JSON.stringify(actualPlaceholders)
+      ? []
+      : [
+          `${locale}.${path}: expected ${JSON.stringify(expectedPlaceholders)}, received ${JSON.stringify(actualPlaceholders)}`,
+        ];
+  }
+
+  if (isFunction(expected)) {
+    return isNonNullable(actual) ? [] : [`${locale}.${path}: expected a message`];
+  }
+
+  if (!isPlainObject<Record<string, unknown>>(expected) || Array.isArray(expected)) {
+    return [];
+  }
+
+  if (!isPlainObject<Record<string, unknown>>(actual) || Array.isArray(actual)) {
+    return [`${locale}.${path || 'defaultValidateMessages'}: expected a message group`];
+  }
+
+  const expectedMismatches = Object.entries(expected).flatMap(([key, value]) =>
+    collectFormMessageMismatches(value, actual[key], locale, path ? `${path}.${key}` : key),
+  );
+  const unexpectedMismatches = Object.keys(actual)
+    .filter((key) => !Object.prototype.hasOwnProperty.call(expected, key))
+    .map((key) => `${locale}.${path ? `${path}.${key}` : key}: unexpected message`);
+
+  return [...expectedMismatches, ...unexpectedMismatches];
+};
+
 const { RangePicker } = DatePicker;
 
 const columns: TableProps['columns'] = [
@@ -290,6 +351,27 @@ describe('Locale Provider', () => {
 
   afterAll(() => {
     MockDate.reset();
+  });
+
+  it('keeps Form validation placeholders aligned with en_US', () => {
+    const expected = enUS.Form?.defaultValidateMessages;
+    const mismatches = locales.flatMap((locale) =>
+      collectFormMessageMismatches(expected, locale.Form?.defaultValidateMessages, locale.locale),
+    );
+
+    expect(mismatches).toEqual([]);
+  });
+
+  it('reports unexpected Form validation messages', () => {
+    const labelPlaceholder = createPlaceholder('label');
+
+    expect(
+      collectFormMessageMismatches(
+        { required: `${labelPlaceholder} is required` },
+        { required: `${labelPlaceholder} is required`, unexpected: labelPlaceholder },
+        'test',
+      ),
+    ).toEqual(['test.unexpected: unexpected message']);
   });
 
   locales.forEach((locale) => {
