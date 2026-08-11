@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -14,6 +15,11 @@ import Form from '../../form';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
+
+// `userEvent.setup()` redefines `HTMLElement.prototype.focus`/`blur` as getter-only accessors.
+// It has to run before `focusTest` spies on those methods: a spy installed on a plain method
+// restores itself by assignment, which throws once user-event has replaced it with a getter.
+const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
 describe('Select', () => {
   focusTest(Select, { refFocus: true });
@@ -501,15 +507,21 @@ describe('Select', () => {
       expect(clearBtn).toHaveFocus();
     });
 
-    it('should clear the value when the clear button is activated from the keyboard', () => {
+    it.each([
+      ['Enter', '{Enter}'],
+      ['Space', '[Space]'],
+    ])('should clear the value when the clear button is activated by pressing %s key', async (_, keys) => {
       const onClear = jest.fn();
       const { container } = render(<Select {...props} allowClear onClear={onClear} />);
       expect(container.querySelector('.ant-select-content-has-value')).toHaveTextContent('Jack');
 
-      fireEvent.click(container.querySelector('.ant-select-clear')!);
+      const clearButton = container.querySelector('.ant-select-clear') as HTMLButtonElement;
+      clearButton.focus();
+      await user.keyboard(keys);
 
+      expect(onClear).toHaveBeenCalledTimes(1);
       expect(container.querySelector('.ant-select-content-has-value')).toBeFalsy();
-      expect(onClear).toHaveBeenCalled();
+      expect(container.querySelector('.ant-select-open')).toBeFalsy();
     });
   });
 
