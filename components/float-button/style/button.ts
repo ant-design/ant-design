@@ -9,6 +9,13 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'float-btn');
+  const [buttonVarName, buttonVarRef] = genCssVar(antCls, 'btn');
+
+  const getProgressBackground = (backgroundColor: string) =>
+    [
+      `linear-gradient(${backgroundColor}, ${backgroundColor})`,
+      `conic-gradient(${token.colorPrimary} ${varRef('progress', '0turn')}, ${token.colorBorderSecondary} 0)`,
+    ].join(', ');
 
   const badgeCls = `${componentCls}-badge`;
 
@@ -70,6 +77,30 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         // =========================== Icon ===========================
         [`${componentCls}-icon`]: {
           lineHeight: 1,
+        },
+
+        [`&${componentCls}-progress`]: {
+          [buttonVarName('border-width')]: unit(token.lineWidthBold),
+          [buttonVarName('border-color')]: 'transparent',
+          [buttonVarName('border-color-hover')]: 'transparent',
+          [buttonVarName('border-color-active')]: 'transparent',
+          [buttonVarName('border-color-disabled')]: 'transparent',
+          backgroundImage: getProgressBackground(buttonVarRef('bg-color')),
+          backgroundOrigin: 'border-box',
+          backgroundClip: 'padding-box, border-box',
+
+          [`&:not(:disabled):not(${antCls}-btn-disabled)`]: {
+            '&:hover': {
+              backgroundImage: getProgressBackground(buttonVarRef('bg-color-hover')),
+            },
+            '&:active': {
+              backgroundImage: getProgressBackground(buttonVarRef('bg-color-active')),
+            },
+          },
+
+          [`&:disabled, &${antCls}-btn-disabled`]: {
+            backgroundImage: getProgressBackground(buttonVarRef('bg-color-disabled')),
+          },
         },
 
         // Icon Only will has large icon Size
