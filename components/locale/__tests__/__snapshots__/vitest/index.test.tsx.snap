@@ -141013,7 +141013,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             </span>
             <input
               class="ant-input"
-              placeholder="搜尋資料"
+              placeholder="在此搜尋"
               type="text"
               value=""
             />
@@ -141064,7 +141064,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  無此資料
+                  暫無資料
                 </title>
                 <g
                   fill="none"
@@ -141096,7 +141096,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             <div
               class="ant-empty-description"
             >
-              無此資料
+              暫無資料
             </div>
           </div>
         </div>
@@ -141246,7 +141246,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             </span>
             <input
               class="ant-input"
-              placeholder="搜尋資料"
+              placeholder="在此搜尋"
               type="text"
               value=""
             />
@@ -141297,7 +141297,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  無此資料
+                  暫無資料
                 </title>
                 <g
                   fill="none"
@@ -141329,7 +141329,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             <div
               class="ant-empty-description"
             >
-              無此資料
+              暫無資料
             </div>
           </div>
         </div>
@@ -142345,7 +142345,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              無此資料
+                              暫無資料
                             </title>
                             <g
                               fill="none"
@@ -142377,7 +142377,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                         <div
                           class="ant-empty-description"
                         >
-                          無此資料
+                          暫無資料
                         </div>
                       </div>
                     </td>
