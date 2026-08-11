@@ -1,40 +1,31 @@
 ---
-title: 'From Issue to PR: Contributing to Open-Source Component Libraries Efficiently in the AI Era'
+title: 'From Issue to PR: Completing an Open-Source Contribution with Codex and Skills'
 date: 2026-08-11
 author: QDyanbing
 ---
 
-Hello, I am [Yanbing Gao](https://github.com/QDyanbing). While contributing to the Ant Design community, AI agents have become regular tools for finding problems, reading code, and preparing PRs. Repository Skills complement them by turning project experience around test review, commit messages, and PR creation into workflows that agents can execute consistently.
+Hi, I'm [Yanbing Gao](https://github.com/QDyanbing). I have been contributing actively to the Ant Design community and often use AI agents to investigate problems, read code, and prepare PRs. The repository also includes several Skills (some of which came from workflows I summarized and contributed while doing this work 😁).
 
-This article is not about asking AI to finish a bug on a contributor's behalf. It is about giving AI, Ant Design CLI, and repository Skills the work they do best: AI searches quickly and narrows the problem scope, the CLI provides structured information for the relevant version, and Skills reuse workflows that the repository has already validated. Contributors still decide whether the problem is real, whether behavior should change, where compatibility boundaries lie, and whether the available evidence proves the fix.
+This article focuses on three of those Skills. `test-review` checks whether a test is worth keeping, `commit-msg` prepares the commit message, and `create-pr` prepares a PR with the repository template. Together, they cover several repetitive parts of a contribution that still need to follow repository conventions.
 
-Using my Alert [Issue #58884](https://github.com/ant-design/ant-design/issues/58884) and its corresponding [PR #58885](https://github.com/ant-design/ant-design/pull/58885), the following sections show how these capabilities supported a real contribution: reproducing the problem, creating the Issue with the CLI, locating the cause with AI, running a red-green regression test, invoking `test-review`, completing local review, using `commit-msg` and `create-pr`, handling remote review and CI, and finally merging.
+Using them is straightforward. When an Issue is already clear, Codex does not need a long prompt. A link and one sentence are enough to begin:
 
 ```text
-Find a problem → Create the Issue with CLI → Define scope and locate with AI → Implement and test → Review with a Skill → Local review → Create the PR with a Skill → Review and CI → Merge
+https://github.com/ant-design/ant-design/issues/58884
+Analyze how this Issue should be handled. Do not modify code yet.
 ```
 
-The point is not to hand the entire repository to AI at once. It is to provide explicit context at every stage and invoke a repository Skill at the right checkpoint. Every step still needs clear inputs, outputs, and human review. External actions such as creating an Issue, committing code, and opening a PR should happen only after the evidence and generated content have been checked.
+With the link, Codex first reads the Issue, repository rules, related code, and commit history. After a person confirms that the analysis is on the right track, Codex can change the code and tests, then use `test-review` to check the test quality. Codex performs a local review, and a person checks the findings. Finally, a request to commit and create the PR hands the remaining workflow to `commit-msg` and `create-pr`.
 
-## Find an Issue worth solving {#find-an-issue}
+## Start from an Issue link {#find-an-issue}
 
-Open-source contributions usually begin in one of two ways.
+I will use Alert [Issue #58884](https://github.com/ant-design/ant-design/issues/58884) and the corresponding [PR #58885](https://github.com/ant-design/ant-design/pull/58885) as the example. I gave Codex the link and asked for analysis only, with no code changes. This makes it possible to decide whether the behavior is a regression, an intentional design choice, or an implementation gap before any edit begins.
 
-The first is choosing an existing community task. Ant Design uses [`good first issue`](https://github.com/ant-design/ant-design/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22) for approachable first contributions and [`help wanted`](https://github.com/ant-design/ant-design/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22help%20wanted%22) when community help is welcome. Before taking one, check whether someone is already working on it and read the discussion to avoid duplicated effort.
+This case came from a small API combination. Alert's top-level `onClose` is deprecated, and the documentation recommends moving it to `closable.onClose`. But after I changed the code to `closable={{ onClose }}`, the Alert no longer showed a close button. I still had to add `closeIcon: true`. The callback was there, but the page gave the user no way to trigger it. That did not match what an object-form `closable` seemed to mean.
 
-The second is discovering a problem while using the library, reading source code, or reviewing changes. Before creating an Issue, verify:
+I started by saving a minimal reproduction in an antd 6.5.3 CodeSandbox: configure only `closable.onClose`, and the Alert has no close button.
 
-- which antd version is in use;
-- whether the relevant API exists or is deprecated;
-- whether the latest version still reproduces the problem;
-- whether a duplicate Issue already exists;
-- whether the problem belongs to antd or an underlying `@rc-component/*` package.
-
-This issue came from a small API combination. Alert's top-level `onClose` is deprecated in favor of `closable.onClose`. After migrating to `closable={{ onClose }}`, however, the Alert did not render a close button. Closing worked only after adding `closeIcon: true`. The callback was configured, but the user had no way to trigger it, which did not match the meaning of an object-form `closable` configuration.
-
-I first kept the smallest possible example and its visible result in an antd 6.5.3 CodeSandbox: when only `closable.onClose` is configured, the Alert has no close button.
-
-AI can search and compare evidence, while Ant Design CLI provides structured, version-aware information:
+I then asked Codex to search and compare the relevant code, and used Ant Design CLI to look up information for that version:
 
 ```bash
 antd info Alert --version 6.5.3 --detail --format json
@@ -43,13 +34,13 @@ antd changelog 6.5.2 6.5.3 Alert --format json
 antd demo Alert --version 6.5.3 --format json
 ```
 
-The types and documentation both showed that `closable` accepts an object containing `onClose`, while the top-level `onClose` is deprecated. The changelog contained no related behavior change between 6.5.2 and 6.5.3. A duplicate search found that the closest report, #53682, introduced the API but did not report the missing close button. This was therefore an independent bug.
+The result was fairly clear. `closable` accepts an object containing `onClose`, and the top-level `onClose` is indeed meant to move to `closable.onClose`. The changelog showed no related behavior change between 6.5.2 and 6.5.3. The closest existing Issue was #53682, which introduced the API but did not mention the missing close button. So I knew I was looking at a separate problem.
 
-## Create an actionable Issue with the CLI {#create-the-issue}
+## Use the CLI to write a clear Issue {#create-the-issue}
 
-Once the problem is confirmed, do not ask AI to fix it yet. First create an Issue that another contributor can understand and reproduce. A useful Issue needs a minimal reproduction, steps, expected behavior, actual behavior, and environment details.
+If someone else has already submitted the Issue, this section can be skipped. I found #58884 myself, so I first had to create it before using the Issue link as input for Codex. That meant including the minimal reproduction, steps, expected and actual behavior, and environment details.
 
-`antd bug` formats this information using the Ant Design Issue template. For #58884, I first generated a Chinese JSON preview:
+`antd bug` puts this information into the Ant Design Issue template. For #58884, I first generated a Chinese JSON preview:
 
 ```bash
 antd bug \
@@ -61,61 +52,15 @@ antd bug \
   --format json
 ```
 
-Previewing does not submit the Issue. After checking the title, reproduction, steps, and expected behavior, I ran the same command with `--submit`, and the CLI created [Issue #58884](https://github.com/ant-design/ant-design/issues/58884). Submission is an external action and should always require human confirmation instead of being performed automatically before the bug is verified.
+The JSON preview does not submit anything. I checked the title, reproduction link, steps, and expected behavior, then added `--submit` to the same command and let the CLI create [Issue #58884](https://github.com/ant-design/ant-design/issues/58884). I do not let Codex submit automatically, especially while the problem is still unverified.
 
 ![Issue #58884 created with Ant Design CLI](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*iSteSqd4qrAAAAAAU7AAAAgAegCCAQ/original)
 
-A complete Issue becomes the first stable context for later AI collaboration. It gives the agent and maintainers the same facts instead of separate guesses about what the problem might be.
+Once the Issue is clear, Codex and maintainers both work from the same information. Nobody has to guess what the problem is supposed to be.
 
-## Define done before writing code {#define-done}
+## Codex analyzes first, then a person confirms the direction {#analyze-the-issue}
 
-An Issue describes what a user observed, but it does not necessarily provide the correct solution. Letting AI edit code immediately after reading the Issue often locks the task to an early assumption.
-
-I usually begin with a read-only request:
-
-```text
-Do not modify code yet. Read the Issue, component documentation, relevant implementation, existing tests, and history:
-
-1. Describe the user-observable problem in one sentence.
-2. Locate the call chain that produces the behavior.
-3. Separate confirmed facts from assumptions that still need verification.
-4. Identify public APIs and compatibility behavior involved.
-5. Propose the smallest regression scenario that proves the fix.
-```
-
-For #58884, the first question was whether an object-form `closable` enables closing by itself or only when it contains an explicit icon. Comparing Alert's public types and documentation with the repository's shared `useClosable` behavior established several boundaries:
-
-- `closable={{ onClose }}` should render the default close button;
-- clicking it should close the Alert and invoke the object callback;
-- `closable.onClose` should remain higher priority than the deprecated top-level `onClose`;
-- boolean `closable`, custom `closeIcon`, and other closing branches should remain unchanged.
-
-These conclusions can be expressed as a compact definition of done:
-
-```text
-Goal: An object-form closable enables closing even without an explicit closeIcon.
-Non-goals: Do not change icon merging, animation, or other closing APIs.
-Compatibility: Keep closable.onClose higher priority than the top-level onClose.
-Verification: Pass only closable.onClose, query the accessible close button, click it, and assert that the object callback runs once.
-```
-
-The definition of done constrains the AI implementation and later becomes the basis for tests and PR review.
-
-## Let AI locate the problem using project context {#locate-the-problem}
-
-An agent may be able to read the entire repository, but beginning with an unbounded search is rarely effective. It is better to expand the context gradually around the definition of done.
-
-For this Alert issue, the relevant context was mainly:
-
-- `closable`, `isClosable`, and close-icon merging in `components/alert/Alert.tsx`;
-- existing closing tests in `components/alert/__tests__/index.test.tsx`;
-- the documented contract of `closable`, `closeIcon`, and `onClose`;
-- the shared `useClosable` Hook's treatment of object configurations;
-- related Issues, history, and repository contribution rules.
-
-Repository rules are also part of the context. Ant Design records demo, test, documentation, branch, and PR conventions in the repository's [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md). Asking AI to read those rules before acting helps prevent invalid imports, unrelated refactoring, wrong target branches, and malformed PRs.
-
-The investigation converged on one condition inside `isClosable`:
+After giving Codex the Issue link, I ask it to analyze the problem without changing code. Codex uses the current code and the repository's [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md), compares Alert's types and documentation with the shared `useClosable` behavior, and finds this condition inside `isClosable`:
 
 ```tsx
 if (isPlainObject(closable) && closable.closeIcon) {
@@ -123,13 +68,19 @@ if (isPlainObject(closable) && closable.closeIcon) {
 }
 ```
 
-It used a truthy `closable.closeIcon` as the condition for enabling closing. As a result, the valid `{ onClose }` object fell through to later branches and produced `false`. The problem could now be stated precisely:
+This code treated a truthy `closable.closeIcon` as the signal that Alert was closable. The valid `{ onClose }` object therefore fell through to later branches and produced `false`. The fix was direct: an object-form `closable` enables closing by itself and should not depend on a truthy `closeIcon`.
 
-> An object-form `closable` enables closing by itself and should not depend on a truthy `closeIcon`.
+Once I confirmed that this matched the API's expected behavior, I asked Codex to update the code and tests.
 
-## Implement minimally and verify behavior together {#implement-and-verify}
+## Implement and review the test after confirming the plan {#implement-and-verify}
 
-Once the cause is located, the most useful job for AI is finding existing repository semantics, not immediately inventing a new abstraction. The shared `useClosable` logic already treated an object configuration as enabled, so Alert only needed to align its condition:
+I let Codex modify code only after confirming the analysis. The instruction can still be short:
+
+```text
+Follow the plan above. Run the relevant checks when finished, then use the test-review Skill to review the changed test.
+```
+
+The shared `useClosable` logic already treated an object configuration as enabled, so Alert only needed to do the same:
 
 ```diff
 - if (isPlainObject(closable) && closable.closeIcon) {
@@ -138,7 +89,7 @@ Once the cause is located, the most useful job for AI is finding existing reposi
   }
 ```
 
-Before changing the implementation, I converted the existing callback-priority test into the regression case: remove `closeIcon: true`, query the button by its accessible role, and keep the callback-priority assertions.
+I changed the test before touching the implementation. The existing callback-priority case became the regression test: remove `closeIcon: true`, find the button by its accessible role, and keep the callback-priority assertions.
 
 ```tsx
 const onClose = jest.fn();
@@ -153,60 +104,37 @@ expect(onClose).toHaveBeenCalledTimes(0);
 expect(handleClosableClose).toHaveBeenCalledTimes(1);
 ```
 
-With only the test changed, it failed because no `button` could be found while all existing cases passed. After the `isClosable` fix, all 22 Alert tests passed. This red-green sequence proved that the test reproduced #58884 rather than being an assertion added only after the fix.
+With only the test changed, the new case failed because it could not find a `button`; the other tests still passed. After the `isClosable` fix, all 22 Alert tests passed. That red-green sequence showed that the test really reproduced #58884 and that the small change fixed it.
 
-The test does not inspect `isClosable`, CSS classes, or internal state. It observes only the close button and callbacks, so it protects independent user behavior. After completing the test, I invoked the repository's [test-review Skill](https://github.com/ant-design/ant-design/pull/57628) to check whether the expectation came from a public contract, duplicated coverage, locked implementation details, and failed before the fix.
+The test never reads `isClosable`, a CSS class, or internal state. It checks what a user can observe: whether the close button appears and whether the callback runs. After implementation, the repository's [test-review Skill](https://github.com/ant-design/ant-design/pull/57628) statically reviews whether the test is worth keeping. It checks for an independent public contract, duplicate coverage, and assertions tied to implementation details. It does not write tests or run them by default.
 
-This is exactly where a repository Skill is useful. AI can quickly generate a test that passes, but `test-review` applies antd's test criteria and asks whether that case deserves to remain. Its output is still review advice: the contributor must decide whether to accept, rewrite, or remove the test in light of the Issue's contract.
+Producing a passing test is not difficult. The harder question is whether the test is worth keeping. `test-review` gives an opinion based on antd's test criteria, but I still decide whether to keep, rewrite, or remove the case after checking it against the Issue contract.
 
-## Complete a local review before creating the PR {#local-code-review}
+## Do a local review before opening the PR {#local-code-review}
 
-Do not create a PR immediately after implementation and tests are finished. First perform a local Code Review (CR) over the complete change to catch problems that maintainers would otherwise find during remote review.
-
-The local review should cover the full branch diff against its base and confirm that no staged or unstaged changes have been missed:
-
-```bash
-git status --short
-git diff <base>...HEAD
-git diff
-git diff --cached
-```
-
-When using Codex, enter `/review` and choose either a review against the base branch or a review of uncommitted changes. The first covers committed branch changes; the second covers staged, unstaged, and untracked files. Before creating the PR, make sure neither scope is omitted. The review scope should remain explicit whether you use the built-in entry point or a regular prompt.
-
-I first ask AI to act only as a reviewer and report findings without editing code:
+Once the code and tests pass, I do not open the PR immediately. I ask Codex to review the current change first:
 
 ```text
-Review the complete <base>...HEAD diff using the Issue, definition of done, and repository rules. Do not modify code yet.
-
-Focus on:
-1. whether the implementation really solves the Issue and introduces behavioral or compatibility regressions;
-2. whether tests protect public behavior, miss failure cases, or lock implementation details;
-3. whether the diff contains unrelated changes, duplicated logic, or ignores existing repository capabilities;
-4. whether types, documentation, demos, update notes, and imports follow repository rules.
-
-Report only actionable problems. Give every finding a priority, file and line, trigger condition, and impact. Do not invent findings merely to produce output.
+Review the current change. Do not modify code yet.
 ```
 
-AI findings are still candidate conclusions and must be verified against the latest code. Fix findings that are valid. Explain and ignore suggestions that are not; do not change correct code merely to empty the review list.
+The review checks the implementation, tests, and change scope against the Issue, repository rules, and current diff. I still verify every finding against the latest code. I fix real problems and skip suggestions that do not hold up. After a change, I rerun the relevant checks and ask for another review until no blocking issue or unrelated change remains.
 
-Local review is a loop rather than a single invocation:
+The final local diff contained only two files: a one-line Alert fix and one regression test. I reran the Alert tests, then ran `antd lint`, Prettier, and `git diff --check`; neither the implementation nor the test reported an error. The test review also confirmed that the case checked whether the button appeared and the object callback ran, without using the implementation to prove itself. At this point, I read the complete diff and check results myself before allowing the commit step to begin.
+
+## Commit and create the PR after human confirmation {#create-the-pr}
+
+After local review and human confirmation, the final instruction is also short:
 
 ```text
-Review the complete diff → Verify findings → Fix valid problems → Run relevant checks → Review again
+Commit the current changes and create a PR.
 ```
 
-Only move on to PR creation when no blocking finding remains, the diff contains no unrelated changes, and every acceptance criterion has supporting evidence. Local review does not replace maintainer review, but it lets remote discussion focus on design and compatibility questions that genuinely need maintainers.
+At the commit stage, Codex first organizes the files to be committed, then invokes `commit-msg` to generate one commit message from the staging area and recent repository style. After the commit, `create-pr` reads the current branch's complete diff against its base, selects the official template, and prepares a PR draft. I still check the target branch, make sure the intended changes are complete, and verify that the PR Change Log describes the user-visible impact accurately.
 
-The final local diff for this case contained only two files: one behavioral line in Alert and one regression test. In addition to rerunning the Alert test suite, I ran `antd lint` on both files, checked Prettier formatting, and used `git diff --check`; the CLI reported zero issues. The test-quality review also confirmed that the case protected the independent contract “the button is visible and invokes the object callback,” rather than asserting an internal implementation detail.
+Here, Change Log means the Chinese and English summary in the PR template. It does not mean editing `CHANGELOG.zh-CN.md` and `CHANGELOG.en-US.md` directly. A regular contribution only needs to explain its impact on users or developers, or say that no update is needed. The release process assembles the formal CHANGELOG later.
 
-## Let repository Skills complete PR delivery {#create-the-pr}
-
-After local review, the code is largely stable and it is finally time to prepare the commit and PR. Confirm that the bug fix is based on the correct branch, all intended changes are included, and documentation, demos, and the PR template's Change Log match the user-visible impact.
-
-Here, Change Log means the bilingual update summary in the PR template, not direct edits to `CHANGELOG.zh-CN.md` and `CHANGELOG.en-US.md`. A regular contribution only needs to describe its impact on users or developers, or state that no update is needed when there is no user-visible change. The formal CHANGELOG is assembled during the release process.
-
-These repeated, rule-driven steps are good candidates for repository Skills. Unlike a generic prompt, their review scope, templates, and output requirements evolve with the repository, so contributors do not have to explain antd's collaboration conventions to AI every time. The Skills directly relevant to this contribution are:
+These jobs look much the same every time, which makes them a good fit for repository Skills. The Skill already says what to inspect, which template to use, and what to produce. It also evolves with the repository, so contributors do not have to explain antd's conventions to Codex again for every PR. I used three Skills in this contribution:
 
 | Skill | Purpose | Human checkpoint |
 | --- | --- | --- |
@@ -214,64 +142,69 @@ These repeated, rule-driven steps are good candidates for repository Skills. Unl
 | [create-pr](https://github.com/ant-design/ant-design/pull/57228) | Analyze the complete base-to-branch diff and fill the official PR template | Are the base, title, body, and Change Log correct? |
 | [test-review](https://github.com/ant-design/ant-design/pull/57628) | Review whether tests protect independent contracts | Should a test suggestion be accepted, rewritten, or rejected? |
 
-Using these Skills in Codex does not require memorizing extra commands. Describe the goal in natural language and make the current stage and human checkpoint explicit. For example:
+There are no Skill names or extra commands to memorize in Codex. I describe the goal in plain language, and Codex selects the relevant Skill from the intent and current stage. The useful part of a Skill is consistency. For example, `create-pr` reads the full branch; it does not stop at the last Commit. Before it calls `gh pr create`, it shows the base, English title, and Chinese body for confirmation. Codex can organize the material and the Skill can keep the process on track, but a person still decides whether to use the result or perform an external action.
 
-```text
-Use the test-review Skill to assess whether the new test is worth keeping. Do not edit code yet.
-Write one commit message from the current staging area and recent repository style.
-Use the create-pr Skill for the complete branch. Preview the base, title, and body before creating the PR.
-```
-
-The point of a Skill is not saving a few paragraphs of typing. It makes the agent execute the same repository checks every time. For example, `create-pr` must inspect the full branch rather than only the last commit, and it must show the base, English title, and Chinese body for human confirmation before calling `gh pr create`. AI organizes the material quickly, the Skill constrains the procedure, and the contributor owns the final judgment and authorization; none replaces the others.
-
-For this case, the commit message was `fix(Alert): show close button for closable onClose`. The `create-pr` Skill generated an English title and Chinese body from the complete diff. Only after confirming that the base was `master` and the Change Log matched the actual impact did I open [PR #58885](https://github.com/ant-design/ant-design/pull/58885). It linked the original problem with `Fixes #58884` and explained the API-migration context, cause, compatibility boundaries, and regression test. The Issue, definition of done, code, tests, and PR description now formed one evidence chain.
+For this change, the commit message was `fix(Alert): show close button for closable onClose`. `create-pr` generated an English title and Chinese body from the complete diff. I checked that the base was `master` and that the Change Log matched the actual impact before opening [PR #58885](https://github.com/ant-design/ant-design/pull/58885). The PR linked the original problem with `Fixes #58884` and explained the API-migration context, the cause, the compatibility boundary, and the regression test. At that point, the Issue, code, tests, and PR description should all tell the same story.
 
 ## Remote review, CI, and Merge {#remote-review-and-merge}
 
-Creating the PR begins another verification round; it does not end the process. An agent can summarize reviews, inspect CI logs, and prepare changes, but it must not assume that every suggestion is correct.
+Once the PR is open, remote review and CI begin. Codex can organize review comments, inspect CI logs, and prepare a change, but it should not assume that every suggestion is correct.
 
-I evaluate review comments against the definition of done:
+I check each review comment against the Issue and the earlier analysis:
 
 - Does the comment identify a real behavioral or compatibility problem?
 - Would the requested test protect a new independent contract?
 - Does it expand the scope beyond the current Issue?
 - If it came from AI review, was it verified against the latest code?
 
-For #58885, CodeRabbit produced no actionable comments and passed its PR-level checks for the title, description, linked Issue, and change scope. That does not mean a maintainer has approved the change, and it does not replace human review. It only means automated review found no blocking issue. Conversely, when AI review does suggest a change, the suggestion must still be verified against the latest code and definition of done instead of being applied automatically.
+For #58885, CodeRabbit found nothing that needed action, and its checks for the title, description, linked Issue, and change scope all passed. That only meant the automated review found no blocker. A maintainer still had to decide whether to accept the change. The same rule applies to other AI reviews: verify a suggestion against the latest code and the Issue before editing anything.
 
-CI verifies another set of objective conditions: targeted tests, type checks, code style, coverage, builds, and any required visual regression. PRs with UI changes should also be inspected through their deployment previews rather than relying only on a green status.
+CI checks tests, types, code style, coverage, and the build. If the PR changes the UI, I also open the deployment preview and inspect the result myself.
 
-The first CI round for #58885 covered lint, builds, Node tests, React 18 and latest-React matrices, dist and dist-min packages, coverage, bundle size, preview deployment, and visual regression. Every automated check passed, all modified coverable lines were covered, and the visual report found no differences.
+The first CI round for #58885 ran lint, builds, Node tests, the React 18 and latest-React matrices, dist and dist-min checks, coverage, bundle size, preview deployment, and visual regression. Every automated check passed, modified-line coverage reached 100%, and the visual report found no difference.
 
 ![All automated checks passed for PR #58885](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*jZqiQoiEwGkAAAAATOAAAAgAegCCAQ/original)
 
-The screenshot shows that every automated check had passed while the page still displayed `Review required`. This is an important boundary in component-library contributions: CI proves that the code satisfies the project's predefined checks, but a maintainer still decides whether the behavioral change should be accepted.
+The screenshot shows every automated check passing while the page still says `Review required`. Those states do not conflict. CI shows that the code passed the project's predefined checks; a maintainer still decides whether the behavior change should be accepted.
 
-When maintainers leave feedback, the same discipline used during local review applies: evaluate whether the suggestion is valid, update the code when necessary, rerun the relevant checks, and review the diff again instead of accepting every suggestion mechanically just to merge faster. In #58885, automated review and CI found no blocking issue. [afc163](https://github.com/afc163) then completed the human review, approved the change, and merged the PR into `master` as merge commit [`5040df9`](https://github.com/ant-design/ant-design/commit/5040df92921d404b5b494eea911d24516062e813).
+When maintainers leave feedback, I first decide whether it should be accepted. If the suggestion holds up, I change the code, rerun the checks, and review the diff again. Automated review and CI found no blocker in #58885. [afc163](https://github.com/afc163) then reviewed and approved the change, and merged the PR into `master`. The merge commit is [`5040df9`](https://github.com/ant-design/ant-design/commit/5040df92921d404b5b494eea911d24516062e813).
 
-The `Fixes #58884` line in the PR body completed the other half of the workflow: once the code was merged, GitHub automatically closed the original [Issue #58884](https://github.com/ant-design/ant-design/issues/58884). From finding the problem and creating the Issue through implementation, testing, local review, remote review, CI, Merge, and Issue closure, this contribution now forms one complete chain.
+After the merge, the `Fixes #58884` line in the PR body made GitHub close the original [Issue #58884](https://github.com/ant-design/ant-design/issues/58884) automatically. That was the end of the path from finding the problem to closing the Issue.
 
-After Merge, contributors can continue watching which release includes the fix and whether users report follow-up problems. A bug in an underlying rc-component adds package-level fixes, releases, and antd verification to the path, but the principle remains the same at every stage: explicit inputs, preserved evidence, and human confirmation for external actions.
+After Merge, I still watch for the release that includes the fix and any follow-up feedback from users. A problem in an underlying rc-component adds another repository fix, a release, and antd verification to the path. The way of working stays the same: make the input clear, keep the evidence, and ask for human confirmation before external actions.
 
-## Use AI for speed and repository Skills for repeatability {#workflow-summary}
+## Looking back at the workflow {#workflow-summary}
 
-The responsibilities of AI, the CLI, repository Skills, and people across the path from Issue to Merge can be summarized as follows:
+When the Issue already exists, the actual conversation can be reduced to four steps.
 
-| Stage | AI, CLI, and repository Skills | Human confirmation | Output |
-| --- | --- | --- | --- |
-| Find a problem | Search duplicates and compare APIs and versions | Is the problem real and worth solving? | A reproducible problem |
-| Create the Issue | Use `antd bug` to format the report and environment | Submit only after checking the content | An actionable Issue |
-| Define done | Read documentation, implementation, tests, and history | Confirm goals, non-goals, and compatibility boundaries | Explicit acceptance criteria |
-| Implement and verify | Use AI to trace the call path and generate a minimal patch and test candidates; use `test-review` to review test quality | Do the solution and tests protect public behavior? | A minimal diff and regression test |
-| Local review | Review the complete diff, test quality, and repository rules | Are findings valid, and do blockers remain? | A clean branch ready for maintainers |
-| Create the PR | Use `commit-msg` for the commit message and `create-pr` for a repository-compliant PR draft | Confirm base, body, Change Log, and external submission | A reviewable PR |
-| Remote review, CI, and Merge | Summarize feedback, inspect logs, and prepare corrections | Is the feedback valid, and is the PR mergeable? | Merge the PR and close the original Issue |
+First, give Codex the link and ask only for analysis:
 
-AI-driven efficiency does not come from removing stages. It comes from finding evidence, locating related code, and moving information between stages faster. Repository Skills turn existing team experience into repeatable checks. The Issue becomes a definition of done, the definition becomes code and tests, local review narrows the change into a branch ready for submission, and PR review plus CI decide whether it can be merged.
+```text
+https://github.com/ant-design/ant-design/issues/58884
+Analyze how this Issue should be handled. Do not modify code yet.
+```
 
-Tools make execution faster, and Skills make experience reusable, but contributors must retain three decisions: whether behavior should change, where the boundary belongs, and what evidence is sufficient to prove correctness. AI findings, test suggestions, and PR drafts remain candidate outputs; they do not become project conclusions automatically.
+Second, confirm the analysis and ask Codex to implement the change and invoke `test-review`:
 
-When those questions have clear answers, moving from Issue to PR stops being a sequence of guesses. It becomes an engineering workflow that AI can accelerate without lowering quality.
+```text
+The plan looks correct. Follow it, run the relevant checks, and review the changed test when finished.
+```
+
+Third, ask Codex for a local review after the code and tests are complete:
+
+```text
+Review the complete local change. Do not modify code yet; report only actionable problems.
+```
+
+Fourth, verify every review finding, fix the valid ones, and inspect the complete diff. Once everything is clear, commit and create the PR:
+
+```text
+The local review and checks look good. Commit the current changes and create a PR.
+```
+
+Behind those four messages, Codex reads the Issue, locates code, and runs checks. `test-review`, `commit-msg`, and `create-pr` handle the repeatable repository workflows assigned to them. A person decides whether the problem is valid, whether the plan is correct, whether review findings should be accepted, and whether to perform the commit and PR actions.
+
+Skills reduce the need to explain repository conventions repeatedly and keep Codex on the same process every time. They improve efficiency, but they do not make design or compatibility decisions for the contributor.
 
 ## A final note: where my Issues come from {#my-issue-sources}
 
@@ -356,8 +289,14 @@ After receiving candidates, I still evaluate each one: Does it affect real users
 
 Together, these four sources form a loop: GitHub provides real community feedback, Antdv Next offers a cross-framework reference, company projects cover real production scenarios, and Codex extends a specific fix into a bounded code inspection. The sources differ, but once a problem enters the community, it follows the same path: prove the problem, define the boundary, narrow the change through tests and local review, and move through remote review and CI into Merge. One cycle is complete only when the Issue closes with the merged PR; the next problem found in a product, the community, or the source code begins the loop again.
 
-## Conclusion: give AI the speed and keep human judgment {#conclusion}
+## Conclusion {#conclusion}
 
-Looking back at #58884 from Issue to Merge, AI's real contribution was efficiency in searching, reading, summarizing, and locating. It narrowed the problem scope quickly, connected context across files, and helped repository Skills execute repeated procedures consistently. But reading more code does not automatically tell AI whether a behavior matches the component's design, and neither a single finding nor a passing test is enough to prove that a change is correct.
+If you are thinking about contributing to an open-source project, pick an Issue you can probably handle. Spending hours on it only to find that it is much bigger than expected is no fun.
 
-Expected behavior, API semantics, compatibility boundaries, test value, and review comments still require human judgment. External actions such as creating an Issue, committing code, opening a PR, and accepting a proposed change also need human confirmation. The productive model is not to replace contributors with AI, but to let AI find faster, let Skills execute more consistently, and keep people accountable for what enters the repository.
+If it looks manageable, drop the link into Codex:
+
+```text
+Help me take care of this Issue. I don't want to see it again.
+```
+
+Let Codex find the code, add the test, and review the change while Skills prepare the commit message and PR. Step in when a decision needs to be made. Once the PR is merged, the Issue really does disappear. There, you have made an open-source contribution.
