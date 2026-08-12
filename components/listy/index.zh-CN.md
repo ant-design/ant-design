@@ -22,6 +22,7 @@ tag: 6.6.0
 <code src="./demo/virtual.tsx">虚拟滚动</code>
 <code src="./demo/group.tsx">分组与吸顶</code>
 <code src="./demo/rich.tsx">复杂内容</code>
+<code src="./demo/drag-sorting">拖拽排序</code>
 <code src="./demo/infinite.tsx">无限加载</code>
 <code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
 <code src="./demo/scroll-to.tsx" debug>滚动控制</code>
@@ -54,8 +55,8 @@ tag: 6.6.0
 
 ### Ref
 
-| 名称     | 说明                             | 类型                                |
-| -------- | -------------------------------- | ----------------------------------- |
+| 名称     | 说明                             | 类型                                     |
+| -------- | -------------------------------- | ---------------------------------------- |
 | scrollTo | 滚动到某个位置、某一项或某个分组 | `(config?: ListyScrollToConfig) => void` |
 
 `ListyScrollToConfig` 为以下之一：

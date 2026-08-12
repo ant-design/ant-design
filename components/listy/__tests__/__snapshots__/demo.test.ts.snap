@@ -128,6 +128,314 @@ exports[`renders components/listy/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
+<div
+  class="ant-listy css-var-test-id ant-listy-css-var"
+  style="max-height:400px;overflow-y:auto;overflow-anchor:none"
+>
+  <div
+    class="ant-listy-item"
+    data-key="item:0"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 0
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:1"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 1
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:2"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 2
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:3"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 3
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:4"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 4
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:5"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 5
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:6"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 6
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:7"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 7
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:8"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 8
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:9"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 9
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:10"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 10
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:11"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 11
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:12"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 12
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:13"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 13
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:14"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 14
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:15"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 15
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:16"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 16
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:17"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 17
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:18"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 18
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:19"
+  >
+    <div
+      aria-describedby="listy-drag-sorting"
+      aria-disabled="false"
+      aria-roledescription="sortable"
+      role="button"
+      style="cursor:move"
+      tabindex="0"
+    >
+      Item 19
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/listy/demo/group.tsx correctly 1`] = `
 <div
   class="ant-listy css-var-test-id ant-listy-css-var"
