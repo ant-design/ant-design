@@ -84,6 +84,11 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
 
       [`${componentCls}-scrollbar`]: {
         zIndex: 1,
+        cursor: 'pointer',
+
+        '&:hover': {
+          backgroundColor: token.colorFillQuaternary,
+        },
       },
 
       // ========================= RTL ========================
