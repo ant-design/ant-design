@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { HolderOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
@@ -10,7 +11,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Listy } from 'antd';
+import { Button, Flex, Listy } from 'antd';
 
 interface Item {
   id: number;
@@ -25,21 +26,35 @@ const items = Array.from<any, Item>({ length: 20 }, (_, index) => ({
 const SortableItem: React.FC<Readonly<Item>> = (props) => {
   const { id, content } = props;
 
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id,
-  });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    setActivatorNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
 
   const style: React.CSSProperties = {
     transform: CSS.Translate.toString(transform),
     transition,
-    cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 1 } : {}),
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <Flex ref={setNodeRef} style={style} align="center" gap="small">
+      <Button
+        type="text"
+        size="small"
+        icon={<HolderOutlined />}
+        style={{ cursor: 'move' }}
+        ref={setActivatorNodeRef}
+        {...attributes}
+        {...listeners}
+      />
       {content}
-    </div>
+    </Flex>
   );
 };
 

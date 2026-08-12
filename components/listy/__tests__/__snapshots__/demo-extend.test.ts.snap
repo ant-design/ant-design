@@ -141,13 +141,42 @@ Array [
       data-key="item:0"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 0
       </div>
     </div>
@@ -156,13 +185,42 @@ Array [
       data-key="item:1"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 1
       </div>
     </div>
@@ -171,13 +229,42 @@ Array [
       data-key="item:2"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 2
       </div>
     </div>
@@ -186,13 +273,42 @@ Array [
       data-key="item:3"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 3
       </div>
     </div>
@@ -201,13 +317,42 @@ Array [
       data-key="item:4"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 4
       </div>
     </div>
@@ -216,13 +361,42 @@ Array [
       data-key="item:5"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 5
       </div>
     </div>
@@ -231,13 +405,42 @@ Array [
       data-key="item:6"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 6
       </div>
     </div>
@@ -246,13 +449,42 @@ Array [
       data-key="item:7"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 7
       </div>
     </div>
@@ -261,13 +493,42 @@ Array [
       data-key="item:8"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 8
       </div>
     </div>
@@ -276,13 +537,42 @@ Array [
       data-key="item:9"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 9
       </div>
     </div>
@@ -291,13 +581,42 @@ Array [
       data-key="item:10"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 10
       </div>
     </div>
@@ -306,13 +625,42 @@ Array [
       data-key="item:11"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 11
       </div>
     </div>
@@ -321,13 +669,42 @@ Array [
       data-key="item:12"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 12
       </div>
     </div>
@@ -336,13 +713,42 @@ Array [
       data-key="item:13"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 13
       </div>
     </div>
@@ -351,13 +757,42 @@ Array [
       data-key="item:14"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 14
       </div>
     </div>
@@ -366,13 +801,42 @@ Array [
       data-key="item:15"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 15
       </div>
     </div>
@@ -381,13 +845,42 @@ Array [
       data-key="item:16"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 16
       </div>
     </div>
@@ -396,13 +889,42 @@ Array [
       data-key="item:17"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 17
       </div>
     </div>
@@ -411,13 +933,42 @@ Array [
       data-key="item:18"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 18
       </div>
     </div>
@@ -426,13 +977,42 @@ Array [
       data-key="item:19"
     >
       <div
-        aria-describedby="listy-drag-sorting"
-        aria-disabled="false"
-        aria-roledescription="sortable"
-        role="button"
-        style="cursor: move;"
-        tabindex="0"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
       >
+        <button
+          aria-describedby="listy-drag-sorting"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+          role="button"
+          style="cursor: move;"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="holder"
+              class="anticon anticon-holder"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="holder"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         Item 19
       </div>
     </div>
