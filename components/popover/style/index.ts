@@ -133,6 +133,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-container`]: {
+          position: 'relative',
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius: borderRadiusLG,
@@ -159,7 +160,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     // Arrow Style
     getArrowStyle<PopoverToken>(token, varRef('arrow-background-color'), {
       arrowShadow: false,
-      arrowFilter: dropShadowPopover,
+      arrowInContainer: true,
     }),
 
     // Pure Render

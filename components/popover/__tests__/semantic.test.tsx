@@ -83,8 +83,7 @@ describe('Popover.Semantic', () => {
     expect(popupContainer).toHaveStyle({ backgroundColor: 'rgba(255, 255, 255, 0.4)' });
     expect(getComputedStyle(root!).filter || 'none').toBe('none');
     expect(getComputedStyle(popupContainer!).filter).toBe('var(--ant-drop-shadow-popover)');
-    expect(getComputedStyle(arrow!).filter).toBe('var(--ant-drop-shadow-popover)');
-    expect(getComputedStyle(arrow!).clipPath).toBe('inset(-100vmax -100vmax 0 -100vmax)');
+    expect(popupContainer).toContainElement(arrow);
   });
 
   it('should follow root style priority', () => {

@@ -78,6 +78,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     backgroundColor: tooltipBg,
     borderRadius: tooltipBorderRadius,
     boxSizing: 'border-box',
+    position: 'relative',
   };
 
   const sharedTransformOrigin: CSSObject = {
@@ -121,6 +122,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
             background: 'transparent',
             filter: 'none',
           },
+        },
+
+        [`&${componentCls}-unique-controlled ${componentCls}-container > ${componentCls}-arrow`]: {
+          display: 'none',
         },
 
         // Align placement should have another min width
@@ -173,7 +178,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     // Arrow Style
     getArrowStyle<TooltipToken>(token, varRef('arrow-background-color'), {
       arrowShadow: false,
-      arrowFilter: dropShadowPopover,
+      arrowInContainer: true,
     }),
 
     // Pure Render

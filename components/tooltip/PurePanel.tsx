@@ -68,7 +68,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   return (
     <div className={rootClassName} style={arrowContentStyle}>
-      <div className={`${prefixCls}-arrow`} />
       <Popup
         {...props}
         className={hashId}
@@ -76,6 +75,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         classNames={mergedClassNames}
         styles={mergedStyles}
       >
+        <div
+          className={clsx(`${prefixCls}-arrow`, mergedClassNames.arrow)}
+          style={mergedStyles.arrow}
+        />
         {title}
       </Popup>
     </div>
