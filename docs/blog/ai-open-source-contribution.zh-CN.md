@@ -83,7 +83,7 @@ CR 一下当前改动，先不要修改代码。
 
 Codex 会结合 Issue、仓库规则和当前 Diff 检查实现、测试与改动范围。它列出的 Finding 不能照单全收，我会逐条回到最新代码里确认；确实成立的再修，修完重新运行检查，直到没有阻断问题和无关改动。
 
-#58885 的本地 CR 最后只留下两个文件：Alert 的一行修复和一个回归测试。我重新跑了组件测试、`antd lint`、Prettier 和 `git diff --check`，再亲自看一遍完整 Diff。创建 PR 前完成这轮本地 CR，可以把不少来回修改挡在远端 Review 之前。
+PR #58885 的本地 CR 最后只留下两个文件：Alert 的一行修复和一个回归测试。我重新跑了组件测试、`antd lint`、Prettier 和 `git diff --check`，再亲自看一遍完整 Diff。创建 PR 前完成这轮本地 CR，可以把不少来回修改挡在远端 Review 之前。
 
 ## commit-msg 和 create-pr 接手重复工作 {#create-the-pr}
 
@@ -97,7 +97,7 @@ Codex 会结合 Issue、仓库规则和当前 Diff 检查实现、测试与改�
 
 这里仍然有一次人工确认：Bug 修复是否基于正确分支、暂存内容是否完整、PR 的英文标题和中文正文是否准确、模板里的中英文更新日志能否说明用户可感知的变化。确认完成后，Codex 才会执行提交和创建 PR。
 
-#58885 最终使用提交信息 `fix(Alert): show close button for closable onClose`。PR 通过 `Fixes #58884` 关联 Issue，正文说明了问题原因、兼容边界和回归测试。Issue、代码、测试和 PR 描述能够互相对应，维护者接手 Review 时就不用重新整理上下文。
+PR #58885 最终使用提交信息 `fix(Alert): show close button for closable onClose`。PR 通过 `Fixes #58884` 关联 Issue，正文说明了问题原因、兼容边界和回归测试。Issue、代码、测试和 PR 描述能够互相对应，维护者接手 Review 时就不用重新整理上下文。
 
 ## 远端 Review、CI 和 Merge {#remote-review-and-merge}
 
