@@ -1,210 +1,126 @@
 ---
-title: 从 Issue 到 PR：用 Codex 和 Skills 完成一次开源贡献
+title: 如何用 AI 和 Skills 降低维护成本
 date: 2026-08-11
 author: QDyanbing
 ---
 
-大家好，我是 [高艳兵](https://github.com/QDyanbing)。最近一直在参与 Ant Design 社区贡献，平时会用 AI Agent 帮忙查问题、读代码和准备 PR。仓库里也内置了不少 Skills（其中一些也是我在参与过程中总结并贡献的 😁）。
+大家好，我是 [高艳兵](https://github.com/QDyanbing)。最近一直在参与 Ant Design 社区维护，平时会用 AI Agent 查问题、读代码和准备 PR。仓库里也有一组跟着代码一起维护的 Skills（其中一些也是我在参与过程中总结并贡献的 😁）。
 
-这篇文章主要想介绍其中三个 Skills：`test-review` 用来审查测试是否值得保留，`commit-msg` 用来整理提交信息，`create-pr` 用来按仓库模板准备 PR。它们正好覆盖了一次贡献中几个容易重复、又必须遵守仓库规范的步骤。
+维护组件库时，真正花时间的往往不只是写代码。一个很小的修复，也要经历 Issue 分析、代码定位、回归测试、本地 CR、提交信息、PR 模板、远端 Review 和 CI。单看每一步都不复杂，但每天重复几次，维护成本就堆起来了。
 
-实际用起来并不复杂。遇到一个已经描述清楚的 Issue，通常不需要给 Codex 写很长的 Prompt，一条链接加一句话就可以开始：
+现在我会把适合自动化的工作交给 Codex，再由仓库里的 Skills 告诉它 antd 在测试、提交和 PR 上具体要检查什么。这篇文章主要介绍三个 Skills：`test-review`、`commit-msg` 和 `create-pr`，以及它们怎样接进一次真实的维护流程。
+
+## 先用一个 Issue 交代背景 {#find-an-issue}
+
+Alert [Issue #58884](https://github.com/ant-design/ant-design/issues/58884) 的问题很简单：文档已经推荐把顶层 `onClose` 迁移到 `closable.onClose`，但只写 `closable={{ onClose }}` 时，Alert 不会显示关闭按钮，回调自然也没有机会触发。
+
+我先在 antd 6.5.3 的 CodeSandbox 里留下最小复现，再用 Ant Design CLI 的 `antd bug` 生成中文 Issue 预览。确认复现链接、步骤、预期结果和实际结果都准确后，才加上 `--submit` 创建 Issue。
+
+![使用 Ant Design CLI 创建的 Issue #58884](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*iSteSqd4qrAAAAAAU7AAAAgAegCCAQ/original)
+
+Codex 读完 Issue、仓库规则和相关代码后，把问题定位到 Alert 对对象形式 `closable` 的判断。最终修复只有一行，并补了一个回归测试；对应的 [PR #58885](https://github.com/ant-design/ant-design/pull/58885) 已经合入 `master`。
+
+Alert 的修复本身并不复杂。更值得展开的是这次维护过程：我只提供 Issue 链接和每个阶段的目标，Codex 负责在仓库里执行，Skills 负责带入项目规则，人只在需要判断和执行外部操作时介入。
+
+## 一条 Issue 链接如何进入维护流程 {#maintenance-workflow}
+
+遇到一个描述清楚的 Issue，我通常先让 Codex 分析，不直接改代码：
 
 ```text
 https://github.com/ant-design/ant-design/issues/58884
 分析一下这个 Issue 怎么处理，先不要修改代码。
 ```
 
-拿到链接后，Codex 会先读取 Issue、仓库规则、相关代码和提交历史。人确认分析没有走偏后，再让它处理代码和测试，并用 `test-review` 检查测试质量；完成后做本地 CR，由人检查结果。最后再让 Codex 提交并创建 PR，后面的流程会由 `commit-msg` 和 `create-pr` 接手。
+后面的实现、测试、本地 CR、提交和创建 PR 都可以继续用很短的指令。三个 Skills 不会取代 Codex，也不是彼此独立的工具；它们出现在不同阶段，把仓库已经确认的做法交给 Codex 执行。
 
-## 从一个 Issue 链接开始 {#find-an-issue}
+![Codex、Skills 与人工确认组成的维护流程](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*WYVwSLqs0mMAAAAAQrAAAAgAeuN6AQ)
 
-下面就拿 Alert [Issue #58884](https://github.com/ant-design/ant-design/issues/58884) 和对应的 [PR #58885](https://github.com/ant-design/ant-design/pull/58885) 来走一遍。把链接交给 Codex 后，我先让它分析，不允许直接修改代码。这样可以先判断问题是功能回归、有意设计还是实现遗漏，也能避免一开始就沿着错误方向改代码。
+三个虚线框分别是复现和修复、CR 和确认、创建和提交。蓝色节点由 Codex 执行，紫色节点是仓库 Skills，橙色节点需要人工确认。CR 是第二阶段的主任务，`test-review` 只是其中的测试专项检查；AI CR 或人工确认没有通过，都会返回修复，完成后重新进入 CR。
 
-这次碰到的就是一个很小的 API 组合问题。Alert 顶层的 `onClose` 已经废弃，文档建议迁移到 `closable.onClose`。但我把代码改成 `closable={{ onClose }}` 后，Alert 并没有显示关闭按钮，还得额外补上 `closeIcon: true` 才能关闭。回调明明已经传进去了，页面上却没有可以触发它的入口，这和对象形式 `closable` 表达的意思对不上。
+## Skills 把仓库经验放进流程里 {#repository-skills}
 
-于是我先在 antd 6.5.3 的 CodeSandbox 里留了一个最小复现：只配置 `closable.onClose`，Alert 不会显示关闭按钮。
+Ant Design 把 Skills 放在仓库的 [`.agents/skills`](https://github.com/ant-design/ant-design/tree/master/.agents/skills) 目录中。每个 Skill 都会写清楚适用场景、需要读取的上下文、检查方式和输出要求，并随着仓库规则一起更新。
 
-接下来让 Codex 帮忙搜索和对比，再用 Ant Design CLI 查询这个版本的资料：
+![Ant Design 仓库中的 Skills 目录](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*S2fcRrrlttYAAAAARaAAAAgAeuN6AQ)
 
-```bash
-antd info Alert --version 6.5.3 --detail --format json
-antd doc Alert --version 6.5.3 --lang zh --format json
-antd changelog 6.5.2 6.5.3 Alert --format json
-antd demo Alert --version 6.5.3 --format json
-```
+这次主要用到三个：
 
-查到的结果比较明确：`closable` 支持包含 `onClose` 的对象配置，顶层 `onClose` 也确实推荐迁移到 `closable.onClose`。Changelog 里没有 6.5.2 到 6.5.3 的相关行为变化。已有 Issue 里最接近的是 #53682，但它只是在引入这项 API，没有提到关闭按钮不显示。因此，这次遇到的是另一个问题。
+| Skill | 进入流程的时机 | 它替维护者重复检查什么 |
+| --- | --- | --- |
+| [test-review](https://github.com/ant-design/ant-design/pull/57628) | 实现和测试完成后 | 测试是否来自公开契约、是否重复、是否绑死实现细节 |
+| [commit-msg](https://github.com/ant-design/ant-design/pull/57203) | 本地 CR 和人工确认通过后 | 暂存区是否完整，提交信息是否符合近期仓库风格 |
+| [create-pr](https://github.com/ant-design/ant-design/pull/57228) | Commit 完成后 | Base、完整分支 Diff、官方模板、标题和更新日志是否正确 |
 
-## 用 CLI 把 Issue 写清楚 {#create-the-issue}
+Codex 会根据当前任务选择对应的 Skill，所以平时直接说目标就行。维护者不用在每个 PR 里重新解释一次测试准则、提交格式和模板要求，规则有调整时也只需要跟着仓库更新 Skill。
 
-如果接手的是别人已经提交的 Issue，这一节可以直接跳过。#58884 是我自己发现的问题，所以在把 Issue 链接交给 Codex 处理之前，先要把它创建出来。最小复现、操作步骤、预期结果、实际结果和运行环境，这些信息都要写清楚。
+## 分析方向先由人确认 {#analyze-the-issue}
 
-`antd bug` 会把这些信息整理成 Ant Design 的 Issue 模板。这次我先用中文生成 #58884 的 JSON 预览：
+拿到 Issue 链接后，Codex 会读取 Issue、当前代码、提交历史和仓库里的 [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md)，再搜索最相关的实现与测试。#58884 最终定位到 `isClosable` 对对象配置的判断：代码只有在 `closeIcon` 为真时才认为 Alert 可以关闭，忽略了 `{ onClose }` 本身已经是合法的 `closable` 配置。
 
-```bash
-antd bug \
-  --title "Alert 的 closable 仅配置 onClose 时不显示关闭按钮" \
-  --reproduction "https://codesandbox.io/p/sandbox/yu-fa-tang-antd-6-5-3-forked-35wfql" \
-  --steps "1. 使用 antd 6.5.3 渲染 Alert；2. 仅传入 closable={{ onClose }}；3. 查看 Alert 是否显示关闭按钮，并尝试触发 onClose。" \
-  --expected "配置 closable.onClose 后，Alert 应显示默认关闭按钮；点击后关闭 Alert，并触发 onClose 回调。" \
-  --actual "Alert 不显示关闭按钮，导致用户无法点击关闭，closable.onClose 也无法触发。" \
-  --format json
-```
+这一步先停下来由人确认很重要。AI 可以很快缩小范围，但公开 API 应该怎样表现、兼容边界在哪里，不能只根据一段实现直接下结论。我确认分析符合 Alert 文档和通用 `useClosable` 逻辑后，才让 Codex 开始修改。
 
-JSON 预览不会真正提交 Issue。我检查完标题、复现链接、步骤和预期行为后，才在同一组参数后面加上 `--submit`，由 CLI 创建 [Issue #58884](https://github.com/ant-design/ant-design/issues/58884)。这一步我不会交给 Codex 自动执行，问题还没验证清楚时，更不应该直接提交。
+## 实现之后，用 test-review 检查测试 {#implement-and-verify}
 
-![使用 Ant Design CLI 创建的 Issue #58884](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*iSteSqd4qrAAAAAAU7AAAAgAegCCAQ/original)
-
-Issue 写清楚以后，后面无论是 Codex 还是维护者，看到的都是同一套信息，不用再各自猜问题到底是什么。
-
-## Codex 先分析，人确认方向 {#analyze-the-issue}
-
-把 Issue 链接交给 Codex 后，我先让它分析怎么处理，不直接修改代码。Codex 结合当前代码和仓库里的 [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md)，对比了 Alert 的类型、文档和通用的 `useClosable` 逻辑，最终把问题定位到了 `isClosable` 里的这个条件：
-
-```tsx
-if (isPlainObject(closable) && closable.closeIcon) {
-  return true;
-}
-```
-
-这段逻辑只有在对象里的 `closeIcon` 为真时，才认为 Alert 可以关闭。`{ onClose }` 虽然是合法的 `closable` 对象，却会继续落到后面的分支，最后得到 `false`。修复方向也很明确：对象形式的 `closable` 本身就代表启用关闭能力，不应该再依赖 `closeIcon` 是否为真值。
-
-我确认这个分析符合 API 的预期后，就让 Codex 按照这个方向处理代码和测试。
-
-## 确认方案后再实现并审查测试 {#implement-and-verify}
-
-分析结果确认无误后，我才让 Codex 开始修改代码。实际给出的指令可以很短：
+确认方向后，我给 Codex 的指令仍然很短：
 
 ```text
 按上面的方案处理，完成后运行相关检查，并使用 test-review Skill 审查本次修改的测试。
 ```
 
-通用 `useClosable` 已经把对象配置当成启用状态，Alert 这里只要保持一致就行：
+Codex 把对象形式的 `closable` 直接视为启用关闭能力，并把已有测试改成回归场景：不再显式传 `closeIcon: true`，通过可访问角色找到关闭按钮，再断言对象里的回调被调用。
 
-```diff
-- if (isPlainObject(closable) && closable.closeIcon) {
-+ if (isPlainObject(closable)) {
-    return true;
-  }
-```
+![Alert 回归测试的改动](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*w65HRbSBwlwAAAAARbAAAAgAeuN6AQ)
 
-我没有先改实现，而是先把已有测试改成这次的回归场景：删掉 `closeIcon: true`，通过可访问角色找到按钮，再检查对象回调的优先级。
-
-```tsx
-const onClose = jest.fn();
-const handleClosableClose = jest.fn();
-
-render(
-  <Alert title="Warning Text" closable={{ onClose: handleClosableClose }} onClose={onClose} />,
-);
-
-fireEvent.click(screen.getByRole('button'));
-expect(onClose).toHaveBeenCalledTimes(0);
-expect(handleClosableClose).toHaveBeenCalledTimes(1);
-```
-
-只改测试、不改实现时，新用例会因为找不到 `button` 而失败，其他用例仍然正常通过。改完 `isClosable` 后，Alert 的 22 个测试全部通过。先红后绿，说明这个测试确实复现了 #58884，也能证明这次修改有效。
-
-这个测试没有去读 `isClosable`、CSS 类名或者组件内部状态，只看用户能不能看到关闭按钮、点击后回调有没有执行，检查的是公开行为。实现完成后，[test-review Skill](https://github.com/ant-design/ant-design/pull/57628) 会静态审查这个测试是否值得保留：依据是不是来自公开契约，有没有重复覆盖，是否绑死实现细节。它不负责补测试，也不会默认运行测试。
-
-写一个能通过的测试并不难，难的是判断这个测试值不值得留。`test-review` 会按 antd 的测试准则给出意见，但最后是接受、改写还是删除，仍然要结合 Issue 的约定由人来决定。
+只改测试时，用例会因为找不到按钮而失败；实现修复后，Alert 的 22 个测试全部通过。`test-review` 接着检查这个测试是否真的保护了公开行为，有没有重复覆盖，或者拿内部实现来证明内部实现。它给出审查意见，最后保留、改写还是删除，仍然由人结合 Issue 判断。
 
 ## 创建 PR 前，先在本地做一轮 CR {#local-code-review}
 
-代码和测试都跑通后，我不会马上创建 PR，而是先让 Codex 看一遍当前完整改动：
+代码和测试通过后，我不会马上创建 PR，而是让 Codex 先看一遍完整改动：
 
 ```text
 CR 一下当前改动，先不要修改代码。
 ```
 
-这轮 CR 会结合 Issue、仓库规则和当前 Diff 检查实现、测试与改动范围。Codex 列出的 Finding 不能照单全收，我会回到最新代码里逐条确认：确实有问题就修，建议不成立就跳过。改完以后重新运行相关检查，再做一轮 CR，直到没有阻断问题和无关改动。
+Codex 会结合 Issue、仓库规则和当前 Diff 检查实现、测试与改动范围。它列出的 Finding 不能照单全收，我会逐条回到最新代码里确认；确实成立的再修，修完重新运行检查，直到没有阻断问题和无关改动。
 
-这次本地 CR 最后只留下两个文件：Alert 的一行修复和一个回归测试。我重新跑了 Alert 测试，也执行了 `antd lint`、Prettier 检查和 `git diff --check`，实现和测试都没有报错。测试审查也确认，这个用例验证的是按钮是否出现、对象回调是否执行，没有拿内部实现来证明内部实现。到这里，我会再亲自看一遍完整 Diff 和检查结果，确认没有问题后才进入提交阶段。
+PR #58885 的本地 CR 最后只留下两个文件：Alert 的一行修复和一个回归测试。我重新跑了组件测试、`antd lint`、Prettier 和 `git diff --check`，再亲自看一遍完整 Diff。创建 PR 前完成这轮本地 CR，可以把不少来回修改挡在远端 Review 之前。
 
-## 人工确认后，再提交并创建 PR {#create-the-pr}
+## commit-msg 和 create-pr 接手重复工作 {#create-the-pr}
 
-本地 CR 和人工检查都通过后，最后一条指令同样可以很短：
+本地 CR 和人工检查都通过后，我只需要告诉 Codex：
 
 ```text
 提交当前改动并创建 PR。
 ```
 
-进入提交阶段后，Codex 会先整理需要提交的文件，再调用 `commit-msg` 根据暂存区和近期提交风格生成一行提交信息。提交完成后，`create-pr` 会读取当前分支相对基线的完整 Diff，选择官方模板并生成 PR 草稿。这时还要确认 Bug 修复是不是基于正确分支、需要提交的改动全不全，以及 PR 模板里的更新日志能不能准确说明用户会感知到的变化。
+`commit-msg` 会读取暂存区和近期提交风格，生成一行提交信息；`create-pr` 会读取当前分支相对基线的完整 Diff，选择官方模板并准备 PR。它读取的是整个分支，不会只总结最后一个 Commit。
 
-这里说的更新日志，是 PR 模板里的中英文说明，不是直接去改 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md`。普通贡献只要按模板说清楚这次改动对用户或开发者有什么影响；如果没有可感知变化，写明无需更新即可。正式 CHANGELOG 会在发版时统一整理。
+这里仍然有一次人工确认：Bug 修复是否基于正确分支、暂存内容是否完整、PR 的英文标题和中文正文是否准确、模板里的中英文更新日志能否说明用户可感知的变化。确认完成后，Codex 才会执行提交和创建 PR。
 
-这些工作每次都差不多，很适合交给仓库里的 Skills。检查哪些内容、使用什么模板、最后输出什么，Skill 里都已经写好了，而且会跟着仓库一起更新，不用每次都重新向 Codex 解释 antd 的协作规范。这次主要用到了三个：
-
-| Skill | 作用 | 人工检查点 |
-| --- | --- | --- |
-| [commit-msg](https://github.com/ant-design/ant-design/pull/57203) | 根据暂存区和近期提交风格生成单行提交信息 | 是否准确覆盖所有暂存改动 |
-| [create-pr](https://github.com/ant-design/ant-design/pull/57228) | 分析基线到当前分支的完整 Diff，填写官方 PR 模板 | Base、标题、正文和更新日志是否正确 |
-| [test-review](https://github.com/ant-design/ant-design/pull/57628) | 静态审查测试是否保护独立契约 | 是否接受、改写或拒绝测试建议 |
-
-在 Codex 里不用背每个 Skill 的名字和额外命令，直接说目标即可。Codex 会根据当前意图选择对应的 Skill。Skill 真正省事的地方，是每次都会按同一套规则检查。比如 `create-pr` 会读取整个分支，而不是只总结最后一个 Commit；真正调用 `gh pr create` 前，还会把 Base、英文标题和中文正文交给人确认。Codex 可以整理材料，Skill 可以提醒步骤，但结果用不用、外部操作做不做，还是由人决定。
-
-具体到这次修改，提交信息是 `fix(Alert): show close button for closable onClose`。`create-pr` 根据完整 Diff 生成了英文标题和中文正文。我确认 Base 是 `master`，更新日志也和实际影响一致后，才创建 [PR #58885](https://github.com/ant-design/ant-design/pull/58885)。PR 用 `Fixes #58884` 关联原始问题，正文里写清了 API 迁移背景、问题原因、兼容边界和回归测试。走到这里，Issue、代码、测试和 PR 描述应该能互相对得上。
+PR #58885 最终使用提交信息 `fix(Alert): show close button for closable onClose`。PR 通过 `Fixes #58884` 关联 Issue，正文说明了问题原因、兼容边界和回归测试。Issue、代码、测试和 PR 描述能够互相对应，维护者接手 Review 时就不用重新整理上下文。
 
 ## 远端 Review、CI 和 Merge {#remote-review-and-merge}
 
-PR 创建后，就进入远端 Review 和 CI。Codex 可以帮忙整理 Review 意见、查 CI 日志、准备修改，但不能看到一条建议就默认它是对的。
+PR 创建后，Codex 还可以整理 Review 意见和查 CI 日志。不过无论评论来自人还是 AI，都要放回最新代码和 Issue 中验证，不能看到建议就直接改。
 
-处理 Review 时，我会把建议放回 Issue 和前面的分析结果里再看一遍：
-
-- 它是否指出了真实的行为或兼容问题？
-- 它要求的测试是否保护新的独立契约？
-- 它是否扩大了当前 Issue 的范围？
-- 如果是 AI Review，这条结论是否已经根据最新代码重新验证？
-
-在 #58885 中，CodeRabbit 没有提出需要处理的问题，标题、描述、Issue 关联和改动范围这些前置检查也都通过了。但这只能说明自动审查没发现阻断项，改动能不能接受，仍然要等维护者 Review。其他 AI Review 也是一样，给出的建议要回到最新代码和 Issue 里验证，不能看到评论就改。
-
-CI 会检查测试、类型、代码规范、覆盖率和构建结果。PR 如果涉及 UI 变化，我还会打开部署预览，自己看一遍实际效果。
-
-PR #58885 的首轮 CI 跑了 lint、构建、Node 测试、React 18 和最新 React 矩阵，还检查了 dist、dist-min、覆盖率、包体积、预览部署和视觉回归。最后所有自动检查都通过了，修改行覆盖率是 100%，视觉报告也没有发现差异。
+PR #58885 的首轮 CI 覆盖了 lint、构建、Node 测试、React 版本矩阵、覆盖率、包体积、预览部署和视觉回归。所有自动检查最终通过，修改行覆盖率是 100%，视觉报告也没有发现差异。
 
 ![PR #58885 的自动检查全部通过](https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*jZqiQoiEwGkAAAAATOAAAAgAegCCAQ/original)
 
-截图里所有自动检查都已经通过，但页面上仍然显示 `Review required`。这两个状态并不冲突：CI 只能证明代码通过了项目预设的检查，这项行为变化要不要接受，还得由维护者判断。
+CI 通过只代表代码达到了仓库预设的可评审状态。之后 [afc163](https://github.com/afc163) 完成人工 Review、批准改动，并把 PR 合并进 `master`；PR 中的 `Fixes #58884` 随后自动关闭了 Issue。
 
-维护者提出意见后，我会先判断要不要采纳。建议成立，再改代码、跑检查，然后重新 Review。#58885 的自动 Review 和 CI 都没有发现阻断问题，之后 [afc163](https://github.com/afc163) 完成人工 Review、批准改动，并把 PR 合并进 `master`。对应的 Merge Commit 是 [`5040df9`](https://github.com/ant-design/ant-design/commit/5040df92921d404b5b494eea911d24516062e813)。
+![PR #58885 已合入 master](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*FiD_S4q3qDgAAAAARZAAAAgAeuN6AQ)
 
-代码合并后，PR 正文里的 `Fixes #58884` 让 GitHub 自动关闭了最开始创建的 [Issue #58884](https://github.com/ant-design/ant-design/issues/58884)。到这里，这个问题才算真正走完了从发现到关闭的全过程。
+## 这套流程降低了哪些维护成本 {#maintenance-cost}
 
-Merge 以后，我还会继续看修复会进入哪个版本，以及发版后有没有新的用户反馈。如果问题出在底层 rc-component，中间还会多出底层仓库修复、发版和 antd 验证。不过做法没有变：每一步都把输入说清楚、把证据留下来，涉及外部操作时再由人确认。
+回头看这条流程，AI 和 Skills 主要减少了四类重复投入：
 
-## 回头看这套流程 {#workflow-summary}
+- **找上下文**：Codex 直接在本地读取 Issue、仓库规则、代码、测试和历史改动，维护者不用手工整理文件清单；
+- **重复检查**：`test-review`、`commit-msg` 和 `create-pr` 把已经确认的仓库要求放到对应阶段执行；
+- **远端返工**：测试审查和本地 CR 提前发现问题，减少 PR 创建后的来回修改；
+- **交接说明**：提交信息和 PR 模板来自完整 Diff，Reviewer 更容易看清问题、方案和影响。
 
-如果 Issue 已经存在，实际交流可以压缩成四步。
-
-第一步，把链接交给 Codex，只让它分析：
-
-```text
-https://github.com/ant-design/ant-design/issues/58884
-分析一下这个 Issue 怎么处理，先不要修改代码。
-```
-
-第二步，人工确认分析结果后，让 Codex 实现并调用 `test-review`：
-
-```text
-方案没有问题，按这个方向处理。完成后运行相关检查，并审查本次修改的测试。
-```
-
-第三步，代码和测试完成后让 Codex 做本地 CR：
-
-```text
-对当前完整改动做一次本地 CR，先不要修改代码，只报告可以执行的问题。
-```
-
-第四步，逐条确认 CR 结果、修复成立的问题，并检查完整 Diff。确认没有问题后，再提交并创建 PR：
-
-```text
-本地 CR 和检查结果都没有问题，提交当前改动并创建 PR。
-```
-
-这几句话背后，Codex 负责读 Issue、找代码和执行检查；`test-review`、`commit-msg`、`create-pr` 负责各自已经写进仓库的固定流程。人负责确认问题是否成立、方案是否正确、CR 建议是否要采纳，以及最终是否执行提交和创建 PR。
-
-Skills 减少了反复解释仓库规范的成本，也让 Codex 每次都按同一套流程做事。它们能提高效率，但不会替贡献者做设计和兼容性判断。
+省下来的时间可以留给真正需要维护者判断的事情：问题是否成立、公开 API 应该怎样表现、兼容边界在哪里、CR 建议是否采纳，以及这次改动是否可以合并。AI 擅长快速搜索和缩小问题范围，Skills 负责让过程更稳定；最后的决定仍然要由人做。
 
 ## 补充：我的 Issue 从哪里来 {#my-issue-sources}
 
