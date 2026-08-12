@@ -71,7 +71,7 @@ describe('Tooltip.Semantic', () => {
     expect(tooltipContainer).toHaveStyle('font-size: 16px');
   });
 
-  it('should allow backdrop-filter on the container', () => {
+  it('should allow backdrop-filter while preserving popup elevation', () => {
     const { container } = render(
       <Tooltip
         open
@@ -89,10 +89,13 @@ describe('Tooltip.Semantic', () => {
 
     const root = container.querySelector('.ant-tooltip');
     const tooltipContainer = container.querySelector('.ant-tooltip-container');
+    const arrow = container.querySelector('.ant-tooltip-arrow');
 
     expect(tooltipContainer).toHaveStyle({ backgroundColor: 'rgba(255, 255, 255, 0.4)' });
     expect(getComputedStyle(root!).filter || 'none').toBe('none');
     expect(getComputedStyle(tooltipContainer!).filter).toBe('var(--ant-drop-shadow-popover)');
+    expect(getComputedStyle(arrow!).filter).toBe('var(--ant-drop-shadow-popover)');
+    expect(getComputedStyle(arrow!).clipPath).toBe('inset(-100vmax -100vmax 0 -100vmax)');
   });
 
   it('should follow root style priority', () => {

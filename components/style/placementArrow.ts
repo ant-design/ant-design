@@ -33,6 +33,7 @@ const getArrowStyle = <
   options?: {
     arrowDistance?: number;
     arrowShadow?: boolean;
+    arrowFilter?: string;
   },
 ): CSSInterpolation => {
   const {
@@ -45,7 +46,10 @@ const getArrowStyle = <
 
   const [varName] = genCssVar(antCls, 'tooltip');
 
-  const { arrowDistance = 0, arrowShadow = true } = options || {};
+  const { arrowDistance = 0, arrowShadow = true, arrowFilter } = options || {};
+  // Keep the arrow's outer shadow, but clip the base shadow that overlaps the popup body.
+  // Placement transforms rotate this clipping edge together with the arrow.
+  const arrowShadowClip = '-100vmax';
 
   return {
     [componentCls]: {
@@ -55,6 +59,10 @@ const getArrowStyle = <
           position: 'absolute',
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
+          filter: arrowFilter,
+          clipPath: arrowFilter
+            ? `inset(${arrowShadowClip} ${arrowShadowClip} 0 ${arrowShadowClip})`
+            : undefined,
 
           ...genRoundedArrow(token, colorBg, arrowShadow ? boxShadowPopoverArrow : false),
 
