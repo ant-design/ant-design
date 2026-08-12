@@ -60,6 +60,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 `percent` represents the authored stop position and accepts values from `0` to `100`. BorderBeam maps those stops into the visible beam segment and reserves the trailing area for transparent fade-out so the moving tail stays visible.
 
+### `size` limits {#faq-size-limit}
+
+`BorderBeam` creates the beam with a square gradient layer whose side length is `size`. The layer travels around the container border, and a mask exposes the areas where it overlaps the border. `size` sets the side length independently of the border path length.
+
+Along a horizontal edge, the gradient layer extends about `size / 2` to either side of the edge. If `size` approaches or exceeds twice the mask overlay height, the square can cover both the top and bottom edges. The same geometry applies to the width while the beam travels along a vertical edge.
+
+Keep `size` well below twice the shorter side of the mask overlay: `size < 2 × min(width, height)`. The mask overlay is usually close in size to the decorated container, while `outset` changes its dimensions. Border radius, `lineWidth`, and transparent areas in the gradient also affect the point at which the overlap becomes visible.
+
 ### Why is `BorderBeam` not working? {#faq-not-working}
 
 `BorderBeam` needs to resolve the actual DOM node from `children` and insert the beam layer into that node. Make sure the wrapped content is a native DOM element, or a React component that correctly forwards its `ref` to a DOM element. Otherwise BorderBeam cannot locate the real container and the beam cannot be rendered.
