@@ -21,6 +21,7 @@ tag: 6.6.0
 <code src="./demo/virtual.tsx">Virtual scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
 <code src="./demo/rich.tsx">Rich content</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting</code>
 <code src="./demo/infinite.tsx">Infinite loading</code>
 <code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/scroll-to.tsx" debug>Scroll control</code>
@@ -53,8 +54,8 @@ Common props ref: [Common props](/docs/react/common-props)
 
 ### Ref
 
-| Name     | Description                               | Type                                |
-| -------- | ----------------------------------------- | ----------------------------------- |
+| Name     | Description                               | Type                                     |
+| -------- | ----------------------------------------- | ---------------------------------------- |
 | scrollTo | Scroll to a position, an item, or a group | `(config?: ListyScrollToConfig) => void` |
 
 `ListyScrollToConfig` is one of:
