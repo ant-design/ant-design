@@ -21,13 +21,24 @@ export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   hasSider?: boolean;
 }
 
-interface BasicPropsWithTagName extends BasicProps {
-  tagName: 'header' | 'footer' | 'main' | 'div';
+export type HeaderTheme = 'light' | 'dark';
+
+export interface HeaderProps extends BasicProps {
+  theme?: HeaderTheme;
 }
 
-const generator = ({ suffixCls, tagName, displayName }: GeneratorProps) => {
+interface BasicPropsWithTagName extends BasicProps {
+  tagName: 'header' | 'footer' | 'main' | 'div';
+  theme?: HeaderTheme;
+}
+
+const generator = <P extends BasicProps = BasicProps>({
+  suffixCls,
+  tagName,
+  displayName,
+}: GeneratorProps) => {
   return (Component: React.ComponentType<BasicPropsWithTagName & React.RefAttributes<any>>) => {
-    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
+    const Adapter = React.forwardRef<HTMLElement, P>((props, ref) => (
       <Component ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
     ));
     if (process.env.NODE_ENV !== 'production') {
@@ -43,6 +54,7 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
     suffixCls,
     className,
     tagName: TagName,
+    theme,
     ...others
   } = props;
 
@@ -55,7 +67,13 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
 
   return (
     <TagName
-      className={clsx(customizePrefixCls || prefixWithSuffixCls, className, hashId, cssVarCls)}
+      className={clsx(
+        customizePrefixCls || prefixWithSuffixCls,
+        { [`${prefixWithSuffixCls}-light`]: suffixCls === 'header' && theme === 'light' },
+        className,
+        hashId,
+        cssVarCls,
+      )}
       ref={ref}
       {...others}
     />
@@ -131,7 +149,7 @@ const Layout = generator({
   displayName: 'Layout',
 })(BasicLayout);
 
-const Header = generator({
+const Header = generator<HeaderProps>({
   suffixCls: 'header',
   tagName: 'header',
   displayName: 'Header',

@@ -39,6 +39,16 @@ export interface ComponentToken {
    */
   headerColor: string;
   /**
+   * @desc 亮色主题顶部背景色
+   * @descEN Background Color of light theme header
+   */
+  lightHeaderBg: string;
+  /**
+   * @desc 亮色主题顶部文字颜色
+   * @descEN Text color of light theme header
+   */
+  lightHeaderColor: string;
+  /**
    * @desc 页脚内边距
    * @descEN Padding of footer
    */
@@ -106,6 +116,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     headerHeight,
     headerPadding,
     headerColor,
+    lightHeaderBg,
+    lightHeaderColor,
     footerPadding,
     fontSize,
     bodyBg,
@@ -159,6 +171,11 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       },
     },
 
+    [`${componentCls}-header-light`]: {
+      color: lightHeaderColor,
+      background: lightHeaderBg,
+    },
+
     // ==================== Footer ====================
     [`${componentCls}-footer`]: {
       padding: footerPadding,
@@ -203,6 +220,8 @@ export const prepareComponentToken: GetDefaultToken<'Layout'> = (token) => {
     headerHeight: controlHeight * 2,
     headerPadding: `0 ${paddingInline}px`,
     headerColor: colorText,
+    lightHeaderBg: colorBgContainer,
+    lightHeaderColor: colorText,
     footerPadding: `${controlHeightSM}px ${paddingInline}px`,
     footerBg: colorBgLayout,
     siderBg: '#001529',

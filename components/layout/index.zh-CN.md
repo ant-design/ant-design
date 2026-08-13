@@ -60,6 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本结构</code>
+<code src="./demo/header-theme.tsx" version="6.7.0">顶部主题</code>
 <code src="./demo/top.tsx" compact background="grey">上中下布局</code>
 <code src="./demo/top-side.tsx" compact background="grey">顶部-侧边布局</code>
 <code src="./demo/top-side-2.tsx" compact background="grey">顶部-侧边布局-通栏</code>
@@ -116,6 +117,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - |  |
 | onBreakpoint | 触发响应式布局[断点](/components/grid-cn#api)时的回调 | (broken) => {} | - |  |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |  |
+
+### Layout.Header
+
+顶部布局。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| theme | 顶部布局的主题颜色 | `light` \| `dark` | `dark` | 6.7.0 | × |
 
 ## Semantic DOM
 

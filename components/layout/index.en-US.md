@@ -59,6 +59,7 @@ Style of a navigation should conform to its level.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Structure</code>
+<code src="./demo/header-theme.tsx" version="6.7.0">Header theme</code>
 <code src="./demo/top.tsx" compact background="grey">Header-Content-Footer</code>
 <code src="./demo/top-side.tsx" compact background="grey">Header-Sider</code>
 <code src="./demo/top-side-2.tsx" compact background="grey">Header Sider 2</code>
@@ -115,6 +116,14 @@ The sidebar.
 | zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |  |
 | onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |  |
 | onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |  |
+
+### Layout.Header
+
+The top layout.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| theme | Color theme of the header | `light` \| `dark` | `dark` | 6.7.0 | × |
 
 ## Semantic DOM
 

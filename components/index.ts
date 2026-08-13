@@ -96,7 +96,7 @@ export type { InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';
 export type { InputNumberProps } from './input-number';
 export { default as Layout } from './layout';
-export type { LayoutProps, SiderProps } from './layout';
+export type { HeaderProps, LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListItemMetaRef, ListProps } from './list';
 export { default as Listy } from './listy';

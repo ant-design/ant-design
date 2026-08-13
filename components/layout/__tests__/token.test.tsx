@@ -56,6 +56,8 @@ describe('Layout.Token', () => {
           components: {
             Layout: {
               headerBg: '#FF0000',
+              lightHeaderBg: '#00FF00',
+              lightHeaderColor: '#0000FF',
             },
             Menu: {
               itemBg: '#00FF00',
@@ -64,7 +66,7 @@ describe('Layout.Token', () => {
         }}
       >
         <Layout>
-          <Header>
+          <Header theme="light">
             <Menu
               mode="horizontal"
               defaultSelectedKeys={['2']}
@@ -83,7 +85,10 @@ describe('Layout.Token', () => {
 
     expect(container.querySelector('.ant-layout')).toHaveStyle({
       '--ant-layout-header-bg': '#FF0000',
+      '--ant-layout-light-header-bg': '#00FF00',
+      '--ant-layout-light-header-color': '#0000FF',
     });
+    expect(container.querySelector('.ant-layout-header')).toHaveClass('ant-layout-header-light');
     expect(container.querySelector('.ant-menu')).toHaveStyle({
       '--ant-menu-item-bg': '#00FF00',
     });

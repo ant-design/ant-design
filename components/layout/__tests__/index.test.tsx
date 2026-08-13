@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { UserOutlined } from '@ant-design/icons';
 import { renderToString } from 'react-dom/server';
 
@@ -192,6 +193,38 @@ describe('Layout', () => {
     expect(
       container.querySelector('.ant-layout-sider')?.className.includes('ant-layout-sider-light'),
     ).toBe(true);
+  });
+
+  it('supports header theme', () => {
+    const { container, rerender } = render(<Header>Header</Header>);
+    const header = container.querySelector('.ant-layout-header')!;
+
+    expect(header).not.toHaveClass('ant-layout-header-light');
+    expect(header).not.toHaveAttribute('theme');
+
+    rerender(<Header theme="light">Header</Header>);
+    expect(header).toHaveClass('ant-layout-header-light');
+    expect(header).not.toHaveAttribute('theme');
+
+    rerender(<Header theme="dark">Header</Header>);
+    expect(header).not.toHaveClass('ant-layout-header-light');
+    expect(header).not.toHaveAttribute('theme');
+  });
+
+  it('supports header theme with custom prefixCls', () => {
+    const cache = createCache();
+    const { container } = render(
+      <StyleProvider cache={cache}>
+        <Header prefixCls="custom" theme="light">
+          Header
+        </Header>
+      </StyleProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('custom', 'custom-header-light');
+    expect(extractStyle(cache, { plain: true })).toContain(
+      '.custom-header-light{color:var(--ant-layout-light-header-color);background:var(--ant-layout-light-header-bg);}',
+    );
   });
 
   it('renders string width correctly', () => {
