@@ -1508,16 +1508,12 @@ describe('Form', () => {
     expect(labels[1]).toHaveClass('ant-col-offset-4', 'ant-col-md-offset-0');
 
     const styleText = extractStyle(cache, { plain: true });
-    const matchingMarginRules = Array.from(
+    const labelMarginRule = '.ant-form-item-label{margin:var(--ant-form-item-label-margin);}';
+    const matchingMarginVariableRules = Array.from(
       styleText.matchAll(
-        /([^{}]+)\{([^{}]*margin:var\(--ant-form-vertical-label-margin\);[^{}]*)\}/g,
+        /([^{}]+)\{[^{}]*--ant-form-item-label-margin:var\(--ant-form-vertical-label-margin\);[^{}]*\}/g,
       ),
-    ).filter(
-      ([, selector]) =>
-        // JSDOM does not support nested `:not(:where(...))` selectors.
-        !selector.includes(':not(:where(') && labels[0].matches(selector.trim()),
-    );
-    const verticalMarginRule = matchingMarginRules[0]?.[0];
+    ).filter(([, selector]) => labels[0].matches(selector.trim()));
     const gridMarginRules = [
       '.ant-col-offset-6{margin-inline-start:25%;}',
       '.ant-col-sm-offset-3{margin-inline-start:12.5%;}',
@@ -1525,16 +1521,15 @@ describe('Form', () => {
     ];
 
     expect(styleText).toContain('--ant-form-vertical-label-margin:1px 2px 3px 4px;');
-    expect(matchingMarginRules).toHaveLength(1);
-    expect(verticalMarginRule).toMatch(
-      /:where\(\.ant-form-item-vertical\s*>\s*\.ant-form-item-row\)\s*>\s*\.ant-form-item-label/,
-    );
+    expect(styleText).toContain('--ant-form-item-label-margin:initial;');
+    expect(matchingMarginVariableRules.length).toBeGreaterThan(0);
+    expect(styleText).toContain(labelMarginRule);
 
-    // `:where()` keeps the Form margin at the same specificity as the Grid offset.
-    // Grid styles are emitted later, so margin-inline-start wins without removing vertical spacing.
+    // The single-class Form rule has the same specificity as the Grid offset.
+    // Grid styles are emitted later, so margin-inline-start wins while the other margins remain.
     gridMarginRules.forEach((rule) => {
       expect(styleText).toContain(rule);
-      expect(styleText.indexOf(verticalMarginRule!)).toBeLessThan(styleText.indexOf(rule));
+      expect(styleText.indexOf(labelMarginRule)).toBeLessThan(styleText.indexOf(rule));
     });
   });
 
