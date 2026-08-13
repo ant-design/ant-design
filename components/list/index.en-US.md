@@ -14,7 +14,7 @@ A list can be used to display content related to a single subject. The content c
 
 <!-- prettier-ignore -->
 :::warning{title=Deprecated Notice}
-List component has been deprecated. Will be removed in the next major version. Please use [Listy](/components/listy) instead, see [How do I migrate off List?](#faq-migrate-from-list).
+List component has been deprecated. Will be removed in the next major version. Please use [Listy](/components/listy) instead. See [How do I migrate off List?](#faq-migrate-from-list).
 :::
 
 ## Examples
