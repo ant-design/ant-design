@@ -14,7 +14,7 @@ A list can be used to display content related to a single subject. The content c
 
 <!-- prettier-ignore -->
 :::warning{title=Deprecated Notice}
-List component has been deprecated. Will be removed in the next major version.
+List component has been deprecated. Will be removed in the next major version. Please use [Listy](/components/listy) instead, see [How do I migrate off List?](#faq-migrate-from-list).
 :::
 
 ## Examples
@@ -114,15 +114,15 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### Is there a replacement for the deprecated List component? {#faq-listy-replacement}
 
-In Ant Design v6, we will introduce a brand-new Listy component as the successor to List.
+Yes — please use [Listy](/components/listy), available since `antd@6.6.0`. It is the successor to List, with built-in capabilities such as virtual scrolling, sticky group headers and programmatic scrolling. It also supports flexible custom rendering, aiming to cover list needs across different scenarios.
 
-Listy comes with built-in virtual scrolling and places greater emphasis on flexible layout control, empowering developers to build highly customizable lists tailored to various business scenarios.
+### How do I migrate off List? {#faq-migrate-from-list}
 
-The underlying implementation, rc-listy, is already largely complete and is currently awaiting review and further adjustments by core maintainers.
+Lists take different shapes in different scenarios, so it is hard to give a one-to-one migration guide. Thanks to the custom rendering capability of Listy, the preset structures in List can now be recomposed with plain JSX inside `itemRender`.
 
-Ant Design v6 will officially provide the Listy component based on rc-listy.
+The mapping is as follows:
 
-Related links:
-
-- Pull Request: [PR #54182](https://github.com/ant-design/ant-design/pull/54182)
-- RFC Discussion: [Discussion #54458](https://github.com/ant-design/ant-design/discussions/54458)
+- **Data and rendering**: `dataSource` maps to `items`, `renderItem` maps to `itemRender`; `rowKey` keeps its meaning but is required in Listy and no longer defaults to the `key` field — pass `rowKey="key"` explicitly if you relied on the default. For large datasets, no third-party dependency is needed — turn on `virtual` with a `height` to get virtual scrolling.
+- **Preset structures inside a row**: `List.Item`, `List.Item.Meta`, `actions`, `extra` can all be recomposed inside `itemRender`.
+- **Structures outside the list**: put `header` and `footer` around Listy directly, wrap the list with [Spin](/components/spin) for `loading`, slice the data yourself and pass it to `items` together with [Pagination](/components/pagination) for `pagination`, and see the [infinite loading](/components/listy#listy-demo-infinite) demo for `loadMore`.
+- **Styles**: adjust `bordered`, `split` and `size` through semantic DOM `classNames` / `styles` and Design Token; for `grid`, migrating to Listy is not recommended — use [Row / Col](/components/grid) with [Card](/components/card) to build the card layout instead.
