@@ -1478,6 +1478,66 @@ describe('Form', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/51630
+  it('should preserve label offset margin in vertical layout', () => {
+    const cache = createCache();
+    const { container } = render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider
+          theme={{ components: { Form: { verticalLabelMargin: '1px 2px 3px 4px' } } }}
+        >
+          <Form layout="vertical" labelCol={{ span: 24, offset: 6, sm: { span: 24, offset: 3 } }}>
+            <Form.Item label="Form offset">
+              <Input />
+            </Form.Item>
+            <Form.Item label="Item offset" labelCol={{ offset: 4, md: { offset: 0 } }}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const labels = container.querySelectorAll('.ant-form-item-label');
+    expect(labels[0]).toHaveClass(
+      'ant-col-24',
+      'ant-col-offset-6',
+      'ant-col-sm-24',
+      'ant-col-sm-offset-3',
+    );
+    expect(labels[1]).toHaveClass('ant-col-offset-4', 'ant-col-md-offset-0');
+
+    const styleText = extractStyle(cache, { plain: true });
+    const matchingMarginRules = Array.from(
+      styleText.matchAll(
+        /([^{}]+)\{([^{}]*margin:var\(--ant-form-vertical-label-margin\);[^{}]*)\}/g,
+      ),
+    ).filter(
+      ([, selector]) =>
+        // JSDOM does not support nested `:not(:where(...))` selectors.
+        !selector.includes(':not(:where(') && labels[0].matches(selector.trim()),
+    );
+    const verticalMarginRule = matchingMarginRules[0]?.[0];
+    const gridMarginRules = [
+      '.ant-col-offset-6{margin-inline-start:25%;}',
+      '.ant-col-sm-offset-3{margin-inline-start:12.5%;}',
+      '.ant-col-md-offset-0{margin-inline-start:0;}',
+    ];
+
+    expect(styleText).toContain('--ant-form-vertical-label-margin:1px 2px 3px 4px;');
+    expect(matchingMarginRules).toHaveLength(1);
+    expect(verticalMarginRule).toMatch(
+      /:where\(\.ant-form-item-vertical\s*>\s*\.ant-form-item-row\)\s*>\s*\.ant-form-item-label/,
+    );
+
+    // `:where()` keeps the Form margin at the same specificity as the Grid offset.
+    // Grid styles are emitted later, so margin-inline-start wins without removing vertical spacing.
+    gridMarginRules.forEach((rule) => {
+      expect(styleText).toContain(rule);
+      expect(styleText.indexOf(verticalMarginRule!)).toBeLessThan(styleText.indexOf(rule));
+    });
+  });
+
   it('form.item should support label = null', () => {
     // base size
     const App: React.FC = () => (

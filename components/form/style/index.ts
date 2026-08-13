@@ -413,7 +413,6 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
 
 const makeVerticalLayoutLabel: GenerateStyle<FormToken, CSSObject> = (token) => ({
   padding: token.verticalLabelPadding,
-  margin: token.verticalLabelMargin,
   whiteSpace: 'initial',
   textAlign: 'start',
 
@@ -425,6 +424,11 @@ const makeVerticalLayoutLabel: GenerateStyle<FormToken, CSSObject> = (token) => 
       visibility: 'hidden',
     },
   },
+});
+
+const makeVerticalLayoutLabelWithMargin: GenerateStyle<FormToken, CSSObject> = (token) => ({
+  ...makeVerticalLayoutLabel(token),
+  margin: token.verticalLabelMargin,
 });
 
 const genHorizontalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
@@ -452,8 +456,9 @@ const genHorizontalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
           minWidth: 'unset',
         },
       },
-      [`${antCls}-col-24${formItemCls}-label,
-        ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+      [`> :where(${formItemCls}-row) > ${antCls}-col-24${formItemCls}-label,
+        > :where(${formItemCls}-row) > ${antCls}-col-xl-24${formItemCls}-label`]:
+        makeVerticalLayoutLabelWithMargin(token),
     },
   };
 };
@@ -501,7 +506,8 @@ const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+    [`${formItemCls}:not(:where(${formItemCls}-vertical)) > :where(${formItemCls}-row) > ${formItemCls}-label`]:
+      makeVerticalLayoutLabelWithMargin(token),
     // ref: https://github.com/ant-design/ant-design/issues/45122
     [`${componentCls}:not(${componentCls}-inline)`]: {
       [formItemCls]: {
@@ -525,6 +531,10 @@ const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, antCls, verticalLabelHeight } = token;
 
   return {
+    [`:where(${formItemCls}-vertical > ${formItemCls}-row) > ${formItemCls}-label`]: {
+      margin: token.verticalLabelMargin,
+    },
+
     [`${formItemCls}-vertical`]: {
       [`${formItemCls}-row`]: {
         flexDirection: 'column',
