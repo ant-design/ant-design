@@ -2,6 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker.Semantic', () => {
@@ -72,5 +77,24 @@ describe('ColorPicker.Semantic', () => {
     );
 
     expect(root).toHaveStyle({ fontSize: '16px' });
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        colorPicker={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <ColorPicker
+          defaultValue="red"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-color-picker-trigger'));
   });
 });

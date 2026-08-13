@@ -138,6 +138,13 @@ describe('Card', () => {
     expect(cardRef.current).toHaveClass('ant-card');
   });
 
+  it('should support Card.Grid nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Card.Grid>>();
+    const { container } = render(<Card.Grid ref={ref}>Grid</Card.Grid>);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-card-grid'));
+  });
+
   it('should show tab when tabList is empty', () => {
     const { container } = render(
       <Card title="Card title" tabList={[]} tabProps={{ type: 'editable-card' }}>
@@ -147,6 +154,13 @@ describe('Card', () => {
 
     expect(container.querySelector('.ant-tabs')).toBeTruthy();
     expect(container.querySelector('.ant-tabs-nav-add')).toBeTruthy();
+  });
+
+  it('should support Card.Meta nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Card.Meta>>();
+    const { container } = render(<Card.Meta ref={ref} title="Title" />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-card-meta'));
   });
 
   it('correct pass tabList props', () => {

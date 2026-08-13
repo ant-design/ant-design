@@ -5,7 +5,7 @@ import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { GetProp } from '../_util/type';
@@ -298,9 +298,12 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Styles ============================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [waveEffectClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -410,8 +413,6 @@ const Steps = (props: StepsProps) => {
   // ============================ Styles ============================
   const mergedStyle: React.CSSProperties = {
     [varName('items-offset')]: `${offset}`,
-    ...contextStyle,
-    ...style,
   };
 
   const stepsClassName = clsx(

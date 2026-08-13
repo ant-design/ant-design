@@ -453,7 +453,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         UnClearable
       </div>
@@ -493,7 +492,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Customized clear icon
       </div>
@@ -538,7 +536,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         input here
       </div>
@@ -578,7 +575,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         control mode
       </div>
@@ -684,16 +680,16 @@ Array [
         />
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1005,6 +1001,285 @@ Array [
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="width: 300px; gap: 24px;"
+>
+  <div
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-customize-input ant-select-show-search"
+  >
+    <div
+      class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+      title="Burnaby"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="new-password"
+        class="ant-input ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value="Burnaby"
+      />
+    </div>
+    <button
+      aria-label="Clear"
+      class="ant-select-clear"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          Burnaby
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Burnaby"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Burnaby
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Seattle"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Seattle
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Los Angeles"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Los Angeles
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-customize-input ant-select-show-search"
+  >
+    <div
+      class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+      title="Burnaby"
+    >
+      <textarea
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="new-password"
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+      >
+        Burnaby
+      </textarea>
+    </div>
+    <button
+      aria-label="Clear"
+      class="ant-select-clear"
+      type="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          Burnaby
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Burnaby"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Burnaby
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Seattle"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Seattle
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option"
+                title="Los Angeles"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Los Angeles
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-wrap-wrap"
@@ -1056,7 +1331,6 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx extend 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -1237,16 +1511,16 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
                     </div>
                   </div>
                   <div
-                    class="rc-virtual-list"
+                    class="ant-select-dropdown-list"
                     style="position: relative;"
                   >
                     <div
-                      class="rc-virtual-list-holder"
+                      class="ant-select-dropdown-list-holder"
                       style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                     >
                       <div>
                         <div
-                          class="rc-virtual-list-holder-inner"
+                          class="ant-select-dropdown-list-holder-inner"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
@@ -1319,16 +1593,16 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1431,16 +1705,16 @@ exports[`renders components/auto-complete/demo/filled-custom-debug.tsx extend co
                     </div>
                   </div>
                   <div
-                    class="rc-virtual-list"
+                    class="ant-select-dropdown-list"
                     style="position: relative;"
                   >
                     <div
-                      class="rc-virtual-list-holder"
+                      class="ant-select-dropdown-list-holder"
                       style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                     >
                       <div>
                         <div
-                          class="rc-virtual-list-holder-inner"
+                          class="ant-select-dropdown-list-holder-inner"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
@@ -1583,7 +1857,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -1648,7 +1921,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -1789,7 +2061,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -1896,7 +2167,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2054,7 +2324,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2254,7 +2523,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2459,7 +2727,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2678,7 +2945,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         try to type \`b\`
       </div>
@@ -2714,16 +2980,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -2799,7 +3065,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         input here
       </div>
@@ -2902,16 +3167,16 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -3011,7 +3276,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -3051,7 +3315,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -3097,7 +3360,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         object styles
       </div>
@@ -3133,16 +3395,16 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -3250,7 +3512,6 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         function styles
       </div>
@@ -3286,16 +3547,16 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="background-color: rgba(240, 240, 240, 0.85); position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -3485,7 +3746,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Outlined
       </div>
@@ -3523,7 +3783,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Filled
       </div>
@@ -3561,7 +3820,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Borderless
       </div>
@@ -3599,7 +3857,6 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Underlined
       </div>

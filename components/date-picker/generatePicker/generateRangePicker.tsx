@@ -86,8 +86,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       });
     }
 
-    const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
+    const innerRef = React.useRef<PickerRef>(null);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
@@ -137,6 +137,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupClassName || dropdownClassName,
       popupStyle,
       mergedProps,
+      rangePicker?.style ?? null,
     );
 
     // ===================== FormItemInput =====================
@@ -200,7 +201,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             className,
             rangePicker?.className,
           )}
-          style={{ ...rangePicker?.style, ...style }}
+          style={style}
           // Semantic Style
           classNames={mergedClassNames}
           styles={{

@@ -98,13 +98,15 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
       </svg>
     </span>
   </div>
-  <div
+  <button
+    aria-label="Clear"
     class="ant-select-clear"
+    type="button"
   >
     <span>
       clear
     </span>
-  </div>
+  </button>
 </div>
 `;
 
@@ -117,7 +119,6 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
