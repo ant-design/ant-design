@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'تایید',
     cancelText: 'لغو',
   },
+  Splitter: {
+    toggleStartPanel: 'تغییر وضعیت پنل آغازین',
+    toggleEndPanel: 'تغییر وضعیت پنل پایانی',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'جستجو',

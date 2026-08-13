@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'Temam',
     cancelText: 'Betal ke',
   },
+  Splitter: {
+    toggleStartPanel: 'Panela destpêkê biguherîne',
+    toggleEndPanel: 'Panela dawiyê biguherîne',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Lêgerîn',
