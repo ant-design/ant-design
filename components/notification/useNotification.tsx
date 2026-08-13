@@ -11,13 +11,19 @@ import type {
 import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks';
-import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import {
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import useStackConfig from './hooks/useStackConfig';
 import type {
   ArgsProps,
@@ -43,6 +49,7 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
+  closeLabel: string;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -80,6 +87,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   } = props;
   const { getPrefixCls, getPopupContainer, direction } = useComponentConfig('notification');
   const { notification } = useContext(ConfigContext);
+  const [contextLocale] = useLocale('global', defaultLocale.global);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
@@ -88,9 +96,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     [duration],
   );
 
+  const contextStyleRoot = useSemanticRootStyle(notification?.style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [notification?.classNames, props?.classNames],
-    [notification?.styles, props?.styles],
+    [notification?.styles, contextStyleRoot, props?.styles],
     {
       props,
     },
@@ -131,6 +141,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     notification,
+    closeLabel: contextLocale.close ?? defaultLocale.global?.close ?? 'Close',
   }));
 
   return holder;
@@ -160,9 +171,8 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const { open: originOpen, prefixCls, notification, closeLabel } = holderRef.current;
       const contextClassName = notification?.className || {};
-      const contextStyle = notification?.style || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -205,6 +215,7 @@ export function useInternalNotification(
           closable: true,
           closeIcon: realCloseIcon,
         },
+        closeLabel,
       );
 
       const mergedClosable = rawClosable
@@ -230,7 +241,7 @@ export function useInternalNotification(
         actions: mergedActions,
         role,
         classNames: { ...semanticClassNames, icon: clsx(typeIconCls, semanticClassNames?.icon) },
-        styles: { ...semanticStyles, root: { ...contextStyle, ...semanticStyles?.root } },
+        styles: semanticStyles,
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
         style,
         closable: mergedClosable,

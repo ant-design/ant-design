@@ -15,7 +15,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
       </div>
       <div
@@ -88,16 +87,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -479,16 +478,16 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -636,16 +635,16 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -741,16 +740,16 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -825,8 +824,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -848,7 +849,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -870,16 +871,16 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -953,8 +954,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           Suffix
         </button>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -976,7 +979,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -1006,16 +1009,16 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -1087,8 +1090,10 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           value=""
         />
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1110,7 +1115,7 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -1140,16 +1145,16 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -1280,16 +1285,16 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -1410,16 +1415,16 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -1496,7 +1501,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         custom dropdown render
       </div>
@@ -1565,16 +1569,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1757,16 +1761,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -1993,16 +1997,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -2127,7 +2131,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Try paste: "San Francisco, CA", New York
         </div>
@@ -2270,7 +2273,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             233
           </div>
@@ -2338,16 +2340,16 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -2564,16 +2566,16 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -2761,16 +2763,16 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -2980,16 +2982,16 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -3157,7 +3159,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -3225,16 +3226,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -5032,16 +5033,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5194,16 +5195,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5350,16 +5351,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5538,16 +5539,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5695,16 +5696,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5857,16 +5858,16 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -5959,7 +5960,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Inserted are removed
         </div>
@@ -6034,16 +6034,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -6177,16 +6177,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -6358,16 +6358,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -6646,8 +6646,10 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -6669,7 +6671,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -6699,16 +6701,16 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -7167,16 +7169,16 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -7608,16 +7610,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -7773,8 +7775,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -7796,7 +7800,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -7824,16 +7828,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -7913,7 +7917,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select a option
           </div>
@@ -7980,16 +7983,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -8106,8 +8109,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8129,7 +8134,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8157,16 +8162,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -8328,8 +8333,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8351,7 +8358,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8379,16 +8386,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -8480,7 +8487,6 @@ Array [
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               Select a option
             </div>
@@ -8553,16 +8559,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -8624,7 +8630,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select a option
           </div>
@@ -8740,7 +8745,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Please select
           </div>
@@ -9073,8 +9077,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -9096,7 +9102,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9124,16 +9130,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -9230,7 +9236,6 @@ Array [
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               请选择
             </div>
@@ -9303,16 +9308,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -9379,7 +9384,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             请选择
           </div>
@@ -9445,16 +9449,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -9574,8 +9578,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -9597,7 +9603,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9625,16 +9631,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -9754,8 +9760,10 @@ Array [
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -9777,7 +9785,7 @@ Array [
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -9805,16 +9813,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -9960,8 +9968,10 @@ Array [
                         </svg>
                       </span>
                     </div>
-                    <div
+                    <button
+                      aria-label="Clear"
                       class="ant-select-clear"
+                      type="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -9983,7 +9993,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10011,16 +10021,16 @@ Array [
                         </div>
                       </div>
                       <div
-                        class="rc-virtual-list"
+                        class="ant-select-dropdown-list"
                         style="position: relative;"
                       >
                         <div
-                          class="rc-virtual-list-holder"
+                          class="ant-select-dropdown-list-holder"
                           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
-                              class="rc-virtual-list-holder-inner"
+                              class="ant-select-dropdown-list-holder-inner"
                               style="display: flex; flex-direction: column;"
                             >
                               <div
@@ -10139,8 +10149,10 @@ Array [
                         value="Bamboo"
                       />
                     </div>
-                    <div
+                    <button
+                      aria-label="Clear"
                       class="ant-select-clear"
+                      type="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -10162,7 +10174,7 @@ Array [
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                   <div
                     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10183,16 +10195,16 @@ Array [
                         </div>
                       </div>
                       <div
-                        class="rc-virtual-list"
+                        class="ant-select-dropdown-list"
                         style="position: relative;"
                       >
                         <div
-                          class="rc-virtual-list-holder"
+                          class="ant-select-dropdown-list-holder"
                           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
-                              class="rc-virtual-list-holder-inner"
+                              class="ant-select-dropdown-list-holder-inner"
                               style="display: flex; flex-direction: column;"
                             >
                               <div
@@ -10328,7 +10340,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Single
         </div>
@@ -10394,16 +10405,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -10518,8 +10529,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -10541,7 +10554,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -10569,16 +10582,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -10657,7 +10670,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -10730,16 +10742,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -10805,7 +10817,6 @@ Array [
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -10878,16 +10889,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -11030,8 +11041,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -11053,7 +11066,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -11081,16 +11094,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -11228,8 +11241,10 @@ Array [
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -11251,7 +11266,7 @@ Array [
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -11279,16 +11294,16 @@ Array [
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -11468,16 +11483,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -11800,16 +11815,16 @@ Array [
   >
     <div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               id="test-id_list"
               role="listbox"
               style="display: flex; flex-direction: column;"
@@ -12025,7 +12040,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -12092,16 +12106,16 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -12267,16 +12281,16 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -12718,7 +12732,6 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Item...
           </div>
@@ -12794,16 +12807,16 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -13218,16 +13231,16 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -13668,7 +13681,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -13736,16 +13748,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -13820,7 +13832,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -13888,16 +13899,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -13972,7 +13983,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select an option
       </div>
@@ -14040,16 +14050,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -14142,7 +14152,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Search to Select
       </div>
@@ -14210,16 +14219,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -14350,7 +14359,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Select users
         </div>
@@ -14564,16 +14572,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -15189,16 +15197,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -15710,16 +15718,16 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -16090,7 +16098,6 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -16203,7 +16210,6 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
         <input
           aria-autocomplete="list"
@@ -16345,7 +16351,6 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object
       </div>
@@ -16415,16 +16420,16 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -16499,7 +16504,6 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function
       </div>
@@ -16569,16 +16573,16 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -16683,8 +16687,10 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </svg>
         </span>
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -16706,7 +16712,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
             />
           </svg>
         </span>
-      </div>
+      </button>
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -16736,16 +16742,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -16900,16 +16906,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -17057,16 +17063,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -17225,16 +17231,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -17436,16 +17442,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -17613,16 +17619,16 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -17689,7 +17695,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Tags Mode
         </div>
@@ -17764,16 +17769,16 @@ Array [
         </div>
       </div>
       <div
-        class="rc-virtual-list"
+        class="ant-select-dropdown-list"
         style="position: relative;"
       >
         <div
-          class="rc-virtual-list-holder"
+          class="ant-select-dropdown-list-holder"
           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
-              class="rc-virtual-list-holder-inner"
+              class="ant-select-dropdown-list-holder-inner"
               style="display: flex; flex-direction: column;"
             >
               <div
@@ -18091,7 +18096,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Outlined
         </div>
@@ -18160,16 +18164,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -18348,16 +18352,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -18439,7 +18443,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Filled
         </div>
@@ -18508,16 +18511,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -18696,16 +18699,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -18787,7 +18790,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Borderless
         </div>
@@ -18856,16 +18858,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -19044,16 +19046,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -19135,7 +19137,6 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Underlined
         </div>
@@ -19204,16 +19205,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -19392,16 +19393,16 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
         </div>
         <div
-          class="rc-virtual-list"
+          class="ant-select-dropdown-list"
           style="position: relative;"
         >
           <div
-            class="rc-virtual-list-holder"
+            class="ant-select-dropdown-list-holder"
             style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
-                class="rc-virtual-list-holder-inner"
+                class="ant-select-dropdown-list-holder-inner"
                 style="display: flex; flex-direction: column;"
               >
                 <div

@@ -27,6 +27,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/popupRender-Search.tsx" version="6.6.0">Custom Popup Search</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>Container of card type Tab</code>
@@ -94,10 +95,11 @@ More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs
 
 ### MoreProps
 
-| Property                                  | Description     | Type      | Default | Version |
-| ----------------------------------------- | --------------- | --------- | ------- | ------- |
-| icon                                      | The custom icon | ReactNode | -       |         |
-| [DropdownProps](/components/dropdown#api) |                 |           |         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| icon | The custom icon | ReactNode | - |  |
+| popupRender | Customize the dropdown menu render | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
+| [DropdownProps](/components/dropdown#api) | Support other Dropdown props |  |  |  |
 
 ## Semantic DOM
 

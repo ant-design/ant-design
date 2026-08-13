@@ -2,6 +2,11 @@ import React from 'react';
 
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('DatePicker.Semantic', () => {
   describe('inline', () => {
@@ -173,5 +178,74 @@ describe('DatePicker.Semantic', () => {
     rerender(<DatePicker size="large" styles={stylesFn} />);
     const largeRootElement = container.querySelector('.ant-picker');
     expect(largeRootElement).toHaveStyle('font-size: 18px');
+  });
+
+  it('DatePicker should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        datePicker={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <DatePicker
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-picker'));
+  });
+
+  it('RangePicker should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        datePicker={{
+          styles: semanticRootStylePriority.contextStyles,
+        }}
+        rangePicker={{
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <DatePicker.RangePicker
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-picker'));
+  });
+
+  it('RangePicker should not use DatePicker root style config', () => {
+    const { container } = render(
+      <ConfigProvider
+        datePicker={{
+          style: { outlineWidth: '7px' },
+        }}
+      >
+        <DatePicker.RangePicker />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker')).not.toHaveStyle({ outlineWidth: '7px' });
+  });
+
+  it('should pass props to RangePicker semantic callbacks', () => {
+    const classNamesFn = (info: { props: Record<string, unknown> }) => ({
+      root: info.props.disabled ? 'disabled-root' : 'enabled-root',
+    });
+    const stylesFn = (info: { props: Record<string, unknown> }) => ({
+      root: { fontSize: info.props.size === 'large' ? '18px' : '14px' },
+    });
+
+    const { container } = render(
+      <DatePicker.RangePicker disabled size="large" classNames={classNamesFn} styles={stylesFn} />,
+    );
+    const rootElement = container.querySelector('.ant-picker');
+
+    expect(rootElement).toHaveClass('disabled-root');
+    expect(rootElement).toHaveStyle('font-size: 18px');
   });
 });

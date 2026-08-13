@@ -35,7 +35,11 @@ export interface CardMetaProps {
   styles?: CardMetaSemanticAllType['stylesAndFn'];
 }
 
-const CardMeta: React.FC<CardMetaProps> = (props) => {
+export interface CardMetaRef {
+  nativeElement: HTMLDivElement;
+}
+
+const CardMeta = React.forwardRef<CardMetaRef, CardMetaProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -110,13 +114,19 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
       </div>
     ) : null;
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyles}>
       {avatarDom}
       {MetaDetail}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   CardMeta.displayName = 'CardMeta';

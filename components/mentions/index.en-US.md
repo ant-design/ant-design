@@ -24,6 +24,7 @@ When you need to mention someone or something.
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
 <code src="./demo/readonly.tsx">disabled or readOnly</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/popupRender.tsx">Customize Popup</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/autosize-textarea-debug.tsx" debug>debug autoSize</code>
@@ -48,6 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  | × |
 | notFoundContent | Set mentions content when not match | ReactNode | `Not Found` |  | × |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  | × |
+| popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  | × |
 | split | Set split string before and after selected mention | string | ` ` |  | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  | × |

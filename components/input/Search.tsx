@@ -4,14 +4,15 @@ import { composeRef, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
 import type { ButtonProps, ButtonSemanticType } from '../button/Button';
-import DisabledContext from '../config-provider/DisabledContext';
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import useVariant from '../form/hooks/useVariants';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -76,7 +77,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
-    variant,
+    variant: customizeVariant,
     onPressEnter: customOnPressEnter,
     classNames,
     styles,
@@ -96,15 +97,30 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
 
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
+  const [mergedVariant, , isVariantConfigured] = useVariant(
+    'inputSearch',
+    customizeVariant,
+    props.bordered,
+  );
+  const variant = isVariantConfigured ? mergedVariant : undefined;
+  const [inputVariant] = useVariant('inputSearch', customizeVariant, props.bordered, 'input');
 
   const mergedProps: SearchProps = {
     ...props,
     enterButton,
+    variant,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputSearchSemanticAllType['classNames'],
+    InputSearchSemanticAllType['styles'],
+    SearchProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     { props: mergedProps },
     {
       button: {
@@ -263,7 +279,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       prefixCls: inputPrefixCls,
       type: 'search',
       size,
-      variant,
+      variant: inputVariant,
       onPressEnter,
       onCompositionStart: handleOnCompositionStart,
       onCompositionEnd: handleOnCompositionEnd,
@@ -274,12 +290,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   );
 
   return (
-    <Compact
-      className={mergedClassName}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      {...rootProps}
-      hidden={hidden}
-    >
+    <Compact className={mergedClassName} style={mergedStyles.root} {...rootProps} hidden={hidden}>
       <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />
       {button}
     </Compact>

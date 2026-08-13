@@ -3,6 +3,11 @@ import React from 'react';
 import Tooltip from '..';
 import type { TooltipProps } from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Tooltip.Semantic', () => {
   it('should support static classNames and styles', () => {
@@ -64,5 +69,27 @@ describe('Tooltip.Semantic', () => {
 
     expect(tooltipElement).toHaveClass('blue-tooltip');
     expect(tooltipContainer).toHaveStyle('font-size: 16px');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Tooltip
+          title="Test tooltip"
+          open
+          styles={semanticRootStylePriority.styles}
+          overlayStyle={semanticRootStylePriority.style}
+        >
+          Test
+        </Tooltip>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-tooltip'));
   });
 });

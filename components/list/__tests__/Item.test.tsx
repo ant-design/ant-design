@@ -20,6 +20,13 @@ describe('List Item Layout', () => {
     },
   ];
 
+  it('should support List.Item.Meta nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof List.Item.Meta>>();
+    const { container } = render(<List.Item.Meta ref={ref} title="Title" />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-list-item-meta'));
+  });
+
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
     const { container } = render(
       <List

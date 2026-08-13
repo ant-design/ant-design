@@ -3,7 +3,14 @@ import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import type { AutoSizeType } from '@rc-component/input';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef, omit, toArray, useControlledState, useLayoutEffect } from '@rc-component/util';
+import {
+  composeRef,
+  omit,
+  toArray,
+  useControlledState,
+  useDelayState,
+  useLayoutEffect,
+} from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
@@ -323,9 +330,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
-  const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
-  const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
+  const [isHoveringOperations, setIsHoveringOperations] = useDelayState(false);
   const isHoveringTypographyRef = React.useRef(false);
+
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -499,8 +506,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           [`${prefixCls}-actions-start`]: placement === 'start',
         })}
         style={mergedStyles.actions}
-        onMouseEnter={() => setIsHoveringOperations(true)}
-        onMouseLeave={() => setIsHoveringOperations(false)}
+        onMouseEnter={() => setIsHoveringOperations(true, true)}
+        onMouseLeave={() =>
+          setIsHoveringOperations(false, {
+            // Delay 500ms for better user experience
+            ms: 500,
+          })
+        }
       >
         {expandNode}
         {editNode}
@@ -525,18 +537,16 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          open={isHoveringTypography && !isHoveringOperations}
+          disabled={isHoveringOperations}
         >
           <InternalTypography
             onMouseEnter={(e) => {
               isHoveringTypographyRef.current = true;
               measureNativeEllipsis();
-              setIsHoveringTypography(true);
               onMouseEnter?.(e);
             }}
             onMouseLeave={(e) => {
               isHoveringTypographyRef.current = false;
-              setIsHoveringTypography(false);
               onMouseLeave?.(e);
             }}
             className={clsx(
