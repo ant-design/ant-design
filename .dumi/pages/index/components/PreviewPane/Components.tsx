@@ -35,6 +35,7 @@ import {
   Rate,
   Segmented,
   Select,
+  Skeleton,
   Space,
   Spin,
   Steps,
@@ -497,16 +498,20 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 <div className={styles.colCenter}>
                   <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
-                      {avatarGroupList.map(({ src, name }) => (
-                        <Avatar
-                          key={src}
-                          size={46}
-                          src={src}
-                          draggable={false}
-                          alt={`Contributor: ${name}`}
-                          aria-label={`Contributor: ${name}`}
-                        />
-                      ))}
+                      {isLoading
+                        ? Array.from({ length: 6 }, (_, index) => (
+                            <Skeleton.Avatar key={`skeleton-${index}`} active size={46} />
+                          ))
+                        : avatarGroupList.map(({ src, name }) => (
+                            <Avatar
+                              key={src}
+                              size={46}
+                              src={src}
+                              draggable={false}
+                              alt={`Contributor: ${name}`}
+                              aria-label={`Contributor: ${name}`}
+                            />
+                          ))}
                       <Avatar size={46} draggable={false} className={styles.avatarExtra}>
                         +5
                       </Avatar>
