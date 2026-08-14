@@ -55,7 +55,7 @@ Codex selects the relevant Skill from the current task, so I can describe the go
 
 ## A person confirms the direction first {#analyze-the-issue}
 
-Given the Issue link, Codex reads the Issue, current code, commit history, and the repository's [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md), then searches the most relevant implementation and tests. For #58884, it found that `isClosable` required a truthy `closeIcon` even though `{ onClose }` was already a valid `closable` object.
+Given the Issue link, Codex reads the Issue, current code, commit history, and the repository's [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/AGENTS.md), then searches the most relevant implementation and tests. For #58884, it found that `isClosable` required a truthy `closeIcon` even though `{ onClose }` was already a valid `closable` object.
 
 This is the first human checkpoint. AI can narrow the search quickly, but the intended public API behavior and compatibility boundary cannot be decided from one implementation alone. I compared the analysis with the Alert documentation and shared `useClosable` behavior before asking Codex to edit the code.
 
