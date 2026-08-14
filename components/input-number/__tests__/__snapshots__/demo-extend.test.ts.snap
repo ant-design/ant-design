@@ -159,7 +159,9 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             >
               <div
                 aria-label="+"
+                aria-posinset="1"
                 aria-selected="true"
+                aria-setsize="2"
                 id="test-id_list_0"
                 role="option"
               >
@@ -167,7 +169,9 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </div>
               <div
                 aria-label="-"
+                aria-posinset="2"
                 aria-selected="false"
+                aria-setsize="2"
                 id="test-id_list_1"
                 role="option"
               >
@@ -359,7 +363,9 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             >
               <div
                 aria-label="$"
+                aria-posinset="1"
                 aria-selected="true"
+                aria-setsize="4"
                 id="test-id_list_0"
                 role="option"
               >
@@ -367,7 +373,9 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               </div>
               <div
                 aria-label="€"
+                aria-posinset="2"
                 aria-selected="false"
+                aria-setsize="4"
                 id="test-id_list_1"
                 role="option"
               >
