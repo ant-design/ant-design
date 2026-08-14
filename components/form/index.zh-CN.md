@@ -150,7 +150,7 @@ const validateMessages = {
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
-| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | - |  |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成。设置为 `false` 可禁用该样式 | boolean | - |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#form-demo-basic)查看示例 | [Rule](#rule)\[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldupdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | tooltip | 配置提示信息 | ReactNode \| ([TooltipProps](/components/tooltip-cn#api) & { icon?: ReactNode }) | - | 4.7.0 |
