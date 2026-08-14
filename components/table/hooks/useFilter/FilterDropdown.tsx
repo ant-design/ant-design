@@ -290,8 +290,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     });
   };
 
-  const onConfirm = () => {
-    triggerVisible(false);
+  const onConfirm = (shouldClose = true) => {
+    if (shouldClose) {
+      triggerVisible(false);
+    }
     internalTriggerFilter(getFilteredKeysSync());
   };
 
@@ -331,7 +333,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       triggerVisible(newVisible);
 
       if (!newVisible && !column.filterDropdown && filterOnClose) {
-        onConfirm();
+        onConfirm(false);
       }
     }
   };
