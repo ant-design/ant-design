@@ -123,7 +123,7 @@ Use when you need to jump to the page to view the complete list.
 - From the perspective of natural interaction, **Expand the list on the same page** is more natural, and it should be noted that the height of the expanded content area should not exceed one screen;
 - From the perspective of the amount of information in the details, if the information display exceeds one screen, it is not convenient for the user to use the unfolding method. At this time, it is better to use **Drawer Expand**;
 - Details need to be shared with others separately, or complex immersive tasks, **jump to independent page** is more suitable;
-- There may be content that the user is interested in in each item of detail, so as to facilitate switching navigation, quickly view and process different items, you can use the ** double column display. **
+- There may be content that the user is interested in, in each item of detail, so as to facilitate switching navigation, quickly view and process different items, you can use the ** double column display. **
 
 ### Batch operations
 

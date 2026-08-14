@@ -30,7 +30,7 @@ export const mergeClassNames = <
             // Loop fill
             acc[key] = mergeClassNames(keySchema, acc[key], curVal);
           } else {
-            // Covert string to object structure
+            // Convert string to object structure
             const { _default: defaultField } = keySchema;
             if (defaultField) {
               acc[key] = acc[key] || {};

@@ -237,6 +237,24 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalledWith([1]);
   });
 
+  it('should ignore options with nullish values', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Checkbox.Group
+        options={[
+          { value: undefined, label: 'undefined' },
+          { value: null, label: 'null' },
+          { value: 0, label: 'valid' },
+        ]}
+        onChange={onChange}
+      />,
+    );
+    expect(container.querySelectorAll<HTMLElement>('.ant-checkbox-wrapper')).toHaveLength(1);
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveTextContent('valid');
+    fireEvent.click(container.querySelector<HTMLElement>('.ant-checkbox-input')!);
+    expect(onChange).toHaveBeenCalledWith([0]);
+  });
+
   it('should store latest checkbox value if changed', () => {
     const onChange = jest.fn();
 
