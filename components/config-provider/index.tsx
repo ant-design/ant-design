@@ -49,6 +49,7 @@ import type {
   InputPasswordConfig,
   InputSearchConfig,
   ListConfig,
+  ListyConfig,
   MasonryConfig,
   MentionsConfig,
   MenuConfig,
@@ -250,6 +251,7 @@ export interface ConfigProviderProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
+  listy?: ListyConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ProgressConfig;
@@ -405,6 +407,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     image,
     layout,
     list,
+    listy,
     mentions,
     modal,
     progress,
@@ -535,6 +538,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     otp,
     layout,
     list,
+    listy,
     mentions,
     modal,
     progress,

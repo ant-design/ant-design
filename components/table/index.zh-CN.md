@@ -264,6 +264,7 @@ const columns = [
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
+| forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | 6.6.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - |  |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |

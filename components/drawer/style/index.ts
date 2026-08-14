@@ -214,6 +214,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken, CSSObject> = (token) => {
           marginInlineEnd: marginXS,
         },
 
+        '&:disabled': {
+          pointerEvents: 'none',
+        },
+
         '&:hover': {
           color: colorIconHover,
           backgroundColor: colorBgTextHover,

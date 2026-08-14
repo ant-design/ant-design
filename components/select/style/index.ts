@@ -23,9 +23,10 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       opacity: 0,
       pointerEvents: 'none',
     },
-    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow) ${componentCls}-content`]: {
-      marginInlineEnd: token.showArrowPaddingInlineEnd,
-    },
+    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow):not(${componentCls}-customize) ${componentCls}-content`]:
+      {
+        marginInlineEnd: token.showArrowPaddingInlineEnd,
+      },
   };
 
   return {
@@ -64,6 +65,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         height: token.fontSizeIcon,
         marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
         padding: 0,
+        background: 'transparent',
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         fontFamily: 'inherit',

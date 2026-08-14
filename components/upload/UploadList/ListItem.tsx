@@ -227,6 +227,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           rel="noopener noreferrer"
           onClick={(e) => onPreview(file, e)}
           title={locale.previewFile}
+          aria-label={locale.previewFile || undefined}
         >
           {isFunction(customPreviewIcon)
             ? customPreviewIcon(file)
