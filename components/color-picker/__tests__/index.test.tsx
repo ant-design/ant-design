@@ -154,6 +154,14 @@ describe('ColorPicker', () => {
     ).toBe('100%');
   });
 
+  it('Should prevent text selection from the clear button', () => {
+    const { container } = render(<ColorPicker open allowClear />);
+
+    expect(container.querySelector('.ant-color-picker-clear')).toHaveStyle({
+      userSelect: 'none',
+    });
+  });
+
   it('Should allowClear work with keyboard', async () => {
     const triggerClear = async (key: string) => {
       const onClear = jest.fn();
