@@ -55,7 +55,7 @@ Codex 会根据当前任务选择对应的 Skill，所以平时直接说目标�
 
 ## 分析方向先由人确认 {#analyze-the-issue}
 
-拿到 Issue 链接后，Codex 会读取 Issue、当前代码、提交历史和仓库里的 [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/CLAUDE.md)，再搜索最相关的实现与测试。#58884 最终定位到 `isClosable` 对对象配置的判断：代码只有在 `closeIcon` 为真时才认为 Alert 可以关闭，忽略了 `{ onClose }` 本身已经是合法的 `closable` 配置。
+拿到 Issue 链接后，Codex 会读取 Issue、当前代码、提交历史和仓库里的 [AGENTS.md](https://github.com/ant-design/ant-design/blob/master/AGENTS.md)，再搜索最相关的实现与测试。#58884 最终定位到 `isClosable` 对对象配置的判断：代码只有在 `closeIcon` 为真时才认为 Alert 可以关闭，忽略了 `{ onClose }` 本身已经是合法的 `closable` 配置。
 
 这一步先停下来由人确认很重要。AI 可以很快缩小范围，但公开 API 应该怎样表现、兼容边界在哪里，不能只根据一段实现直接下结论。我确认分析符合 Alert 文档和通用 `useClosable` 逻辑后，才让 Codex 开始修改。
 

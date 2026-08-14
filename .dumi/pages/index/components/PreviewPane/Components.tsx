@@ -35,6 +35,7 @@ import {
   Rate,
   Segmented,
   Select,
+  Skeleton,
   Space,
   Spin,
   Steps,
@@ -295,6 +296,15 @@ const botExcludes = [
   'depfu[bot]',
 ];
 
+const fallbackAvatarGroupList = [
+  'https://avatars.githubusercontent.com/u/507615?v=4',
+  'https://avatars.githubusercontent.com/u/5378891?v=4',
+  'https://avatars.githubusercontent.com/u/49217418?v=4',
+  'https://avatars.githubusercontent.com/u/117748716?v=4',
+  'https://avatars.githubusercontent.com/u/59312002?v=4',
+  'https://avatars.githubusercontent.com/u/82765353?v=4',
+];
+
 interface Contributor {
   avatar_url: string;
   login: string;
@@ -302,7 +312,13 @@ interface Contributor {
   type: 'User' | 'Organization' | 'Bot';
 }
 
-const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+const fetcher = async (...args: Parameters<typeof fetch>) => {
+  const response = await fetch(...args);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch contributors: ${response.status}`);
+  }
+  return response.json();
+};
 
 const swrConfig: SWRConfiguration<Contributor[], Error> = {
   dedupingInterval: 1000 * 60 * 60 * 12, // 12 hours
@@ -323,13 +339,20 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { styles } = useStyle();
 
-  const { data: contributors, isLoading } = useSWR<Contributor[], Error>(
+  const {
+    data: contributors,
+    error,
+    isLoading,
+  } = useSWR<Contributor[], Error>(
     'https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100',
     fetcher,
     swrConfig,
   );
 
   const avatarGroupList = useMemo(() => {
+    if (error) {
+      return fallbackAvatarGroupList.map((src) => ({ src, name: 'Ant Design contributor' }));
+    }
     if (isLoading) {
       return [];
     }
@@ -346,7 +369,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     });
     const shuffled = filtered.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
-  }, [contributors, isLoading]);
+  }, [contributors, error, isLoading]);
 
   const { theme, ...restConfig } = config || {};
 
@@ -497,16 +520,20 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 <div className={styles.colCenter}>
                   <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
-                      {avatarGroupList.map(({ src, name }) => (
-                        <Avatar
-                          key={src}
-                          size={46}
-                          src={src}
-                          draggable={false}
-                          alt={`Contributor: ${name}`}
-                          aria-label={`Contributor: ${name}`}
-                        />
-                      ))}
+                      {isLoading && !error
+                        ? Array.from({ length: 6 }, (_, index) => (
+                            <Skeleton.Avatar key={`skeleton-${index}`} active size={46} />
+                          ))
+                        : avatarGroupList.map(({ src, name }) => (
+                            <Avatar
+                              key={src}
+                              size={46}
+                              src={src}
+                              draggable={false}
+                              alt={`Contributor: ${name}`}
+                              aria-label={`Contributor: ${name}`}
+                            />
+                          ))}
                       <Avatar size={46} draggable={false} className={styles.avatarExtra}>
                         +5
                       </Avatar>
