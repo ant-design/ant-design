@@ -195,6 +195,10 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
     const mergedAllowClear = useAllowClear({ allowClear, componentName: 'InputNumber' });
+    // Keep value ownership stable after allowClear has controlled an uncontrolled input.
+    const needMergedValueRef = React.useRef(false);
+    needMergedValueRef.current ||= !!mergedAllowClear;
+
     const allowClearConfig = isPlainObject(mergedAllowClear) ? mergedAllowClear : undefined;
     const needClear =
       !!mergedAllowClear &&
@@ -292,8 +296,8 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         suffix={suffixNode}
         classNames={mergedClassNames}
         styles={mergedStyles}
-        value={mergedAllowClear ? mergedValue : value}
-        defaultValue={mergedAllowClear ? undefined : defaultValue}
+        value={needMergedValueRef.current ? mergedValue : value}
+        defaultValue={needMergedValueRef.current ? undefined : defaultValue}
         onChange={handleChange}
         {...others}
       />

@@ -40,6 +40,29 @@ describe('InputNumber allowClear', () => {
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
 
+  it('preserves an uncontrolled default value when allowClear is disabled at runtime', () => {
+    const { container, rerender } = render(<InputNumber allowClear defaultValue={123} />);
+    const input = container.querySelector('input')!;
+
+    rerender(<InputNumber allowClear={false} defaultValue={123} />);
+
+    expect(input).toHaveValue('123');
+    expect(container.querySelector('.ant-input-number-clear-icon')).not.toBeInTheDocument();
+  });
+
+  it('preserves an edited uncontrolled value when allowClear is disabled at runtime', () => {
+    const { container, rerender } = render(<InputNumber allowClear defaultValue={123} />);
+    const input = container.querySelector('input')!;
+
+    fireEvent.change(input, { target: { value: '456' } });
+    expect(input).toHaveValue('456');
+
+    rerender(<InputNumber allowClear={false} defaultValue={123} />);
+
+    expect(input).toHaveValue('456');
+    expect(container.querySelector('.ant-input-number-clear-icon')).not.toBeInTheDocument();
+  });
+
   it('keeps a controlled value when the owner does not update it', () => {
     const onChange = jest.fn();
     const { container } = render(<InputNumber allowClear value={7} onChange={onChange} />);
