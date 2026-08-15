@@ -12,6 +12,7 @@ describe('Collapse accessibility', () => {
 
     expect(header).toHaveAttribute('aria-expanded', 'true');
     expect(icon).toHaveAttribute('aria-hidden', 'true');
+    expect(container.firstChild).toMatchSnapshot();
 
     rerender(<Collapse items={items} />);
 
