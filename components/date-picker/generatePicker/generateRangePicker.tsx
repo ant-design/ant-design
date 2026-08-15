@@ -93,6 +93,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const rootPrefixCls = getPrefixCls();
 
     const mergedSeparator = separator ?? rangePicker?.separator;
+    const hasCustomSeparator = mergedSeparator !== undefined && mergedSeparator !== null;
 
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
@@ -162,8 +163,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
-            <span aria-label="to" className={`${prefixCls}-separator`}>
-              {mergedSeparator ?? <SwapRightOutlined />}
+            <span
+              aria-hidden={hasCustomSeparator ? undefined : true}
+              className={`${prefixCls}-separator`}
+            >
+              {hasCustomSeparator ? mergedSeparator : <SwapRightOutlined />}
             </span>
           }
           disabled={mergedDisabled}

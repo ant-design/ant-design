@@ -12783,7 +12783,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12873,7 +12873,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12963,7 +12963,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13052,7 +13052,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13141,7 +13141,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13230,7 +13230,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -13319,7 +13319,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="prefix-RangePicker-separator"
       >
         <span

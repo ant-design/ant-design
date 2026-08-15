@@ -1863,7 +1863,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -3089,7 +3089,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -6641,7 +6641,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -12543,7 +12543,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
