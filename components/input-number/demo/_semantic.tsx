@@ -13,6 +13,7 @@ const locales = {
     suffix: '后缀的包裹元素，设置flex布局、边距和过渡动画样式',
     action: '单个操作按钮元素，设置按钮的样式、悬浮效果和点击交互',
     actions: '操作元素，设置绝对定位、宽度、flex布局和数值调节按钮样式',
+    clear: '清除按钮元素，设置清除数值的交互样式',
   },
   en: {
     root: 'Root element, sets inline-block layout, width, border radius and reset styles',
@@ -23,6 +24,7 @@ const locales = {
       'Single action button element, sets button styling, hover effects and click interactions',
     actions:
       'Actions element, sets absolute positioning, width, flex layout and number adjustment button styles',
+    clear: 'Clear button element, sets the interaction style for clearing the value',
   },
 };
 
@@ -33,6 +35,7 @@ const Block: React.FC<InputNumberProps> = (props) => {
         prefix="￥"
         suffix="RMB"
         defaultValue={100}
+        allowClear
         style={{ width: 200 }}
         styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginInlineEnd: 28 } }}
         {...props}
@@ -60,6 +63,7 @@ const App: React.FC = () => {
         { name: 'suffix', desc: locale.suffix },
         { name: 'actions', desc: locale.actions },
         { name: 'action', desc: locale.action },
+        { name: 'clear', desc: locale.clear },
       ]}
     >
       <Block />
