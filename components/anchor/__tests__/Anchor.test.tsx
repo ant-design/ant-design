@@ -671,6 +671,30 @@ describe('Anchor Render', () => {
       expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
     });
 
+    it('should trigger onChange when a raw link matches the mapped active link', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const onChange = jest.fn();
+      const { container } = render(
+        <Anchor
+          onChange={onChange}
+          getCurrentAnchor={(link) => (link === `#${hash1}` ? `#${hash2}` : link)}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
+      );
+
+      fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+      expect(onChange).toHaveBeenLastCalledWith(`#${hash1}`);
+      onChange.mockClear();
+      fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(`#${hash2}`);
+    });
+
     it('should not trigger onChange repeatedly when scrolling with getCurrentAnchor', () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
