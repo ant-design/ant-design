@@ -63,7 +63,11 @@ export default function ItemHolder(props: ItemHolderProps) {
   const debounceWarnings = useDebounce(warnings);
   const hasHelp = isNonNullable(help);
   const hasError = !!(hasHelp || errors.length || warnings.length);
-  const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
+  // `offsetParent` access in `isVisible` triggers a synchronous layout. Skip
+  // it when there is no help/error/warning to read computed margin from, so
+  // the initial render of large forms does not incur a forced reflow per item.
+  // See: https://github.com/ant-design/ant-design/issues/57855
+  const isOnScreen = hasError && !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
 
   useLayoutEffect(() => {
