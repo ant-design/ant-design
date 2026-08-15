@@ -158,7 +158,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       ) : (
         <RightOutlined
           rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
-          aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+          aria-hidden
         />
       );
       return cloneElement(icon, (oriProps) => ({

@@ -11742,7 +11742,8 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11789,7 +11790,8 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11836,7 +11838,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11883,7 +11886,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize medium 
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11930,7 +11934,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11977,7 +11982,8 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -12024,7 +12030,8 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         class="prefix-Collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right prefix-Collapse-arrow"
           role="img"
         >
