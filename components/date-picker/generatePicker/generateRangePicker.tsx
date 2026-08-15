@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useAllowClear, useZIndex } from '../../_util/hooks';
+import { isNonNullable } from '../../_util/is';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -93,7 +94,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const rootPrefixCls = getPrefixCls();
 
     const mergedSeparator = separator ?? rangePicker?.separator;
-    const hasCustomSeparator = mergedSeparator !== undefined && mergedSeparator !== null;
+    const hasCustomSeparator = isNonNullable(mergedSeparator);
 
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
