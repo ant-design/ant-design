@@ -7,6 +7,9 @@ describe('Form complex control demo', () => {
   it('associates the Username label with its nested control', () => {
     render(<ComplexFormControl />);
 
-    expect(screen.getByLabelText('Username')).toHaveAttribute('id', 'username');
+    const usernameInput = screen.getByLabelText('Username');
+
+    expect(usernameInput).toHaveAttribute('id', 'username');
+    expect(usernameInput).toMatchSnapshot();
   });
 });
