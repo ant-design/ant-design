@@ -23,7 +23,7 @@ demo:
 <code src="./demo/shape.tsx" iframe="360">形状</code>
 <code src="./demo/content.tsx" iframe="360">描述</code>
 <code src="./demo/tooltip.tsx" iframe="360">含有气泡卡片的悬浮按钮</code>
-<code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
+<code src="./demo/group.tsx" iframe="360">悬浮按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/controlled.tsx" iframe="360">受控模式</code>
 <code src="./demo/placement.tsx" iframe="380" version="5.21.0">弹出方向</code>
