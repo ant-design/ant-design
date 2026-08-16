@@ -62,6 +62,24 @@ describe('RangePicker', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('default separator should be decorative and hidden from accessibility tree', () => {
+    const { container } = render(<RangePicker />);
+    expect(container.querySelector('.ant-picker-separator')?.getAttribute('aria-hidden')).toBe(
+      'true',
+    );
+    expect(container.querySelector('.ant-picker-separator')?.getAttribute('aria-label')).toBeNull();
+  });
+
+  it('custom separator should not be hidden and should preserve its own semantics', () => {
+    const { container } = render(
+      <RangePicker separator={<span aria-label="自定义分隔符">→</span>} />,
+    );
+    const sepSpan = container.querySelector('.ant-picker-separator');
+    expect(sepSpan?.getAttribute('aria-hidden')).not.toBe('true');
+    // The custom separator's own accessible name should survive (parent no longer overrides it)
+    expect(sepSpan?.querySelector('[aria-label="自定义分隔符"]')).toBeTruthy();
+  });
+
   it('the left selection is before the right selection', () => {
     let rangePickerValue: dayjs.Dayjs[] = [];
     const Test: React.FC = () => {

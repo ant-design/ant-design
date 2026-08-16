@@ -162,7 +162,10 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
-            <span aria-label="to" className={`${prefixCls}-separator`}>
+            <span
+              className={`${prefixCls}-separator`}
+              aria-hidden={!mergedSeparator}
+            >
               {mergedSeparator ?? <SwapRightOutlined />}
             </span>
           }
