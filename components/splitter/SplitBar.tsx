@@ -20,6 +20,7 @@ export interface SplitBarProps {
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;
+  reverse: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
@@ -44,6 +45,7 @@ const getValidNumber = (num?: number) => {
 };
 
 const DOUBLE_CLICK_TIME_GAP = 300;
+const KEYBOARD_STEP = 10;
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
@@ -56,6 +58,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMin,
     ariaMax,
     resizable,
+    reverse,
     draggerIcon,
     draggerStyle,
     draggerClassName,
@@ -81,9 +84,22 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
   const [constrainedOffset, setConstrainedOffset] = useState<number>(0);
+  const [keyboardResize, setKeyboardResize] = useState<{
+    offset: number;
+    ariaNow: number;
+    ariaMin: number;
+    ariaMax: number;
+  } | null>(null);
 
   const constrainedOffsetX = vertical ? 0 : constrainedOffset;
   const constrainedOffsetY = vertical ? constrainedOffset : 0;
+
+  const stopKeyboardResize = () => {
+    if (keyboardResize) {
+      setKeyboardResize(null);
+      onOffsetEnd();
+    }
+  };
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
@@ -99,6 +115,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     lastClickTimeRef.current = currentTime;
 
     if (resizable && e.currentTarget) {
+      stopKeyboardResize();
       setStartPos([e.pageX, e.pageY]);
       onOffsetStart(index);
     }
@@ -106,6 +123,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
     if (resizable && e.touches.length === 1) {
+      stopKeyboardResize();
       const touch = e.touches[0];
       setStartPos([touch.pageX, touch.pageY]);
       onOffsetStart(index);
@@ -142,6 +160,72 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       e.preventDefault();
       onCollapse(index, type);
     }
+  };
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
+    if (!resizable) {
+      return;
+    }
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+
+      if (keyboardResize) {
+        stopKeyboardResize();
+      } else {
+        setKeyboardResize({
+          offset: 0,
+          ariaNow,
+          ariaMin,
+          ariaMax,
+        });
+        onOffsetStart(index);
+      }
+      return;
+    }
+
+    if (!keyboardResize) {
+      return;
+    }
+
+    let direction = 0;
+    if (vertical) {
+      if (e.key === 'ArrowUp') {
+        direction = -1;
+      } else if (e.key === 'ArrowDown') {
+        direction = 1;
+      }
+    } else if (e.key === 'ArrowLeft') {
+      direction = -1;
+    } else if (e.key === 'ArrowRight') {
+      direction = 1;
+    }
+
+    if (!direction) {
+      return;
+    }
+
+    e.preventDefault();
+
+    // Keep the accumulated offset within the movable range so the opposite arrow responds
+    // immediately at a boundary. ARIA bounds follow logical order, so invert them for RTL.
+    const logicalMinOffset =
+      ((keyboardResize.ariaMin - keyboardResize.ariaNow) / 100) * containerSize;
+    const logicalMaxOffset =
+      ((keyboardResize.ariaMax - keyboardResize.ariaNow) / 100) * containerSize;
+    const minOffset = reverse ? -logicalMaxOffset : logicalMinOffset;
+    const maxOffset = reverse ? -logicalMinOffset : logicalMaxOffset;
+    const nextOffset = Math.max(
+      minOffset,
+      Math.min(maxOffset, keyboardResize.offset + direction * KEYBOARD_STEP),
+    );
+
+    if (nextOffset === keyboardResize.offset) {
+      return;
+    }
+
+    setKeyboardResize({ ...keyboardResize, offset: nextOffset });
+    onOffsetUpdate(index, vertical ? 0 : nextOffset, vertical ? nextOffset : 0);
   };
 
   const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
@@ -225,6 +309,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     [varName('bar-preview-offset')]: `${constrainedOffset}px`,
   };
 
+  const mergedActive = active || !!keyboardResize;
+
   // ======================== Render ========================
   const [startIcon, endIcon, startCustomize, endCustomize] = React.useMemo(() => {
     let startIcon = null;
@@ -254,22 +340,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         />
       )}
 
+      {/* eslint-disable jsx-a11y/no-noninteractive-tabindex -- Adjustable ARIA separators must be keyboard focusable. */}
       <div
         style={draggerStyle?.default}
         className={clsx(
           `${splitBarPrefixCls}-dragger`,
           {
             [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
-            [`${splitBarPrefixCls}-dragger-active`]: active,
+            [`${splitBarPrefixCls}-dragger-active`]: mergedActive,
             [`${splitBarPrefixCls}-dragger-customize`]: draggerIcon !== undefined,
           },
           draggerClassName?.default,
-          active && draggerClassName?.active,
+          mergedActive && draggerClassName?.active,
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
         onDoubleClick={() => onDraggerDoubleClick?.(index)}
+        onKeyDown={onKeyDown}
+        onBlur={stopKeyboardResize}
         role="separator"
+        tabIndex={resizable ? 0 : undefined}
         aria-disabled={!resizable}
         aria-orientation={vertical ? 'horizontal' : 'vertical'}
         aria-valuenow={getValidNumber(ariaNow)}

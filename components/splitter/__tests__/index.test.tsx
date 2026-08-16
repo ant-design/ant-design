@@ -209,6 +209,7 @@ describe('Splitter', () => {
           prefixCls="ant-splitter"
           rootPrefixCls="ant"
           resizable
+          reverse={false}
           vertical={false}
           startCollapsible
           endCollapsible
@@ -261,6 +262,123 @@ describe('Splitter', () => {
     rerender(<SplitterDemo items={[{ size: 20 }, {}, { resizable: false }]} />);
     expect(container.querySelectorAll('.ant-splitter-bar-dragger')).toHaveLength(2);
     expect(container.querySelectorAll('.ant-splitter-bar-dragger-disabled')).toHaveLength(1);
+  });
+
+  describe('keyboard resize', () => {
+    it('should only make resizable draggers focusable', () => {
+      const { container, rerender } = render(<SplitterDemo />);
+      expect(container.querySelector('.ant-splitter-bar-dragger')).toHaveAttribute('tabindex', '0');
+
+      rerender(<SplitterDemo items={[{}, { resizable: false }]} />);
+      expect(container.querySelector('.ant-splitter-bar-dragger')).not.toHaveAttribute('tabindex');
+    });
+
+    it('should resize horizontally with keyboard and respect limits', async () => {
+      containerSize = 500;
+      const onResizeStart = jest.fn();
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <SplitterDemo
+          items={[{ min: 100, max: 260 }, {}]}
+          onResizeStart={onResizeStart}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+      expect(onResize).not.toHaveBeenCalled();
+
+      fireEvent.keyDown(dragger, { key: 'Enter' });
+      expect(dragger).toHaveClass('ant-splitter-bar-dragger-active');
+      expect(onResizeStart).toHaveBeenCalledWith([250, 250]);
+
+      fireEvent.keyDown(dragger, { key: 'ArrowUp' });
+      expect(onResize).not.toHaveBeenCalled();
+
+      fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+      expect(onResize).toHaveBeenLastCalledWith([260, 240]);
+
+      const callCountAtMax = onResize.mock.calls.length;
+      fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+      expect(onResize).toHaveBeenCalledTimes(callCountAtMax);
+
+      fireEvent.keyDown(dragger, { key: 'ArrowLeft' });
+      expect(onResize).toHaveBeenLastCalledWith([250, 250]);
+
+      fireEvent.keyDown(dragger, { key: ' ' });
+      expect(dragger).not.toHaveClass('ant-splitter-bar-dragger-active');
+      expect(onResizeEnd).toHaveBeenCalledWith([250, 250]);
+    });
+
+    it('should use vertical arrow keys', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <SplitterDemo orientation="vertical" onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.keyDown(dragger, { key: ' ' });
+      fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+      expect(onResize).not.toHaveBeenCalled();
+
+      fireEvent.keyDown(dragger, { key: 'ArrowDown' });
+      expect(onResize).toHaveBeenCalledWith([60, 40]);
+
+      fireEvent.keyDown(dragger, { key: 'Enter' });
+      expect(onResizeEnd).toHaveBeenCalledWith([60, 40]);
+    });
+
+    it('should stop resizing when the dragger loses focus', async () => {
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <div>
+          <button type="button">Outside</button>
+          <SplitterDemo onResizeEnd={onResizeEnd} />
+        </div>,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+      const outside = container.querySelector('button')!;
+
+      dragger.focus();
+      fireEvent.keyDown(dragger, { key: 'Enter' });
+      expect(dragger).toHaveClass('ant-splitter-bar-dragger-active');
+      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+
+      fireEvent.blur(dragger, { relatedTarget: outside });
+      expect(dragger).not.toHaveClass('ant-splitter-bar-dragger-active');
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    });
+
+    it('should follow the visual direction in RTL', async () => {
+      containerSize = 500;
+      const onResize = jest.fn();
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <SplitterDemo onResize={onResize} />
+        </ConfigProvider>,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.keyDown(dragger, { key: 'Enter' });
+      fireEvent.keyDown(dragger, { key: 'ArrowLeft' });
+      expect(onResize).toHaveBeenLastCalledWith([260, 240]);
+
+      fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+      expect(onResize).toHaveBeenLastCalledWith([250, 250]);
+    });
   });
 
   it('Splitter.Panel is syntactic sugar', () => {
