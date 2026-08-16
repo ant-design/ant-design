@@ -111,6 +111,7 @@ const genClearStyle = (
       position: 'relative',
       overflow: 'hidden',
       cursor: 'inherit',
+      userSelect: 'none',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
