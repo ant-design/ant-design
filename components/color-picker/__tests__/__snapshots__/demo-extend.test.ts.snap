@@ -196,7 +196,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -204,7 +206,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -568,7 +572,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -576,7 +582,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -945,7 +953,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -953,7 +963,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -1314,7 +1326,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -1322,7 +1336,9 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -1692,7 +1708,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -1700,7 +1718,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -2042,7 +2062,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -2050,7 +2072,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -2354,7 +2378,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -2362,7 +2388,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -2738,7 +2766,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -2746,7 +2776,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -3328,7 +3360,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -3336,7 +3370,9 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -4021,7 +4057,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -4029,7 +4067,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -4447,7 +4487,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -4455,7 +4497,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -4846,7 +4890,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               aria-label="HEX"
+                              aria-posinset="1"
                               aria-selected="true"
+                              aria-setsize="3"
                               id="test-id_list_0"
                               role="option"
                             >
@@ -4854,7 +4900,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </div>
                             <div
                               aria-label="HSB"
+                              aria-posinset="2"
                               aria-selected="false"
+                              aria-setsize="3"
                               id="test-id_list_1"
                               role="option"
                             >
@@ -5801,7 +5849,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               aria-label="HEX"
+                              aria-posinset="1"
                               aria-selected="true"
+                              aria-setsize="3"
                               id="test-id_list_0"
                               role="option"
                             >
@@ -5809,7 +5859,9 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             </div>
                             <div
                               aria-label="HSB"
+                              aria-posinset="2"
                               aria-selected="false"
+                              aria-setsize="3"
                               id="test-id_list_1"
                               role="option"
                             >
@@ -6177,7 +6229,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -6185,7 +6239,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -6978,7 +7034,9 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -6986,7 +7044,9 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -7362,7 +7422,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -7370,7 +7432,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -7731,7 +7795,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -7739,7 +7805,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -8100,7 +8168,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -8108,7 +8178,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -8482,7 +8554,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -8490,7 +8564,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -8856,7 +8932,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -8864,7 +8942,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -9230,7 +9310,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             aria-label="HEX"
+                            aria-posinset="1"
                             aria-selected="true"
+                            aria-setsize="3"
                             id="test-id_list_0"
                             role="option"
                           >
@@ -9238,7 +9320,9 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           </div>
                           <div
                             aria-label="HSB"
+                            aria-posinset="2"
                             aria-selected="false"
+                            aria-setsize="3"
                             id="test-id_list_1"
                             role="option"
                           >
@@ -9606,7 +9690,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           aria-label="HEX"
+                          aria-posinset="1"
                           aria-selected="true"
+                          aria-setsize="3"
                           id="test-id_list_0"
                           role="option"
                         >
@@ -9614,7 +9700,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         </div>
                         <div
                           aria-label="HSB"
+                          aria-posinset="2"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="test-id_list_1"
                           role="option"
                         >
@@ -9971,7 +10059,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           aria-label="HEX"
+                          aria-posinset="1"
                           aria-selected="true"
+                          aria-setsize="3"
                           id="test-id_list_0"
                           role="option"
                         >
@@ -9979,7 +10069,9 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                         </div>
                         <div
                           aria-label="HSB"
+                          aria-posinset="2"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="test-id_list_1"
                           role="option"
                         >
@@ -10365,7 +10457,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -10373,7 +10467,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -10741,7 +10837,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -10749,7 +10847,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -11134,7 +11234,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         aria-label="HEX"
+                        aria-posinset="1"
                         aria-selected="true"
+                        aria-setsize="3"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -11142,7 +11244,9 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       </div>
                       <div
                         aria-label="HSB"
+                        aria-posinset="2"
                         aria-selected="false"
+                        aria-setsize="3"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -11504,7 +11608,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -11512,7 +11618,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -11876,7 +11984,9 @@ Array [
                   >
                     <div
                       aria-label="HEX"
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -11884,7 +11994,9 @@ Array [
                     </div>
                     <div
                       aria-label="HSB"
+                      aria-posinset="2"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_1"
                       role="option"
                     >

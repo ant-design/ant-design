@@ -543,7 +543,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Zhejiang"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -551,7 +553,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Jiangsu"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -754,7 +758,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Zhejiang"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -762,7 +768,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Jiangsu"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -1062,7 +1070,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option1"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -1070,7 +1080,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option2"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4332,7 +4344,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option1-1"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4340,7 +4354,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option1-2"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4457,7 +4473,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option2-1"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4465,7 +4483,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option2-2"
+              aria-posinset="2"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4590,7 +4610,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Between"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4598,7 +4620,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Except"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4746,7 +4770,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Sign Up"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4754,7 +4780,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Sign In"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4850,7 +4878,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -8960,7 +8990,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       >
                         <div
                           aria-label="HEX"
+                          aria-posinset="1"
                           aria-selected="true"
+                          aria-setsize="3"
                           id="test-id_list_0"
                           role="option"
                         >
@@ -8968,7 +9000,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-label="HSB"
+                          aria-posinset="2"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="test-id_list_1"
                           role="option"
                         >
@@ -10459,7 +10493,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 >
                   <div
                     aria-label="http://"
+                    aria-posinset="1"
                     aria-selected="true"
+                    aria-setsize="2"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -10467,7 +10503,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     aria-label="https://"
+                    aria-posinset="2"
                     aria-selected="false"
+                    aria-setsize="2"
                     id="test-id_list_1"
                     role="option"
                   >
@@ -10594,7 +10632,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 >
                   <div
                     aria-label=".com"
+                    aria-posinset="1"
                     aria-selected="true"
+                    aria-setsize="4"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -10602,7 +10642,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     aria-label=".jp"
+                    aria-posinset="2"
                     aria-selected="false"
+                    aria-setsize="4"
                     id="test-id_list_1"
                     role="option"
                   >
@@ -12447,7 +12489,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           >
             <div
               aria-label="Sign Up"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -12455,7 +12499,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
             <div
               aria-label="Sign In"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -14154,7 +14200,9 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             >
               <div
                 aria-label="Opt1"
+                aria-posinset="1"
                 aria-selected="true"
+                aria-setsize="2"
                 id="test-id_list_0"
                 role="option"
               >
@@ -14162,7 +14210,9 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               </div>
               <div
                 aria-label="Opt2"
+                aria-posinset="2"
                 aria-selected="false"
+                aria-setsize="2"
                 id="test-id_list_1"
                 role="option"
               >
