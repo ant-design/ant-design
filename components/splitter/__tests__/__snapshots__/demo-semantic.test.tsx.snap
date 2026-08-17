@@ -41,6 +41,7 @@ exports[`renders components/splitter/demo/_semantic.tsx correctly 1`] = `
             aria-valuenow="50"
             class="ant-splitter-bar-dragger semantic-mark-dragger"
             role="separator"
+            tabindex="0"
           />
         </div>
         <div
