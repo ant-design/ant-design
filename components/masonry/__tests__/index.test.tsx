@@ -181,6 +181,28 @@ describe('Masonry', () => {
     expect(callCountRef.current).toBe(1);
   });
 
+  it('emits onLayoutChange([]) when items are cleared', async () => {
+    const onLayoutChange = jest.fn();
+    const items = heights.map((height, index) => ({
+      key: `item-${index}`,
+      data: height,
+    }));
+
+    const { rerender } = render(
+      <DemoMasonry columns={3} items={items} onLayoutChange={onLayoutChange} />,
+    );
+    await resizeMasonry();
+
+    expect(onLayoutChange).toHaveBeenCalled();
+    onLayoutChange.mockClear();
+
+    rerender(<DemoMasonry columns={3} items={[]} onLayoutChange={onLayoutChange} />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(onLayoutChange).toHaveBeenCalledWith([]);
+  });
+
   it('should handle responsive columns', async () => {
     minWidth = '576px';
 

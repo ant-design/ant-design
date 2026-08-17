@@ -73,7 +73,7 @@ export interface MasonryProps<ItemDataType = any> {
 
   fresh?: boolean;
 
-  /** Enable virtualized rendering for large data sets */
+  /** Enable windowed rendering for large data sets. Requires known item heights and an explicit container height. */
   virtual?: boolean;
 }
 
@@ -201,6 +201,12 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     props: mergedProps,
   });
 
+  warning(
+    !virtual || mergedStyles.root?.height != null,
+    'usage',
+    'Virtual mode requires an explicit container height (for example `style={{ height: 400 }}`).',
+  );
+
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
 
@@ -273,12 +279,17 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   // Trigger for `onLayoutChange`
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
+  const hasLayoutChange = Boolean(onLayoutChange);
 
   const triggerLayoutChange = useEvent((nextItemColumns: ItemColumnsType[]) => {
     onLayoutChange?.(nextItemColumns.map(([item, column]) => ({ ...item, column })));
   });
 
   useLayoutEffect(() => {
+    if (!hasLayoutChange) {
+      return;
+    }
+
     if (itemWithPositions.every(({ position }) => position)) {
       setItemColumns((prevItemColumns) => {
         const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
@@ -288,13 +299,15 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
       });
     }
-  }, [itemWithPositions]);
+  }, [hasLayoutChange, itemWithPositions]);
 
   useLayoutEffect(() => {
-    if (items && items.length === itemColumns.length && itemColumns.length > 0) {
-      triggerLayoutChange(itemColumns);
+    if (!hasLayoutChange || !items || items.length !== itemColumns.length) {
+      return;
     }
-  }, [itemColumns]);
+
+    triggerLayoutChange(itemColumns);
+  }, [hasLayoutChange, itemColumns, items]);
 
   // ====================== Render ======================
   return (
@@ -315,6 +328,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           virtual
             ? {
                 ...mergedStyles.root,
+                position: mergedStyles.root?.position ?? 'relative',
                 display: mergedStyles.root?.display ?? 'block',
                 overflow: mergedStyles.root?.overflow ?? 'hidden',
               }

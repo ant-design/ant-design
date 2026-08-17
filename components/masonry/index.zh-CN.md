@@ -41,12 +41,12 @@ tag: 6.0.0
 | columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  | × |
 | fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |  | × |
 | gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  | × |
-| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  | × |
-| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  | × |
 | itemHeight | 虚拟模式下获取 item 高度，当未设置 `MasonryItem.height` 时使用 | `(item: MasonryItem, index: number) => number` | - | 6.6.0 | × |
+| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  | × |
+| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  | × |
 | styles | 语义化结构 style，支持对象和函数形式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| ((info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>) | - | 6.0.0 | 6.0.0 |
+| virtual | 是否开启窗口化渲染，适合大数据量场景。需要通过 `MasonryItem.height` 或 `itemHeight` 提供已知高度，并为容器设置明确高度（例如 `style={{ height: 400 }}`） | `boolean` | false | 6.6.0 | × |
 | onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |  | × |
-| virtual | 是否开启虚拟化渲染，适合大数据量场景。需要通过 `MasonryItem.height` 或 `itemHeight` 提供已知高度 | `boolean` | `false` | 6.6.0 | × |
 
 ### MasonryItem
 

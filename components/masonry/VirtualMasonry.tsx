@@ -23,6 +23,46 @@ interface VirtualMasonryProps<ItemDataType = any> {
   varRef: (unit: string, fallbackVar?: string) => string;
 }
 
+type ItemBound<ItemDataType> = {
+  record: MasonryRenderItem<ItemDataType>;
+  top: number;
+  bottom: number;
+};
+
+const lowerBoundByBottom = <ItemDataType,>(
+  bounds: ItemBound<ItemDataType>[],
+  target: number,
+): number => {
+  let left = 0;
+  let right = bounds.length;
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (bounds[mid].bottom < target) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+};
+
+const upperBoundByTop = <ItemDataType,>(
+  bounds: ItemBound<ItemDataType>[],
+  target: number,
+): number => {
+  let left = 0;
+  let right = bounds.length;
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (bounds[mid].top <= target) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+};
+
 const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>) => {
   const {
     prefixCls,
@@ -45,7 +85,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
   const scrollRafRef = React.useRef<number | null>(null);
 
   const onHolderResize: ResizeObserverProps['onResize'] = (sizeInfo) => {
-    setViewportHeight(sizeInfo.offsetHeight);
+    setViewportHeight(sizeInfo.offsetHeight || sizeInfo.height);
   };
 
   React.useEffect(
@@ -73,87 +113,76 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     }
   }, [itemWithPositions, totalHeight]);
 
-  const [itemBounds, maxSpanHeight, averageItemHeight] = React.useMemo(() => {
-    const bounds = itemWithPositions
-      .filter(
-        (
-          record,
-        ): record is MasonryRenderItem<ItemDataType> & {
-          position: { column: number; top: number };
-          layoutHeight: number;
-        } => Boolean(record.position && record.layoutHeight),
-      )
-      .map((record) => {
-        const top = record.position.top;
-        const itemHeight = record.layoutHeight;
-        return {
-          record,
-          top,
-          height: itemHeight + verticalGutter,
-          bottom: top + itemHeight + verticalGutter,
-        };
-      });
+  const [columnBounds, averageItemHeight] = React.useMemo(() => {
+    const columns: ItemBound<ItemDataType>[][] = Array.from({ length: columnCount }, () => []);
+    let totalSpanHeight = 0;
+    let itemCount = 0;
 
-    bounds.sort((a, b) => a.top - b.top);
-
-    let maxHeight = 0;
-    let totalHeightValue = 0;
-    for (let i = 0; i < bounds.length; i += 1) {
-      totalHeightValue += bounds[i].height;
-      if (bounds[i].height > maxHeight) {
-        maxHeight = bounds[i].height;
+    for (let i = 0; i < itemWithPositions.length; i += 1) {
+      const record = itemWithPositions[i];
+      if (!record.position || !record.layoutHeight) {
+        continue;
       }
+
+      const top = record.position.top;
+      const spanHeight = record.layoutHeight + verticalGutter;
+      columns[record.position.column]?.push({
+        record,
+        top,
+        bottom: top + spanHeight,
+      });
+      totalSpanHeight += spanHeight;
+      itemCount += 1;
     }
 
-    const averageHeight = bounds.length ? totalHeightValue / bounds.length : 0;
+    for (let columnIndex = 0; columnIndex < columns.length; columnIndex += 1) {
+      columns[columnIndex].sort((a, b) => a.top - b.top);
+    }
 
-    return [bounds, maxHeight, averageHeight] as const;
-  }, [itemWithPositions, verticalGutter]);
+    return [columns, itemCount ? totalSpanHeight / itemCount : 0] as const;
+  }, [columnCount, itemWithPositions, verticalGutter]);
 
   const visibleItems = React.useMemo(() => {
+    // Without a constrained viewport (e.g. missing container height), keep the
+    // window empty instead of treating unbounded growth as "everything visible".
+    if (viewportHeight <= 0) {
+      return [] as MasonryRenderItem<ItemDataType>[];
+    }
+
     const baseOverscan = Math.max(viewportHeight * 0.8, averageItemHeight * 3);
     const overscanTop = scrollDirection === 'up' ? baseOverscan * 2 : baseOverscan;
     const overscanBottom = scrollDirection === 'down' ? baseOverscan * 2 : baseOverscan;
     const start = Math.max(0, scrollTop - overscanTop);
     const end = scrollTop + viewportHeight + overscanBottom;
 
-    const lowerBoundByTop = (target: number) => {
-      let left = 0;
-      let right = itemBounds.length;
-      while (left < right) {
-        const mid = Math.floor((left + right) / 2);
-        if (itemBounds[mid].top < target) {
-          left = mid + 1;
-        } else {
-          right = mid;
-        }
-      }
-      return left;
-    };
-
-    // Item bounds are sorted by `top`, not by `bottom`.
-    // Expand the start lookup by max span height to avoid skipping tall items
-    // that start above viewport but still intersect current window.
-    const startIndex = lowerBoundByTop(start - maxSpanHeight - 1);
     const result: MasonryRenderItem<ItemDataType>[] = [];
-    for (let index = startIndex; index < itemBounds.length; index += 1) {
-      const current = itemBounds[index];
-      if (current.top > end + 1) {
-        break;
+    for (let columnIndex = 0; columnIndex < columnBounds.length; columnIndex += 1) {
+      const bounds = columnBounds[columnIndex];
+      if (!bounds.length) {
+        continue;
       }
-      if (current.bottom >= start - 1) {
-        result.push(current.record);
+
+      const startIndex = lowerBoundByBottom(bounds, start);
+      const endIndex = upperBoundByTop(bounds, end);
+      for (let index = startIndex; index < endIndex; index += 1) {
+        result.push(bounds[index].record);
       }
     }
+
     return result;
-  }, [averageItemHeight, itemBounds, maxSpanHeight, scrollDirection, scrollTop, viewportHeight]);
+  }, [averageItemHeight, columnBounds, scrollDirection, scrollTop, viewportHeight]);
 
   return (
     <ResizeObserver onResize={onHolderResize}>
       <div
         ref={holderRef}
         className={`${prefixCls}-virtual-holder`}
-        style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}
         onScroll={(event) => {
           const nextTop = event.currentTarget.scrollTop;
           if (scrollRafRef.current !== null) {

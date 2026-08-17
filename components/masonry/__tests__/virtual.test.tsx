@@ -64,7 +64,7 @@ describe('Masonry.virtual', () => {
     expect(container.querySelector('.ant-masonry-virtual-holder')).toBeTruthy();
   });
 
-  it('recycles and creates elements on scroll', async () => {
+  it('windows visible items on scroll', async () => {
     const { container } = render(<Demo />);
     await resizeMasonry();
 
@@ -81,6 +81,63 @@ describe('Masonry.virtual', () => {
     );
 
     expect(afterTexts).not.toEqual(beforeTexts);
+  });
+
+  it('keeps windowing with one very tall item after deep scroll', async () => {
+    const tallHeights = [2000, ...heights.slice(1)];
+    const { container } = render(<Demo dynamicHeights={tallHeights} />);
+    await resizeMasonry();
+
+    const virtualList = container.querySelector('.ant-masonry-virtual-holder')!;
+    fireEvent.scroll(virtualList, { target: { scrollTop: 5000 } });
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBeLessThan(tallHeights.length);
+  });
+
+  it('does not expand to full DOM without container height', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const manyHeights = Array.from({ length: 200 }, (_, index) => 80 + (index % 40));
+
+    const { container } = render(<Demo dynamicHeights={manyHeights} style={undefined} />);
+    // Do not fake holder size — unconstrained virtual root must not pretend a viewport exists.
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBe(0);
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Virtual mode requires an explicit container height (for example `style={{ height: 400 }}`).',
+      ),
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('emits onLayoutChange([]) when items are cleared', async () => {
+    const onLayoutChange = jest.fn();
+    const { rerender } = render(<Demo onLayoutChange={onLayoutChange} />);
+    await resizeMasonry();
+
+    expect(onLayoutChange).toHaveBeenCalled();
+    onLayoutChange.mockClear();
+
+    rerender(<Demo dynamicHeights={[]} onLayoutChange={onLayoutChange} />);
+    await waitFakeTimer();
+
+    expect(onLayoutChange).toHaveBeenCalledWith([]);
+  });
+
+  it('skips layout bookkeeping when onLayoutChange is absent', async () => {
+    const { container, rerender } = render(<Demo />);
+    await resizeMasonry();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBeGreaterThan(0);
+
+    // Remount with a different item set should not require layout callback state.
+    rerender(<Demo dynamicHeights={heights.map((value) => value + 10)} />);
+    await resizeMasonry();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBeGreaterThan(0);
   });
 
   it('applies upward overscan when scrolling back up', async () => {

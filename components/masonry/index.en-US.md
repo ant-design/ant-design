@@ -40,12 +40,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | columns | Number of columns, can be a fixed value or a responsive configuration | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  | × |
 | fresh | Whether to continuously monitor the size changes of child items | `boolean` | `false` |  | × |
 | gutter | Spacing, can be a fixed value, responsive configuration, or a configuration for horizontal and vertical spacing | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  | × |
-| items | Masonry items | [MasonryItem](#masonryitem)[] | - |  | × |
-| itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  | × |
 | itemHeight | Get item height for virtual mode when `MasonryItem.height` is not set | `(item: MasonryItem, index: number) => number` | - | 6.6.0 | × |
+| itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  | × |
+| items | Masonry items | [MasonryItem](#masonryitem)[] | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| virtual | Enable windowed rendering for large datasets. Requires known item heights via `MasonryItem.height` or `itemHeight`, and an explicit container height (for example `style={{ height: 400 }}`) | `boolean` | false | 6.6.0 | × |
 | onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |  | × |
-| virtual | Enable virtualized rendering for large datasets. Requires known item heights via `MasonryItem.height` or `itemHeight` | `boolean` | `false` | 6.6.0 | × |
 
 ### MasonryItem
 
