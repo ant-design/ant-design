@@ -15,6 +15,36 @@ tag: vVERSION
 
 ---
 
+## 6.6.1
+
+`2026-08-17`
+
+- Form
+  - 🐞 修复 Form 在快速校验状态变化时高度抖动的问题。[#59008](https://github.com/ant-design/ant-design/pull/59008) [@waterWang](https://github.com/waterWang)
+  - 🐞 修复 Form 垂直布局中标签外边距覆盖 `labelCol.offset` 的问题。[#58981](https://github.com/ant-design/ant-design/pull/58981) [@nikzanda](https://github.com/nikzanda)
+- Menu
+  - 🐞 修复 Menu 内联菜单展开或收起时图标抖动的问题。[#59018](https://github.com/ant-design/ant-design/pull/59018) [@afc163](https://github.com/afc163)
+  - 🐞 修复 Menu 内联菜单在菜单项 hover 时收起会导致 Tooltip 闪烁的问题。[#58865](https://github.com/ant-design/ant-design/pull/58865) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- Table
+  - 🐞 修复 Table 开启 `bordered` 且 `showHeader` 为 `false` 时首行圆角异常的问题。[#57035](https://github.com/ant-design/ant-design/pull/57035) [@Largopie](https://github.com/Largopie)
+  - 🐞 修复 Table 展开行导致 `rowSpan` 范围偏移时行 hover 高亮单元格不正确的问题。[#58935](https://github.com/ant-design/ant-design/pull/58935) [react-component/table#1488](https://github.com/react-component/table/pull/1488) [@jiangrong-devops](https://github.com/jiangrong-devops)
+- Transfer
+  - 🐞 修复 Transfer 清空搜索输入框时重复触发 `onSearch` 的问题。[#59016](https://github.com/ant-design/ant-design/pull/59016) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Transfer 单向模式的项目移除按钮未正确使用 `locale.remove` 的问题。[#58955](https://github.com/ant-design/ant-design/pull/58955) [@nrps9909](https://github.com/nrps9909)
+- 🌐 优化 Upload 操作按钮以及 Modal 和 Notification 关闭按钮的本地化无障碍名称。[#58953](https://github.com/ant-design/ant-design/pull/58953) [#58957](https://github.com/ant-design/ant-design/pull/58957) [@nrps9909](https://github.com/nrps9909)
+- 🌐 优化多个组件的繁体中文术语，并将 DatePicker 的周选择提示调整为台湾地区惯用说法。[#58947](https://github.com/ant-design/ant-design/pull/58947) [#58951](https://github.com/ant-design/ant-design/pull/58951) [@nrps9909](https://github.com/nrps9909)
+- 🌐 修复冰岛语和蒙古语 Form 最小值校验消息中的无效占位符。[#58965](https://github.com/ant-design/ant-design/pull/58965) [@nrps9909](https://github.com/nrps9909)
+- 🆕 新增 Carousel 通过 ConfigProvider `locale` 本地化默认前后翻页箭头标签的能力。[#59014](https://github.com/ant-design/ant-design/pull/59014) [@waterWang](https://github.com/waterWang)
+- ♿ 优化 DatePicker.RangePicker 的读屏体验，隐藏无语义的默认分隔符，同时保留自定义分隔符的可访问性。[#58999](https://github.com/ant-design/ant-design/pull/58999) [@nrps9909](https://github.com/nrps9909)
+- ♿ 优化 Collapse 的读屏体验，隐藏装饰性默认展开图标的冗余标签，同时保留可交互图标触发器的无障碍名称。[#59000](https://github.com/ant-design/ant-design/pull/59000) [@nrps9909](https://github.com/nrps9909)
+- 🐞 修复 TreeSelect 受控模式下 `SHOW_PARENT` 丢失已选中的禁用子节点的问题。[#58935](https://github.com/ant-design/ant-design/pull/58935) [react-component/tree-select#681](https://github.com/react-component/tree-select/pull/681) [@zombieJ](https://github.com/zombieJ)
+- ⌨️ 修复通过 Enter 或空格键激活 Select 清除按钮时未清空选中值的问题。[#58958](https://github.com/ant-design/ant-design/pull/58958) [react-component/select#1247](https://github.com/react-component/select/pull/1247) [@Pareder](https://github.com/Pareder)
+- 🐞 修复 AutoComplete 自定义输入组件配合 `allowClear` 时 hover 导致内容偏移的问题。[#58932](https://github.com/ant-design/ant-design/pull/58932) [@lazerg](https://github.com/lazerg)
+- 🐞 修复 FloatButton.BackTop 的进度环边框在部分页面首次显示前被覆盖的问题。[#58982](https://github.com/ant-design/ant-design/pull/58982) [@ZQDesigned](https://github.com/ZQDesigned)
+- 🐞 修复 ColorPicker 双击清除按钮后无法拖动选色的问题。[#58995](https://github.com/ant-design/ant-design/pull/58995) [@dogledogle](https://github.com/dogledogle)
+- 💄 优化 Listy 虚拟滚动条轨道的 hover 反馈。[#58964](https://github.com/ant-design/ant-design/pull/58964) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Radio.Group 使用 `options` 时选择选项不会触发选项 `onChange` 回调的问题。[#59010](https://github.com/ant-design/ant-design/pull/59010) [@moon6967](https://github.com/moon6967)
+
 ## 6.6.0
 
 `2026-08-10`
