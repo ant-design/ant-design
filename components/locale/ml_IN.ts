@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'ശരിയാണ്',
     cancelText: 'റദ്ദാക്കുക',
   },
+  Splitter: {
+    toggleStartPanel: 'ആരംഭ പാനൽ ടോഗിൾ ചെയ്യുക',
+    toggleEndPanel: 'അവസാന പാനൽ ടോഗിൾ ചെയ്യുക',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ഇവിടെ തിരയുക',

@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'Onartu',
     cancelText: 'Utzi',
   },
+  Splitter: {
+    toggleStartPanel: 'Txandakatu hasierako panela',
+    toggleEndPanel: 'Txandakatu amaierako panela',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Bilatu hemen',

@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'சரி',
     cancelText: 'ரத்து செய்யவும்',
   },
+  Splitter: {
+    toggleStartPanel: 'தொடக்கப் பலகையை மாற்று',
+    toggleEndPanel: 'இறுதிப் பலகையை மாற்று',
+  },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'உள்ளடக்கம் கிடைக்கவில்லை',

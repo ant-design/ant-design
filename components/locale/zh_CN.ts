@@ -55,6 +55,10 @@ const localeValues: Locale = {
     cancelText: '取消',
     okText: '确定',
   },
+  Splitter: {
+    toggleStartPanel: '切换起始面板',
+    toggleEndPanel: '切换结束面板',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: '请输入搜索内容',

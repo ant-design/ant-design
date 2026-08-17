@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'ठीक आहे',
     cancelText: 'रद्द करा',
   },
+  Splitter: {
+    toggleStartPanel: 'प्रारंभ पॅनेल टॉगल करा',
+    toggleEndPanel: 'शेवटचे पॅनेल टॉगल करा',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'येथे शोधा',

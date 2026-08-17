@@ -54,6 +54,10 @@ const localeValues: Locale = {
     cancelText: 'မလုပ်တော့',
     okText: 'အိုကေ',
   },
+  Splitter: {
+    toggleStartPanel: 'အစပြုအကန့်ကို ပြောင်းရန်',
+    toggleEndPanel: 'အဆုံးအကန့်ကို ပြောင်းရန်',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ဒီမှာရှာပါ။',

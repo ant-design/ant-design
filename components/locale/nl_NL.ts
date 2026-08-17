@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Annuleer',
   },
+  Splitter: {
+    toggleStartPanel: 'Beginpaneel omschakelen',
+    toggleEndPanel: 'Eindpaneel omschakelen',
+  },
   Transfer: {
     itemUnit: 'item',
     itemsUnit: 'items',
