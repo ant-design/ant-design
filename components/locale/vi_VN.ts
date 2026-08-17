@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'Đồng ý',
     cancelText: 'Hủy',
   },
+  Splitter: {
+    toggleStartPanel: 'Chuyển đổi bảng bắt đầu',
+    toggleEndPanel: 'Chuyển đổi bảng kết thúc',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Tìm ở đây',

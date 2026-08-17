@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Zrušit',
   },
+  Splitter: {
+    toggleStartPanel: 'Přepnout počáteční panel',
+    toggleEndPanel: 'Přepnout koncový panel',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Vyhledávání',

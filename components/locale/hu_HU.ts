@@ -48,6 +48,10 @@ const localeValues: Locale = {
     okText: 'Alkalmazás',
     cancelText: 'Visszavonás',
   },
+  Splitter: {
+    toggleStartPanel: 'Kezdőpanel váltása',
+    toggleEndPanel: 'Zárópanel váltása',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Keresés',

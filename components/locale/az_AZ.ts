@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'Bəli',
     cancelText: 'Ləğv et',
   },
+  Splitter: {
+    toggleStartPanel: 'Başlanğıc panelini dəyişdir',
+    toggleEndPanel: 'Son paneli dəyişdir',
+  },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'Tapılmadı',

@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'ตกลง',
     cancelText: 'ยกเลิก',
   },
+  Splitter: {
+    toggleStartPanel: 'สลับแผงเริ่มต้น',
+    toggleEndPanel: 'สลับแผงสิ้นสุด',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ค้นหา',

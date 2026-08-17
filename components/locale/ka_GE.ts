@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'კარგი',
     cancelText: 'გაუქმება',
   },
+  Splitter: {
+    toggleStartPanel: 'საწყისი პანელის გადართვა',
+    toggleEndPanel: 'საბოლოო პანელის გადართვა',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'მოძებნე აქ',

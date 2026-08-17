@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'キャンセル',
   },
+  Splitter: {
+    toggleStartPanel: '開始パネルを切り替える',
+    toggleEndPanel: '終了パネルを切り替える',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ここを検索',

@@ -62,6 +62,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Anulo',
   },
+  Splitter: {
+    toggleStartPanel: 'Ndrysho panelin fillestar',
+    toggleEndPanel: 'Ndrysho panelin përfundimtar',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Kërko këtu',
