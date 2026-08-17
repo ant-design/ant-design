@@ -39,6 +39,9 @@ const localeValues: Locale = {
     cancelSort: 'வரிசையாக்கத்தை ரத்து செய்ய கிளிக் செய்யவும்',
     selectNone: 'எல்லா தரவையும் அழிக்கவும்',
     selectionAll: 'எல்லா தரவையும் தேர்ந்தெடுக்கவும்',
+    selectRow: 'வரிசையைத் தேர்ந்தெடுக்கவும்',
+    selectedRow: 'வரிசை தேர்ந்தெடுக்கப்பட்டது',
+    selectionMenu: 'தேர்வு மெனு',
   },
   Tour: {
     Next: 'அடுத்தது',
