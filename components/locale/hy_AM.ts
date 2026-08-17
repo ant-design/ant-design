@@ -101,6 +101,10 @@ const localeValues: Locale = {
     okText: 'Հաստատել',
     cancelText: 'Մերժել',
   },
+  Splitter: {
+    toggleStartPanel: 'Փոխարկել սկզբնական վահանակը',
+    toggleEndPanel: 'Փոխարկել վերջնական վահանակը',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Որոնեք այստեղ',

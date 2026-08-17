@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'U redu',
     cancelText: 'Otkaži',
   },
+  Splitter: {
+    toggleStartPanel: 'Пребаци почетни панел',
+    toggleEndPanel: 'Пребаци завршни панел',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Pretraži ovde',

@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'យល់ព្រម',
     cancelText: 'បោះបង់',
   },
+  Splitter: {
+    toggleStartPanel: 'បិទ/បើកផ្ទាំងចាប់ផ្តើម',
+    toggleEndPanel: 'បិទ/បើកផ្ទាំងបញ្ចប់',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ស្វែងរកនៅទីនេះ',

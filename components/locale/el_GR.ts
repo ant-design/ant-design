@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'ΟΚ',
     cancelText: 'Άκυρο',
   },
+  Splitter: {
+    toggleStartPanel: 'Εναλλαγή αρχικού πίνακα',
+    toggleEndPanel: 'Εναλλαγή τελικού πίνακα',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Αναζήτηση',
