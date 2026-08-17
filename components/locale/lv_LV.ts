@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Atcelt',
   },
+  Splitter: {
+    toggleStartPanel: 'Pārslēgt sākuma paneli',
+    toggleEndPanel: 'Pārslēgt beigu paneli',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Meklēt šeit',

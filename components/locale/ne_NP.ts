@@ -53,6 +53,10 @@ const localeValues: Locale = {
     Previous: 'अघिल्लो',
     Finish: 'भ्रमण अन्त्य गर्नुहोस्',
   },
+  Splitter: {
+    toggleStartPanel: 'सुरुवातीको प्यानल टगल गर्नुहोस्',
+    toggleEndPanel: 'अन्तिम प्यानल टगल गर्नुहोस्',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'यहाँ खोज्नुहोस्',

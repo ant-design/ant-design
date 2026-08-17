@@ -58,6 +58,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Bekor qilish',
   },
+  Splitter: {
+    toggleStartPanel: 'Boshlang‘ich panelni almashtirish',
+    toggleEndPanel: 'Yakuniy panelni almashtirish',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Qidiruv',

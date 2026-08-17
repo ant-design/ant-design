@@ -53,6 +53,10 @@ const localeValues: Locale = {
     okText: 'Гаразд',
     cancelText: 'Скасувати',
   },
+  Splitter: {
+    toggleStartPanel: 'Перемкнути початкову панель',
+    toggleEndPanel: 'Перемкнути кінцеву панель',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Введіть текст для пошуку',
