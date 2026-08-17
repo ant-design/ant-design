@@ -763,7 +763,11 @@ describe('Anchor Render', () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
       const hash3 = getHashUrl();
-      const Demo: React.FC<{ mappedLink: string }> = ({ mappedLink }) => (
+      interface DemoProps {
+        mappedLink: string;
+      }
+
+      const Demo: React.FC<DemoProps> = ({ mappedLink }) => (
         <Anchor
           getCurrentAnchor={(link) => {
             if (link === `#${hash1}`) {
