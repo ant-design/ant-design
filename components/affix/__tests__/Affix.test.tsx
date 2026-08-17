@@ -160,6 +160,21 @@ describe('Affix Render', () => {
     await waitFakeTimer();
 
     expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '10px' });
+
+    rerender(
+      <>
+        <Affix className="stack-top-first" offsetTop={10} stackable>
+          <div>first</div>
+        </Affix>
+        <Affix className="stack-top-second" offsetTop={10} stackable>
+          <div>second</div>
+        </Affix>
+      </>,
+    );
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-top-first .ant-affix')).toHaveStyle({ top: '10px' });
+    expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '60px' });
   });
 
   it('stacks bottom Affix components in reverse DOM order', async () => {
