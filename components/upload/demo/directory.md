@@ -19,7 +19,7 @@ import { Button, Upload } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
-  <Upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
+  <Upload action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload" directory>
     <Button icon={<UploadOutlined />}>Upload Directory</Button>
   </Upload>
 );

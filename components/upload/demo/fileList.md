@@ -58,7 +58,7 @@ const App: React.FC = () => {
   };
 
   const props = {
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
     onChange: handleChange,
     multiple: true,
   };

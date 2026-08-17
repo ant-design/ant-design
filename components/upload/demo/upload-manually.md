@@ -30,7 +30,7 @@ const App: React.FC = () => {
     });
     setUploading(true);
     // You can use any AJAX library you like
-    fetch('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
+    fetch('https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload', {
       method: 'POST',
       body: formData,
     })
