@@ -273,7 +273,11 @@ describe('Splitter', () => {
       expect(container.querySelector('.ant-splitter-bar-dragger')).toHaveAttribute('tabindex', '0');
 
       rerender(<SplitterDemo items={[{}, { resizable: false }]} />);
-      expect(container.querySelector('.ant-splitter-bar-dragger')).not.toHaveAttribute('tabindex');
+      const disabledDragger = container.querySelector('.ant-splitter-bar-dragger')!;
+      expect(disabledDragger).not.toHaveAttribute('tabindex');
+
+      fireEvent.keyDown(disabledDragger, { key: 'Enter' });
+      expect(disabledDragger).not.toHaveClass('ant-splitter-bar-dragger-active');
     });
 
     it('should resize horizontally with keyboard and respect limits', async () => {
@@ -335,8 +339,11 @@ describe('Splitter', () => {
       fireEvent.keyDown(dragger, { key: 'ArrowDown' });
       expect(onResize).toHaveBeenCalledWith([60, 40]);
 
+      fireEvent.keyDown(dragger, { key: 'ArrowUp' });
+      expect(onResize).toHaveBeenLastCalledWith([50, 50]);
+
       fireEvent.keyDown(dragger, { key: 'Enter' });
-      expect(onResizeEnd).toHaveBeenCalledWith([60, 40]);
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
     });
 
     it('should stop resizing when the dragger loses focus', async () => {
