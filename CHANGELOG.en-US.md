@@ -21,6 +21,8 @@ tag: vVERSION
 
 - ♿ Improve localized accessible names for Upload actions and Modal and Notification close buttons. [#58953](https://github.com/ant-design/ant-design/pull/58953) [#58957](https://github.com/ant-design/ant-design/pull/58957) [@nrps9909](https://github.com/nrps9909)
 - 🌐 Improve Traditional Chinese terminology across localized components and use Taiwan-preferred week wording in DatePicker. [#58947](https://github.com/ant-design/ant-design/pull/58947) [#58951](https://github.com/ant-design/ant-design/pull/58951) [@nrps9909](https://github.com/nrps9909)
+- 🐞 Fix Upload dropping newly added files when async `onRemove` resolves. [#58814](https://github.com/ant-design/ant-design/pull/58814) [@afc163](https://github.com/afc163)
+- 🐞 Fix Anchor triggering duplicate `onChange` callbacks on scroll when using `getCurrentAnchor`. [#58834](https://github.com/ant-design/ant-design/pull/58834) [@nikzanda](https://github.com/nikzanda)
 - Form
   - 🐞 Fix Form height fluctuation during rapid validation state changes. [#59008](https://github.com/ant-design/ant-design/pull/59008) [@waterWang](https://github.com/waterWang)
   - 🐞 Fix Form vertical layout `labelCol.offset` being overridden by label margins. [#58981](https://github.com/ant-design/ant-design/pull/58981) [@nikzanda](https://github.com/nikzanda)
@@ -50,6 +52,7 @@ tag: vVERSION
 - 🐞 Fix ColorPicker becoming unable to drag after double-clicking the clear button. [#58995](https://github.com/ant-design/ant-design/pull/58995) [@dogledogle](https://github.com/dogledogle)
 - 🐞 Fix Radio.Group options not invoking an option's `onChange` callback when selected. [#59010](https://github.com/ant-design/ant-design/pull/59010) [@moon6967](https://github.com/moon6967)
 - 💄 Improve BorderBeam beam radius synchronization with dynamic container `border-radius` changes. [#58923](https://github.com/ant-design/ant-design/pull/58923) [@li-jia-nan](https://github.com/li-jia-nan)
+- 📝 Correct Typography editable `onChange` documentation to clarify that it fires when editing is completed. [#59021](https://github.com/ant-design/ant-design/pull/59021) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 
 ## 6.6.0
 
