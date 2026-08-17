@@ -407,8 +407,9 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(onOpenChange.mock.calls).toEqual([[true], [false]]);
+    expect(onFilterDropdownOpenChange.mock.calls).toEqual([[true], [false]]);
   });
 
   it('can be controlled by filteredValue', () => {

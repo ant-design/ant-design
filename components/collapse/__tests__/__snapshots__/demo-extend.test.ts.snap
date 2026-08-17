@@ -19,7 +19,8 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -59,7 +60,8 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -99,7 +101,8 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -148,7 +151,8 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -202,7 +206,8 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -242,7 +247,8 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -291,7 +297,8 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -345,7 +352,8 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -385,7 +393,8 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -568,7 +577,8 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             class="ant-collapse-expand-icon"
           >
             <span
-              aria-label="collapsed"
+              aria-hidden="true"
+              aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -619,7 +629,8 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -659,7 +670,8 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -699,7 +711,8 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -896,7 +909,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -974,7 +988,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1038,7 +1053,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1246,7 +1262,8 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1300,7 +1317,8 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1340,7 +1358,8 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1389,7 +1408,8 @@ exports[`renders components/collapse/demo/icon.tsx extend context correctly 1`] 
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1462,7 +1482,8 @@ exports[`renders components/collapse/demo/icon.tsx extend context correctly 1`] 
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1527,7 +1548,8 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1567,7 +1589,8 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1607,7 +1630,8 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1656,7 +1680,8 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1753,7 +1778,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1813,7 +1839,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1873,7 +1900,8 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1928,7 +1956,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1981,7 +2010,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2022,7 +2052,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2068,7 +2099,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2109,7 +2141,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2162,7 +2195,8 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >

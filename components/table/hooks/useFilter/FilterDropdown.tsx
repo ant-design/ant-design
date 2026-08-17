@@ -328,10 +328,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
         setFilteredKeysSync(wrapStringListType(propFilteredKeys));
       }
 
-      triggerVisible(newVisible);
-
       if (!newVisible && !column.filterDropdown && filterOnClose) {
         onConfirm();
+      } else {
+        triggerVisible(newVisible);
       }
     }
   };
