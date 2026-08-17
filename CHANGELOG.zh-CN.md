@@ -31,9 +31,9 @@ tag: vVERSION
 - Transfer
   - 🐞 修复 Transfer 清空搜索输入框时重复触发 `onSearch` 的问题。[#59016](https://github.com/ant-design/ant-design/pull/59016) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Transfer 单向模式的项目移除按钮未正确使用 `locale.remove` 的问题。[#58955](https://github.com/ant-design/ant-design/pull/58955) [@nrps9909](https://github.com/nrps9909)
-- 🌐 优化 Upload 操作按钮以及 Modal 和 Notification 关闭按钮的本地化无障碍名称。[#58953](https://github.com/ant-design/ant-design/pull/58953) [#58957](https://github.com/ant-design/ant-design/pull/58957) [@nrps9909](https://github.com/nrps9909)
-- 🌐 优化多个组件的繁体中文术语，并将 DatePicker 的周选择提示调整为台湾地区惯用说法。[#58947](https://github.com/ant-design/ant-design/pull/58947) [#58951](https://github.com/ant-design/ant-design/pull/58951) [@nrps9909](https://github.com/nrps9909)
-- 🌐 修复冰岛语和蒙古语 Form 最小值校验消息中的无效占位符。[#58965](https://github.com/ant-design/ant-design/pull/58965) [@nrps9909](https://github.com/nrps9909)
+- ♿ 优化 Upload 操作按钮以及 Modal 和 Notification 关闭按钮的本地化无障碍名称。[#58953](https://github.com/ant-design/ant-design/pull/58953) [#58957](https://github.com/ant-design/ant-design/pull/58957) [@nrps9909](https://github.com/nrps9909)
+- 🇹🇼 优化多个组件的繁体中文术语，并将 DatePicker 的周选择提示调整为台湾地区惯用说法。[#58947](https://github.com/ant-design/ant-design/pull/58947) [#58951](https://github.com/ant-design/ant-design/pull/58951) [@nrps9909](https://github.com/nrps9909)
+- 🇮🇸🇲🇳 修复冰岛语和蒙古语 Form 最小值校验消息中的无效占位符。[#58965](https://github.com/ant-design/ant-design/pull/58965) [@nrps9909](https://github.com/nrps9909)
 - 🆕 新增 Carousel 通过 ConfigProvider `locale` 本地化默认前后翻页箭头标签的能力。[#59014](https://github.com/ant-design/ant-design/pull/59014) [@waterWang](https://github.com/waterWang)
 - ♿ 优化 DatePicker.RangePicker 的读屏体验，隐藏无语义的默认分隔符，同时保留自定义分隔符的可访问性。[#58999](https://github.com/ant-design/ant-design/pull/58999) [@nrps9909](https://github.com/nrps9909)
 - ♿ 优化 Collapse 的读屏体验，隐藏装饰性默认展开图标的冗余标签，同时保留可交互图标触发器的无障碍名称。[#59000](https://github.com/ant-design/ant-design/pull/59000) [@nrps9909](https://github.com/nrps9909)
