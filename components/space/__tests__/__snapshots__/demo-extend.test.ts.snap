@@ -140,6 +140,40 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
       </div>
     </div>
   </div>
+  <div
+    class="acss-1os7mti"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-stretch ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        stretch
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="acss-3radhp"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
