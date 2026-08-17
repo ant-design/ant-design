@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,68598,t=>{"use strict";var i=t.i(391398);t.i(191788);var o=t.i(183668),e=t.i(638204);let a=()=>{e.message.info("This is a normal message")};t.s(["default",0,()=>(0,i.jsx)(o.Button,{type:"primary",onClick:a,children:"Static Method"})])}]);
