@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Default value | string | - |  | × |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |  | × |
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  | × |
-| notFoundContent | Set mentions content when not match | ReactNode | `Not Found` |  | × |
+| notFoundContent | Set mentions content when not match | ReactNode | `No data` |  | × |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  | × |
 | popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  | × |

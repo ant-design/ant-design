@@ -92,7 +92,7 @@ demo:
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  | × |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | `<CheckOutlined />` |  | 6.4.0 |
 | mode | 设置 Select 的模式为多选或标签 | `multiple` \| `tags` | - |  | × |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `暂无数据` |  | × |
 | open | 是否展开下拉菜单 | boolean | - |  | × |
 | ~~optionFilterProp~~ | 已废弃，见 `showSearch.optionFilterProp` |  |  |  | × |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  | × |
