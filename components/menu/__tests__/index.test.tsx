@@ -607,6 +607,45 @@ describe('Menu', () => {
     expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/56528
+  it('should not flash Tooltip when collapsing while hovered', () => {
+    const Demo: React.FC = () => {
+      const [inlineCollapsed, setInlineCollapsed] = useState(false);
+      return (
+        <>
+          <button type="button" onClick={() => setInlineCollapsed(true)}>
+            collapse
+          </button>
+          <Menu
+            mode="inline"
+            inlineCollapsed={inlineCollapsed}
+            getPopupContainer={(node) => node.parentNode as HTMLElement}
+          >
+            <Menu.Item key="1" title="Home">
+              Home
+            </Menu.Item>
+          </Menu>
+        </>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    const item = container.querySelector('li.ant-menu-item')!;
+
+    fireEvent.mouseEnter(item);
+    triggerAllTimer();
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+
+    fireEvent.click(container.querySelector('button')!);
+    triggerAllTimer();
+
+    // Fresh Tooltip mounts closed; stale hover from expanded state should not open it.
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(
+      container.querySelector('.ant-tooltip:not(.ant-tooltip-hidden) .ant-tooltip-container'),
+    ).toBeFalsy();
+  });
+
   describe('open submenu when click submenu title', () => {
     const toggleMenu = (
       instance: ReturnType<typeof render>,

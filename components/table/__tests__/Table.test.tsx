@@ -637,6 +637,32 @@ describe('Table', () => {
     expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
   });
 
+  it('should add no-header class only when header and title are absent', () => {
+    const columns = [{ title: 'Name', dataIndex: 'name' }];
+    const dataSource = [{ key: 1, name: 'Jack' }];
+    const { container, rerender } = render(
+      <Table bordered showHeader={false} columns={columns} dataSource={dataSource} />,
+    );
+
+    expect(container.querySelector('.ant-table')).toHaveClass('ant-table-no-header');
+
+    rerender(<Table bordered showHeader columns={columns} dataSource={dataSource} />);
+
+    expect(container.querySelector('.ant-table')).not.toHaveClass('ant-table-no-header');
+
+    rerender(
+      <Table
+        bordered
+        showHeader={false}
+        title={() => 'Title'}
+        columns={columns}
+        dataSource={dataSource}
+      />,
+    );
+
+    expect(container.querySelector('.ant-table')).not.toHaveClass('ant-table-no-header');
+  });
+
   it('rowSelection should support align', () => {
     const wrapper = render(
       <Table
