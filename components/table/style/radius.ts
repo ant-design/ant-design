@@ -30,6 +30,17 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           },
         },
 
+        [`&${componentCls}-bordered${componentCls}-no-header`]: {
+          [`> ${componentCls}-container`]: {
+            [`> ${componentCls}-content, > ${componentCls}-body`]: {
+              '> table > tbody > tr:first-child': {
+                '> *:first-child': { borderStartStartRadius: tableRadius },
+                '> *:last-child': { borderStartEndRadius: tableRadius },
+              },
+            },
+          },
+        },
+
         '&-container': {
           borderStartStartRadius: tableRadius,
           borderStartEndRadius: tableRadius,

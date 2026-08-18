@@ -3664,7 +3664,7 @@ Array [
                   class="ant-picker-range-separator"
                 >
                   <span
-                    aria-label="to"
+                    aria-hidden="true"
                     class="ant-picker-separator"
                   >
                     <span
@@ -17671,7 +17671,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -18902,7 +18902,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -28086,7 +28086,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -33730,7 +33730,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span

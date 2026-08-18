@@ -156,7 +156,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | tooltip | 自定义提示文本，为 false 时关闭 | ReactNode | `编辑` | 4.6.0 |
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
-| onChange | 文本域编辑时触发 | function(value: string) | - |  |
+| onChange | 文本域编辑完成时触发 | function(value: string) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
 

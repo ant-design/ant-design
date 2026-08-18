@@ -5158,7 +5158,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-expand-icon"
                             >
                               <span
-                                aria-label="expanded"
+                                aria-hidden="true"
+                                aria-label="right"
                                 class="anticon anticon-right ant-collapse-arrow"
                                 role="img"
                               >
@@ -5295,7 +5296,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-expand-icon"
                             >
                               <span
-                                aria-label="expanded"
+                                aria-hidden="true"
+                                aria-label="right"
                                 class="anticon anticon-right ant-collapse-arrow"
                                 role="img"
                               >
@@ -5432,7 +5434,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-expand-icon"
                             >
                               <span
-                                aria-label="expanded"
+                                aria-hidden="true"
+                                aria-label="right"
                                 class="anticon anticon-right ant-collapse-arrow"
                                 role="img"
                               >
@@ -5569,7 +5572,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-collapse-expand-icon"
                             >
                               <span
-                                aria-label="expanded"
+                                aria-hidden="true"
+                                aria-label="right"
                                 class="anticon anticon-right ant-collapse-arrow"
                                 role="img"
                               >
@@ -6433,7 +6437,8 @@ Array [
                       class="ant-collapse-expand-icon"
                     >
                       <span
-                        aria-label="expanded"
+                        aria-hidden="true"
+                        aria-label="right"
                         class="anticon anticon-right ant-collapse-arrow"
                         role="img"
                       >
@@ -6570,7 +6575,8 @@ Array [
                       class="ant-collapse-expand-icon"
                     >
                       <span
-                        aria-label="expanded"
+                        aria-hidden="true"
+                        aria-label="right"
                         class="anticon anticon-right ant-collapse-arrow"
                         role="img"
                       >
@@ -6707,7 +6713,8 @@ Array [
                       class="ant-collapse-expand-icon"
                     >
                       <span
-                        aria-label="expanded"
+                        aria-hidden="true"
+                        aria-label="right"
                         class="anticon anticon-right ant-collapse-arrow"
                         role="img"
                       >

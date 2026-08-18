@@ -34,6 +34,9 @@ const localeValues: Locale = {
     selectInvert: '反选当页',
     selectNone: '清空所有',
     selectionAll: '全选所有',
+    selectRow: '选择行',
+    selectedRow: '行已选择',
+    selectionMenu: '选择菜单',
     sortTitle: '排序',
     expand: '展开行',
     collapse: '关闭行',
@@ -91,6 +94,10 @@ const localeValues: Locale = {
     copied: '复制成功',
     expand: '展开',
     collapse: '收起',
+  },
+  Carousel: {
+    prevSlide: '上一张幻灯片',
+    nextSlide: '下一张幻灯片',
   },
   Form: {
     optional: '（可选）',

@@ -21,7 +21,7 @@ Array [
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -9361,7 +9361,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -12228,7 +12228,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -13430,7 +13430,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -17663,7 +17663,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -18864,7 +18864,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -21408,7 +21408,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                     class="ant-picker-range-separator"
                   >
                     <span
-                      aria-label="to"
+                      aria-hidden="true"
                       class="ant-picker-separator"
                     >
                       <span
@@ -25381,7 +25381,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -26591,7 +26591,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -29871,7 +29871,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -31073,7 +31073,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -33566,7 +33566,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -34768,7 +34768,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -38236,7 +38236,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -42930,7 +42930,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -50146,7 +50146,7 @@ Array [
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -51989,7 +51989,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -53208,7 +53208,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -55392,7 +55392,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -56593,7 +56593,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -58742,7 +58742,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -60089,7 +60089,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -60574,7 +60574,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -60888,7 +60888,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -62016,7 +62016,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -63226,7 +63226,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -64649,7 +64649,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -71993,7 +71993,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -73195,7 +73195,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -76505,7 +76505,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -79200,7 +79200,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -82433,7 +82433,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -83785,7 +83785,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -92053,7 +92053,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -94222,7 +94222,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -96038,7 +96038,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -97854,7 +97854,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -99670,7 +99670,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
