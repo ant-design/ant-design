@@ -20,6 +20,7 @@ type ListItemProps<RecordType> = {
   onRemove?: (item: RecordType) => void;
   item: RecordType;
   showRemove?: boolean;
+  removeLabel?: string;
 };
 
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
@@ -35,6 +36,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     onClick,
     onRemove,
     showRemove,
+    removeLabel,
   } = props;
   const mergedDisabled = disabled || item?.disabled;
   const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
@@ -72,7 +74,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
           type="button"
           disabled={mergedDisabled}
           className={`${prefixCls}-content-item-remove`}
-          aria-label={contextLocale?.remove}
+          aria-label={removeLabel ?? contextLocale?.remove}
           onClick={() => onRemove?.(item)}
         >
           <DeleteOutlined />

@@ -17,12 +17,13 @@ const Search: React.FC<TransferSearchProps> = (props) => {
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e);
-      if (e.target.value === '') {
+      if (e.type === 'click') {
         handleClear?.();
+      } else {
+        onChange?.(e);
       }
     },
-    [onChange],
+    [onChange, handleClear],
   );
 
   return (

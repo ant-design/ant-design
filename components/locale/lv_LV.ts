@@ -32,6 +32,9 @@ const localeValues: Locale = {
     emptyText: 'Nav datu',
     selectNone: 'Notīrīt visus datus',
     selectionAll: 'Atlasiet visus datus',
+    selectRow: 'Atlasīt rindu',
+    selectedRow: 'Rinda atlasīta',
+    selectionMenu: 'Atlases izvēlne',
     sortTitle: 'Kārtot',
     expand: 'Izvērst rindu',
     collapse: 'Sakļaut rindu',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Atcelt',
+  },
+  Splitter: {
+    toggleStartPanel: 'Pārslēgt sākuma paneli',
+    toggleEndPanel: 'Pārslēgt beigu paneli',
   },
   Transfer: {
     titles: ['', ''],

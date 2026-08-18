@@ -11742,7 +11742,8 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11789,7 +11790,8 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11836,7 +11838,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11883,7 +11886,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize medium 
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11930,7 +11934,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11977,7 +11982,8 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -12024,7 +12030,8 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         class="prefix-Collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right prefix-Collapse-arrow"
           role="img"
         >
@@ -12783,7 +12790,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12873,7 +12880,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12963,7 +12970,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13052,7 +13059,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13141,7 +13148,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13230,7 +13237,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -13319,7 +13326,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="prefix-RangePicker-separator"
       >
         <span
@@ -41407,6 +41414,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41575,6 +41583,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41674,6 +41683,7 @@ exports[`ConfigProvider components Upload configProvider componentSize medium 1`
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41773,6 +41783,7 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41872,6 +41883,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41971,6 +41983,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
           class="prefix-Upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-action"
             title="Remove file"
             type="button"

@@ -3,6 +3,7 @@ import FloatButton from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
 import PurePanel from './PurePanel';
 
+export type { BackTopProps } from './BackTop';
 export type { FloatButtonProps, FloatButtonRef } from './FloatButton';
 export type { FloatButtonGroupProps, FloatButtonGroupRef } from './FloatButtonGroup';
 

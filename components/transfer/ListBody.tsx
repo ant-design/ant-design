@@ -52,6 +52,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     onScroll,
     onItemSelect,
     onItemRemove,
+    remove,
   } = props;
   const [current, setCurrent] = React.useState<number>(1);
 
@@ -137,6 +138,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
             showRemove={showRemove}
             onClick={onInternalClick}
             onRemove={onRemove}
+            removeLabel={remove}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled}
           />
