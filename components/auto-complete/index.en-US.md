@@ -34,6 +34,7 @@ The differences with Select are:
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/allowClear.tsx">Customize clear button</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/customize-clear-debug.tsx" debug>Custom input with allowClear debug</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>Disabled custom input debug</code>
 <code src="./demo/disabled-in-form-debug.tsx" debug>Disabled text color in Form debug</code>
 <code src="./demo/filled-custom-debug.tsx" debug>Filled custom input debug</code>

@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Inverti selezione nella pagina corrente',
     selectNone: 'Deseleziona tutto',
     selectionAll: 'Seleziona tutto',
+    selectRow: 'Seleziona riga',
+    selectedRow: 'Riga selezionata',
+    selectionMenu: 'Menu di selezione',
     sortTitle: 'Ordina',
     expand: 'Espandi riga',
     collapse: 'Comprimi riga ',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Annulla',
+  },
+  Splitter: {
+    toggleStartPanel: 'Attiva/disattiva pannello iniziale',
+    toggleEndPanel: 'Attiva/disattiva pannello finale',
   },
   Transfer: {
     titles: ['', ''],

@@ -30,6 +30,9 @@ const localeValues: Locale = {
     selectInvert: 'Inversează pagina curentă',
     selectNone: 'Șterge selecția',
     selectionAll: 'Selectează toate datele',
+    selectRow: 'Selectează rândul',
+    selectedRow: 'Rând selectat',
+    selectionMenu: 'Meniu de selecție',
     sortTitle: 'Ordonează',
     expand: 'Extinde rândul',
     collapse: 'Micșorează rândul',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Anulare',
+  },
+  Splitter: {
+    toggleStartPanel: 'Comută panoul de început',
+    toggleEndPanel: 'Comută panoul de sfârșit',
   },
   Transfer: {
     titles: ['', ''],

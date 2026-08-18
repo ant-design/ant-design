@@ -18,6 +18,9 @@ import {
   waitFakeTimer,
 } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import enUS from '../../locale/en_US';
+import frFR from '../../locale/fr_FR';
+import zhTW from '../../locale/zh_TW';
 import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
@@ -512,6 +515,85 @@ describe('Splitter', () => {
 
   // ============================= Collapsible =============================
   describe('collapsible', () => {
+    it('should localize collapse control names', async () => {
+      const renderSplitter = (
+        locale = enUS,
+        orientation: Orientation = 'horizontal',
+        direction?: 'rtl',
+      ) => (
+        <ConfigProvider locale={locale} direction={direction}>
+          <SplitterDemo
+            orientation={orientation}
+            items={[{ collapsible: true }, { collapsible: true }]}
+          />
+        </ConfigProvider>
+      );
+      const { container, rerender } = render(renderSplitter());
+      await resizeSplitter();
+      const getControls = () =>
+        container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', 'Toggle start panel');
+      expect(getControls()[1]).toHaveAttribute('aria-label', 'Toggle end panel');
+
+      rerender(renderSplitter(zhTW, 'vertical'));
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', '切換起始面板');
+      expect(getControls()[1]).toHaveAttribute('aria-label', '切換結束面板');
+
+      rerender(renderSplitter(zhTW, 'horizontal', 'rtl'));
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', '切換起始面板');
+      expect(getControls()[1]).toHaveAttribute('aria-label', '切換結束面板');
+    });
+
+    it('should localize collapse control names in French', async () => {
+      const { container } = render(
+        <ConfigProvider locale={frFR}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Basculer le panneau de début');
+      expect(controls[1]).toHaveAttribute('aria-label', 'Basculer le panneau de fin');
+    });
+
+    it('should fall back to English collapse control names for a custom locale', async () => {
+      const { container } = render(
+        <ConfigProvider locale={{ locale: 'custom' }}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Toggle start panel');
+      expect(controls[1]).toHaveAttribute('aria-label', 'Toggle end panel');
+    });
+
+    it('should use custom icon aria-labels for collapse controls', async () => {
+      const { container } = render(
+        <ConfigProvider locale={zhTW}>
+          <SplitterDemo
+            items={[{ collapsible: true }, { collapsible: true }]}
+            collapsible={{
+              icon: {
+                start: <CaretLeftOutlined aria-label="Toggle navigation" />,
+                end: 'custom end icon',
+              },
+            }}
+          />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Toggle navigation');
+      expect(controls[1]).toHaveAttribute('aria-label', '切換結束面板');
+    });
+
     it('Basic', async () => {
       const { container, rerender } = render(
         <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,

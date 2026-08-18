@@ -2052,7 +2052,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -2262,7 +2262,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2362,7 +2362,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2462,7 +2462,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2562,7 +2562,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2662,7 +2662,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2762,7 +2762,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2862,7 +2862,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2962,7 +2962,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3062,7 +3062,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3162,7 +3162,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -5917,7 +5917,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -6127,7 +6127,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6227,7 +6227,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6327,7 +6327,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6427,7 +6427,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6527,7 +6527,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6627,7 +6627,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6727,7 +6727,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6827,7 +6827,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -6927,7 +6927,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7027,7 +7027,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -20800,7 +20800,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -20853,7 +20853,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -20900,7 +20900,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -20947,7 +20947,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -20994,7 +20994,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22438,7 +22438,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -22483,7 +22483,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="John Brown"
                             type="checkbox"
@@ -22523,7 +22523,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
@@ -22563,7 +22563,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Joe Black"
                             type="checkbox"
@@ -22603,7 +22603,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             disabled=""
                             name="Disabled User"
@@ -22783,7 +22783,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -22828,7 +22828,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22865,7 +22865,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22902,7 +22902,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22939,7 +22939,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22976,7 +22976,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23013,7 +23013,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23050,7 +23050,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23087,7 +23087,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23124,7 +23124,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23161,7 +23161,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23365,7 +23365,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23375,27 +23375,26 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                       </div>
                     </div>
@@ -23437,7 +23436,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23474,7 +23473,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23511,7 +23510,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23548,7 +23547,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23585,7 +23584,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23622,7 +23621,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 6"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23659,7 +23658,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23696,7 +23695,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 8"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23733,7 +23732,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23770,7 +23769,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 10"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23973,7 +23972,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24010,7 +24009,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -24051,7 +24050,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -24092,7 +24091,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -24133,7 +24132,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -24174,7 +24173,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -24448,7 +24447,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -24493,7 +24492,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24533,7 +24532,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24573,7 +24572,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24613,7 +24612,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24653,7 +24652,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24693,7 +24692,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24733,7 +24732,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24773,7 +24772,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24813,7 +24812,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24853,7 +24852,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24893,7 +24892,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 11"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24933,7 +24932,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 12"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24973,7 +24972,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 13"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25013,7 +25012,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 14"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25053,7 +25052,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 15"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25093,7 +25092,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 16"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25133,7 +25132,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 17"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25173,7 +25172,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 18"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25213,7 +25212,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 19"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25253,7 +25252,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 20"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25293,7 +25292,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 21"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25333,7 +25332,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 22"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25373,7 +25372,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 23"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25413,7 +25412,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 24"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25453,7 +25452,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 25"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25493,7 +25492,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 26"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25533,7 +25532,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 27"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25573,7 +25572,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 28"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25613,7 +25612,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 29"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25653,7 +25652,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 30"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25693,7 +25692,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 31"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25733,7 +25732,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 32"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25773,7 +25772,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 33"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25813,7 +25812,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 34"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25853,7 +25852,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 35"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25893,7 +25892,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 36"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25933,7 +25932,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 37"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25973,7 +25972,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 38"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26013,7 +26012,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 39"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26053,7 +26052,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 40"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26093,7 +26092,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 41"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26133,7 +26132,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 42"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26173,7 +26172,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 43"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26213,7 +26212,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 44"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26253,7 +26252,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 45"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26293,7 +26292,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 46"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26333,7 +26332,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 47"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26373,7 +26372,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 48"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26413,7 +26412,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 49"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26453,7 +26452,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 50"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26537,7 +26536,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26547,27 +26546,26 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                       </div>
                     </div>
@@ -26609,7 +26607,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26646,7 +26644,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26683,7 +26681,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29227,7 +29225,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -29272,7 +29270,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29319,7 +29317,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29532,7 +29530,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -29584,7 +29582,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29638,7 +29636,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29692,7 +29690,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29746,7 +29744,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29800,7 +29798,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29854,7 +29852,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29908,7 +29906,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29962,7 +29960,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30016,7 +30014,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30267,7 +30265,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -30312,7 +30310,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30359,7 +30357,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30406,7 +30404,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30453,7 +30451,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30500,7 +30498,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />

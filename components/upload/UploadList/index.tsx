@@ -129,6 +129,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       type: 'text',
       size: 'small',
       title,
+      'aria-label': title || undefined,
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
         if (React.isValidElement<{ onClick?: React.MouseEventHandler<HTMLElement> }>(customIcon)) {

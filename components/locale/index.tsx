@@ -8,6 +8,7 @@ import type { ModalLocale } from '../modal/interface';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
 import type { PopconfirmLocale } from '../popconfirm/PurePanel';
+import type { SplitterLocale } from '../splitter/interface';
 import type { TableLocale } from '../table/interface';
 import type { TourLocale } from '../tour/interface';
 import type { TransferLocale } from '../transfer';
@@ -28,6 +29,7 @@ export interface Locale {
   Modal?: ModalLocale;
   Tour?: TourLocale;
   Popconfirm?: PopconfirmLocale;
+  Splitter?: SplitterLocale;
   Transfer?: TransferLocale;
   Select?: Record<string, any>;
   Upload?: UploadLocale;
@@ -55,6 +57,10 @@ export interface Locale {
     expired?: string;
     refresh?: string;
     scanned?: string;
+  };
+  Carousel?: {
+    prevSlide: string;
+    nextSlide: string;
   };
   ColorPicker?: {
     presetEmpty: string;
