@@ -10,7 +10,11 @@ import type {
 } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
-import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import {
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -101,9 +105,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   // Use useMergeSemantic to merge classNames and styles
+  const contextStyleRoot = useSemanticRootStyle(message?.style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [message?.classNames, classNames],
-    [message?.styles, styles],
+    [message?.styles, contextStyleRoot, styles],
     {
       props: props as unknown as ArgsProps,
     },
@@ -186,8 +192,6 @@ export function useInternalMessage(
       const { open: originOpen, prefixCls, message } = holderRef.current;
 
       const contextClassName = message?.className || {};
-      const contextStyle = message?.style || {};
-
       const noticePrefixCls = `${prefixCls}-notice`;
 
       const {
@@ -230,7 +234,7 @@ export function useInternalMessage(
           styles: semanticStyles satisfies RcNotificationProps['styles'],
           placement: 'top',
           className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
-          style: { ...contextStyle, ...style },
+          style,
           onClose: () => {
             onClose?.();
             resolve();

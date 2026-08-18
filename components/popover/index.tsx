@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isReactRenderable } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
@@ -47,8 +47,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     placement = 'top',
     trigger,
     children,
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     onOpenChange,
     overlayStyle = {},
     styles,
@@ -65,7 +65,12 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   } = useComponentConfig('popover');
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -89,20 +94,23 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     ...props,
     placement,
     trigger: mergedTrigger,
-    mouseEnterDelay,
-    mouseLeaveDelay,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
     overlayStyle,
     styles,
     classNames,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopoverSemanticAllType['classNames'],
+    PopoverSemanticAllType['styles'],
+    PopoverProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const rootClassNames = clsx(
     overlayClassName,
@@ -128,8 +136,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       arrow={mergedArrow}
       placement={placement}
       trigger={mergedTrigger}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       {...restProps}
       prefixCls={prefixCls}
       classNames={{
@@ -138,7 +146,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
         arrow: mergedClassNames.arrow,
       }}
       styles={{
-        root: { ...mergedStyles.root, ...contextStyle, ...overlayStyle },
+        root: mergedStyles.root,
         container: mergedStyles.container,
         arrow: mergedStyles.arrow,
       }}

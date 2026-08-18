@@ -53,7 +53,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       [`${componentCls}-icon`]: {
         display: 'inline-flex',
         alignItems: 'center',
-        justifyContent: 'center',
 
         [iconCls]: {
           verticalAlign: 'middle',
@@ -109,8 +108,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       // iconPlacement
       [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
+          '&-appear-start, &-enter-start, &-appear-prepare, &-enter-prepare': {
             marginInlineEnd: calc(iconGap).mul(-1).equal(),
+            opacity: 0,
           },
           '&-appear-active, &-enter-active': {
             marginInlineEnd: 0,
@@ -128,8 +128,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
         flexDirection: 'row-reverse',
 
         [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
+          '&-appear-start, &-enter-start, &-appear-prepare, &-enter-prepare': {
             marginInlineStart: calc(iconGap).mul(-1).equal(),
+            opacity: 0,
           },
           '&-appear-active, &-enter-active': {
             marginInlineStart: 0,

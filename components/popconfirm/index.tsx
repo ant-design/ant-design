@@ -4,7 +4,7 @@ import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
@@ -64,6 +64,9 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     styles,
     arrow: popconfirmArrow,
     classNames,
+    disabled = false,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     ...restProps
   } = props;
   const {
@@ -74,10 +77,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
   const mergedTrigger = trigger || contextTrigger || 'click';
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
@@ -107,7 +115,6 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const onInternalOpenChange: PopoverProps['onOpenChange'] = (value) => {
-    const { disabled = false } = props;
     if (disabled) {
       return;
     }
@@ -124,15 +131,20 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayStyle,
     styles,
     classNames,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PopconfirmSemanticAllType['classNames'],
+    PopconfirmSemanticAllType['styles'],
+    PopconfirmProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const rootClassNames = clsx(prefixCls, contextClassName, overlayClassName, mergedClassNames.root);
 
@@ -147,13 +159,15 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       classNames={{
         root: rootClassNames,
         container: mergedClassNames.container,
         arrow: mergedClassNames.arrow,
       }}
       styles={{
-        root: { ...contextStyle, ...mergedStyles.root, ...overlayStyle },
+        root: mergedStyles.root,
         container: mergedStyles.container,
         arrow: mergedStyles.arrow,
       }}

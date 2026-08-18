@@ -24,6 +24,13 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Breadcrumb>>();
+    const { container } = render(<Breadcrumb ref={ref} items={[{ title: 'Home' }]} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-breadcrumb'));
+  });
+
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom: React.FC = () => <div>foo</div>;
     render(

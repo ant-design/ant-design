@@ -415,6 +415,10 @@ describe('Upload List', () => {
   });
 
   it('should support no onDownload', async () => {
+    const url =
+      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+    open.mockClear();
+
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
@@ -423,7 +427,7 @@ describe('Upload List', () => {
             uid: '0',
             name: 'xxx.png',
             status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            url,
           },
         ]}
         showUploadList={{
@@ -434,6 +438,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
+    expect(open).toHaveBeenCalledWith(url, '_blank', 'noopener');
 
     unmount();
   });

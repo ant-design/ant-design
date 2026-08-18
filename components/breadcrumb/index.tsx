@@ -2,7 +2,7 @@ import InternalBreadcrumb from './Breadcrumb';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
-export type { BreadcrumbProps } from './Breadcrumb';
+export type { BreadcrumbProps, BreadcrumbRef } from './Breadcrumb';
 export type { BreadcrumbItemProps, SeparatorType } from './BreadcrumbItem';
 
 type CompoundedComponent = typeof InternalBreadcrumb & {

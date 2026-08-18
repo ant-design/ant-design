@@ -2,6 +2,11 @@ import React from 'react';
 
 import QRCode from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('QRCode.Semantic', () => {
   it('should apply custom styles to QRCode', () => {
@@ -73,5 +78,24 @@ describe('QRCode.Semantic', () => {
     const coverStyle = cover?.getAttribute('style');
     expect(coverStyle).toContain('background-color: rgba(255, 0, 0, 0.8)');
     expect(coverStyle).toContain('color: white');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        qrcode={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <QRCode
+          value="antd"
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-qrcode'));
   });
 });

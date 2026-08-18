@@ -27,6 +27,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/popupRender-Search.tsx" version="6.6.0">Custom Popup Search</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>Container of card type Tab</code>
@@ -56,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  | × |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 | × |
-| more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | 5.17.0 |
+| more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | `more.icon`: 5.17.0 |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
 | ~~popupClassName~~ | `className` for more dropdown, please use `classNames.popup` instead | string | - | 4.21.0 | × |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  | × |
@@ -94,10 +95,11 @@ More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs
 
 ### MoreProps
 
-| Property                                  | Description     | Type      | Default | Version |
-| ----------------------------------------- | --------------- | --------- | ------- | ------- |
-| icon                                      | The custom icon | ReactNode | -       |         |
-| [DropdownProps](/components/dropdown#api) |                 |           |         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| icon | The custom icon | ReactNode | - |  |
+| popupRender | Customize the dropdown menu render | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
+| [DropdownProps](/components/dropdown#api) | Support other Dropdown props |  |  |  |
 
 ## Semantic DOM
 

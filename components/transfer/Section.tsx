@@ -109,8 +109,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
-const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (isPlainObject(showSearch)) {
+const getShowSearchOption = (showSearch: boolean | TransferSearchOption): TransferSearchOption => {
+  if (isPlainObject<TransferSearchOption>(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
@@ -166,7 +166,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const listPrefixCls = `${prefixCls}-list`;
 
   const searchOptions = getShowSearchOption(showSearch);
-  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue ?? '');
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -242,7 +242,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
     return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
   }, [checkedKeys, filteredItems]);
 
-  const checkStatus = useMemo<string>(() => {
+  const checkStatus = useMemo<'none' | 'all' | 'part'>(() => {
     if (checkedActiveItems.length === 0) {
       return 'none';
     }
@@ -374,7 +374,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(keys, checkStatus !== 'all');
         },
       },
       pagination

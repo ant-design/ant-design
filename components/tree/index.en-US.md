@@ -27,6 +27,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/directory-debug.tsx" debug>Directory Debug</code>
 <code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
 <code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
+<code src="./demo/scroll-to.tsx" version="6.6.0">Scroll to nested node</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>Big data</code>
 <code src="./demo/block-node.tsx">Block Node</code>
@@ -131,7 +132,19 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 | Name | Description |
 | --- | --- |
-| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number; autoExpand?: boolean }) | Scroll to key item in virtual scroll. `autoExpand` expands the target node in uncontrolled mode |
+
+### Tree Hooks
+
+#### Tree.useTree
+
+`type Tree.useTree = (treeData: DataNode[], config: { fieldNames?: FieldNames }) => TreeInstance`
+
+Provides Tree data utilities. `getPath(key)` returns the node entities from the root to the target node, which can be used to update `expandedKeys` in controlled mode.
+
+```tsx
+const { getPath } = Tree.useTree(treeData, {});
+```
 
 ## Semantic DOM
 
