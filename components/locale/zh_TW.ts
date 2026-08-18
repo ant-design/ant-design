@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: '反向選取目前頁面',
     selectNone: '清除全部資料',
     selectionAll: '選取所有資料',
+    selectRow: '選取列',
+    selectedRow: '列已選取',
+    selectionMenu: '選取選單',
     sortTitle: '排序',
     expand: '展開列',
     collapse: '收合列',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: '確定',
     cancelText: '取消',
+  },
+  Splitter: {
+    toggleStartPanel: '切換起始面板',
+    toggleEndPanel: '切換結束面板',
   },
   Transfer: {
     titles: ['', ''],

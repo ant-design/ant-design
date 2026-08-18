@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Інвертаваць выбар',
     selectNone: 'Ачысціць усе даныя',
     selectionAll: 'Выбраць усе даныя',
+    selectRow: 'Выбраць радок',
+    selectedRow: 'Радок выбраны',
+    selectionMenu: 'Меню выбару',
     sortTitle: 'Сартаванне',
     expand: 'Разгарнуць радок',
     collapse: 'Згарнуць радок',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Адмена',
+  },
+  Splitter: {
+    toggleStartPanel: 'Пераключыць пачатковую панэль',
+    toggleEndPanel: 'Пераключыць канчатковую панэль',
   },
   Transfer: {
     titles: ['', ''],
