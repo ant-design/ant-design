@@ -5,6 +5,8 @@ import Cascader from '..';
 import { render } from '../../../tests/utils';
 import type { CascaderPanelAutoProps, CascaderPanelProps } from '../Panel';
 
+type SingleValueType = (string | number | null)[];
+
 describe('Cascader.typescript', () => {
   it('options value', () => {
     const options = [
@@ -112,12 +114,24 @@ describe('Cascader.typescript', () => {
     const list: { props?: CascaderAutoProps }[] = [
       { props: { multiple: true, onChange: (value) => value } },
       { props: { multiple: false, onChange: (value) => value } },
+      {
+        props: {
+          multiple: { checkStrictly: true },
+          onChange: (value: SingleValueType[]) => value,
+        },
+      },
     ];
     expect(list).toBeTruthy();
 
     const list2: { props?: CascaderPanelAutoProps }[] = [
       { props: { multiple: true, onChange: (value) => value } },
       { props: { multiple: false, onChange: (value) => value } },
+      {
+        props: {
+          multiple: { checkStrictly: true },
+          onChange: (value: SingleValueType[]) => value,
+        },
+      },
     ];
     expect(list2).toBeTruthy();
   });

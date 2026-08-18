@@ -26,6 +26,7 @@ demo:
 <code src="./demo/disabled-option.tsx">禁用选项</code>
 <code src="./demo/change-on-select.tsx">选择即改变</code>
 <code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/multiple-check-strictly.tsx" version="6.7.0">多选独立勾选</code>
 <code src="./demo/showCheckedStrategy.tsx">自定义回填方式</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/custom-render.tsx">自定义已选项</code>
@@ -96,7 +97,7 @@ demo:
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 | × |
 | onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | 显示或隐藏浮层的回调，请使用 `onOpenChange` 替代 | (value) => void | - | - | × |
-| multiple | 支持多选节点 | boolean | - | 4.17.0 | × |
+| multiple | 支持多选节点。可设置为 `{ checkStrictly: true }` 开启独立勾选模式，此时父子节点勾选状态不再联动、不展示半选状态，且 `showCheckedStrategy` 不生效 | boolean \| { checkStrictly: boolean } | - | 4.17.0 \| `{ checkStrictly }`: 6.7.0 | × |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  | 6.4.0 |
 | showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 | × |
 | ~~searchValue~~ | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 | × |

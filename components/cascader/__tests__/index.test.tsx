@@ -808,6 +808,159 @@ describe('Cascader', () => {
     });
   });
 
+  describe('multiple.checkStrictly', () => {
+    const multipleCheckStrictlyOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              { value: 'xihu', label: 'West Lake' },
+              { value: 'donghu', label: 'East Lake' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    // Click the checkbox of the menu item at (menuIndex, itemIndex).
+    function clickCheckbox(
+      container: ReturnType<typeof render>['container'],
+      menuIndex: number,
+      itemIndex: number,
+    ) {
+      const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
+      const item = menu.querySelectorAll('li.ant-cascader-menu-item')[itemIndex];
+      fireEvent.click(item.querySelector('.ant-cascader-checkbox')!);
+    }
+
+    it('checking parent via checkbox does not check children and produces no indeterminate state', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      toggleOpen(container);
+      // toggle parent `zhejiang` via its checkbox
+      clickCheckbox(container, 0, 0);
+
+      // only the parent path is selected, children are not checked
+      expect(selectedValue![0].join(',')).toBe('zhejiang');
+      // no half-checked/indeterminate state under checkStrictly
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+      // parent itself should be checked
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('checking child does not affect parent and toggles exactly the clicked path', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      toggleOpen(container);
+      // navigate into the hierarchy by clicking the parent list items, then toggle the leaf
+      clickOption(container, 0, 0);
+      clickOption(container, 1, 0);
+      clickCheckbox(container, 2, 0);
+
+      // only the child path `zhejiang/hangzhou/xihu` is selected
+      expect(selectedValue![0].join(',')).toBe('zhejiang,hangzhou,xihu');
+      // parent checkbox stays unchecked: checking child does not check parent
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('unchecking removes exactly the clicked path', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+          defaultValue={[['zhejiang']]}
+        />,
+      );
+
+      toggleOpen(container);
+      // uncheck parent `zhejiang` via its checkbox
+      clickCheckbox(container, 0, 0);
+
+      expect(selectedValue!.length).toBe(0);
+    });
+
+    it('showCheckedStrategy is ignored when checkStrictly is enabled', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+
+      toggleOpen(container);
+      // check parent `zhejiang`, expand to leaf, and check both leaves
+      clickCheckbox(container, 0, 0);
+      clickOption(container, 0, 0);
+      clickOption(container, 1, 0);
+      clickCheckbox(container, 2, 0);
+      clickCheckbox(container, 2, 1);
+
+      // SHOW_PARENT roll-up is bypassed: all clicked paths are preserved
+      expect(selectedValue!.length).toBe(3);
+      expect(selectedValue!.join(',')).toBe(
+        'zhejiang,zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu',
+      );
+    });
+
+    it('warns when showCheckedStrategy is used together with checkStrictly', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          multiple={{ checkStrictly: true }}
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `showCheckedStrategy` is ignored when `multiple.checkStrictly` is enabled.',
+      );
+
+      errSpy.mockRestore();
+    });
+  });
+
   it('should be correct expression with disableCheckbox', () => {
     const { container } = render(
       <Cascader

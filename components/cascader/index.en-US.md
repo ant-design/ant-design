@@ -25,6 +25,7 @@ demo:
 <code src="./demo/disabled-option.tsx">Disabled option</code>
 <code src="./demo/change-on-select.tsx">Change on select</code>
 <code src="./demo/multiple.tsx">Multiple</code>
+<code src="./demo/multiple-check-strictly.tsx" version="6.7.0">Multiple with independent checking</code>
 <code src="./demo/showCheckedStrategy.tsx">ShowCheckedStrategy</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/custom-render.tsx">Custom render</code>
@@ -95,7 +96,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden, use `onOpenChange` instead | (value) => void | - | 4.17.0 | × |
 | onOpenChange | Callback when popup shown or hidden | (value) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | Callback when popup shown or hidden, please use `onOpenChange` instead | (value) => void | - | - | × |
-| multiple | Support multiple or not | boolean | - | 4.17.0 | × |
+| multiple | Support multiple or not. Set to `{ checkStrictly: true }` to enable independent checking mode, where the checked state of parent and child nodes no longer conducts, no indeterminate state is shown, and `showCheckedStrategy` is ignored | boolean \| { checkStrictly: boolean } | - | 4.17.0 \| `{ checkStrictly }`: 6.7.0 | × |
 | removeIcon | The custom remove icon | ReactNode | - |  | 6.4.0 |
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 | × |
 | ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | 4.17.0 | × |
