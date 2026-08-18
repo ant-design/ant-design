@@ -912,6 +912,7 @@ exports[`Progress should support orientation 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -942,6 +943,7 @@ exports[`Progress should support orientation 2`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -990,6 +992,7 @@ exports[`Progress should support orientation 3`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1037,6 +1040,7 @@ exports[`Progress should support orientation with active status 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1067,6 +1071,7 @@ exports[`Progress should support orientation with object strokeColor gradient 1`
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1097,6 +1102,7 @@ exports[`Progress should support orientation with showInfo 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1121,6 +1127,7 @@ exports[`Progress should support orientation with strokeColor 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1151,6 +1158,7 @@ exports[`Progress should support orientation with strokeWidth 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"
@@ -1181,6 +1189,7 @@ exports[`Progress should support orientation with success 1`] = `
 >
   <div
     class="ant-progress-body ant-progress-body-vertical"
+    style="height: 100%;"
   >
     <div
       class="ant-progress-rail"

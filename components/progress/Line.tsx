@@ -166,13 +166,17 @@ const Line: React.FC<LineProps> = (props) => {
   };
 
   // ======================== Render ========================
+  const bodySizeStyle = vertical
+    ? { height: extent > 0 ? extent : '100%' }
+    : { width: extent > 0 ? extent : '100%' };
+
   return (
     <div
       className={clsx(`${prefixCls}-body`, classNames.body, {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
         [`${prefixCls}-body-vertical`]: vertical,
       })}
-      style={vertical ? styles.body : { width: extent > 0 ? extent : '100%', ...styles.body }}
+      style={{ ...bodySizeStyle, ...styles.body }}
     >
       {/************** Rail **************/}
       <div

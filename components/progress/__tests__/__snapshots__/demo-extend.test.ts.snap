@@ -4418,6 +4418,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4445,6 +4446,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4490,6 +4492,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4534,6 +4537,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4555,6 +4559,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4586,6 +4591,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4613,6 +4619,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
@@ -4640,6 +4647,7 @@ exports[`renders components/progress/demo/vertical.tsx extend context correctly 
   >
     <div
       class="ant-progress-body ant-progress-body-vertical"
+      style="height: 100%;"
     >
       <div
         class="ant-progress-rail"
