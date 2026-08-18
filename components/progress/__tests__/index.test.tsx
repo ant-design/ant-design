@@ -41,6 +41,18 @@ describe('Progress', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should start circle progress at the specified position', () => {
+    const { container, getByRole } = render(
+      <Progress type="circle" percent={30} startPosition={25} />,
+    );
+
+    expect(container.querySelector('svg')).toHaveStyle({
+      transform: 'rotate(90deg)',
+      transformOrigin: 'center',
+    });
+    expect(getByRole('progressbar')).not.toHaveAttribute('startPosition');
+  });
+
   it('render out-of-range progress with info', () => {
     const { container: wrapper } = render(<Progress percent={120} showInfo />);
     expect(wrapper.firstChild).toMatchSnapshot();
