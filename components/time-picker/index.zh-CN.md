@@ -53,7 +53,7 @@ dayjs.extend(customParseFormat)
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => ReactNode | - | - | × |
-| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
+| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
@@ -70,7 +70,7 @@ dayjs.extend(customParseFormat)
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  | × |
-| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  | × |
+| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | CSSProperties | - |  | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 | × |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  | × |
