@@ -70,7 +70,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         fontSize: token.fontSizeIcon,
         fontFamily: 'inherit',
         fontStyle: 'normal',
-        lineHeight: 0,
+        lineHeight: 0, // keeping the focus outline tight
         textAlign: 'center',
         textTransform: 'none',
         appearance: 'none',
@@ -101,7 +101,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       },
 
       '@media(hover:none)': hoverShowClearStyle,
-      '&:hover, &:focus-within': hoverShowClearStyle,
+      '&:hover, &:focus-within': hoverShowClearStyle, // showing clear icon on hover and focus
     },
 
     // ========================= Feedback ==========================

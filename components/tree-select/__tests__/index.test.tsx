@@ -10,6 +10,8 @@ import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import deDE from '../../locale/de_DE';
+import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 import type { AntTreeNodeProps } from '../../tree';
 
@@ -396,5 +398,52 @@ describe('TreeSelect', () => {
 
     const customIcon = screen.getByTestId(/custom-(expanded|collapsed)/);
     expect(customIcon).toBeInTheDocument();
+  });
+
+  describe('clear button accessibility', () => {
+    const props = {
+      treeData: [{ value: 'parent-1', title: 'parent 1' }],
+      defaultValue: 'parent-1',
+    };
+
+    it('should expose an accessible label on the clear button', () => {
+      const { container } = render(<TreeSelect {...props} allowClear />);
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should localize the clear button accessible label', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <TreeSelect {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        zhCN.global?.clear,
+      );
+    });
+
+    it('should fall back to English for locales that do not translate `clear`', () => {
+      expect(deDE.global).not.toHaveProperty('clear');
+
+      const { container } = render(
+        <ConfigProvider locale={deDE}>
+          <TreeSelect {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should prefer a custom label from allowClear over the locale', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <TreeSelect {...props} allowClear={{ label: 'Custom clear' }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        'Custom clear',
+      );
+    });
   });
 });

@@ -11,6 +11,8 @@ import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import deDE from '../../locale/de_DE';
+import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -248,6 +250,54 @@ describe('Cascader', () => {
     fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
     fireEvent.click(container.querySelector('.ant-select-clear')!);
     expect(container.querySelector('input')?.value).toBe('');
+  });
+
+  describe('clear button accessibility', () => {
+    it('should expose an accessible label on the clear button', () => {
+      const { container } = render(
+        <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should localize the clear button accessible label', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        zhCN.global?.clear,
+      );
+    });
+
+    it('should fall back to English for locales that do not translate `clear`', () => {
+      expect(deDE.global).not.toHaveProperty('clear');
+
+      const { container } = render(
+        <ConfigProvider locale={deDE}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should prefer a custom label from allowClear over the locale', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Cascader
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+            allowClear={{ label: 'Custom clear' }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        'Custom clear',
+      );
+    });
   });
 
   it('should change filtered item when options are changed', () => {
