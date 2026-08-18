@@ -951,6 +951,7 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 1`] =
 >
   <button
     aria-checked="false"
+    aria-label="Show card content"
     class="ant-switch css-var-test-id"
     role="switch"
     type="button"
