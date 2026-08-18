@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: '排序',
     expand: '展開列',
     collapse: '收合列',
+    expandAll: '展開所有列',
+    collapseAll: '收合所有列',
     triggerDesc: '點擊以遞減排序',
     triggerAsc: '點擊以遞增排序',
     cancelSort: '點擊以取消排序',

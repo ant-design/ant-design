@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
+    expandAll: 'Expand all rows',
+    collapseAll: 'Collapse all rows',
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',

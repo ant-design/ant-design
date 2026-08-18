@@ -37,6 +37,8 @@ const localeValues: Locale = {
     emptyText: 'Keine Daten',
     expand: 'Zeile erweitern',
     collapse: 'Zeile reduzieren',
+    expandAll: 'Alle Zeilen erweitern',
+    collapseAll: 'Alle Zeilen reduzieren',
     triggerDesc: 'Klicken zur absteigenden Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',

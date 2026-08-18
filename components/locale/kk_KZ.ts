@@ -35,6 +35,8 @@ const localeValues: Locale = {
     sortTitle: 'Сұрыптау',
     expand: 'Жолды жазу',
     collapse: 'Жолды бүктеу',
+    expandAll: 'Барлық жолдарды жазу',
+    collapseAll: 'Барлық жолдарды бүктеу',
     triggerDesc: 'Төмендеуді сұрыптау үшін басыңыз',
     triggerAsc: 'Өсу ретімен сұрыптау үшін басыңыз',
     cancelSort: 'Сұрыптаудан бас тарту үшін басыңыз',

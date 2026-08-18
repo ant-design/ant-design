@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { convertChildrenToColumns, INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
-import { omit, pickAttrs } from '@rc-component/util';
+import { omit, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle } from '../_util/hooks';
@@ -27,7 +27,7 @@ import type { PaginationSemanticType } from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
-import renderExpandIcon from './ExpandIcon';
+import renderExpandIcon, { renderExpandIconComponent } from './ExpandIcon';
 import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
@@ -139,18 +139,19 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject> extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
-  | 'classNames'
-  | 'styles'
-> {
+export interface TableProps<RecordType = AnyObject>
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
+    | 'classNames'
+    | 'styles'
+  > {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -263,20 +264,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }),
     [ariaProps, components?.header?.table],
   );
-  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
-    if (!hasAriaProps) {
-      return components;
-    }
-
-    return {
-      ...components,
-      header: {
-        ...components?.header,
-        table: HeaderTable,
-      },
-    };
-  }, [components, hasAriaProps]);
-
   const { locale: contextLocale = defaultLocale, table } =
     React.useContext<ConfigConsumerProps>(ConfigContext);
 
@@ -327,6 +314,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
+  const expandIconLocale = React.useMemo(
+    () => ({
+      collapse: tableLocale.collapse ?? defaultLocale.Table?.collapse,
+      collapseAll: tableLocale.collapseAll ?? defaultLocale.Table?.collapseAll,
+      expand: tableLocale.expand ?? defaultLocale.Table?.expand,
+      expandAll: tableLocale.expandAll ?? defaultLocale.Table?.expandAll,
+    }),
+    [tableLocale.collapse, tableLocale.collapseAll, tableLocale.expand, tableLocale.expandAll],
+  );
   const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
@@ -598,8 +594,39 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 
   // Customize expandable icon
-  mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale);
+  const defaultExpandIcon = React.useMemo(
+    () => renderExpandIcon<RecordType>(expandIconLocale),
+    [expandIconLocale],
+  );
+  const mergedExpandIcon = mergedExpandable.expandIcon || expandIcon || defaultExpandIcon;
+  mergedExpandable.expandIcon = mergedExpandIcon;
+  const stableRowExpandIcon = useEvent(mergedExpandIcon);
+
+  const mergedExpandIconComponent = React.useMemo(
+    () =>
+      components?.ExpandIcon ??
+      renderExpandIconComponent<RecordType>(expandIconLocale, stableRowExpandIcon),
+    [components?.ExpandIcon, expandIconLocale, stableRowExpandIcon],
+  );
+
+  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
+    const nextComponents: RcTableProps<RecordType>['components'] = {
+      ...components,
+      ExpandIcon: mergedExpandIconComponent,
+    };
+
+    if (!hasAriaProps) {
+      return nextComponents;
+    }
+
+    return {
+      ...nextComponents,
+      header: {
+        ...nextComponents.header,
+        table: HeaderTable,
+      },
+    };
+  }, [components, hasAriaProps, mergedExpandIconComponent]);
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
