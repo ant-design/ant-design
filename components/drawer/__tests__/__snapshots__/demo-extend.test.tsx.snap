@@ -1352,7 +1352,7 @@ Array [
                               class="ant-picker-range-separator"
                             >
                               <span
-                                aria-label="to"
+                                aria-hidden="true"
                                 class="ant-picker-separator"
                               >
                                 <span

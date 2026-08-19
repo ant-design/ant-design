@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.6.0",
+  "version": "6.6.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -344,7 +344,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "529 KiB",
+      "limit": "530 KiB",
       "gzip": true
     }
   ],

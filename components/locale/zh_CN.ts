@@ -94,6 +94,10 @@ const localeValues: Locale = {
     expand: '展开',
     collapse: '收起',
   },
+  Carousel: {
+    prevSlide: '上一张幻灯片',
+    nextSlide: '下一张幻灯片',
+  },
   Form: {
     optional: '（可选）',
     defaultValidateMessages: {
