@@ -8,12 +8,30 @@
 }
 */
 import { gold } from '@ant-design/colors';
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
 import { operationUnit, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
+
+const shimmerAnimation = new Keyframes('antTypographyShimmer', {
+  '0%': {
+    backgroundPosition: '-200% 100%, 0 0',
+  },
+  '25%': {
+    backgroundPosition: '-100% 100%, 0 0',
+  },
+  '50%': {
+    backgroundPosition: '0% 100%, 0 0',
+  },
+  '75%': {
+    backgroundPosition: '100% 100%, 0 0',
+  },
+  '100%': {
+    backgroundPosition: '200% 100%, 0 0',
+  },
+});
 
 const getTitleStyle = (
   fontSize: number | string,
@@ -334,5 +352,30 @@ export const getEllipsisStyles = (): CSSObject => ({
     overflow: 'hidden',
     WebkitLineClamp: 3,
     WebkitBoxOrient: 'vertical',
+  },
+});
+
+export const getShimmerStyles = (): CSSObject => ({
+  backgroundClip: 'text, text',
+  WebkitBackgroundClip: 'text, text',
+  WebkitTextFillColor: 'transparent',
+  backgroundImage: [
+    'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
+    'linear-gradient(currentColor, currentColor)',
+  ].join(', '),
+  backgroundSize: '25% 100%, 100% 100%',
+  backgroundRepeat: 'no-repeat',
+  animationName: shimmerAnimation,
+  animationDuration: 'var(--ant-typography-shimmer-duration, 3s)',
+  animationIterationCount: 'infinite',
+  animationTimingFunction: 'linear',
+  animationFillMode: 'forwards',
+
+  '&-disabled': {
+    animation: 'none',
+    backgroundImage: 'none',
+    WebkitTextFillColor: 'currentColor',
+    WebkitBackgroundClip: 'unset',
+    backgroundClip: 'unset',
   },
 });

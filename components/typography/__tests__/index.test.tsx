@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
@@ -86,6 +87,60 @@ describe('Typography', () => {
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
       );
+    });
+  });
+
+  describe('shimmer', () => {
+    it.each([
+      ['Text', () => <Text shimmer>Text</Text>],
+      ['Title', () => <Title shimmer>Title</Title>],
+      ['Paragraph', () => <Paragraph shimmer>Paragraph</Paragraph>],
+      ['Link', () => <Link shimmer>Link</Link>],
+    ])('should support shimmer on %s', (_, renderNode) => {
+      const { container } = render(renderNode());
+      const element = container.firstElementChild;
+
+      expect(element).toHaveClass('ant-typography-shimmer');
+      expect(element).not.toHaveAttribute('shimmer');
+    });
+
+    it('should support custom shimmer duration', () => {
+      const { container } = render(<Text shimmer={{ duration: 1.5 }}>Text</Text>);
+
+      expect(container.firstElementChild).toHaveStyle({
+        '--ant-typography-shimmer-duration': '1.5s',
+      });
+    });
+
+    it('should disable shimmer animation for disabled text', () => {
+      const { container } = render(
+        <Text shimmer disabled>
+          Text
+        </Text>,
+      );
+      const element = container.firstElementChild;
+
+      expect(element).toHaveClass('ant-typography-shimmer-disabled');
+      expect(element).toHaveAttribute('aria-busy', 'false');
+      expect(element).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('should generate shimmer styles', () => {
+      const cache = createCache();
+
+      render(
+        <StyleProvider cache={cache}>
+          <Text shimmer>Text</Text>
+        </StyleProvider>,
+      );
+
+      const styleText = extractStyle(cache, { plain: true });
+
+      expect(styleText).toContain('.ant-typography.ant-typography-shimmer{');
+      expect(styleText).toContain(
+        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent),linear-gradient(currentColor, currentColor)',
+      );
+      expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
     });
   });
 

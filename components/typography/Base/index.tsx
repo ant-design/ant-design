@@ -14,7 +14,7 @@ import {
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isReactRenderable } from '../../_util/is';
+import { isFunction, isNumber, isReactRenderable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -111,9 +111,12 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<
-  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
-> extends TypographyProps<C> {
+export interface ShimmerConfig {
+  duration?: number;
+}
+
+export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   /**
    * @since 6.4.0
    */
@@ -124,6 +127,7 @@ export interface BlockProps<
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
+  shimmer?: boolean | ShimmerConfig;
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -183,6 +187,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     disabled,
     children,
     ellipsis,
+    shimmer,
     editable,
     copyable,
     actions,
@@ -245,6 +250,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+
+  // ========================== Shimmer ===========================
+  const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(shimmer);
+  const shimmerDuration =
+    isNumber(shimmerConfig.duration) && shimmerConfig.duration > 0
+      ? shimmerConfig.duration
+      : undefined;
 
   const { placement = 'end' } = actions ?? {};
 
@@ -553,6 +565,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-shimmer`]: enableShimmer,
+                [`${prefixCls}-shimmer-disabled`]: enableShimmer && disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
@@ -564,6 +578,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             styles={mergedStyles}
             prefixCls={prefixCls}
             style={{
+              ...(enableShimmer && shimmerDuration
+                ? {
+                    ['--ant-typography-shimmer-duration' as string]: `${shimmerDuration}s`,
+                  }
+                : null),
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
@@ -573,6 +592,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
+            aria-busy={enableShimmer ? !disabled : undefined}
+            aria-disabled={enableShimmer && disabled ? true : undefined}
             {...textProps}
           >
             <Ellipsis
