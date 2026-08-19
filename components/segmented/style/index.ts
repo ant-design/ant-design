@@ -156,6 +156,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
         },
+        '&-selected-text': {
+          color: token.itemSelectedColor,
+        },
 
         '&-focused': genFocusOutline(token),
 
