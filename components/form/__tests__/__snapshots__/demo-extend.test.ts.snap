@@ -143,9 +143,7 @@ Array [
                       >
                         <div
                           aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                          aria-posinset="1"
                           aria-selected="true"
-                          aria-setsize="2"
                           id="advanced_search_field-1_list_0"
                           role="option"
                         >
@@ -153,9 +151,7 @@ Array [
                         </div>
                         <div
                           aria-label="222"
-                          aria-posinset="2"
                           aria-selected="false"
-                          aria-setsize="2"
                           id="advanced_search_field-1_list_1"
                           role="option"
                         >
@@ -397,9 +393,7 @@ Array [
                       >
                         <div
                           aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                          aria-posinset="1"
                           aria-selected="true"
-                          aria-setsize="2"
                           id="advanced_search_field-4_list_0"
                           role="option"
                         >
@@ -407,9 +401,7 @@ Array [
                         </div>
                         <div
                           aria-label="222"
-                          aria-posinset="2"
                           aria-selected="false"
-                          aria-setsize="2"
                           id="advanced_search_field-4_list_1"
                           role="option"
                         >
@@ -1043,9 +1035,7 @@ Array [
                   >
                     <div
                       aria-label="Bamboo"
-                      aria-posinset="1"
                       aria-selected="true"
-                      aria-setsize="3"
                       id="col-24-debug_select_list_0"
                       role="option"
                     >
@@ -1053,9 +1043,7 @@ Array [
                     </div>
                     <div
                       aria-label="Little"
-                      aria-posinset="2"
                       aria-selected="false"
-                      aria-setsize="3"
                       id="col-24-debug_select_list_1"
                       role="option"
                     >
@@ -1465,9 +1453,7 @@ Array [
                   >
                     <div
                       aria-label="Bamboo"
-                      aria-posinset="1"
                       aria-selected="true"
-                      aria-setsize="3"
                       id="select_list_0"
                       role="option"
                     >
@@ -1475,9 +1461,7 @@ Array [
                     </div>
                     <div
                       aria-label="Little"
-                      aria-posinset="2"
                       aria-selected="false"
-                      aria-setsize="3"
                       id="select_list_1"
                       role="option"
                     >
@@ -1741,9 +1725,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 >
                   <div
                     aria-label="male"
-                    aria-posinset="1"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="control-hooks_gender_list_0"
                     role="option"
                   >
@@ -1751,9 +1733,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   </div>
                   <div
                     aria-label="female"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="control-hooks_gender_list_1"
                     role="option"
                   >
@@ -2247,9 +2227,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                   >
                     <div
                       aria-label="RMB"
-                      aria-posinset="1"
                       aria-selected="true"
-                      aria-setsize="2"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -2257,9 +2235,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     </div>
                     <div
                       aria-label="Dollar"
-                      aria-posinset="2"
                       aria-selected="false"
-                      aria-setsize="2"
                       id="test-id_list_1"
                       role="option"
                     >
@@ -2627,9 +2603,7 @@ Array [
                   >
                     <div
                       aria-label="Demo"
-                      aria-posinset="1"
                       aria-selected="false"
-                      aria-setsize="1"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -5383,9 +5357,7 @@ Array [
                               >
                                 <div
                                   aria-label="HEX"
-                                  aria-posinset="1"
                                   aria-selected="true"
-                                  aria-setsize="3"
                                   id="test-id_list_0"
                                   role="option"
                                 >
@@ -5393,9 +5365,7 @@ Array [
                                 </div>
                                 <div
                                   aria-label="HSB"
-                                  aria-posinset="2"
                                   aria-selected="false"
-                                  aria-setsize="3"
                                   id="test-id_list_1"
                                   role="option"
                                 >
@@ -11790,9 +11760,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     >
                       <div
                         aria-label="+86"
-                        aria-posinset="1"
                         aria-selected="true"
-                        aria-setsize="2"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -11800,9 +11768,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                       </div>
                       <div
                         aria-label="+87"
-                        aria-posinset="2"
                         aria-selected="false"
-                        aria-setsize="2"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -12035,9 +12001,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     >
                       <div
                         aria-label="$"
-                        aria-posinset="1"
                         aria-selected="true"
-                        aria-setsize="2"
                         id="test-id_list_0"
                         role="option"
                       >
@@ -12045,9 +12009,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                       </div>
                       <div
                         aria-label="¥"
-                        aria-posinset="2"
                         aria-selected="false"
-                        aria-setsize="2"
                         id="test-id_list_1"
                         role="option"
                       >
@@ -12313,9 +12275,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     aria-label="Male"
-                    aria-posinset="1"
                     aria-selected="true"
-                    aria-setsize="3"
                     id="register_gender_list_0"
                     role="option"
                   >
@@ -12323,9 +12283,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </div>
                   <div
                     aria-label="Female"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="register_gender_list_1"
                     role="option"
                   >
@@ -13103,9 +13061,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 >
                   <div
                     aria-label="Demo"
-                    aria-posinset="1"
                     aria-selected="false"
-                    aria-setsize="1"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -23082,9 +23038,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <div
                     aria-label="China"
-                    aria-posinset="1"
                     aria-selected="false"
-                    aria-setsize="2"
                     id="validate_other_select_list_0"
                     role="option"
                   >
@@ -23092,9 +23046,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     aria-label="U.S.A"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="2"
                     id="validate_other_select_list_1"
                     role="option"
                   >
@@ -23256,9 +23208,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <div
                     aria-label="Red"
-                    aria-posinset="1"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="validate_other_select-multiple_list_0"
                     role="option"
                   >
@@ -23266,9 +23216,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     aria-label="Green"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="validate_other_select-multiple_list_1"
                     role="option"
                   >
@@ -24730,9 +24678,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             >
                               <div
                                 aria-label="HEX"
-                                aria-posinset="1"
                                 aria-selected="true"
-                                aria-setsize="3"
                                 id="test-id_list_0"
                                 role="option"
                               >
@@ -24740,9 +24686,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               </div>
                               <div
                                 aria-label="HSB"
-                                aria-posinset="2"
                                 aria-selected="false"
-                                aria-setsize="3"
                                 id="test-id_list_1"
                                 role="option"
                               >
@@ -25128,9 +25072,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 >
                   <div
                     aria-label="Designer"
-                    aria-posinset="1"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="occupation_list_0"
                     role="option"
                   >
@@ -25138,9 +25080,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                   </div>
                   <div
                     aria-label="Developer"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="occupation_list_1"
                     role="option"
                   >
@@ -29425,9 +29365,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 >
                   <div
                     aria-label="Option 1"
-                    aria-posinset="1"
                     aria-selected="true"
-                    aria-setsize="3"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -29435,9 +29373,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   </div>
                   <div
                     aria-label="Option 2"
-                    aria-posinset="2"
                     aria-selected="false"
-                    aria-setsize="3"
                     id="test-id_list_1"
                     role="option"
                   >

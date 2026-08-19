@@ -2147,7 +2147,7 @@ exports[`renders components/listy/demo/scroll-to.tsx extend context correctly 1`
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -2339,14 +2339,18 @@ exports[`renders components/listy/demo/scroll-to.tsx extend context correctly 1`
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="6"
               id="test-id_list_0"
               role="option"
             >
               Group 0
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="6"
               id="test-id_list_1"
               role="option"
             >
