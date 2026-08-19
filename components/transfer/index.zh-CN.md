@@ -84,13 +84,13 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 | onItemSelect    | 勾选条目       | (key: string \| number, selected: boolean)        |      |
 | onItemSelectAll | 勾选一组条目   | (keys: string\[] \| number\[], selected: boolean) |      |
 
-#### 参考示例
+#### 参考示例 {#example}
 
 ```jsx
 <Transfer {...props}>{(listProps) => <YourComponent {...listProps} />}</Transfer>
 ```
 
-## 注意
+## 注意 {#warning}
 
 按照 React 的[规范](https://zh-hans.react.dev/learn/rendering-lists#why-does-react-need-keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource` 里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 

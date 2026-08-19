@@ -41,7 +41,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 | ~~imageStyle~~ | 图片样式，请使用 `styles.image` 替代 | CSSProperties | - |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |
 
-## 内置图片
+## 内置图片 {#built-in-images}
 
 - Empty.PRESENTED_IMAGE_SIMPLE
 

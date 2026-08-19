@@ -116,7 +116,7 @@ demo:
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | `value` |  |
 | onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 
-### Tree 方法
+### Tree 方法 {#tree-methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |
