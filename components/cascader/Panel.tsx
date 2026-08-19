@@ -75,9 +75,10 @@ function CascaderPanel<
   });
 
   // ===================== Empty =====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
-  );
+  const mergedNotFoundContent =
+    notFoundContent !== undefined
+      ? notFoundContent
+      : renderEmpty?.('Cascader') || <DefaultRenderEmpty componentName="Cascader" />;
 
   // =================== Multiple ====================
   const checkable = useCheckable(cascaderPrefixCls, multiple);
