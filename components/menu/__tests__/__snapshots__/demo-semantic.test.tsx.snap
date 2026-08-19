@@ -83,7 +83,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-selected semantic-mark-item"
-              data-menu-id="rc-menu-uuid-mail"
+              data-menu-id="rc-menu-uuid-test-id-mail"
               role="menuitem"
               style="padding-left: 24px;"
               tabindex="-1"
@@ -118,11 +118,11 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-SubMenu-popup"
+                aria-controls="rc-menu-uuid-test-id-SubMenu-popup"
                 aria-expanded="true"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-SubMenu"
+                data-menu-id="rc-menu-uuid-test-id-SubMenu"
                 role="menuitem"
                 style="padding-left: 24px;"
                 tabindex="-1"
@@ -158,7 +158,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
-                id="rc-menu-uuid-SubMenu-popup"
+                id="rc-menu-uuid-test-id-SubMenu-popup"
                 role="menu"
               >
                 <li
@@ -178,7 +178,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                   >
                     <li
                       class="ant-menu-item semantic-mark-subMenu-item"
-                      data-menu-id="rc-menu-uuid-1"
+                      data-menu-id="rc-menu-uuid-test-id-1"
                       role="menuitem"
                       style="padding-left: 48px;"
                       tabindex="-1"
@@ -210,7 +210,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                     </li>
                     <li
                       class="ant-menu-item semantic-mark-subMenu-item ant-menu-item-only-child"
-                      data-menu-id="rc-menu-uuid-2"
+                      data-menu-id="rc-menu-uuid-test-id-2"
                       role="menuitem"
                       style="padding-left: 48px;"
                       tabindex="-1"
@@ -242,7 +242,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
               >
                 <li
                   class="ant-menu-item semantic-mark-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-3"
+                  data-menu-id="rc-menu-uuid-test-id-3"
                   role="menuitem"
                   style="padding-left: 24px;"
                   tabindex="-1"
@@ -255,7 +255,7 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                 </li>
                 <li
                   class="ant-menu-item semantic-mark-item ant-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-4"
+                  data-menu-id="rc-menu-uuid-test-id-4"
                   role="menuitem"
                   style="padding-left: 24px;"
                   tabindex="-1"

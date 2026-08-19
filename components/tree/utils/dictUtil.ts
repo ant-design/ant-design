@@ -1,7 +1,8 @@
+import type React from 'react';
 import { fillFieldNames } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
-import type React from 'react';
 
+import { isNonNullable } from '../../_util/is';
 import type { TreeProps } from '../Tree';
 
 const RECORD_NONE = 0;
@@ -47,11 +48,11 @@ export function calcRangeKeys({
   const keys: React.Key[] = [];
   let record: Record = RECORD_NONE;
 
-  if (startKey && startKey === endKey) {
-    return [startKey];
-  }
-  if (!startKey || !endKey) {
+  if (!isNonNullable(startKey) || !isNonNullable(endKey)) {
     return [];
+  }
+  if (startKey === endKey) {
+    return [startKey];
   }
 
   function matchKey(key: React.Key) {

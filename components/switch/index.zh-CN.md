@@ -46,7 +46,7 @@ demo:
 | onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  | × |
 | onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |  | × |
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     |
 | ------- | -------- |

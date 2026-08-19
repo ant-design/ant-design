@@ -483,7 +483,7 @@ export default () => (
 );
 ```
 
-#### Difference from other data fetching methods
+#### Difference from other data fetching methods {#data-fetching-differences}
 
 Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
