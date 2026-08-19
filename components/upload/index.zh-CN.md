@@ -114,7 +114,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | action | 上传的地址 | string | - | - |
-| data | 上传所需额外参数或返回上传额外参数的方法 | Record<string, unknown> | - | - |
+| data | 上传所需额外参数或返回上传额外参数的方法 | Record<string, unknown> | - | 4.20.0 |
 | filename | 文件名 | string | - | - |
 | file | 文件信息 | [UploadFile](#uploadfile) | - | - |
 | withCredentials | 上传请求时是否携带 cookie | boolean | - | - |
