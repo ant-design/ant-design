@@ -63,7 +63,7 @@ demo:
 - DatePicker\[picker="quarter"] (4.1.0 新增)
 - RangePicker
 
-### 国际化配置
+### 国际化配置 {#localization}
 
 默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider 国际化](https://ant.design/components/config-provider-cn/)。
 
@@ -89,7 +89,7 @@ dayjs.locale('zh-cn');
 在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
 :::
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 以下 API 为 DatePicker、 RangePicker 共享的 API。
 
@@ -142,7 +142,7 @@ dayjs.locale('zh-cn');
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |
 
-### 共同的方法
+### 共同的方法 {#common-methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |

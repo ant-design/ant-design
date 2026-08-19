@@ -47,7 +47,7 @@ demo:
 
 <embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
 
-## 注意
+## 注意 {#note}
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
 
