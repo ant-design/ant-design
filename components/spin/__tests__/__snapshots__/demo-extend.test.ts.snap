@@ -308,7 +308,7 @@ exports[`renders components/spin/demo/list-debug.tsx extend context correctly 1`
 
 exports[`renders components/spin/demo/list-debug.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. Please use \`Listy\` instead.",
 ]
 `;
 
