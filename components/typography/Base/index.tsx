@@ -18,9 +18,9 @@ import { isFunction, isReactRenderable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
-import { genCssVar } from '../../theme/util/genStyleUtils';
 import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
@@ -113,7 +113,7 @@ export interface EllipsisConfig {
 }
 
 export interface ShimmerConfig {
-  duration?: number;
+  duration?: number | [motionTime: number, waitTime: number];
 }
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
@@ -166,7 +166,8 @@ function wrapperDecorations(
 
 const ELLIPSIS_STR = '...';
 
-const DEFAULT_SHIMMER_CONFIG: ShimmerConfig = { duration: 3 };
+const DEFAULT_SHIMMER_DURATION = 1;
+const DEFAULT_SHIMMER_CONFIG: ShimmerConfig = { duration: DEFAULT_SHIMMER_DURATION };
 
 const DECORATION_PROPS = [
   'delete',
@@ -255,6 +256,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     shimmer,
     DEFAULT_SHIMMER_CONFIG,
   );
+  const shimmerDuration = shimmerConfig?.duration;
+  const [shimmerMotionTime = DEFAULT_SHIMMER_DURATION, shimmerWaitTime = 1] = Array.isArray(
+    shimmerDuration,
+  )
+    ? shimmerDuration
+    : [shimmerDuration];
 
   const { placement = 'end' } = actions ?? {};
 
@@ -575,9 +582,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             styles={mergedStyles}
             prefixCls={prefixCls}
             style={{
-              [varName('shimmer-duration')]: shimmerConfig.duration
-                ? `${shimmerConfig.duration}s`
-                : undefined,
+              [varName('shimmer-motion-time')]: enableShimmer ? shimmerMotionTime : undefined,
+              [varName('shimmer-wait-time')]: enableShimmer ? shimmerWaitTime : undefined,
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}

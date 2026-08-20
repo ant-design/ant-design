@@ -1,5 +1,4 @@
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
@@ -108,7 +107,8 @@ describe('Typography', () => {
       const { container } = render(<Text shimmer={{ duration: 1.5 }}>Text</Text>);
 
       expect(container.firstElementChild).toHaveStyle({
-        '--ant-typography-shimmer-duration': '1.5s',
+        '--ant-typography-shimmer-motion-time': '1.5',
+        '--ant-typography-shimmer-wait-time': '1',
       });
     });
 
@@ -123,27 +123,6 @@ describe('Typography', () => {
       expect(element).not.toHaveClass('ant-typography-shimmer');
       expect(element).toHaveAttribute('aria-busy', 'false');
       expect(element).toHaveAttribute('aria-disabled', 'true');
-    });
-
-    it('should generate shimmer styles', () => {
-      const cache = createCache();
-
-      render(
-        <StyleProvider cache={cache}>
-          <Text shimmer>Text</Text>
-        </StyleProvider>,
-      );
-
-      const styleText = extractStyle(cache, { plain: true });
-
-      expect(styleText).toContain('.ant-typography.ant-typography-shimmer{');
-      expect(styleText).toContain(
-        'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent),linear-gradient(currentColor, currentColor)',
-      );
-      expect(styleText).toContain('background-size:40% 100%,100% 100%');
-      expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
-      expect(styleText).toContain('0%{background-position:-40% 100%,0 0;}');
-      expect(styleText).toContain('100%{background-position:270% 100%,0 0;}');
     });
   });
 

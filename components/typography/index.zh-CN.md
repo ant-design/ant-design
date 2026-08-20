@@ -51,7 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | italic | 是否斜体 | boolean | false | 4.16.0 | × |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 | × |
 | mark | 添加标记样式 | boolean | false |  | × |
-| shimmer | 展示闪烁文字效果，或配置动画持续时间 | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | 展示闪烁文字效果，为对象时可进行配置 | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | strong | 是否加粗 | boolean | false |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -73,7 +73,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | italic | 是否斜体 | boolean | false | 4.16.0 | × |
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 | × |
 | mark | 添加标记样式 | boolean | false |  | × |
-| shimmer | 展示闪烁文字效果，或配置动画持续时间 | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | 展示闪烁文字效果，为对象时可进行配置 | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
 | underline | 添加下划线样式 | boolean | false |  | × |
@@ -93,7 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  | × |
 | italic | 是否斜体 | boolean | false | 4.16.0 | × |
 | mark | 添加标记样式 | boolean | false |  | × |
-| shimmer | 展示闪烁文字效果，或配置动画持续时间 | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | 展示闪烁文字效果，为对象时可进行配置 | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | strong | 是否加粗 | boolean | false |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -196,6 +196,18 @@ interface EllipsisConfig {
 | tooltip | 省略时，展示提示信息 | ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
+
+### shimmer
+
+```tsx
+interface ShimmerConfig {
+  duration?: number | [motionTime: number, waitTime: number];
+}
+```
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| duration | 光斑扫过时间，单位为秒。数字默认等待 1 秒，数组可分别设置扫过和等待时间 | number \| \[motionTime: number, waitTime: number\] | 1 | 6.7.0 |
 
 ## Semantic DOM
 

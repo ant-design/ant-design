@@ -50,7 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | italic | Italic style | boolean | false | 4.16.0 | × |
 | keyboard | Keyboard style | boolean | false | 4.3.0 | × |
 | mark | Marked style | boolean | false |  | × |
-| shimmer | Show a shimmer effect, or configure its animation duration | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | Show a shimmer effect, customizable via an object | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | strong | Bold style | boolean | false |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -72,7 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | italic | Italic style | boolean | false | 4.16.0 | × |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 | × |
 | mark | Marked style | boolean | false |  | × |
-| shimmer | Show a shimmer effect, or configure its animation duration | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | Show a shimmer effect, customizable via an object | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
 | underline | Underlined style | boolean | false |  | × |
@@ -92,7 +92,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  | × |
 | italic | Italic style | boolean | false | 4.16.0 | × |
 | mark | Marked style | boolean | false |  | × |
-| shimmer | Show a shimmer effect, or configure its animation duration | boolean \| { duration?: number } | false | 6.7.0 | × |
+| shimmer | Show a shimmer effect, customizable via an object | boolean \| [shimmer](#shimmer) | false | 6.7.0 | × |
 | strong | Bold style | boolean | false |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 | × |
@@ -195,6 +195,18 @@ interface EllipsisConfig {
 | tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
+
+### shimmer
+
+```tsx
+interface ShimmerConfig {
+  duration?: number | [motionTime: number, waitTime: number];
+}
+```
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| duration | Motion time in seconds. A number uses a 1-second wait; a tuple sets the motion and wait times separately | number \| \[motionTime: number, waitTime: number\] | 1 | 6.7.0 |
 
 ## Semantic DOM
 
