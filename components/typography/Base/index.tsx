@@ -166,6 +166,8 @@ function wrapperDecorations(
 
 const ELLIPSIS_STR = '...';
 
+const DEFAULT_SHIMMER_CONFIG: ShimmerConfig = { duration: 3 };
+
 const DECORATION_PROPS = [
   'delete',
   'mark',
@@ -251,8 +253,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Shimmer ===========================
   const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(
     shimmer,
-    { duration: 3 },
-    { duration: 0 },
+    DEFAULT_SHIMMER_CONFIG,
   );
 
   const { placement = 'end' } = actions ?? {};
