@@ -146,6 +146,28 @@ describe('Directory Tree', () => {
     expect(leaf3).not.toHaveClass('ant-tree-node-selected');
   });
 
+  it('select range when the first selected key is 0', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'Zero', key: 0 },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ];
+    const { container } = render(
+      <DirectoryTree multiple treeData={treeData} onSelect={onSelect} />,
+    );
+    const nodes = container.querySelectorAll('.ant-tree-node-content-wrapper');
+
+    fireEvent.click(nodes[0]);
+    fireEvent.click(nodes[2], { shiftKey: true });
+
+    expect(container.querySelectorAll('.ant-tree-node-selected')).toHaveLength(3);
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      expect.objectContaining({ selectedNodes: treeData }),
+    );
+  });
+
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
     const treeData = [
       {

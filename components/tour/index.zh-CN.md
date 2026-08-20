@@ -56,7 +56,7 @@ demo:
 | zIndex | Tour 的层级 | number | 1001 | 5.3.0 | × |
 | getPopupContainer | 设置 Tour 浮层的渲染节点，默认是 body | `(node: HTMLElement) => HTMLElement` | body | 5.12.0 | × |
 
-### TourStep 引导步骤卡片
+### TourStep 引导步骤卡片 {#tourstep}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
