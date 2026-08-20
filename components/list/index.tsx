@@ -308,7 +308,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     warning(
       false,
       'deprecated',
-      'The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.',
+      "The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.",
     );
   }
 
