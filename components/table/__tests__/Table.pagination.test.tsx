@@ -244,7 +244,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    expect(onChange).toHaveBeenCalledWith(1, 20);
+    expect(onChange).toHaveBeenCalledWith(1, 20, expect.objectContaining({ recommendPage: 1 }));
   });
 
   it('should not change page when pagination current is specified', () => {
@@ -285,7 +285,11 @@ describe('Table.pagination', () => {
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
-    expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
+    expect(onChange).toHaveBeenCalledWith(
+      longData.length / newPageSize,
+      20,
+      expect.objectContaining({ recommendPage: 5 }),
+    );
   });
 
   it('should change page to max page count when pageSize change with pagination.total', () => {
@@ -312,7 +316,11 @@ describe('Table.pagination', () => {
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
-    expect(onChange).toHaveBeenCalledWith(total / newPageSize, 20);
+    expect(onChange).toHaveBeenCalledWith(
+      total / newPageSize,
+      20,
+      expect.objectContaining({ recommendPage: 1000 }),
+    );
   });
 
   // https://github.com/ant-design/ant-design/issues/29175
@@ -333,7 +341,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    expect(onChange).toHaveBeenCalledWith(4, 20);
+    expect(onChange).toHaveBeenCalledWith(4, 20, expect.objectContaining({ recommendPage: 2 }));
   });
 
   it('should reset current to max page when data length is cut', () => {
