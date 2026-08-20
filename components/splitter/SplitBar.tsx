@@ -97,7 +97,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const stopKeyboardResize = () => {
     if (keyboardResize) {
       setKeyboardResize(null);
-      onOffsetEnd();
+      if (lazy) {
+        const offsetX = vertical ? 0 : keyboardResize.offset;
+        const offsetY = vertical ? keyboardResize.offset : 0;
+        onOffsetUpdate(index, offsetX, offsetY, true);
+        setConstrainedOffset(0);
+        onOffsetEnd(true);
+      } else {
+        onOffsetEnd();
+      }
     }
   };
 
@@ -225,7 +233,11 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
 
     setKeyboardResize({ ...keyboardResize, offset: nextOffset });
-    onOffsetUpdate(index, vertical ? 0 : nextOffset, vertical ? nextOffset : 0);
+    if (lazy) {
+      setConstrainedOffset(nextOffset);
+    } else {
+      onOffsetUpdate(index, vertical ? 0 : nextOffset, vertical ? nextOffset : 0);
+    }
   };
 
   const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
