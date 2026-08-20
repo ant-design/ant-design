@@ -104,11 +104,11 @@ describe('Typography', () => {
     });
 
     it('should support custom shimmer duration', () => {
-      const { container } = render(<Text shimmer={{ duration: 1.5 }}>Text</Text>);
+      const { container } = render(<Text shimmer={{ duration: [1.5, 0.5] }}>Text</Text>);
 
       expect(container.firstElementChild).toHaveStyle({
         '--ant-typography-shimmer-motion-time': '1.5',
-        '--ant-typography-shimmer-wait-time': '1',
+        '--ant-typography-shimmer-wait-time': '0.5',
       });
     });
 
