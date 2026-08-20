@@ -18,10 +18,10 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPosition: '-25% 100%, 0 0',
+    backgroundPosition: '-40% 100%, 0 0',
   },
   '100%': {
-    backgroundPosition: '200% 100%, 0 0',
+    backgroundPosition: '270% 100%, 0 0',
   },
 });
 
@@ -358,7 +358,7 @@ export const getShimmerStyles = (token: TypographyToken): CSSObject => {
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
       'linear-gradient(currentColor, currentColor)',
     ].join(', '),
-    backgroundSize: '25% 100%, 100% 100%',
+    backgroundSize: '40% 100%, 100% 100%',
     backgroundRepeat: 'no-repeat',
     animationName: shimmerAnimation,
     animationDuration: varRef('shimmer-duration', '3s'),
