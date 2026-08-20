@@ -232,6 +232,18 @@ describe('Cascader', () => {
     expect(dropdown).toMatchSnapshot();
   });
 
+  it('should support notFoundContent={null}', () => {
+    const { container } = render(<Cascader open options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
+  it('should support notFoundContent={null} in panel', () => {
+    const { container } = render(<Cascader.Panel options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,

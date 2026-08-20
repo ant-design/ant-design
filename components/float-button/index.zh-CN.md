@@ -41,7 +41,7 @@ demo:
 
 > 自 `antd@5.0.0` 版本开始提供该组件。
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
