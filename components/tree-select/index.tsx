@@ -358,10 +358,11 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     componentName: 'TreeSelect',
   });
 
-  const mergedAllowClear =
-    allowClear === true
-      ? { clearIcon, label: locale.clear }
-      : allowClear && { label: locale.clear, ...allowClear };
+  const mergedAllowClear = allowClear && {
+    clearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;

@@ -1047,6 +1047,42 @@ describe('Cascader', () => {
       );
       expect(screen.getAllByText('bamboo').length).toBe(1);
     });
+
+    it('should support default clear icon if only label is passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear' }}
+        />,
+      );
+      expect(
+        container.querySelector('.ant-select-clear .anticon-close-circle'),
+      ).toBeInTheDocument();
+    });
+
+    it('should support clearIcon prop if only label is passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear' }}
+          clearIcon="clear"
+        />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support custom clear icon if both label and icon are passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear', clearIcon: 'custom' }}
+        />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('custom');
+    });
   });
 
   describe('removeIcon', () => {

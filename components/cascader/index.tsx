@@ -400,10 +400,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear =
-    allowClear === true
-      ? { clearIcon: mergedClearIcon, label: locale.clear }
-      : allowClear && { label: locale.clear, ...allowClear };
+  const mergedAllowClear = allowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {

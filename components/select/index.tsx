@@ -319,10 +319,11 @@ const InternalSelect = <
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear =
-    finalAllowClear === true
-      ? { clearIcon: mergedClearIcon, label: locale.clear }
-      : finalAllowClear && { label: locale.clear, ...finalAllowClear };
+  const mergedAllowClear = finalAllowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof finalAllowClear !== 'boolean' ? finalAllowClear : {}),
+  };
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
