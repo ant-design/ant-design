@@ -14,6 +14,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
 import { operationUnit, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
@@ -355,27 +356,31 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 });
 
-export const getShimmerStyles = (): CSSObject => ({
-  backgroundClip: 'text, text',
-  WebkitBackgroundClip: 'text, text',
-  WebkitTextFillColor: 'transparent',
-  backgroundImage: [
-    'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
-    'linear-gradient(currentColor, currentColor)',
-  ].join(', '),
-  backgroundSize: '25% 100%, 100% 100%',
-  backgroundRepeat: 'no-repeat',
-  animationName: shimmerAnimation,
-  animationDuration: 'var(--ant-typography-shimmer-duration, 3s)',
-  animationIterationCount: 'infinite',
-  animationTimingFunction: 'linear',
-  animationFillMode: 'forwards',
+export const getShimmerStyles = (token: TypographyToken): CSSObject => {
+  const [, varRef] = genCssVar(token.antCls, 'typography');
 
-  '&-disabled': {
-    animation: 'none',
-    backgroundImage: 'none',
-    WebkitTextFillColor: 'currentColor',
-    WebkitBackgroundClip: 'unset',
-    backgroundClip: 'unset',
-  },
-});
+  return {
+    backgroundClip: 'text, text',
+    WebkitBackgroundClip: 'text, text',
+    WebkitTextFillColor: 'transparent',
+    backgroundImage: [
+      'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent)',
+      'linear-gradient(currentColor, currentColor)',
+    ].join(', '),
+    backgroundSize: '25% 100%, 100% 100%',
+    backgroundRepeat: 'no-repeat',
+    animationName: shimmerAnimation,
+    animationDuration: varRef('shimmer-duration', '3s'),
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
+    animationFillMode: 'forwards',
+
+    '&-disabled': {
+      animation: 'none',
+      backgroundImage: 'none',
+      WebkitTextFillColor: 'currentColor',
+      WebkitBackgroundClip: 'unset',
+      backgroundClip: 'unset',
+    },
+  };
+};

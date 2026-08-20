@@ -20,6 +20,7 @@ import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import Editable from '../Editable';
 import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
@@ -202,13 +203,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
 
-  const [mergedClassNames, mergedStyles, prefixCls, direction] = useTypographySemantic(
-    customizePrefixCls,
-    classNames,
-    styles,
-    typographyDirection,
-    props,
-  );
+  const [mergedClassNames, mergedStyles, prefixCls, direction, rootPrefixCls] =
+    useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
+  const [varName] = genCssVar(rootPrefixCls, 'typography');
 
   const textProps = omit(restProps, DECORATION_PROPS);
 
@@ -580,7 +577,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             style={{
               ...(enableShimmer && shimmerDuration
                 ? {
-                    ['--ant-typography-shimmer-duration' as string]: `${shimmerDuration}s`,
+                    [varName('shimmer-duration')]: `${shimmerDuration}s`,
                   }
                 : null),
               ...style,
