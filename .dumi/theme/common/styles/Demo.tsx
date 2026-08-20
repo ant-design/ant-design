@@ -22,7 +22,8 @@ const GlobalDemoStyles: React.FC = () => {
         .code-box {
           position: relative;
           display: inline-block;
-          width: calc(100% - ${token.lineWidth * 2}px);
+          /* width: calc(100% - ${token.lineWidth * 2}px); */
+          width: 100%;
           margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
