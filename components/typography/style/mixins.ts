@@ -18,16 +18,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const shimmerAnimation = new Keyframes('antTypographyShimmer', {
   '0%': {
-    backgroundPosition: '-200% 100%, 0 0',
-  },
-  '25%': {
-    backgroundPosition: '-100% 100%, 0 0',
-  },
-  '50%': {
-    backgroundPosition: '0% 100%, 0 0',
-  },
-  '75%': {
-    backgroundPosition: '100% 100%, 0 0',
+    backgroundPosition: '-25% 100%, 0 0',
   },
   '100%': {
     backgroundPosition: '200% 100%, 0 0',

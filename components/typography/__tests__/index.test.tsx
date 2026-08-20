@@ -141,6 +141,8 @@ describe('Typography', () => {
         'background-image:linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent),linear-gradient(currentColor, currentColor)',
       );
       expect(styleText).toContain('animation-duration:var(--ant-typography-shimmer-duration, 3s)');
+      expect(styleText).toContain('0%{background-position:-25% 100%,0 0;}');
+      expect(styleText).toContain('100%{background-position:200% 100%,0 0;}');
     });
   });
 
