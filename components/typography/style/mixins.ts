@@ -374,13 +374,5 @@ export const getShimmerStyles = (token: TypographyToken): CSSObject => {
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',
-
-    '&-disabled': {
-      animation: 'none',
-      backgroundImage: 'none',
-      WebkitTextFillColor: 'currentColor',
-      WebkitBackgroundClip: 'unset',
-      backgroundClip: 'unset',
-    },
   };
 };

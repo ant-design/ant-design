@@ -14,7 +14,7 @@ import {
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNumber, isReactRenderable } from '../../_util/is';
+import { isFunction, isReactRenderable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -249,11 +249,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
 
   // ========================== Shimmer ===========================
-  const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(shimmer);
-  const shimmerDuration =
-    isNumber(shimmerConfig.duration) && shimmerConfig.duration > 0
-      ? shimmerConfig.duration
-      : undefined;
+  const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(
+    shimmer,
+    { duration: 3 },
+    { duration: 0 },
+  );
 
   const { placement = 'end' } = actions ?? {};
 
@@ -562,8 +562,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-shimmer`]: enableShimmer,
-                [`${prefixCls}-shimmer-disabled`]: enableShimmer && disabled,
+                [`${prefixCls}-shimmer`]: enableShimmer && !disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
@@ -575,11 +574,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             styles={mergedStyles}
             prefixCls={prefixCls}
             style={{
-              ...(enableShimmer && shimmerDuration
-                ? {
-                    [varName('shimmer-duration')]: `${shimmerDuration}s`,
-                  }
-                : null),
+              [varName('shimmer-duration')]: shimmerConfig.duration
+                ? `${shimmerConfig.duration}s`
+                : undefined,
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}

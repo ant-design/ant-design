@@ -112,7 +112,7 @@ describe('Typography', () => {
       });
     });
 
-    it('should disable shimmer animation for disabled text', () => {
+    it('should not enable shimmer for disabled text', () => {
       const { container } = render(
         <Text shimmer disabled>
           Text
@@ -120,7 +120,7 @@ describe('Typography', () => {
       );
       const element = container.firstElementChild;
 
-      expect(element).toHaveClass('ant-typography-shimmer-disabled');
+      expect(element).not.toHaveClass('ant-typography-shimmer');
       expect(element).toHaveAttribute('aria-busy', 'false');
       expect(element).toHaveAttribute('aria-disabled', 'true');
     });
