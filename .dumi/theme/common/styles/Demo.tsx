@@ -25,7 +25,7 @@ const GlobalDemoStyles: React.FC = () => {
           width: calc(100% - ${token.lineWidth * 2}px);
           margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
-          border: ${token.lineWidth} ${token.lineType} ${token.colorSplit};
+          border: ${token.lineWidth}px ${token.lineType} ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
           transition: all ${token.motionDurationMid};
           box-sizing: content-box;
