@@ -22,9 +22,9 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import usePopupRender from '../select/usePopupRender';
 import Spin from '../spin';
 import useStyle from './style';
-import usePopupRender from '../select/usePopupRender';
 
 export const { Option } = RcMentions;
 
@@ -35,13 +35,17 @@ function loadingFilterOption() {
 export type MentionPlacement = 'top' | 'bottom';
 
 export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number];
+
 type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
-export interface OptionProps {
+export interface SelectOptionProps {
   value: string;
   children: React.ReactNode;
   [key: string]: any;
 }
+
+/** @deprecated Please use `SelectOptionProps` instead. */
+export type OptionProps = SelectOptionProps;
 
 export type MentionSemanticType = {
   classNames?: {

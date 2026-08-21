@@ -5,7 +5,10 @@ import Password from './Password';
 import Search from './Search';
 import TextArea from './TextArea';
 
-export type { GroupProps } from './Group';
+export type {
+  /** @deprecated Please use `InputGroupProps` instead. */
+  GroupProps,
+} from './Group';
 export type { InputProps, InputRef } from './Input';
 export type { PasswordProps } from './Password';
 export type { SearchProps } from './Search';

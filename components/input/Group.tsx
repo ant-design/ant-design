@@ -9,7 +9,7 @@ import { FormItemInputContext } from '../form/context';
 import Space from '../space';
 import useStyle from './style';
 
-export interface GroupProps {
+export interface InputGroupProps {
   className?: string;
   size?: 'large' | 'small' | 'default';
   children?: React.ReactNode;
@@ -22,8 +22,11 @@ export interface GroupProps {
   compact?: boolean;
 }
 
+/** @deprecated Please use `InputGroupProps` instead. */
+export type GroupProps = InputGroupProps;
+
 /** @deprecated Please use `Space.Compact` */
-const Group: React.FC<GroupProps> = (props) => {
+const Group: React.FC<InputGroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
