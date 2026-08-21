@@ -28,6 +28,7 @@ const GlobalDemoStyles: React.FC = () => {
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
           transition: all ${token.motionDurationMid};
+          box-sizing: content-box;
 
           &.code-box-simplify {
             border-radius: 0;
