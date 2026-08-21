@@ -35,6 +35,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/customize-clear-debug.tsx" debug>自定义输入组件配合清除按钮 Debug</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>禁用自定义输入 Debug</code>
 <code src="./demo/disabled-in-form-debug.tsx" debug>禁用文字颜色在 Form 中 Debug</code>
 <code src="./demo/filled-custom-debug.tsx" debug>填充形态自定义输入 Debug</code>

@@ -9,7 +9,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
   const { componentCls, floatButtonSize, iconCls, antCls, floatButtonIconSize } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'float-btn');
-  const [buttonVarName, buttonVarRef] = genCssVar(antCls, 'btn');
+  const [, buttonVarRef] = genCssVar(antCls, 'btn');
 
   const getProgressBackground = (backgroundColor: string) =>
     [
@@ -79,26 +79,26 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           lineHeight: 1,
         },
 
-        [`&${componentCls}-progress`]: {
-          [buttonVarName('border-width')]: unit(token.lineWidthBold),
-          [buttonVarName('border-color')]: 'transparent',
-          [buttonVarName('border-color-hover')]: 'transparent',
-          [buttonVarName('border-color-active')]: 'transparent',
-          [buttonVarName('border-color-disabled')]: 'transparent',
+        [`&${antCls}-btn${componentCls}-progress`]: {
+          borderWidth: unit(token.lineWidthBold),
+          borderColor: 'transparent',
           backgroundImage: getProgressBackground(buttonVarRef('bg-color')),
           backgroundOrigin: 'border-box',
           backgroundClip: 'padding-box, border-box',
 
           [`&:not(:disabled):not(${antCls}-btn-disabled)`]: {
             '&:hover': {
+              borderColor: 'transparent',
               backgroundImage: getProgressBackground(buttonVarRef('bg-color-hover')),
             },
             '&:active': {
+              borderColor: 'transparent',
               backgroundImage: getProgressBackground(buttonVarRef('bg-color-active')),
             },
           },
 
           [`&:disabled, &${antCls}-btn-disabled`]: {
+            borderColor: 'transparent',
             backgroundImage: getProgressBackground(buttonVarRef('bg-color-disabled')),
           },
         },

@@ -31,7 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
 

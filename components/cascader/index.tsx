@@ -30,6 +30,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import type { SelectSemanticType } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -252,6 +253,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const multipleObj = isPlainObject(multiple) ? (multiple as MultipleObject) : undefined;
   const mergedMultiple = !!multiple;
   const checkStrictly = multipleObj?.checkStrictly ?? false;
+  const [locale] = useLocale('global');
 
   const {
     getPrefixCls,
@@ -332,9 +334,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const [variant, enableVariantCls] = useVariant('cascader', customVariant, bordered);
 
   // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
-  );
+  const mergedNotFoundContent =
+    notFoundContent !== undefined
+      ? notFoundContent
+      : renderEmpty?.('Cascader') || <DefaultRenderEmpty componentName="Cascader" />;
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
@@ -411,7 +414,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
+  const mergedAllowClear = allowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {

@@ -22,6 +22,7 @@ export const useTypographySemantic = (
   } = useComponentConfig('typography');
 
   const direction = typographyDirection ?? contextDirection;
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   const mergedProps: BaseTypographyProps = {
@@ -48,5 +49,5 @@ export const useTypographySemantic = (
     },
   );
 
-  return [mergedClassNames, mergedStyles, prefixCls, direction] as const;
+  return [mergedClassNames, mergedStyles, prefixCls, direction, rootPrefixCls] as const;
 };

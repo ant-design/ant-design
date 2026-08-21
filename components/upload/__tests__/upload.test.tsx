@@ -483,6 +483,87 @@ describe('Upload', () => {
     expect(file.status).toBe('removed');
   });
 
+  it('should remove from the latest file list after async onRemove resolves', async () => {
+    const removingFile: UploadFile = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'done',
+    };
+    const ref = React.createRef<UploadRef>();
+    let resolveRemove!: (value: boolean | PromiseLike<boolean>) => void;
+
+    const { container } = render(
+      <Upload
+        ref={ref}
+        defaultFileList={[removingFile]}
+        onRemove={() =>
+          new Promise<boolean>((resolve) => {
+            resolveRemove = resolve;
+          })
+        }
+      />,
+    );
+
+    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete')!);
+
+    const addedFile = new File([], 'bar.txt') as RcFile;
+    addedFile.uid = '-2';
+    act(() => {
+      ref.current?.onBatchStart?.([{ file: addedFile, parsedFile: addedFile }]);
+    });
+
+    expect(ref.current?.fileList.map((file) => file.name)).toEqual(['foo.png', 'bar.txt']);
+
+    await act(async () => {
+      resolveRemove(true);
+      await Promise.resolve();
+    });
+
+    expect(ref.current?.fileList.map((file) => file.name)).toEqual(['bar.txt']);
+  });
+
+  it('should use the latest controlled file list after async onRemove resolves', async () => {
+    const removingFile: UploadFile = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'done',
+    };
+    const addedFile: UploadFile = {
+      uid: '-2',
+      name: 'bar.txt',
+      status: 'done',
+    };
+    const onChange = jest.fn();
+    let resolveRemove!: (value: boolean | PromiseLike<boolean>) => void;
+    const getUpload = (fileList: UploadFile[]) => (
+      <Upload
+        fileList={fileList}
+        onChange={onChange}
+        onRemove={() =>
+          new Promise<boolean>((resolve) => {
+            resolveRemove = resolve;
+          })
+        }
+      />
+    );
+
+    const { container, rerender } = render(getUpload([removingFile]));
+    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete')!);
+
+    rerender(getUpload([removingFile, addedFile]));
+
+    await act(async () => {
+      resolveRemove(true);
+      await Promise.resolve();
+    });
+
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        fileList: [addedFile],
+      }),
+    );
+  });
+
   it('should not stop download when return use onDownload', async () => {
     const mockRemove = jest.fn(() => false);
     const props: UploadProps = {

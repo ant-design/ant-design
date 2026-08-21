@@ -10,7 +10,7 @@ Array [
       dir="ltr"
     >
       <button
-        aria-label="prev"
+        aria-label="Previous slide"
         class="slick-arrow slick-prev slick-disabled"
         data-role="none"
         style="display: block;"
@@ -106,7 +106,7 @@ Array [
         </div>
       </div>
       <button
-        aria-label="next"
+        aria-label="Next slide"
         class="slick-arrow slick-next"
         data-role="none"
         style="display: block;"
@@ -156,7 +156,7 @@ Array [
       dir="ltr"
     >
       <button
-        aria-label="prev"
+        aria-label="Previous slide"
         class="slick-arrow slick-prev slick-disabled"
         data-role="none"
         style="display: block;"
@@ -253,7 +253,7 @@ Array [
         </div>
       </div>
       <button
-        aria-label="next"
+        aria-label="Next slide"
         class="slick-arrow slick-next"
         data-role="none"
         style="display: block;"

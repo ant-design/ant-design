@@ -167,6 +167,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
   const activeLinkRef = React.useRef<string | null>(activeLink);
+  const rawActiveLinkRef = React.useRef<string | null>(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNodeRef = React.useRef<HTMLSpanElement>(null);
@@ -261,17 +262,21 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     return '';
   };
 
-  const setCurrentActiveLink = useEvent((link: string) => {
-    // FIXME: Seems a bug since this compare is not equals
-    // `activeLinkRef` is parsed value which will always trigger `onChange` event.
-    if (activeLinkRef.current === link) {
-      return;
-    }
+  const setCurrentActiveLink = useEvent((link: string, forceTriggerChange = false) => {
+    rawActiveLinkRef.current = link;
 
     // https://github.com/ant-design/ant-design/issues/30584
     const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
-    setActiveLink(newLink);
-    activeLinkRef.current = newLink;
+    const isSameLink = activeLinkRef.current === newLink;
+
+    if (isSameLink && !forceTriggerChange) {
+      return;
+    }
+
+    if (!isSameLink) {
+      setActiveLink(newLink);
+      activeLinkRef.current = newLink;
+    }
 
     // onChange should respect the original link (which may caused by
     // window scroll or user click), not the new link
@@ -295,8 +300,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const handleScrollTo = React.useCallback<(link: string, targetOffsetParams?: number) => void>(
     (link, targetOffsetParams) => {
-      const previousActiveLink = activeLinkRef.current;
-      setCurrentActiveLink(link);
+      const previousRawActiveLink = rawActiveLinkRef.current;
+      setCurrentActiveLink(link, previousRawActiveLink !== link);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
         return;
@@ -307,7 +312,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       }
 
       if (animatingRef.current) {
-        if (previousActiveLink === link) {
+        if (previousRawActiveLink === link) {
           return;
         }
         scrollRequestIdRef.current?.();
@@ -404,7 +409,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   React.useEffect(() => {
     if (isFunction(getCurrentAnchor)) {
-      setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
+      setCurrentActiveLink(rawActiveLinkRef.current || '');
     }
   }, [getCurrentAnchor]);
 

@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Inverteeri valik',
     selectNone: 'Kustuta kõik andmed',
     selectionAll: 'Vali kõik andmed',
+    selectRow: 'Vali rida',
+    selectedRow: 'Rida valitud',
+    selectionMenu: 'Valikumenüü',
     sortTitle: 'Sorteeri',
     expand: 'Laienda rida',
     collapse: 'Ahenda rida',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Tühista',
+  },
+  Splitter: {
+    toggleStartPanel: 'Lülita alguspaneeli',
+    toggleEndPanel: 'Lülita lõpupaneeli',
   },
   Transfer: {
     titles: ['', ''],

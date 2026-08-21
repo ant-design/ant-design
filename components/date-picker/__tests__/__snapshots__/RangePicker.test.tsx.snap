@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`RangePicker customize separator 1`] = `
+exports[`RangePicker preserves a custom separator accessible name 1`] = `
 <div
   class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
 >
@@ -20,10 +20,13 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-range-separator"
   >
     <span
-      aria-label="to"
       class="ant-picker-separator"
     >
-      test
+      <span
+        aria-label="Custom range separator"
+      >
+        test
+      </span>
     </span>
   </div>
   <div
@@ -90,7 +93,7 @@ Array [
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
