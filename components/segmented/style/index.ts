@@ -78,7 +78,13 @@ const segmentedTextEllipsisCss: CSSObject = {
 
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token;
+  const {
+    componentCls,
+    motionDurationSlow,
+    motionEaseInOut,
+    motionDurationMid,
+    motionDurationFast,
+  } = token;
 
   const labelHeight = token
     .calc(token.controlHeight)
@@ -155,6 +161,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
         '&-selected': {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
+        },
+        '&-selected-text': {
+          color: token.itemSelectedColor,
+          transition: `color ${motionDurationFast}`,
         },
 
         '&-focused': genFocusOutline(token),
