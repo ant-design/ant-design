@@ -153,15 +153,13 @@ describe('Radio.Semantic', () => {
       );
     });
 
-    it('support classNames and styles as functions', () => {
+    it('support classNames and styles as functions with merged props', () => {
       const { container } = render(
         <Radio.Group
-          disabled={false}
-          optionType="default"
           options={options}
           classNames={(info) => ({
-            root: info.props.disabled ? 'group-disabled' : 'group-enabled',
-            item: `item-${info.props.optionType}`,
+            root: info.props.disabled === false ? 'group-enabled' : 'group-disabled',
+            item: `item-${info.props.optionType}-${info.props.orientation}`,
           })}
           styles={(info) => ({
             root: {
@@ -179,11 +177,26 @@ describe('Radio.Semantic', () => {
       expect(group).toHaveStyle({ padding: '8px' });
 
       container.querySelectorAll('.ant-radio-wrapper').forEach((item) => {
-        expect(item).toHaveClass('item-default');
+        expect(item).toHaveClass('item-default-horizontal');
       });
       container.querySelectorAll('.ant-radio-label').forEach((label) => {
         expect(label).toHaveStyle({ fontWeight: 'bold' });
       });
+    });
+
+    it('should provide componentDisabled to semantic functions', () => {
+      const { container } = render(
+        <ConfigProvider componentDisabled>
+          <Radio.Group
+            options={options}
+            classNames={({ props }) => ({
+              root: props.disabled ? 'group-disabled' : 'group-enabled',
+            })}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-radio-group')).toHaveClass('group-disabled');
     });
 
     it('should allow option style to override group item styles', () => {

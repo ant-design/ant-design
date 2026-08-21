@@ -6,6 +6,7 @@ import { useOrientation } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
@@ -54,6 +55,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     vertical,
     role = 'radiogroup',
   } = props;
+
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
   const [value, setValue] = useControlledState(defaultValue, customizedValue);
 
@@ -118,16 +122,18 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   }
 
   const mergedSize = useSize(customizeSize);
-  const [, mergedVertical] = useOrientation(orientation, vertical);
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical);
 
   const mergedProps: RadioGroupProps = {
     ...props,
     value,
-    disabled,
+    disabled: mergedDisabled,
     size: mergedSize,
     buttonStyle,
     block,
     name,
+    optionType: optionType ?? 'default',
+    orientation: mergedOrientation,
     vertical: mergedVertical,
   };
 
