@@ -270,7 +270,7 @@ describe('Tooltip', () => {
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip-container')?.innerHTML).toBe('0');
+    expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('0');
   });
 
   it('autoAdjustOverflow should be object or undefined', () => {
