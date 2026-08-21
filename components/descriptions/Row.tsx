@@ -45,7 +45,7 @@ function renderCells(
       if (typeof component === 'string') {
         return (
           <Cell
-            key={`${type}-${key || index}`}
+            key={`${type}-${key ?? index}`}
             className={className}
             style={style}
             classNames={classNames}
@@ -91,7 +91,7 @@ function renderCells(
       };
       return [
         <Cell
-          key={`label-${key || index}`}
+          key={`label-${key ?? index}`}
           className={className}
           style={style}
           classNames={classNames}
@@ -105,7 +105,7 @@ function renderCells(
           type="label"
         />,
         <Cell
-          key={`content-${key || index}`}
+          key={`content-${key ?? index}`}
           className={className}
           style={style}
           classNames={classNames}
