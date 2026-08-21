@@ -3,11 +3,12 @@ import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
 import { Panel } from '@rc-component/cascader';
 import { clsx } from 'clsx';
 
-import type { CascaderProps, DefaultOptionType } from '.';
+import type { CascaderProps, DefaultOptionType, MultipleObject } from '.';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { isPlainObject } from '../_util/is';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useStyle from './style';
@@ -17,7 +18,10 @@ import useIcons from './hooks/useIcons';
 type RcPanelProps = React.ComponentProps<typeof Panel>;
 type RcPanelPickType = Extract<keyof RcPanelProps, keyof RcCascaderProps>;
 
-export type PanelPickType = Exclude<RcPanelPickType, 'checkable'> | 'multiple' | 'rootClassName';
+export type PanelPickType =
+  | Exclude<RcPanelPickType, 'checkable' | 'checkStrictly'>
+  | 'multiple'
+  | 'rootClassName';
 
 export type CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -30,7 +34,10 @@ export type CascaderPanelAutoProps<
   ValueField extends keyof OptionType = keyof OptionType,
 > =
   | (CascaderPanelProps<OptionType, ValueField> & { multiple?: false })
-  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true });
+  | (CascaderPanelProps<OptionType, ValueField, true> & { multiple: true })
+  | (Omit<CascaderPanelProps<OptionType, ValueField, true>, 'multiple'> & {
+      multiple: MultipleObject;
+    });
 
 function CascaderPanel<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -81,7 +88,11 @@ function CascaderPanel<
       : renderEmpty?.('Cascader') || <DefaultRenderEmpty componentName="Cascader" />;
 
   // =================== Multiple ====================
-  const checkable = useCheckable(cascaderPrefixCls, multiple);
+  const multipleObj = isPlainObject(multiple) ? (multiple as MultipleObject) : undefined;
+  const mergedMultiple = !!multiple;
+  const checkStrictly = multipleObj?.checkStrictly ?? false;
+
+  const checkable = useCheckable(cascaderPrefixCls, mergedMultiple);
 
   // ==================== Render =====================
 
@@ -89,6 +100,7 @@ function CascaderPanel<
     <Panel
       {...(props as Pick<RcCascaderProps, RcPanelPickType>)}
       checkable={checkable}
+      checkStrictly={checkStrictly || undefined}
       prefixCls={cascaderPrefixCls}
       className={clsx(className, hashId, rootClassName, cssVarCls, rootCls)}
       notFoundContent={mergedNotFoundContent}

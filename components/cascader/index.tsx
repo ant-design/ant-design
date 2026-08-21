@@ -138,13 +138,15 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
   return optionList;
 };
 
+export type MultipleObject = { checkStrictly?: boolean };
+
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > extends Omit<
     RcCascaderProps<OptionType, ValueField, Multiple>,
-    'checkable' | 'classNames' | 'styles'
+    'checkable' | 'checkStrictly' | 'classNames' | 'styles'
   > {
   multiple?: Multiple;
   size?: SizeType;
@@ -197,7 +199,8 @@ export type CascaderAutoProps<
   ValueField extends keyof OptionType = keyof OptionType,
 > =
   | (CascaderProps<OptionType, ValueField> & { multiple?: false })
-  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true })
+  | (Omit<CascaderProps<OptionType, ValueField, true>, 'multiple'> & { multiple: MultipleObject });
 
 export interface CascaderRef {
   focus: () => void;
@@ -246,6 +249,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     ...restProps
   } = props;
 
+  // =================== Multiple ====================
+  const multipleObj = isPlainObject(multiple) ? (multiple as MultipleObject) : undefined;
+  const mergedMultiple = !!multiple;
+  const checkStrictly = multipleObj?.checkStrictly ?? false;
   const [locale] = useLocale('global');
 
   const {
@@ -298,6 +305,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       !('showArrow' in props),
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+
+    // `showCheckedStrategy` is ignored when `checkStrictly` is enabled
+    warning(
+      !(checkStrictly && 'showCheckedStrategy' in props),
+      'usage',
+      '`showCheckedStrategy` is ignored when `multiple.checkStrictly` is enabled.',
     );
   }
 
@@ -365,7 +379,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   });
 
   // =================== Multiple ====================
-  const checkable = useCheckable(cascaderPrefixCls, multiple);
+  const checkable = useCheckable(cascaderPrefixCls, mergedMultiple);
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
@@ -387,7 +401,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
-    multiple,
+    multiple: mergedMultiple,
     prefixCls,
     componentName: 'Cascader',
   });
@@ -493,6 +507,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}
+      checkStrictly={checkStrictly || undefined}
       popupClassName={mergedPopupClassName}
       popupPrefixCls={customizePrefixCls || cascaderPrefixCls}
       popupStyle={{ ...mergedPopupStyle, zIndex }}
