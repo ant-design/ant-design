@@ -10,14 +10,23 @@ import type { NotificationToken } from '.';
 
 /** Generate motion transitions shared by notification-like notice cards. */
 const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => {
-  const { motionDurationMid, motionEaseInOut } = token;
-  const transition = `${motionDurationMid} ${motionEaseInOut}`;
+  const {
+    motionDurationMid,
+    motionDurationSlow,
+    motionEaseInOut,
+    motionEaseInOutCirc,
+    motionEaseOut,
+  } = token;
 
   return {
+    opacity: 'var(--notification-opacity, 1)',
     transform: 'scale(var(--notification-scale, 1))',
-    transition: ['transform', 'inset', 'clip-path', 'opacity']
-      .map((property) => `${property} ${transition}`)
-      .join(', '),
+    transition: [
+      `transform ${motionDurationSlow} ${motionEaseOut}`,
+      `inset ${motionDurationSlow} ${motionEaseInOutCirc}`,
+      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
+      `opacity ${motionDurationMid} ${motionEaseOut}`,
+    ].join(', '),
   };
 };
 
