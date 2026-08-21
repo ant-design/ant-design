@@ -9,20 +9,12 @@ import { clsx } from 'clsx';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
+import { validateBreakpoints } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
-
-const dimensionMaxMap: Record<Breakpoint, string> = {
-  xs: '479.98px',
-  sm: '575.98px',
-  md: '767.98px',
-  lg: '991.98px',
-  xl: '1199.98px',
-  xxl: '1599.98px',
-  xxxl: `1839.98px`,
-};
+import { useToken } from '../theme/internal';
 
 const isNumeric = (val: any) =>
   !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
@@ -149,6 +141,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Responsive =========================
+  const [, token] = useToken();
+  const validatedToken = validateBreakpoints(token);
+  const breakpointWidth = breakpoint
+    ? (validatedToken as unknown as Record<string, number>)[`screen${breakpoint.toUpperCase()}`]
+    : undefined;
+
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
   responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
     setBelow(mql.matches);
@@ -164,8 +162,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       return responsiveHandlerRef.current?.(mql);
     }
     let mql: MediaQueryList;
-    if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpoint in dimensionMaxMap) {
-      mql = window.matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
+    if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpointWidth !== undefined) {
+      mql = window.matchMedia(`screen and (max-width: ${breakpointWidth}px)`);
       if (isFunction(mql?.addEventListener)) {
         mql.addEventListener('change', responsiveHandler);
       }
@@ -176,7 +174,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
         mql.removeEventListener('change', responsiveHandler);
       }
     };
-  }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
+  }, [breakpoint, breakpointWidth]);
 
   useEffect(() => {
     const uniqueId = generateId('ant-sider-');

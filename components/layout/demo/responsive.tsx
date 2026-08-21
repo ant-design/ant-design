@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Grid, Layout, Menu, Radio, theme } from 'antd';
+import { ConfigProvider, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { useBreakpoint } = Grid;
 
 const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
   (icon, index) => ({
@@ -13,65 +12,29 @@ const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].
   }),
 );
 
-const SiderWithBreakpoint = () => (
-  <Sider
-    breakpoint="lg"
-    collapsedWidth="0"
-    onBreakpoint={(broken) => {
-      console.log('onBreakpoint:', broken);
-    }}
-  >
-    <div className="demo-logo-vertical" />
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
-  </Sider>
-);
-
-const SiderWithHook = () => {
-  const screens = useBreakpoint();
-  const [collapsed, setCollapsed] = useState(!screens.lg);
-
-  useEffect(() => {
-    setCollapsed(!screens.lg);
-  }, [screens.lg]);
-
-  return (
-    <Sider
-      collapsible={!screens.lg}
-      collapsed={collapsed}
-      onCollapse={setCollapsed}
-      collapsedWidth="0"
-    >
-      <div className="demo-logo-vertical" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
-    </Sider>
-  );
-};
-
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const [useMode, setUseMode] = useState<'breakpoint' | 'hook'>('breakpoint');
-
   const currentYear = new Date().getFullYear();
 
   return (
-    <>
-      <div style={{ textAlign: 'end', padding: 16 }}>
-        <Radio.Group
-          value={useMode}
-          onChange={(e) => setUseMode(e.target.value)}
-          optionType="button"
-          buttonStyle="solid"
-        >
-          <Radio.Button value="hook">useBreakpoint</Radio.Button>
-          <Radio.Button value="breakpoint">breakpoint prop</Radio.Button>
-        </Radio.Group>
-      </div>
-
+    <ConfigProvider theme={{ token: { screenLG: 1100 } }}>
       <Layout>
-        {useMode === 'breakpoint' ? <SiderWithBreakpoint /> : <SiderWithHook />}
+        <Sider
+          breakpoint="lg"
+          collapsedWidth="0"
+          onBreakpoint={(broken) => {
+            console.log(broken);
+          }}
+          onCollapse={(collapsed, type) => {
+            console.log(collapsed, type);
+          }}
+        >
+          <div className="demo-logo-vertical" />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+        </Sider>
         <Layout>
           <Header style={{ padding: 0, background: colorBgContainer }} />
           <Content style={{ margin: '24px 16px 0' }}>
@@ -83,7 +46,7 @@ const App: React.FC = () => {
                 borderRadius: borderRadiusLG,
               }}
             >
-              Current mode: {useMode === 'hook' ? 'useBreakpoint (controlled)' : 'breakpoint prop'}
+              content
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
@@ -91,7 +54,7 @@ const App: React.FC = () => {
           </Footer>
         </Layout>
       </Layout>
-    </>
+    </ConfigProvider>
   );
 };
 
