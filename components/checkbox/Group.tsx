@@ -7,6 +7,7 @@ import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeS
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNonNullable, isNumber, isString } from '../_util/is';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
@@ -87,6 +88,8 @@ const CheckboxGroup = React.forwardRef(
       ...restProps
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const contextDisabled = React.useContext(DisabledContext);
+    const mergedDisabled = restProps.disabled ?? contextDisabled;
 
     const [value, setValue] = React.useState<T[]>(restProps.value || defaultValue || []);
     const [registeredValues, setRegisteredValues] = React.useState<T[]>([]);
@@ -150,6 +153,7 @@ const CheckboxGroup = React.forwardRef(
       ...props,
       options,
       value,
+      disabled: mergedDisabled,
     };
 
     const styleRoot = useSemanticRootStyle(style);

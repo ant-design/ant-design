@@ -172,10 +172,9 @@ describe('Checkbox.Semantic', () => {
     it('should support classNames and styles as functions', () => {
       const { container } = render(
         <Checkbox.Group
-          disabled={false}
           options={options}
           classNames={({ props }) => ({
-            root: props.disabled ? 'group-disabled' : 'group-enabled',
+            root: props.disabled === false ? 'group-enabled' : 'group-disabled',
             item: props.value?.includes('apple') ? 'item-checked' : 'item-unchecked',
           })}
           styles={({ props }) => ({
@@ -195,6 +194,21 @@ describe('Checkbox.Semantic', () => {
       container.querySelectorAll('.ant-checkbox-label').forEach((label) => {
         expect(label).toHaveStyle({ fontWeight: 'bold' });
       });
+    });
+
+    it('should provide componentDisabled to semantic functions', () => {
+      const { container } = render(
+        <ConfigProvider componentDisabled>
+          <Checkbox.Group
+            options={options}
+            classNames={({ props }) => ({
+              root: props.disabled ? 'group-disabled' : 'group-enabled',
+            })}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-checkbox-group')).toHaveClass('group-disabled');
     });
 
     it('should allow option style to override group item styles', () => {
