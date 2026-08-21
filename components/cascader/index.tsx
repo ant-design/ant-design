@@ -30,6 +30,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import type { SelectSemanticType } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -245,6 +246,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     ...restProps
   } = props;
 
+  const [locale] = useLocale('global');
+
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -397,7 +400,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
+  const mergedAllowClear = allowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {
