@@ -69,7 +69,7 @@ demo:
 | open | 菜单是否显示 | boolean | - |  | × |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发 | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 | × |
 
-## 注意
+## 注意 {#note}
 
 请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
 

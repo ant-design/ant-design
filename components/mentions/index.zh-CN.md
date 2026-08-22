@@ -69,7 +69,7 @@ demo:
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 
-### Mentions 方法
+### Mentions 方法 {#mention-methods}
 
 | 名称    | 描述     |
 | ------- | -------- |

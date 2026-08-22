@@ -105,7 +105,7 @@ type DisabledTime = (now: Dayjs) => {
 
 注意：`disabledMilliseconds` 为 `5.14.0` 新增。
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |

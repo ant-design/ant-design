@@ -81,7 +81,7 @@ Radio group can wrap a group of `Radio`.
 | --- | --- | --- | --- | --- |
 | block | Option to fit RadioGroup width to its parent width | boolean | false | 5.21.0 |
 | buttonStyle | The style type of radio button | `outline` \| `solid` | `outline` |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), string> | - | 6.7.0 |
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |
 | name | The `name` property of all `input[type="radio"]` children. If not set, it will fallback to a randomly generated name | string | - |  |
@@ -89,7 +89,7 @@ Radio group can wrap a group of `Radio`.
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | size | The size of radio button style | `large` \| `medium` \| `small` | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 6.7.0 |
 | value | Used for setting the currently selected value | any | - |  |
 | vertical | If true, the Radio group will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
@@ -119,7 +119,13 @@ Radio group can wrap a group of `Radio`.
 
 ## Semantic DOM
 
+### Radio
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Radio.Group {#semantic-group}
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## Design Token
 

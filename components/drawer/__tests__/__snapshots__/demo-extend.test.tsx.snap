@@ -4869,6 +4869,6 @@ Array [
 
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;

@@ -81,7 +81,7 @@ demo:
 | onClick | 点击 message 时触发的回调函数 | function | - | - | × |
 | onClose | 关闭时触发的回调函数 | function | - | - | × |
 
-### 全局方法
+### 全局方法 {#global-static-methods}
 
 还提供了全局配置和全局销毁方法：
 
