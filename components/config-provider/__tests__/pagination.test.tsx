@@ -26,4 +26,14 @@ describe('ConfigProvider.Pagination', () => {
     // total={80} < 100, so size changer should not be visible
     expect(container.querySelector('.ant-pagination-options-size-changer')).toBeFalsy();
   });
+
+  it('variant and shape', () => {
+    const { container } = render(
+      <ConfigProvider pagination={{ variant: 'filled', shape: 'round' }}>
+        <Pagination total={50} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-variant-filled');
+    expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-round');
+  });
 });
