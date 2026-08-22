@@ -49,7 +49,7 @@ export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
 export type { CollapsePanelProps, CollapseProps } from './collapse';
 export { default as ColorPicker } from './color-picker';
-export type { ColorPickerProps } from './color-picker';
+export type { ColorPickerPanelProps, ColorPickerProps } from './color-picker';
 export { default as ConfigProvider } from './config-provider';
 export type { ConfigProviderProps, ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';

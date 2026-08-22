@@ -10,9 +10,10 @@ interface ColorRgbInputProps {
   prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabled?: boolean;
 }
 
-const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
+const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange, disabled }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
@@ -21,6 +22,10 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
   const rgbValue = value || internalValue;
 
   const handleRgbChange = (step: number | null, type: keyof RGB) => {
+    if (disabled) {
+      return;
+    }
+
     const rgb = rgbValue.toRgb();
     rgb[type] = step || 0;
     const genColor = generateColor(rgb);
@@ -38,6 +43,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(rgbValue.toRgb().r)}
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
+        disabled={disabled}
         onChange={(step) => handleRgbChange(Number(step), 'r')}
       />
       <ColorSteppers
@@ -46,6 +52,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(rgbValue.toRgb().g)}
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
+        disabled={disabled}
         onChange={(step) => handleRgbChange(Number(step), 'g')}
       />
       <ColorSteppers
@@ -54,6 +61,7 @@ const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(rgbValue.toRgb().b)}
         prefixCls={prefixCls}
         className={colorRgbInputPrefixCls}
+        disabled={disabled}
         onChange={(step) => handleRgbChange(Number(step), 'b')}
       />
     </div>
