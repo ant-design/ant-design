@@ -15,7 +15,9 @@ import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Layout from '../../layout';
+import ScrollableSubmenu from '../demo/scrollable-submenu';
 import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
@@ -1355,6 +1357,54 @@ describe('Menu', () => {
     );
     const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
     expect(popup).toHaveStyle(testStyles.popup.root);
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const items = [{ key: '1', label: 'Menu 1' }];
+    const { container, rerender } = render(<Menu mode="vertical" items={items} />);
+
+    expect(container.querySelector('.ant-menu')).not.toHaveClass('ant-menu-scroll-fade');
+
+    rerender(<Menu mode="vertical" scrollFade items={items} />);
+    expect(container.querySelector('.ant-menu')).toHaveClass('ant-menu-scroll-fade');
+
+    rerender(
+      <ConfigProvider menu={{ scrollFade: true }}>
+        <Menu mode="vertical" items={items} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-menu')).toHaveClass('ant-menu-scroll-fade');
+
+    rerender(
+      <ConfigProvider menu={{ scrollFade: true }}>
+        <Menu mode="vertical" scrollFade={false} items={items} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-menu')).not.toHaveClass('ant-menu-scroll-fade');
+
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    expect(cssText).toContain('ant-menu-light.ant-menu-scroll-fade.ant-menu-vertical,');
+    expect(cssText).toContain(
+      'linear-gradient(to bottom in oklab, var(--ant-menu-popup-bg), transparent)',
+    );
+  });
+
+  it('renders the scroll fade popup in the deterministic visual state', () => {
+    const { container } = render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <ScrollableSubmenu />
+      </TriggerMockContext.Provider>,
+    );
+
+    expect(container.querySelector('.ant-segmented-item-selected')).toHaveTextContent('Vertical');
+
+    const popup = container.querySelector('.scrollable-submenu-popup');
+    expect(popup).toBeTruthy();
+    expect(popup).not.toHaveClass('ant-menu-submenu-hidden');
+    expect(popup).toHaveClass('ant-menu-scroll-fade');
+    expect(popup?.querySelectorAll('.ant-menu-item')).toHaveLength(24);
   });
 
   it('should pass itemData in onClick with items config', () => {

@@ -75,6 +75,8 @@ export interface DropdownProps {
   styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: Omit<MenuProps, 'classNames' | 'styles'> & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
+  /** Whether to show scroll fade hints in the popup menu */
+  scrollFade?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   /** @deprecated Please use `popupRender` instead */
@@ -139,6 +141,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     styles,
     destroyPopupOnHide,
     destroyOnHidden,
+    scrollFade,
   } = props;
 
   const {
@@ -149,7 +152,10 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    scrollFade: contextScrollFade,
   } = useComponentConfig('dropdown');
+
+  const mergedScrollFade = scrollFade ?? contextScrollFade ?? false;
 
   const mergedProps: DropdownProps = {
     ...props,
@@ -297,6 +303,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       overlayNode = (
         <Menu
           {...menu}
+          scrollFade={mergedScrollFade}
           classNames={{
             root: mergedClassNames.menu,
             ...menuClassNames,
@@ -357,7 +364,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   let renderNode = (
     <RcDropdown
       alignPoint={alignPoint}
-      {...omit(props, ['rootClassName', 'onOpenChange'])}
+      {...omit(props, ['rootClassName', 'onOpenChange', 'scrollFade'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
