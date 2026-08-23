@@ -193,7 +193,6 @@ describe('Dropdown', () => {
             adjustY: 1,
             shiftX: 8,
             shiftY: true,
-            alwaysByViewport: true,
           }}
         >
           <button type="button">button</button>

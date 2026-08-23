@@ -302,7 +302,6 @@ describe('Tooltip', () => {
             adjustY: 1,
             shiftX: 8,
             shiftY: true,
-            alwaysByViewport: true,
           }}
         >
           <div />
@@ -319,7 +318,6 @@ describe('Tooltip', () => {
         adjustY: 1,
         shiftX: 8,
         shiftY: true,
-        alwaysByViewport: true,
       },
       borderRadius: 10,
       offset: 0,
@@ -330,7 +328,6 @@ describe('Tooltip', () => {
       adjustY: 1,
       shiftX: 8,
       shiftY: true,
-      alwaysByViewport: true,
     });
   });
 

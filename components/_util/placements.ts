@@ -3,9 +3,7 @@ import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 import { getArrowOffsetToken } from '../style/placementArrow';
 import { isPlainObject } from './is';
 
-export interface AdjustOverflow extends NonNullable<AlignType['overflow']> {
-  alwaysByViewport?: boolean;
-}
+export type AdjustOverflow = NonNullable<AlignType['overflow']>;
 
 export interface PlacementsConfig {
   arrowWidth: number;
