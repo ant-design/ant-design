@@ -48,7 +48,6 @@ describe('Popover', () => {
             adjustY: 1,
             shiftX: 8,
             shiftY: true,
-            alwaysByViewport: true,
           }}
         >
           <span>show me your code</span>
