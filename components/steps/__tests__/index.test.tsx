@@ -39,6 +39,21 @@ describe('Steps', () => {
     });
   });
 
+  it('should expose the progress icon as a named progressbar', () => {
+    const { container } = render(
+      <Steps
+        current={1}
+        percent={60}
+        items={[{ title: 'Finished' }, { title: 'In Progress' }, { title: 'Waiting' }]}
+      />,
+    );
+    const svg = container.querySelector<SVGSVGElement>('.ant-steps-item-progress-icon-svg')!;
+    expect(svg).toBeTruthy();
+    // `aria-valuenow` and friends are only allowed on a widget role.
+    expect(svg.getAttribute('role')).toBe('progressbar');
+    expect(svg.getAttribute('aria-valuenow')).toBe('60');
+  });
+
   const description = 'This is a description.';
   it('should render correct', () => {
     const { container } = render(

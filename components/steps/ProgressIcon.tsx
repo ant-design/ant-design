@@ -27,6 +27,7 @@ const ProgressIcon: React.FC<React.PropsWithChildren<ProgressIconProps>> = (prop
         width="100%"
         height="100%"
         xmlns="http://www.w3.org/2000/svg"
+        role="progressbar"
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={percent}
