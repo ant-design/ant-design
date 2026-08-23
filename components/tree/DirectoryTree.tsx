@@ -74,14 +74,14 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
   const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
 
   React.useEffect(() => {
-    if ('selectedKeys' in props) {
-      setSelectedKeys(props.selectedKeys!);
+    if (props.selectedKeys !== undefined) {
+      setSelectedKeys(props.selectedKeys);
     }
   }, [props.selectedKeys]);
 
   React.useEffect(() => {
-    if ('expandedKeys' in props) {
-      setExpandedKeys(props.expandedKeys!);
+    if (props.expandedKeys !== undefined) {
+      setExpandedKeys(props.expandedKeys);
     }
   }, [props.expandedKeys]);
 
@@ -93,7 +93,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       nativeEvent: MouseEvent;
     },
   ) => {
-    if (!('expandedKeys' in props)) {
+    if (props.expandedKeys === undefined) {
       setExpandedKeys(keys);
     }
     // Call origin function
@@ -158,7 +158,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     }
 
     props.onSelect?.(newSelectedKeys, newEvent);
-    if (!('selectedKeys' in props)) {
+    if (props.selectedKeys === undefined) {
       setSelectedKeys(newSelectedKeys);
     }
   };
