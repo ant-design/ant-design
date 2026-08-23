@@ -102,6 +102,14 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
     Object.keys(a11yProps) as (keyof React.AriaAttributes)[],
   );
 
+  // The code itself is rendered with `role="img"`, which requires an accessible name.
+  // Fall back to the encoded text when the caller supplies neither `aria-label` nor
+  // `aria-labelledby`, so a QRCode is never announced as an unnamed image.
+  // `value` also accepts several segments, which are encoded as one concatenated payload.
+  const hasA11yLabel = 'aria-label' in a11yProps || 'aria-labelledby' in a11yProps;
+  const encodedText = Array.isArray(value) ? value.join('') : value;
+  const defaultAriaLabel = hasA11yLabel ? undefined : encodedText || undefined;
+
   const qrCodeProps = {
     value,
     size,
@@ -112,6 +120,7 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
     imageSettings: icon ? imageSettings : undefined,
     marginSize,
     boostLevel,
+    'aria-label': defaultAriaLabel,
     ...a11yProps,
   };
 

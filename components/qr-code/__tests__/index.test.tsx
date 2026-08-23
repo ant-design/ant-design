@@ -197,6 +197,38 @@ describe('QRCode test', () => {
     expect(svgContainer.querySelector('svg')).toHaveAttribute('aria-label', ariaLabel);
   });
 
+  it('should default the accessible name to the encoded value', () => {
+    const { container: canvasContainer } = render(<QRCode value="https://ant.design" />);
+    expect(canvasContainer.querySelector('canvas')).toHaveAttribute(
+      'aria-label',
+      'https://ant.design',
+    );
+
+    const { container: svgContainer } = render(<QRCode value="https://ant.design" type="svg" />);
+    expect(svgContainer.querySelector('svg')).toHaveAttribute('aria-label', 'https://ant.design');
+
+    // `value` also accepts several segments, encoded as one concatenated payload
+    const { container: segments } = render(<QRCode value={['https://ant.design', '/docs']} />);
+    expect(segments.querySelector('canvas')).toHaveAttribute(
+      'aria-label',
+      'https://ant.design/docs',
+    );
+  });
+
+  it('should not override a caller provided accessible name', () => {
+    const { container: labelled } = render(
+      <QRCode value="https://ant.design" aria-label="Scan me" />,
+    );
+    expect(labelled.querySelector('canvas')).toHaveAttribute('aria-label', 'Scan me');
+
+    const { container: labelledBy } = render(
+      <QRCode value="https://ant.design" aria-labelledby="qrcode-caption" />,
+    );
+    const canvas = labelledBy.querySelector('canvas');
+    expect(canvas).toHaveAttribute('aria-labelledby', 'qrcode-caption');
+    expect(canvas).not.toHaveAttribute('aria-label');
+  });
+
   it('should respect custom marginSize for SVG', () => {
     const { container: base } = render(<QRCode value="ant-design" type="svg" />);
     const vbBase = base.querySelector('svg')?.getAttribute('viewBox');
