@@ -25,6 +25,7 @@ components/*/*.jsx
 .gitignore
 .npmignore
 .prettierignore
+.surgeignore
 .DS_Store
 .editorconfig
 .eslintignore

@@ -393,7 +393,6 @@ exports[`Locale Provider > should display the text as ar 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -532,7 +531,7 @@ exports[`Locale Provider > should display the text as ar 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -2086,7 +2085,7 @@ exports[`Locale Provider > should display the text as ar 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="إغلاق"
             class="ant-modal-close"
             type="button"
           >
@@ -2343,7 +2342,6 @@ exports[`Locale Provider > should display the text as az 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -2482,7 +2480,7 @@ exports[`Locale Provider > should display the text as az 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -4036,7 +4034,7 @@ exports[`Locale Provider > should display the text as az 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Bağla"
             class="ant-modal-close"
             type="button"
           >
@@ -4293,7 +4291,6 @@ exports[`Locale Provider > should display the text as bg 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -4432,7 +4429,7 @@ exports[`Locale Provider > should display the text as bg 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -5986,7 +5983,7 @@ exports[`Locale Provider > should display the text as bg 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Затвори"
             class="ant-modal-close"
             type="button"
           >
@@ -6243,7 +6240,6 @@ exports[`Locale Provider > should display the text as bn-bd 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -6382,7 +6378,7 @@ exports[`Locale Provider > should display the text as bn-bd 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -7936,7 +7932,7 @@ exports[`Locale Provider > should display the text as bn-bd 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="বন্ধ"
             class="ant-modal-close"
             type="button"
           >
@@ -8193,7 +8189,6 @@ exports[`Locale Provider > should display the text as by 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -8332,7 +8327,7 @@ exports[`Locale Provider > should display the text as by 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -9886,7 +9881,7 @@ exports[`Locale Provider > should display the text as by 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Закрыць"
             class="ant-modal-close"
             type="button"
           >
@@ -10143,7 +10138,6 @@ exports[`Locale Provider > should display the text as ca 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -10282,7 +10276,7 @@ exports[`Locale Provider > should display the text as ca 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -11836,7 +11830,7 @@ exports[`Locale Provider > should display the text as ca 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Tancar"
             class="ant-modal-close"
             type="button"
           >
@@ -12093,7 +12087,6 @@ exports[`Locale Provider > should display the text as cs 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -12232,7 +12225,7 @@ exports[`Locale Provider > should display the text as cs 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -13786,7 +13779,7 @@ exports[`Locale Provider > should display the text as cs 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zavřít"
             class="ant-modal-close"
             type="button"
           >
@@ -14043,7 +14036,6 @@ exports[`Locale Provider > should display the text as da 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -14182,7 +14174,7 @@ exports[`Locale Provider > should display the text as da 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -15736,7 +15728,7 @@ exports[`Locale Provider > should display the text as da 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Luk"
             class="ant-modal-close"
             type="button"
           >
@@ -15993,7 +15985,6 @@ exports[`Locale Provider > should display the text as de 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -16132,7 +16123,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -17686,7 +17677,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Schließen"
             class="ant-modal-close"
             type="button"
           >
@@ -17943,7 +17934,6 @@ exports[`Locale Provider > should display the text as el 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -18082,7 +18072,7 @@ exports[`Locale Provider > should display the text as el 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -19636,7 +19626,7 @@ exports[`Locale Provider > should display the text as el 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Κλείσιμο"
             class="ant-modal-close"
             type="button"
           >
@@ -19893,7 +19883,6 @@ exports[`Locale Provider > should display the text as en 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -20032,7 +20021,7 @@ exports[`Locale Provider > should display the text as en 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -21843,7 +21832,6 @@ exports[`Locale Provider > should display the text as en-gb 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -21982,7 +21970,7 @@ exports[`Locale Provider > should display the text as en-gb 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -23793,7 +23781,6 @@ exports[`Locale Provider > should display the text as es 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -23932,7 +23919,7 @@ exports[`Locale Provider > should display the text as es 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -25486,7 +25473,7 @@ exports[`Locale Provider > should display the text as es 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Cerrar"
             class="ant-modal-close"
             type="button"
           >
@@ -25743,7 +25730,6 @@ exports[`Locale Provider > should display the text as es-us 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -25882,7 +25868,7 @@ exports[`Locale Provider > should display the text as es-us 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -27436,7 +27422,7 @@ exports[`Locale Provider > should display the text as es-us 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Cerrar"
             class="ant-modal-close"
             type="button"
           >
@@ -27693,7 +27679,6 @@ exports[`Locale Provider > should display the text as et 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -27832,7 +27817,7 @@ exports[`Locale Provider > should display the text as et 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -29386,7 +29371,7 @@ exports[`Locale Provider > should display the text as et 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Sulge"
             class="ant-modal-close"
             type="button"
           >
@@ -29643,7 +29628,6 @@ exports[`Locale Provider > should display the text as eu 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -29782,7 +29766,7 @@ exports[`Locale Provider > should display the text as eu 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -31336,7 +31320,7 @@ exports[`Locale Provider > should display the text as eu 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Itxi"
             class="ant-modal-close"
             type="button"
           >
@@ -31593,7 +31577,6 @@ exports[`Locale Provider > should display the text as fa 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -31732,7 +31715,7 @@ exports[`Locale Provider > should display the text as fa 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -33286,7 +33269,7 @@ exports[`Locale Provider > should display the text as fa 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="بستن"
             class="ant-modal-close"
             type="button"
           >
@@ -33543,7 +33526,6 @@ exports[`Locale Provider > should display the text as fi 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -33682,7 +33664,7 @@ exports[`Locale Provider > should display the text as fi 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -35236,7 +35218,7 @@ exports[`Locale Provider > should display the text as fi 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Sulje"
             class="ant-modal-close"
             type="button"
           >
@@ -35493,7 +35475,6 @@ exports[`Locale Provider > should display the text as fr 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -35632,7 +35613,7 @@ exports[`Locale Provider > should display the text as fr 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -37186,7 +37167,7 @@ exports[`Locale Provider > should display the text as fr 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Fermer"
             class="ant-modal-close"
             type="button"
           >
@@ -37443,7 +37424,6 @@ exports[`Locale Provider > should display the text as fr 2`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -37582,7 +37562,7 @@ exports[`Locale Provider > should display the text as fr 2`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -39136,7 +39116,7 @@ exports[`Locale Provider > should display the text as fr 2`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Fermer"
             class="ant-modal-close"
             type="button"
           >
@@ -39393,7 +39373,6 @@ exports[`Locale Provider > should display the text as fr 3`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -39532,7 +39511,7 @@ exports[`Locale Provider > should display the text as fr 3`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -41086,7 +41065,7 @@ exports[`Locale Provider > should display the text as fr 3`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Fermer"
             class="ant-modal-close"
             type="button"
           >
@@ -41343,7 +41322,6 @@ exports[`Locale Provider > should display the text as ga 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -41482,7 +41460,7 @@ exports[`Locale Provider > should display the text as ga 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -43036,7 +43014,7 @@ exports[`Locale Provider > should display the text as ga 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Dún"
             class="ant-modal-close"
             type="button"
           >
@@ -43293,7 +43271,6 @@ exports[`Locale Provider > should display the text as gl 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -43432,7 +43409,7 @@ exports[`Locale Provider > should display the text as gl 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -44986,7 +44963,7 @@ exports[`Locale Provider > should display the text as gl 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Cerrar"
             class="ant-modal-close"
             type="button"
           >
@@ -45243,7 +45220,6 @@ exports[`Locale Provider > should display the text as he 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -45382,7 +45358,7 @@ exports[`Locale Provider > should display the text as he 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -46936,7 +46912,7 @@ exports[`Locale Provider > should display the text as he 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="סגור"
             class="ant-modal-close"
             type="button"
           >
@@ -47193,7 +47169,6 @@ exports[`Locale Provider > should display the text as hi 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -47332,7 +47307,7 @@ exports[`Locale Provider > should display the text as hi 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -48886,7 +48861,7 @@ exports[`Locale Provider > should display the text as hi 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="बंद"
             class="ant-modal-close"
             type="button"
           >
@@ -49143,7 +49118,6 @@ exports[`Locale Provider > should display the text as hr 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -49282,7 +49256,7 @@ exports[`Locale Provider > should display the text as hr 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -50836,7 +50810,7 @@ exports[`Locale Provider > should display the text as hr 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zatvori"
             class="ant-modal-close"
             type="button"
           >
@@ -51093,7 +51067,6 @@ exports[`Locale Provider > should display the text as hu 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -51232,7 +51205,7 @@ exports[`Locale Provider > should display the text as hu 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -52786,7 +52759,7 @@ exports[`Locale Provider > should display the text as hu 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Bezárás"
             class="ant-modal-close"
             type="button"
           >
@@ -53043,7 +53016,6 @@ exports[`Locale Provider > should display the text as hy-am 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -53182,7 +53154,7 @@ exports[`Locale Provider > should display the text as hy-am 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -54736,7 +54708,7 @@ exports[`Locale Provider > should display the text as hy-am 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Դադարեցնել"
             class="ant-modal-close"
             type="button"
           >
@@ -54993,7 +54965,6 @@ exports[`Locale Provider > should display the text as id 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -55132,7 +55103,7 @@ exports[`Locale Provider > should display the text as id 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -56686,7 +56657,7 @@ exports[`Locale Provider > should display the text as id 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Tutup"
             class="ant-modal-close"
             type="button"
           >
@@ -56943,7 +56914,6 @@ exports[`Locale Provider > should display the text as is 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -57082,7 +57052,7 @@ exports[`Locale Provider > should display the text as is 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -58636,7 +58606,7 @@ exports[`Locale Provider > should display the text as is 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Loka"
             class="ant-modal-close"
             type="button"
           >
@@ -58893,7 +58863,6 @@ exports[`Locale Provider > should display the text as it 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -59032,7 +59001,7 @@ exports[`Locale Provider > should display the text as it 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -60586,7 +60555,7 @@ exports[`Locale Provider > should display the text as it 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Chiudi"
             class="ant-modal-close"
             type="button"
           >
@@ -60843,7 +60812,6 @@ exports[`Locale Provider > should display the text as ja 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -60982,7 +60950,7 @@ exports[`Locale Provider > should display the text as ja 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -62536,7 +62504,7 @@ exports[`Locale Provider > should display the text as ja 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="閉じる"
             class="ant-modal-close"
             type="button"
           >
@@ -62793,7 +62761,6 @@ exports[`Locale Provider > should display the text as ka 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -62932,7 +62899,7 @@ exports[`Locale Provider > should display the text as ka 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -64486,7 +64453,7 @@ exports[`Locale Provider > should display the text as ka 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="დახურვა"
             class="ant-modal-close"
             type="button"
           >
@@ -64743,7 +64710,6 @@ exports[`Locale Provider > should display the text as kk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -64882,7 +64848,7 @@ exports[`Locale Provider > should display the text as kk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -66436,7 +66402,7 @@ exports[`Locale Provider > should display the text as kk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Жабу"
             class="ant-modal-close"
             type="button"
           >
@@ -66693,7 +66659,6 @@ exports[`Locale Provider > should display the text as km 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -66832,7 +66797,7 @@ exports[`Locale Provider > should display the text as km 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -68384,7 +68349,7 @@ exports[`Locale Provider > should display the text as km 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="បិទ"
             class="ant-modal-close"
             type="button"
           >
@@ -68641,7 +68606,6 @@ exports[`Locale Provider > should display the text as kn 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -68780,7 +68744,7 @@ exports[`Locale Provider > should display the text as kn 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -70334,7 +70298,7 @@ exports[`Locale Provider > should display the text as kn 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="ಮುಚ್ಚಿ"
             class="ant-modal-close"
             type="button"
           >
@@ -70591,7 +70555,6 @@ exports[`Locale Provider > should display the text as ko 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -70730,7 +70693,7 @@ exports[`Locale Provider > should display the text as ko 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -72284,7 +72247,7 @@ exports[`Locale Provider > should display the text as ko 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="닫기"
             class="ant-modal-close"
             type="button"
           >
@@ -72541,7 +72504,6 @@ exports[`Locale Provider > should display the text as ku 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -72680,7 +72642,7 @@ exports[`Locale Provider > should display the text as ku 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -74234,7 +74196,7 @@ exports[`Locale Provider > should display the text as ku 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Betal ke"
             class="ant-modal-close"
             type="button"
           >
@@ -74491,7 +74453,6 @@ exports[`Locale Provider > should display the text as ku-iq 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -74630,7 +74591,7 @@ exports[`Locale Provider > should display the text as ku-iq 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -76184,7 +76145,7 @@ exports[`Locale Provider > should display the text as ku-iq 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Betal ke"
             class="ant-modal-close"
             type="button"
           >
@@ -76441,7 +76402,6 @@ exports[`Locale Provider > should display the text as lt 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -76580,7 +76540,7 @@ exports[`Locale Provider > should display the text as lt 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -78134,7 +78094,7 @@ exports[`Locale Provider > should display the text as lt 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Uždaryti"
             class="ant-modal-close"
             type="button"
           >
@@ -78391,7 +78351,6 @@ exports[`Locale Provider > should display the text as lv 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -78530,7 +78489,7 @@ exports[`Locale Provider > should display the text as lv 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -80084,7 +80043,7 @@ exports[`Locale Provider > should display the text as lv 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Aizvērt"
             class="ant-modal-close"
             type="button"
           >
@@ -80341,7 +80300,6 @@ exports[`Locale Provider > should display the text as mk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -80480,7 +80438,7 @@ exports[`Locale Provider > should display the text as mk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -82034,7 +81992,7 @@ exports[`Locale Provider > should display the text as mk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Затвори"
             class="ant-modal-close"
             type="button"
           >
@@ -82291,7 +82249,6 @@ exports[`Locale Provider > should display the text as ml 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -82430,7 +82387,7 @@ exports[`Locale Provider > should display the text as ml 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -83984,7 +83941,7 @@ exports[`Locale Provider > should display the text as ml 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="മുടക്കുക"
             class="ant-modal-close"
             type="button"
           >
@@ -84241,7 +84198,6 @@ exports[`Locale Provider > should display the text as mn-mn 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -84380,7 +84336,7 @@ exports[`Locale Provider > should display the text as mn-mn 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -85934,7 +85890,7 @@ exports[`Locale Provider > should display the text as mn-mn 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Хаах"
             class="ant-modal-close"
             type="button"
           >
@@ -86191,7 +86147,6 @@ exports[`Locale Provider > should display the text as mr 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -86330,7 +86285,7 @@ exports[`Locale Provider > should display the text as mr 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -87884,7 +87839,7 @@ exports[`Locale Provider > should display the text as mr 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="बंद करा"
             class="ant-modal-close"
             type="button"
           >
@@ -88141,7 +88096,6 @@ exports[`Locale Provider > should display the text as ms-my 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -88280,7 +88234,7 @@ exports[`Locale Provider > should display the text as ms-my 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -89834,7 +89788,7 @@ exports[`Locale Provider > should display the text as ms-my 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Tutup"
             class="ant-modal-close"
             type="button"
           >
@@ -90091,7 +90045,6 @@ exports[`Locale Provider > should display the text as my 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -90230,7 +90183,7 @@ exports[`Locale Provider > should display the text as my 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -91784,7 +91737,7 @@ exports[`Locale Provider > should display the text as my 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="ပိတ်ပါ"
             class="ant-modal-close"
             type="button"
           >
@@ -92041,7 +91994,6 @@ exports[`Locale Provider > should display the text as nb 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -92180,7 +92132,7 @@ exports[`Locale Provider > should display the text as nb 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -93734,7 +93686,7 @@ exports[`Locale Provider > should display the text as nb 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Lukk"
             class="ant-modal-close"
             type="button"
           >
@@ -93991,7 +93943,6 @@ exports[`Locale Provider > should display the text as ne-np 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -94130,7 +94081,7 @@ exports[`Locale Provider > should display the text as ne-np 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -95684,7 +95635,7 @@ exports[`Locale Provider > should display the text as ne-np 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="बन्द"
             class="ant-modal-close"
             type="button"
           >
@@ -95941,7 +95892,6 @@ exports[`Locale Provider > should display the text as nl 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -96080,7 +96030,7 @@ exports[`Locale Provider > should display the text as nl 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -97634,7 +97584,7 @@ exports[`Locale Provider > should display the text as nl 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Sluiten"
             class="ant-modal-close"
             type="button"
           >
@@ -97891,7 +97841,6 @@ exports[`Locale Provider > should display the text as nl-be 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -98030,7 +97979,7 @@ exports[`Locale Provider > should display the text as nl-be 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -99584,7 +99533,7 @@ exports[`Locale Provider > should display the text as nl-be 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Sluiten"
             class="ant-modal-close"
             type="button"
           >
@@ -99841,7 +99790,6 @@ exports[`Locale Provider > should display the text as pl 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -99980,7 +99928,7 @@ exports[`Locale Provider > should display the text as pl 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -101534,7 +101482,7 @@ exports[`Locale Provider > should display the text as pl 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zamknij"
             class="ant-modal-close"
             type="button"
           >
@@ -101791,7 +101739,6 @@ exports[`Locale Provider > should display the text as pt 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -101930,7 +101877,7 @@ exports[`Locale Provider > should display the text as pt 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -103484,7 +103431,7 @@ exports[`Locale Provider > should display the text as pt 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Fechar"
             class="ant-modal-close"
             type="button"
           >
@@ -103741,7 +103688,6 @@ exports[`Locale Provider > should display the text as pt-br 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -103880,7 +103826,7 @@ exports[`Locale Provider > should display the text as pt-br 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -105434,7 +105380,7 @@ exports[`Locale Provider > should display the text as pt-br 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Fechar"
             class="ant-modal-close"
             type="button"
           >
@@ -105691,7 +105637,6 @@ exports[`Locale Provider > should display the text as ro 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -105830,7 +105775,7 @@ exports[`Locale Provider > should display the text as ro 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -107384,7 +107329,7 @@ exports[`Locale Provider > should display the text as ro 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Închide"
             class="ant-modal-close"
             type="button"
           >
@@ -107641,7 +107586,6 @@ exports[`Locale Provider > should display the text as ru 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -107780,7 +107724,7 @@ exports[`Locale Provider > should display the text as ru 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -109334,7 +109278,7 @@ exports[`Locale Provider > should display the text as ru 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Закрыть"
             class="ant-modal-close"
             type="button"
           >
@@ -109591,7 +109535,6 @@ exports[`Locale Provider > should display the text as si 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -109730,7 +109673,7 @@ exports[`Locale Provider > should display the text as si 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -111284,7 +111227,7 @@ exports[`Locale Provider > should display the text as si 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="වසන්න"
             class="ant-modal-close"
             type="button"
           >
@@ -111541,7 +111484,6 @@ exports[`Locale Provider > should display the text as sk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -111680,7 +111622,7 @@ exports[`Locale Provider > should display the text as sk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -113234,7 +113176,7 @@ exports[`Locale Provider > should display the text as sk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zavrieť"
             class="ant-modal-close"
             type="button"
           >
@@ -113491,7 +113433,6 @@ exports[`Locale Provider > should display the text as sl 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -113630,7 +113571,7 @@ exports[`Locale Provider > should display the text as sl 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -115184,7 +115125,7 @@ exports[`Locale Provider > should display the text as sl 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zapri"
             class="ant-modal-close"
             type="button"
           >
@@ -115248,6 +115189,1955 @@ exports[`Locale Provider > should display the text as sl 1`] = `
             >
               <span>
                 V redu
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Locale Provider > should display the text as sq 1`] = `
+<div>
+  <ul
+    class="ant-pagination css-var-root"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev ant-pagination-disabled"
+      title="Faqja e mëparshme"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Faqja tjetër"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-options"
+    >
+      <div
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      >
+        <div
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / faqe"
+        >
+          10 / faqe
+          <input
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="Page Size"
+            autocomplete="new-password"
+            class="ant-select-input"
+            id="test-id"
+            role="combobox"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-select-suffix"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div
+    class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+    style="width: 200px;"
+  >
+    <div
+      class="ant-select-content"
+    >
+      <div
+        class="ant-select-placeholder"
+      />
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="new-password"
+        class="ant-select-input"
+        id="test-id"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        placeholder="Zgjidh datën"
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-hidden="true"
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        placeholder="Zgjidh kohën"
+        size="10"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-hidden="true"
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
+    style="width: 200px;"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active ant-picker-input-start"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        date-range="start"
+        placeholder="Data e fillimit"
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        aria-hidden="true"
+        class="ant-picker-separator"
+      >
+        <span
+          aria-label="swap-right"
+          class="anticon anticon-swap-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="swap-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-picker-input ant-picker-input-end"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        date-range="end"
+        placeholder="Data e mbarimit"
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="position: absolute; width: 0px; left: 0px;"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-hidden="true"
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <a
+    aria-describedby="test-id"
+    class="ant-popover-open"
+  >
+    Click to confirm
+  </a>
+  <div
+    class="ant-transfer css-var-root"
+  >
+    <div
+      class="ant-transfer-section"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+          >
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          0
+          element
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
+      >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Kërko këtu"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <button
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                type="button"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
+          <div
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Nuk ka të dhëna
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                    />
+                    <path
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              Nuk ka të dhëna
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-actions"
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-section"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
+        >
+          <span
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+          >
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          0
+          element
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </div>
+      <div
+        class="ant-transfer-list-body ant-transfer-list-body-with-search"
+      >
+        <div
+          class="ant-transfer-list-body-search-wrapper"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              <span
+                aria-label="search"
+                class="anticon anticon-search"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="search"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <input
+              class="ant-input"
+              placeholder="Kërko këtu"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <button
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                type="button"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
+          <div
+            class="css-var-root ant-empty ant-empty-normal ant-empty-small"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Nuk ka të dhëna
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                    />
+                    <path
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              Nuk ka të dhëna
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-root"
+  >
+    <div
+      class="ant-picker-calendar-header"
+    >
+      <div
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      >
+        <div
+          class="ant-select-content ant-select-content-has-value"
+          title="2017"
+        >
+          2017
+          <input
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            autocomplete="new-password"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-select-suffix"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+      >
+        <div
+          class="ant-select-content ant-select-content-has-value"
+          title="Sht"
+        >
+          Sht
+          <input
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            autocomplete="new-password"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-select-suffix"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
+      >
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              name="test-id"
+              type="radio"
+              value="month"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+            Muaj
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              name="test-id"
+              type="radio"
+              value="year"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+            Vit
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-picker-panel"
+      tabindex="0"
+    >
+      <div
+        class="ant-picker-date-panel"
+      >
+        <div
+          class="ant-picker-body"
+        >
+          <table
+            class="ant-picker-content"
+          >
+            <thead>
+              <tr>
+                <th>
+                  Hën
+                </th>
+                <th>
+                  Mar
+                </th>
+                <th>
+                  Mër
+                </th>
+                <th>
+                  Enj
+                </th>
+                <th>
+                  Pre
+                </th>
+                <th>
+                  Sht
+                </th>
+                <th>
+                  Die
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="ant-picker-cell"
+                  title="28/08/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="29/08/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      29
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="30/08/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="31/08/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      31
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="01/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="02/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="03/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="04/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="05/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="06/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="07/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="08/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="09/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="10/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="11/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      11
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="12/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      12
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="13/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      13
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="14/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      14
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="15/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      15
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="16/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      16
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="17/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      17
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  title="18/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      18
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="19/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      19
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="20/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      20
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="21/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      21
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="22/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      22
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="23/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      23
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="24/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      24
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="25/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      25
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="26/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      26
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="27/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="28/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="29/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      29
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell ant-picker-cell-in-view"
+                  title="30/09/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="01/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="ant-picker-cell"
+                  title="02/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="03/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="04/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="05/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="06/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="07/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+                <td
+                  class="ant-picker-cell"
+                  title="08/10/2017"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="css-var-root ant-table-css-var ant-table-wrapper"
+  >
+    <div
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-root"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-empty css-var-root ant-table-css-var"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-placeholder"
+                  >
+                    <td
+                      class="ant-table-cell"
+                      colspan="2"
+                    >
+                      <div
+                        class="css-var-root ant-empty ant-empty-normal"
+                      >
+                        <div
+                          class="ant-empty-image"
+                        >
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <title>
+                              Nuk ka të dhëna
+                            </title>
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
+                            >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
+                              <g
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
+                              >
+                                <path
+                                  d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                                />
+                                <path
+                                  d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                                  fill="#fafafa"
+                                />
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          Nuk ka të dhëna
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-modal-root css-var-root ant-modal-css-var"
+  >
+    <div
+      class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+    />
+    <div
+      class="ant-modal-wrap"
+    >
+      <div
+        aria-labelledby="test-id"
+        aria-modal="true"
+        class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
+        role="dialog"
+        style="width: 520px;"
+        tabindex="-1"
+      >
+        <div
+          class="ant-modal-container"
+        >
+          <button
+            aria-label="Mbyll"
+            class="ant-modal-close"
+            type="button"
+          >
+            <span
+              aria-label="Mbyll"
+              class="ant-modal-close-x"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close ant-modal-close-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="test-id"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Anulo
+              </span>
+            </button>
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
+            >
+              <span>
+                OK
               </span>
             </button>
           </div>
@@ -115441,7 +117331,6 @@ exports[`Locale Provider > should display the text as sr 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -115580,7 +117469,7 @@ exports[`Locale Provider > should display the text as sr 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -117134,7 +119023,7 @@ exports[`Locale Provider > should display the text as sr 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Zatvori"
             class="ant-modal-close"
             type="button"
           >
@@ -117391,7 +119280,6 @@ exports[`Locale Provider > should display the text as sv 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -117530,7 +119418,7 @@ exports[`Locale Provider > should display the text as sv 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -119084,7 +120972,7 @@ exports[`Locale Provider > should display the text as sv 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Stäng"
             class="ant-modal-close"
             type="button"
           >
@@ -119341,7 +121229,6 @@ exports[`Locale Provider > should display the text as ta 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -119480,7 +121367,7 @@ exports[`Locale Provider > should display the text as ta 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -121034,7 +122921,7 @@ exports[`Locale Provider > should display the text as ta 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="மூடு"
             class="ant-modal-close"
             type="button"
           >
@@ -121291,7 +123178,6 @@ exports[`Locale Provider > should display the text as th 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -121430,7 +123316,7 @@ exports[`Locale Provider > should display the text as th 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -122984,7 +124870,7 @@ exports[`Locale Provider > should display the text as th 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="ปิด"
             class="ant-modal-close"
             type="button"
           >
@@ -123241,7 +125127,6 @@ exports[`Locale Provider > should display the text as tk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -123380,7 +125265,7 @@ exports[`Locale Provider > should display the text as tk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -124934,7 +126819,7 @@ exports[`Locale Provider > should display the text as tk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Ýagty"
             class="ant-modal-close"
             type="button"
           >
@@ -125191,7 +127076,6 @@ exports[`Locale Provider > should display the text as tr 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -125330,7 +127214,7 @@ exports[`Locale Provider > should display the text as tr 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -126884,7 +128768,7 @@ exports[`Locale Provider > should display the text as tr 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Kapat"
             class="ant-modal-close"
             type="button"
           >
@@ -127141,7 +129025,6 @@ exports[`Locale Provider > should display the text as uk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -127280,7 +129163,7 @@ exports[`Locale Provider > should display the text as uk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -128834,7 +130717,7 @@ exports[`Locale Provider > should display the text as uk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Закрити"
             class="ant-modal-close"
             type="button"
           >
@@ -129091,7 +130974,6 @@ exports[`Locale Provider > should display the text as ur 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -129230,7 +131112,7 @@ exports[`Locale Provider > should display the text as ur 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -130784,7 +132666,7 @@ exports[`Locale Provider > should display the text as ur 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="بند کریں"
             class="ant-modal-close"
             type="button"
           >
@@ -131041,7 +132923,6 @@ exports[`Locale Provider > should display the text as uz-latn 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -131180,7 +133061,7 @@ exports[`Locale Provider > should display the text as uz-latn 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -132734,7 +134615,7 @@ exports[`Locale Provider > should display the text as uz-latn 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Yopish"
             class="ant-modal-close"
             type="button"
           >
@@ -132991,7 +134872,6 @@ exports[`Locale Provider > should display the text as vi 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -133130,7 +135010,7 @@ exports[`Locale Provider > should display the text as vi 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -134684,7 +136564,7 @@ exports[`Locale Provider > should display the text as vi 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="Đóng"
             class="ant-modal-close"
             type="button"
           >
@@ -134941,7 +136821,6 @@ exports[`Locale Provider > should display the text as zh-cn 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -135080,7 +136959,7 @@ exports[`Locale Provider > should display the text as zh-cn 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -136634,7 +138513,7 @@ exports[`Locale Provider > should display the text as zh-cn 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="关闭"
             class="ant-modal-close"
             type="button"
           >
@@ -136891,7 +138770,6 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -137030,7 +138908,7 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -138584,7 +140462,7 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="關閉"
             class="ant-modal-close"
             type="button"
           >
@@ -138841,7 +140719,6 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -138980,7 +140857,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -139136,7 +141013,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             </span>
             <input
               class="ant-input"
-              placeholder="搜尋資料"
+              placeholder="在此搜尋"
               type="text"
               value=""
             />
@@ -139187,7 +141064,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  無此資料
+                  暫無資料
                 </title>
                 <g
                   fill="none"
@@ -139219,7 +141096,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             <div
               class="ant-empty-description"
             >
-              無此資料
+              暫無資料
             </div>
           </div>
         </div>
@@ -139369,7 +141246,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             </span>
             <input
               class="ant-input"
-              placeholder="搜尋資料"
+              placeholder="在此搜尋"
               type="text"
               value=""
             />
@@ -139420,7 +141297,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <title>
-                  無此資料
+                  暫無資料
                 </title>
                 <g
                   fill="none"
@@ -139452,7 +141329,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
             <div
               class="ant-empty-description"
             >
-              無此資料
+              暫無資料
             </div>
           </div>
         </div>
@@ -140468,7 +142345,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title>
-                              無此資料
+                              暫無資料
                             </title>
                             <g
                               fill="none"
@@ -140500,7 +142377,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
                         <div
                           class="ant-empty-description"
                         >
-                          無此資料
+                          暫無資料
                         </div>
                       </div>
                     </td>
@@ -140534,7 +142411,7 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
           class="ant-modal-container"
         >
           <button
-            aria-label="Close"
+            aria-label="關閉"
             class="ant-modal-close"
             type="button"
           >

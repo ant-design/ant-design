@@ -18,9 +18,15 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
       opacity: 1,
-      background: token.colorBgBase,
-      borderRadius: '50%',
     },
+    [`${componentCls}-suffix:not(:last-child)`]: {
+      opacity: 0,
+      pointerEvents: 'none',
+    },
+    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow):not(${componentCls}-customize) ${componentCls}-content`]:
+      {
+        marginInlineEnd: token.showArrowPaddingInlineEnd,
+      },
   };
 
   return {
@@ -58,12 +64,17 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         width: token.fontSizeIcon,
         height: token.fontSizeIcon,
         marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
+        padding: 0,
+        background: 'transparent',
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
+        fontFamily: 'inherit',
         fontStyle: 'normal',
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
+        appearance: 'none',
+        border: 0,
         cursor: 'pointer',
         opacity: 0,
         transition: ['color', 'opacity']

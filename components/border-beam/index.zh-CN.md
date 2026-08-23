@@ -22,6 +22,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/hover.tsx">鼠标悬浮时显示</code>
+<code src="./demo/count.tsx" version="6.6.0">多条流光</code>
 <code src="./demo/custom-container.tsx">自定义容器</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
 <code src="./demo/duration.tsx" version="6.5.0">动画时长</code>
@@ -40,6 +41,7 @@ tag: 6.4.0
 | --- | --- | --- | --- | --- | --- |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
+| count | 流光数量 | number | 1 | 6.6.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |
 | lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | 6.5.0 | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | 6.4.0 | × |
@@ -59,6 +61,14 @@ tag: 6.4.0
 
 `percent` 表示渐变停靠点的输入位置，取值范围为 `0 ~ 100`。组件会将这些停靠点映射到可见 beam 段内，并为尾部透明过渡保留空间，以保持流光尾迹连续可见。
 
+### `size` 的取值限制 {#faq-size-limit}
+
+流光由一个边长为 `size` 的方形渐变层生成。渐变层沿容器边框移动，遮罩只显示它与边框重叠的区域。`size` 设置的是渐变层边长，不按边框路径长度计算。
+
+流光经过水平边框时，方形渐变层会向边框两侧各延伸约 `size / 2`。当 `size` 接近或超过遮罩覆盖层高度的两倍，它可能同时覆盖上下边框。流光经过垂直边框时，宽度方向同理。
+
+使用时应让 `size` 明显小于遮罩覆盖层短边的两倍：`size < 2 × min(width, height)`。遮罩覆盖层通常与被装饰容器大小接近，`outset` 会改变其尺寸。圆角、`lineWidth` 和渐变透明区域也会影响重叠开始可见的位置。
+
 ### 为什么 `BorderBeam` 没有效果？ {#faq-not-working}
 
 `BorderBeam` 需要通过 `children` 获取实际 DOM 节点，并将流光层插入到该节点中。请确保被包裹的内容是原生 DOM 元素，或是正确透传 `ref` 到 DOM 的 React 组件，否则组件无法定位真实容器，也就无法渲染流光效果。
@@ -69,16 +79,6 @@ tag: 6.4.0
 
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
 
-`BorderBeam` 会在初始化时读取实际容器的计算后 `border-radius`。这个能力更适合 `Card` 这类单容器子节点场景；若子节点结构较复杂，建议直接把圆角写在实际容器根节点上，以获得更稳定的结果。
+`BorderBeam` 会将流光层渲染为实际容器的子节点，并通过 `border-radius: inherit` 直接继承容器圆角。对于 `Card` 这类单容器子节点，流光边框会自动与容器圆角对齐；若子节点结构较复杂，请确保圆角设置在实际容器根节点上。
 
-为保证性能，圆角计算完成后不会持续重新测量。后续由尺寸、祖先样式或子节点内部状态引起的圆角变化，不保证自动重新同步。动画轨迹在运行时可能会做内部平滑处理。
-
-例如：
-
-```tsx
-const radius = 24;
-
-<BorderBeam>
-  <Card style={{ borderRadius: radius }} />
-</BorderBeam>;
-```
+圆角通过 CSS 继承实时生效，无需在初始化时读取或重新测量。后续通过 `className`、响应式样式或 CSS 变量修改容器圆角时，流光层也会自动同步。

@@ -2,11 +2,11 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
-import { useControlledState } from '@rc-component/util';
+import { useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -19,6 +19,7 @@ import type {
   UploadChangeParam,
   UploadFile,
   UploadProps,
+  UploadSemanticAllType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -89,6 +90,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
+  const getMergedFileList = useEvent(() => mergedFileList);
   const [dragState, setDragState] = React.useState<string>('drop');
 
   const uploadRef = React.useRef<RcUpload>(null);
@@ -304,11 +306,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         return;
       }
 
-      const removedFileList = removeFileItem(file, mergedFileList);
+      const currentFileList = getMergedFileList();
+      const removedFileList = removeFileItem(file, currentFileList);
 
       if (removedFileList) {
         currentFile = { ...file, status: 'removed' };
-        mergedFileList?.forEach((item) => {
+        currentFileList.forEach((item) => {
           const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
           if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
             item.status = 'removed';
@@ -363,13 +366,16 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextTriggerStyle = useSemanticRootStyle(contextStyle, 'trigger');
+  const triggerStyle = useSemanticRootStyle(style, 'trigger');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    UploadSemanticAllType['classNames'],
+    UploadSemanticAllType['styles'],
+    UploadProps
+  >([contextClassNames, classNames], [contextStyles, contextTriggerStyle, styles, triggerStyle], {
+    props: mergedProps,
+  });
 
   const rcUploadProps = {
     onBatchStart,
@@ -470,8 +476,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   );
   const mergedRootStyle: React.CSSProperties = { ...mergedStyles.root };
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
   // ======================== Render ========================
 
   if (type === 'drag') {
@@ -492,7 +496,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
         <div
           className={dragCls}
-          style={{ ...mergedStyle, ...mergedStyles.trigger }}
+          style={mergedStyles.trigger}
           onDrop={onFileDrop}
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
@@ -517,7 +521,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   );
 
   const uploadButton = (
-    <div className={uploadBtnCls} style={{ ...mergedStyle, ...mergedStyles.trigger }}>
+    <div className={uploadBtnCls} style={mergedStyles.trigger}>
       <RcUpload {...rcUploadProps} ref={uploadRef} />
     </div>
   );

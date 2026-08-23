@@ -256,6 +256,7 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -330,6 +331,7 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -404,6 +406,7 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -623,6 +626,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               class="ant-upload-list-item-actions"
             >
               <a
+                aria-label="Preview file"
                 href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -682,6 +686,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               class="ant-upload-list-item-actions"
             >
               <a
+                aria-label="Preview file"
                 href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -864,6 +869,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               class="ant-upload-list-item-actions"
             >
               <a
+                aria-label="Preview file"
                 href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -923,6 +929,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               class="ant-upload-list-item-actions"
             >
               <a
+                aria-label="Preview file"
                 href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1226,6 +1233,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -1300,6 +1308,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -1374,6 +1383,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -1633,6 +1643,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -1716,6 +1727,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -1799,6 +1811,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -1882,6 +1895,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -1964,6 +1978,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -2070,6 +2085,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
             rel="noopener noreferrer"
             target="_blank"
@@ -2096,6 +2112,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2182,6 +2199,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
             rel="noopener noreferrer"
             target="_blank"
@@ -2208,6 +2226,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2298,6 +2317,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2388,6 +2408,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2470,6 +2491,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2647,6 +2669,7 @@ exports[`renders components/upload/demo/fileList.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2897,6 +2920,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -2923,6 +2947,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -2986,6 +3011,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -3012,6 +3038,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3075,6 +3102,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -3101,6 +3129,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3164,6 +3193,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -3190,6 +3220,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3285,6 +3316,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3405,6 +3437,7 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <a
+            aria-label="Preview file"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -3431,6 +3464,7 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
             </span>
           </a>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3526,6 +3560,7 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3701,6 +3736,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3764,6 +3800,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -3837,6 +3874,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
           class="ant-upload-list-item-actions picture"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -4027,6 +4065,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4102,6 +4141,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4177,6 +4217,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4308,6 +4349,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4383,6 +4425,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4458,6 +4501,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
             class="ant-upload-list-item-actions"
           >
             <button
+              aria-label="Remove file"
               class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
               title="Remove file"
               type="button"
@@ -4657,6 +4701,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Download file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
@@ -4666,6 +4711,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
             </span>
           </button>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -4753,6 +4799,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Download file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
@@ -4762,6 +4809,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
             </span>
           </button>
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -4849,6 +4897,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"

@@ -373,7 +373,6 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -399,7 +398,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -426,7 +424,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -452,7 +449,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize med
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -478,7 +474,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -504,7 +499,6 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -530,7 +524,6 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
   >
     <div
       class="prefix-AutoComplete-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11227,7 +11220,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11276,7 +11268,6 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11326,7 +11317,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11375,7 +11365,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize medium 
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11424,7 +11413,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11473,7 +11461,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11522,7 +11509,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
   >
     <div
       class="prefix-Cascader-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -11756,7 +11742,8 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11803,7 +11790,8 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11850,7 +11838,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11897,7 +11886,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize medium 
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11944,7 +11934,8 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
         class="config-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
           role="img"
         >
@@ -11991,7 +11982,8 @@ exports[`ConfigProvider components Collapse normal 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -12038,7 +12030,8 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
         class="prefix-Collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right prefix-Collapse-arrow"
           role="img"
         >
@@ -12797,7 +12790,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12887,7 +12880,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -12977,7 +12970,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13066,7 +13059,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13155,7 +13148,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="config-picker-separator"
       >
         <span
@@ -13244,7 +13237,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -13333,7 +13326,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="prefix-RangePicker-separator"
       >
         <span
@@ -17097,11 +17090,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17118,7 +17111,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17138,7 +17131,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17174,11 +17167,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17195,7 +17188,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17215,7 +17208,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17251,11 +17244,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17272,7 +17265,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17292,7 +17285,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17328,11 +17321,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17349,7 +17342,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17369,7 +17362,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17405,11 +17398,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17426,7 +17419,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17446,7 +17439,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17482,11 +17475,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17503,7 +17496,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17523,7 +17516,7 @@ Array [
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17559,11 +17552,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="prefix-Menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17580,7 +17573,7 @@ Array [
       <ul
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17601,7 +17594,7 @@ Array [
           >
             <li
               class="prefix-Menu-item prefix-Menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               prefixcls="prefix-Menu"
               role="menuitem"
               style="padding-left: 48px;"
@@ -25377,7 +25370,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25406,11 +25399,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -25684,7 +25677,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25714,11 +25707,11 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -25993,7 +25986,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26022,11 +26015,11 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26300,7 +26293,7 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26329,11 +26322,11 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26607,7 +26600,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26636,11 +26629,11 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26914,7 +26907,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                           >
                             <li
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26943,11 +26936,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -27221,7 +27214,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           >
                             <li
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27250,11 +27243,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -41011,7 +41004,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41063,7 +41055,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41114,7 +41105,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41166,7 +41156,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41218,7 +41207,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   >
     <div
       class="config-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41270,7 +41258,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41322,7 +41309,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <div
       class="prefix-TreeSelect-placeholder"
-      style="visibility: visible;"
     />
     <input
       aria-autocomplete="list"
@@ -41428,6 +41414,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41596,6 +41583,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41695,6 +41683,7 @@ exports[`ConfigProvider components Upload configProvider componentSize medium 1`
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41794,6 +41783,7 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
           class="config-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="config-btn css-var-root config-btn-text config-btn-color-default config-btn-variant-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41893,6 +41883,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
           class="ant-upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
@@ -41992,6 +41983,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
           class="prefix-Upload-list-item-actions"
         >
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-action"
             title="Remove file"
             type="button"

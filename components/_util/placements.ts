@@ -27,7 +27,7 @@ export function getOverflowOptions(
     };
   }
 
-  const overflow = isPlainObject(autoAdjustOverflow) ? autoAdjustOverflow : {};
+  const overflow = isPlainObject<AdjustOverflow>(autoAdjustOverflow) ? autoAdjustOverflow : {};
 
   const baseOverflow: AlignType['overflow'] = {};
 

@@ -8,7 +8,7 @@ import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
@@ -168,8 +168,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     motion,
     getPopupContainer,
     placement = 'top',
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
+    mouseEnterDelay,
+    mouseLeaveDelay,
 
     rootClassName,
 
@@ -205,7 +205,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
@@ -293,15 +298,20 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     builtinPlacements: tooltipPlacements,
     getPopupContainer: mergedGetPopupContainer,
     destroyOnHidden: mergedDestroyOnHidden,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const overlayStyleRoot = useSemanticRootStyle(overlayStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TooltipSemanticAllType['classNames'],
+    TooltipSemanticAllType['styles'],
+    TooltipProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, overlayStyleRoot], {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
@@ -358,8 +368,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       prefixCls={prefixCls}
       classNames={{
         root: rootClassNames,
@@ -371,8 +381,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         root: {
           ...arrowContentStyle,
           ...mergedStyles.root,
-          ...contextStyle,
-          ...overlayStyle,
         },
         container: containerStyle,
         uniqueContainer: containerStyle,
@@ -397,7 +405,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       getTooltipContainer={mergedGetPopupContainer}
       destroyOnHidden={mergedDestroyOnHidden}
     >
-      {tempOpen ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
 

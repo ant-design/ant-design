@@ -25,9 +25,10 @@ const GlobalDemoStyles: React.FC = () => {
           width: calc(100% - ${token.lineWidth * 2}px);
           margin: 0 0 ${token.margin}px;
           background-color: ${token.colorBgContainer};
-          border: 1px solid ${token.colorSplit};
+          border: ${token.lineWidth}px ${token.lineType} ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
           transition: all ${token.motionDurationMid};
+          box-sizing: content-box;
 
           &.code-box-simplify {
             border-radius: 0;
@@ -157,7 +158,7 @@ const GlobalDemoStyles: React.FC = () => {
           }
 
           &.expand &-meta {
-            border-bottom: 1px dashed ${token.colorSplit};
+            border-bottom: ${token.lineWidth}px dashed ${token.colorSplit};
             border-radius: 0;
           }
 
@@ -187,7 +188,7 @@ const GlobalDemoStyles: React.FC = () => {
             }
 
             &:not(:first-child) {
-              border-top: 1px dashed ${token.colorSplit};
+              border-top: ${token.lineWidth}px dashed ${token.colorSplit};
             }
           }
 
@@ -195,7 +196,7 @@ const GlobalDemoStyles: React.FC = () => {
             display: flex;
             justify-content: center;
             padding: ${token.paddingSM}px 0;
-            border-top: 1px dashed ${token.colorSplit};
+            border-top: ${token.lineWidth}px dashed ${token.colorSplit};
             opacity: 0.7;
             transition: opacity ${token.motionDurationSlow};
 
@@ -246,7 +247,7 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-           &-codeblock {
+          &-codeblock {
             width: 16px;
             height: 16px;
             overflow: hidden;

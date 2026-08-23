@@ -10,7 +10,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -158,7 +157,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -300,7 +298,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -444,7 +441,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -648,8 +644,10 @@ Array [
         </svg>
       </span>
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -671,7 +669,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
@@ -970,8 +968,10 @@ Array [
         </svg>
       </span>
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -993,7 +993,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
@@ -1157,7 +1157,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -1393,7 +1392,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1537,7 +1535,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -1679,7 +1676,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -1826,7 +1822,6 @@ Array [
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         />
       </div>
       <div
@@ -2343,7 +2338,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2490,7 +2484,6 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2636,7 +2629,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2836,8 +2828,10 @@ Array [
         </svg>
       </span>
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -2859,7 +2853,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
@@ -3030,8 +3024,10 @@ Array [
         </svg>
       </span>
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -3053,7 +3049,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </button>
   </div>,
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-dropdown-placement-bottomLeft"
@@ -3172,7 +3168,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -3309,7 +3304,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -3446,7 +3440,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -3595,7 +3588,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Error
         </div>
@@ -3727,7 +3719,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Warning multiple
           </div>
@@ -3874,7 +3865,6 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object styles
       </div>
@@ -4018,7 +4008,6 @@ exports[`renders components/cascader/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function  styles
       </div>
@@ -4165,7 +4154,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4304,7 +4292,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4425,7 +4412,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4564,7 +4550,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4690,7 +4675,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4836,7 +4820,6 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -4960,7 +4943,6 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -5084,7 +5066,6 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -5208,7 +5189,6 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>

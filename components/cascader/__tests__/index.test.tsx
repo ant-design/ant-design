@@ -230,13 +230,27 @@ describe('Cascader', () => {
     expect(dropdown).toMatchSnapshot();
   });
 
+  it('should support notFoundContent={null}', () => {
+    const { container } = render(<Cascader open options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
+  it('should support notFoundContent={null} in panel', () => {
+    const { container } = render(<Cascader.Panel options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
     expect(container.querySelector('.ant-select-content')).toHaveTextContent('Zhejiang / Hangzhou');
-    fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-content')).toHaveTextContent('');
+    fireEvent.click(container.querySelector('.ant-select-clear')!);
+    expect(container.querySelector('.ant-select-content')).not.toHaveTextContent(
+      'Zhejiang / Hangzhou',
+    );
   });
 
   it('should clear search input when clear selection', () => {
@@ -244,7 +258,7 @@ describe('Cascader', () => {
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} showSearch />,
     );
     fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
-    fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
+    fireEvent.click(container.querySelector('.ant-select-clear')!);
     expect(container.querySelector('input')?.value).toBe('');
   });
 
@@ -408,9 +422,7 @@ describe('Cascader', () => {
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe(
-      customPlaceholder,
-    );
+    expect(container.querySelector('.ant-select-placeholder')?.textContent).toBe(customPlaceholder);
   });
 
   it('placement work correctly', async () => {

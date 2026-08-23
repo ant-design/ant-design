@@ -2,11 +2,11 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import Descriptions from '..';
+import { matchScreen } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { matchScreen } from '../../_util/responsiveObserver';
 import DEFAULT_COLUMN_MAP from '../constant';
 
 describe('Descriptions', () => {
@@ -21,6 +21,15 @@ describe('Descriptions', () => {
 
   afterAll(() => {
     errorSpy.mockRestore();
+  });
+
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Descriptions>>();
+    const { container } = render(
+      <Descriptions ref={ref} items={[{ key: 'name', label: 'Name', children: 'Ant Design' }]} />,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-descriptions'));
   });
 
   it('when max-width: 575px, column=1', () => {
@@ -273,6 +282,29 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(jest.spyOn(document, 'createElement')).not.toHaveBeenCalled();
+  });
+
+  it('should preserve item state after reordering when key is 0', () => {
+    const items = [
+      {
+        key: 0,
+        label: 'Zero',
+        children: <input aria-label="Zero value" defaultValue="zero" />,
+      },
+      {
+        key: 2,
+        label: 'Two',
+        children: <input aria-label="Two value" defaultValue="two" />,
+      },
+    ];
+    const { getByLabelText, rerender } = render(<Descriptions column={2} items={items} />);
+    const input = getByLabelText('Zero value');
+
+    fireEvent.change(input, { target: { value: 'edited' } });
+    rerender(<Descriptions column={2} items={[...items].reverse()} />);
+
+    expect(getByLabelText('Zero value')).toBe(input);
+    expect(getByLabelText('Zero value')).toHaveValue('edited');
   });
 
   // https://github.com/ant-design/ant-design/issues/19887
