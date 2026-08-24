@@ -78,13 +78,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    motionDurationSlow,
-    motionEaseInOut,
-    motionDurationMid,
-    motionDurationFast,
-  } = token;
+  const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token;
 
   const labelHeight = token
     .calc(token.controlHeight)
@@ -164,7 +158,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
         },
         '&-selected-text': {
           color: token.itemSelectedColor,
-          transition: `color ${motionDurationFast}`,
+          transition: `color ${motionDurationMid}`,
         },
 
         '&-focused': genFocusOutline(token),
@@ -187,19 +181,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
             .join(', '),
         },
 
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          '&:hover, &:active': {
-            color: token.itemHoverColor,
+        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-selected-text):not(${componentCls}-item-disabled)`]:
+          {
+            '&:hover, &:active': {
+              color: token.itemHoverColor,
+            },
+            '&:hover::after': {
+              opacity: 1,
+              backgroundColor: token.itemHoverBg,
+            },
+            '&:active::after': {
+              opacity: 1,
+              backgroundColor: token.itemActiveBg,
+            },
           },
-          '&:hover::after': {
-            opacity: 1,
-            backgroundColor: token.itemHoverBg,
-          },
-          '&:active::after': {
-            opacity: 1,
-            backgroundColor: token.itemActiveBg,
-          },
-        },
 
         '&-label': {
           minHeight: labelHeight,
