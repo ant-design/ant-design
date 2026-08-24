@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import QRCode from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, within } from '../../../tests/utils';
 import type { QRCodeProps } from '../interface';
 
 describe('QRCode test', () => {
@@ -221,12 +221,33 @@ describe('QRCode test', () => {
     );
     expect(labelled.querySelector('canvas')).toHaveAttribute('aria-label', 'Scan me');
 
+    // Render the referenced node too, so the resolved accessible name is asserted
+    // rather than just the presence of the attribute.
     const { container: labelledBy } = render(
-      <QRCode value="https://ant.design" aria-labelledby="qrcode-caption" />,
+      <>
+        <span id="qrcode-caption">Scan me</span>
+        <QRCode value="https://ant.design" aria-labelledby="qrcode-caption" />
+      </>,
     );
     const canvas = labelledBy.querySelector('canvas');
     expect(canvas).toHaveAttribute('aria-labelledby', 'qrcode-caption');
     expect(canvas).not.toHaveAttribute('aria-label');
+    expect(within(labelledBy).getByRole('img', { name: 'Scan me' })).toBe(canvas);
+  });
+
+  it('should still default the accessible name when the ARIA props are undefined', () => {
+    const { container } = render(
+      <QRCode value="https://ant.design" aria-label={undefined} aria-labelledby={undefined} />,
+    );
+    expect(container.querySelector('canvas')).toHaveAttribute('aria-label', 'https://ant.design');
+  });
+
+  it('should render nothing for an empty payload', () => {
+    const { container: emptyArray } = render(<QRCode value={[]} />);
+    expect(emptyArray.querySelector('canvas')).toBeNull();
+
+    const { container: emptySegments } = render(<QRCode value={['']} />);
+    expect(emptySegments.querySelector('canvas')).toBeNull();
   });
 
   it('should respect custom marginSize for SVG', () => {
