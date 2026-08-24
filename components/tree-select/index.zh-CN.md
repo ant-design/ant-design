@@ -65,7 +65,7 @@ demo:
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  | × |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  | × |
 | multiple | 支持多选（当设置 treeCheckable 时自动变为 true） | boolean | false |  | × |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `暂无数据` |  | × |
 | open | 是否展开下拉菜单 | boolean | - |  | × |
 | placeholder | 选择框默认文字 | string | - |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
@@ -116,7 +116,7 @@ demo:
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | `value` |  |
 | onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 
-### Tree 方法
+### Tree 方法 {#tree-methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |

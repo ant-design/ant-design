@@ -171,7 +171,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 
 exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -882,7 +882,7 @@ Array [
 
 exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -1401,7 +1401,7 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 
 exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -2843,7 +2843,7 @@ Array [
 
 exports[`renders components/list/demo/grid-test.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -2959,7 +2959,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
 
 exports[`renders components/list/demo/infinite-load.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -3009,7 +3009,7 @@ exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] 
 
 exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -3438,7 +3438,7 @@ Array [
 
 exports[`renders components/list/demo/pagination.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -3676,7 +3676,7 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
 
 exports[`renders components/list/demo/responsive.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -3941,7 +3941,7 @@ Array [
 
 exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -4005,7 +4005,7 @@ exports[`renders components/list/demo/spin-debug.tsx extend context correctly 1`
 
 exports[`renders components/list/demo/spin-debug.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -4728,6 +4728,6 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
 
 exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
