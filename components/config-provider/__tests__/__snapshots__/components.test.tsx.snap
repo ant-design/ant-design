@@ -17090,11 +17090,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17111,7 +17111,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17131,7 +17131,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17167,11 +17167,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17188,7 +17188,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17208,7 +17208,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17244,11 +17244,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17265,7 +17265,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17285,7 +17285,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17321,11 +17321,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17342,7 +17342,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17362,7 +17362,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17398,11 +17398,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="config-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17419,7 +17419,7 @@ Array [
       <ul
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17439,7 +17439,7 @@ Array [
           >
             <li
               class="config-menu-item config-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17475,11 +17475,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17496,7 +17496,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17516,7 +17516,7 @@ Array [
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -17552,11 +17552,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-bamboo-popup"
+        aria-controls="rc-menu-uuid-test-id-bamboo-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="prefix-Menu-submenu-title"
-        data-menu-id="rc-menu-uuid-bamboo"
+        data-menu-id="rc-menu-uuid-test-id-bamboo"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -17573,7 +17573,7 @@ Array [
       <ul
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-bamboo-popup"
+        id="rc-menu-uuid-test-id-bamboo-popup"
         role="menu"
       >
         <li
@@ -17594,7 +17594,7 @@ Array [
           >
             <li
               class="prefix-Menu-item prefix-Menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               prefixcls="prefix-Menu"
               role="menuitem"
               style="padding-left: 48px;"
@@ -25370,7 +25370,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25399,11 +25399,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -25677,7 +25677,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25707,11 +25707,11 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -25986,7 +25986,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26015,11 +26015,11 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26293,7 +26293,7 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26322,11 +26322,11 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26600,7 +26600,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                           >
                             <li
                               class="config-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26629,11 +26629,11 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="config-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -26907,7 +26907,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                           >
                             <li
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -26936,11 +26936,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -27214,7 +27214,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           >
                             <li
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27243,11 +27243,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >

@@ -11,6 +11,8 @@ import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import deDE from '../../locale/de_DE';
+import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -230,6 +232,18 @@ describe('Cascader', () => {
     expect(dropdown).toMatchSnapshot();
   });
 
+  it('should support notFoundContent={null}', () => {
+    const { container } = render(<Cascader open options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
+  it('should support notFoundContent={null} in panel', () => {
+    const { container } = render(<Cascader.Panel options={[]} notFoundContent={null} />);
+
+    expect(container.querySelector('.ant-empty')).toBeNull();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
@@ -248,6 +262,54 @@ describe('Cascader', () => {
     fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
     fireEvent.click(container.querySelector('.ant-select-clear')!);
     expect(container.querySelector('input')?.value).toBe('');
+  });
+
+  describe('clear button accessibility', () => {
+    it('should expose an accessible label on the clear button', () => {
+      const { container } = render(
+        <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should localize the clear button accessible label', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        zhCN.global?.clear,
+      );
+    });
+
+    it('should fall back to English for locales that do not translate `clear`', () => {
+      expect(deDE.global).not.toHaveProperty('clear');
+
+      const { container } = render(
+        <ConfigProvider locale={deDE}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should prefer a custom label from allowClear over the locale', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Cascader
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+            allowClear={{ label: 'Custom clear' }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        'Custom clear',
+      );
+    });
   });
 
   it('should change filtered item when options are changed', () => {
@@ -984,6 +1046,42 @@ describe('Cascader', () => {
         </ConfigProvider>,
       );
       expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support default clear icon if only label is passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear' }}
+        />,
+      );
+      expect(
+        container.querySelector('.ant-select-clear .anticon-close-circle'),
+      ).toBeInTheDocument();
+    });
+
+    it('should support clearIcon prop if only label is passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear' }}
+          clearIcon="clear"
+        />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support custom clear icon if both label and icon are passed in allowClear prop', () => {
+      const { container } = render(
+        <Cascader
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+          allowClear={{ label: 'Clear', clearIcon: 'custom' }}
+        />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('custom');
     });
   });
 

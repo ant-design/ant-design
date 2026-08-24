@@ -478,7 +478,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-selectAll"
+                  data-menu-id="rc-menu-uuid-test-id-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -509,7 +509,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-selectInvert"
+                  data-menu-id="rc-menu-uuid-test-id-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -701,7 +701,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-selectAll"
+                  data-menu-id="rc-menu-uuid-test-id-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -732,7 +732,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-selectInvert"
+                  data-menu-id="rc-menu-uuid-test-id-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -975,7 +975,7 @@ Array [
 
 exports[`renders components/empty/demo/config-provider.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
