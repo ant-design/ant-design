@@ -310,6 +310,53 @@ describe('Directory Tree', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/49668
+  it('should stay uncontrolled when expandedKeys is undefined', () => {
+    const { container } = render(createTree({ expandedKeys: undefined }));
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+
+    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(4);
+  });
+
+  it('should stay controlled when expandedKeys is provided', () => {
+    const onExpand = jest.fn();
+    const { container } = render(createTree({ expandedKeys: [], onExpand }));
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+
+    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    // The caller owns the state, so nothing expands until it feeds new keys back in
+    expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+  });
+
+  it('should support shift range selection when expandedKeys is undefined', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'Zero', key: 0 },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ];
+    const { container } = render(
+      <DirectoryTree multiple expandedKeys={undefined} treeData={treeData} onSelect={onSelect} />,
+    );
+    const nodes = container.querySelectorAll('.ant-tree-node-content-wrapper');
+
+    fireEvent.click(nodes[0]);
+    fireEvent.click(nodes[2], { shiftKey: true });
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      expect.objectContaining({ selectedNodes: treeData }),
+    );
+  });
+
   it('ref support', () => {
     const treeRef = React.createRef<RcTree>();
     render(createTree({ ref: treeRef }));
