@@ -254,6 +254,19 @@ describe('Watermark', () => {
     spy.mockRestore();
   });
 
+  it('should not draw a zero-sized canvas if content is undefined', async () => {
+    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    render(<Watermark className="watermark" />);
+    await waitFakeTimer();
+
+    expect(
+      spy.mock.calls.some(
+        ([image]) => image instanceof HTMLCanvasElement && (!image.width || !image.height),
+      ),
+    ).toBe(false);
+    spy.mockRestore();
+  });
+
   it('should call onRemove when watermark is hard removed', async () => {
     const onRemove = jest.fn();
     const { container } = render(<Watermark content="Ant" onRemove={onRemove} />);
