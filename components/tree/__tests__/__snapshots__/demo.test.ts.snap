@@ -3563,9 +3563,11 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
   <div
     style="margin-bottom:16px"
   >
-    showLine: 
+    showLine:
+    <!-- -->
     <button
       aria-checked="true"
+      aria-label="Show connecting lines"
       class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
@@ -3589,6 +3591,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     showIcon: 
     <button
       aria-checked="false"
+      aria-label="Show node icons"
       class="ant-switch css-var-test-id"
       role="switch"
       type="button"
@@ -3623,6 +3626,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
           aria-autocomplete="list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Leaf icon"
           autocomplete="new-password"
           class="ant-select-input"
           id="test-id"

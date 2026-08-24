@@ -164,7 +164,7 @@ const columns = [
 | nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
 | scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`）。当指定 `offset` 时，表格会滚动至目标行顶部对齐并应用指定的偏移量。`offset` 对 `top` 无效。可选 `align` 参数控制对齐方式：`start` 顶部对齐、`center` 中间对齐、`end` 底部对齐、`nearest` 智能对齐（默认）。虚拟滚动模式下不支持 `center` 对齐 | (config: { index?: number, key?: React.Key, top?: number, offset?: number, align?: 'start' \| 'center' \| 'end' \| 'nearest' }) => void | 5.11.0 |
 
-#### onRow 用法
+#### onRow 用法 {#onrow-usage}
 
 适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
 
@@ -264,6 +264,7 @@ const columns = [
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
+| forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | 6.6.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - |  |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
@@ -289,7 +290,7 @@ const columns = [
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode | - | 4.1.0 |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] |  |
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | - |  |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
 | onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | 5.5.0 |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |

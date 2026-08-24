@@ -271,6 +271,21 @@ describe('Space', () => {
     expect(separatorElement).toHaveStyle({ color: customStyles.separator.color });
   });
 
+  it.each([
+    ['horizontal', undefined, 'height'],
+    ['vertical', 'vertical', 'width'],
+  ] as const)('should stretch child elements in %s orientation', (_, orientation, sizeProp) => {
+    const { container } = render(
+      <Space align="stretch" orientation={orientation}>
+        <span>1</span>
+      </Space>,
+    );
+
+    const span = container.querySelector<HTMLSpanElement>('span')!;
+
+    expect(span).toHaveStyle({ [sizeProp]: '100%' });
+  });
+
   // ============================= orientation =============================
   describe('orientation attribute', () => {
     const testCases: Array<[params: [undefined | Orientation, undefined | Orientation], string]> = [

@@ -8,9 +8,9 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 设计规则
+## 设计规则 {#specification}
 
-### 尺寸
+### 尺寸 {#size}
 
 一级导航项偏左靠近 logo 放置，辅助菜单偏右放置。
 
@@ -19,14 +19,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 - 顶部导航高度的范围计算公式为：`48+8n`。
 - 侧边导航宽度的范围计算公式：`200+8n`。
 
-### 交互
+### 交互 {#interaction-rules}
 
 - 一级导航和末级的导航需要在可视化的层面被强调出来；
 - 当前项应该在呈现上优先级最高；
 - 当导航收起的时候，当前项的样式自动赋予给它的上一个层级；
 - 左侧导航栏的收放交互同时支持手风琴和全展开的样式，根据业务的要求进行适当的选择。
 
-### 视觉
+### 视觉 {#visualization-rules}
 
 导航样式上需要根据信息层级合理的选择样式：
 
@@ -46,7 +46,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
   `12px`、`14px` 是导航的标准字号，14 号字体用在一、二级导航中。字号可以考虑导航项的等级做相应选择。
 
-## 组件概述
+## 组件概述 {#component-overview}
 
 - `Layout`：布局容器，其下可嵌套 `Header` `Sider` `Content` `Footer` 或 `Layout` 本身，可以放在任何父容器中。
 - `Header`：顶部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。

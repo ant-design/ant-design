@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabBarGutter | The gap between tabs | number | - |  | × |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  | × |
 | tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` |  | × |
-| ~~tabPosition~~ | Position of tabs | `top` \| `right` \| `bottom` \| `left`, please use `tabPlacement` instead | `top` |  | × |
+| ~~tabPosition~~ | Position of tabs, please use `tabPlacement` instead | `top` \| `right` \| `bottom` \| `left` | `top` |  | × |
 | ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  | × |
 | destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 | × |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  | × |

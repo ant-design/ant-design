@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useAllowClear, useZIndex } from '../../_util/hooks';
+import { isNonNullable } from '../../_util/is';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -87,23 +88,13 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     }
 
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
-
-    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-      pickerType,
-      classNames,
-      styles,
-      popupClassName || dropdownClassName,
-      popupStyle,
-      undefined,
-      rangePicker?.style ?? null,
-    );
-
     const innerRef = React.useRef<PickerRef>(null);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
 
     const mergedSeparator = separator ?? rangePicker?.separator;
+    const hasCustomSeparator = isNonNullable(mergedSeparator);
 
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
@@ -132,6 +123,25 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const disabled = React.useContext(DisabledContext);
     const mergedDisabled = customDisabled ?? disabled;
 
+    // =========== Merged Props for Semantic ===========
+    const mergedProps: DateRangePickerProps = {
+      ...props,
+      size: mergedSize,
+      disabled: mergedDisabled,
+      status: customStatus,
+      variant: customVariant,
+    };
+
+    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<DateRangePickerProps>(
+      pickerType,
+      classNames,
+      styles,
+      popupClassName || dropdownClassName,
+      popupStyle,
+      mergedProps,
+      rangePicker?.style ?? null,
+    );
+
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
@@ -154,8 +164,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       <ContextIsolator space>
         <RCRangePicker<DateType>
           separator={
-            <span aria-label="to" className={`${prefixCls}-separator`}>
-              {mergedSeparator ?? <SwapRightOutlined />}
+            <span
+              aria-hidden={hasCustomSeparator ? undefined : true}
+              className={`${prefixCls}-separator`}
+            >
+              {hasCustomSeparator ? mergedSeparator : <SwapRightOutlined />}
             </span>
           }
           disabled={mergedDisabled}

@@ -138,7 +138,7 @@ Conclude the closeness of each information module according to the relevance amo
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/J7ccrSNpjz/89878d45-ca15-4a6a-853e-3281fe02f114.png">
 </ImagePreview>
 
-Select presentation modes of the information according to its types and complexity. Abased on the complexity from low to high, the followings are available components:
+Select presentation modes of the information according to its types and complexity. Based on the complexity from low to high, the following components are available:
 
 ## Read more
 
