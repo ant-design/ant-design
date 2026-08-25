@@ -1,7 +1,7 @@
 ## zh-CN
 
-全局 `lineHeight` 变化时，单选与多选的高度应保持一致。
+`lineHeight` 被覆盖时，选中文本应该采用该行高，而组件高度保持 `controlHeight`。
 
 ## en-US
 
-Single and multiple modes should keep the same height when the global `lineHeight` changes.
+Selected text should follow an overridden `lineHeight` while the control keeps its `controlHeight`.

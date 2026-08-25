@@ -3,15 +3,18 @@ import { ConfigProvider, Flex, Select } from 'antd';
 
 const options = [{ value: 'light', label: 'Light' }];
 
-const selectStyle: React.CSSProperties = { width: 200 };
+const selectStyle: React.CSSProperties = { width: 180 };
 
 const App: React.FC = () => (
-  <ConfigProvider theme={{ token: { lineHeight: 2 } }}>
-    <Flex gap="small" align="start">
+  <Flex gap="small" align="start">
+    <ConfigProvider theme={{ token: { lineHeight: 2 } }}>
       <Select style={selectStyle} defaultValue="light" options={options} />
       <Select style={selectStyle} mode="multiple" defaultValue={['light']} options={options} />
-    </Flex>
-  </ConfigProvider>
+    </ConfigProvider>
+    <ConfigProvider theme={{ components: { Select: { lineHeight: 2 } } }}>
+      <Select style={selectStyle} defaultValue="light" options={options} />
+    </ConfigProvider>
+  </Flex>
 );
 
 export default App;

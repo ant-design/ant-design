@@ -8,8 +8,8 @@ import imageTest, { imageDemoTest } from '../../../tests/shared/imageTest';
 const clearSuffixDebugFilename = 'components/select/demo/clear-suffix-debug.tsx';
 const lineHeightDebugFilename = 'components/select/demo/line-height-debug.tsx';
 const interactiveSuffixSelector = '.ant-select-show-arrow';
+const selectSelector = '.ant-select';
 const singleSelector = '.ant-select-single';
-const multipleSelector = '.ant-select-multiple';
 
 const expectSuffixNotHitTarget = async (testPage: Page) => {
   const suffixHit = await testPage.evaluate((selector) => {
@@ -28,25 +28,39 @@ const expectSuffixNotHitTarget = async (testPage: Page) => {
   expect(suffixHit).toBe(false);
 };
 
-const expectHeightKeepsControlHeight = async (testPage: Page) => {
-  const heights = await testPage.evaluate(
-    (selectors) =>
-      selectors.map((selector) => {
-        const select = document.querySelector<HTMLElement>(selector);
+const expectLineHeightKeepsControlHeight = async (testPage: Page) => {
+  const selects = await testPage.evaluate(
+    (selector, singleClsSelector) =>
+      Array.from(document.querySelectorAll<HTMLElement>(selector)).map((select) => {
+        const content = select.querySelector<HTMLElement>(`${selector}-content`);
 
-        if (!select) {
-          throw new Error(`Missing select: ${selector}`);
+        if (!content) {
+          throw new Error(`Missing content: ${selector}`);
         }
 
-        const controlHeight = getComputedStyle(select).getPropertyValue('--ant-select-height');
+        const style = getComputedStyle(select);
+        const readVar = (name: string) => Number.parseFloat(style.getPropertyValue(name));
 
-        return [select.getBoundingClientRect().height, Number.parseFloat(controlHeight)];
+        return {
+          single: select.matches(singleClsSelector),
+          height: select.getBoundingClientRect().height,
+          controlHeight: readVar('--ant-select-height'),
+          contentLineHeight: Number.parseFloat(getComputedStyle(content).lineHeight),
+          tokenLineHeight: readVar('--ant-select-font-size') * readVar('--ant-select-line-height'),
+        };
       }),
-    [singleSelector, multipleSelector],
+    selectSelector,
+    singleSelector,
   );
 
-  heights.forEach(([height, controlHeight]) => {
+  expect(selects).not.toHaveLength(0);
+
+  selects.forEach(({ single, height, controlHeight, contentLineHeight, tokenLineHeight }) => {
     expect(height).toBe(controlHeight);
+
+    if (single) {
+      expect(contentLineHeight).toBeCloseTo(tokenLineHeight, 3);
+    }
   });
 };
 
@@ -79,7 +93,7 @@ describe('Select image', () => {
       React.createElement(LineHeightDebug),
       'select-line-height-debug',
       lineHeightDebugFilename,
-      { beforeScreenshot: expectHeightKeepsControlHeight },
+      { beforeScreenshot: expectLineHeightKeepsControlHeight },
     );
   });
 

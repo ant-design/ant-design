@@ -97,7 +97,6 @@ const genSelectInputFocusVisibleStyle = (token: SelectToken, outlineColor: strin
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const {
     componentCls,
-    fontHeight,
     controlHeight,
     fontSizeIcon,
     showArrowPaddingInlineEnd,
@@ -123,7 +122,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Font
         [varName('font-size')]: token.fontSize,
         [varName('line-height')]: token.lineHeight,
-        [varName('font-height')]: fontHeight,
+        [varName('font-height')]: `calc(${varRef('font-size')} * ${varRef('line-height')})`,
         [varName('color')]: token.colorText,
         [varName('affix-color')]: token.colorText,
         // Size
@@ -131,7 +130,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
         [varName('padding-horizontal')]: calc(token.paddingSM).sub(token.lineWidth).equal(),
         [varName('padding-vertical')]:
-          `calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')})`,
+          `max(calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')}), 0px)`,
 
         // ==========================================================
         // ==                         Base                         ==
@@ -261,7 +260,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [varName('height')]: token.controlHeightLG,
           [varName('font-size')]: token.fontSizeLG,
           [varName('line-height')]: token.lineHeightLG,
-          [varName('font-height')]: token.fontHeightLG,
           [varName('border-radius')]: token.borderRadiusLG,
         },
       },
@@ -305,9 +303,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-content`]: {
             ...textEllipsis,
             alignSelf: 'center',
-            // Vertical padding assumes a `font-height` tall line box, so pin it here or a
-            // customized `line-height` stretches the box past `height`.
-            lineHeight: varRef('font-height'),
 
             '&-has-value': {
               display: 'block',
