@@ -305,6 +305,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-content`]: {
             ...textEllipsis,
             alignSelf: 'center',
+            lineHeight: varRef('font-height'),
 
             '&-has-value': {
               display: 'block',

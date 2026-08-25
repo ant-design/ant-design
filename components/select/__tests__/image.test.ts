@@ -2,9 +2,11 @@ import React from 'react';
 import type { Page } from 'puppeteer';
 
 import ClearSuffixDebug from '../demo/clear-suffix-debug';
+import LineHeightDebug from '../demo/line-height-debug';
 import imageTest, { imageDemoTest } from '../../../tests/shared/imageTest';
 
 const clearSuffixDebugFilename = 'components/select/demo/clear-suffix-debug.tsx';
+const lineHeightDebugFilename = 'components/select/demo/line-height-debug.tsx';
 const interactiveSuffixSelector = '.ant-select-show-arrow';
 
 const expectSuffixNotHitTarget = async (testPage: Page) => {
@@ -22,6 +24,22 @@ const expectSuffixNotHitTarget = async (testPage: Page) => {
   }, `${interactiveSuffixSelector} .ant-select-suffix`);
 
   expect(suffixHit).toBe(false);
+};
+
+const expectSameHeight = async (testPage: Page) => {
+  const heights = await testPage.evaluate(() =>
+    ['.ant-select-single', '.ant-select-multiple'].map((selector) => {
+      const select = document.querySelector<HTMLElement>(selector);
+
+      if (!select) {
+        throw new Error(`Missing select: ${selector}`);
+      }
+
+      return select.getBoundingClientRect().height;
+    }),
+  );
+
+  expect(heights[0]).toBe(heights[1]);
 };
 
 describe('Select image', () => {
@@ -48,9 +66,18 @@ describe('Select image', () => {
     });
   });
 
+  describe('line height', () => {
+    imageTest(
+      React.createElement(LineHeightDebug),
+      'select-line-height-debug',
+      lineHeightDebugFilename,
+      { beforeScreenshot: expectSameHeight },
+    );
+  });
+
   imageDemoTest('select', {
     mobile: ['basic.tsx'],
-    skip: ['debug-flip-shift.tsx'],
+    skip: ['debug-flip-shift.tsx', 'line-height-debug.tsx'],
   });
 
   describe('clear suffix touch', () => {
