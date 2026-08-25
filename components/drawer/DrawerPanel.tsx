@@ -171,7 +171,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   );
 
   const renderHeader = () => {
-    if (!title && !mergedClosable) {
+    if (!title && !mergedClosable && !extra) {
       return null;
     }
     return (

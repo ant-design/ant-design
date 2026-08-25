@@ -145,6 +145,17 @@ describe('Drawer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('render extra without title or close button', () => {
+    const { container } = render(
+      <Drawer open closable={false} extra="Extra" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(container.querySelector('.ant-drawer-header')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-extra')).toHaveTextContent('Extra');
+  });
+
   it('closable is false', () => {
     const { container: wrapper } = render(
       <Drawer open closable={false} getContainer={false}>
