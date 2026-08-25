@@ -171,9 +171,6 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             transition: [`border-color`, `background-color`]
               .map((prop) => `${prop} ${motionDurationSlow}`)
               .join(','),
-              `border-color ${motionDurationSlow}`,
-              `background-color ${motionDurationSlow}`,
-            ].join(','),
 
             [`> ${componentCls}-inline-collapsed-noicon`]: {
               fontSize: fontSizeLG,
