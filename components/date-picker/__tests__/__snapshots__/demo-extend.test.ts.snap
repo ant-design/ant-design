@@ -20536,7 +20536,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-today"
+          data-menu-id="rc-menu-uuid-test-id-today"
           role="menuitem"
           tabindex="-1"
         >
@@ -20567,7 +20567,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-tomorrow"
+          data-menu-id="rc-menu-uuid-test-id-tomorrow"
           role="menuitem"
           tabindex="-1"
         >
@@ -20598,7 +20598,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-custom-date"
+          data-menu-id="rc-menu-uuid-test-id-custom-date"
           role="menuitem"
           tabindex="-1"
         >
@@ -21312,7 +21312,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-7"
+          data-menu-id="rc-menu-uuid-test-id-7"
           role="menuitem"
           tabindex="-1"
         >
@@ -21343,7 +21343,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-30"
+          data-menu-id="rc-menu-uuid-test-id-30"
           role="menuitem"
           tabindex="-1"
         >
@@ -21374,7 +21374,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-custom-date"
+          data-menu-id="rc-menu-uuid-test-id-custom-date"
           role="menuitem"
           tabindex="-1"
         >

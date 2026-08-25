@@ -46,7 +46,7 @@ demo:
 | ~~tip~~ | 当作为包裹元素时，可以自定义描述文案。已废弃，请使用 `description` | ReactNode | - |  | × |
 | ~~wrapperClassName~~ | 包装器的类属性。已废弃，请使用 `classNames.root` | string | - |  | × |
 
-### 静态方法
+### 静态方法 {#static-method}
 
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 
