@@ -396,6 +396,54 @@ describe('Breadcrumb', () => {
     expect(<Breadcrumb<Params> params={{ key1: 1, key2: 'test' }} />).toBeTruthy();
   });
 
+  it('should replace breadcrumb path params exactly and globally', () => {
+    const { container } = render(
+      <Breadcrumb
+        params={{ id: 'A', id2: 'B', value: '$&' }}
+        items={[{ path: ':id2/:id/:id/:value', title: ':id2/:id/:id/:value' }]}
+      />,
+    );
+
+    expect(container.querySelector('a')?.getAttribute('href')).toBe('#/B/A/A/$&');
+    expect(container.querySelector('a')).toHaveTextContent('B/A/A/$&');
+  });
+
+  it('should preserve unmatched params when building nested paths', () => {
+    const { container } = render(
+      <Breadcrumb
+        params={{ id: 'A' }}
+        items={[
+          { path: ':id', title: 'First' },
+          { path: ':id2', title: 'Second' },
+          { path: ':idé', title: 'Third' },
+        ]}
+      />,
+    );
+
+    expect(
+      Array.from(container.querySelectorAll('a')).map((link) => link.getAttribute('href')),
+    ).toEqual(['#/A', '#/A/:id2', '#/A/:id2/:idé']);
+  });
+
+  it('should preserve params with nullish values', () => {
+    const { container } = render(
+      <Breadcrumb
+        params={{ nullValue: null, undefinedValue: undefined, zero: 0, bool: false, empty: '' }}
+        items={[
+          {
+            path: ':nullValue/:undefinedValue/:zero/:bool/:empty',
+            title: ':nullValue/:undefinedValue/:zero/:bool/:empty',
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('a')?.getAttribute('href')).toBe(
+      '#/:nullValue/:undefinedValue/0/false/',
+    );
+    expect(container.querySelector('a')).toHaveTextContent(':nullValue/:undefinedValue/0/false/');
+  });
+
   it('support classNames and styles', async () => {
     const customClassNames: Required<GetProp<BreadcrumbProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
