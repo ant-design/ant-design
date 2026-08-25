@@ -99,7 +99,13 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
 
   // When the dataset shrinks, the previous scrollTop can sit below all items.
   // Clamp both DOM scroll and React state so visibleItems stays non-empty.
+  // Also cancel any pending scroll RAF so a stale nextTop cannot overwrite the clamp.
   React.useLayoutEffect(() => {
+    if (scrollRafRef.current !== null) {
+      window.cancelAnimationFrame(scrollRafRef.current);
+      scrollRafRef.current = null;
+    }
+
     const holder = holderRef.current!;
     const maxScrollTop = Math.max(0, totalHeight - holder.clientHeight);
     if (holder.scrollTop > maxScrollTop) {
@@ -183,15 +189,22 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
           overflowY: 'auto',
           overflowX: 'hidden',
         }}
-        onScroll={(event) => {
-          const nextTop = event.currentTarget.scrollTop;
+        onScroll={() => {
           if (scrollRafRef.current !== null) {
             window.cancelAnimationFrame(scrollRafRef.current);
           }
           scrollRafRef.current = window.requestAnimationFrame(() => {
-            setScrollDirection(nextTop >= lastScrollTopRef.current ? 'down' : 'up');
-            lastScrollTopRef.current = nextTop;
-            setScrollTop(nextTop);
+            scrollRafRef.current = null;
+            const holder = holderRef.current;
+            if (!holder) {
+              return;
+            }
+            // Read the live scroll offset so a clamp from dataset shrink wins over
+            // a stale value captured when the scroll event was queued.
+            const latestTop = holder.scrollTop;
+            setScrollDirection(latestTop >= lastScrollTopRef.current ? 'down' : 'up');
+            lastScrollTopRef.current = latestTop;
+            setScrollTop(latestTop);
           });
         }}
       >

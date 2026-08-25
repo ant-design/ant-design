@@ -181,6 +181,37 @@ describe('Masonry', () => {
     expect(callCountRef.current).toBe(1);
   });
 
+  it('does not re-emit onLayoutChange when inline items are recreated', async () => {
+    const callCountRef = { current: 0 };
+
+    const DemoWithInlineItems = () => {
+      const [, forceUpdate] = React.useState(0);
+      const items = heights.map((height, index) => ({
+        key: `item-${index}`,
+        data: height,
+      }));
+
+      return (
+        <DemoMasonry
+          columns={3}
+          items={items}
+          onLayoutChange={() => {
+            callCountRef.current += 1;
+            if (callCountRef.current < 5) {
+              forceUpdate((count) => count + 1);
+            }
+          }}
+        />
+      );
+    };
+
+    render(<DemoWithInlineItems />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(callCountRef.current).toBe(1);
+  });
+
   it('emits onLayoutChange([]) when items are cleared', async () => {
     const onLayoutChange = jest.fn();
     const items = heights.map((height, index) => ({

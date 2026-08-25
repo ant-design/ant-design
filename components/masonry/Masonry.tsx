@@ -277,9 +277,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     }
   }, [mergedItems, columnCount, virtual]);
 
-  // Trigger for `onLayoutChange`
-  const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
+  // Trigger for `onLayoutChange` only when the computed layout actually changes.
+  // Do not depend on the `items` array identity — parents often recreate it each render.
   const hasLayoutChange = Boolean(onLayoutChange);
+  const itemColumnsRef = React.useRef<ItemColumnsType[]>([]);
 
   const triggerLayoutChange = useEvent((nextItemColumns: ItemColumnsType[]) => {
     onLayoutChange?.(nextItemColumns.map(([item, column]) => ({ ...item, column })));
@@ -290,24 +291,22 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
       return;
     }
 
-    if (itemWithPositions.every(({ position }) => position)) {
-      setItemColumns((prevItemColumns) => {
-        const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
-          item,
-          position!.column,
-        ]);
-        return isEqual(prevItemColumns, nextItemColumns) ? prevItemColumns : nextItemColumns;
-      });
-    }
-  }, [hasLayoutChange, itemWithPositions]);
-
-  useLayoutEffect(() => {
-    if (!hasLayoutChange || !items || items.length !== itemColumns.length) {
+    if (!itemWithPositions.every(({ position }) => position)) {
       return;
     }
 
-    triggerLayoutChange(itemColumns);
-  }, [hasLayoutChange, itemColumns, items]);
+    const nextItemColumns = itemWithPositions.map<ItemColumnsType>(({ item, position }) => [
+      item,
+      position!.column,
+    ]);
+
+    if (isEqual(itemColumnsRef.current, nextItemColumns)) {
+      return;
+    }
+
+    itemColumnsRef.current = nextItemColumns;
+    triggerLayoutChange(nextItemColumns);
+  }, [hasLayoutChange, itemWithPositions]);
 
   // ====================== Render ======================
   return (

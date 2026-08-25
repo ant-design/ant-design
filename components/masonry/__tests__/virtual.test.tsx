@@ -208,6 +208,57 @@ describe('Masonry.virtual', () => {
     expect(virtualList.scrollTop).toBeLessThanOrEqual(400);
   });
 
+  it('keeps visible items when data shrinks before pending scroll RAF flushes', async () => {
+    const { container, rerender } = render(<Demo />);
+    await resizeMasonry();
+
+    const virtualList = container.querySelector('.ant-masonry-virtual-holder') as HTMLElement;
+    Object.defineProperty(virtualList, 'clientHeight', {
+      configurable: true,
+      get: () => 400,
+    });
+    Object.defineProperty(virtualList, 'scrollTop', {
+      configurable: true,
+      writable: true,
+      value: 0,
+    });
+
+    // Queue a deep scroll RAF, then shrink before it flushes.
+    virtualList.scrollTop = 2200;
+    fireEvent.scroll(virtualList);
+
+    rerender(<Demo dynamicHeights={[120, 160]} />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBe(2);
+    expect(virtualList.scrollTop).toBeLessThanOrEqual(400);
+  });
+
+  it('does not re-emit onLayoutChange when inline items are recreated', async () => {
+    const callCountRef = { current: 0 };
+
+    const DemoWithInlineItems = () => {
+      const [, forceUpdate] = React.useState(0);
+
+      return (
+        <Demo
+          onLayoutChange={() => {
+            callCountRef.current += 1;
+            if (callCountRef.current < 5) {
+              forceUpdate((count) => count + 1);
+            }
+          }}
+        />
+      );
+    };
+
+    render(<DemoWithInlineItems />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(callCountRef.current).toBe(1);
+  });
+
   it('triggers onLayoutChange callback with all items', async () => {
     const onLayoutChange = jest.fn();
     render(<Demo onLayoutChange={onLayoutChange} />);
