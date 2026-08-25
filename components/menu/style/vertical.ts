@@ -168,7 +168,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
-            transition: [
+            transition: [`border-color`, `background-color`]
+              .map((prop) => `${prop} ${motionDurationSlow}`)
+              .join(','),
               `border-color ${motionDurationSlow}`,
               `background-color ${motionDurationSlow}`,
             ].join(','),
