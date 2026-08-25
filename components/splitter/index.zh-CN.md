@@ -45,7 +45,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
-| collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 | × |
+| collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标。可在自定义图标上设置 `aria-label` 覆盖本地化的控件名称 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0, `aria-label`: 6.7.0 | × |
 | ~~collapsibleIcon~~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 | × |
 | destroyOnHidden | 折叠时（size 为 0）销毁面板内容，应用于所有面板，可在单个面板上覆盖 | `boolean` | `false` | 6.4.0 | × |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 | × |

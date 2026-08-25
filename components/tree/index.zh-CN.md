@@ -112,7 +112,7 @@ demo:
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
-## 注意
+## 注意 {#note}
 
 在 `3.4.0` 之前：树节点可以有很多，但在设置 `checkable` 时，将会花费更多的计算时间，因此我们缓存了一些计算结果（`this.treeNodesStates`）来复用，避免多次重复计算，以此提高性能。但这也带来了一些限制，当你异步加载树节点时，你需要这样渲染树：
 
@@ -130,7 +130,7 @@ demo:
 }
 ```
 
-### Tree 方法
+### Tree 方法 {#tree-methods}
 
 | 名称 | 说明 |
 | --- | --- |

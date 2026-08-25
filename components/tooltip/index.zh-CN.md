@@ -45,7 +45,7 @@ demo:
 | classNames | 语义化结构 class | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 | 5.23.0 |
 | styles | 语义化结构 style | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.23.0 | 5.23.0 |
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
 

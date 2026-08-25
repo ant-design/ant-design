@@ -10,6 +10,23 @@ export type { CheckboxRef as RadioRef } from '@rc-component/checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 export type RadioGroupOptionType = 'default' | 'button';
 
+export type RadioGroupSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemIcon?: string;
+    itemLabel?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemLabel?: React.CSSProperties;
+  };
+};
+
+export type RadioGroupSemanticAllType = GenerateSemantic<RadioGroupSemanticType, RadioGroupProps>;
+
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any;
   value?: any;
@@ -28,6 +45,8 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   block?: boolean;
   vertical?: boolean;
+  classNames?: RadioGroupSemanticAllType['classNamesAndFn'];
+  styles?: RadioGroupSemanticAllType['stylesAndFn'];
 }
 
 export interface RadioGroupContextProps {
@@ -43,6 +62,8 @@ export interface RadioGroupContextProps {
    */
   optionType?: RadioGroupOptionType;
   block?: boolean;
+  classNames?: RadioSemanticType['classNames'];
+  styles?: RadioSemanticType['styles'];
 }
 
 export type RadioSemanticType = {

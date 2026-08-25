@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { UploadProps } from '..';
 import Upload from '..';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhTW from '../../locale/zh_TW';
 
@@ -16,6 +16,24 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload accessibility', () => {
+  it.each<[string, Pick<UploadProps, 'type' | 'listType'>]>([
+    ['select', {}],
+    ['drag', { type: 'drag' }],
+    ['picture-card', { listType: 'picture-card' }],
+  ])('forwards focus events from the %s layout', (_, uploadProps) => {
+    const onFocus = jest.fn();
+
+    render(
+      <Upload {...uploadProps} onFocus={onFocus}>
+        <button type="button">Upload trigger</button>
+      </Upload>,
+    );
+
+    fireEvent.focus(screen.getByRole('button', { name: 'Upload trigger' }));
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
+
   it('uses the merged locale for default file actions', () => {
     render(
       <Upload

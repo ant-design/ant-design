@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Inverter página atual',
     selectNone: 'Limpar todos os dados',
     selectionAll: 'Selecionar todos os dados',
+    selectRow: 'Selecionar linha',
+    selectedRow: 'Linha selecionada',
+    selectionMenu: 'Menu de seleção',
     sortTitle: 'Ordenar',
     expand: 'Expandir linha',
     collapse: 'Colapsar linha',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Cancelar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Alternar painel inicial',
+    toggleEndPanel: 'Alternar painel final',
   },
   Transfer: {
     titles: ['', ''],

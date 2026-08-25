@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Бусдыг сонгох',
     selectNone: 'Бүх өгөгдлийг арилгах',
     selectionAll: 'Бүх өгөгдлийг сонгоно уу',
+    selectRow: 'Мөр сонгох',
+    selectedRow: 'Мөр сонгогдсон',
+    selectionMenu: 'Сонголтын цэс',
     sortTitle: 'Эрэмбэлэх',
     expand: 'Мөрийг өргөжүүлэх',
     collapse: 'Мөрийг буулгах',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Тийм',
     cancelText: 'Цуцлах',
+  },
+  Splitter: {
+    toggleStartPanel: 'Эхлэх самбарыг сэлгэх',
+    toggleEndPanel: 'Төгсгөлийн самбарыг сэлгэх',
   },
   Transfer: {
     titles: ['', ''],
