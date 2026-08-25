@@ -168,6 +168,11 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
+            transition: [
+              `border-color ${motionDurationSlow}`,
+              `background-color ${motionDurationSlow}`,
+            ].join(','),
+
             [`> ${componentCls}-inline-collapsed-noicon`]: {
               fontSize: fontSizeLG,
               textAlign: 'center',
