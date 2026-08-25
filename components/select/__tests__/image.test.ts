@@ -8,6 +8,8 @@ import imageTest, { imageDemoTest } from '../../../tests/shared/imageTest';
 const clearSuffixDebugFilename = 'components/select/demo/clear-suffix-debug.tsx';
 const lineHeightDebugFilename = 'components/select/demo/line-height-debug.tsx';
 const interactiveSuffixSelector = '.ant-select-show-arrow';
+const singleSelector = '.ant-select-single';
+const multipleSelector = '.ant-select-multiple';
 
 const expectSuffixNotHitTarget = async (testPage: Page) => {
   const suffixHit = await testPage.evaluate((selector) => {
@@ -26,20 +28,26 @@ const expectSuffixNotHitTarget = async (testPage: Page) => {
   expect(suffixHit).toBe(false);
 };
 
-const expectSameHeight = async (testPage: Page) => {
-  const heights = await testPage.evaluate(() =>
-    ['.ant-select-single', '.ant-select-multiple'].map((selector) => {
-      const select = document.querySelector<HTMLElement>(selector);
+const expectHeightKeepsControlHeight = async (testPage: Page) => {
+  const heights = await testPage.evaluate(
+    (selectors) =>
+      selectors.map((selector) => {
+        const select = document.querySelector<HTMLElement>(selector);
 
-      if (!select) {
-        throw new Error(`Missing select: ${selector}`);
-      }
+        if (!select) {
+          throw new Error(`Missing select: ${selector}`);
+        }
 
-      return select.getBoundingClientRect().height;
-    }),
+        const controlHeight = getComputedStyle(select).getPropertyValue('--ant-select-height');
+
+        return [select.getBoundingClientRect().height, Number.parseFloat(controlHeight)];
+      }),
+    [singleSelector, multipleSelector],
   );
 
-  expect(heights[0]).toBe(heights[1]);
+  heights.forEach(([height, controlHeight]) => {
+    expect(height).toBe(controlHeight);
+  });
 };
 
 describe('Select image', () => {
@@ -66,12 +74,12 @@ describe('Select image', () => {
     });
   });
 
-  describe('line height', () => {
+  describe('custom line height token', () => {
     imageTest(
       React.createElement(LineHeightDebug),
       'select-line-height-debug',
       lineHeightDebugFilename,
-      { beforeScreenshot: expectSameHeight },
+      { beforeScreenshot: expectHeightKeepsControlHeight },
     );
   });
 

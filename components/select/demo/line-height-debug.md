@@ -4,4 +4,4 @@
 
 ## en-US
 
-Single and multiple mode should keep the same height when global `lineHeight` changes.
+Single and multiple modes should keep the same height when the global `lineHeight` changes.

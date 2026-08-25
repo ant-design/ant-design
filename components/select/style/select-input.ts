@@ -305,6 +305,8 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-content`]: {
             ...textEllipsis,
             alignSelf: 'center',
+            // Vertical padding assumes a `font-height` tall line box, so pin it here or a
+            // customized `line-height` stretches the box past `height`.
             lineHeight: varRef('font-height'),
 
             '&-has-value': {
