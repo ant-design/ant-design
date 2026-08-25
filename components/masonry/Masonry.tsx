@@ -277,10 +277,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     }
   }, [mergedItems, columnCount, virtual]);
 
-  // Trigger for `onLayoutChange` only when the computed layout actually changes.
+  // Trigger for `onLayoutChange` only when key/column layout actually changes.
   // Do not depend on the `items` array identity — parents often recreate it each render.
+  // Compare key + column only so children / function reference churn does not re-notify.
   const hasLayoutChange = Boolean(onLayoutChange);
-  const itemColumnsRef = React.useRef<ItemColumnsType[]>([]);
+  const layoutSignatureRef = React.useRef<{ key: React.Key; column: number }[]>([]);
 
   const triggerLayoutChange = useEvent((nextItemColumns: ItemColumnsType[]) => {
     onLayoutChange?.(nextItemColumns.map(([item, column]) => ({ ...item, column })));
@@ -299,12 +300,16 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
       item,
       position!.column,
     ]);
+    const nextSignature = itemWithPositions.map(({ itemKey, position }) => ({
+      key: itemKey,
+      column: position!.column,
+    }));
 
-    if (isEqual(itemColumnsRef.current, nextItemColumns)) {
+    if (isEqual(layoutSignatureRef.current, nextSignature)) {
       return;
     }
 
-    itemColumnsRef.current = nextItemColumns;
+    layoutSignatureRef.current = nextSignature;
     triggerLayoutChange(nextItemColumns);
   }, [hasLayoutChange, itemWithPositions]);
 

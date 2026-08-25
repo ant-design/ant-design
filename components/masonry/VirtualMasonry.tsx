@@ -175,6 +175,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       }
     }
 
+    result.sort((a, b) => a.itemIndex - b.itemIndex);
     return result;
   }, [averageItemHeight, columnBounds, scrollDirection, scrollTop, viewportHeight]);
 

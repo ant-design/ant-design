@@ -83,6 +83,17 @@ describe('Masonry.virtual', () => {
     expect(afterTexts).not.toEqual(beforeTexts);
   });
 
+  it('keeps DOM order aligned with original item indexes', async () => {
+    const { container } = render(<Demo columns={3} />);
+    await resizeMasonry();
+
+    const texts = Array.from(container.querySelectorAll('.masonry-cell')).map((node) =>
+      Number(node.textContent),
+    );
+    expect(texts.length).toBeGreaterThan(1);
+    expect(texts).toEqual([...texts].sort((a, b) => a - b));
+  });
+
   it('keeps windowing with one very tall item after deep scroll', async () => {
     const tallHeights = [2000, ...heights.slice(1)];
     const { container } = render(<Demo dynamicHeights={tallHeights} />);

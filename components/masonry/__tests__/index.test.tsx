@@ -212,6 +212,36 @@ describe('Masonry', () => {
     expect(callCountRef.current).toBe(1);
   });
 
+  it('does not re-emit onLayoutChange when only children references change', async () => {
+    const onLayoutChange = jest.fn();
+    const baseItems = [
+      { key: 'a', data: 40, children: <div className="bamboo">a</div> },
+      { key: 'b', data: 50, children: <div className="bamboo">b</div> },
+    ];
+
+    const { rerender } = render(
+      <DemoMasonry columns={2} items={baseItems} onLayoutChange={onLayoutChange} />,
+    );
+    await resizeMasonry();
+    expect(onLayoutChange).toHaveBeenCalledTimes(1);
+    onLayoutChange.mockClear();
+
+    rerender(
+      <DemoMasonry
+        columns={2}
+        items={[
+          { key: 'a', data: 40, children: <div className="bamboo">a-new</div> },
+          { key: 'b', data: 50, children: <div className="bamboo">b-new</div> },
+        ]}
+        onLayoutChange={onLayoutChange}
+      />,
+    );
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(onLayoutChange).not.toHaveBeenCalled();
+  });
+
   it('emits onLayoutChange([]) when items are cleared', async () => {
     const onLayoutChange = jest.fn();
     const items = heights.map((height, index) => ({
