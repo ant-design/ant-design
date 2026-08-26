@@ -56,7 +56,7 @@ While you can override a component's style, we don't recommend doing so. antd is
 antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
-- FAQ suggestion. Including codesandbox sample, marked as FAQ issue
+- FAQ suggestion. Including CodeSandbox sample, marked as FAQ issue
 
 And which you should avoid doing:
 
