@@ -6236,7 +6236,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
 
 exports[`renders components/select/demo/line-height-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-start ant-flex-gap-small"
 >
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -6341,6 +6341,540 @@ exports[`renders components/select/demo/line-height-debug.tsx extend context cor
   </div>
   <div
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+    style="width: 180px;"
+  >
+    <div
+      class="ant-select-content"
+    >
+      <div
+        class="ant-select-content-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="ant-select-selection-item"
+          title="Light"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            Light
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-content-item ant-select-content-item-suffix"
+        style="opacity: 1;"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="new-password"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          style="--select-input-width: 0;"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Light"
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          light
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                title="Light"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="check"
+                    class="anticon anticon-check"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    style="width: 180px;"
+  >
+    <div
+      class="ant-select-content ant-select-content-has-value"
+      title="Light"
+    >
+      Light
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="new-password"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Light"
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          light
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                title="Light"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
+    style="width: 180px;"
+  >
+    <div
+      class="ant-select-content"
+    >
+      <div
+        class="ant-select-content-item"
+        style="opacity: 1;"
+      >
+        <span
+          class="ant-select-selection-item"
+          title="Light"
+        >
+          <span
+            class="ant-select-selection-item-content"
+          >
+            Light
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select: none;"
+            unselectable="on"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-select-content-item ant-select-content-item-suffix"
+        style="opacity: 1;"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="new-password"
+          class="ant-select-input"
+          id="test-id"
+          role="combobox"
+          style="--select-input-width: 0;"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Light"
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          light
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                title="Light"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="check"
+                    class="anticon anticon-check"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-lg ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    style="width: 180px;"
+  >
+    <div
+      class="ant-select-content ant-select-content-has-value"
+      title="Light"
+    >
+      Light
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="new-password"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="test-id_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="Light"
+          aria-selected="true"
+          id="test-id_list_0"
+          role="option"
+        >
+          light
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown-list"
+        style="position: relative;"
+      >
+        <div
+          class="ant-select-dropdown-list-holder"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+        >
+          <div>
+            <div
+              class="ant-select-dropdown-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-disabled="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                title="Light"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-lg ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
     style="width: 180px;"
   >
     <div
