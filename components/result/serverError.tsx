@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const ServerError: React.FC = () => (
-  <svg width="254" height="294">
+  <svg width="254" height="294" aria-hidden="true" focusable="false">
     <title>Server Error</title>
     <g fill="none" fillRule="evenodd">
       <path
