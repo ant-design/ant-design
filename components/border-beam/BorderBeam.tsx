@@ -31,8 +31,9 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
-  count?: number | BorderBeamItem[];
+  count?: number;
   duration?: number;
+  getItemConfig?: (index: number) => BorderBeamItem;
   lineWidth?: number | string;
   outset?: number | string;
   size?: number | string;
@@ -47,6 +48,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     color,
     count = 1,
     duration,
+    getItemConfig,
     lineWidth,
     outset,
     size,
@@ -68,17 +70,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const [childNode, childDomNode] = useChildDom(children);
   const borderWidth = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
-  const beamItems = useMemo<BorderBeamItem[]>(() => {
-    if (Array.isArray(count)) {
-      return count;
-    }
-
-    const mergedCount =
-      isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
-
-    return Array.from({ length: mergedCount }, () => ({}));
-  }, [count]);
-  const mergedCount = beamItems.length;
+  const mergedCount =
+    isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
   const mergedDuration =
     isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
 
@@ -91,7 +84,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   return (
     <>
       {childNode}
-      {beamItems.map((item, index) => {
+      {Array.from({ length: mergedCount }, (_, index) => {
+        const item = getItemConfig?.(index) ?? {};
         const beamPhase = index / mergedCount;
         const beamKey = `${mergedCount}-${beamPhase}`;
         const itemBeamGradient = isNonNullable(item.color)

@@ -41,8 +41,9 @@ tag: 6.4.0
 | --- | --- | --- | --- | --- | --- |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| count | 均匀分布的流光数量，或每条流光的配置数组。数组项未设置的属性会继承顶层的 `color`、`lineWidth`、`outset` 和 `size` | `number \| BorderBeamItem[]` | 1 | 6.6.0，数组形式：6.7.0 | × |
+| count | 均匀分布的流光数量，应为正整数 | number | 1 | 6.6.0 | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | 6.5.0 | × |
+| getItemConfig | 根据索引返回每条流光的配置。未设置的属性会继承顶层的 `color`、`lineWidth`、`outset` 和 `size` | `(index: number) => BorderBeamItem` | - | 6.7.0 | × |
 | lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | 6.5.0 | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | 6.4.0 | × |
 | size | 流光可见段的尺寸，数字类型按像素处理 | `number \| string` | 100 | 6.5.0 | × |

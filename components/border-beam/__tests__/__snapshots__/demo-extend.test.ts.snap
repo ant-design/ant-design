@@ -176,7 +176,7 @@ exports[`renders components/border-beam/demo/count.tsx extend context correctly 
     <div
       class="ant-card-body"
     >
-      Use an array to customize the color and size of each beam.
+      Use getItemConfig to cycle through color and size configurations.
     </div>
     <div
       aria-hidden="true"
@@ -186,12 +186,17 @@ exports[`renders components/border-beam/demo/count.tsx extend context correctly 
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #52c41a 0%, #52c41a 70%, transparent); --ant-border-beam-size: 72px; --ant-border-beam-delay: -2s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #52c41a 0%, #52c41a 70%, transparent); --ant-border-beam-size: 72px; --ant-border-beam-delay: -1.5s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #fa8c16 0%, #fa8c16 70%, transparent); --ant-border-beam-size: 96px; --ant-border-beam-delay: -4s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent); --ant-border-beam-size: 48px; --ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #52c41a 0%, #52c41a 70%, transparent); --ant-border-beam-size: 72px; --ant-border-beam-delay: -4.5s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
 </div>

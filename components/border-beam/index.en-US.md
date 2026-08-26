@@ -40,8 +40,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| count | Number of evenly distributed beams, or an array of per-beam configurations. Array items inherit the top-level `color`, `lineWidth`, `outset`, and `size` when omitted | `number \| BorderBeamItem[]` | 1 | 6.6.0, array: 6.7.0 | × |
+| count | Number of evenly distributed beams. It should be a positive integer | number | 1 | 6.6.0 | × |
 | duration | Time in seconds for the beam to complete one loop | number | 6 | 6.5.0 | × |
+| getItemConfig | Return the configuration for each beam by index. Omitted item properties inherit the top-level `color`, `lineWidth`, `outset`, and `size` | `(index: number) => BorderBeamItem` | - | 6.7.0 | × |
 | lineWidth | Width of the beam line. Numbers are treated as pixels | `number \| string` | `1px` | 6.5.0 | × |
 | outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | 6.4.0 | × |
 | size | Size of the visible beam segment. Numbers are treated as pixels | `number \| string` | 100 | 6.5.0 | × |
