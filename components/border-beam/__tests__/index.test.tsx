@@ -217,6 +217,43 @@ describe('BorderBeam', () => {
     ).toEqual(['', '-4s', '-8s']);
   });
 
+  it('should support configuring individual beams with a count array', async () => {
+    const { container } = render(
+      <BorderBeam
+        color="#1677ff"
+        count={[{ color: '#36cfc9', lineWidth: 3, outset: 4, size: 60 }, {}]}
+        duration={12}
+        lineWidth={2}
+        outset={1}
+        size={80}
+      >
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElements(container)).toHaveLength(2);
+    });
+
+    const [firstBeam, secondBeam] = getBeamElements(container);
+
+    expect(firstBeam.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #36cfc9 0%, #36cfc9 70%, transparent)',
+    );
+    expect(firstBeam.style.getPropertyValue(varName('line-width'))).toBe('3px');
+    expect(firstBeam.style.getPropertyValue(varName('inset-offset'))).toBe('-4px');
+    expect(firstBeam.style.getPropertyValue(varName('size'))).toBe('60px');
+    expect(firstBeam.style.getPropertyValue(varName('delay'))).toBe('');
+
+    expect(secondBeam.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent)',
+    );
+    expect(secondBeam.style.getPropertyValue(varName('line-width'))).toBe('2px');
+    expect(secondBeam.style.getPropertyValue(varName('inset-offset'))).toBe('-1px');
+    expect(secondBeam.style.getPropertyValue(varName('size'))).toBe('80px');
+    expect(secondBeam.style.getPropertyValue(varName('delay'))).toBe('-6s');
+  });
+
   it('should support customizing the beam size', async () => {
     const { container, rerender } = render(
       <BorderBeam size={160}>

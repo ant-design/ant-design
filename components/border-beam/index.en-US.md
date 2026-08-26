@@ -21,7 +21,7 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/hover.tsx">Show on hover</code>
-<code src="./demo/count.tsx" version="6.6.0">Multiple beams</code>
+<code src="./demo/count.tsx" version="6.7.0">Multiple beams</code>
 <code src="./demo/custom-container.tsx">Custom container</code>
 <code src="./demo/customized-color.tsx">Gradients</code>
 <code src="./demo/duration.tsx" version="6.5.0">Duration</code>
@@ -40,11 +40,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| count | Number of beams | number | 1 | 6.6.0 | × |
+| count | Number of evenly distributed beams, or an array of per-beam configurations. Array items inherit the top-level `color`, `lineWidth`, `outset`, and `size` when omitted | `number \| BorderBeamItem[]` | 1 | 6.6.0, array: 6.7.0 | × |
 | duration | Time in seconds for the beam to complete one loop | number | 6 | 6.5.0 | × |
 | lineWidth | Width of the beam line. Numbers are treated as pixels | `number \| string` | `1px` | 6.5.0 | × |
 | outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | 6.4.0 | × |
 | size | Size of the visible beam segment. Numbers are treated as pixels | `number \| string` | 100 | 6.5.0 | × |
+
+### BorderBeamItem
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| color | Color configuration for this beam | `string \| { color: string; percent: number }[]` | - | 6.7.0 |
+| lineWidth | Line width for this beam. Numbers are treated as pixels | `number \| string` | - | 6.7.0 |
+| outset | Outset distance for this beam | `number \| string` | - | 6.7.0 |
+| size | Size of this beam's visible segment. Numbers are treated as pixels | `number \| string` | - | 6.7.0 |
 
 ## Design Token
 
