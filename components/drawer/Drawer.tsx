@@ -9,7 +9,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
-import { isNumber } from '../_util/is';
+import { isNumber, isReactRenderable } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -113,7 +113,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const { placement } = rest;
   const id = useId();
-  const ariaId = rest.title ? id : undefined;
+  const ariaId = isReactRenderable(rest.title) ? id : undefined;
 
   const {
     getPopupContainer,
