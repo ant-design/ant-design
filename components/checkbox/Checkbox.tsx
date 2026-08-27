@@ -123,7 +123,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
-  const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
+  const mergedDisabled = disabled ?? checkboxGroup?.disabled ?? contextDisabled;
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
