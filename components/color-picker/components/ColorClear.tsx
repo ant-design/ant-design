@@ -14,8 +14,10 @@ interface ColorClearProps {
 }
 
 const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className, style }) => {
+  const canClear = !!onChange && !!value && !value.cleared;
+
   const onClick = () => {
-    if (onChange && value && !value.cleared) {
+    if (canClear) {
       const hsba = value.toHsb();
       hsba.a = 0;
       const genColor = generateColor(hsba);
@@ -26,7 +28,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (canClear && (event.key === 'Enter' || event.key === ' ')) {
       event.preventDefault();
       onClick();
     }
@@ -34,9 +36,9 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
 
   return (
     <div
-      role="button"
-      aria-label="Clear color"
-      tabIndex={0}
+      role={canClear ? 'button' : undefined}
+      aria-label={canClear ? 'Clear color' : undefined}
+      tabIndex={canClear ? 0 : undefined}
       className={clsx(`${prefixCls}-clear`, className)}
       style={style}
       onClick={onClick}
