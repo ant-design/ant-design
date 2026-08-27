@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 
+import { isReactRenderable } from '../_util/is';
 import type { InputProps } from './Input';
 
 export function hasPrefixSuffix(props: {
@@ -8,5 +9,10 @@ export function hasPrefixSuffix(props: {
   allowClear?: InputProps['allowClear'];
   showCount?: InputProps['showCount'];
 }) {
-  return !!(props.prefix || props.suffix || props.allowClear || props.showCount);
+  return (
+    isReactRenderable(props.prefix) ||
+    isReactRenderable(props.suffix) ||
+    !!props.allowClear ||
+    !!props.showCount
+  );
 }

@@ -9,6 +9,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -114,6 +115,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     disabled: customDisabled,
     onBlur,
     onFocus,
+    prefix,
     suffix,
     allowClear,
     addonAfter,
@@ -227,7 +229,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange?.(e);
   };
 
-  const suffixNode = (hasFeedback || suffix) && (
+  const prefixNode = isReactRenderable(prefix) ? <>{prefix}</> : undefined;
+  const suffixNode = (hasFeedback || isReactRenderable(suffix)) && (
     <>
       {suffix}
       {hasFeedback && feedbackIcon}
@@ -249,6 +252,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       style={mergedStyles.root}
       styles={mergedStyles}
+      prefix={prefixNode}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
       className={clsx(
@@ -262,14 +266,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       )}
       onChange={handleChange}
       addonBefore={
-        addonBefore && (
+        isReactRenderable(addonBefore) && (
           <ContextIsolator form space>
             {addonBefore}
           </ContextIsolator>
         )
       }
       addonAfter={
-        addonAfter && (
+        isReactRenderable(addonAfter) && (
           <ContextIsolator form space>
             {addonAfter}
           </ContextIsolator>

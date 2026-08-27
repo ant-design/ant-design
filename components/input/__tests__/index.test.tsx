@@ -611,6 +611,12 @@ describe('Input allowClear', () => {
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`addonBefore` is deprecated'));
     errSpy.mockRestore();
   });
+
+  it('should render numeric 0 prefix and suffix', () => {
+    const { container } = render(<Input prefix={0} suffix={0} />);
+    expect(container.querySelector('.ant-input-prefix')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-input-suffix')?.textContent).toBe('0');
+  });
 });
 
 describe('typescript types', () => {

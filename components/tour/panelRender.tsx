@@ -61,7 +61,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
       aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >
-      {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {closable?.closeIcon ?? <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );
 

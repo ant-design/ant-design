@@ -828,4 +828,20 @@ describe('Tour', () => {
       'Custom Close Button',
     );
   });
+
+  it('should render numeric 0 closeIcon', () => {
+    const { container } = render(
+      <Tour
+        open
+        steps={[
+          {
+            title: 'test',
+            description: 'test',
+            closable: { closeIcon: 0 },
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')?.textContent).toBe('0');
+  });
 });

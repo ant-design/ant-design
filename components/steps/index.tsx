@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isReactRenderable } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -325,7 +325,7 @@ const Steps = (props: StepsProps) => {
 
     let iconContent: React.ReactNode = null;
 
-    if (isDot || icon) {
+    if (isDot || isReactRenderable(icon)) {
       iconContent = icon;
     } else {
       switch (status) {

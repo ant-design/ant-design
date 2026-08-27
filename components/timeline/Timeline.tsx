@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isReactRenderable } from '../_util/is';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -217,7 +217,7 @@ const Timeline: CompoundedComponent = (props) => {
   const layoutAlternate = React.useMemo(
     () =>
       mergedMode === 'alternate' ||
-      (orientation === 'vertical' && mergedItems.some((item) => item.title)),
+      (orientation === 'vertical' && mergedItems.some((item) => isReactRenderable(item.title))),
     [mergedItems, mergedMode, orientation],
   );
 

@@ -354,4 +354,18 @@ describe('TimeLine', () => {
     expect(contentElements[0]).toHaveClass('custom-timeline-item-content');
     expect(railElements[0]).toHaveClass('custom-timeline-item-rail');
   });
+
+  it('should render numeric 0 for pending, title, and icon', () => {
+    const { container } = render(
+      <TimeLine
+        pending={0}
+        items={[
+          { title: 0, content: 'item 1', icon: 0, loading: true },
+          { title: 'title 2', content: 'item 2' },
+        ]}
+      />,
+    );
+    expect(container.textContent).toContain('0');
+    expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(3);
+  });
 });
