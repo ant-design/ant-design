@@ -41,6 +41,30 @@ describe('Input.Search', () => {
     }).not.toThrow();
   });
 
+  it('should support props for the generated enter button', () => {
+    const onButtonClick = jest.fn();
+    const onSearch = jest.fn();
+    const { getByRole } = render(
+      <Search
+        defaultValue="search text"
+        enterButton
+        enterButtonProps={{
+          'aria-label': 'Submit search',
+          className: 'custom-search-button',
+          onClick: onButtonClick,
+        }}
+        onSearch={onSearch}
+      />,
+    );
+
+    const button = getByRole('button', { name: 'Submit search' });
+    expect(button).toHaveClass('ant-input-search-btn', 'custom-search-button');
+
+    fireEvent.click(button);
+    expect(onButtonClick).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
+  });
+
   it('should support ReactNode suffix without error', () => {
     const { asFragment } = render(<Search suffix={<div>ok</div>} />);
     expect(asFragment().firstChild).toMatchSnapshot();

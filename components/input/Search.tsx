@@ -55,6 +55,7 @@ export interface SearchProps extends InputProps {
   ) => void;
   searchIcon?: React.ReactNode;
   enterButton?: React.ReactNode;
+  enterButtonProps?: ButtonProps;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   classNames?: InputSearchSemanticAllType['classNamesAndFn'];
@@ -69,6 +70,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     size: customizeSize,
     style,
     enterButton = false,
+    enterButtonProps: customizeEnterButtonProps,
     searchIcon: customizeSearchIcon,
     addonAfter,
     loading,
@@ -211,18 +213,33 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         : {}),
     });
   } else {
+    const {
+      className: enterButtonClassName,
+      disabled: enterButtonDisabled,
+      loading: enterButtonLoading,
+      onClick: enterButtonOnClick,
+      onMouseDown: enterButtonOnMouseDown,
+      ...restEnterButtonProps
+    } = customizeEnterButtonProps || {};
+
     button = (
       <Button
         classNames={mergedClassNames.button}
         styles={mergedStyles.button}
-        className={btnClassName}
+        className={clsx(btnClassName, enterButtonClassName)}
         color={enterButton ? 'primary' : 'default'}
         size={size}
-        disabled={disabled}
+        disabled={mergedDisabled || enterButtonDisabled}
         key="enterButton"
-        onMouseDown={onMouseDown}
-        onClick={onSearch}
-        loading={loading}
+        onMouseDown={(e) => {
+          onMouseDown(e);
+          enterButtonOnMouseDown?.(e);
+        }}
+        onClick={(e) => {
+          enterButtonOnClick?.(e);
+          onSearch(e);
+        }}
+        loading={loading || enterButtonLoading}
         icon={searchIcon}
         variant={
           variant === 'borderless' || variant === 'filled' || variant === 'underlined'
@@ -231,6 +248,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
               ? 'solid'
               : undefined
         }
+        {...restEnterButtonProps}
       >
         {enterButton}
       </Button>
