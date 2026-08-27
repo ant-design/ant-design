@@ -11,6 +11,23 @@ describe('Empty', () => {
   mountTest(Empty);
   rtlTest(Empty);
 
+  it('hides built-in illustrations when the description provides the accessible text', () => {
+    const { container, rerender } = render(<Empty description="Nothing here" />);
+
+    expect(container.querySelector('.ant-empty-image')).toHaveAttribute('aria-hidden', 'true');
+    expect(container.querySelector('.ant-empty-description')).toHaveTextContent('Nothing here');
+
+    rerender(<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Still empty" />);
+    expect(container.querySelector('.ant-empty-image')).toHaveAttribute('aria-hidden', 'true');
+
+    rerender(<Empty image={<svg data-testid="custom-image" />} description="Custom empty" />);
+    expect(container.querySelector('.ant-empty-image')).not.toHaveAttribute('aria-hidden');
+
+    rerender(<Empty description={false} />);
+    expect(container.querySelector('.ant-empty-image')).not.toHaveAttribute('aria-hidden');
+    expect(container.querySelector('.ant-empty-image title')).toHaveTextContent('No data');
+  });
+
   it('should support nativeElement ref', () => {
     const ref = React.createRef<React.ComponentRef<typeof Empty>>();
     const { container } = render(<Empty ref={ref} />);

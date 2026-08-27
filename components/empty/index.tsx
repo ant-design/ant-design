@@ -105,6 +105,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
   const alt = typeof des === 'string' ? des : 'empty';
 
   const mergedImage = image ?? contextImage ?? defaultEmptyImg;
+  const isBuiltInImage = mergedImage === defaultEmptyImg || mergedImage === simpleEmptyImg;
 
   let imageNode: React.ReactNode = null;
 
@@ -149,6 +150,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
       {...restProps}
     >
       <div
+        aria-hidden={isBuiltInImage && isReactRenderable(des) ? true : undefined}
         className={clsx(`${prefixCls}-image`, mergedClassNames.image)}
         style={{ ...imageStyle, ...mergedStyles.image }}
       >
