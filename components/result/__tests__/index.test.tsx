@@ -84,6 +84,16 @@ describe('Result', () => {
     });
   });
 
+  it('should preserve standalone exception illustration semantics', () => {
+    const { getByRole } = render(
+      <Result.PRESENTED_IMAGE_404 role="img" aria-label="Not found illustration" />,
+    );
+    const illustration = getByRole('img');
+
+    expect(illustration).not.toHaveAttribute('aria-hidden');
+    expect(illustration).toHaveAccessibleName('Not found illustration');
+  });
+
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
     const { container } = render(<Result status="404" />);
     expect(container.querySelectorAll('.ant-result-extra')).toHaveLength(0);

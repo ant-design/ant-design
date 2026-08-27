@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const Unauthorized: React.FC = () => (
-  <svg width="251" height="294" aria-hidden="true" focusable="false">
+const Unauthorized: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="251" height="294" {...props}>
     <title>Unauthorized</title>
     <g fill="none" fillRule="evenodd">
       <path
