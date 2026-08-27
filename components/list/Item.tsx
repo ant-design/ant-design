@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isString } from '../_util/is';
+import { isReactRenderable, isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
@@ -59,21 +59,25 @@ export const Meta = React.forwardRef<ListItemMetaRef, ListItemMetaProps>((props,
 
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
+  const hasAvatar = isReactRenderable(avatar);
+  const hasTitle = isReactRenderable(title);
+  const hasDescription = isReactRenderable(description);
+
   React.useImperativeHandle(ref, () => ({
     nativeElement: nativeElementRef.current!,
   }));
 
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
-      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
+      {hasTitle && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
+      {hasDescription && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
     </div>
   );
 
   return (
     <div ref={nativeElementRef} {...others} className={classString}>
-      {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
-      {(title || description) && content}
+      {hasAvatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
+      {(hasTitle || hasDescription) && content}
     </div>
   );
 });

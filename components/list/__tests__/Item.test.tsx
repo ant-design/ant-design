@@ -27,6 +27,19 @@ describe('List Item Layout', () => {
     expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-list-item-meta'));
   });
 
+  it('should render numeric zero Meta content and remove it for empty values', () => {
+    const { container, rerender } = render(<List.Item.Meta avatar={0} title={0} description={0} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-description')?.textContent).toBe('0');
+
+    rerender(<List.Item.Meta avatar={false} title="" description={null} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')).toBeNull();
+    expect(container.querySelector('.ant-list-item-meta-content')).toBeNull();
+  });
+
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
     const { container } = render(
       <List

@@ -50,4 +50,16 @@ describe('List', () => {
 
     expect(ref.current?.id).toBe(id);
   });
+
+  it('should render numeric zero header and footer and remove them for empty values', () => {
+    const { container, rerender } = render(<List header={0} footer={0} />);
+
+    expect(container.querySelector('.ant-list-header')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-footer')?.textContent).toBe('0');
+
+    rerender(<List header={false} footer={null} />);
+
+    expect(container.querySelector('.ant-list-header')).toBeNull();
+    expect(container.querySelector('.ant-list-footer')).toBeNull();
+  });
 });

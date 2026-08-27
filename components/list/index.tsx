@@ -2,7 +2,7 @@ import * as React from 'react';
 import { mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isPlainObject } from '../_util/is';
+import { isFunction, isPlainObject, isReactRenderable } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -314,12 +314,12 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     <ListContext.Provider value={contextValue}>
       <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {isReactRenderable(header) && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {isReactRenderable(footer) && <div className={`${prefixCls}-footer`}>{footer}</div>}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
