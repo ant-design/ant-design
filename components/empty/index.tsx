@@ -101,6 +101,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
   const [locale] = useLocale('Empty');
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
+  const hasDescription = isReactRenderable(des) && des !== true;
 
   const alt = typeof des === 'string' ? des : 'empty';
 
@@ -150,13 +151,13 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
       {...restProps}
     >
       <div
-        aria-hidden={isBuiltInImage && isReactRenderable(des) ? true : undefined}
+        aria-hidden={isBuiltInImage && hasDescription ? true : undefined}
         className={clsx(`${prefixCls}-image`, mergedClassNames.image)}
         style={{ ...imageStyle, ...mergedStyles.image }}
       >
         {imageNode}
       </div>
-      {isReactRenderable(des) && (
+      {hasDescription && (
         <div
           className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
           style={mergedStyles.description}

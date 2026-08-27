@@ -26,6 +26,10 @@ describe('Empty', () => {
     rerender(<Empty description={false} />);
     expect(container.querySelector('.ant-empty-image')).not.toHaveAttribute('aria-hidden');
     expect(container.querySelector('.ant-empty-image title')).toHaveTextContent('No data');
+
+    rerender(<Empty description={true} />);
+    expect(container.querySelector('.ant-empty-image')).not.toHaveAttribute('aria-hidden');
+    expect(container.querySelector('.ant-empty-description')).not.toBeInTheDocument();
   });
 
   it('should support nativeElement ref', () => {
