@@ -4,7 +4,13 @@ import { composeRef, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
-import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import {
+  mergeClassNames,
+  mergeStyles,
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
@@ -219,13 +225,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       loading: enterButtonLoading,
       onClick: enterButtonOnClick,
       onMouseDown: enterButtonOnMouseDown,
+      classNames: enterButtonClassNames,
+      styles: enterButtonStyles,
       ...restEnterButtonProps
     } = customizeEnterButtonProps || {};
 
     button = (
       <Button
-        classNames={mergedClassNames.button}
-        styles={mergedStyles.button}
         className={clsx(btnClassName, enterButtonClassName)}
         color={enterButton ? 'primary' : 'default'}
         size={size}
@@ -249,6 +255,16 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
               : undefined
         }
         {...restEnterButtonProps}
+        classNames={(info) =>
+          mergeClassNames(
+            {},
+            mergedClassNames.button,
+            resolveStyleOrClass(enterButtonClassNames, info),
+          )
+        }
+        styles={(info) =>
+          mergeStyles(mergedStyles.button, resolveStyleOrClass(enterButtonStyles, info))
+        }
       >
         {enterButton}
       </Button>

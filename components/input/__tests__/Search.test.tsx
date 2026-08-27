@@ -65,6 +65,29 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
+  it('should merge Search and enter button semantic styles', () => {
+    const { getByRole } = render(
+      <Search
+        enterButton
+        classNames={{ button: { root: 'search-button' } }}
+        styles={{ button: { root: { backgroundColor: 'red', color: 'blue' } } }}
+        enterButtonProps={{
+          classNames: ({ props }) => ({
+            root: props.color === 'primary' ? 'custom-button' : 'wrong-button',
+          }),
+          styles: ({ props }) => ({
+            root: { color: props.color === 'primary' ? 'green' : 'black' },
+          }),
+        }}
+      />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toHaveClass('search-button', 'custom-button');
+    expect(button.style.backgroundColor).toBe('red');
+    expect(button.style.color).toBe('green');
+  });
+
   it('should support ReactNode suffix without error', () => {
     const { asFragment } = render(<Search suffix={<div>ok</div>} />);
     expect(asFragment().firstChild).toMatchSnapshot();
