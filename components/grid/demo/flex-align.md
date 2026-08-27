@@ -5,9 +5,3 @@
 ## en-US
 
 Child elements vertically aligned.
-
-```css
-#grid-demo-flex-align [class~='ant-row'] {
-  background: rgba(128, 128, 128, 0.08);
-}
-```

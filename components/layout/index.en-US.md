@@ -64,6 +64,7 @@ Style of a navigation should conform to its level.
 <code src="./demo/top-side-2.tsx" compact background="grey">Header Sider 2</code>
 <code src="./demo/side.tsx" iframe="360">Sider</code>
 <code src="./demo/custom-trigger.tsx" compact background="grey">Custom trigger</code>
+<code src="./demo/collapsible-overlay.tsx" compact background="grey">Collapsible overlay</code>
 <code src="./demo/responsive.tsx" compact background="grey">Responsive</code>
 <code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>

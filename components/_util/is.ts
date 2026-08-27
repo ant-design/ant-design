@@ -18,7 +18,9 @@ export const isPlainObject = <T extends object = object>(val: any): val is T => 
   return val !== null && typeof val === 'object';
 };
 
-export const isFunction = (val: any): val is (...args: any[]) => any => {
+export const isFunction = <Value, Args extends unknown[], Result>(
+  val: Value | ((...args: Args) => Result),
+): val is (...args: Args) => Result => {
   return typeof val === 'function';
 };
 
@@ -32,4 +34,29 @@ export const isPrimitive = (val: any) => {
 
 export const isTransitionEvent = (event: Event): event is TransitionEvent => {
   return isPlainObject(event) && 'propertyName' in event && isString(event.propertyName);
+};
+
+export const isWindow = (val?: any): val is Window => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return val === val.window;
+};
+
+export const isDocument = (val: Document | HTMLElement | null): val is Document => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return (
+    val instanceof Document ||
+    val.constructor.name === 'HTMLDocument' ||
+    val.nodeType === window.Node.DOCUMENT_NODE
+  );
+};
+
+export const isHTMLElement = (val?: unknown): val is HTMLElement => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return typeof HTMLElement !== 'undefined' && val instanceof HTMLElement;
 };

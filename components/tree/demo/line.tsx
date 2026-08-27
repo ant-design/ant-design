@@ -92,14 +92,16 @@ const App: React.FC = () => {
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        showLine: <Switch checked={!!showLine} onChange={setShowLine} />
+        showLine:{' '}
+        <Switch aria-label="Show connecting lines" checked={!!showLine} onChange={setShowLine} />
         <br />
         <br />
-        showIcon: <Switch checked={showIcon} onChange={setShowIcon} />
+        showIcon: <Switch aria-label="Show node icons" checked={showIcon} onChange={setShowIcon} />
         <br />
         <br />
         showLeafIcon:{' '}
         <Select
+          aria-label="Leaf icon"
           defaultValue="true"
           onChange={handleLeafIconChange}
           options={[

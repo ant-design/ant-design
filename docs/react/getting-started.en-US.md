@@ -16,16 +16,16 @@ Finally, if you are working in a local development environment, please refer to 
 
 ## Your First Example
 
-Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
+Here is a simple online CodeSandbox demo of an Ant Design component to show the usage of Ant Design React.
 
 <!-- prettier-ignore -->
-<code src="./demo/first-example.tsx">First Example</code>
+<code src="./_demo/first-example.tsx">First Example</code>
 
 Follow the steps below to play around with Ant Design yourself:
 
-### 1. Create a codesandbox
+### 1. Create a CodeSandbox
 
-Visit https://u.ant.design/reproduce to create a codesandbox -- don't forget to press the save button as well to create a new instance.
+Visit https://u.ant.design/reproduce to create a CodeSandbox -- don't forget to press the save button as well to create a new instance.
 
 ### 2. Use and modify an antd component
 
@@ -65,7 +65,7 @@ createRoot(document.getElementById('root')).render(<App />);
 
 You can view the list of components in the side menu of the Components page, such as the [Alert](/components/alert) component. Plenty of examples are also provided in the component pages and API documentation as well.
 
-Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the codesandbox:
+Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the CodeSandbox:
 
 ```diff
 - import { DatePicker, message } from 'antd';
@@ -84,9 +84,9 @@ Now add the following jsx inside the `render` function.
 
 Select a date, and you can see the effect in the preview area on the right:
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/JrXptUm1Nz/6b50edc4-3a3c-4b2a-843e-f9f0af2c4667.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/JrXptUm1Nz/6b50edc4-3a3c-4b2a-843e-f9f0af2c4667.png" alt="CodeSandbox screenshot" />
 
-OK! Now that you know the basics of using antd components, you are welcome to explore more components in the codesandbox. When reporting a bug with ant design, we also strongly recommend using codesandbox to provide a reproducible demo as well.
+OK! Now that you know the basics of using antd components, you are welcome to explore more components in the CodeSandbox. When reporting a bug with ant design, we also strongly recommend using CodeSandbox to provide a reproducible demo as well.
 
 ### 4. Next Steps
 

@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 
 export type CardMetaSemanticType = {
@@ -35,7 +36,11 @@ export interface CardMetaProps {
   styles?: CardMetaSemanticAllType['stylesAndFn'];
 }
 
-const CardMeta: React.FC<CardMetaProps> = (props) => {
+export interface CardMetaRef {
+  nativeElement: HTMLDivElement;
+}
+
+const CardMeta = React.forwardRef<CardMetaRef, CardMetaProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -84,19 +89,19 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
 
   const sectionClassNames = clsx(`${metaPrefixCls}-section`, mergedClassNames.section);
 
-  const avatarDom: React.ReactNode = avatar ? (
+  const avatarDom: React.ReactNode = isReactRenderable(avatar) ? (
     <div className={avatarClassNames} style={mergedStyles.avatar}>
       {avatar}
     </div>
   ) : null;
 
-  const titleDom: React.ReactNode = title ? (
+  const titleDom: React.ReactNode = isReactRenderable(title) ? (
     <div className={titleClassNames} style={mergedStyles.title}>
       {title}
     </div>
   ) : null;
 
-  const descriptionDom: React.ReactNode = description ? (
+  const descriptionDom: React.ReactNode = isReactRenderable(description) ? (
     <div className={descriptionClassNames} style={mergedStyles.description}>
       {description}
     </div>
@@ -110,13 +115,19 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
       </div>
     ) : null;
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyles}>
       {avatarDom}
       {MetaDetail}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   CardMeta.displayName = 'CardMeta';

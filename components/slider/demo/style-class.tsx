@@ -1,26 +1,28 @@
 import React from 'react';
 import { Flex, Slider } from 'antd';
-import type { GetProp, SliderSingleProps } from 'antd';
-import { createStaticStyles } from 'antd-style';
+import type { SliderSingleProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNames = createStaticStyles(({ css }) => ({
+const useHorizontalStyles = createStyles(({ css }) => ({
   root: css`
     width: 300px;
   `,
 }));
 
-const classNamesFn = createStaticStyles(({ css, cssVar }) => ({
+const useVerticalStyles = createStyles(({ css, prefixCls, cssVar }) => ({
   root: css`
     width: 100px;
-    &:hover .ant-slider-handle:after {
-      box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
+    &:hover {
+      .${prefixCls}-slider-handle:after {
+        box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
+      }
     }
   `,
   handle: css`
-    &.ant-slider-handle:hover::after,
-    &.ant-slider-handle:active::after,
-    &.ant-slider-handle:focus::after,
-    &.ant-slider-handle::after {
+    &.${prefixCls}-slider-handle:hover::after,
+      &.${prefixCls}-slider-handle:active::after,
+      &.${prefixCls}-slider-handle:focus::after,
+      &.${prefixCls}-slider-handle::after {
       box-shadow: 0 0 0 ${cssVar.lineWidthBold} #722ed1;
     }
   `,
@@ -31,9 +33,7 @@ const stylesObject: SliderSingleProps['styles'] = {
   handle: { borderColor: '#1677ff', boxShadow: '0 2px 8px #1677ff' },
 };
 
-const stylesFn: SliderSingleProps['styles'] = (
-  info,
-): GetProp<SliderSingleProps, 'styles', 'Return'> => {
+const stylesFn: SliderSingleProps['styles'] = (info) => {
   if (info.props.orientation === 'vertical') {
     return {
       root: { height: 300 },
@@ -44,16 +44,24 @@ const stylesFn: SliderSingleProps['styles'] = (
   return {};
 };
 
+const sharedProps: SliderSingleProps = {
+  defaultValue: 30,
+};
+
 const App: React.FC = () => {
-  const sharedProps: SliderSingleProps = {
-    defaultValue: 30,
-  };
+  const { styles: horizontalClassNames } = useHorizontalStyles();
+  const { styles: verticalClassNames } = useVerticalStyles();
   return (
     <Flex vertical gap="medium">
-      <Slider {...sharedProps} classNames={classNames} styles={stylesObject} />
       <Slider
         {...sharedProps}
-        classNames={classNamesFn}
+        orientation="horizontal"
+        classNames={horizontalClassNames}
+        styles={stylesObject}
+      />
+      <Slider
+        {...sharedProps}
+        classNames={verticalClassNames}
         orientation="vertical"
         reverse
         styles={stylesFn}

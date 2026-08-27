@@ -31,6 +31,10 @@ const genSearchStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
       [btnCls]: {
         height: varRef('btn-height'),
 
+        '&:focus-visible': {
+          zIndex: 5,
+        },
+
         [`&${antCls}-btn-icon-only`]: {
           width: varRef('btn-height'),
         },

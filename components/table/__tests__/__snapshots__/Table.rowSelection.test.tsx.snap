@@ -13,7 +13,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
   >
     <li
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-all"
+      data-menu-id="rc-menu-uuid-test-id-all"
       role="menuitem"
       tabindex="-1"
     >
@@ -25,7 +25,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     </li>
     <li
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-invert"
+      data-menu-id="rc-menu-uuid-test-id-invert"
       role="menuitem"
       tabindex="-1"
     >
@@ -37,7 +37,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     </li>
     <li
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-none"
+      data-menu-id="rc-menu-uuid-test-id-none"
       role="menuitem"
       tabindex="-1"
     >
@@ -146,7 +146,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           >
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-id-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -158,7 +158,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             </li>
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-id-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -170,7 +170,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             </li>
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-id-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -488,7 +488,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           >
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-id-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -500,7 +500,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             </li>
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-id-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -512,7 +512,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             </li>
                             <li
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-id-none"
                               role="menuitem"
                               tabindex="-1"
                             >

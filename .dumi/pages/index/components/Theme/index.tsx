@@ -94,17 +94,16 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     `,
 
     avatar: css`
-      width: 28px;
-      height: 28px;
+      width: 20px;
+      height: 20px;
       border-radius: 100%;
-      background-size: 70%;
       background-repeat: no-repeat;
       background-position: center;
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     `,
 
     avatarDark: css`
-      background: rgba(200, 200, 200, 0.3);
+      background-color: rgba(200, 200, 200, 0.3);
     `,
 
     logo: css`
@@ -394,9 +393,11 @@ interface ThemeDashboardLayoutProps {
 const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
   const { className, isDarkTheme, style, activeTheme } = props;
 
+  const { bgImgDark, icon: Icon = '', name } = activeTheme || {};
+
   const { token } = theme.useToken();
   const closestColor = DEFAULT_COLOR;
-  const hasDarkBackground = isDarkTheme || !!activeTheme?.bgImgDark;
+  const hasDarkBackground = isDarkTheme || bgImgDark;
   const menuTheme = hasDarkBackground ? 'dark' : 'light';
   const logoColor = React.useMemo(() => {
     const hsb = generateColor(token.colorPrimary).toHsb();
@@ -433,12 +434,17 @@ const ThemeDashboardLayout: React.FC<ThemeDashboardLayoutProps> = (props) => {
             <Flex className={styles.menu} gap="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
-              <div
-                className={styles.avatar}
-                style={{
-                  backgroundImage: activeTheme?.icon ? `url(${activeTheme.icon})` : undefined,
-                }}
-              />
+              {typeof Icon === 'string' ? (
+                <img
+                  className={styles.avatar}
+                  src={Icon}
+                  alt={name}
+                  title={name}
+                  draggable={false}
+                />
+              ) : (
+                <Icon className={styles.avatar} />
+              )}
             </Flex>
           </Header>
           <Layout hasSider>

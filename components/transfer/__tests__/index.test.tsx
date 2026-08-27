@@ -80,7 +80,7 @@ const searchTransferProps = {
 };
 
 const generateData = (n = 20) => {
-  const data = [];
+  const data: TransferProps<DefaultRecordType>['dataSource'] = [];
   for (let i = 0; i < n; i++) {
     data.push({
       key: `${i}`,
@@ -101,6 +101,13 @@ const ButtonRender = ({ onClick }: { onClick: () => void }) => (
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
+
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Transfer>>();
+    const { container } = render(<Transfer ref={ref} dataSource={[]} targetKeys={[]} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-transfer'));
+  });
 
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
@@ -818,7 +825,7 @@ describe('Transfer', () => {
       await waitFor(() => getByTitle('2/2'));
 
       rerender(
-        <Transfer
+        <Transfer<DefaultRecordType>
           {...{ ...listDisabledProps, targetKeys: ['b', 'c'] }}
           pagination={{ pageSize: 1 }}
         />,
@@ -829,7 +836,10 @@ describe('Transfer', () => {
     it('should support change pageSize', () => {
       const dataSource = generateData();
       const { container } = render(
-        <Transfer dataSource={dataSource} pagination={{ showSizeChanger: true, simple: false }} />,
+        <Transfer<DefaultRecordType>
+          dataSource={dataSource}
+          pagination={{ showSizeChanger: true, simple: false }}
+        />,
       );
 
       fireEvent.mouseDown(container.querySelector('.ant-select')!);
@@ -853,10 +863,18 @@ describe('Transfer', () => {
     });
   });
 
-  it('remove by click icon', () => {
+  it('should use the component locale for one-way item removal', () => {
     const onChange = jest.fn();
-    const { container } = render(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
-    fireEvent.click(container.querySelectorAll('.ant-transfer-list-content-item-remove')[0]);
+    const { getByRole } = render(
+      <Transfer
+        {...listCommonProps}
+        locale={{ remove: 'Remove target item' }}
+        onChange={onChange}
+        oneWay
+      />,
+    );
+
+    fireEvent.click(getByRole('button', { name: 'Remove target item' }));
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 

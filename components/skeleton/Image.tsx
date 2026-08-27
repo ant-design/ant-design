@@ -17,6 +17,8 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
         viewBox="0 0 1098 1024"
         xmlns="http://www.w3.org/2000/svg"
         className={`${prefixCls}-image-svg`}
+        aria-hidden="true"
+        focusable="false"
       >
         <title>Image placeholder</title>
         <path

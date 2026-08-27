@@ -21,7 +21,7 @@ const BreadcrumbSeparator: CompoundedComponent = ({ children }) => {
       style={mergedStyles?.separator}
       aria-hidden="true"
     >
-      {children === '' ? children : children || '/'}
+      {children === '' ? children : children ?? '/'}
     </li>
   );
 };

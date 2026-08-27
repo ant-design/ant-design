@@ -97,7 +97,7 @@ describe('Drawer', () => {
     triggerMotion();
 
     let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
-    expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+    expect(drawerWrapper).toHaveProperty('style.width', '20vw');
 
     rerender(
       <Drawer open size="500" getContainer={false}>
@@ -143,6 +143,28 @@ describe('Drawer', () => {
 
     triggerMotion();
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('render extra without title or close button', () => {
+    const { container } = render(
+      <Drawer open closable={false} extra={0} getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(container.querySelector('.ant-drawer-header')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-extra')).toHaveTextContent('0');
+  });
+
+  it('render title with zero value', () => {
+    const { container } = render(
+      <Drawer open closable={false} title={0} getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(container.querySelector('.ant-drawer-header')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-title')).toHaveTextContent('0');
   });
 
   it('closable is false', () => {

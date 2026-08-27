@@ -5,9 +5,3 @@
 ## en-US
 
 Complex error feedback.
-
-```css
-.site-result-demo-error-icon {
-  color: red;
-}
-```

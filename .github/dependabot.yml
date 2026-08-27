@@ -11,6 +11,8 @@ updates:
       interval: daily
       time: "05:00"
       timezone: Asia/Shanghai
+    cooldown:
+      default-days: 7
     groups:
       jest-dependencies:
         patterns:
@@ -37,6 +39,8 @@ updates:
     schedule:
       interval: weekly
       day: monday
+    cooldown:
+      default-days: 7
     groups:
       github-actions:
         patterns:

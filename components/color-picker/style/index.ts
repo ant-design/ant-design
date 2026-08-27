@@ -99,17 +99,19 @@ const genClearStyle = (
   size: number,
   extraStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, borderRadiusSM, lineWidth, colorSplit, colorBorder, red6 } = token;
+  const { componentCls, borderRadiusSM, lineWidth, lineType, colorSplit, colorBorder, red6 } =
+    token;
 
   return {
     [`${componentCls}-clear`]: {
       width: size,
       height: size,
       borderRadius: borderRadiusSM,
-      border: `${unit(lineWidth)} solid ${colorSplit}`,
+      border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       position: 'relative',
       overflow: 'hidden',
       cursor: 'inherit',
+      userSelect: 'none',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
@@ -228,6 +230,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     colorPickerPresetColorSize,
     colorPickerPreviewSize,
     lineWidth,
+    lineType,
     colorBorder,
     paddingXXS,
     fontSize,
@@ -272,7 +275,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           minWidth: controlHeight,
           minHeight: controlHeight,
           borderRadius,
-          border: `${unit(lineWidth)} solid ${colorBorder}`,
+          border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
           cursor: 'pointer',
           display: 'inline-flex',
           alignItems: 'flex-start',

@@ -12,11 +12,11 @@ const useStyles = createStyles(({ token }) => ({
     backgroundColor: token.colorBgContainer,
     borderRadius: token.borderRadius,
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-    border: `1px solid ${token.colorBorderSecondary}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
   },
   header: {
     borderBottom: 'none',
-    paddingBottom: 8,
+    paddingBottom: token.paddingXS,
   },
   body: {
     paddingTop: 0,

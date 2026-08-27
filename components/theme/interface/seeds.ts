@@ -274,6 +274,15 @@ export interface SeedToken extends PresetColorType {
   wireframe: boolean;
 
   /**
+   * @nameZH 聚焦描边
+   * @nameEN Focus Outline
+   * @desc 用于配置组件聚焦时是否显示可见描边
+   * @descEN Used to configure whether components show a visible outline when focused
+   * @default true
+   */
+  focusOutline: boolean;
+
+  /**
    * @nameZH 动画风格
    * @nameEN Motion Style
    * @desc 用于配置动画效果，为 `false` 时则关闭动画

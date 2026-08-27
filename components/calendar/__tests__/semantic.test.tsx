@@ -3,6 +3,11 @@ import React from 'react';
 import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import Calendar from '..';
 import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Calendar.Semantic', () => {
   it('should support itemContent classNames and styles', () => {
@@ -99,5 +104,24 @@ describe('Calendar.Semantic', () => {
     const headerStyle = header?.getAttribute('style');
     expect(headerStyle).toContain('font-size: 14px');
     expect(headerStyle).toContain('color: red');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        calendar={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Calendar
+          value={dayjsGenerateConfig.getNow()}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-picker-calendar'));
   });
 });

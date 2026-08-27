@@ -30,6 +30,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/popupRender-Search.tsx" version="6.6.0">自定义折叠菜单搜索</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>卡片式页签容器</code>
@@ -58,7 +59,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  | × |
 | indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 | × |
-| more | 自定义折叠菜单属性 | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | 5.17.0 |
+| more | 自定义折叠菜单属性 | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | `more.icon`: 5.17.0 |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
 | ~~popupClassName~~ | 更多菜单的 `className`, 请使用 `classNames.popup` 替换 | string | - | 4.21.0 | × |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  | × |
@@ -96,10 +97,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### MoreProps
 
-| 参数                                         | 说明           | 类型      | 默认值 | 版本 |
-| -------------------------------------------- | -------------- | --------- | ------ | ---- |
-| icon                                         | 自定义折叠图标 | ReactNode | -      |      |
-| [DropdownProps](/components/dropdown-cn#api) |                |           |        |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| icon | 自定义折叠图标 | ReactNode | - |  |
+| popupRender | 自定义折叠菜单渲染 | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
+| [DropdownProps](/components/dropdown-cn#api) | 支持 Dropdown 的其他属性 |  |  |  |
 
 ## Semantic DOM
 

@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
 import { Input, Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, prefixCls, cssVar } = props;
+  return {
+    numericInput: css`
+      .${prefixCls}-tooltip-container {
+        min-width: 32px;
+        min-height: 38px;
+      }
+    `,
+    numericInputTitle: css`
+      font-size: ${cssVar.fontSize};
+    `,
+  };
+});
 
 interface NumericInputProps {
   style: React.CSSProperties;
@@ -9,8 +25,10 @@ interface NumericInputProps {
 
 const formatNumber = (value: number) => new Intl.NumberFormat().format(value);
 
-const NumericInput = (props: NumericInputProps) => {
+const NumericInput: React.FC<NumericInputProps> = (props) => {
   const { value, onChange } = props;
+
+  const { styles } = useStyles();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = e.target;
@@ -21,7 +39,7 @@ const NumericInput = (props: NumericInputProps) => {
   };
 
   // '.' at the end or only '-' in the input box.
-  const handleBlur = () => {
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> = () => {
     let valueTemp = value;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
       valueTemp = value.slice(0, -1);
@@ -30,17 +48,20 @@ const NumericInput = (props: NumericInputProps) => {
   };
 
   const title = value ? (
-    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
+    <span className={styles.numericInputTitle}>
+      {value !== '-' ? formatNumber(Number(value)) : '-'}
+    </span>
   ) : (
     'Input a number'
   );
 
   return (
     <Tooltip
+      destroyOnHidden
       trigger={['focus']}
       title={title}
       placement="topLeft"
-      classNames={{ root: 'numeric-input' }}
+      classNames={{ root: styles.numericInput }}
     >
       <Input
         {...props}
@@ -55,7 +76,6 @@ const NumericInput = (props: NumericInputProps) => {
 
 const App: React.FC = () => {
   const [value, setValue] = useState('');
-
   return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;
 };
 

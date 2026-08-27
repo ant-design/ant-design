@@ -3,6 +3,7 @@ import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
+import { SereneIcon } from '../svg-component';
 import useBlossomTheme from './blossomTheme';
 import blossomThemeSource from './blossomTheme.ts?raw';
 import useBootstrapTheme from './bootstrapTheme';
@@ -19,16 +20,15 @@ import useLarkTheme from './larkTheme';
 import larkThemeSource from './larkTheme.ts?raw';
 import useMuiTheme from './muiTheme';
 import muiThemeSource from './muiTheme.ts?raw';
+import useSereneTheme from './sereneTheme';
+import sereneThemeSource from './sereneTheme.ts?raw';
 import useShadcnTheme from './shadcnTheme';
 import shadcnThemeSource from './shadcnTheme.ts?raw';
 import useV4Theme from './v4Theme';
 import v4ThemeSource from './v4Theme.ts?raw';
-import sereneIcon from './assets/serene-icon.svg';
-import useSereneTheme from './sereneTheme';
-import sereneThemeSource from './sereneTheme.ts?raw';
 
-export type PreviewThemeConfig = {
-  icon?: string;
+export interface PreviewThemeConfig {
+  icon: string | React.ComponentType<React.SVGProps<SVGSVGElement>>;
   name: string;
   key?: string;
   props?: ConfigProviderProps;
@@ -36,7 +36,7 @@ export type PreviewThemeConfig = {
   bgImgDark?: boolean;
   copyCode?: string;
   colors?: string[];
-};
+}
 
 const locales = {
   cn: {
@@ -291,12 +291,37 @@ const usePreviewThemes = () => {
       },
       {
         name: locale.serene,
-        icon: sereneIcon,
+        icon: SereneIcon,
         props: sereneTheme,
         copyCode: sereneThemeSource,
       },
     ];
-  }, [locale]);
+  }, [
+    blossomTheme,
+    bootstrapTheme,
+    cartoonTheme,
+    geekTheme,
+    glassTheme,
+    illustrationTheme,
+    larkTheme,
+    locale.blossom,
+    locale.bootstrap,
+    locale.cartoon,
+    locale.dark,
+    locale.default,
+    locale.geek,
+    locale.glass,
+    locale.illustration,
+    locale.lark,
+    locale.mui,
+    locale.serene,
+    locale.shadcn,
+    locale.v4,
+    muiTheme,
+    sereneTheme,
+    shadcnTheme,
+    v4Theme,
+  ]);
 };
 
 export default usePreviewThemes;

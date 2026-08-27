@@ -75,6 +75,18 @@ describe('Splitter', () => {
     jest.useRealTimers();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Splitter>>();
+    const { container } = render(
+      <Splitter ref={ref}>
+        <Splitter.Panel>First</Splitter.Panel>
+        <Splitter.Panel>Second</Splitter.Panel>
+      </Splitter>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-splitter'));
+  });
+
   it('should correct render', () => {
     const { container } = render(<SplitterDemo />);
     expect(container.querySelector('.ant-splitter')).toBeTruthy();
@@ -481,6 +493,19 @@ describe('Splitter', () => {
       );
       expect(container.querySelector('[aria-valuemax]')?.getAttribute('aria-valuemax')).not.toBe(
         'NaN',
+      );
+    });
+
+    it('should render percentage-based aria value range before resize', () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ defaultSize: 100, min: 100, max: 200 }, { min: 100, max: 200 }, { min: '20%' }]}
+        />,
+      );
+
+      expect(container.querySelectorAll('.ant-splitter-bar-dragger')[1]).toHaveAttribute(
+        'aria-valuemax',
+        '80',
       );
     });
   });

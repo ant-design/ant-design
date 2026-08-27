@@ -39,6 +39,7 @@ demo:
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
+<code src="./demo/clear-suffix-debug.tsx" debug>清除后缀</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
 <code src="./demo/custom-label-render.tsx">自定义选中 label</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
@@ -91,13 +92,13 @@ demo:
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  | × |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | `<CheckOutlined />` |  | 6.4.0 |
 | mode | 设置 Select 的模式为多选或标签 | `multiple` \| `tags` | - |  | × |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `暂无数据` |  | × |
 | open | 是否展开下拉菜单 | boolean | - |  | × |
 | ~~optionFilterProp~~ | 已废弃，见 `showSearch.optionFilterProp` |  |  |  | × |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  | × |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  | × |
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 | × |
-| placeholder | 选择框默认文本 | string | - |  | × |
+| placeholder | 选择框默认文本 | ReactNode | - |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | `<CloseOutlined />` |  | 6.4.0 |

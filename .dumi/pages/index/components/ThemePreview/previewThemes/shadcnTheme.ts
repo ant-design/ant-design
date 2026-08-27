@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const useStyles = createStyles(({ css }) => {
   return {
@@ -274,7 +274,18 @@ const useShadcnTheme = () => {
       segmented: {},
       progress: {},
     }),
-    [styles],
+    [
+      styles.buttonDanger,
+      styles.buttonDefault,
+      styles.buttonPrimary,
+      styles.inputElement,
+      styles.inputError,
+      styles.inputRoot,
+      styles.notificationDescription,
+      styles.notificationRoot,
+      styles.notificationTitle,
+      styles.selectRoot,
+    ],
   );
 };
 export default useShadcnTheme;

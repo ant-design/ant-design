@@ -11,7 +11,7 @@ import { clsx } from 'clsx';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isPlainObject } from '../_util/is';
+import { isNonNullable, isPlainObject, isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
@@ -247,7 +247,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
-    if (isPlainObject(closable) && closable.closeIcon) {
+    if (isPlainObject(closable)) {
       return true;
     }
     if (closeText) {
@@ -293,7 +293,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     `${prefixCls}-${type}`,
     `${prefixCls}-${mergedVariant}`,
     {
-      [`${prefixCls}-with-description`]: !!description,
+      [`${prefixCls}-with-description`]: isReactRenderable(description),
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -375,7 +375,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             className={clsx(`${prefixCls}-section`, mergedClassNames.section)}
             style={mergedStyles.section}
           >
-            {mergedTitle ? (
+            {isReactRenderable(mergedTitle) ? (
               <div
                 className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
@@ -383,7 +383,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
                 {mergedTitle}
               </div>
             ) : null}
-            {description ? (
+            {isReactRenderable(description) ? (
               <div
                 className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
                 style={mergedStyles.description}
@@ -392,7 +392,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
               </div>
             ) : null}
           </div>
-          {action ? (
+          {isReactRenderable(action) ? (
             <div
               className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
               style={mergedStyles.actions}

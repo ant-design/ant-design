@@ -14,14 +14,14 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-这是一个最简单的 Ant Design 组件的在线 codesandbox 演示。
+这是一个最简单的 Ant Design 组件的在线 CodeSandbox 演示。
 
 <!-- prettier-ignore -->
-<code src="./demo/first-example.tsx">第一个例子</code>
+<code src="./_demo/first-example.tsx">第一个例子</code>
 
-### 1. 创建一个 codesandbox
+### 1. 创建一个 CodeSandbox
 
-访问 https://u.ant.design/reproduce 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 https://u.ant.design/reproduce 创建一个 CodeSandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用组件
 
@@ -69,7 +69,7 @@ createRoot(document.getElementById('root')).render(<App />);
 
 你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。在代码演示部分找到第一个例子，点击右下角的图标展开代码。
 
-然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
+然后依照演示代码的写法，在之前的 CodeSandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
 ```diff
 - import { ConfigProvider, DatePicker, message } from 'antd';
@@ -88,9 +88,9 @@ createRoot(document.getElementById('root')).render(<App />);
 
 选择一个日期，在右侧预览区就可以看到如图的效果。
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/ZosQjL9pqe/e6179c89-21a9-44c9-aea4-3cc04af7ef25.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/ZosQjL9pqe/e6179c89-21a9-44c9-aea4-3cc04af7ef25.png" alt="CodeSandbox screenshot" />
 
-好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。如果你遇到组件的 bug，也推荐建一个可重现的 codesandbox 来报告 bug。
+好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。如果你遇到组件的 bug，也推荐建一个可重现的 CodeSandbox 来报告 bug。
 
 ### 4. 下一步
 

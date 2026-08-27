@@ -21,9 +21,7 @@ export enum ThemeType {
   TwoTone = 'TwoTone',
 }
 
-// Preference order used by the "All" view to pick the single variant shown for
-// each icon. Outlined first keeps the default look; Filled surfaces logos that
-// only ship as Filled and would otherwise stay hidden on the Outlined tab.
+// Theme order used by the "All" view to expand each base icon.
 const THEME_ORDER: ReadonlyArray<ThemeType> = [
   ThemeType.Outlined,
   ThemeType.Filled,
@@ -223,13 +221,11 @@ type MatchedCategory = {
 };
 
 // Map a base icon name to the concrete component name(s) to render for a theme.
-// "All" resolves to a single variant (see THEME_ORDER); a specific theme resolves
-// to that variant only when it exists.
 function resolveIconNames(baseName: string, theme: ThemeType): string[] {
   if (theme === ThemeType.All) {
-    const matched = THEME_ORDER.find((item) => allIcons[baseName + item]);
-    return matched ? [baseName + matched] : [];
+    return THEME_ORDER.map((item) => baseName + item).filter((iconName) => allIcons[iconName]);
   }
+
   return allIcons[baseName + theme] ? [baseName + theme] : [];
 }
 

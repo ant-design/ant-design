@@ -247,6 +247,18 @@ describe('Radio Group', () => {
     expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
   });
 
+  it('options support onChange', () => {
+    const onChange = jest.fn();
+    const options = [
+      { label: 'A', value: 'A', onChange },
+      { label: 'B', value: 'B' },
+    ];
+    const { container } = render(<Radio.Group options={options} />);
+
+    fireEvent.click(container.querySelectorAll('input')[0]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
   it('should use FormItem name', () => {
     const RadioForm: React.FC = () => (
       <Form name="preference-form">

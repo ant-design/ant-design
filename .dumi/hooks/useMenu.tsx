@@ -149,7 +149,7 @@ const useMenu = (options: UseMenuOptions = {}): readonly [MenuProps['items'], st
               childrenResult[type].push(child);
               return childrenResult;
             }, {});
-            const childItems = [];
+            const childItems: MenuProps['items'] = [];
             childItems.push(
               ...(childrenGroup.default?.map((item) => ({
                 label: (

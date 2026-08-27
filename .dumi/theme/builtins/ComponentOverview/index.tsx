@@ -1,11 +1,24 @@
 import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, BorderBeam, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
+import {
+  Affix,
+  Badge,
+  BorderBeam,
+  Card,
+  Col,
+  Divider,
+  Flex,
+  Input,
+  Row,
+  Tag,
+  Typography,
+} from 'antd';
 import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import semver from 'semver';
 
 import Link from '../../common/Link';
 import SiteContext from '../../slots/SiteContext';
@@ -101,6 +114,8 @@ const Overview: React.FC = () => {
   const { search: urlSearch } = useLocation();
   const { locale, formatMessage } = useIntl();
 
+  const deprecatedText = formatMessage({ id: 'app.components.overview.deprecated' });
+
   const [search, setSearch] = useState<string>(() => {
     const params = new URLSearchParams(urlSearch);
     if (params.has('s')) {
@@ -128,6 +143,7 @@ const Overview: React.FC = () => {
             subtitle: child.frontmatter?.subtitle,
             cover: child.frontmatter?.cover,
             coverDark: child.frontmatter?.coverDark,
+            tag: child.frontmatter?.tag,
             link: child.link,
           })),
         }))
@@ -181,12 +197,15 @@ const Overview: React.FC = () => {
         {groups
           .filter((i) => i?.title)
           .map((group) => {
-            const components = group?.children?.filter(
-              (component) =>
-                !search.trim() ||
-                component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
-                (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
-            );
+            const children = group?.children ?? [];
+            const keyword = search.trim().toLowerCase();
+            const components = keyword
+              ? children.filter((component) => {
+                  const title = component?.title?.toLowerCase() ?? '';
+                  const subtitle = component?.subtitle?.toLowerCase() ?? '';
+                  return title.includes(keyword) || subtitle.includes(keyword);
+                })
+              : children;
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
@@ -206,6 +225,15 @@ const Overview: React.FC = () => {
                     /** BorderBeam 组件需要特殊处理 */
                     const isBorderBeam = component.title === 'BorderBeam';
 
+                    /** 是否是已废弃组件 */
+                    const isDeprecated = component.tag?.toUpperCase() === 'DEPRECATED';
+
+                    /** 是否是 v6.0.0 及以上版本新增的组件 */
+                    const isNewComponent =
+                      component.tag &&
+                      semver.valid(component.tag) !== null &&
+                      semver.gte(component.tag, '6.0.0');
+
                     if (!isExternalLink) {
                       url += urlSearch;
                     }
@@ -223,8 +251,10 @@ const Overview: React.FC = () => {
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'bottom right',
                             backgroundSize: '32px 32px',
-                            backgroundImage: component.tag ? `url(${component.tag})` : undefined,
                             backgroundColor: 'transparent',
+                            backgroundImage: component.backgroundImage
+                              ? `url(${component.backgroundImage})`
+                              : undefined,
                           },
                         }}
                         size="small"
@@ -248,6 +278,32 @@ const Overview: React.FC = () => {
                       </Card>
                     );
 
+                    let decoratedCardContent = cardContent;
+
+                    if (isBorderBeam) {
+                      decoratedCardContent = (
+                        <BorderBeam duration={6} lineWidth={2}>
+                          {decoratedCardContent}
+                        </BorderBeam>
+                      );
+                    }
+
+                    if (isDeprecated) {
+                      decoratedCardContent = (
+                        <Badge.Ribbon color="orange" text={deprecatedText}>
+                          {decoratedCardContent}
+                        </Badge.Ribbon>
+                      );
+                    }
+
+                    if (isNewComponent) {
+                      decoratedCardContent = (
+                        <Badge.Ribbon color="green" text={component.tag}>
+                          {decoratedCardContent}
+                        </Badge.Ribbon>
+                      );
+                    }
+
                     const linkContent = isExternalLink ? (
                       <a
                         href={url}
@@ -255,22 +311,13 @@ const Overview: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {isBorderBeam ? (
-                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
-                        ) : (
-                          cardContent
-                        )}
+                        {decoratedCardContent}
                       </a>
                     ) : (
                       <Link to={url} key={`${component.title}-internal-link`}>
-                        {isBorderBeam ? (
-                          <BorderBeam lineWidth={2}>{cardContent}</BorderBeam>
-                        ) : (
-                          cardContent
-                        )}
+                        {decoratedCardContent}
                       </Link>
                     );
-
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         {linkContent}

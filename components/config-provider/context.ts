@@ -30,6 +30,7 @@ import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../i
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
+import type { ListyProps } from '../listy';
 import type { Locale } from '../locale';
 import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
@@ -56,6 +57,7 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { MoreProps } from '@rc-component/tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
@@ -167,9 +169,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -190,6 +191,8 @@ export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
+
+export type ListyConfig = ComponentStyleConfig & Pick<ListyProps, 'classNames' | 'styles'>;
 
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
@@ -227,20 +230,19 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<
     TabsProps,
-    | 'indicator'
-    | 'indicatorSize'
-    | 'more'
-    | 'moreIcon'
-    | 'addIcon'
-    | 'removeIcon'
-    | 'classNames'
-    | 'styles'
-  >;
+    'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon' | 'classNames' | 'styles'
+  > & {
+    more?: Omit<MoreProps, 'popupRender'>;
+  };
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+  Pick<AlertProps, 'variant' | 'closeIcon' | 'classNames' | 'styles'> & {
+    closable?:
+      | boolean
+      | (Pick<Exclude<NonNullable<AlertProps['closable']>, boolean>, 'closeIcon'> &
+          React.AriaAttributes);
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
@@ -261,15 +263,15 @@ export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type InputPasswordConfig = ComponentStyleConfig &
-  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender' | 'variant'>;
 
 export type InputSearchConfig = ComponentStyleConfig &
-  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon' | 'variant'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
+export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
@@ -357,7 +359,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type TooltipConfig = Pick<
   TooltipProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -369,12 +378,26 @@ export type TooltipConfig = Pick<
 
 export type PopoverConfig = Pick<
   PopoverProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
@@ -506,6 +529,7 @@ export interface ConfigComponentProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
+  listy?: ListyConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ProgressConfig;

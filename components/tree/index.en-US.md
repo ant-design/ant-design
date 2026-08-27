@@ -27,6 +27,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/directory-debug.tsx" debug>Directory Debug</code>
 <code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
 <code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
+<code src="./demo/scroll-to.tsx" version="6.6.0">Scroll to nested node</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>Big data</code>
 <code src="./demo/block-node.tsx">Block Node</code>
@@ -66,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loadedKeys | (Controlled) Set loaded tree nodes. Need to work with `loadData` | string\[] | \[] |  | × |
 | motion | Custom motion config for the tree | CSSMotionProps | - |  | × |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  | × |
-| rootStyle | Style on the root element | CSSProperties | - | 4.20.0 | × |
+| ~~rootStyle~~ | Style on the root element, please use `styles.root` instead | CSSProperties | - | 4.20.0 | × |
 | selectable | Whether it can be selected | boolean | true |  | × |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  | × |
 | showIcon | Controls whether to display the `icon` node (no default style) | boolean | false |  | × |
@@ -131,7 +132,23 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 | Name | Description |
 | --- | --- |
-| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number; autoExpand?: boolean }) | Scroll to key item in virtual scroll. `autoExpand` expands the target node in uncontrolled mode |
+
+### Tree Hooks
+
+#### Tree.useTree
+
+`type Tree.useTree = (treeData: DataNode[], config: { fieldNames?: FieldNames }) => TreeInstance`
+
+Provides Tree data utilities. `getPath(key)` returns the node entities from the root to the target node, which can be used to update `expandedKeys` in controlled mode.
+
+`getPath` has a stable function identity and reads the latest `treeData` when called. If you memoize a value derived from `getPath`, include `treeData` and the lookup key in the dependency list because dependency tracking cannot observe the data captured inside `getPath`.
+
+```tsx
+const { getPath } = Tree.useTree(treeData, {});
+
+const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData]);
+```
 
 ## Semantic DOM
 

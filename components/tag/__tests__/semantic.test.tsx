@@ -129,6 +129,35 @@ describe('Tag.Semantic', () => {
     expect(closeElement).toHaveClass('close-filled');
     expect(closeElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        tag={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Tag styles={semanticRootStylePriority.styles} style={semanticRootStylePriority.style}>
+          Bamboo
+        </Tag>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-tag'));
+  });
+  it('checkableTag should prioritize local style over context style', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Tag.CheckableTag checked style={{ color: 'rgb(0, 0, 255)' }}>
+          Bamboo
+        </Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+    });
+  });
   it('checkableTagGroup support classNames and styles as objects', () => {
     const { container } = render(
       <Tag.CheckableTagGroup
@@ -153,6 +182,23 @@ describe('Tag.Semantic', () => {
     expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
       color: 'rgb(255, 0, 0)',
     });
+  });
+  it('checkableTagGroup should prioritize item styles over context style', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Tag.CheckableTagGroup
+          styles={{ item: { color: 'rgb(0, 128, 0)' } }}
+          options={[
+            { label: 'Bamboo', value: 'bamboo' },
+            { label: 'Little', value: 'little', style: { color: 'rgb(0, 0, 255)' } },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    const items = container.querySelectorAll('.ant-tag-checkable');
+    expect(items[0]).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+    expect(items[1]).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
   it('checkableTagGroup support classNames and styles as functions', () => {
     const { container } = render(

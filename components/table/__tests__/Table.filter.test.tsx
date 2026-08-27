@@ -407,8 +407,9 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(onOpenChange.mock.calls).toEqual([[true], [false]]);
+    expect(onFilterDropdownOpenChange.mock.calls).toEqual([[true], [false]]);
   });
 
   it('can be controlled by filteredValue', () => {
@@ -3168,6 +3169,62 @@ describe('Table.filter', () => {
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(container.querySelector('.ant-dropdown-placement-topLeft')).toBeTruthy();
+    });
+
+    it('should sync selected keys while controlled dropdown stays open', async () => {
+      const getTable = (filteredValue: React.Key[]) =>
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMultiple: false,
+              filteredValue,
+              filterDropdownProps: {
+                open: true,
+              },
+            },
+          ],
+        });
+
+      const { container, rerender } = render(getTable(['boy']));
+
+      await waitFor(() => {
+        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[0]).toBeChecked();
+      });
+
+      rerender(getTable(['girl']));
+
+      await waitFor(() => {
+        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1]).toBeChecked();
+      });
+    });
+
+    it('should clear search when controlled dropdown closes', async () => {
+      const getTable = (open: boolean) =>
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterSearch: true,
+              filterDropdownProps: {
+                open,
+              },
+            },
+          ],
+        });
+
+      const { container, rerender } = render(getTable(true));
+      const searchInput = container.querySelector<HTMLInputElement>('.ant-input')!;
+
+      fireEvent.change(searchInput, { target: { value: 'boy' } });
+      expect(searchInput).toHaveValue('boy');
+
+      rerender(getTable(false));
+      rerender(getTable(true));
+
+      await waitFor(() => {
+        expect(container.querySelector('.ant-input')).toHaveValue('');
+      });
     });
   });
 });
