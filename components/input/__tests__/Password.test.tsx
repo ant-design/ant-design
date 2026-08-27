@@ -80,6 +80,19 @@ describe('Input.Password', () => {
     expect(getByDisplayValue('111')).toBeInTheDocument();
   });
 
+  it.each(['Enter', ' '])('should ignore repeated %s key activation', (key) => {
+    const onVisibleChange = jest.fn();
+    const { container } = render(<Input.Password visibilityToggle={{ onVisibleChange }} />);
+
+    fireEvent.keyDown(container.querySelector('.ant-input-password-icon')!, {
+      key,
+      repeat: true,
+    });
+
+    expect(onVisibleChange).not.toHaveBeenCalled();
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
+  });
+
   it('should keep focus state', () => {
     const { container, unmount } = render(<Input.Password defaultValue="111" autoFocus />, {
       container: document.body,
