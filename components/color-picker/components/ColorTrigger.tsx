@@ -56,7 +56,12 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const onInternalKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
     onKeyDown?.(event);
 
-    if (!event.defaultPrevented && !disabled && (event.key === 'Enter' || event.key === ' ')) {
+    if (
+      !event.defaultPrevented &&
+      !event.repeat &&
+      !disabled &&
+      (event.key === 'Enter' || event.key === ' ')
+    ) {
       event.preventDefault();
       event.currentTarget.click();
     }

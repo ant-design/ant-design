@@ -79,6 +79,11 @@ describe('ColorPicker', () => {
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
     expect(trigger).toHaveAccessibleName('rgba(0,0,0,0)');
 
+    fireEvent.keyDown(trigger, { key: 'Enter', repeat: true });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeFalsy();
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
     fireEvent.keyDown(trigger, { key: 'Enter' });
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker')).toBeTruthy();
@@ -202,6 +207,9 @@ describe('ColorPicker', () => {
 
       fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
       await waitFakeTimer();
+      fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key, repeat: true });
+      expect(onClear).not.toHaveBeenCalled();
+
       fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key });
       expect(onClear).toHaveBeenCalledTimes(1);
 

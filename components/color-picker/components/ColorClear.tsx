@@ -28,7 +28,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
-    if (canClear && (event.key === 'Enter' || event.key === ' ')) {
+    if (canClear && !event.repeat && (event.key === 'Enter' || event.key === ' ')) {
       event.preventDefault();
       onClick();
     }
