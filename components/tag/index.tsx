@@ -186,7 +186,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     };
 
     const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+      if (!e.repeat && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         e.currentTarget.click();
       }
