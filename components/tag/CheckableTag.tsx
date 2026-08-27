@@ -60,9 +60,11 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
       return;
     }
 
-    if (e.key === ' ' && !e.repeat) {
+    if (e.key === ' ') {
       e.preventDefault();
-      onChange?.(!checked);
+      if (!e.repeat) {
+        onChange?.(!checked);
+      }
     }
   };
 

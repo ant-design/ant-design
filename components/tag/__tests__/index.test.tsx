@@ -226,8 +226,13 @@ describe('Tag', () => {
     it('should ignore repeated Space key activation', () => {
       const onChange = jest.fn();
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
-      fireEvent.keyDown(container.querySelector('.ant-tag')!, { key: ' ', repeat: true });
+      const tag = container.querySelector('.ant-tag')!;
+      const keyDownEvent = createEvent.keyDown(tag, { key: ' ', repeat: true });
+
+      fireEvent(tag, keyDownEvent);
+
       expect(onChange).not.toHaveBeenCalled();
+      expect(keyDownEvent.defaultPrevented).toBe(true);
     });
 
     it('should not trigger onChange when key event is prevented', () => {
@@ -352,11 +357,14 @@ describe('Tag', () => {
   it.each(['Enter', ' '])('should ignore repeated %s key activation on close controls', (key) => {
     const onClose = jest.fn();
     const { container } = render(<Tag closable onClose={onClose} />);
+    const closeIcon = container.querySelector('.ant-tag-close-icon')!;
+    const keyDownEvent = createEvent.keyDown(closeIcon, { key, repeat: true });
 
-    fireEvent.keyDown(container.querySelector('.ant-tag-close-icon')!, { key, repeat: true });
+    fireEvent(closeIcon, keyDownEvent);
 
     expect(onClose).not.toHaveBeenCalled();
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(keyDownEvent.defaultPrevented).toBe(true);
   });
   it('should not close when closeIcon key event is prevented', () => {
     const onClose = jest.fn();
