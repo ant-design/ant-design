@@ -141,6 +141,15 @@ describe('Table.filter', () => {
     });
   });
 
+  it.each(['Enter', ' '])('ignores repeated %s activation', (key) => {
+    const { container } = render(createTable());
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
+
+    fireEvent.keyDown(trigger, { key, repeat: true });
+
+    expect(container.querySelector('.ant-table-filter-dropdown')).toBeFalsy();
+  });
+
   // async await 解决 Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('renders menu correctly', async () => {
     const { container } = render(createTable());

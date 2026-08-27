@@ -561,7 +561,9 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            e.currentTarget.click();
+            if (!e.repeat) {
+              e.currentTarget.click();
+            }
           }
         }}
       >
