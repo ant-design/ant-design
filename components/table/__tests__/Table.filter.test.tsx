@@ -122,6 +122,25 @@ describe('Table.filter', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('provides a localized accessible name for the filter trigger', () => {
+    const { container } = render(createTable({ locale: { filterTitle: '篩選器' } }));
+    const trigger = container.querySelector('.ant-table-filter-trigger');
+
+    expect(trigger).toHaveAttribute('aria-label', '篩選器');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+  });
+
+  it.each(['Enter', ' '])('opens the filter dropdown with %s', async (key) => {
+    const { container } = render(createTable());
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
+
+    fireEvent.keyDown(trigger, { key });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toBeTruthy();
+    });
+  });
+
   // async await 解决 Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('renders menu correctly', async () => {
     const { container } = render(createTable());
