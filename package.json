@@ -149,7 +149,7 @@
     "@rc-component/switch": "~1.0.3",
     "@rc-component/table": "~1.11.1",
     "@rc-component/tabs": "~1.13.0",
-    "@rc-component/tooltip": "~1.5.0",
+    "@rc-component/tooltip": "~1.5.2",
     "@rc-component/tour": "~2.4.0",
     "@rc-component/tree": "~1.5.0",
     "@rc-component/tree-select": "~1.18.0",
