@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -223,7 +224,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
   ) : null;
-  if (title || extra || tabs) {
+  if (isReactRenderable(title) || isReactRenderable(extra) || tabs) {
     const headClasses = clsx(`${prefixCls}-head`, mergedClassNames.header);
     const titleClasses = clsx(`${prefixCls}-head-title`, mergedClassNames.title);
     const extraClasses = clsx(`${prefixCls}-extra`, mergedClassNames.extra);
@@ -234,12 +235,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     head = (
       <div className={headClasses} style={mergedHeadStyle}>
         <div className={`${prefixCls}-head-wrapper`}>
-          {title && (
+          {isReactRenderable(title) && (
             <div className={titleClasses} style={mergedStyles.title}>
               {title}
             </div>
           )}
-          {extra && (
+          {isReactRenderable(extra) && (
             <div className={extraClasses} style={mergedStyles.extra}>
               {extra}
             </div>
@@ -250,7 +251,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     );
   }
   const coverClasses = clsx(`${prefixCls}-cover`, mergedClassNames.cover);
-  const coverDom = cover ? (
+  const coverDom = isReactRenderable(cover) ? (
     <div className={coverClasses} style={mergedStyles.cover}>
       {cover}
     </div>
