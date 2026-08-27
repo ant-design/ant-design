@@ -115,7 +115,7 @@ export default () => (
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [Online Playground](https://u.ant.design/reproduce) for bug reports
+- [Online Playground](https://new-issue.ant.design) for bug reports
 - [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
@@ -181,7 +181,7 @@ For collaborators, adhere to our [Pull Request Principle](https://github.com/ant
 
 ## Issue funding
 
-We use [Issuehunt](https://issuehunt.io/repos/3452688) to up-vote and promote specific features that you would like to see and implement. Check our backlog and help us:
+We use [Issuehunt](https://issuehunt.io/repos/34526884) to up-vote and promote specific features that you would like to see and implement. Check our backlog and help us:
 
 [![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
