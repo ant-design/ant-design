@@ -209,6 +209,9 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
     nativeElement: nativeElementRef.current!,
   }));
 
+  const hasTitle = !!title || title === 0;
+  const hasExtra = !!extra || extra === 0;
+
   return (
     <DescriptionsContext.Provider value={memoizedValue}>
       <div
@@ -231,12 +234,12 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
         style={mergedStyles.root}
         {...restProps}
       >
-        {(title || extra) && (
+        {(hasTitle || hasExtra) && (
           <div
             className={clsx(`${prefixCls}-header`, mergedClassNames.header)}
             style={mergedStyles.header}
           >
-            {title && (
+            {hasTitle && (
               <div
                 className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
@@ -244,7 +247,7 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
                 {title}
               </div>
             )}
-            {extra && (
+            {hasExtra && (
               <div
                 className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
                 style={mergedStyles.extra}
