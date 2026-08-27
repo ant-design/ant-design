@@ -158,7 +158,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
-  const isSomethingAfterLastItem = !!(loadMore || pagination || footer);
+  const isSomethingAfterLastItem = !!(loadMore || pagination || isReactRenderable(footer));
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
