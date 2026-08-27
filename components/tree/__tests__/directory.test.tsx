@@ -168,6 +168,88 @@ describe('Directory Tree', () => {
     );
   });
 
+  it('preserves numeric node keys when files are dropped from outside the browser', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const { container } = render(
+      <DirectoryTree
+        allowFileDrop
+        treeData={[{ key: 0, title: 'Zero' }]}
+        onFileDrop={onFileDrop}
+      />,
+    );
+
+    const targets = container.querySelectorAll('.ant-tree-file-drop-target');
+    expect(targets[0]).toHaveTextContent('Zero');
+
+    fireEvent.drop(targets[0], {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+
+    expect(onFileDrop).toHaveBeenCalledWith(
+      expect.objectContaining({
+        files: [file],
+        node: expect.objectContaining({ key: 0 }),
+      }),
+    );
+  });
+
+  it('only handles external file drags and preserves custom titles', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const { container } = render(
+      <DirectoryTree
+        allowFileDrop
+        treeData={[{ key: 'custom', title: 'Custom' }]}
+        titleRender={(node) => <strong>{node.title}</strong>}
+        onFileDrop={onFileDrop}
+      />,
+    );
+    const target = container.querySelector<HTMLElement>('.ant-tree-file-drop-target')!;
+    const wrapper = container.querySelector<HTMLElement>('.ant-tree-directory-file-drop')!;
+
+    expect(target.querySelector('strong')).toHaveTextContent('Custom');
+
+    const textDrop = new Event('drop', { bubbles: true, cancelable: true });
+    Object.defineProperty(textDrop, 'dataTransfer', {
+      value: { files: [], types: ['text/plain'] },
+    });
+    target.dispatchEvent(textDrop);
+    expect(textDrop.defaultPrevented).toBe(false);
+    expect(onFileDrop).not.toHaveBeenCalled();
+
+    const textDragOver = new Event('dragover', { bubbles: true, cancelable: true });
+    Object.defineProperty(textDragOver, 'dataTransfer', {
+      value: { files: [], types: ['text/plain'] },
+    });
+    target.dispatchEvent(textDragOver);
+    expect(textDragOver.defaultPrevented).toBe(false);
+
+    fireEvent.dragOver(target.querySelector('strong')!, {
+      dataTransfer: { dropEffect: 'none', files: [], types: ['Files'] },
+    });
+    expect(target.style.background).not.toBe('');
+
+    const innerDragLeave = new Event('dragleave', { bubbles: true });
+    Object.defineProperty(innerDragLeave, 'relatedTarget', { value: target });
+    target.dispatchEvent(innerDragLeave);
+    expect(target.style.background).not.toBe('');
+
+    fireEvent.dragLeave(wrapper, { relatedTarget: document.body });
+    expect(target.style.background).toBe('');
+
+    fireEvent.drop(wrapper, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).not.toHaveBeenCalled();
+
+    fireEvent.drop(target, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).toHaveBeenCalledTimes(1);
+    expect(target.style.background).toBe('');
+  });
+
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
     const treeData = [
       {
