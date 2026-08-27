@@ -4,6 +4,7 @@ import { debounce } from 'throttle-debounce';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -210,7 +211,7 @@ const Spin = React.forwardRef<SpinRef, SpinProps>((props, ref) => {
         indicator={mergedIndicator}
         percent={mergedPercent}
       />
-      {mergedDescription && (
+      {isReactRenderable(mergedDescription) && (
         <div
           className={clsx(
             `${prefixCls}-description`,
