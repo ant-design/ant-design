@@ -194,6 +194,19 @@ describe('Tag', () => {
   });
 
   describe('CheckableTag', () => {
+    it('should let component style override ConfigProvider defaults', () => {
+      const { container } = render(
+        <ConfigProvider tag={{ style: { color: 'rgb(255, 0, 0)', borderRadius: 4 } }}>
+          <Tag.CheckableTag checked={false} style={{ color: 'rgb(0, 0, 255)' }} />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
+        color: 'rgb(0, 0, 255)',
+        borderRadius: '4px',
+      });
+    });
+
     it('support onChange', () => {
       const onChange = jest.fn();
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
@@ -568,6 +581,24 @@ describe('Tag', () => {
         color: 'rgb(0, 0, 255)',
         borderRadius: '4px',
       });
+    });
+
+    it('should let option style override ConfigProvider defaults', () => {
+      const { container } = render(
+        <ConfigProvider tag={{ style: { color: 'rgb(0, 0, 255)', borderRadius: 4 } }}>
+          <Tag.CheckableTagGroup
+            options={[
+              { value: 'foo', label: 'Foo', style: { color: 'rgb(255, 0, 0)' } },
+              { value: 'bar', label: 'Bar' },
+            ]}
+          />
+        </ConfigProvider>,
+      );
+
+      const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+      expect(itemElements[0]).toHaveStyle({ color: 'rgb(255, 0, 0)', borderRadius: '4px' });
+      expect(itemElements[1]).toHaveStyle({ color: 'rgb(0, 0, 255)', borderRadius: '4px' });
     });
 
     it('should still support primitive options in multiple mode', () => {
