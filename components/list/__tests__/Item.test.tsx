@@ -109,6 +109,25 @@ describe('List Item Layout', () => {
     expect(container.querySelectorAll('.ant-list-item')[0]).toHaveClass('ant-list-item-no-flex');
   });
 
+  it('should render numeric zero as vertical extra and remove it for empty values', () => {
+    const getList = (extra: React.ReactNode) => (
+      <List
+        itemLayout="vertical"
+        dataSource={[0]}
+        renderItem={() => <List.Item extra={extra}>content</List.Item>}
+      />
+    );
+    const { container, rerender } = render(getList(0));
+
+    expect(container.querySelector('.ant-list-item-extra')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item')).not.toHaveClass('ant-list-item-no-flex');
+
+    rerender(getList(false));
+
+    expect(container.querySelector('.ant-list-item-extra')).toBeNull();
+    expect(container.querySelector('.ant-list-item')).toHaveClass('ant-list-item-no-flex');
+  });
+
   it('horizontal itemLayout List should accept extra node', () => {
     const { container: wrapper } = render(
       <List

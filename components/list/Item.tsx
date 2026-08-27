@@ -96,6 +96,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   } = props;
   const { grid, itemLayout } = useContext(ListContext);
   const { getPrefixCls, list } = useContext(ConfigContext);
+  const hasExtra = isReactRenderable(extra);
 
   const moduleClass = (moduleName: ListItemClassNamesModule) =>
     clsx(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
@@ -113,7 +114,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const isFlexMode = () => {
     if (itemLayout === 'vertical') {
-      return !!extra;
+      return hasExtra;
     }
     return !isItemContainsTextNodeAndNotSingular();
   };
@@ -147,7 +148,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
         className,
       )}
     >
-      {itemLayout === 'vertical' && extra
+      {itemLayout === 'vertical' && hasExtra
         ? [
             <div className={`${prefixCls}-item-main`} key="content">
               {children}
