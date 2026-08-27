@@ -32,7 +32,6 @@ const ProgressIcon: React.FC<React.PropsWithChildren<ProgressIconProps>> = (prop
         aria-valuemin={0}
         aria-valuenow={percent}
       >
-        <title>Progress</title>
         <circle className={clsx(circleCls, `${circleCls}-rail`)} />
         <circle
           className={clsx(circleCls, `${circleCls}-ptg`)}
