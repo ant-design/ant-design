@@ -5,6 +5,7 @@ exports[`renderEmpty should render Cascader empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -56,6 +57,7 @@ exports[`renderEmpty should render List empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -107,6 +109,7 @@ exports[`renderEmpty should render Mentions empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -158,6 +161,7 @@ exports[`renderEmpty should render Select empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -209,6 +213,7 @@ exports[`renderEmpty should render Table empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -262,6 +267,7 @@ exports[`renderEmpty should render Transfer empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -313,6 +319,7 @@ exports[`renderEmpty should render TreeSelect empty 1`] = `
   class="css-var-root ant-empty ant-empty-normal ant-empty-small"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -364,6 +371,7 @@ exports[`renderEmpty should return empty when componentName is not matched 1`] =
   class="css-var-root ant-empty"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
