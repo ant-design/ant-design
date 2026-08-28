@@ -13,8 +13,8 @@
 | destroyOnHidden | 关闭后是否销毁 dom | boolean | false | 5.25.0 | × |
 | fresh | 默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新 | boolean | false | 5.10.0 | × |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
-| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  | × |
-| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  | × |
+| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  | Tooltip: 6.6.0，Popover: 6.6.0，Popconfirm: 6.6.0 |
+| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  | Tooltip: 6.6.0，Popover: 6.6.0，Popconfirm: 6.6.0 |
 | ~~overlayClassName~~ | 卡片类名, 请使用 `classNames.root` 替换 | string | - |  | × |
 | ~~overlayStyle~~ | 卡片样式, 请使用 `styles.root` 替换| React.CSSProperties | - |  | × |
 | ~~overlayInnerStyle~~ | 卡片内容区域的样式对象, 请使用 `styles.container` 替换 | React.CSSProperties | - |  | × |

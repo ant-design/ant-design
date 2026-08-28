@@ -7,6 +7,8 @@ import { clsx } from 'clsx';
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
@@ -91,6 +93,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: contextClassName,
     style: contextStyle,
   } = useComponentConfig('carousel');
+  const [contextLocale] = useLocale('Carousel', defaultLocale.Carousel);
   const slickRef = React.useRef<any>(null);
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
@@ -120,7 +123,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
       goTo(newIndex, false);
     }
-  }, [count, initialSlide, isRTL]);
+  }, [initialSlide, isRTL]);
 
   // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -177,8 +180,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
-        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
+        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.nextSlide : contextLocale.prevSlide} />}
+        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.prevSlide : contextLocale.nextSlide} />}
         draggable={draggable}
         verticalSwiping={mergedVertical}
         autoplaySpeed={autoplaySpeed}

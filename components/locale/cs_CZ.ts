@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Invertovat výběr na současné stránce',
     selectNone: 'Odznačit vše',
     selectionAll: 'Vybrat všechny řádky',
+    selectRow: 'Vybrat řádek',
+    selectedRow: 'Řádek vybrán',
+    selectionMenu: 'Nabídka výběru',
     sortTitle: 'Řadit',
     expand: 'Rozbalit řádek',
     collapse: 'Zabalit řádek',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Zrušit',
+  },
+  Splitter: {
+    toggleStartPanel: 'Přepnout počáteční panel',
+    toggleEndPanel: 'Přepnout koncový panel',
   },
   Transfer: {
     titles: ['', ''],

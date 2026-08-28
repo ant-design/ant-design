@@ -29,6 +29,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -207,6 +208,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     ...restProps
   } = props;
 
+  const [locale] = useLocale('global');
+
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -355,7 +358,11 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     componentName: 'TreeSelect',
   });
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const mergedAllowClear = allowClear && {
+    clearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;

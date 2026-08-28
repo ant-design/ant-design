@@ -3,8 +3,10 @@ import { pickAttrs, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
@@ -15,6 +17,7 @@ import type {
   RadioGroupButtonStyle,
   RadioGroupContextProps,
   RadioGroupProps,
+  RadioGroupSemanticAllType,
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
@@ -29,6 +32,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    classNames,
+    styles,
     options,
     buttonStyle = 'outline' as RadioGroupButtonStyle,
     disabled,
@@ -50,6 +55,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     vertical,
     role = 'radiogroup',
   } = props;
+
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
   const [value, setValue] = useControlledState(defaultValue, customizedValue);
 
@@ -105,6 +113,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
           className={option.className} // 👈 5.25.0+
           id={option.id}
           required={option.required}
+          onChange={option.onChange}
         >
           {option.label}
         </Radio>
@@ -113,7 +122,30 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   }
 
   const mergedSize = useSize(customizeSize);
-  const [, mergedVertical] = useOrientation(orientation, vertical);
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical);
+
+  const mergedProps: RadioGroupProps = {
+    ...props,
+    value,
+    disabled: mergedDisabled,
+    size: mergedSize,
+    buttonStyle,
+    block,
+    name,
+    optionType: optionType ?? 'default',
+    orientation: mergedOrientation,
+    vertical: mergedVertical,
+  };
+
+  const styleRoot = useSemanticRootStyle(style);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    RadioGroupSemanticAllType['classNames'],
+    RadioGroupSemanticAllType['styles'],
+    RadioGroupProps
+  >([classNames], [styles, styleRoot], {
+    props: mergedProps,
+  });
+
   const classString = clsx(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
@@ -125,14 +157,32 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     },
     className,
     rootClassName,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
     rootCls,
   );
 
   const memoizedValue = React.useMemo<RadioGroupContextProps>(
-    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
-    [onRadioChange, value, disabled, name, optionType, block],
+    () => ({
+      onChange: onRadioChange,
+      value,
+      disabled,
+      name,
+      optionType,
+      block,
+      classNames: {
+        root: mergedClassNames.item,
+        icon: mergedClassNames.itemIcon,
+        label: mergedClassNames.itemLabel,
+      },
+      styles: {
+        root: mergedStyles.item,
+        icon: mergedStyles.itemIcon,
+        label: mergedStyles.itemLabel,
+      },
+    }),
+    [onRadioChange, value, disabled, name, optionType, block, mergedClassNames, mergedStyles],
   );
 
   return (
@@ -140,7 +190,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       {...pickAttrs(props, { aria: true, data: true })}
       role={role}
       className={clsx(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
-      style={style}
+      style={mergedStyles.root}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onFocus={onFocus}

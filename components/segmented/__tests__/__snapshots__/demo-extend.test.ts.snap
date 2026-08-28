@@ -1831,7 +1831,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -2334,6 +2336,46 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
         </span>
         <span>
           Kanban
+        </span>
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="test-id"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <rect
+              height="18"
+              rx="2"
+              width="18"
+              x="3"
+              y="4"
+            />
+            <path
+              d="M16 2v4M8 2v4M3 10h18"
+            />
+          </svg>
+        </span>
+        <span>
+          Calendar
         </span>
       </div>
     </label>

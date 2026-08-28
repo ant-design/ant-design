@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  | × |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 | × |
-| more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | 5.17.0 |
+| more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  | `more.icon`: 5.17.0 |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
 | ~~popupClassName~~ | `className` for more dropdown, please use `classNames.popup` instead | string | - | 4.21.0 | × |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  | × |
@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabBarGutter | The gap between tabs | number | - |  | × |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  | × |
 | tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` |  | × |
-| ~~tabPosition~~ | Position of tabs | `top` \| `right` \| `bottom` \| `left`, please use `tabPlacement` instead | `top` |  | × |
+| ~~tabPosition~~ | Position of tabs, please use `tabPlacement` instead | `top` \| `right` \| `bottom` \| `left` | `top` |  | × |
 | ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  | × |
 | destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 | × |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  | × |

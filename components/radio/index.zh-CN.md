@@ -84,7 +84,7 @@ return (
 | --- | --- | --- | --- | --- |
 | block | 将 RadioGroup 宽度调整为其父宽度的选项 | boolean | false | 5.21.0 |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-group), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), string> | - | 6.7.0 |
 | defaultValue | 默认选中的值 | any | - |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - |  |
@@ -92,7 +92,7 @@ return (
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
 | size | 大小，只对按钮样式生效 | `large` \| `medium` \| `small` | - |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 6.7.0 |
 | value | 用于设置当前选中的值 | any | - |  |
 | vertical | 值为 true，Radio Group 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false |  |
 | onChange | 选项变化时的回调函数 | function(e:Event) | - |  |
@@ -111,7 +111,7 @@ return (
 | onChange | 当 Radio Group 的值发送改变时触发 | `(e: CheckboxChangeEvent) => void;` | - | 4.4.0 |
 | required | 指定 Radio 选项是否必填 | `boolean` | `false` | 4.4.0 |
 
-## 方法
+## 方法 {#methods}
 
 ### Radio
 
@@ -122,7 +122,13 @@ return (
 
 ## Semantic DOM
 
+### Radio
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Radio.Group {#semantic-group}
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 

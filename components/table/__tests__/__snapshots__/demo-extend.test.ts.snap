@@ -2075,7 +2075,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -2228,7 +2228,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-id-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -2273,7 +2273,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-id-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -2459,7 +2459,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2559,7 +2559,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2659,7 +2659,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2759,7 +2759,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2859,7 +2859,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2959,7 +2959,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3059,7 +3059,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3159,7 +3159,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3259,7 +3259,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3359,7 +3359,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3639,7 +3639,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-gte35"
+                                data-menu-id="rc-menu-uuid-test-id-gte35"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -3684,7 +3684,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-lt18"
+                                data-menu-id="rc-menu-uuid-test-id-lt18"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6641,7 +6641,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -6794,7 +6794,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-id-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6839,7 +6839,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-id-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -7025,7 +7025,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7125,7 +7125,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7225,7 +7225,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7325,7 +7325,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7425,7 +7425,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7525,7 +7525,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7625,7 +7625,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7725,7 +7725,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7825,7 +7825,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7925,7 +7925,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -11480,7 +11480,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-id-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11525,7 +11525,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-id-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -12266,7 +12266,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-id-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -12311,7 +12311,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-id-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14053,7 +14053,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14098,7 +14098,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-John"
+                              data-menu-id="rc-menu-uuid-test-id-John"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -15553,7 +15553,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -15598,7 +15598,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Jim"
+                              data-menu-id="rc-menu-uuid-test-id-Jim"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -15645,11 +15645,11 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-id-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-id-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -15689,13 +15689,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                 <ul
                                   class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                                   data-menu-list="true"
-                                  id="rc-menu-uuid-Submenu-popup"
+                                  id="rc-menu-uuid-test-id-Submenu-popup"
                                   role="menu"
                                 >
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-Green"
+                                    data-menu-id="rc-menu-uuid-test-id-Green"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15740,7 +15740,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-Black"
+                                    data-menu-id="rc-menu-uuid-test-id-Black"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15955,7 +15955,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-id-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -16000,7 +16000,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-id-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -17299,7 +17299,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-id-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -17344,7 +17344,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Category 1"
+                              data-menu-id="rc-menu-uuid-test-id-Category 1"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -17389,7 +17389,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Category 2"
+                              data-menu-id="rc-menu-uuid-test-id-Category 2"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -20012,7 +20012,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20043,7 +20043,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20176,7 +20176,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20207,7 +20207,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20340,7 +20340,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20371,7 +20371,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20915,7 +20915,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20946,7 +20946,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21079,7 +21079,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21110,7 +21110,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21243,7 +21243,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21274,7 +21274,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21818,7 +21818,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21849,7 +21849,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21982,7 +21982,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -22013,7 +22013,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -22146,7 +22146,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-id-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -22177,7 +22177,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-id-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -22743,7 +22743,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22796,7 +22796,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22843,7 +22843,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22890,7 +22890,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22937,7 +22937,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -23850,7 +23850,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-Joe"
+                                data-menu-id="rc-menu-uuid-test-id-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -23895,7 +23895,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-Jim"
+                                data-menu-id="rc-menu-uuid-test-id-Jim"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -24187,7 +24187,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-id-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -24232,7 +24232,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-id-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -24745,7 +24745,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -24790,7 +24790,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="John Brown"
                             type="checkbox"
@@ -24830,7 +24830,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
@@ -24870,7 +24870,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Joe Black"
                             type="checkbox"
@@ -24910,7 +24910,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             disabled=""
                             name="Disabled User"
@@ -25099,7 +25099,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -25144,7 +25144,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25181,7 +25181,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25218,7 +25218,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25255,7 +25255,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25292,7 +25292,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25329,7 +25329,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25366,7 +25366,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25403,7 +25403,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25440,7 +25440,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25477,7 +25477,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25706,7 +25706,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25716,27 +25716,26 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
@@ -25751,7 +25750,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-id-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25782,7 +25781,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-id-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25813,7 +25812,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-id-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25844,7 +25843,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-odd"
+                              data-menu-id="rc-menu-uuid-test-id-odd"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25875,7 +25874,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-even"
+                              data-menu-id="rc-menu-uuid-test-id-even"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -25949,7 +25948,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25986,7 +25985,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26023,7 +26022,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26060,7 +26059,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26097,7 +26096,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26134,7 +26133,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 6"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26171,7 +26170,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26208,7 +26207,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 8"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26245,7 +26244,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26282,7 +26281,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 10"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26510,7 +26509,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26545,7 +26544,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26584,7 +26583,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26623,7 +26622,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26662,7 +26661,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26701,7 +26700,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29200,7 +29199,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -29210,27 +29209,26 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
@@ -29245,7 +29243,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-id-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -29276,7 +29274,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-id-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -29307,7 +29305,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-id-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -29381,7 +29379,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29418,7 +29416,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29455,7 +29453,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -30647,7 +30645,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -30692,7 +30690,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30739,7 +30737,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30961,7 +30959,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -31013,7 +31011,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31067,7 +31065,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31121,7 +31119,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31175,7 +31173,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31229,7 +31227,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31283,7 +31281,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31337,7 +31335,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31391,7 +31389,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31445,7 +31443,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31705,7 +31703,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -31750,7 +31748,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31797,7 +31795,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31844,7 +31842,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31891,7 +31889,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31938,7 +31936,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />

@@ -99,6 +99,14 @@ export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListItemMetaRef, ListProps } from './list';
+export { default as Listy } from './listy';
+export type {
+  ListyClassNames,
+  ListyProps,
+  ListyRef,
+  ListyScrollToConfig,
+  ListyStyles,
+} from './listy';
 export { default as Masonry } from './masonry';
 export type { MasonryProps, MasonryRef } from './masonry';
 export { default as Mentions } from './mentions';
@@ -184,8 +192,10 @@ export type { TransferProps, TransferRef } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
+  TreeInstance,
   AntTreeNodeProps as TreeNodeProps,
   TreeProps,
+  UseTreeConfig as TreeUseTreeConfig,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
 export type { TreeSelectProps } from './tree-select';
