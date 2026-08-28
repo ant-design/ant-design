@@ -27,6 +27,7 @@ export interface ColorTriggerProps {
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onKeyDown?: KeyboardEventHandler<HTMLDivElement>;
+  onOpenChange?: (open: boolean) => void;
   activeIndex: number;
 }
 
@@ -44,6 +45,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     showText,
     activeIndex,
     onKeyDown,
+    onOpenChange,
     ...rest
   } = props;
 
@@ -63,7 +65,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
       (event.key === 'Enter' || event.key === ' ')
     ) {
       event.preventDefault();
-      event.currentTarget.click();
+      onOpenChange?.(!open);
     }
   };
 

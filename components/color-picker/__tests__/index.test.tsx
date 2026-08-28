@@ -108,6 +108,21 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker')).toBeFalsy();
   });
 
+  it('Should operate a hover trigger with the keyboard', async () => {
+    const { container } = render(<ColorPicker trigger="hover" />);
+    const trigger = container.querySelector('.ant-color-picker-trigger')!;
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toHaveClass('ant-popover-hidden');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  });
+
   it('Should component defaultValue work', () => {
     const { container } = render(<ColorPicker defaultValue="#000000" />);
     expect(
