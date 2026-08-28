@@ -1,6 +1,8 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import userEvent from '@testing-library/user-event';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
 import type { SelectProps } from '..';
 import Select from '..';
 import { resetWarned } from '../../_util/warning';
