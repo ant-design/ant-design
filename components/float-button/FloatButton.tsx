@@ -7,6 +7,7 @@ import convertToTooltipProps from '../_util/convertToTooltipProps';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { BadgeProps } from '../badge';
@@ -133,7 +134,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   );
 
   // ============================= Icon =============================
-  const mergedIcon = !mergedContent && !icon ? <FileTextOutlined /> : icon;
+  const mergedIcon = !isReactRenderable(mergedContent) && !icon ? <FileTextOutlined /> : icon;
 
   // ============================ zIndex ============================
 
@@ -162,7 +163,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     const warning = devUseWarning('FloatButton');
 
     warning(
-      !(mergedShape === 'circle' && mergedContent),
+      !(mergedShape === 'circle' && isReactRenderable(mergedContent)),
       'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
@@ -188,7 +189,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-individual`]: mergedIndividual,
-          [`${prefixCls}-icon-only`]: !mergedContent,
+          [`${prefixCls}-icon-only`]: !isReactRenderable(mergedContent),
         },
       )}
       classNames={mergedClassNames}
