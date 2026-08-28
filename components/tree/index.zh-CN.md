@@ -144,8 +144,12 @@ demo:
 
 提供 Tree 数据工具。`getPath(key)` 返回从根节点到目标节点的实体路径，可用于在受控模式下更新 `expandedKeys`。
 
+`getPath` 的函数引用保持稳定，并在调用时读取最新的 `treeData`。如果对 `getPath` 的派生结果进行 memo，请将 `treeData` 和查询 key 加入依赖项，因为依赖追踪无法感知 `getPath` 内部捕获的数据。
+
 ```tsx
 const { getPath } = Tree.useTree(treeData, {});
+
+const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData]);
 ```
 
 ## Semantic DOM

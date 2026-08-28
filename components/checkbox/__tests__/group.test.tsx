@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
+import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import Table from '../../table';
 
@@ -58,6 +59,18 @@ describe('CheckboxGroup', () => {
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
     fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
+  });
+
+  it('should override context disabled status when CheckboxGroup is enabled', () => {
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Checkbox.Group disabled={false}>
+          <Checkbox value="Apple" />
+        </Checkbox.Group>
+      </ConfigProvider>,
+    );
+
+    expect(getByRole('checkbox')).not.toBeDisabled();
   });
 
   it('all children should have a name property', () => {

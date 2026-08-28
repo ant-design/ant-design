@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -153,7 +154,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
       >
         {imageNode}
       </div>
-      {des && (
+      {isReactRenderable(des) && (
         <div
           className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
           style={mergedStyles.description}
@@ -161,7 +162,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
           {des}
         </div>
       )}
-      {children && (
+      {isReactRenderable(children) && (
         <div
           className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
           style={mergedStyles.footer}

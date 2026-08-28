@@ -191,6 +191,12 @@ describe('Tag', () => {
       expect(onClose).not.toHaveBeenCalled();
       expect(onClick).not.toHaveBeenCalled();
     });
+
+    it('should render numeric 0 inside content span when icon is present', () => {
+      const { container } = render(<Tag icon={<span className="my-icon" />}>{0}</Tag>);
+      expect(container.querySelector('.ant-tag')?.textContent).toContain('0');
+      expect(container.querySelector('.ant-tag > span:not(.my-icon)')?.textContent).toBe('0');
+    });
   });
 
   describe('CheckableTag', () => {
