@@ -297,6 +297,8 @@ exports[`renders components/layout/demo/collapsible-overlay.tsx correctly 1`] = 
       />
     </div>
     <span
+      role="button"
+      tabindex="0"
       class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
     >
       <span
@@ -1901,6 +1903,8 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
     </div>
     <div
       class="ant-layout-sider-trigger"
+      role="button"
+      tabindex="0"
       style="width:200px"
     >
       <span

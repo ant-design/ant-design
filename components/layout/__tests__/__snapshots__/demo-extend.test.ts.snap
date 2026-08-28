@@ -375,6 +375,8 @@ exports[`renders components/layout/demo/collapsible-overlay.tsx extend context c
       />
     </div>
     <span
+      role="button"
+      tabindex="0"
       class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
     >
       <span
@@ -2596,6 +2598,8 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       />
     </div>
     <span
+      role="button"
+      tabindex="0"
       class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
     >
       <span
@@ -3100,6 +3104,8 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-layout-sider-trigger"
+      role="button"
+      tabindex="0"
       style="width: 200px;"
     >
       <span
