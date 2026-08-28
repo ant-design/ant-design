@@ -1,5 +1,6 @@
 import React from 'react';
 import type RcTree from '@rc-component/tree';
+import type { BasicDataNode } from '@rc-component/tree';
 import debounce from 'lodash/debounce';
 
 import type { TreeProps } from '..';
@@ -9,6 +10,11 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { DirectoryTree, TreeNode } = Tree;
+
+interface FileDropTreeNode extends BasicDataNode {
+  id: number;
+  label: string;
+}
 
 jest.mock('lodash/debounce');
 
@@ -253,11 +259,10 @@ describe('Directory Tree', () => {
   it('preserves custom title fields when external files are dropped', () => {
     const onFileDrop = jest.fn();
     const file = new File(['content'], 'example.txt', { type: 'text/plain' });
-    const treeData = [{ id: 0, label: 'Custom title' }];
+    const treeData: FileDropTreeNode[] = [{ id: 0, label: 'Custom title' }];
     const { container } = render(
-      <DirectoryTree
+      <DirectoryTree<FileDropTreeNode>
         allowFileDrop
-        // @ts-ignore custom field names are supported at runtime
         treeData={treeData}
         fieldNames={{ key: 'id', title: 'label' }}
         onFileDrop={onFileDrop}
