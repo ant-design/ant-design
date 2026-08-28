@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
 import { useSyncState } from '../../../_util/hooks';
-import { isFunction, isNumber } from '../../../_util/is';
+import { isFunction, isNonNullable, isNumber } from '../../../_util/is';
 import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
@@ -234,7 +234,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
   ) => {
     if (!filterMultiple) {
-      onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+      onSelectKeys({ selectedKeys: checked && isNonNullable(node.key) ? [node.key] : [] });
     } else {
       onSelectKeys({ selectedKeys: keys });
     }
