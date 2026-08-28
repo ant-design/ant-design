@@ -3044,11 +3044,11 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-navigation-popup"
+            aria-controls="rc-menu-uuid-test-id-navigation-popup"
             aria-expanded="true"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            data-menu-id="rc-menu-uuid-navigation"
+            data-menu-id="rc-menu-uuid-test-id-navigation"
             role="menuitem"
             tabindex="-1"
           >
@@ -3086,11 +3086,11 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-applications-popup"
+            aria-controls="rc-menu-uuid-test-id-applications-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            data-menu-id="rc-menu-uuid-applications"
+            data-menu-id="rc-menu-uuid-test-id-applications"
             role="menuitem"
             tabindex="-1"
           >
@@ -3125,7 +3125,7 @@ Array [
         </li>
         <li
           class="ant-menu-item"
-          data-menu-id="rc-menu-uuid-settings"
+          data-menu-id="rc-menu-uuid-test-id-settings"
           role="menuitem"
           tabindex="-1"
         >
