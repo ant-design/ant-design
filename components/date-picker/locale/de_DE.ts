@@ -24,6 +24,8 @@ const locale: PickerLocale = {
       'Dez',
     ],
     ...CalendarLocale,
+    fieldDateFormat: 'DD.MM.YYYY',
+    fieldDateTimeFormat: 'DD.MM.YYYY HH:mm:ss',
   },
   timePickerLocale: {
     ...TimePickerLocale,
