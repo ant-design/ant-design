@@ -26,6 +26,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/stackable.tsx">堆叠固定</code>
 <code src="./demo/on-change.tsx">固定状态改变的回调</code>
 <code src="./demo/target.tsx">滚动容器</code>
 <code src="./demo/debug.tsx" debug>调整浏览器大小，观察 Affix 容器是否发生变化。跟随变化为正常。#17678</code>
@@ -38,6 +39,7 @@ group:
 | --- | --- | --- | --- | --- | --- |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - |  | × |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number | 0 |  | × |
+| stackable | 同一 `target`、相同固定方向下的多个 Affix 是否依次堆叠以避免相互遮挡 | boolean | false | 6.7.0 | × |
 | target | 设置 `Affix` 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 | () => Window \| HTMLElement \| null | () => window |  | × |
 | onChange | 固定状态改变时触发的回调函数 | (affixed?: boolean) => void | - |  | × |
 
