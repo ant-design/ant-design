@@ -3,7 +3,7 @@ import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import { isFunction } from '../_util/is';
+import { isFunction, isReactRenderable } from '../_util/is';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -59,7 +59,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     tooltip: contextTooltip,
   } = React.useContext<FormContextProps>(FormContext);
 
-  if (!label) {
+  if (!isReactRenderable(label)) {
     return null;
   }
 
