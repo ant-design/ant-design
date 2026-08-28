@@ -3679,7 +3679,6 @@ exports[`renders components/tree/demo/external-file-drop.tsx extend context corr
                   >
                     <span
                       class="ant-tree-file-drop-target"
-                      style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                     >
                       Documents
                     </span>
@@ -3737,7 +3736,6 @@ exports[`renders components/tree/demo/external-file-drop.tsx extend context corr
                   >
                     <span
                       class="ant-tree-file-drop-target"
-                      style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                     >
                       Invoices
                     </span>
@@ -3795,7 +3793,6 @@ exports[`renders components/tree/demo/external-file-drop.tsx extend context corr
                   >
                     <span
                       class="ant-tree-file-drop-target"
-                      style="border-radius: 6px; padding: 4px 8px; transition: background 0.3s;"
                     >
                       Reports
                     </span>

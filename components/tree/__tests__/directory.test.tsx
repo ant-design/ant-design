@@ -228,15 +228,15 @@ describe('Directory Tree', () => {
     fireEvent.dragOver(target.querySelector('strong')!, {
       dataTransfer: { dropEffect: 'none', files: [], types: ['Files'] },
     });
-    expect(target.style.background).not.toBe('');
+    expect(target).toHaveClass('ant-tree-file-drop-target-active');
 
     const innerDragLeave = new Event('dragleave', { bubbles: true });
     Object.defineProperty(innerDragLeave, 'relatedTarget', { value: target });
     target.dispatchEvent(innerDragLeave);
-    expect(target.style.background).not.toBe('');
+    expect(target).toHaveClass('ant-tree-file-drop-target-active');
 
     fireEvent.dragLeave(wrapper, { relatedTarget: document.body });
-    expect(target.style.background).toBe('');
+    expect(target).not.toHaveClass('ant-tree-file-drop-target-active');
 
     fireEvent.drop(wrapper, {
       dataTransfer: { files: [file], types: ['Files'] },
@@ -247,7 +247,32 @@ describe('Directory Tree', () => {
       dataTransfer: { files: [file], types: ['Files'] },
     });
     expect(onFileDrop).toHaveBeenCalledTimes(1);
-    expect(target.style.background).toBe('');
+    expect(target).not.toHaveClass('ant-tree-file-drop-target-active');
+  });
+
+  it('preserves custom title fields when external files are dropped', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const treeData = [{ id: 0, label: 'Custom title' }];
+    const { container } = render(
+      <DirectoryTree
+        allowFileDrop
+        // @ts-ignore custom field names are supported at runtime
+        treeData={treeData}
+        fieldNames={{ key: 'id', title: 'label' }}
+        onFileDrop={onFileDrop}
+      />,
+    );
+    const target = container.querySelector<HTMLElement>('.ant-tree-file-drop-target')!;
+
+    expect(target).toHaveTextContent('Custom title');
+
+    fireEvent.drop(target, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).toHaveBeenCalledWith(
+      expect.objectContaining({ node: treeData[0], files: [file] }),
+    );
   });
 
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {

@@ -10,7 +10,6 @@ import { clsx } from 'clsx';
 
 import { isHTMLElement } from '../_util/is';
 import { ConfigContext } from '../config-provider';
-import { useToken } from '../theme/internal';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
@@ -166,7 +165,6 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     setSelectedKeys(newSelectedKeys);
   };
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const [, token] = useToken();
 
   const {
     allowFileDrop = false,
@@ -180,6 +178,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  const titleField = props.fieldNames?.title ?? 'title';
 
   const connectClassName = clsx(
     `${prefixCls}-directory`,
@@ -241,20 +240,16 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
 
   const renderFileDropTitle = (node: DataNode) => (
     <span
-      className={`${prefixCls}-file-drop-target`}
+      className={clsx(`${prefixCls}-file-drop-target`, {
+        [`${prefixCls}-file-drop-target-active`]: fileDropNode === node,
+      })}
       ref={(element) => {
         if (element) {
           fileDropNodesRef.current.set(element, node);
         }
       }}
-      style={{
-        borderRadius: token.borderRadius,
-        padding: `${token.paddingXXS}px ${token.paddingXS}px`,
-        background: fileDropNode === node ? token.controlItemBgHover : undefined,
-        transition: `background ${token.motionDurationSlow}`,
-      }}
     >
-      {titleRender ? titleRender(node) : (node.title as React.ReactNode)}
+      {titleRender ? titleRender(node) : (Reflect.get(node, titleField) as React.ReactNode)}
     </span>
   );
 
