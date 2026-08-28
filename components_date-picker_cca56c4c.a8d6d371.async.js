@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,649847,t=>{"use strict";var e=t.i(391398);t.i(191788);let{_InternalPanelDoNotUseOrYouWillBeFired:i}=t.i(439363).DatePicker;t.s(["default",0,()=>(0,e.jsx)(i,{picker:"month"})])},439363,t=>{"use strict";var e=t.i(996004);t.s(["DatePicker",()=>e.default])}]);

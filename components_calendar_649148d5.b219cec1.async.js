@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,812835,t=>{"use strict";var a=t.i(391398);t.i(191788);var o=t.i(54899);t.s(["default",0,()=>(0,a.jsx)(o.Calendar,{onPanelChange:(t,a)=>{console.log(t.format("YYYY-MM-DD"),a)}})])},54899,t=>{"use strict";var a=t.i(745970);t.s(["Calendar",()=>a.default])}]);

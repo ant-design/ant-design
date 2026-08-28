@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,719066,t=>{"use strict";var a=t.i(391398);t.i(191788);var i=t.i(845386);t.s(["default",0,()=>(0,a.jsx)(i.Pagination,{defaultCurrent:6,total:500})])},845386,t=>{"use strict";var a=t.i(975367);t.s(["Pagination",()=>a.default])}]);

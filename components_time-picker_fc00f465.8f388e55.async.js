@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,664140,e=>{"use strict";var t=e.i(391398);e.i(191788);var o=e.i(190679);let i=(e,t)=>{console.log(e,t)};e.s(["default",0,()=>(0,t.jsx)(o.TimePicker,{onChange:i,needConfirm:!0})])},190679,e=>{"use strict";var t=e.i(20329);e.s(["TimePicker",()=>t.default])}]);

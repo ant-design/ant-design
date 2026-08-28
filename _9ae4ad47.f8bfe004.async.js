@@ -1,0 +1,5 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,807182,e=>{"use strict";var t=e.i(391398);e.i(191788);var i=e.i(587834),s=e.i(820810);let l=`
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`,a=[{key:"1",label:(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(i.SmileOutlined,{})," Panel with an Ant Design icon"]}),children:(0,t.jsx)("p",{children:l})},{key:"2",label:(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(()=>(0,t.jsxs)("svg",{viewBox:"0 0 24 24",width:"1em",height:"1em",fill:"none",stroke:"currentColor",strokeWidth:2,"aria-hidden":"true",children:[(0,t.jsx)("path",{d:"M3 3v18h18"}),(0,t.jsx)("path",{d:"M7 14l4-4 3 3 5-6"})]}),{})," Panel with a third-party icon"]}),children:(0,t.jsx)("p",{children:l})}];e.s(["default",0,()=>(0,t.jsx)(s.Collapse,{defaultActiveKey:["1"],items:a})])},820810,e=>{"use strict";var t=e.i(327696);e.s(["Collapse",()=>t.default])},587834,e=>{"use strict";var t=e.i(800791);e.s(["SmileOutlined",()=>t.default])}]);

@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,276269,35198,e=>{"use strict";var t=e.i(109762);e.i(321880),e.s([],35198),e.i(35198),e.s(["createInfoServices",()=>t.createInfoServices],276269)}]);
