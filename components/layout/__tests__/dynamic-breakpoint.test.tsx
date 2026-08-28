@@ -71,7 +71,7 @@ it('Sider breakpoint follows the ConfigProvider breakpoint token and stays in sy
   // default 992px, proving the Sider `breakpoint` now responds to ConfigProvider tokens.
   const mountQueries = newMatch.mock.calls.map((call) => String(call[0]));
   expect(mountQueries.length).toBeGreaterThan(0);
-  expect(mountQueries.every((q) => q.includes('1100'))).toBeTruthy();
+  expect(mountQueries.every((q) => q.includes('max-width: 1099.98px'))).toBeTruthy();
   expect(mountQueries.every((q) => !q.includes('992'))).toBeTruthy();
 
   // Bump `screenLG` (kept below `screenXL` so the breakpoint order stays valid) and
@@ -85,7 +85,7 @@ it('Sider breakpoint follows the ConfigProvider breakpoint token and stays in sy
 
   const changeQueries = newMatch.mock.calls.map((call) => String(call[0]));
   expect(newMatch.mock.calls.length).toBeGreaterThan(mountCalls);
-  expect(changeQueries.some((q) => q.includes('1150'))).toBeTruthy();
+  expect(changeQueries.some((q) => q.includes('max-width: 1149.98px'))).toBeTruthy();
 
   jest.restoreAllMocks();
 });

@@ -146,6 +146,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const breakpointWidth = breakpoint
     ? (validatedToken as unknown as Record<string, number>)[`screen${breakpoint.toUpperCase()}`]
     : undefined;
+  const breakpointMaxWidth =
+    breakpointWidth !== undefined ? Number((breakpointWidth - 0.02).toFixed(2)) : undefined;
 
   const responsiveHandlerRef = useRef<(mql: MediaQueryListEvent | MediaQueryList) => void>(null);
   responsiveHandlerRef.current = (mql: MediaQueryListEvent | MediaQueryList) => {
@@ -162,8 +164,12 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       return responsiveHandlerRef.current?.(mql);
     }
     let mql: MediaQueryList;
-    if (typeof window?.matchMedia !== 'undefined' && breakpoint && breakpointWidth !== undefined) {
-      mql = window.matchMedia(`screen and (max-width: ${breakpointWidth}px)`);
+    if (
+      typeof window?.matchMedia !== 'undefined' &&
+      breakpoint &&
+      breakpointMaxWidth !== undefined
+    ) {
+      mql = window.matchMedia(`screen and (max-width: ${breakpointMaxWidth}px)`);
       if (isFunction(mql?.addEventListener)) {
         mql.addEventListener('change', responsiveHandler);
       }
@@ -174,7 +180,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
         mql.removeEventListener('change', responsiveHandler);
       }
     };
-  }, [breakpoint, breakpointWidth]);
+  }, [breakpoint, breakpointMaxWidth]);
 
   useEffect(() => {
     const uniqueId = generateId('ant-sider-');
