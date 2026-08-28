@@ -7,7 +7,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject } from '../_util/is';
+import { isPlainObject, isReactRenderable } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -169,21 +169,23 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     mergedCloseIcon,
     { disabled: closeBtnIsDisabled },
   );
+  const hasTitle = isReactRenderable(title);
+  const hasExtra = isReactRenderable(extra);
 
   const renderHeader = () => {
-    if (!title && !mergedClosable) {
+    if (!hasTitle && !mergedClosable && !hasExtra) {
       return null;
     }
     return (
       <div
         style={{ ...mergedStyles.header, ...headerStyle }}
         className={clsx(`${prefixCls}-header`, mergedClassNames.header, {
-          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+          [`${prefixCls}-header-close-only`]: mergedClosable && !hasTitle && !hasExtra,
         })}
       >
         <div className={`${prefixCls}-header-title`}>
           {closablePlacement === 'start' && mergedCloseButton}
-          {title && (
+          {hasTitle && (
             <div
               className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
               style={mergedStyles.title}
@@ -193,7 +195,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
             </div>
           )}
         </div>
-        {extra && (
+        {hasExtra && (
           <div
             className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
             style={mergedStyles.extra}
