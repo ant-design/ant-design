@@ -224,14 +224,12 @@ exports[`renders components/steps/demo/_semantic.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
@@ -281,14 +279,12 @@ exports[`renders components/steps/demo/_semantic.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
@@ -335,14 +331,12 @@ exports[`renders components/steps/demo/_semantic.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
@@ -1517,14 +1511,12 @@ exports[`renders components/steps/demo/_semantic_items.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
@@ -1574,14 +1566,12 @@ exports[`renders components/steps/demo/_semantic_items.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
@@ -1628,14 +1618,12 @@ exports[`renders components/steps/demo/_semantic_items.tsx correctly 1`] = `
               </div>
             </div>
             <svg
+              aria-hidden="true"
               class="ant-steps-panel-arrow"
               preserveAspectRatio="none"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Arrow
-              </title>
               <path
                 d="M 0 0 L 100 50 L 0 100"
               />
