@@ -264,4 +264,12 @@ describe('Tabs', () => {
     unmount();
     expect(tabsRef.current).toBeNull();
   });
+
+  it('should render numeric 0 addIcon in editable-card', () => {
+    const { container } = render(
+      <Tabs type="editable-card" addIcon={0} items={[{ key: '1', label: 'Tab 1', children: 'Content' }]} />,
+    );
+
+    expect(container.querySelector('.ant-tabs-nav-add')?.textContent).toBe('0');
+  });
 });

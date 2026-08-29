@@ -1,3 +1,4 @@
+import { isReactRenderable } from '../../_util/is';
 import toList from '../../_util/toList';
 
 export const toCopyConfigList = <T>(val: T | T[]): T[] => {
@@ -11,7 +12,7 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
   if (dom === true || dom === undefined) {
     return defaultNode;
   }
-  return dom || (needDom && defaultNode);
+  return isReactRenderable(dom) ? dom : needDom ? defaultNode : null;
 }
 
 /**

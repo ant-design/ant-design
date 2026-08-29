@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber } from '../_util/is';
+import { isNumber, isReactRenderable } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -231,12 +231,12 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
         style={mergedStyles.root}
         {...restProps}
       >
-        {(title || extra) && (
+        {(isReactRenderable(title) || isReactRenderable(extra)) && (
           <div
             className={clsx(`${prefixCls}-header`, mergedClassNames.header)}
             style={mergedStyles.header}
           >
-            {title && (
+            {isReactRenderable(title) && (
               <div
                 className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
@@ -244,7 +244,7 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
                 {title}
               </div>
             )}
-            {extra && (
+            {isReactRenderable(extra) && (
               <div
                 className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
                 style={mergedStyles.extra}
