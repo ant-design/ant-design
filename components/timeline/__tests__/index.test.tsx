@@ -365,7 +365,10 @@ describe('TimeLine', () => {
         ]}
       />,
     );
-    expect(container.textContent).toContain('0');
+    expect(container.querySelector('.ant-timeline')).toHaveClass('ant-timeline-layout-alternate');
     expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-timeline-item-title')[0]?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-timeline-item-icon')[0]?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-timeline-item-content')[2]?.textContent).toBe('0');
   });
 });
