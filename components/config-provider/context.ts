@@ -30,6 +30,7 @@ import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../i
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
+import type { ListyProps } from '../listy';
 import type { Locale } from '../locale';
 import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
@@ -191,6 +192,8 @@ export type CollapseConfig = ComponentStyleConfig &
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
+export type ListyConfig = ComponentStyleConfig & Pick<ListyProps, 'classNames' | 'styles'>;
+
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
 export type MenuConfig = ComponentStyleConfig &
@@ -235,7 +238,11 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+  Pick<AlertProps, 'variant' | 'closeIcon' | 'classNames' | 'styles'> & {
+    closable?:
+      | boolean
+      | (Pick<Exclude<NonNullable<AlertProps['closable']>, boolean>, 'closeIcon'> &
+          React.AriaAttributes);
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
@@ -352,7 +359,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type TooltipConfig = Pick<
   TooltipProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -364,12 +378,26 @@ export type TooltipConfig = Pick<
 
 export type PopoverConfig = Pick<
   PopoverProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
@@ -501,6 +529,7 @@ export interface ConfigComponentProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
+  listy?: ListyConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ProgressConfig;

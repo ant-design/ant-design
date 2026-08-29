@@ -10,7 +10,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
   >
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-1"
+      data-menu-id="rc-menu-uuid-test-id-1"
       role="menuitem"
       tabindex="-1"
     >
@@ -41,7 +41,7 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-2"
+      data-menu-id="rc-menu-uuid-test-id-2"
       role="menuitem"
       tabindex="-1"
     >
@@ -77,11 +77,11 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-3-popup"
+        aria-controls="rc-menu-uuid-test-id-3-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-3"
+        data-menu-id="rc-menu-uuid-test-id-3"
         role="menuitem"
         tabindex="-1"
       >
@@ -119,11 +119,11 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-4-popup"
+        aria-controls="rc-menu-uuid-test-id-4-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-4"
+        data-menu-id="rc-menu-uuid-test-id-4"
         role="menuitem"
         tabindex="-1"
       >
@@ -175,11 +175,11 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-submenu-popup"
+        aria-controls="rc-menu-uuid-test-id-submenu-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-submenu"
+        data-menu-id="rc-menu-uuid-test-id-submenu"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -196,12 +196,12 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-submenu-popup"
+        id="rc-menu-uuid-test-id-submenu-popup"
         role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-submenu-item1"
+          data-menu-id="rc-menu-uuid-test-id-submenu-item1"
           role="menuitem"
           style="padding-left: 48px;"
           tabindex="-1"
@@ -214,7 +214,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-submenu-item2"
+          data-menu-id="rc-menu-uuid-test-id-submenu-item2"
           role="menuitem"
           style="padding-left: 48px;"
           tabindex="-1"
@@ -248,7 +248,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-group-item"
+          data-menu-id="rc-menu-uuid-test-id-group-item"
           role="menuitem"
           style="padding-left: 24px;"
           tabindex="-1"
@@ -268,11 +268,11 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-group-submenu-popup"
+            aria-controls="rc-menu-uuid-test-id-group-submenu-popup"
             aria-expanded="true"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            data-menu-id="rc-menu-uuid-group-submenu"
+            data-menu-id="rc-menu-uuid-test-id-group-submenu"
             role="menuitem"
             style="padding-left: 24px;"
             tabindex="-1"
@@ -289,12 +289,12 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
           <ul
             class="ant-menu ant-menu-sub ant-menu-inline"
             data-menu-list="true"
-            id="rc-menu-uuid-group-submenu-popup"
+            id="rc-menu-uuid-test-id-group-submenu-popup"
             role="menu"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-group-submenu-item1"
+              data-menu-id="rc-menu-uuid-test-id-group-submenu-item1"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -307,7 +307,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-group-submenu-item2"
+              data-menu-id="rc-menu-uuid-test-id-group-submenu-item2"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -340,7 +340,7 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
 >
   <li
     class="ant-menu-item"
-    data-menu-id="rc-menu-uuid-tmp_key-0"
+    data-menu-id="rc-menu-uuid-test-id-tmp_key-0"
     role="menuitem"
     tabindex="-1"
   >
@@ -366,11 +366,11 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
     role="none"
   >
     <div
-      aria-controls="rc-menu-uuid-tmp_key-2-popup"
+      aria-controls="rc-menu-uuid-test-id-tmp_key-2-popup"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
-      data-menu-id="rc-menu-uuid-tmp_key-2"
+      data-menu-id="rc-menu-uuid-test-id-tmp_key-2"
       role="menuitem"
       tabindex="-1"
     >
@@ -395,7 +395,7 @@ exports[`Menu should controlled collapse work 1`] = `
   >
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-1"
+      data-menu-id="rc-menu-uuid-test-id-1"
       role="menuitem"
       style="padding-left: 24px;"
       tabindex="-1"
@@ -443,7 +443,7 @@ exports[`Menu should controlled collapse work 2`] = `
   >
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-1"
+      data-menu-id="rc-menu-uuid-test-id-1"
       role="menuitem"
       style=""
       tabindex="-1"

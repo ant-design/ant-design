@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
+import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import Table from '../../table';
 
@@ -58,6 +59,18 @@ describe('CheckboxGroup', () => {
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
     fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
+  });
+
+  it('should override context disabled status when CheckboxGroup is enabled', () => {
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Checkbox.Group disabled={false}>
+          <Checkbox value="Apple" />
+        </Checkbox.Group>
+      </ConfigProvider>,
+    );
+
+    expect(getByRole('checkbox')).not.toBeDisabled();
   });
 
   it('all children should have a name property', () => {
@@ -235,6 +248,24 @@ describe('CheckboxGroup', () => {
 
     fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith([1]);
+  });
+
+  it('should ignore options with nullish values', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Checkbox.Group
+        options={[
+          { value: undefined, label: 'undefined' },
+          { value: null, label: 'null' },
+          { value: 0, label: 'valid' },
+        ]}
+        onChange={onChange}
+      />,
+    );
+    expect(container.querySelectorAll<HTMLElement>('.ant-checkbox-wrapper')).toHaveLength(1);
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveTextContent('valid');
+    fireEvent.click(container.querySelector<HTMLElement>('.ant-checkbox-input')!);
+    expect(onChange).toHaveBeenCalledWith([0]);
   });
 
   it('should store latest checkbox value if changed', () => {

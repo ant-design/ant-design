@@ -123,7 +123,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
   const contextDisabled = React.useContext(DisabledContext);
-  const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
+  const mergedDisabled = disabled ?? checkboxGroup?.disabled ?? contextDisabled;
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -196,9 +196,19 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     CheckboxSemanticAllType['classNames'],
     CheckboxSemanticAllType['styles'],
     CheckboxProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, skipGroup ? undefined : checkboxGroup?.classNames, classNames],
+    [
+      contextStyles,
+      contextStyleRoot,
+      skipGroup ? undefined : checkboxGroup?.styles,
+      styles,
+      styleRoot,
+    ],
+    {
+      props: mergedProps,
+    },
+  );
 
   const classString = clsx(
     `${prefixCls}-wrapper`,

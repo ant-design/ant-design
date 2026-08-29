@@ -33,6 +33,9 @@ const localeValues: Locale = {
     selectInvert: 'Keer volgorde om',
     selectNone: 'Maak selectie leeg',
     selectionAll: 'Selecteer alle data',
+    selectRow: 'Rij selecteren',
+    selectedRow: 'Rij geselecteerd',
+    selectionMenu: 'Selectiemenu',
     sortTitle: 'Sorteren',
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Annuleer',
+  },
+  Splitter: {
+    toggleStartPanel: 'Beginpaneel omschakelen',
+    toggleEndPanel: 'Eindpaneel omschakelen',
   },
   Transfer: {
     itemUnit: 'item',

@@ -63,7 +63,7 @@ demo:
 - DatePicker\[picker="quarter"] (4.1.0 新增)
 - RangePicker
 
-### 国际化配置
+### 国际化配置 {#localization}
 
 默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider 国际化](https://ant.design/components/config-provider-cn/)。
 
@@ -89,7 +89,7 @@ dayjs.locale('zh-cn');
 在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
 :::
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 以下 API 为 DatePicker、 RangePicker 共享的 API。
 
@@ -142,7 +142,7 @@ dayjs.locale('zh-cn');
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |
 
-### 共同的方法
+### 共同的方法 {#common-methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |
@@ -160,7 +160,7 @@ dayjs.locale('zh-cn');
 | multiple | 是否为多选，不支持 `showTime` | boolean | false | 5.14.0 |
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/) | - | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
-| showNow | 显示当前日期时间的快捷选择 | boolean | - |  |
+| showNow | 显示当前日期时间的快捷选择 | boolean | - | 4.4.0 |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/) | dayjs() | 5.27.3 |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |

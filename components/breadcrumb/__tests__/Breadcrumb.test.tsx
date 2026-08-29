@@ -452,4 +452,11 @@ describe('Breadcrumb', () => {
     );
     getByText('666');
   });
+
+  it('supports numeric 0 separator', () => {
+    const { container } = render(
+      <Breadcrumb separator={0} items={[{ title: 'foo' }, { title: 'bar' }]} />,
+    );
+    expect(container.querySelector('.ant-breadcrumb-separator')?.textContent).toBe('0');
+  });
 });

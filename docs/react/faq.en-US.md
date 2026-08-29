@@ -56,14 +56,14 @@ While you can override a component's style, we don't recommend doing so. antd is
 antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
-- FAQ suggestion. Including codesandbox sample, marked as FAQ issue
+- FAQ suggestion. Including CodeSandbox sample, marked as FAQ issue
 
 And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How to use other data-time lib like Moment.js?
+## How to use other date-time lib like Moment.js?
 
 Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 

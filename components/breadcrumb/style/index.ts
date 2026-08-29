@@ -93,9 +93,28 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       },
 
       [`${componentCls}-link`]: {
+        // Icons from third-party libraries render as a bare `<svg>`, which the `.anticon`
+        // reset never reaches. An `<svg>` has no baseline of its own, so it is aligned by its
+        // bottom margin edge (CSS 2.1 §10.8.1) and rides above the link text.
+        // `display: inline-block` keeps it an atomic inline box so `vertical-align` still applies
+        // even under a CSS reset that forces `svg { display: block }` (e.g. Tailwind Preflight),
+        // which would otherwise drop the icon onto its own line. `vertical-align: middle` centres
+        // its margin box on the x-height line; `margin-block-end` then lifts it by half its own
+        // value onto the cap-height centre (capHeight − xHeight ≈ 0.2em across typical fonts),
+        // keeping it centred at any icon size.
+        // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+        '> svg': {
+          display: 'inline-block',
+          verticalAlign: 'middle',
+          marginBlockEnd: '0.2em',
+        },
+
+        // Same spacing an `.anticon` gets before the following text, extended to a bare `<svg>`.
         [`
           > ${iconCls} + span,
-          > ${iconCls} + a
+          > ${iconCls} + a,
+          > svg + span,
+          > svg + a
         `]: {
           marginInlineStart: token.marginXXS,
         },

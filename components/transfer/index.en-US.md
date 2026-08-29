@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | filterOption | A function to determine whether an item should show in search result list, only works when searching, (add `direction` support since 5.9.0+) | (inputValue, option, direction: `left` \| `right`): boolean | - |  | × |
 | footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 | × |
 | ~~listStyle~~ | A custom CSS style used for rendering the transfer columns. Use `styles.section` instead | object \| ({direction: `left` \| `right`}) => object | - |  | × |
-| locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  | × |
+| locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `No data`, searchPlaceholder: `Search here` } |  | × |
 | oneWay | Display as single direction style | boolean | false | 4.3.0 | × |
 | ~~operations~~ | A set of operations that are sorted from top to bottom. Use `actions` instead. | string\[] | \[`>`, `<`] |  | × |
 | ~~operationStyle~~ | A custom CSS style used for rendering the operations column. Use `styles.actions` instead. | object | - |  | × |

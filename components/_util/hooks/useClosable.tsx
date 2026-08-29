@@ -119,7 +119,13 @@ const computeCloseIcon = (
     );
   }
 
-  return [finalCloseIcon, ariaOrDataProps];
+  return [
+    finalCloseIcon,
+    {
+      'aria-label': closeLabel,
+      ...ariaOrDataProps,
+    },
+  ];
 };
 
 export const computeClosable = (

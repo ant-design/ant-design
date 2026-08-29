@@ -43,7 +43,7 @@ const App: React.FC = () => {
         <Badge dot={show}>
           <Avatar shape="square" size="large" />
         </Badge>
-        <Switch onChange={onChange} checked={show} />
+        <Switch aria-label="Show badge dot" onChange={onChange} checked={show} />
       </Space>
     </Space>
   );

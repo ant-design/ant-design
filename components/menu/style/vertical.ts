@@ -58,12 +58,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
-    motionEaseOut,
     padding,
     paddingXL,
     itemMarginInline,
     fontSizeLG,
-    motionDurationFast,
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
@@ -129,7 +127,6 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             transition: [
               `border-color ${motionDurationSlow}`,
               `background-color ${motionDurationSlow}`,
-              `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 
             [`> ${componentCls}-title-content`]: {
@@ -171,6 +168,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
+            transition: [`border-color`, `background-color`]
+              .map((prop) => `${prop} ${motionDurationSlow}`)
+              .join(','),
+
             [`> ${componentCls}-inline-collapsed-noicon`]: {
               fontSize: fontSizeLG,
               textAlign: 'center',

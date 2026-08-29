@@ -28,6 +28,7 @@ demo:
 <code src="./demo/directory-debug.tsx" debug>目录 Debug</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
+<code src="./demo/scroll-to.tsx" version="6.6.0">滚动到嵌套节点</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
 <code src="./demo/block-node.tsx">占据整行</code>
@@ -111,7 +112,7 @@ demo:
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
-## 注意
+## 注意 {#note}
 
 在 `3.4.0` 之前：树节点可以有很多，但在设置 `checkable` 时，将会花费更多的计算时间，因此我们缓存了一些计算结果（`this.treeNodesStates`）来复用，避免多次重复计算，以此提高性能。但这也带来了一些限制，当你异步加载树节点时，你需要这样渲染树：
 
@@ -129,11 +130,27 @@ demo:
 }
 ```
 
-### Tree 方法
+### Tree 方法 {#tree-methods}
 
 | 名称 | 说明 |
 | --- | --- |
-| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
+| scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number; autoExpand?: boolean }) | 虚拟滚动下，滚动到指定 key 条目。非受控模式下可通过 `autoExpand` 展开目标节点 |
+
+### Tree Hooks
+
+#### Tree.useTree
+
+`type Tree.useTree = (treeData: DataNode[], config: { fieldNames?: FieldNames }) => TreeInstance`
+
+提供 Tree 数据工具。`getPath(key)` 返回从根节点到目标节点的实体路径，可用于在受控模式下更新 `expandedKeys`。
+
+`getPath` 的函数引用保持稳定，并在调用时读取最新的 `treeData`。如果对 `getPath` 的派生结果进行 memo，请将 `treeData` 和查询 key 加入依赖项，因为依赖追踪无法感知 `getPath` 内部捕获的数据。
+
+```tsx
+const { getPath } = Tree.useTree(treeData, {});
+
+const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData]);
+```
 
 ## Semantic DOM
 

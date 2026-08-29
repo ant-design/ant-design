@@ -879,7 +879,9 @@ Array [
                               >
                                 <div
                                   aria-label="Xiaoxiao Fu"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_0"
                                   role="option"
                                 >
@@ -887,7 +889,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Maomao Zhou"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_1"
                                   role="option"
                                 >
@@ -1044,7 +1048,9 @@ Array [
                               >
                                 <div
                                   aria-label="private"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_0"
                                   role="option"
                                 >
@@ -1052,7 +1058,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="public"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_1"
                                   role="option"
                                 >
@@ -1214,7 +1222,9 @@ Array [
                               >
                                 <div
                                   aria-label="Jack Ma"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_0"
                                   role="option"
                                 >
@@ -1222,7 +1232,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Tom Liu"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_1"
                                   role="option"
                                 >
@@ -1340,7 +1352,7 @@ Array [
                               class="ant-picker-range-separator"
                             >
                               <span
-                                aria-label="to"
+                                aria-hidden="true"
                                 class="ant-picker-separator"
                               >
                                 <span
@@ -4857,6 +4869,6 @@ Array [
 
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;

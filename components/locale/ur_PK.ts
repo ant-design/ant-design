@@ -30,6 +30,9 @@ const localeValues: Locale = {
     selectInvert: 'موجودہ صفحے کو الٹ دیں',
     selectNone: 'تمام ڈیٹا صاف کریں',
     selectionAll: 'تمام ڈیٹا کو منتخب کریں',
+    selectRow: 'قطار منتخب کریں',
+    selectedRow: 'قطار منتخب ہو گئی',
+    selectionMenu: 'انتخابی مینو',
     sortTitle: 'ترتیب دیں',
     expand: 'پھیلائیں',
     collapse: 'سمیٹیں',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ٹھیک ہے',
     cancelText: 'منسوخ کریں',
+  },
+  Splitter: {
+    toggleStartPanel: 'ابتدائی پینل ٹوگل کریں',
+    toggleEndPanel: 'اختتامی پینل ٹوگل کریں',
   },
   Transfer: {
     titles: ['', ''],

@@ -212,7 +212,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
           class="ant-skeleton-image"
         >
           <svg
+            aria-hidden="true"
             class="ant-skeleton-image-svg"
+            focusable="false"
             viewBox="0 0 1098 1024"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -823,7 +825,7 @@ Array [
 
 exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
