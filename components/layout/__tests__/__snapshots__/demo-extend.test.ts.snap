@@ -375,9 +375,9 @@ exports[`renders components/layout/demo/collapsible-overlay.tsx extend context c
       />
     </div>
     <span
+      class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
       role="button"
       tabindex="0"
-      class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
     >
       <span
         aria-label="menu-fold"
@@ -2598,9 +2598,9 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
       />
     </div>
     <span
+      class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
       role="button"
       tabindex="0"
-      class="ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left"
     >
       <span
         aria-label="bars"
@@ -3105,8 +3105,8 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
     <div
       class="ant-layout-sider-trigger"
       role="button"
-      tabindex="0"
       style="width: 200px;"
+      tabindex="0"
     >
       <span
         aria-label="left"
