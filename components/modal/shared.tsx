@@ -1,7 +1,7 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import { isFunction } from '../_util/is';
+import { isFunction, isReactRenderable } from '../_util/is';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import NormalCancelBtn from './components/NormalCancelBtn';
@@ -14,7 +14,11 @@ import { getConfirmLocale } from './locale';
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {isReactRenderable(closeIcon) ? (
+        closeIcon
+      ) : (
+        <CloseOutlined className={`${prefixCls}-close-icon`} />
+      )}
     </span>
   );
 }

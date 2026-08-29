@@ -9,6 +9,7 @@ import type { NotificationProps as RcNotificationProps } from '@rc-component/not
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isReactRenderable } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
@@ -23,7 +24,7 @@ export const TypeIcon = {
 };
 
 export const getMessageIcon = (type?: NoticeType, icon?: React.ReactNode) =>
-  icon || (type && TypeIcon[type]) || null;
+  isReactRenderable(icon) ? icon : (type && TypeIcon[type]) || null;
 
 export interface MessageContentProps {
   type?: NoticeType;
