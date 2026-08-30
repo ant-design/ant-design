@@ -350,7 +350,7 @@
   ],
   "overrides": {
     "jest-environment-node": "^30.4.1",
-    "nwsapi": "2.2.24"
+    "nwsapi": "2.2.26"
   },
   "title": "Ant Design",
   "tnpm": {
