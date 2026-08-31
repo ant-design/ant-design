@@ -20,6 +20,7 @@ import { devUseWarning } from '../_util/warning';
 import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { getArrowOffsetToken } from '../style/placementArrow';
 import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
@@ -361,6 +362,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     ...colorInfo.overlayStyle,
   };
 
+  const { arrowOffsetHorizontal, arrowOffsetVertical } = getArrowOffsetToken({
+    contentRadius: token.borderRadius,
+    limitVerticalRadius: true,
+  });
+  const arrowEdgeStyle: React.CSSProperties = {};
+
+  if (placement === 'top' || placement === 'bottom') {
+    arrowEdgeStyle.left = `clamp(${arrowOffsetHorizontal}px, var(--arrow-x), calc(100% - ${arrowOffsetHorizontal}px))`;
+  } else if (placement === 'left' || placement === 'right') {
+    arrowEdgeStyle.top = `clamp(${arrowOffsetVertical}px, var(--arrow-y), calc(100% - ${arrowOffsetVertical}px))`;
+  }
+
   const content = (
     <RcTooltip
       unique
@@ -384,7 +397,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         },
         container: containerStyle,
         uniqueContainer: containerStyle,
-        arrow: mergedStyles.arrow,
+        arrow: {
+          ...arrowEdgeStyle,
+          ...mergedStyles.arrow,
+        },
       }}
       ref={tooltipRef}
       overlay={memoOverlayWrapper}

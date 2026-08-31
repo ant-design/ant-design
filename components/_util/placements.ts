@@ -6,6 +6,8 @@ import { isPlainObject } from './is';
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
   adjustY?: 0 | 1;
+  shiftX?: boolean | number;
+  shiftY?: boolean | number;
 }
 
 export interface PlacementsConfig {
@@ -19,6 +21,8 @@ export interface PlacementsConfig {
 
 export function getOverflowOptions(
   placement: string,
+  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
+  arrowWidth: number,
   autoAdjustOverflow?: boolean | AdjustOverflow,
 ) {
   if (autoAdjustOverflow === false) {
@@ -35,14 +39,14 @@ export function getOverflowOptions(
   switch (placement) {
     case 'top':
     case 'bottom':
-      baseOverflow.shiftX = true;
+      baseOverflow.shiftX = arrowOffset.arrowOffsetHorizontal * 2 + arrowWidth;
       baseOverflow.shiftY = true;
       baseOverflow.adjustY = true;
       break;
 
     case 'left':
     case 'right':
-      baseOverflow.shiftY = true;
+      baseOverflow.shiftY = arrowOffset.arrowOffsetVertical * 2 + arrowWidth;
       baseOverflow.shiftX = true;
       baseOverflow.adjustX = true;
       break;
@@ -224,7 +228,7 @@ export default function getPlacements(config: PlacementsConfig) {
     }
 
     // Overflow
-    placementInfo.overflow = getOverflowOptions(key, autoAdjustOverflow);
+    placementInfo.overflow = getOverflowOptions(key, arrowOffset, arrowWidth, autoAdjustOverflow);
 
     // VisibleFirst
     if (visibleFirst) {
