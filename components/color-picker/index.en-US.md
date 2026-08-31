@@ -30,7 +30,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
 <code src="./demo/presets-line-gradient.tsx" debug>Preset Line Gradient</code>
-<code src="./demo/panel.tsx" version="6.4.0">Panel</code>
+<code src="./demo/panel.tsx" version="6.7.0">Panel</code>
 <code src="./demo/panel-render.tsx">Custom Render Panel</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
@@ -78,7 +78,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Inline color panel without trigger or popup behavior.
 
-> This static panel component is available since `antd@6.4.0`.
+> This static panel component is available since `antd@6.7.0`.
 >
 > `ColorPicker.Panel` reuses the panel-related props from `ColorPicker`.
 
