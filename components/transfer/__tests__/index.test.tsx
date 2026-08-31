@@ -1001,6 +1001,35 @@ describe('Transfer', () => {
     });
   });
 
+  it('should clear stale selection when dataSource key type changes', () => {
+    const App: React.FC = () => {
+      const [stringKey, setStringKey] = useState(false);
+
+      return (
+        <>
+          <Button onClick={() => setStringKey((prev) => !prev)}>Toggle key type</Button>
+          <Transfer
+            dataSource={[{ key: stringKey ? '1' : 1, title: 'item' }]}
+            render={(item) => item.title}
+          />
+        </>
+      );
+    };
+
+    const { container, getByRole } = render(<App />);
+    const getItemCheckbox = () =>
+      container.querySelector<HTMLInputElement>('.ant-transfer-list-content input');
+
+    fireEvent.click(getItemCheckbox()!);
+    expect(getItemCheckbox()).toBeChecked();
+
+    fireEvent.click(getByRole('button', { name: 'Toggle key type' }));
+    expect(getItemCheckbox()).not.toBeChecked();
+
+    fireEvent.click(getByRole('button', { name: 'Toggle key type' }));
+    expect(getItemCheckbox()).not.toBeChecked();
+  });
+
   it('showSearch with single object', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
