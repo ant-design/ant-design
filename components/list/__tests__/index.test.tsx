@@ -74,7 +74,8 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelector('.ant-list-header')).toBeNull();
+    expect(container.querySelector('.ant-list-header')).toBeTruthy();
+    expect(container.querySelector('.ant-list-header')).toBeEmptyDOMElement();
     expect(container.querySelector('.ant-list-footer')).toBeNull();
     expect(container.querySelector('.ant-list')).not.toHaveClass(
       'ant-list-something-after-last-item',
