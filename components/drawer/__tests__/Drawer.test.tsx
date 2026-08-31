@@ -145,6 +145,28 @@ describe('Drawer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('render extra without title or close button', () => {
+    const { container } = render(
+      <Drawer open closable={false} extra={0} getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(container.querySelector('.ant-drawer-header')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-extra')).toHaveTextContent('0');
+  });
+
+  it('render title with zero value', () => {
+    const { container } = render(
+      <Drawer open closable={false} title={0} getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(container.querySelector('.ant-drawer-header')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-title')).toHaveTextContent('0');
+  });
+
   it('closable is false', () => {
     const { container: wrapper } = render(
       <Drawer open closable={false} getContainer={false}>

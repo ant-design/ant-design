@@ -23,6 +23,22 @@ describe('Steps', () => {
     jest.useRealTimers();
   });
 
+  it('should hide decorative panel arrows from assistive technology', () => {
+    const { container } = render(
+      <Steps
+        type="panel"
+        items={[{ title: 'Account' }, { title: 'Verification' }, { title: 'Done' }]}
+      />,
+    );
+    const arrows = container.querySelectorAll('.ant-steps-panel-arrow');
+
+    expect(arrows).toHaveLength(3);
+    arrows.forEach((arrow) => {
+      expect(arrow).not.toHaveAccessibleName();
+      expect(arrow).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
+
   const description = 'This is a description.';
   it('should render correct', () => {
     const { container } = render(
