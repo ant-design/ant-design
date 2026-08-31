@@ -291,6 +291,20 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
+  it('uses unrestricted cross-axis shift for cardinal placements', () => {
+    const placements = getPlacements({
+      arrowWidth: 16,
+      borderRadius: 6,
+      offset: 4,
+      autoAdjustOverflow: true,
+    });
+
+    expect(placements.top.overflow?.shiftX).toBe(true);
+    expect(placements.bottom.overflow?.shiftX).toBe(true);
+    expect(placements.left.overflow?.shiftY).toBe(true);
+    expect(placements.right.overflow?.shiftY).toBe(true);
+  });
+
   describe('support other placement when mouse enter', () => {
     const placementList = [
       'top',

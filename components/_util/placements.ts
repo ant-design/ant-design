@@ -19,8 +19,6 @@ export interface PlacementsConfig {
 
 export function getOverflowOptions(
   placement: string,
-  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
-  arrowWidth: number,
   autoAdjustOverflow?: boolean | AdjustOverflow,
 ) {
   if (autoAdjustOverflow === false) {
@@ -37,14 +35,14 @@ export function getOverflowOptions(
   switch (placement) {
     case 'top':
     case 'bottom':
-      baseOverflow.shiftX = arrowOffset.arrowOffsetHorizontal * 2 + arrowWidth;
+      baseOverflow.shiftX = true;
       baseOverflow.shiftY = true;
       baseOverflow.adjustY = true;
       break;
 
     case 'left':
     case 'right':
-      baseOverflow.shiftY = arrowOffset.arrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.shiftY = true;
       baseOverflow.shiftX = true;
       baseOverflow.adjustX = true;
       break;
@@ -226,7 +224,7 @@ export default function getPlacements(config: PlacementsConfig) {
     }
 
     // Overflow
-    placementInfo.overflow = getOverflowOptions(key, arrowOffset, arrowWidth, autoAdjustOverflow);
+    placementInfo.overflow = getOverflowOptions(key, autoAdjustOverflow);
 
     // VisibleFirst
     if (visibleFirst) {
