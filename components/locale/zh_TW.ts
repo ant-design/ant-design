@@ -145,7 +145,7 @@ const localeValues: Locale = {
     presetEmpty: '暫無',
     transparent: '透明',
     singleColor: '單色',
-    gradientColor: '漸變色',
+    gradientColor: '漸層色',
   },
 };
 
