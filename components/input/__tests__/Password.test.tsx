@@ -165,6 +165,18 @@ describe('Input.Password', () => {
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
   });
 
+  it('should not change password visibility in controlled mode', () => {
+    const onVisibleChange = jest.fn();
+    const { container } = render(
+      <Input.Password visibilityToggle={{ visible: false, onVisibleChange }} />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
+  });
+
   it('should call onPasswordVisibleChange when visible is changed', () => {
     const handlePasswordVisibleChange = jest.fn();
     const { container, rerender } = render(
