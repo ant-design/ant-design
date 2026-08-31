@@ -5,6 +5,8 @@ import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
+const radioDotPadding = 4;
+
 // ============================== Tokens ==============================
 export interface ComponentToken {
   // Radio
@@ -225,7 +227,34 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     lineType,
     radioColor,
     radioBgColor,
+    fontSize,
+    fontSizeLG,
+    fontSizeSM,
+    fontSizeXL,
+    wireframe,
+    calc,
   } = token;
+
+  const genRadioSizeStyle = (size: number, labelFontSize: number): CSSObject => {
+    const radioDotSize = wireframe
+      ? calc(size)
+          .sub(radioDotPadding * 2)
+          .equal()
+      : calc(size).sub(calc(radioDotPadding).add(lineWidth).mul(2)).equal();
+
+    return {
+      fontSize: labelFontSize,
+      [componentCls]: {
+        width: unit(size),
+        height: unit(size),
+
+        '&:after': {
+          width: radioDotSize,
+          height: radioDotSize,
+        },
+      },
+    };
+  };
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -261,6 +290,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         flex: 1,
         justifyContent: 'center',
       },
+
+      [`${componentCls}-group-large &`]: genRadioSizeStyle(fontSizeXL, fontSizeLG),
+
+      [`${componentCls}-group-small &`]: genRadioSizeStyle(fontSize, fontSizeSM),
 
       // ===================== Radio =====================
       [componentCls]: {
@@ -656,11 +689,10 @@ export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
     colorWhite,
   } = token;
 
-  const dotPadding = 4; // Fixed value
   const radioSize = fontSizeLG;
   const radioDotSize = wireframe
-    ? radioSize - dotPadding * 2
-    : radioSize - (dotPadding + lineWidth) * 2;
+    ? radioSize - radioDotPadding * 2
+    : radioSize - (radioDotPadding + lineWidth) * 2;
 
   return {
     // Radio
