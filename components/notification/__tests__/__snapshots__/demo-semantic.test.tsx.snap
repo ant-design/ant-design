@@ -81,6 +81,7 @@ exports[`renders components/notification/demo/_semantic.tsx correctly 1`] = `
             <button
               aria-label="Close"
               class="ant-notification-notice-close semantic-mark-close"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -154,6 +155,7 @@ exports[`renders components/notification/demo/_semantic.tsx correctly 1`] = `
             <button
               aria-label="Close"
               class="ant-notification-notice-close semantic-mark-close"
+              type="button"
             >
               <span
                 aria-label="close"

@@ -204,6 +204,41 @@ describe('Radio Group', () => {
       expect(container.querySelectorAll('.ant-radio-wrapper-checked').length).toBe(1);
     });
 
+    it('should update value when `value` is undefined', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Radio.Group defaultValue="A" value={undefined} onChange={onChange}>
+          <Radio value="A">A</Radio>
+          <Radio value="B">B</Radio>
+        </Radio.Group>,
+      );
+      const radios = container.querySelectorAll('input');
+
+      expect(radios[0]).toBeChecked();
+      fireEvent.click(radios[1]);
+      expect(radios[0]).not.toBeChecked();
+      expect(radios[1]).toBeChecked();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange.mock.calls[0][0].target.value).toBe('B');
+    });
+
+    it('should remain controlled when `value` is null', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Radio.Group value={null} onChange={onChange}>
+          <Radio value="A">A</Radio>
+          <Radio value="B">B</Radio>
+        </Radio.Group>,
+      );
+      const radios = container.querySelectorAll('input');
+
+      fireEvent.click(radios[1]);
+      expect(radios[0]).not.toBeChecked();
+      expect(radios[1]).not.toBeChecked();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange.mock.calls[0][0].target.value).toBe('B');
+    });
+
     [undefined, null].forEach((newValue) => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const options = [{ label: 'Bamboo', value: 'bamboo' }];
