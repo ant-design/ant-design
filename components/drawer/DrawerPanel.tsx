@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
@@ -7,7 +8,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';

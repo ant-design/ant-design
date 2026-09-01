@@ -1,8 +1,8 @@
 import React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
-import { isReactRenderable } from './is';
 
 const ContextIsolator: React.FC<
   Readonly<React.PropsWithChildren<Partial<Record<'space' | 'form', boolean>>>>
