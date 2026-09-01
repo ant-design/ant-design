@@ -45,6 +45,8 @@ export type MenuSemanticClassNames = {
   item?: string;
   itemIcon?: string;
   itemContent?: string;
+  subItem?: string;
+  subItemTitle?: string;
 };
 
 export type MenuSemanticStyles = {
@@ -54,6 +56,8 @@ export type MenuSemanticStyles = {
   item?: React.CSSProperties;
   itemIcon?: React.CSSProperties;
   itemContent?: React.CSSProperties;
+  subItem?: React.CSSProperties;
+  subItemTitle?: React.CSSProperties;
 };
 
 export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles;
