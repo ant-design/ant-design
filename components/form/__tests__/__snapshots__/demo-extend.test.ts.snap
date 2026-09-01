@@ -3638,7 +3638,7 @@ Array [
                   class="ant-picker-range-separator"
                 >
                   <span
-                    aria-label="to"
+                    aria-hidden="true"
                     class="ant-picker-separator"
                   >
                     <span
@@ -4995,6 +4995,7 @@ Array [
                         type="file"
                       />
                       <button
+                        disabled=""
                         style="color: inherit; cursor: inherit; border: 0px; background: none;"
                         type="button"
                       >
@@ -5933,7 +5934,7 @@ Array [
                         <li
                           aria-describedby="test-id"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                          data-menu-id="rc-menu-uuid-selectAll"
+                          data-menu-id="rc-menu-uuid-test-id-selectAll"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -5964,7 +5965,7 @@ Array [
                         <li
                           aria-describedby="test-id"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                          data-menu-id="rc-menu-uuid-selectInvert"
+                          data-menu-id="rc-menu-uuid-test-id-selectInvert"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -6521,7 +6522,7 @@ Array [
                         <li
                           aria-describedby="test-id"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                          data-menu-id="rc-menu-uuid-selectAll"
+                          data-menu-id="rc-menu-uuid-test-id-selectAll"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -6552,7 +6553,7 @@ Array [
                         <li
                           aria-describedby="test-id"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                          data-menu-id="rc-menu-uuid-selectInvert"
+                          data-menu-id="rc-menu-uuid-test-id-selectInvert"
                           role="menuitem"
                           tabindex="-1"
                         >
@@ -17627,7 +17628,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -18858,7 +18859,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -28026,7 +28027,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -33666,7 +33667,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span

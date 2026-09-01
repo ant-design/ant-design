@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -153,7 +154,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
       >
         {imageNode}
       </div>
-      {des && (
+      {isReactRenderable(des) && (
         <div
           className={clsx(`${prefixCls}-description`, mergedClassNames.description)}
           style={mergedStyles.description}
@@ -161,7 +162,7 @@ const Empty = React.forwardRef<EmptyRef, EmptyProps>((props, ref) => {
           {des}
         </div>
       )}
-      {children && (
+      {isReactRenderable(children) && (
         <div
           className={clsx(`${prefixCls}-footer`, mergedClassNames.footer)}
           style={mergedStyles.footer}

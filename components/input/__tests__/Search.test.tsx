@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
-import { fireEvent, render } from '@testing-library/react';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -196,6 +196,32 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
     expect(onButtonClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should preserve custom button onMouseDown', () => {
+    let defaultPrevented: boolean | undefined;
+    const onMouseDown = jest.fn((event: React.MouseEvent<HTMLButtonElement>) => {
+      defaultPrevented = event.defaultPrevented;
+    });
+    const ref = React.createRef<InputRef>();
+    const { getByRole } = render(
+      <Search
+        ref={ref}
+        enterButton={
+          <button type="button" onMouseDown={onMouseDown}>
+            search
+          </button>
+        }
+      />,
+      { container: document.body },
+    );
+
+    ref.current?.focus();
+    const event = createEvent.mouseDown(getByRole('button'));
+    fireEvent(getByRole('button'), event);
+    expect(onMouseDown).toHaveBeenCalledTimes(1);
+    expect(defaultPrevented).toBe(false);
+    expect(event.defaultPrevented).toBe(true);
   });
 
   it('should trigger onSearch when press enter', () => {

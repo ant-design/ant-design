@@ -56,6 +56,10 @@ export interface Locale {
     refresh?: string;
     scanned?: string;
   };
+  Carousel?: {
+    prevSlide: string;
+    nextSlide: string;
+  };
   ColorPicker?: {
     presetEmpty: string;
     transparent: string;

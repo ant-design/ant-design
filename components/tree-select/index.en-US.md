@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  | × |
 | maxTagTextLength | Max tag text length to show | number | - |  | × |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  | × |
-| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  | × |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `No data` |  | × |
 | open | Controlled open state of dropdown | boolean | - |  | × |
 | placeholder | Placeholder of the select input | string | - |  | × |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |

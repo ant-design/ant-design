@@ -52,7 +52,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，(`direction` 自5.9.0+支持)，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option, direction: `left` \| `right`): boolean | - |  | × |
 | footer | 底部渲染函数 | (props, { direction }) => ReactNode | - | direction: 4.17.0 | × |
 | ~~listStyle~~ | 两个穿梭框的自定义样式，使用 `styles.section` 代替 | object\|({direction: `left` \| `right`}) => object | - |  | × |
-| locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  | × |
+| locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容`, notFoundContent: `暂无数据` } |  | × |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 | × |
 | ~~operations~~ | 操作文案集合，顺序从上至下。使用 `actions` 代替 | string\[] | \[`>`, `<`] |  | × |
 | ~~operationStyle~~ | 操作栏的自定义样式，使用 `styles.actions` 代替 | CSSProperties | - |  | × |
@@ -84,13 +84,13 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 | onItemSelect    | 勾选条目       | (key: string \| number, selected: boolean)        |      |
 | onItemSelectAll | 勾选一组条目   | (keys: string\[] \| number\[], selected: boolean) |      |
 
-#### 参考示例
+#### 参考示例 {#example}
 
 ```jsx
 <Transfer {...props}>{(listProps) => <YourComponent {...listProps} />}</Transfer>
 ```
 
-## 注意
+## 注意 {#warning}
 
 按照 React 的[规范](https://zh-hans.react.dev/learn/rendering-lists#why-does-react-need-keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource` 里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 

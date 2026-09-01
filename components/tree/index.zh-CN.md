@@ -112,7 +112,7 @@ demo:
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
-## 注意
+## 注意 {#note}
 
 在 `3.4.0` 之前：树节点可以有很多，但在设置 `checkable` 时，将会花费更多的计算时间，因此我们缓存了一些计算结果（`this.treeNodesStates`）来复用，避免多次重复计算，以此提高性能。但这也带来了一些限制，当你异步加载树节点时，你需要这样渲染树：
 
@@ -130,7 +130,7 @@ demo:
 }
 ```
 
-### Tree 方法
+### Tree 方法 {#tree-methods}
 
 | 名称 | 说明 |
 | --- | --- |
@@ -144,8 +144,12 @@ demo:
 
 提供 Tree 数据工具。`getPath(key)` 返回从根节点到目标节点的实体路径，可用于在受控模式下更新 `expandedKeys`。
 
+`getPath` 的函数引用保持稳定，并在调用时读取最新的 `treeData`。如果对 `getPath` 的派生结果进行 memo，请将 `treeData` 和查询 key 加入依赖项，因为依赖追踪无法感知 `getPath` 内部捕获的数据。
+
 ```tsx
 const { getPath } = Tree.useTree(treeData, {});
+
+const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData]);
 ```
 
 ## Semantic DOM

@@ -4,6 +4,8 @@ group:
   order: 1
 order: 0
 title: Customize Theme
+demo:
+  tocDepth: 4
 ---
 
 Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
@@ -176,7 +178,7 @@ If you want to use in preprocess style framework like less, use less-loader for 
 }
 ```
 
-Compatible package provide convert function to transform to v4 less variable. Read [this](/docs/react/migration-v5) for detail.
+Compatible package provide convert function to transform to v4 less variable. Read [this](https://5x.ant.design/docs/react/migration-v5) for detail.
 
 ### Theme editor
 

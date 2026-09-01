@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
@@ -169,21 +170,23 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     mergedCloseIcon,
     { disabled: closeBtnIsDisabled },
   );
+  const hasTitle = isReactRenderable(title);
+  const hasExtra = isReactRenderable(extra);
 
   const renderHeader = () => {
-    if (!title && !mergedClosable) {
+    if (!hasTitle && !mergedClosable && !hasExtra) {
       return null;
     }
     return (
       <div
         style={{ ...mergedStyles.header, ...headerStyle }}
         className={clsx(`${prefixCls}-header`, mergedClassNames.header, {
-          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+          [`${prefixCls}-header-close-only`]: mergedClosable && !hasTitle && !hasExtra,
         })}
       >
         <div className={`${prefixCls}-header-title`}>
           {closablePlacement === 'start' && mergedCloseButton}
-          {title && (
+          {hasTitle && (
             <div
               className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
               style={mergedStyles.title}
@@ -193,7 +196,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
             </div>
           )}
         </div>
-        {extra && (
+        {hasExtra && (
           <div
             className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
             style={mergedStyles.extra}

@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhCN from '../../locale/zh_CN';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -274,6 +275,40 @@ describe('Carousel', () => {
     errSpy.mockRestore();
   });
 
+  it('should use localized aria-labels for arrows by default', async () => {
+    const { container } = render(
+      <Carousel arrows>
+        <div>Slide 1</div>
+        <div>Slide 2</div>
+        <div>Slide 3</div>
+      </Carousel>,
+    );
+    await waitFakeTimer();
+
+    const prevArrow = container.querySelector<HTMLDivElement>('.slick-prev');
+    const nextArrow = container.querySelector<HTMLDivElement>('.slick-next');
+    expect(prevArrow).toHaveAttribute('aria-label', 'Previous slide');
+    expect(nextArrow).toHaveAttribute('aria-label', 'Next slide');
+  });
+
+  it('should use localized aria-labels when a custom locale is provided', async () => {
+    const { container } = render(
+      <ConfigProvider locale={zhCN}>
+        <Carousel arrows>
+          <div>Slide 1</div>
+          <div>Slide 2</div>
+          <div>Slide 3</div>
+        </Carousel>
+      </ConfigProvider>,
+    );
+    await waitFakeTimer();
+
+    const prevArrow = container.querySelector<HTMLDivElement>('.slick-prev');
+    const nextArrow = container.querySelector<HTMLDivElement>('.slick-next');
+    expect(prevArrow).toHaveAttribute('aria-label', '上一张幻灯片');
+    expect(nextArrow).toHaveAttribute('aria-label', '下一张幻灯片');
+  });
+
   describe('should works for dotDuration', () => {
     it('should not show dot duration', () => {
       const { container } = render(
@@ -404,8 +439,8 @@ describe('Carousel', () => {
       const prevArrow = container.querySelector<HTMLDivElement>('.slick-prev');
       const nextArrow = container.querySelector<HTMLDivElement>('.slick-next');
 
-      expect(prevArrow).toHaveAttribute('aria-label', 'next');
-      expect(nextArrow).toHaveAttribute('aria-label', 'prev');
+      expect(prevArrow).toHaveAttribute('aria-label', 'Next slide');
+      expect(nextArrow).toHaveAttribute('aria-label', 'Previous slide');
 
       expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
       fireEvent.click(prevArrow!);

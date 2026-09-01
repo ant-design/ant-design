@@ -4,6 +4,8 @@ group:
   order: 1
 order: 0
 title: 定制主题
+demo:
+  tocDepth: 4
 ---
 
 Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
@@ -176,7 +178,7 @@ createRoot(document.getElementById('#app')).render(
 }
 ```
 
-兼容包提供了变量转换方法用于转成 v4 的 less 变量，如需使用[点击此处](/docs/react/migration-v5)查看详情。
+兼容包提供了变量转换方法用于转成 v4 的 less 变量，如需使用[点击此处](https://5x.ant.design/docs/react/migration-v5-cn)查看详情。
 
 ### 调试主题
 

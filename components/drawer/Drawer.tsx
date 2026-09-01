@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { Placement, DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
-import { composeRef, useId } from '@rc-component/util';
+import { composeRef, isReactRenderable, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -113,7 +113,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const { placement } = rest;
   const id = useId();
-  const ariaId = rest.title ? id : undefined;
+  const ariaId = isReactRenderable(rest.title) ? id : undefined;
 
   const {
     getPopupContainer,
