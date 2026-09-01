@@ -18,9 +18,23 @@ export interface SubMenuProps
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed, theme: contextTheme, classNames, styles } = context;
+  const {
+    prefixCls,
+    inlineCollapsed,
+    theme: contextTheme,
+    firstLevel,
+    classNames,
+    styles,
+  } = context;
 
   const parentPath = useFullPath();
+
+  const subItemClassName = firstLevel ? classNames?.subItem : classNames?.subMenu?.subItem;
+  const subItemStyle = firstLevel ? styles?.subItem : styles?.subMenu?.subItem;
+  const subItemTitleClassName = firstLevel
+    ? classNames?.subItemTitle
+    : classNames?.subMenu?.subItemTitle;
+  const subItemTitleStyle = firstLevel ? styles?.subItemTitle : styles?.subMenu?.subItemTitle;
 
   let titleNode: React.ReactNode;
 
@@ -59,8 +73,18 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
-        classNames={{ list: classNames?.subMenu?.list, listTitle: classNames?.subMenu?.itemTitle }}
-        styles={{ list: styles?.subMenu?.list, listTitle: styles?.subMenu?.itemTitle }}
+        classNames={{
+          list: classNames?.subMenu?.list,
+          listTitle: classNames?.subMenu?.itemTitle,
+          subItem: subItemClassName,
+          subItemTitle: subItemTitleClassName,
+        }}
+        styles={{
+          list: styles?.subMenu?.list,
+          listTitle: styles?.subMenu?.itemTitle,
+          subItem: subItemStyle,
+          subItemTitle: subItemTitleStyle,
+        }}
         popupClassName={clsx(
           prefixCls,
           popupClassName,
