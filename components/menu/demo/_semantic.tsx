@@ -159,8 +159,8 @@ const App: React.FC = () => {
     ];
 
     const subItemLocale = [
-      { name: 'subItem', desc: locale.subItem },
-      { name: 'subItemTitle', desc: locale.subItemTitle },
+      { name: 'subItem', desc: locale.subItem, version: '6.7.0' },
+      { name: 'subItemTitle', desc: locale.subItemTitle, version: '6.7.0' },
     ];
     const subMenuLocale = [
       { name: 'subMenu.itemTitle', desc: locale['subMenu.itemTitle'] },
@@ -168,8 +168,8 @@ const App: React.FC = () => {
       { name: 'subMenu.item', desc: locale['subMenu.item'] },
       { name: 'subMenu.itemIcon', desc: locale['subMenu.itemIcon'] },
       { name: 'subMenu.itemContent', desc: locale['subMenu.itemContent'] },
-      { name: 'subMenu.subItem', desc: locale['subMenu.subItem'] },
-      { name: 'subMenu.subItemTitle', desc: locale['subMenu.subItemTitle'] },
+      { name: 'subMenu.subItem', desc: locale['subMenu.subItem'], version: '6.7.0' },
+      { name: 'subMenu.subItemTitle', desc: locale['subMenu.subItemTitle'], version: '6.7.0' },
     ];
     const groupLocale = [
       { name: 'itemTitle', desc: locale.itemTitle },
