@@ -102,12 +102,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
 | removeIcon | The custom remove icon | ReactNode | `<CloseOutlined />` |  | 6.4.0 |
 | ~~searchValue~~ | The current input "search" text | string | - |  | × |
-| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffix={null}` instead | boolean | true | - | × |
 | showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true | Object: 6.0.0 | 6.4.0 |
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | The custom suffix icon. Custom icons will not respond to clicks to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  | 6.4.0 |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` | 6.6.2 | × |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | `<DownOutlined />` |  | 6.4.0 |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  | × |
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 | × |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` or `mode="multiple"` | string[] \| ((input: string) => string[]) | - | function: 6.5.0 | × |

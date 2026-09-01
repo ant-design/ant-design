@@ -315,7 +315,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select showArrow />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
       );
       expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
@@ -587,6 +587,11 @@ describe('Select', () => {
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
     });
 
+    it('should support suffix prop', () => {
+      const { container } = render(<Select suffix="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
     it('should support suffixIcon prop in config provider', () => {
       const { container } = render(
         <ConfigProvider select={{ suffixIcon: 'foobar' }}>
@@ -604,5 +609,16 @@ describe('Select', () => {
       );
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
     });
+  });
+
+  it('should warn when using deprecated suffixIcon prop', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Select suffixIcon="foobar" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Select] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+    errSpy.mockRestore();
   });
 });
