@@ -32,7 +32,7 @@ export interface FloatButtonBackTopProps extends Omit<FloatButtonProps, 'target'
 }
 
 /** @deprecated Please use `FloatButtonBackTopProps` instead. */
-export type BackTopProps = FloatButtonBackTopProps;
+export interface BackTopProps extends FloatButtonBackTopProps {}
 
 const defaultIcon = <VerticalAlignTopOutlined />;
 

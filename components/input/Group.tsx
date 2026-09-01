@@ -23,7 +23,7 @@ export interface InputGroupProps {
 }
 
 /** @deprecated Please use `InputGroupProps` instead. */
-export type GroupProps = InputGroupProps;
+export interface GroupProps extends InputGroupProps {}
 
 /** @deprecated Please use `Space.Compact` */
 const Group: React.FC<InputGroupProps> = (props) => {

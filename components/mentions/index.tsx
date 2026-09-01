@@ -45,7 +45,7 @@ export interface SelectOptionProps {
 }
 
 /** @deprecated Please use `SelectOptionProps` instead. */
-export type OptionProps = SelectOptionProps;
+export interface OptionProps extends SelectOptionProps {}
 
 export type MentionSemanticType = {
   classNames?: {
