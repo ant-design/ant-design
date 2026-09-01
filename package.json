@@ -116,7 +116,7 @@
     "@ant-design/cssinjs": "^2.1.2",
     "@ant-design/cssinjs-utils": "^2.1.2",
     "@ant-design/fast-color": "^3.0.1",
-    "@ant-design/icons": "^6.3.2",
+    "@ant-design/icons": "^6.3.4",
     "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.29.2",
     "@rc-component/cascader": "~1.24.0",
@@ -155,7 +155,7 @@
     "@rc-component/tree-select": "~1.18.0",
     "@rc-component/trigger": "^3.10.1",
     "@rc-component/upload": "~1.1.1",
-    "@rc-component/util": "^1.12.0",
+    "@rc-component/util": "^1.13.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "scroll-into-view-if-needed": "^3.1.0",
@@ -261,11 +261,11 @@
     "immer": "^11.1.4",
     "is-ci": "^4.1.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "^30.4.2",
+    "jest": "30.4.2",
     "jest-axe": "^11.0.0",
     "jest-canvas-mock": "2.5.8",
-    "jest-environment-jsdom": "^30.4.1",
-    "jest-environment-node": "^30.4.1",
+    "jest-environment-jsdom": "30.4.1",
+    "jest-environment-node": "30.4.1",
     "jest-image-snapshot": "^6.5.2",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
@@ -348,8 +348,7 @@
     }
   ],
   "overrides": {
-    "jest-environment-node": "^30.4.1",
-    "nwsapi": "2.2.24"
+    "jest-environment-node": "30.4.1"
   },
   "title": "Ant Design",
   "tnpm": {

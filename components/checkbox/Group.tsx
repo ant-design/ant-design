@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { omit } from '@rc-component/util';
+import React from 'react';
+import { isNonNullable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isString } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

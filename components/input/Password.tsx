@@ -153,7 +153,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            onVisibleChange();
+            if (!e.repeat) {
+              onVisibleChange();
+            }
           }
         }}
         {...{ [iconTrigger]: onVisibleChange }}
