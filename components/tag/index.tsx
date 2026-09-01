@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { omit } from '@rc-component/util';
+import { isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
@@ -7,7 +7,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isReactRenderable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -188,7 +188,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        e.currentTarget.click();
+        if (!e.repeat) {
+          e.currentTarget.click();
+        }
       }
     };
 

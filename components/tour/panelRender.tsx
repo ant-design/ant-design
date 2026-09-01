@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import { pickAttrs } from '@rc-component/util';
+import { isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isReactRenderable } from '../_util/is';
 import type { ButtonProps } from '../button/Button';
 import Button from '../button/Button';
 import { useLocale } from '../locale';
