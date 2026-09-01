@@ -1,9 +1,9 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import React, { useContext } from 'react';
-import { toArray } from '@rc-component/util';
+import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isReactRenderable, isString } from '../_util/is';
+import { isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';

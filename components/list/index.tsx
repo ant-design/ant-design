@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { mergeProps } from '@rc-component/util';
+import { isReactRenderable, mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isPlainObject, isReactRenderable } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
