@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { composeRef, triggerFocus } from '@rc-component/util';
+import { composeRef, isReactRenderable, triggerFocus } from '@rc-component/util';
 import type { InputFocusOptions } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -9,7 +9,6 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';

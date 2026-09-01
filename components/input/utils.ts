@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
+import { isReactRenderable } from '@rc-component/util';
 
-import { isReactRenderable } from '../_util/is';
 import type { InputProps } from './Input';
 
 export function hasPrefixSuffix(props: {

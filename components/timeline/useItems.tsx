@@ -1,9 +1,8 @@
 import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import { toArray } from '@rc-component/util';
+import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isReactRenderable } from '../_util/is';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline';
 
