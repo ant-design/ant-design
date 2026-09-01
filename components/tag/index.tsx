@@ -7,7 +7,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isReactRenderable } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -249,7 +249,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const child: React.ReactNode = iconNode ? (
       <>
         {iconNode}
-        {children && (
+        {isReactRenderable(children) && (
           <span className={mergedClassNames.content} style={mergedStyles.content}>
             {children}
           </span>

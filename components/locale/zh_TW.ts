@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '顯示',
     hide: '隱藏',
     sortable: '可排序',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',
@@ -152,7 +153,7 @@ const localeValues: Locale = {
     presetEmpty: '暫無',
     transparent: '透明',
     singleColor: '單色',
-    gradientColor: '漸變色',
+    gradientColor: '漸層色',
   },
 };
 

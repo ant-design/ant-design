@@ -235,8 +235,8 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
                 sortOrder: nextSortOrder,
                 multiplePriority: getMultiplePriority<RecordType>(column),
               });
-              originOKeyDown?.(event);
             }
+            originOKeyDown?.(event);
           };
 
           const renderTitle = safeColumnTitle(column.title, {});

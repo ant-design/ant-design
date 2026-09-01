@@ -1009,6 +1009,16 @@ describe('Form', () => {
     expect(screen.getByLabelText('0')).toBeInTheDocument();
   });
 
+  it('0 is a valid label', () => {
+    render(
+      <Form.Item name="field" label={0}>
+        <input />
+      </Form.Item>,
+    );
+
+    expect(screen.getByLabelText('0')).toBeInTheDocument();
+  });
+
   it('`null` triggers warning and is treated as `undefined`', () => {
     render(
       <Form.Item name={null as unknown as NamePath} label="test">

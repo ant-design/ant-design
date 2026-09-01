@@ -114,7 +114,7 @@ Extends [File](https://developer.mozilla.org/en-US/docs/Web/API/File) with addit
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | action | Uploading URL | string | - | - |
-| data | Uploading extra params or function which can return uploading extra params | Record<string, unknown> | - | 4.20.0 |
+| data | Uploading extra params or function which can return uploading extra params | Record<string, unknown> | - | - |
 | filename | file name | string | - | - |
 | file | File object containing upload information | [UploadFile](#uploadfile) | - | - |
 | withCredentials | The ajax upload with cookie sent | boolean | - | - |
