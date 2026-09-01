@@ -10,7 +10,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -366,11 +366,14 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     contentRadius: token.borderRadius,
     limitVerticalRadius: true,
   });
+  const overflow = isPlainObject<AdjustOverflow>(autoAdjustOverflow)
+    ? autoAdjustOverflow
+    : undefined;
   const arrowEdgeStyle: React.CSSProperties = {};
 
-  if (placement === 'top' || placement === 'bottom') {
+  if ((placement === 'top' || placement === 'bottom') && overflow?.shiftX === true) {
     arrowEdgeStyle.left = `clamp(${arrowOffsetHorizontal}px, var(--arrow-x), calc(100% - ${arrowOffsetHorizontal}px))`;
-  } else if (placement === 'left' || placement === 'right') {
+  } else if ((placement === 'left' || placement === 'right') && overflow?.shiftY === true) {
     arrowEdgeStyle.top = `clamp(${arrowOffsetVertical}px, var(--arrow-y), calc(100% - ${arrowOffsetVertical}px))`;
   }
 

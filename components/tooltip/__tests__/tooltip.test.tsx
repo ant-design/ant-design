@@ -307,7 +307,7 @@ describe('Tooltip', () => {
 
   it('keeps cardinal placement arrows within the popup edge', () => {
     const { rerender } = render(
-      <Tooltip title={0} open placement="bottom">
+      <Tooltip title={0} open placement="bottom" autoAdjustOverflow={{ shiftX: true }}>
         <span />
       </Tooltip>,
     );
@@ -317,7 +317,7 @@ describe('Tooltip', () => {
     });
 
     rerender(
-      <Tooltip title={0} open placement="right">
+      <Tooltip title={0} open placement="right" autoAdjustOverflow={{ shiftY: true }}>
         <span />
       </Tooltip>,
     );
@@ -325,6 +325,16 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip-arrow')).toHaveStyle({
       top: 'clamp(8px, var(--arrow-y), calc(100% - 8px))',
     });
+  });
+
+  it('keeps default cardinal arrow positioning unchanged', () => {
+    render(
+      <Tooltip title={0} open placement="bottom">
+        <span />
+      </Tooltip>,
+    );
+
+    expect(document.querySelector('.ant-tooltip-arrow')).toHaveStyle({ left: '0px' });
   });
 
   describe('support other placement when mouse enter', () => {

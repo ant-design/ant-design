@@ -48,7 +48,7 @@ exports[`Tooltip support arrow props by default 1`] = `
   >
     <div
       class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
+      style="position: absolute; bottom: 0px; left: 0px;"
     >
       <span
         class="ant-tooltip-arrow-content"
