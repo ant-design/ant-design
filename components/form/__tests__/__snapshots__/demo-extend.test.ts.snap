@@ -4995,6 +4995,7 @@ Array [
                         type="file"
                       />
                       <button
+                        disabled=""
                         style="color: inherit; cursor: inherit; border: 0px; background: none;"
                         type="button"
                       >
