@@ -89,6 +89,16 @@ describe('AutoComplete', () => {
     warnSpy.mockRestore();
   });
 
+  it('should not warn when rendering the internal suffix prop', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<AutoComplete />);
+    expect(errSpy).not.toHaveBeenCalledWith(
+      'Warning: [antd: Select] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+    errSpy.mockRestore();
+  });
+
   it('should not override custom input className', () => {
     render(
       <AutoComplete>

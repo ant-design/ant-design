@@ -263,7 +263,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   return (
     <Select
       ref={ref}
-      suffixIcon={null}
+      suffix={null}
       {...omit(props, [
         'dataSource',
         'dropdownClassName',

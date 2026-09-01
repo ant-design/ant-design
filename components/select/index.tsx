@@ -198,6 +198,8 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
     dropdownRender,
     /**
      * @since 5.25.0
@@ -267,7 +269,7 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
-  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
+  const showSuffixIcon = useShowArrow(customSuffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -297,12 +299,13 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const {
-    suffixIcon,
+    suffixIcon: mergedSuffixIcon,
     itemIcon,
     removeIcon,
     clearIcon: mergedClearIcon,
   } = useIcons({
     ...rest,
+    suffixIcon: customSuffixIcon,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
@@ -324,7 +327,7 @@ const InternalSelect = <
     finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
-  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const selectProps = omit(rest, ['suffix', 'suffixIcon', 'itemIcon' as any]);
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -464,7 +467,7 @@ const InternalSelect = <
       placement={memoPlacement}
       direction={direction}
       prefix={prefix}
-      suffixIcon={suffixIcon}
+      suffix={customSuffix !== undefined ? customSuffix : mergedSuffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}
