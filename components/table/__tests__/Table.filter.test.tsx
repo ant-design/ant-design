@@ -2462,6 +2462,46 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
+  it('filterMultiple is false - supports empty string value in tree mode', () => {
+    const { container } = render(
+      createTable({
+        dataSource: [
+          { key: 'blank', status: '', name: 'Blank row' },
+          { key: 'filled', status: 'filled', name: 'Filled row' },
+        ],
+        columns: [
+          { title: 'Name', dataIndex: 'name' },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            filterMode: 'tree',
+            filterMultiple: false,
+            filters: [
+              { text: 'Empty value', value: '' },
+              { text: 'Filled value', value: 'filled' },
+            ],
+            onFilter: (value, record) => record.status === value,
+          },
+        ],
+      }),
+    );
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[0]);
+
+    expect(container.querySelectorAll('.ant-tree-checkbox-checked')).toHaveLength(1);
+
+    fireEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+      )!,
+    );
+    expect(renderedNames(container)).toEqual(['Blank row']);
+  });
+
   it('filterMultiple is false - select item', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
