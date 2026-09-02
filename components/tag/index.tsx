@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { omit } from '@rc-component/util';
+import { isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
@@ -188,7 +188,9 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const handleCloseKeyDown: React.KeyboardEventHandler<HTMLElement> = (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        e.currentTarget.click();
+        if (!e.repeat) {
+          e.currentTarget.click();
+        }
       }
     };
 
@@ -249,7 +251,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const child: React.ReactNode = iconNode ? (
       <>
         {iconNode}
-        {children && (
+        {isReactRenderable(children) && (
           <span className={mergedClassNames.content} style={mergedStyles.content}>
             {children}
           </span>

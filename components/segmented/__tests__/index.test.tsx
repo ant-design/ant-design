@@ -387,5 +387,19 @@ describe('Segmented', () => {
         expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
       });
     });
+
+    it('should render numeric 0 label when icon is configured', () => {
+      const { container } = render(
+        <Segmented
+          options={[
+            { icon: <AppstoreOutlined />, label: 0, value: 'zero' },
+            { icon: <BarsOutlined />, label: 'bars', value: 'bars' },
+          ]}
+        />,
+      );
+      const firstItem = container.querySelector('.ant-segmented-item-label');
+      expect(firstItem?.textContent).toContain('0');
+      expect(firstItem?.lastElementChild?.textContent).toBe('0');
+    });
   });
 });
