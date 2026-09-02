@@ -1,7 +1,7 @@
 import React from 'react';
 import { BorderBeam, Card, Flex } from 'antd';
 
-const beamPattern = [
+const beamItems = [
   { color: '#1677ff', size: 48 },
   { color: '#52c41a', size: 72 },
 ];
@@ -13,10 +13,8 @@ const App: React.FC = () => (
         Set count to distribute multiple beams evenly around the container border.
       </Card>
     </BorderBeam>
-    <BorderBeam count={4} getItemConfig={(index) => beamPattern[index % beamPattern.length]}>
-      <Card title="Configured beams">
-        Use getItemConfig to cycle through color and size configurations.
-      </Card>
+    <BorderBeam items={beamItems}>
+      <Card title="Configured beams">Use items to customize the color and size of each beam.</Card>
     </BorderBeam>
   </Flex>
 );

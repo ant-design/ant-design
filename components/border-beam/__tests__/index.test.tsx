@@ -217,15 +217,14 @@ describe('BorderBeam', () => {
     ).toEqual(['', '-4s', '-8s']);
   });
 
-  it('should support configuring individual beams by index', async () => {
-    const beamPattern = [{ color: '#36cfc9', lineWidth: 3, outset: 4, size: 60 }, {}];
-
+  it('should prioritize items over count and support configuring individual beams', async () => {
+    const warningSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <BorderBeam
         color="#1677ff"
         count={4}
         duration={12}
-        getItemConfig={(index) => beamPattern[index % beamPattern.length]}
+        items={[{ color: '#36cfc9', lineWidth: 3, outset: 4, size: 60 }, {}]}
         lineWidth={2}
         outset={1}
         size={80}
@@ -235,7 +234,7 @@ describe('BorderBeam', () => {
     );
 
     await waitFor(() => {
-      expect(getBeamElements(container)).toHaveLength(4);
+      expect(getBeamElements(container)).toHaveLength(2);
     });
 
     expect(
@@ -259,23 +258,13 @@ describe('BorderBeam', () => {
         lineWidth: '2px',
         outset: '-1px',
         size: '80px',
-        delay: '-3s',
-      },
-      {
-        color: 'linear-gradient(to left, #36cfc9 0%, #36cfc9 70%, transparent)',
-        lineWidth: '3px',
-        outset: '-4px',
-        size: '60px',
         delay: '-6s',
       },
-      {
-        color: 'linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent)',
-        lineWidth: '2px',
-        outset: '-1px',
-        size: '80px',
-        delay: '-9s',
-      },
     ]);
+    expect(warningSpy).toHaveBeenCalledWith(
+      'Warning: [antd: BorderBeam] `count` is ignored when `items` is provided.',
+    );
+    warningSpy.mockRestore();
   });
 
   it('should support customizing the beam size', async () => {

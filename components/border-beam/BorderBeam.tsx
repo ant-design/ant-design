@@ -3,6 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 
 import { isNonNullable, isNumber, isString } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
@@ -33,7 +34,7 @@ export interface BorderBeamProps {
   color?: BorderBeamColor;
   count?: number;
   duration?: number;
-  getItemConfig?: (index: number) => BorderBeamItem;
+  items?: BorderBeamItem[];
   lineWidth?: number | string;
   outset?: number | string;
   size?: number | string;
@@ -48,7 +49,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     color,
     count = 1,
     duration,
-    getItemConfig,
+    items,
     lineWidth,
     outset,
     size,
@@ -71,9 +72,20 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const borderWidth = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
   const mergedCount =
-    isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
+    items?.length ??
+    (isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1);
   const mergedDuration =
     isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
+
+  // ============================ Warning ============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('BorderBeam');
+    warning(
+      !isNonNullable(items) || !isNonNullable(props.count),
+      'usage',
+      '`count` is ignored when `items` is provided.',
+    );
+  }
 
   // ============================ Border ============================
   const insetOffset = useMemo<string>(() => {
@@ -85,7 +97,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     <>
       {childNode}
       {Array.from({ length: mergedCount }, (_, index) => {
-        const item = getItemConfig?.(index) ?? {};
+        const item = items?.[index] ?? {};
         const beamPhase = index / mergedCount;
         const beamKey = `${mergedCount}-${beamPhase}`;
         const itemBeamGradient = isNonNullable(item.color)
