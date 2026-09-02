@@ -204,6 +204,29 @@ describe('Radio', () => {
     expect(label).not.toHaveAttribute('aria-hidden');
   });
 
+  it('should keep the user provided aria-labelledby', () => {
+    const ariaProps = { 'aria-labelledby': 'outside-label' };
+    const { container } = render(<Radio {...ariaProps}>Apple</Radio>);
+
+    const input = container.querySelector<HTMLInputElement>('.ant-radio-input');
+    const label = container.querySelector<HTMLElement>('.ant-radio-label');
+
+    expect(input).toHaveAttribute('aria-labelledby', 'outside-label');
+    expect(input).not.toHaveAttribute('aria-label');
+    expect(label).not.toHaveAttribute('aria-hidden');
+  });
+
+  it('should name the input when aria-label is passed as undefined', () => {
+    const ariaProps = { 'aria-label': undefined };
+    const { container } = render(<Radio {...ariaProps}>Apple</Radio>);
+
+    const input = container.querySelector<HTMLInputElement>('.ant-radio-input');
+    const label = container.querySelector<HTMLElement>('.ant-radio-label');
+
+    expect(input).toHaveAttribute('aria-label', 'Apple');
+    expect(label).toHaveAttribute('aria-hidden', 'true');
+  });
+
   it('should not hide a label which is not plain text', () => {
     const { container } = render(
       <Radio>

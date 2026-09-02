@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcCheckbox from '@rc-component/checkbox';
-import { composeRef, isReactRenderable } from '@rc-component/util';
+import { composeRef, isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -98,7 +98,9 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   // text and the user has not provided their own name, move the name onto the input
   // and hide the visual copy, which leaves one stop with the correct name.
   const labelText = isString(children) || isNumber(children) ? String(children) : '';
-  const hasCustomLabel = 'aria-label' in restProps || 'aria-labelledby' in restProps;
+  const { 'aria-label': customAriaLabel, 'aria-labelledby': customAriaLabelledBy } =
+    restProps as React.AriaAttributes;
+  const hasCustomLabel = isNonNullable(customAriaLabel) || isNonNullable(customAriaLabelledBy);
   const inputAriaLabel = !hasCustomLabel && labelText ? labelText : undefined;
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
@@ -146,8 +148,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       >
         {/* @ts-ignore */}
         <RcCheckbox
-          aria-label={inputAriaLabel}
           {...radioProps}
+          aria-label={customAriaLabel ?? inputAriaLabel}
           className={clsx(mergedClassNames.icon, { [TARGET_CLS]: !isButtonType })}
           style={mergedStyles.icon}
           type="radio"
