@@ -5,19 +5,19 @@ import type { TreeSelectProps } from 'antd';
 const treeData = [
   {
     value: 'parent 1',
-    title: 'parent 1',
+    title: 'Supplier ABC',
     children: [
       {
         value: 'parent 1-0',
-        title: 'parent 1-0',
+        title: 'Supplier 123',
         children: [
           {
             value: 'leaf1',
-            title: 'leaf1',
+            title: 'Supplier 1a',
           },
           {
             value: 'leaf2',
-            title: 'leaf2',
+            title: 'Supplier 1b',
           },
           {
             value: 'leaf3',
