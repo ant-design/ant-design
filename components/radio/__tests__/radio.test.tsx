@@ -192,6 +192,16 @@ describe('Radio', () => {
     expect(label).toHaveAttribute('aria-hidden', 'true');
   });
 
+  it('should name the input from a numeric label', () => {
+    const { container } = render(<Radio>{42}</Radio>);
+
+    const input = container.querySelector<HTMLInputElement>('.ant-radio-input');
+    const label = container.querySelector<HTMLElement>('.ant-radio-label');
+
+    expect(input).toHaveAttribute('aria-label', '42');
+    expect(label).toHaveAttribute('aria-hidden', 'true');
+  });
+
   it('should keep the user provided aria-label', () => {
     // `aria-label` is not declared on RadioProps, it reaches the input through rest props
     const ariaProps = { 'aria-label': 'Custom' };
