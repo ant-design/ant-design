@@ -6,7 +6,7 @@ import Search from './Search';
 import TextArea from './TextArea';
 
 export type {
-  /** @deprecated Please use `InputGroupProps` instead. */
+  /** @deprecated Please use `GetProps<typeof Input.Group>` instead. */
   GroupProps,
 } from './Group';
 export type { InputProps, InputRef } from './Input';

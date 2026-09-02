@@ -9,7 +9,8 @@ import { FormItemInputContext } from '../form/context';
 import Space from '../space';
 import useStyle from './style';
 
-export interface InputGroupProps {
+/** @deprecated Please use `GetProps<typeof Input.Group>` instead. */
+export interface GroupProps {
   className?: string;
   size?: 'large' | 'small' | 'default';
   children?: React.ReactNode;
@@ -22,8 +23,7 @@ export interface InputGroupProps {
   compact?: boolean;
 }
 
-/** @deprecated Please use `InputGroupProps` instead. */
-export interface GroupProps extends InputGroupProps {}
+export interface InputGroupProps extends GroupProps {}
 
 /** @deprecated Please use `Space.Compact` */
 const Group: React.FC<InputGroupProps> = (props) => {

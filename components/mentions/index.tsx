@@ -38,14 +38,12 @@ export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number
 
 type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
-export interface SelectOptionProps {
+/** @deprecated Please use the `options` prop with `MentionsOptionProps` instead. */
+export interface OptionProps {
   value: string;
   children: React.ReactNode;
   [key: string]: any;
 }
-
-/** @deprecated Please use `SelectOptionProps` instead. */
-export interface OptionProps extends SelectOptionProps {}
 
 export type MentionSemanticType = {
   classNames?: {
