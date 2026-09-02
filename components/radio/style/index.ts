@@ -225,7 +225,36 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     lineType,
     radioColor,
     radioBgColor,
+    fontSizeLG,
+    fontSizeSM,
+    fontHeight,
+    fontHeightLG,
+    fontHeightSM,
+    calc,
   } = token;
+
+  // Scale radio size with the fontHeight ladder, `radioSize` and `dotSize` stay as the
+  // base so customized component tokens control every size tier.
+  const genRadioSizeStyle = (
+    offset: number | string,
+    labelFontSize: number | string,
+  ): CSSObject => {
+    const scaledRadioSize = `calc(${radioSize} * 1px + ${unit(offset)})`;
+    const scaledDotSize = `calc(${dotSize} * 1px + ${unit(offset)})`;
+
+    return {
+      fontSize: labelFontSize,
+      [componentCls]: {
+        width: scaledRadioSize,
+        height: scaledRadioSize,
+
+        '&:after': {
+          width: scaledDotSize,
+          height: scaledDotSize,
+        },
+      },
+    };
+  };
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -261,6 +290,16 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         flex: 1,
         justifyContent: 'center',
       },
+
+      [`${componentCls}-group-large &`]: genRadioSizeStyle(
+        calc(fontHeightLG).sub(fontHeight).equal(),
+        fontSizeLG,
+      ),
+
+      [`${componentCls}-group-small &`]: genRadioSizeStyle(
+        calc(fontHeightSM).sub(fontHeight).equal(),
+        fontSizeSM,
+      ),
 
       // ===================== Radio =====================
       [componentCls]: {
