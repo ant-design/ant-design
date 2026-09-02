@@ -4,6 +4,7 @@ import { composeRef, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import { isNumber, isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -91,6 +92,15 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     checked: mergedChecked,
   };
 
+  // ================= Accessibility =================
+  // The wrapper is a `label` that also contains the input, so screen readers expose
+  // two stops for a single option: the text and the control. When the label is plain
+  // text and the user has not provided their own name, move the name onto the input
+  // and hide the visual copy, which leaves one stop with the correct name.
+  const labelText = isString(children) || isNumber(children) ? String(children) : '';
+  const hasCustomLabel = 'aria-label' in restProps || 'aria-labelledby' in restProps;
+  const inputAriaLabel = !hasCustomLabel && labelText ? labelText : undefined;
+
   const contextStyleRoot = useSemanticRootStyle(contextStyle);
   const styleRoot = useSemanticRootStyle(style);
 
@@ -136,6 +146,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       >
         {/* @ts-ignore */}
         <RcCheckbox
+          aria-label={inputAriaLabel}
           {...radioProps}
           className={clsx(mergedClassNames.icon, { [TARGET_CLS]: !isButtonType })}
           style={mergedStyles.icon}
@@ -148,6 +159,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           <span
             className={clsx(`${prefixCls}-label`, mergedClassNames.label)}
             style={mergedStyles.label}
+            aria-hidden={inputAriaLabel ? true : undefined}
           >
             {children}
           </span>
