@@ -5,11 +5,10 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { Notification as RcNotification } from '@rc-component/notification';
-import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isReactRenderable } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';

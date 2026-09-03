@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef } from '@rc-component/util';
+import { composeRef, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
