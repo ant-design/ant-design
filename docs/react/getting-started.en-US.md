@@ -29,9 +29,11 @@ Visit https://u.ant.design/reproduce to create a CodeSandbox -- don't forget to 
 
 ### 2. Use and modify an antd component
 
-Replace the contents of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
+If you are working in a local React project, install `antd` first. The CodeSandbox created above already includes this dependency.
 
-If you have already set things up by following the [Use with create-react-app](/docs/react/use-with-create-react-app), replace the content of `/src/index.js` as follows:
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
+
+Then replace the contents of your application's entry file (for example, `src/index.js`) with the following code. As you can see, there is no difference between antd's components and typical React components.
 
 ```jsx
 import React, { useState } from 'react';
@@ -97,8 +99,6 @@ During actual real-world project development, you will most likely need a develo
 - More scaffolds at [Scaffold Market](https://scaffold.ant.design/)
 
 ## Test with Jest
-
-If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app) instead.
 
 Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your Jest config :
 

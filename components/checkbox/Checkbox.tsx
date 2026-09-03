@@ -1,12 +1,11 @@
 import * as React from 'react';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
-import { useComposeRef, useControlledState, useEvent } from '@rc-component/util';
+import { isReactRenderable, useComposeRef, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
