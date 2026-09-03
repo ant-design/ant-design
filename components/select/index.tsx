@@ -45,6 +45,7 @@ type RawValue = string | number;
 export type {
   BaseOptionType,
   DefaultOptionType,
+  /** @deprecated Please use `GetProps<typeof Select.Option>` instead. */
   OptionProps,
   BaseSelectRef as RefSelectProps,
   SearchConfig,
@@ -101,9 +102,9 @@ export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    RcSelectProps<ValueType, OptionType>,
-    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange'
-  > {
+  RcSelectProps<ValueType, OptionType>,
+  'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange'
+> {
   rootClassName?: string;
   prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
@@ -132,15 +133,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
