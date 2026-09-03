@@ -5,13 +5,13 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
-import { composeRef, pickAttrs } from '@rc-component/util';
+import { composeRef, isNonNullable, isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';

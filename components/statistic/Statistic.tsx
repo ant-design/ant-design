@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { pickAttrs } from '@rc-component/util';
+import { isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isReactRenderable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';

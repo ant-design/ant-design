@@ -1,9 +1,10 @@
 import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import { isFunction, isReactRenderable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';

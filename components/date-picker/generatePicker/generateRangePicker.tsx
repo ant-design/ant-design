@@ -4,12 +4,11 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate/index';
-import { merge } from '@rc-component/util';
+import { isNonNullable, merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useAllowClear, useZIndex } from '../../_util/hooks';
-import { isNonNullable } from '../../_util/is';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
