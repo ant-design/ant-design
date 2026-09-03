@@ -235,6 +235,8 @@ const logo = [
   'RedditCircle',
   'RedditSquare',
   'Sketch',
+  'SketchCircle',
+  'SketchSquare',
   'WechatWork',
   'OpenAI',
   'Anthropic',
