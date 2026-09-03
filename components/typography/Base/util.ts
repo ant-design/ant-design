@@ -1,4 +1,4 @@
-import { isReactRenderable } from '../../_util/is';
+import { isReactRenderable } from '@rc-component/util';
 import toList from '../../_util/toList';
 
 export const toCopyConfigList = <T>(val: T | T[]): T[] => {
