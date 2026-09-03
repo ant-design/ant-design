@@ -234,7 +234,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
   ) => {
     if (!filterMultiple) {
-      onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+      onSelectKeys({ selectedKeys: checked ? [node.key] : [] });
     } else {
       onSelectKeys({ selectedKeys: keys });
     }

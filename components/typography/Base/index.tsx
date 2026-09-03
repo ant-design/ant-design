@@ -5,6 +5,7 @@ import type { AutoSizeType } from '@rc-component/input';
 import ResizeObserver from '@rc-component/resize-observer';
 import {
   composeRef,
+  isReactRenderable,
   omit,
   toArray,
   useControlledState,
@@ -14,7 +15,7 @@ import {
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isReactRenderable } from '../../_util/is';
+import { isFunction } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -111,9 +112,8 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<
-  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
-> extends TypographyProps<C> {
+export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   /**
    * @since 6.4.0
    */

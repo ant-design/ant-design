@@ -7,12 +7,13 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { Notification as RcNotification } from '@rc-component/notification';
 import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -37,7 +38,11 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   if (closeIcon === null || closeIcon === false) {
     return null;
   }
-  return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
+  return isReactRenderable(closeIcon) ? (
+    closeIcon
+  ) : (
+    <CloseOutlined className={`${prefixCls}-close-icon`} />
+  );
 }
 
 export interface PurePanelProps
@@ -112,8 +117,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const hasTitle = isReactRenderable(mergedTitle);
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
-  const iconNode = icon || (type ? TypeIcon[type] : null);
-  const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
+  const isCustomIcon = isReactRenderable(icon);
+  const iconNode = isCustomIcon ? icon : (type ? TypeIcon[type] : null);
+  const typeIconCls = !isCustomIcon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const { root: rootClassName, ...contentClassNames } = mergedClassNames;
   const { root: rootStyle, ...contentStyles } = mergedStyles;
 

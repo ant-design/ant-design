@@ -3,13 +3,12 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
-import { pickAttrs } from '@rc-component/util';
+import { isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -120,7 +119,7 @@ const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
 
   return (
     <div className={className} style={style}>
-      {icon || iconNode}
+      {isReactRenderable(icon) ? icon : iconNode}
     </div>
   );
 };
