@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { omit } from '@rc-component/util';
+import { isNonNullable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { isNonNullable, isNumber, isString } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
