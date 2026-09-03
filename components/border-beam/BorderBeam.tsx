@@ -48,7 +48,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     color,
-    count = 1,
+    count,
     duration,
     items,
     lineWidth,
@@ -82,7 +82,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('BorderBeam');
     warning(
-      !isNonNullable(items) || !isNonNullable(props.count),
+      !isNonNullable(items) || !isNonNullable(count),
       'usage',
       '`count` is ignored when `items` is provided.',
     );
@@ -101,11 +101,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
         const item = items?.[index] ?? {};
         const beamPhase = index / mergedCount;
         const beamKey = `${mergedCount}-${beamPhase}`;
-        const itemBeamGradient = isNonNullable(item.color)
-          ? getBorderBeamGradient(item.color)
-          : beamGradient;
-        const itemLineWidth = isNonNullable(item.lineWidth) ? item.lineWidth : lineWidth;
-        const itemSize = isNonNullable(item.size) ? item.size : size;
+        const itemBeamGradient = item.color ? getBorderBeamGradient(item.color) : beamGradient;
+        const itemLineWidth = item.lineWidth ?? lineWidth;
+        const itemSize = item.size ?? size;
         const itemInsetOffset = isNonNullable(item.outset) ? getInset(item.outset) : insetOffset;
 
         return (
