@@ -20,7 +20,12 @@ export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps, RibbonRef } from './badge';
 export { default as BorderBeam } from './border-beam';
-export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam';
+export type {
+  BorderBeamColor,
+  BorderBeamGradient,
+  BorderBeamItem,
+  BorderBeamProps,
+} from './border-beam';
 export { default as Breadcrumb } from './breadcrumb';
 export type { BreadcrumbItemProps, BreadcrumbProps, BreadcrumbRef } from './breadcrumb';
 export { default as Button } from './button';
