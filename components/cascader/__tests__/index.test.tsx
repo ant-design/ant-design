@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
+import CascaderPanel from '../Panel';
 import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
@@ -867,6 +868,261 @@ describe('Cascader', () => {
 
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
+    });
+  });
+
+  describe('multiple.checkStrictly', () => {
+    const multipleCheckStrictlyOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              { value: 'xihu', label: 'West Lake' },
+              { value: 'donghu', label: 'East Lake' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    function clickCheckbox(
+      container: ReturnType<typeof render>['container'],
+      menuIndex: number,
+      itemIndex: number,
+    ) {
+      const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
+      const item = menu.querySelectorAll('li.ant-cascader-menu-item')[itemIndex];
+      fireEvent.click(item.querySelector('.ant-cascader-checkbox')!);
+    }
+
+    it('checking parent via checkbox does not check children and produces no indeterminate state', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      toggleOpen(container);
+      clickCheckbox(container, 0, 0);
+
+      expect(selectedValue![0].join(',')).toBe('zhejiang');
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('showCheckedStrategy is ignored when checkStrictly is enabled', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+
+      toggleOpen(container);
+      clickCheckbox(container, 0, 0);
+      clickOption(container, 0, 0);
+      clickOption(container, 1, 0);
+      clickCheckbox(container, 2, 0);
+      clickCheckbox(container, 2, 1);
+
+      expect(selectedValue!.length).toBe(3);
+      expect(selectedValue!.join(',')).toBe(
+        'zhejiang,zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu',
+      );
+    });
+
+    it('warns when showCheckedStrategy is used together with checkStrictly', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          multiple={{ checkStrictly: true }}
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `showCheckedStrategy` is ignored when `multiple.checkStrictly` is enabled.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    const disableCheckboxOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          { value: 'hangzhou', label: 'Hangzhou', disableCheckbox: true },
+          { value: 'ningbo', label: 'Ningbo' },
+        ],
+      },
+    ];
+
+    it('checking an enabled node under checkStrictly does not conduct across disableCheckbox siblings and yields no indeterminate state', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <Cascader
+          options={disableCheckboxOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      toggleOpen(container);
+      clickCheckbox(container, 0, 0);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+
+      clickOption(container, 0, 0);
+      clickCheckbox(container, 1, 1);
+      expect(selectedValue!.map((v) => v.join(',')).sort()).toEqual([
+        'zhejiang',
+        'zhejiang,ningbo',
+      ]);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+    });
+
+    it('preserves controlled value when switching between non-strict and checkStrictly multiple', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container, rerender } = render(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          value={[['zhejiang', 'hangzhou']] as any}
+          onChange={onChange}
+          multiple
+        />,
+      );
+
+      toggleOpen(container);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+      rerender(
+        <Cascader
+          options={multipleCheckStrictlyOptions}
+          value={[['zhejiang', 'hangzhou']] as any}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      toggleOpen(container);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(0);
+
+      clickOption(container, 0, 0);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+
+      clickCheckbox(container, 0, 0);
+
+      expect(selectedValue!.length).toBe(2);
+      expect(selectedValue!.map((v) => v.join(',')).sort()).toEqual([
+        'zhejiang',
+        'zhejiang,hangzhou',
+      ]);
+    });
+  });
+
+  describe('Cascader.Panel checkStrictly', () => {
+    const panelOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          { value: 'hangzhou', label: 'Hangzhou' },
+          { value: 'ningbo', label: 'Ningbo' },
+        ],
+      },
+    ];
+
+    function clickPanelCheckbox(
+      container: ReturnType<typeof render>['container'],
+      menuIndex: number,
+      itemIndex: number,
+    ) {
+      const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
+      const item = menu.querySelectorAll('li.ant-cascader-menu-item')[itemIndex];
+      fireEvent.click(item.querySelector('.ant-cascader-checkbox')!);
+    }
+
+    function clickPanelOption(
+      container: ReturnType<typeof render>['container'],
+      menuIndex: number,
+      itemIndex: number,
+    ) {
+      const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
+      fireEvent.click(menu.querySelectorAll('li.ant-cascader-menu-item')[itemIndex]);
+    }
+
+    it('multiple (non-object) falls back to non-strict: checking parent conducts to children', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <CascaderPanel options={panelOptions} onChange={onChange} multiple />,
+      );
+
+      clickPanelCheckbox(container, 0, 0);
+      expect(selectedValue![0].join(',')).toBe('zhejiang');
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('multiple={{ checkStrictly: true }} checks parent independently, no conduction to children', () => {
+      let selectedValue: SingleValueType[];
+      const onChange = (value: SingleValueType[]) => {
+        selectedValue = value;
+      };
+
+      const { container } = render(
+        <CascaderPanel
+          options={panelOptions}
+          onChange={onChange}
+          multiple={{ checkStrictly: true }}
+        />,
+      );
+
+      clickPanelCheckbox(container, 0, 0);
+      expect(selectedValue![0].join(',')).toBe('zhejiang');
+      expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
+
+      clickPanelOption(container, 0, 0);
+      clickPanelCheckbox(container, 1, 1);
+      expect(selectedValue!.map((v) => v.join(',')).sort()).toEqual([
+        'zhejiang',
+        'zhejiang,ningbo',
+      ]);
+      expect(container.querySelectorAll('.ant-cascader-checkbox-indeterminate')).toHaveLength(0);
     });
   });
 
