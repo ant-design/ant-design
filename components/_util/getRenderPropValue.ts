@@ -1,6 +1,7 @@
 import type * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 
-import { isFunction, isReactRenderable } from './is';
+import { isFunction } from './is';
 
 export type RenderFunction = () => React.ReactNode;
 
