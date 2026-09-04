@@ -15,6 +15,11 @@ const classNames = createStaticStyles(({ css }) => ({
     img {
       display: inline;
     }
+
+    .ant-segmented-item-icon > svg {
+      display: inline-block;
+      vertical-align: middle !important;
+    }
   `,
 }));
 
