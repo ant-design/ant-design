@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';

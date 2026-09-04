@@ -52,38 +52,28 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
-const useMergedPropByScreen = (
+const getMergedPropByScreen = (
   oriProp: RowProps['align'] | RowProps['justify'],
   screen: ScreenMap | null,
 ) => {
-  const [prop, setProp] = React.useState(() => (isString(oriProp) ? oriProp : ''));
+  if (isString(oriProp)) {
+    return oriProp;
+  }
 
-  const calcMergedAlignOrJustify = () => {
-    if (isString(oriProp)) {
-      setProp(oriProp);
-    }
-    if (!isPlainObject(oriProp)) {
-      return;
-    }
+  if (isPlainObject(oriProp)) {
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
-      // if do not match, do nothing
       if (!screen || !screen[breakpoint]) {
         continue;
       }
       const curVal = oriProp[breakpoint];
       if (curVal !== undefined) {
-        setProp(curVal);
-        return;
+        return curVal;
       }
     }
-  };
+  }
 
-  React.useEffect(() => {
-    calcMergedAlignOrJustify();
-  }, [JSON.stringify(oriProp), screen]);
-
-  return prop;
+  return '';
 };
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
@@ -104,8 +94,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const screens = useBreakpoint(true, null);
 
-  const mergedAlign = useMergedPropByScreen(align, screens);
-  const mergedJustify = useMergedPropByScreen(justify, screens);
+  const mergedAlign = getMergedPropByScreen(align, screens);
+  const mergedJustify = getMergedPropByScreen(justify, screens);
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
