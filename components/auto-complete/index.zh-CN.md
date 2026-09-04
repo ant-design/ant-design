@@ -75,7 +75,7 @@ demo:
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| suffix | 自定义后缀 | ReactNode | - | 6.6.2 |
+| suffix | 自定义后缀 | ReactNode \| (props) => ReactNode | - | 6.7.0 |
 | ~~suffixIcon~~ | 自定义后缀图标，请使用 `suffix` 替代 | ReactNode | - | - |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |

@@ -543,19 +543,22 @@ describe('Select', () => {
     it.each([
       ['Enter', '{Enter}'],
       ['Space', '[Space]'],
-    ])('should clear the value when the clear button is activated by pressing %s key', async (_, keys) => {
-      const onClear = jest.fn();
-      const { container } = render(<Select {...props} allowClear onClear={onClear} />);
-      expect(container.querySelector('.ant-select-content-has-value')).toHaveTextContent('Jack');
+    ])(
+      'should clear the value when the clear button is activated by pressing %s key',
+      async (_, keys) => {
+        const onClear = jest.fn();
+        const { container } = render(<Select {...props} allowClear onClear={onClear} />);
+        expect(container.querySelector('.ant-select-content-has-value')).toHaveTextContent('Jack');
 
-      const clearButton = container.querySelector('.ant-select-clear') as HTMLButtonElement;
-      clearButton.focus();
-      await user.keyboard(keys);
+        const clearButton = container.querySelector('.ant-select-clear') as HTMLButtonElement;
+        clearButton.focus();
+        await user.keyboard(keys);
 
-      expect(onClear).toHaveBeenCalledTimes(1);
-      expect(container.querySelector('.ant-select-content-has-value')).toBeFalsy();
-      expect(container.querySelector('.ant-select-open')).toBeFalsy();
-    });
+        expect(onClear).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('.ant-select-content-has-value')).toBeFalsy();
+        expect(container.querySelector('.ant-select-open')).toBeFalsy();
+      },
+    );
   });
 
   describe('loadingIcon', () => {
@@ -690,7 +693,7 @@ describe('Select', () => {
     });
   });
 
-  describe('suffixIcon', () => {
+  describe('suffix', () => {
     it('should support suffixIcon prop', () => {
       const { container } = render(<Select suffixIcon="foobar" />);
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
@@ -701,6 +704,39 @@ describe('Select', () => {
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
     });
 
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const { container } = render(<Select suffix="foobar" suffixIcon={null} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should support function suffix prop', () => {
+      const { container } = render(<Select suffix={({ open }) => (open ? 'opened' : 'closed')} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('closed');
+
+      toggleOpen(container);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('opened');
+    });
+
+    it('should not render suffix when function returns undefined', () => {
+      const { container } = render(<Select suffix={() => undefined} />);
+      expect(container.querySelector('.ant-select-suffix')).not.toBeInTheDocument();
+      expect(container.querySelector('.ant-select')).not.toHaveClass('ant-select-show-arrow');
+    });
+
+    it.each([
+      ['custom', 'foobar'],
+      ['null', null],
+    ])('should keep feedback icon with %s suffix', (_, suffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Select suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+    });
+
     it('should support suffixIcon prop in config provider', () => {
       const { container } = render(
         <ConfigProvider select={{ suffixIcon: 'foobar' }}>
@@ -708,6 +744,24 @@ describe('Select', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffix prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffix: 'foobar' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer suffix prop in config provider over suffixIcon', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffix: 'foobar', suffixIcon: 'legacy' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
     });
 
     it('should prefer suffixIcon prop over config provider', () => {

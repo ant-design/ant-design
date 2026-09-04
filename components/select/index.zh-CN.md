@@ -34,7 +34,7 @@ demo:
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
 <code src="./demo/custom-tokenization.tsx" version="6.5.0">自定义分词</code>
 <code src="./demo/select-users.tsx">搜索用户</code>
-<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
+<code src="./demo/suffix.tsx" version="6.7.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
@@ -108,7 +108,7 @@ demo:
 | size | 选择框大小 | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | 用于自定义 Select 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` | 6.6.2 | × |
+| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | 6.7.0 |
 | ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | ReactNode | `<DownOutlined />` |  | 6.4.0 |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  | × |
 | labelRender | 自定义当前选中的 label 内容 render （LabelInValueType的定义见 [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)） | (props: LabelInValueType) => ReactNode | - | 5.15.0 | × |

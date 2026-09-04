@@ -352,6 +352,7 @@ export type SelectConfig = ComponentStyleConfig &
     | 'loadingIcon'
     | 'menuItemSelectedIcon'
     | 'removeIcon'
+    | 'suffix'
     | 'suffixIcon'
   >;
 
@@ -429,7 +430,14 @@ export type InputNumberConfig = ComponentStyleConfig &
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
-    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+    | 'variant'
+    | 'styles'
+    | 'classNames'
+    | 'expandIcon'
+    | 'loadingIcon'
+    | 'removeIcon'
+    | 'suffix'
+    | 'suffixIcon'
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &

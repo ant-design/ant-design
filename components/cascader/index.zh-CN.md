@@ -32,7 +32,7 @@ demo:
 <code src="./demo/search.tsx">搜索</code>
 <code src="./demo/lazy.tsx">动态加载选项</code>
 <code src="./demo/fields-name.tsx">自定义字段名</code>
-<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
+<code src="./demo/suffix.tsx" version="6.7.0">前后缀</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
@@ -83,12 +83,13 @@ demo:
 | placeholder | 输入框占位文本 | string | - |  | × |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
-| ~~showArrow~~ | 是否显示箭头图标，请使用 `suffixIcon={null}` 替代 | boolean | true | - | × |
+| ~~showArrow~~ | 是否显示箭头图标，请使用 `suffix={null}` 替代 | boolean | true | - | × |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
 | size | 输入框大小 | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | 6.4.0 |
+| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | ReactNode | - |  | 6.4.0 |
 | value | 指定选中项 | string\[] \| number\[] | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  | × |

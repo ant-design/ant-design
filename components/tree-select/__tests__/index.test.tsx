@@ -9,6 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import Input from '../../input';
 import deDE from '../../locale/de_DE';
 import zhCN from '../../locale/zh_CN';
@@ -164,12 +165,51 @@ describe('TreeSelect', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect showArrow />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
   });
+
+  describe('suffix', () => {
+    it('should support suffix prop', () => {
+      const { container } = render(<TreeSelect suffix="suffix" />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const { container } = render(<TreeSelect suffix="suffix" suffixIcon={null} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it.each([
+      ['custom', 'suffix'],
+      ['null', null],
+    ])('should keep feedback icon with %s suffix', (_, suffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <TreeSelect suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+    });
+
+    it('should warn when using deprecated suffixIcon prop', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<TreeSelect suffixIcon="suffix" />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: TreeSelect] `suffixIcon` is deprecated. Please use `suffix` instead.',
+      );
+      errSpy.mockRestore();
+    });
+  });
+
   it('support classNames and styles for basic elements (root, prefix, input, suffix, content)', () => {
     const treeData = [
       {
@@ -203,7 +243,7 @@ describe('TreeSelect', () => {
         styles={customStyles}
         showSearch
         prefix="P"
-        suffixIcon={<SmileOutlined />}
+        suffix={<SmileOutlined />}
         treeData={treeData}
       />,
     );

@@ -107,6 +107,8 @@ export interface InternalSelectProps<
   > {
   rootClassName?: string;
   prefix?: React.ReactNode;
+  /** @since 6.7.0 */
+  suffix?: RcSelectProps<ValueType, OptionType>['suffix'];
   /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   size?: SizeType;
@@ -238,6 +240,7 @@ const InternalSelect = <
     loadingIcon: contextLoadingIcon,
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
     removeIcon: contextRemoveIcon,
+    suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
@@ -272,7 +275,8 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
-  const showSuffixIcon = useShowArrow(customSuffixIcon, props.showArrow);
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -302,17 +306,17 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const {
-    suffixIcon: mergedSuffixIcon,
+    suffix: mergedSuffix,
     itemIcon,
     removeIcon,
     clearIcon: mergedClearIcon,
   } = useIcons({
     ...rest,
-    suffixIcon: customSuffixIcon,
+    suffix: mergedCustomSuffix,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showSuffixIcon,
+    showSuffix,
     prefixCls,
     componentName: 'Select',
     clearIcon,
@@ -322,7 +326,7 @@ const InternalSelect = <
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
     contextSearchIcon: normalizeIcon(contextShowSearch, 'searchIcon'),
-    contextSuffixIcon,
+    contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
@@ -473,7 +477,7 @@ const InternalSelect = <
       placement={memoPlacement}
       direction={direction}
       prefix={prefix}
-      suffix={customSuffix !== undefined ? customSuffix : mergedSuffixIcon}
+      suffix={mergedSuffix}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}
