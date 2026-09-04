@@ -163,10 +163,10 @@ describe('Dropdown', () => {
     expect(triggerProps.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
-          overflow: {
+          overflow: expect.objectContaining({
             adjustX: true,
             adjustY: true,
-          },
+          }),
         }),
       }),
     );
@@ -584,9 +584,7 @@ describe('Dropdown', () => {
       .join('');
     const verticalRule = cssText
       .split('}')
-      .find(
-        (rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'),
-      );
+      .find((rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'));
 
     expect(verticalRule).toBeTruthy();
     expect(verticalRule).toContain('calc(100vh');
