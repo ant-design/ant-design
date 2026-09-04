@@ -65,8 +65,8 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  | × |
 | ~~popupClassName~~ | 自定义浮层类名，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | 自定义浮层类名，请使用 `classNames.popup.root` 替代 | string | - | - | × |
-| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 | × |
-| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  | × |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
+| popupRender | 自定义下拉框内容 | (menus: ReactElement) => ReactNode | - |  | × |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  | × |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 | 6.3.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  | × |
