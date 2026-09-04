@@ -260,10 +260,11 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [mergedStyles, style, dropdownStyle],
   );
 
+  const mergedSuffix = props.suffix !== undefined ? props.suffix : (props.suffixIcon ?? null);
+
   return (
     <Select
       ref={ref}
-      suffix={null}
       {...omit(props, [
         'dataSource',
         'dropdownClassName',
@@ -271,6 +272,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         'onDropdownVisibleChange',
         'onOpenChange',
       ])}
+      suffix={mergedSuffix}
       prefixCls={prefixCls}
       classNames={finalClassNames}
       styles={finalStyles}
