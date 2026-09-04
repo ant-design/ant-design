@@ -11,7 +11,7 @@ const options = [
 const selectStyle: React.CSSProperties = { width: 280 };
 
 const App: React.FC = () => {
-  const suffixIcon = (
+  const suffix = (
     <button
       type="button"
       onMouseDown={(event) => event.stopPropagation()}
@@ -36,7 +36,7 @@ const App: React.FC = () => {
         <Select
           allowClear
           defaultValue="long"
-          suffixIcon={suffixIcon}
+          suffix={suffix}
           options={options}
           style={selectStyle}
         />
@@ -47,7 +47,7 @@ const App: React.FC = () => {
         <Select
           allowClear
           defaultValue="long"
-          suffixIcon={null}
+          suffix={null}
           options={options}
           style={selectStyle}
         />
