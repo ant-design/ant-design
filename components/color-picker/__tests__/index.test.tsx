@@ -9,6 +9,7 @@ import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
+import zhCN from '../../locale/zh_CN';
 import theme from '../../theme';
 import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
@@ -152,6 +153,19 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
     ).toBe('100%');
+  });
+
+  it('Should clear button aria-label support locale', async () => {
+    const { container } = render(
+      <ConfigProvider locale={zhCN}>
+        <ColorPicker defaultValue="#1677ff" allowClear />
+      </ConfigProvider>,
+    );
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-clear')?.getAttribute('aria-label')).toBe(
+      '清除颜色',
+    );
   });
 
   it('Should allowClear work with keyboard', async () => {

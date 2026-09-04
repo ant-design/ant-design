@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'តម្លាភាព',
     singleColor: 'ពណ៌តែមួយ',
     gradientColor: 'ពណ៌ជម្រាល',
+    clear: 'សម្អាតពណ៌',
   },
 };
 
