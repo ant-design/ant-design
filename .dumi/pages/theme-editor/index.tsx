@@ -16,9 +16,11 @@ const classNames = createStaticStyles(({ css }) => ({
       display: inline;
     }
 
+    /* Zero out the margin-block-end compensation that Segmented applies to
+       bare-svg icons, which lifts the light/dark switcher icons above
+       center. Unlayered here so it wins over the layered antd rule. */
     .ant-segmented-item-icon > svg {
-      display: inline-block;
-      vertical-align: middle !important;
+      margin-block-end: 0;
     }
   `,
 }));
