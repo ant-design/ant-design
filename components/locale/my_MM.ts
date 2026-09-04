@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'လက်ရှိစာမျက်နှာကို ပြောင်းလိုက်ပါ။',
     selectNone: 'ဒေတာအားလုံးကို ရှင်းလင်းပါ။',
     selectionAll: 'ဒေတာအားလုံးကို ရွေးပါ။',
+    selectRow: 'အတန်းကို ရွေးချယ်ပါ',
+    selectedRow: 'အတန်းကို ရွေးချယ်ပြီး',
+    selectionMenu: 'ရွေးချယ်မှု မီနူး',
     sortTitle: 'မျိုးတူစု',
     expand: 'အတန်းချဲ့ပါ။',
     collapse: 'အတန်းကို ခေါက်သိမ်းပါ။',
@@ -53,6 +56,10 @@ const localeValues: Locale = {
   Popconfirm: {
     cancelText: 'မလုပ်တော့',
     okText: 'အိုကေ',
+  },
+  Splitter: {
+    toggleStartPanel: 'အစပြုအကန့်ကို ပြောင်းရန်',
+    toggleEndPanel: 'အဆုံးအကန့်ကို ပြောင်းရန်',
   },
   Transfer: {
     titles: ['', ''],

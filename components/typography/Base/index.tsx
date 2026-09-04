@@ -19,6 +19,7 @@ import { isFunction } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
@@ -112,8 +113,13 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+export interface ShimmerConfig {
+  duration?: number | [motionTime: number, waitTime: number];
+}
+
+export interface BlockProps<
+  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
   /**
    * @since 6.4.0
    */
@@ -124,6 +130,7 @@ export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.In
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
+  shimmer?: boolean | ShimmerConfig;
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -161,6 +168,10 @@ function wrapperDecorations(
 
 const ELLIPSIS_STR = '...';
 
+const DEFAULT_SHIMMER_DURATION = 1;
+
+const DEFAULT_SHIMMER_CONFIG: ShimmerConfig = { duration: DEFAULT_SHIMMER_DURATION };
+
 const DECORATION_PROPS = [
   'delete',
   'mark',
@@ -183,6 +194,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     disabled,
     children,
     ellipsis,
+    shimmer,
     editable,
     copyable,
     actions,
@@ -197,13 +209,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
 
-  const [mergedClassNames, mergedStyles, prefixCls, direction] = useTypographySemantic(
-    customizePrefixCls,
-    classNames,
-    styles,
-    typographyDirection,
-    props,
-  );
+  const [mergedClassNames, mergedStyles, prefixCls, direction, rootPrefixCls] =
+    useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
+  const [varName] = genCssVar(rootPrefixCls, 'typography');
 
   const textProps = omit(restProps, DECORATION_PROPS);
 
@@ -245,6 +253,18 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+
+  // ========================== Shimmer ===========================
+  const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(
+    shimmer,
+    DEFAULT_SHIMMER_CONFIG,
+  );
+  const shimmerDuration = shimmerConfig?.duration;
+  const [shimmerMotionTime = DEFAULT_SHIMMER_DURATION, shimmerWaitTime = 1] = Array.isArray(
+    shimmerDuration,
+  )
+    ? shimmerDuration
+    : [shimmerDuration];
 
   const { placement = 'end' } = actions ?? {};
 
@@ -553,6 +573,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               {
                 [`${prefixCls}-${type}`]: type,
                 [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-shimmer`]: enableShimmer && !disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
                 [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
@@ -564,6 +585,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             styles={mergedStyles}
             prefixCls={prefixCls}
             style={{
+              [varName('shimmer-motion-time')]: enableShimmer ? shimmerMotionTime : undefined,
+              [varName('shimmer-wait-time')]: enableShimmer ? shimmerWaitTime : undefined,
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
@@ -573,6 +596,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
+            aria-busy={enableShimmer ? !disabled : undefined}
+            aria-disabled={enableShimmer && disabled ? true : undefined}
             {...textProps}
           >
             <Ellipsis

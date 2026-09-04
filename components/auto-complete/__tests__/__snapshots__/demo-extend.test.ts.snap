@@ -672,13 +672,7 @@ Array [
         id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-      </div>
+      />
       <div
         class="ant-select-dropdown-list"
         style="position: relative;"
@@ -1063,7 +1057,9 @@ exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend 
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -1198,7 +1194,9 @@ exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend 
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -1503,7 +1501,9 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="1"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -1585,7 +1585,9 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="1"
           id="test-id_list_0"
           role="option"
         >
@@ -1697,7 +1699,9 @@ exports[`renders components/auto-complete/demo/filled-custom-debug.tsx extend co
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
+                      aria-posinset="1"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -2972,7 +2976,9 @@ Array [
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -3159,7 +3165,9 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -3387,7 +3395,9 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="5"
           id="test-id_list_0"
           role="option"
         >
@@ -3539,7 +3549,9 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="5"
           id="test-id_list_0"
           role="option"
         >

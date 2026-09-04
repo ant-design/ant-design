@@ -19,6 +19,7 @@ tag: 6.6.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/virtual.tsx">Virtual scrolling</code>
+<code src="./demo/horizontal.tsx" version="6.7.0">Horizontal scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
 <code src="./demo/rich.tsx">Rich content</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
@@ -40,6 +41,7 @@ Common props ref: [Common props](/docs/react/common-props)
 | itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
 | items | Data source of the list | `T[]` | `[]` | 6.6.0 | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
+| scrollWidth | Horizontal scroll width of the content; scrolls horizontally when it exceeds the container, only works with `virtual` | number | - | 6.7.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 6.6.0 | × |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
 | virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | 6.6.0 | × |

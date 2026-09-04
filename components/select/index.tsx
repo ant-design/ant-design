@@ -32,6 +32,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariants from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
@@ -224,6 +225,8 @@ const InternalSelect = <
     popupOverflow,
   } = React.useContext(ConfigContext);
 
+  const [locale] = useLocale('global');
+
   const {
     showSearch: contextShowSearch,
     allowClear: contextAllowClear,
@@ -323,8 +326,11 @@ const InternalSelect = <
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear =
-    finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
+  const mergedAllowClear = finalAllowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof finalAllowClear !== 'boolean' ? finalAllowClear : {}),
+  };
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffix', 'suffixIcon', 'itemIcon' as any]);

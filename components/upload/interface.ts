@@ -105,8 +105,10 @@ export type UploadSemanticType = {
 
 export type UploadSemanticAllType<T = any> = GenerateSemantic<UploadSemanticType, UploadProps<T>>;
 
-export interface UploadProps<T = any>
-  extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
+export interface UploadProps<T = any> extends Pick<
+  RcUploadProps,
+  'capture' | 'hasControlInside' | 'pastable'
+> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -127,6 +129,7 @@ export interface UploadProps<T = any>
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   onChange?: (info: UploadChangeParam<UploadFile<T>>) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
+  onFocus?: React.FocusEventHandler<HTMLSpanElement>;
   listType?: UploadListType;
   className?: string;
   classNames?: UploadSemanticAllType<T>['classNamesAndFn'];

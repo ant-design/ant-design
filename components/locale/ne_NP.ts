@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'छनौट उल्टाउनुहोस',
     selectNone: 'सबै खाली गर्नुहोस्',
     selectionAll: 'सबै छान्नु',
+    selectRow: 'पङ्क्ति चयन गर्नुहोस्',
+    selectedRow: 'पङ्क्ति चयन गरियो',
+    selectionMenu: 'चयन मेनु',
     sortTitle: 'क्रमबद्ध',
     expand: 'पङ्क्ति विस्तार गर्नुहोस्',
     collapse: 'पङ्क्ति बन्द गर्नुहोस्',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
     Next: 'अर्को पाइला',
     Previous: 'अघिल्लो',
     Finish: 'भ्रमण अन्त्य गर्नुहोस्',
+  },
+  Splitter: {
+    toggleStartPanel: 'सुरुवातीको प्यानल टगल गर्नुहोस्',
+    toggleEndPanel: 'अन्तिम प्यानल टगल गर्नुहोस्',
   },
   Transfer: {
     titles: ['', ''],

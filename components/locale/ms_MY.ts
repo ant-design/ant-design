@@ -32,6 +32,9 @@ const localeValues: Locale = {
     filterSearchPlaceholder: 'Cari',
     selectNone: 'Kosong Semua',
     selectionAll: 'Semua Data',
+    selectRow: 'Pilih baris',
+    selectedRow: 'Baris dipilih',
+    selectionMenu: 'Menu pilihan',
     sortTitle: 'Urutkan',
     expand: 'Buka',
     collapse: 'Tutup',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Batal',
+  },
+  Splitter: {
+    toggleStartPanel: 'Togol panel mula',
+    toggleEndPanel: 'Togol panel akhir',
   },
   Transfer: {
     titles: ['', ''],

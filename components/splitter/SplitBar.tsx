@@ -7,6 +7,7 @@ import { useEvent, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isNumber } from '../_util/is';
+import { useLocale } from '../locale';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import type { SplitterProps, SplitterSemanticAllType } from './interface';
 
@@ -43,6 +44,12 @@ const getValidNumber = (num?: number) => {
   return isNumber(num) && Number.isFinite(num) ? Math.round(num) : 0;
 };
 
+const getAriaLabel = (icon: React.ReactNode, defaultLabel?: string) => {
+  return React.isValidElement<React.AriaAttributes>(icon)
+    ? icon.props['aria-label'] || defaultLabel
+    : defaultLabel;
+};
+
 const DOUBLE_CLICK_TIME_GAP = 300;
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
@@ -74,6 +81,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
+  const [locale] = useLocale('Splitter');
 
   const lastClickTimeRef = useRef<number>(0);
   const [varName] = genCssVar(rootPrefixCls, 'splitter');
@@ -294,7 +302,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           role="button"
           tabIndex={0}
-          aria-label="Toggle start panel"
+          aria-label={getAriaLabel(startIcon, locale.toggleStartPanel)}
           onClick={() => onCollapse(index, 'start')}
           onKeyDown={(e) => onCollapseKeyDown(e, 'start')}
         >
@@ -322,7 +330,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           )}
           role="button"
           tabIndex={0}
-          aria-label="Toggle end panel"
+          aria-label={getAriaLabel(endIcon, locale.toggleEndPanel)}
           onClick={() => onCollapse(index, 'end')}
           onKeyDown={(e) => onCollapseKeyDown(e, 'end')}
         >
