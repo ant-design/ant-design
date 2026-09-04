@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'Läbipaistev',
     singleColor: 'Ühevärviline',
     gradientColor: 'Gradiendi värv',
+    clear: 'Tühjenda värv',
   },
 };
 

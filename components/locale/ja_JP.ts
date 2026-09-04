@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: '透明',
     singleColor: '単色',
     gradientColor: 'グラデーション',
+    clear: '色をクリア',
   },
 };
 

@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'Permatomas',
     singleColor: 'Vieno spalvos',
     gradientColor: 'Gradientas',
+    clear: 'Išvalyti spalvą',
   },
 };
 

@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'पारदर्शी',
     singleColor: 'एकल रंग',
     gradientColor: 'ढाल का रंग',
+    clear: 'रंग साफ़ करें',
   },
 };
 

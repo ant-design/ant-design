@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: '투명',
     singleColor: '단색',
     gradientColor: '그라데이션',
+    clear: '색 지우기',
   },
 };
 

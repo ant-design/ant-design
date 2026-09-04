@@ -154,6 +154,7 @@ const localeValues: Locale = {
     transparent: '透明',
     singleColor: '單色',
     gradientColor: '漸層色',
+    clear: '清除顏色',
   },
 };
 
