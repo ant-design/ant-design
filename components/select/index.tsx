@@ -19,6 +19,7 @@ import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import normalizeIcon from '../_util/normalizeIcon';
 import genPurePanel from '../_util/PurePanel';
+import { getScrollFadeVariables, observeScrollFade, updateScrollFade } from '../_util/scrollFade';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -158,6 +159,8 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /** Whether to show scroll fade hints in the popup list */
+  scrollFade?: boolean;
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -205,10 +208,12 @@ const InternalSelect = <
     popupRender,
     onDropdownVisibleChange,
     onOpenChange,
+    onPopupScroll,
     styles,
     classNames,
     clearIcon,
     showSearch,
+    scrollFade,
     ...rest
   } = props;
 
@@ -236,6 +241,7 @@ const InternalSelect = <
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
     removeIcon: contextRemoveIcon,
     suffixIcon: contextSuffixIcon,
+    scrollFade: contextScrollFade,
   } = useComponentConfig('select');
 
   const [, token] = useToken();
@@ -276,7 +282,14 @@ const InternalSelect = <
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
-  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+  const [scrollFadeOpen, setScrollFadeOpen] = React.useState(Boolean(props.defaultOpen));
+  const mergedOnOpenChange = React.useCallback(
+    (open: boolean) => {
+      setScrollFadeOpen(open);
+      (onOpenChange || onDropdownVisibleChange)?.(open);
+    },
+    [onDropdownVisibleChange, onOpenChange],
+  );
 
   // ===================== Form Status =====================
   const {
@@ -328,6 +341,11 @@ const InternalSelect = <
     ...(typeof finalAllowClear !== 'boolean' ? finalAllowClear : {}),
   };
   const mergedShowSearch = showSearch ?? contextShowSearch;
+  const mergedScrollFade = scrollFade ?? contextScrollFade ?? false;
+  const mergedScrollFadeOpen = props.open ?? scrollFadeOpen;
+  const scrollFadeId = React.useId().replace(/[^\w-]/g, '');
+  const scrollFadeListClassName = `${prefixCls}-scroll-fade-${scrollFadeId}`;
+  const scrollFadeVariables = React.useMemo(() => getScrollFadeVariables(prefixCls), [prefixCls]);
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -366,12 +384,77 @@ const InternalSelect = <
     },
   );
 
+  const scrollFadeClassNames = React.useMemo(
+    () => ({
+      ...mergedClassNames,
+      popup: {
+        ...mergedClassNames.popup,
+        list: clsx(mergedClassNames.popup?.list, mergedScrollFade && scrollFadeListClassName),
+      },
+    }),
+    [mergedClassNames, mergedScrollFade, scrollFadeListClassName],
+  );
+
+  const mergedOnPopupScroll = React.useCallback<NonNullable<SelectProps['onPopupScroll']>>(
+    (event) => {
+      if (mergedScrollFade) {
+        const scrollElement = event.currentTarget;
+        const frameElement = scrollElement.closest<HTMLElement>(`.${prefixCls}-dropdown-list`);
+
+        if (frameElement) {
+          updateScrollFade(frameElement, scrollElement, {
+            topVariable: scrollFadeVariables.top,
+            bottomVariable: scrollFadeVariables.bottom,
+          });
+        }
+      }
+
+      onPopupScroll?.(event);
+    },
+    [mergedScrollFade, onPopupScroll, prefixCls, scrollFadeVariables],
+  );
+
+  React.useEffect(() => {
+    if (!mergedScrollFade || !mergedScrollFadeOpen) {
+      return undefined;
+    }
+
+    let cleanupScrollFade: (() => void) | undefined;
+    const animationFrame = requestAnimationFrame(() => {
+      const frameElement = document.querySelector<HTMLElement>(`.${scrollFadeListClassName}`);
+      const scrollElement = frameElement?.querySelector<HTMLElement>(
+        `.${prefixCls}-dropdown-list-holder`,
+      );
+
+      if (!frameElement || !scrollElement) {
+        return;
+      }
+
+      cleanupScrollFade = observeScrollFade(frameElement, scrollElement, {
+        topVariable: scrollFadeVariables.top,
+        bottomVariable: scrollFadeVariables.bottom,
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      cleanupScrollFade?.();
+    };
+  }, [
+    mergedScrollFade,
+    mergedScrollFadeOpen,
+    prefixCls,
+    scrollFadeListClassName,
+    scrollFadeVariables,
+  ]);
+
   const mergedPopupClassName = clsx(
     mergedClassNames.popup.root,
     popupClassName,
     dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+      [`${prefixCls}-dropdown-scroll-fade`]: mergedScrollFade,
     },
     rootClassName,
     cssVarCls,
@@ -453,7 +536,7 @@ const InternalSelect = <
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
-      classNames={mergedClassNames}
+      classNames={scrollFadeClassNames}
       styles={mergedStyles}
       showSearch={mergedShowSearch}
       {...selectProps}
@@ -481,6 +564,7 @@ const InternalSelect = <
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
+      onPopupScroll={mergedOnPopupScroll}
       onPopupVisibleChange={mergedOnOpenChange}
     />
   );
