@@ -46,6 +46,7 @@ describe('Menu.Semantic', () => {
       itemContent: 'test-item-content',
       subItem: 'test-sub-item',
       subItemTitle: 'test-sub-item-title',
+      subItemContent: 'test-sub-item-content',
       subMenu: {
         list: 'test-sub-menu-list',
         item: 'test-sub-menu-list-item',
@@ -54,6 +55,7 @@ describe('Menu.Semantic', () => {
         itemTitle: 'test-sub-menu-list-title',
         subItem: 'test-sub-menu-sub-item',
         subItemTitle: 'test-sub-menu-sub-item-title',
+        subItemContent: 'test-sub-menu-sub-item-content',
       },
     };
     const testStyles = {
@@ -63,6 +65,7 @@ describe('Menu.Semantic', () => {
       itemContent: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
       subItem: { width: '200px' },
       subItemTitle: { whiteSpace: 'normal' },
+      subItemContent: { textTransform: 'uppercase' },
       subMenu: {
         list: { color: 'rgba(255, 7, 201, 0.7)' },
         item: { color: 'rgba(109, 76, 76, 0.8)' },
@@ -71,6 +74,7 @@ describe('Menu.Semantic', () => {
         itemTitle: { color: 'rgba(255, 0, 0, 0.8)' },
         subItem: { width: '180px' },
         subItemTitle: { whiteSpace: 'break-spaces' },
+        subItemContent: { textTransform: 'lowercase' },
       },
     };
     const { container } = render(
@@ -116,12 +120,22 @@ describe('Menu.Semantic', () => {
     expect(subItemTitle).toHaveClass('ant-menu-submenu-title');
     expect(subItemTitle).toHaveStyle(testStyles.subItemTitle);
 
+    // subItemContent lands on the submenu title content span,
+    // sibling of the leaf item `itemContent`.
+    const subItemContent = subItemTitle?.querySelector('.ant-menu-title-content');
+    expect(subItemContent).toHaveClass(testClassNames.subItemContent);
+    expect(subItemContent).toHaveStyle(testStyles.subItemContent);
+
     const nestedSubItem = document.querySelector(`.${testClassNames.subMenu.subItem}`);
     const nestedSubItemTitle = document.querySelector(`.${testClassNames.subMenu.subItemTitle}`);
     expect(nestedSubItem).toHaveClass('ant-menu-submenu');
     expect(nestedSubItem).toHaveStyle(testStyles.subMenu.subItem);
     expect(nestedSubItemTitle).toHaveClass('ant-menu-submenu-title');
     expect(nestedSubItemTitle).toHaveStyle(testStyles.subMenu.subItemTitle);
+
+    const nestedSubItemContent = nestedSubItemTitle?.querySelector('.ant-menu-title-content');
+    expect(nestedSubItemContent).toHaveClass(testClassNames.subMenu.subItemContent);
+    expect(nestedSubItemContent).toHaveStyle(testStyles.subMenu.subItemContent);
   });
 
   it('nested SubMenu subItem/subItemTitle do not fall back to subMenu.item/itemTitle', () => {
@@ -142,12 +156,14 @@ describe('Menu.Semantic', () => {
       subMenu: {
         item: 'fb-sub-item',
         itemTitle: 'fb-sub-item-title',
+        itemContent: 'fb-sub-item-content',
       },
     };
     const testStyles = {
       subMenu: {
         item: { width: '120px' },
         itemTitle: { whiteSpace: 'normal' },
+        itemContent: { textTransform: 'uppercase' },
       },
     };
     render(
@@ -162,8 +178,10 @@ describe('Menu.Semantic', () => {
 
     const nestedSubItem = document.querySelector('.ant-menu-submenu .ant-menu-submenu');
     const nestedSubItemTitle = nestedSubItem?.querySelector('.ant-menu-submenu-title');
+    const nestedSubItemContent = nestedSubItemTitle?.querySelector('.ant-menu-title-content');
     expect(nestedSubItem).not.toHaveClass('fb-sub-item');
     expect(nestedSubItemTitle).not.toHaveClass('fb-sub-item-title');
+    expect(nestedSubItemContent).not.toHaveClass('fb-sub-item-content');
   });
   it('support function classNames and styles', () => {
     const items = [

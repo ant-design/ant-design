@@ -35,6 +35,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     ? classNames?.subItemTitle
     : classNames?.subMenu?.subItemTitle;
   const subItemTitleStyle = firstLevel ? styles?.subItemTitle : styles?.subMenu?.subItemTitle;
+  const subItemContentClassName = firstLevel
+    ? classNames?.subItemContent
+    : classNames?.subMenu?.subItemContent;
+  const subItemContentStyle = firstLevel ? styles?.subItemContent : styles?.subMenu?.subItemContent;
 
   let titleNode: React.ReactNode;
 
@@ -43,7 +47,12 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       inlineCollapsed && !parentPath.length && title && typeof title === 'string' ? (
         <div className={`${prefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
       ) : (
-        <span className={`${prefixCls}-title-content`}>{title}</span>
+        <span
+          className={clsx(`${prefixCls}-title-content`, subItemContentClassName)}
+          style={subItemContentStyle}
+        >
+          {title}
+        </span>
       );
   } else {
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
@@ -55,7 +64,16 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           className: clsx(oriProps.className, `${prefixCls}-item-icon`, classNames?.itemIcon),
           style: { ...oriProps.style, ...styles?.itemIcon },
         }))}
-        {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
+        {titleIsSpan ? (
+          title
+        ) : (
+          <span
+            className={clsx(`${prefixCls}-title-content`, subItemContentClassName)}
+            style={subItemContentStyle}
+          >
+            {title}
+          </span>
+        )}
       </>
     );
   }

@@ -19,6 +19,7 @@ const locales = {
     popup: '弹出菜单(inline 模式不生效)，包含弹出层的定位、层级、背景等样式',
     subItem: '顶层子菜单自身容器元素，与 `item` 同级，包含子菜单 `<li>` 的样式和布局',
     subItemTitle: '顶层子菜单标题元素，包含子菜单标题文字的样式和布局（如换行控制）',
+    subItemContent: '顶层子菜单标题内容元素，与 `itemContent` 同级，包含标题文字的布局和排版',
     'subMenu.itemTitle': '子菜单标题元素，包含子菜单标题的样式和交互效果',
     'subMenu.list': '子菜单列表元素，包含子菜单列表的布局和容器样式',
     'subMenu.item': '子菜单单项元素，包含子菜单项的样式和交互效果',
@@ -42,6 +43,8 @@ const locales = {
       'Top-level submenu container element, sibling of `item`, with styles and layout for the submenu `<li>`',
     subItemTitle:
       'Top-level submenu title element with title text styles and layout (e.g. whitespace wrapping)',
+    subItemContent:
+      'Top-level submenu title content element, sibling of `itemContent`, with title text layout and typography',
     'subMenu.itemTitle': 'Submenu title element with submenu title styles and interactive effects',
     'subMenu.list': 'Submenu list element with submenu list layout and container styles',
     'subMenu.item': 'Submenu item element with submenu item styles and interactive effects',
@@ -52,6 +55,8 @@ const locales = {
       'Nested submenu container element with styles and layout for the nested submenu `<li>`',
     'subMenu.subItemTitle':
       'Nested submenu title element with nested submenu title text styles and layout',
+    'subMenu.subItemContent':
+      'Nested submenu title content element, sibling of `itemContent`, with title text layout and typography',
   },
 };
 const items: MenuItem[] = [
@@ -161,6 +166,7 @@ const App: React.FC = () => {
     const subItemLocale = [
       { name: 'subItem', desc: locale.subItem, version: '6.7.0' },
       { name: 'subItemTitle', desc: locale.subItemTitle, version: '6.7.0' },
+      { name: 'subItemContent', desc: locale.subItemContent, version: '6.7.0' },
     ];
     const subMenuLocale = [
       { name: 'subMenu.itemTitle', desc: locale['subMenu.itemTitle'] },
@@ -170,6 +176,7 @@ const App: React.FC = () => {
       { name: 'subMenu.itemContent', desc: locale['subMenu.itemContent'] },
       { name: 'subMenu.subItem', desc: locale['subMenu.subItem'], version: '6.7.0' },
       { name: 'subMenu.subItemTitle', desc: locale['subMenu.subItemTitle'], version: '6.7.0' },
+      { name: 'subMenu.subItemContent', desc: locale['subMenu.subItemContent'], version: '6.7.0' },
     ];
     const groupLocale = [
       { name: 'itemTitle', desc: locale.itemTitle },
