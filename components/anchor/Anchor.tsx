@@ -393,7 +393,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
         <span className={inkClass} ref={spanLinkNodeRef} style={mergedStyles.indicator} />
-        {'items' in props ? createNestedLink(items) : children}
+        {items !== undefined ? createNestedLink(items) : children}
       </div>
     </div>
   );
