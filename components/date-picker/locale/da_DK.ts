@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Vælg dato',
+    yearPlaceholder: 'Vælg år',
+    quarterPlaceholder: 'Vælg kvartal',
+    monthPlaceholder: 'Vælg måned',
+    weekPlaceholder: 'Vælg uge',
     rangePlaceholder: ['Startdato', 'Slutdato'],
+    rangeYearPlaceholder: ['Startår', 'Slutår'],
+    rangeQuarterPlaceholder: ['Startkvartal', 'Slutkvartal'],
+    rangeMonthPlaceholder: ['Startmåned', 'Slutmåned'],
+    rangeWeekPlaceholder: ['Startuge', 'Slutuge'],
     ...CalendarLocale,
   },
   timePickerLocale: {
