@@ -23,6 +23,13 @@ describe('Skeleton', () => {
   mountTest(Skeleton);
   rtlTest(Skeleton);
 
+  it('should hide the decorative title placeholder from assistive technology', () => {
+    const { container } = render(<Skeleton loading title paragraph={false} />);
+    const title = container.querySelector<HTMLElement>('.ant-skeleton-title')!;
+    expect(title).toBeTruthy();
+    expect(title.getAttribute('aria-hidden')).toBe('true');
+  });
+
   it('should support nativeElement ref', () => {
     const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
     const { container } = render(<Skeleton ref={ref} />);
