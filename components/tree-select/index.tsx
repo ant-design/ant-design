@@ -110,6 +110,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
       | 'switcherIcon'
       | 'classNames'
       | 'styles'
+      | 'popupRender'
     > {
   size?: SizeType;
   disabled?: boolean;
@@ -130,8 +131,8 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */

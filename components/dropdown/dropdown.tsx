@@ -313,9 +313,11 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (mergedPopupRender) {
       overlayNode = mergedPopupRender(overlayNode);
     }
-    overlayNode = React.Children.only(
-      typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
-    );
+    if (typeof overlayNode === 'string') {
+      overlayNode = <span>{overlayNode}</span>;
+    } else if (!React.isValidElement(overlayNode)) {
+      overlayNode = React.createElement(React.Fragment, null, overlayNode);
+    }
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
