@@ -54,13 +54,17 @@ const useSemanticClassNames = <ClassNamesType extends AnyObject>(
 };
 
 // =========================== Styles ===========================
+interface SemanticStyles {
+  [key: PropertyKey]: React.CSSProperties | SemanticStyles;
+}
+
 const mergeStylesBySchema = <StylesType extends AnyObject>(
   schema: SemanticSchema = {},
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
     .filter((item): item is Partial<StylesType> => Boolean(item))
-    .reduce<Record<PropertyKey, AnyObject>>((acc, cur = {}) => {
+    .reduce<SemanticStyles>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
         const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
         // Some existing callers still provide flat CSS at a schema node.
@@ -77,7 +81,8 @@ const mergeStylesBySchema = <StylesType extends AnyObject>(
 
 export const mergeStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
-): Record<PropertyKey, React.CSSProperties> => mergeStylesBySchema({}, ...styles);
+): Record<PropertyKey, React.CSSProperties> =>
+  mergeStylesBySchema({}, ...styles) as Record<PropertyKey, React.CSSProperties>;
 
 const useSemanticStyles = <StylesType extends AnyObject>(
   schema?: SemanticSchema,

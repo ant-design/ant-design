@@ -10,6 +10,11 @@ import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Select.Semantic', () => {
+  const getPopupStyles = (container: HTMLElement) => {
+    const popup = container.querySelector<HTMLElement>('.ant-select-dropdown');
+    return { color: popup?.style.color, padding: popup?.style.padding };
+  };
+
   const options = [
     {
       value: 'GuangZhou',
@@ -45,6 +50,12 @@ describe('Select.Semantic', () => {
       padding: '12px',
     });
     expect(container.querySelector('.global-style-list')).toHaveStyle({ margin: '8px' });
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(0, 0, 255)",
+        "padding": "12px",
+      }
+    `);
   });
 
   it('merges popup style callbacks and clears or restores properties on rerender', () => {
@@ -65,17 +76,35 @@ describe('Select.Semantic', () => {
       </ConfigProvider>
     );
     const { container, rerender } = render(<Demo size="large" localStyles={styles} />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(0, 0, 255)",
+        "padding": "12px",
+      }
+    `);
     expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
       color: 'rgb(0, 0, 255)',
       padding: '12px',
     });
 
     rerender(<Demo size="small" localStyles={styles} />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "",
+        "padding": "12px",
+      }
+    `);
     const popup = container.querySelector<HTMLElement>('.ant-select-dropdown');
     expect(popup?.style.color).toBe('');
     expect(popup).toHaveStyle({ padding: '12px' });
 
     rerender(<Demo size="small" />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(255, 0, 0)",
+        "padding": "12px",
+      }
+    `);
     expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
       color: 'rgb(255, 0, 0)',
       padding: '12px',

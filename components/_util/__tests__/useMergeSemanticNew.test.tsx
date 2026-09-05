@@ -2,7 +2,7 @@ import React from 'react';
 import { renderHook } from '@testing-library/react';
 
 import { render } from '../../../tests/utils';
-import { useMergeSemantic } from '../hooks/useMergeSemantic';
+import { mergeStyles, useMergeSemantic } from '../hooks/useMergeSemantic';
 import type { SemanticSchema } from '../hooks/useMergeSemantic';
 import { fillObjectBySchema } from '../hooks/useMergeSemantic/utils';
 
@@ -20,6 +20,21 @@ type DemoSemanticType = {
 };
 
 describe('useMergeSemantic,', () => {
+  it('preserves the exported flat merge interface and explicit CSS resets', () => {
+    const contextStyles = Object.freeze({ root: Object.freeze({ color: 'red', padding: 12 }) });
+    const localStyles = { root: { color: undefined, padding: 0 } };
+
+    expect(
+      mergeStyles<{ root?: React.CSSProperties }>(contextStyles, undefined, localStyles, {
+        root: undefined,
+      }),
+    ).toEqual({
+      root: { color: undefined, padding: 0 },
+    });
+    expect(mergeStyles()).toEqual({});
+    expect(contextStyles.root).toEqual({ color: 'red', padding: 12 });
+  });
+
   it('merges nested style properties without mutating the sources', () => {
     const contextStyles = Object.freeze({
       popup: Object.freeze({
