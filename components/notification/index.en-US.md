@@ -168,7 +168,7 @@ return (
 
 ### How to set static methods prefixCls ？ {#faq-set-prefix-cls}
 
-You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)
+You can config with [`ConfigProvider.config`](/components/config-provider#config)
 
 ### Why doesn't `style={{ width: 'max-content' }}` work on Notification? {#faq-notification-width}
 

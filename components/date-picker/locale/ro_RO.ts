@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Selectează data',
+    yearPlaceholder: 'Selectează anul',
+    quarterPlaceholder: 'Selectează trimestrul',
+    monthPlaceholder: 'Selectează luna',
+    weekPlaceholder: 'Selectează săptămâna',
     rangePlaceholder: ['Data start', 'Data sfârșit'],
+    rangeYearPlaceholder: ['An start', 'An sfârșit'],
+    rangeQuarterPlaceholder: ['Trimestru start', 'Trimestru sfârșit'],
+    rangeMonthPlaceholder: ['Lună start', 'Lună sfârșit'],
+    rangeWeekPlaceholder: ['Săptămână start', 'Săptămână sfârșit'],
     ...CalendarLocale,
   },
   timePickerLocale: {

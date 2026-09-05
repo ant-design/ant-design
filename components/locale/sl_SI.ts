@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Razširi',
     collapse: 'Strni',
   },
+  Carousel: {
+    prevSlide: 'Prejšnja prosojnica',
+    nextSlide: 'Naslednja prosojnica',
+  },
   Form: {
     optional: '(neobvezno)',
     defaultValidateMessages: {
