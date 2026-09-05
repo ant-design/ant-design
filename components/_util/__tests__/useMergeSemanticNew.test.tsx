@@ -1,7 +1,9 @@
 import React from 'react';
+import { renderHook } from '@testing-library/react';
 
 import { render } from '../../../tests/utils';
 import { useMergeSemantic } from '../hooks/useMergeSemantic';
+import type { SemanticSchema } from '../hooks/useMergeSemantic';
 import { fillObjectBySchema } from '../hooks/useMergeSemantic/utils';
 
 type DemoSemanticType = {
@@ -18,6 +20,78 @@ type DemoSemanticType = {
 };
 
 describe('useMergeSemantic,', () => {
+  it('merges nested style properties without mutating the sources', () => {
+    const contextStyles = Object.freeze({
+      popup: Object.freeze({
+        root: Object.freeze({ color: 'red', padding: 12 }),
+        list: Object.freeze({ margin: 8 }),
+      }),
+    });
+    const localStyles = Object.freeze({
+      popup: Object.freeze({ root: Object.freeze({ color: 'blue' }) }),
+    });
+
+    const { result } = renderHook(() =>
+      useMergeSemantic(
+        [],
+        [contextStyles, localStyles],
+        { props: {} },
+        {
+          popup: { _default: 'root' },
+        },
+      ),
+    );
+
+    expect(result.current[1]).toEqual({
+      popup: { root: { color: 'blue', padding: 12 }, list: { margin: 8 } },
+    });
+    expect(contextStyles.popup.root).toEqual({ color: 'red', padding: 12 });
+    expect(localStyles.popup.root).toEqual({ color: 'blue' });
+  });
+
+  it('merges multiple semantic levels and preserves explicit CSS property resets', () => {
+    const { result } = renderHook(() =>
+      useMergeSemantic<NonNullable<DemoSemanticType['classNames']>, DemoSemanticType['styles']>(
+        [],
+        [
+          {
+            root: { color: 'red', padding: 12 },
+            dragger: { default: { color: 'red', margin: 4 } },
+            level1: { level2: { level3: { color: 'red', margin: 4, opacity: 0.5 } } },
+          },
+          undefined,
+          {
+            root: { padding: 0 },
+            dragger: { default: undefined },
+            level1: { level2: { level3: { color: undefined, opacity: 0 } } },
+          },
+        ],
+        { props: {} },
+        { dragger: { _default: 'default' }, level1: { level2: {} } },
+      ),
+    );
+
+    expect(result.current[1]).toEqual({
+      root: { color: 'red', padding: 0 },
+      dragger: { default: { color: 'red', margin: 4 } },
+      level1: { level2: { level3: { color: undefined, margin: 4, opacity: 0 } } },
+    });
+  });
+
+  it('recomputes styles when the semantic schema changes', () => {
+    const contextStyles = { popup: { root: { color: 'red', padding: 12 } } };
+    const localStyles = { popup: { root: { color: 'blue' } } };
+    const { result, rerender } = renderHook(
+      ({ schema }: { schema: SemanticSchema }) =>
+        useMergeSemantic([], [contextStyles, localStyles], { props: {} }, schema),
+      { initialProps: { schema: {} } },
+    );
+    expect(result.current[1].popup.root).toEqual({ color: 'blue' });
+
+    rerender({ schema: { popup: { _default: 'root' } } });
+    expect(result.current[1].popup.root).toEqual({ color: 'blue', padding: 12 });
+  });
+
   it('utils fillObjectBySchema', () => {
     const schema = { dragger: { _default: 'default' }, level1: { level2: {} } };
     // test 1

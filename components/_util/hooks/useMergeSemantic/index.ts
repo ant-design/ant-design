@@ -54,23 +54,39 @@ const useSemanticClassNames = <ClassNamesType extends AnyObject>(
 };
 
 // =========================== Styles ===========================
-export const mergeStyles = <StylesType extends AnyObject>(
+const mergeStylesBySchema = <StylesType extends AnyObject>(
+  schema: SemanticSchema = {},
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
     .filter((item): item is Partial<StylesType> => Boolean(item))
-    .reduce<Record<PropertyKey, React.CSSProperties>>((acc, cur = {}) => {
+    .reduce<Record<PropertyKey, AnyObject>>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] };
+        const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
+        // Some existing callers still provide flat CSS at a schema node.
+        const hasNestedStyles =
+          keySchema &&
+          [...Object.values(acc[key] || {}), ...Object.values(cur[key] || {})].some(isPlainObject);
+        acc[key] = hasNestedStyles
+          ? mergeStylesBySchema(keySchema, acc[key], cur[key])
+          : { ...acc[key], ...cur[key] };
       });
       return acc;
     }, {});
 };
 
+export const mergeStyles = <StylesType extends AnyObject>(
+  ...styles: (Partial<StylesType> | undefined)[]
+): Record<PropertyKey, React.CSSProperties> => mergeStylesBySchema({}, ...styles);
+
 const useSemanticStyles = <StylesType extends AnyObject>(
+  schema?: SemanticSchema,
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
-  return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
+  return React.useMemo(
+    () => mergeStylesBySchema(schema, ...styles),
+    [schema, ...styles],
+  ) as StylesType;
 };
 
 export const useSemanticRootStyle = <Key extends string = 'root'>(
@@ -121,7 +137,7 @@ export const useMergeSemantic = <
     ...resolvedClassNamesList,
   );
 
-  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(...resolvedStylesList);
+  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(schema, ...resolvedStylesList);
 
   return React.useMemo(() => {
     if (!schema) {
