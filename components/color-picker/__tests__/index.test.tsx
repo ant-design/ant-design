@@ -121,10 +121,27 @@ describe('ColorPicker', () => {
   it('Should disabled work', async () => {
     const { container } = render(<ColorPicker disabled />);
     expect(container.querySelector('.ant-color-picker-trigger-disabled')).toBeTruthy();
+    const clear = container.querySelector<HTMLElement>('.ant-color-picker-clear')!;
+    expect(clear).toHaveClass('ant-color-picker-clear-disabled');
+    expect(clear).toHaveAttribute('aria-disabled', 'true');
+    expect(clear).toHaveAttribute('tabindex', '-1');
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker')).toBeFalsy();
+  });
+
+  it('Should update clear disabled state when disabled changes', () => {
+    const { container, rerender } = render(<ColorPicker defaultValue={null} />);
+    const clear = container.querySelector<HTMLElement>('.ant-color-picker-clear')!;
+
+    expect(clear).toHaveAttribute('tabindex', '0');
+    expect(clear).not.toHaveClass('ant-color-picker-clear-disabled');
+
+    rerender(<ColorPicker defaultValue={null} disabled />);
+
+    expect(clear).toHaveAttribute('tabindex', '-1');
+    expect(clear).toHaveClass('ant-color-picker-clear-disabled');
   });
 
   it('Should allowClear and onClear work', async () => {
