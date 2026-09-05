@@ -695,6 +695,133 @@ Array [
 ]
 `;
 
+exports[`renders components/grid/demo/grid.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Basic Grid (span maps to grid-column)
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-row ant-row-grid css-var-test-id"
+    style="column-gap:16px;row-gap:16px;grid-template-columns:repeat(4, 1fr)"
+  >
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 2;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      2
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-column:span 1;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      col-
+      <!-- -->
+      1
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Grid Template Areas Layout
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-row ant-row-grid css-var-test-id"
+    style="column-gap:16px;row-gap:16px;grid-template-columns:100px 1fr 50px 1fr;grid-template-areas:\\"sidebar header header header\\" \\"sidebar main main content\\""
+  >
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-area:header;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      Header
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-area:sidebar;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      Sidebar
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-area:main;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      Main
+    </div>
+    <div
+      class="ant-col ant-col-grid css-var-test-id"
+      style="grid-area:content;background:#1677ff;color:#fff;min-height:60px;display:flex;align-items:center;justify-content:center"
+    >
+      Content
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/grid/demo/gutter.tsx correctly 1`] = `
 Array [
   <div
