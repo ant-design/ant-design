@@ -17,11 +17,16 @@ const locales = {
     itemTitle: '菜单标题元素(horizontal 模式不生效)，包含标题文字的样式和布局',
     list: '菜单列表元素(horizontal 模式不生效)，包含菜单列表的布局和容器样式',
     popup: '弹出菜单(inline 模式不生效)，包含弹出层的定位、层级、背景等样式',
+    subItem: '顶层子菜单自身容器元素，与 `item` 同级，包含子菜单 `<li>` 的样式和布局',
+    subItemTitle: '顶层子菜单标题元素，包含子菜单标题文字的样式和布局（如换行控制）',
+    subItemContent: '顶层子菜单标题内容元素，与 `itemContent` 同级，包含标题文字的布局和排版',
     'subMenu.itemTitle': '子菜单标题元素，包含子菜单标题的样式和交互效果',
     'subMenu.list': '子菜单列表元素，包含子菜单列表的布局和容器样式',
     'subMenu.item': '子菜单单项元素，包含子菜单项的样式和交互效果',
     'subMenu.itemIcon': '子菜单条目图标元素，包含子菜单图标的尺寸和样式',
     'subMenu.itemContent': '子菜单条目内容元素，包含子菜单内容的布局和排版',
+    'subMenu.subItem': '嵌套层子菜单自身容器元素，包含嵌套子菜单 `<li>` 的样式和布局',
+    'subMenu.subItemTitle': '嵌套层子菜单标题元素，包含嵌套子菜单标题文字的样式和布局',
   },
   en: {
     root: 'Root element with basic menu container styles and layout',
@@ -34,12 +39,24 @@ const locales = {
     list: 'Menu list element (no effect in horizontal mode) with menu list layout and container styles',
     popup:
       'Popup menu element (no effect in inline mode) with popup layer positioning, z-index, background and other styles',
+    subItem:
+      'Top-level submenu container element, sibling of `item`, with styles and layout for the submenu `<li>`',
+    subItemTitle:
+      'Top-level submenu title element with title text styles and layout (e.g. whitespace wrapping)',
+    subItemContent:
+      'Top-level submenu title content element, sibling of `itemContent`, with title text layout and typography',
     'subMenu.itemTitle': 'Submenu title element with submenu title styles and interactive effects',
     'subMenu.list': 'Submenu list element with submenu list layout and container styles',
     'subMenu.item': 'Submenu item element with submenu item styles and interactive effects',
     'subMenu.itemIcon': 'Submenu item icon element with submenu icon size and styles',
     'subMenu.itemContent':
       'Submenu item content element with submenu content layout and typography',
+    'subMenu.subItem':
+      'Nested submenu container element with styles and layout for the nested submenu `<li>`',
+    'subMenu.subItemTitle':
+      'Nested submenu title element with nested submenu title text styles and layout',
+    'subMenu.subItemContent':
+      'Nested submenu title content element, sibling of `itemContent`, with title text layout and typography',
   },
 };
 const items: MenuItem[] = [
@@ -61,6 +78,11 @@ const items: MenuItem[] = [
           { key: '1', label: 'Option 1', icon: <MailOutlined /> },
           { key: '2', label: 'Option 2' },
         ],
+      },
+      {
+        key: 'NestedSubMenu',
+        label: 'Navigation Nested',
+        children: [{ key: 'nested-1', label: 'Nested Option 1' }],
       },
     ],
   },
@@ -140,12 +162,21 @@ const App: React.FC = () => {
       { name: 'itemIcon', desc: locale.itemIcon },
       { name: 'itemContent', desc: locale.itemContent },
     ];
+
+    const subItemLocale = [
+      { name: 'subItem', desc: locale.subItem, version: '6.7.0' },
+      { name: 'subItemTitle', desc: locale.subItemTitle, version: '6.7.0' },
+      { name: 'subItemContent', desc: locale.subItemContent, version: '6.7.0' },
+    ];
     const subMenuLocale = [
       { name: 'subMenu.itemTitle', desc: locale['subMenu.itemTitle'] },
       { name: 'subMenu.list', desc: locale['subMenu.list'] },
       { name: 'subMenu.item', desc: locale['subMenu.item'] },
       { name: 'subMenu.itemIcon', desc: locale['subMenu.itemIcon'] },
       { name: 'subMenu.itemContent', desc: locale['subMenu.itemContent'] },
+      { name: 'subMenu.subItem', desc: locale['subMenu.subItem'], version: '6.7.0' },
+      { name: 'subMenu.subItemTitle', desc: locale['subMenu.subItemTitle'], version: '6.7.0' },
+      { name: 'subMenu.subItemContent', desc: locale['subMenu.subItemContent'], version: '6.7.0' },
     ];
     const groupLocale = [
       { name: 'itemTitle', desc: locale.itemTitle },
@@ -155,7 +186,13 @@ const App: React.FC = () => {
     const additionalPopupLocale = mode !== 'inline' ? [{ name: 'popup', desc: locale.popup }] : [];
     const additionalGroupLocale = mode !== 'horizontal' ? groupLocale : [];
 
-    return [...baseLocale, ...additionalGroupLocale, ...additionalPopupLocale, ...subMenuLocale];
+    return [
+      ...baseLocale,
+      ...additionalGroupLocale,
+      ...additionalPopupLocale,
+      ...subItemLocale,
+      ...subMenuLocale,
+    ];
   }, [mode, locale]);
 
   const itemList = React.useMemo(() => {
