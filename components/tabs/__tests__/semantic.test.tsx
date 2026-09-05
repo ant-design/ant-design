@@ -2,12 +2,12 @@ import React from 'react';
 
 import Tabs from '..';
 import type { TabsProps } from '..';
-import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Tabs.Semantic', () => {
   it('support classnames and styles', () => {
@@ -102,65 +102,25 @@ describe('Tabs.Semantic', () => {
     expect(root).toHaveClass('custom-card-root');
     expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
-  it('support popup classNames and styles', async () => {
-    // The more dropdown only mounts when the tabs overflow, so fake the layout
-    // Longest first: `ant-tabs-nav` is a prefix of the other two
-    const sizes: Record<string, number> = {
-      'ant-tabs-nav-operations': 40,
-      'ant-tabs-nav-list': 2000,
-      'ant-tabs-nav': 200,
-    };
-    const descriptors = (['offsetWidth', 'offsetHeight', 'offsetLeft'] as const).map(
-      (name) => [name, Object.getOwnPropertyDescriptor(HTMLElement.prototype, name)] as const,
+  it('support popup classNames and styles', () => {
+    // `more.visible` is spread over rc-tabs' own `visible`, so the popup mounts
+    // without having to fake element sizes to force tab overflow.
+    render(
+      <Tabs
+        defaultActiveKey="0"
+        more={{ visible: true }}
+        classNames={{ popup: { root: 'test-popup' } }}
+        styles={{ popup: { root: { color: 'rgb(255, 0, 0)' } } }}
+        items={[
+          { key: '0', label: 'Tab-0', children: 'Content of tab 0' },
+          { key: '1', label: 'Tab-1', children: 'Content of tab 1' },
+        ]}
+      />,
     );
-    const define = (name: string, get: (ele: HTMLElement) => number) => {
-      Object.defineProperty(HTMLElement.prototype, name, {
-        configurable: true,
-        get() {
-          return get(this);
-        },
-      });
-    };
-    define('offsetWidth', (ele) => {
-      if (ele.getAttribute('data-node-key')) {
-        return 100;
-      }
-      const matched = Object.keys(sizes).find((cls) => ele.className.includes(cls));
-      return matched ? sizes[matched] : 0;
-    });
-    define('offsetHeight', () => 20);
-    define('offsetLeft', (ele) => Number(ele.getAttribute('data-node-key') ?? 0) * 100);
 
-    jest.useFakeTimers();
-    try {
-      const { container } = render(
-        <Tabs
-          defaultActiveKey="0"
-          classNames={{ popup: { root: 'test-popup' } }}
-          styles={{ popup: { root: { color: 'rgb(255, 0, 0)' } } }}
-          items={Array.from({ length: 20 }, (_, i) => ({
-            key: String(i),
-            label: `Tab-${i}`,
-            children: `Content of tab ${i}`,
-          }))}
-        />,
-      );
-      triggerResize(container.querySelector('.ant-tabs-nav') as HTMLElement);
-      await waitFakeTimer();
-      fireEvent.mouseEnter(container.querySelector('.ant-tabs-nav-more') as HTMLElement);
-      await waitFakeTimer();
-
-      const popup = document.body.querySelector('.ant-tabs-dropdown');
-      expect(popup).toHaveClass('test-popup');
-      expect(popup).toHaveStyle({ color: 'rgb(255, 0, 0)' });
-    } finally {
-      jest.useRealTimers();
-      descriptors.forEach(([name, descriptor]) => {
-        if (descriptor) {
-          Object.defineProperty(HTMLElement.prototype, name, descriptor);
-        }
-      });
-    }
+    const popup = document.body.querySelector('.ant-tabs-dropdown');
+    expect(popup).toHaveClass('test-popup');
+    expect(popup).toHaveStyle({ color: 'rgb(255, 0, 0)' });
   });
 
   it('should follow root style priority', () => {
