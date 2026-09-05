@@ -156,6 +156,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
         },
+        '&-selected-text': {
+          color: token.itemSelectedColor,
+          transition: `color ${motionDurationMid}`,
+        },
 
         '&-focused': genFocusOutline(token),
 
@@ -177,19 +181,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
             .join(', '),
         },
 
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          '&:hover, &:active': {
-            color: token.itemHoverColor,
+        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-selected-text):not(${componentCls}-item-disabled)`]:
+          {
+            '&:hover, &:active': {
+              color: token.itemHoverColor,
+            },
+            '&:hover::after': {
+              opacity: 1,
+              backgroundColor: token.itemHoverBg,
+            },
+            '&:active::after': {
+              opacity: 1,
+              backgroundColor: token.itemActiveBg,
+            },
           },
-          '&:hover::after': {
-            opacity: 1,
-            backgroundColor: token.itemHoverBg,
-          },
-          '&:active::after': {
-            opacity: 1,
-            backgroundColor: token.itemActiveBg,
-          },
-        },
 
         '&-label': {
           minHeight: labelHeight,

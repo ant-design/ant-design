@@ -32273,7 +32273,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   </div>
                 </label>
                 <label
-                  class="ant-segmented-item ant-segmented-item-selected"
+                  class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
                 >
                   <input
                     checked=""
