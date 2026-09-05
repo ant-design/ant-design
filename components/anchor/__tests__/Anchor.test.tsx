@@ -157,6 +157,16 @@ describe('Anchor Render', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('renders children when items is undefined', () => {
+    const { getByText } = render(
+      <Anchor items={undefined}>
+        <div>fallback</div>
+      </Anchor>,
+    );
+
+    expect(getByText('fallback')).toBeInTheDocument();
+  });
+
   it('actives the target when clicking a link', async () => {
     const hash = getHashUrl();
     const { container } = render(
