@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Разширяване',
     collapse: 'Свиване',
   },
+  Carousel: {
+    prevSlide: 'Предишен слайд',
+    nextSlide: 'Следващ слайд',
+  },
   Form: {
     optional: '（по желание）',
     defaultValidateMessages: {

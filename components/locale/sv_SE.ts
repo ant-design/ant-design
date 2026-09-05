@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Expandera',
     collapse: 'Kollapsa',
   },
+  Carousel: {
+    prevSlide: 'Föregående bild',
+    nextSlide: 'Nästa bild',
+  },
   Form: {
     optional: '(valfritt)',
     defaultValidateMessages: {

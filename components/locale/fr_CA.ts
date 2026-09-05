@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Développer',
     collapse: 'Réduire',
   },
+  Carousel: {
+    prevSlide: 'Diapositive précédente',
+    nextSlide: 'Diapositive suivante',
+  },
   Form: {
     optional: '(optionnel)',
     defaultValidateMessages: {
