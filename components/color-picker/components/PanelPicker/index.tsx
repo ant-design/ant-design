@@ -12,6 +12,7 @@ import { genAlphaColor, generateColor } from '../../util';
 import ColorClear from '../ColorClear';
 import ColorInput from '../ColorInput';
 import ColorSlider from '../ColorSlider';
+import ColorSteppers from '../ColorSteppers';
 import GradientColorBar from './GradientColorBar';
 
 const components = {
@@ -28,6 +29,7 @@ const PanelPicker: FC = () => {
 
   const {
     mode,
+    showGradientAngle,
     onModeChange,
     modeOptions,
     prefixCls,
@@ -130,7 +132,7 @@ const PanelPicker: FC = () => {
       color: submitColor,
     };
 
-    return new AggregationColor(nextColors);
+    return value.setColors(nextColors);
   };
 
   const onPickerChange = (
@@ -185,6 +187,20 @@ const PanelPicker: FC = () => {
   return (
     <>
       {operationNode}
+
+      {mode === 'gradient' && showGradientAngle && (
+        <div className={`${prefixCls}-gradient-angle`}>
+          <ColorSteppers
+            prefixCls={prefixCls}
+            className={`${prefixCls}-gradient-angle-input`}
+            aria-label="Gradient angle"
+            max={360}
+            value={value.getAngle()}
+            formatter={(angle) => `${angle}°`}
+            onChange={(angle) => onChange(value.setAngle(angle || 0))}
+          />
+        </div>
+      )}
 
       <GradientColorBar {...panelPickerContext} colors={colors} />
 
