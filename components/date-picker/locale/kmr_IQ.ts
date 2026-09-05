@@ -1,3 +1,5 @@
+import 'dayjs/locale/ku';
+
 import CalendarLocale from '@rc-component/picker/locale/kmr_IQ';
 
 import TimePickerLocale from '../../time-picker/locale/kmr_IQ';

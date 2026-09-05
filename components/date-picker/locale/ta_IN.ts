@@ -1,3 +1,5 @@
+import 'dayjs/locale/ta';
+
 // Tamil Locale added to rc-calendar
 import CalendarLocale from '@rc-component/picker/locale/ta_IN';
 

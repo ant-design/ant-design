@@ -1,3 +1,5 @@
+import 'dayjs/locale/hy-am';
+
 import type { Locale } from '.';
 import type { PickerLocale } from '../date-picker/generatePicker';
 

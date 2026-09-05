@@ -1,3 +1,5 @@
+import 'dayjs/locale/ru';
+
 /** Created by Andrey Gayvoronsky on 13/04/16. */
 
 import CalendarLocale from '@rc-component/picker/locale/ru_RU';

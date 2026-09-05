@@ -1,3 +1,5 @@
+import 'dayjs/locale/ga';
+
 import CalendarLocale from '@rc-component/picker/locale/ga_IE';
 
 import TimePickerLocale from '../../time-picker/locale/ga_IE';
