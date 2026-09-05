@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'Tertiple',
     expand: 'Setirleri aç',
     collapse: 'Setirleri ýygna',
+    expandAll: 'Ähli setirleri aç',
+    collapseAll: 'Ähli setirleri ýygna',
     triggerDesc: 'Kemelýän tertipde tertiple',
     triggerAsc: 'Artýan tertipde tertiple',
     cancelSort: 'Tertipleri arassala',
