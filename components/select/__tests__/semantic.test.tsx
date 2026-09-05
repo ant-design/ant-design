@@ -2,14 +2,19 @@ import * as React from 'react';
 
 import Select from '..';
 import type { SelectProps, SelectSemanticAllType } from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Select.Semantic', () => {
+  const getPopupStyles = (container: HTMLElement) => {
+    const popup = container.querySelector<HTMLElement>('.ant-select-dropdown');
+    return { color: popup?.style.color, padding: popup?.style.padding };
+  };
+
   const options = [
     {
       value: 'GuangZhou',
@@ -20,6 +25,92 @@ describe('Select.Semantic', () => {
       label: 'ShenZhen',
     },
   ];
+  it('preserves global popup style properties when local styles override one property', () => {
+    const { container } = render(
+      <ConfigProvider
+        select={{
+          styles: {
+            popup: {
+              root: { color: 'rgb(255, 0, 0)', padding: 12 },
+              list: { margin: 8 },
+            },
+          },
+        }}
+      >
+        <Select
+          open
+          options={options}
+          classNames={{ popup: { list: 'global-style-list' } }}
+          styles={{ popup: { root: { color: 'rgb(0, 0, 255)' } } }}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      padding: '12px',
+    });
+    expect(container.querySelector('.global-style-list')).toHaveStyle({ margin: '8px' });
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(0, 0, 255)",
+        "padding": "12px",
+      }
+    `);
+  });
+
+  it('merges popup style callbacks and clears or restores properties on rerender', () => {
+    const styles: SelectProps['styles'] = ({ props }) => ({
+      popup: { root: { color: props.size === 'large' ? 'rgb(0, 0, 255)' : undefined } },
+    });
+    const Demo = ({
+      localStyles,
+      size,
+    }: {
+      localStyles?: SelectProps['styles'];
+      size?: SelectProps['size'];
+    }) => (
+      <ConfigProvider
+        select={{ styles: { popup: { root: { color: 'rgb(255, 0, 0)', padding: 12 } } } }}
+      >
+        <Select open options={options} size={size} styles={localStyles} />
+      </ConfigProvider>
+    );
+    const { container, rerender } = render(<Demo size="large" localStyles={styles} />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(0, 0, 255)",
+        "padding": "12px",
+      }
+    `);
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      padding: '12px',
+    });
+
+    rerender(<Demo size="small" localStyles={styles} />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "",
+        "padding": "12px",
+      }
+    `);
+    const popup = container.querySelector<HTMLElement>('.ant-select-dropdown');
+    expect(popup?.style.color).toBe('');
+    expect(popup).toHaveStyle({ padding: '12px' });
+
+    rerender(<Demo size="small" />);
+    expect(getPopupStyles(container)).toMatchInlineSnapshot(`
+      {
+        "color": "rgb(255, 0, 0)",
+        "padding": "12px",
+      }
+    `);
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+      padding: '12px',
+    });
+  });
+
   it('support classNames and styles', () => {
     const classNames: SelectSemanticAllType['classNames'] = {
       root: 'custom-root',
