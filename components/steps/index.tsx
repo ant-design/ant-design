@@ -3,6 +3,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -325,7 +326,7 @@ const Steps = (props: StepsProps) => {
 
     let iconContent: React.ReactNode = null;
 
-    if (isDot || icon) {
+    if (isDot || isReactRenderable(icon)) {
       iconContent = icon;
     } else {
       switch (status) {

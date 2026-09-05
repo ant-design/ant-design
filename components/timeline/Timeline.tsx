@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
-import { isNonNullable } from '@rc-component/util';
+import { isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -218,7 +218,7 @@ const Timeline: CompoundedComponent = (props) => {
   const layoutAlternate = React.useMemo(
     () =>
       mergedMode === 'alternate' ||
-      (orientation === 'vertical' && mergedItems.some((item) => item.title)),
+      (orientation === 'vertical' && mergedItems.some((item) => isReactRenderable(item.title))),
     [mergedItems, mergedMode, orientation],
   );
 
