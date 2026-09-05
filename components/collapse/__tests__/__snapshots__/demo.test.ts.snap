@@ -443,7 +443,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             tabindex="0"
           >
             <span
-              aria-label="expanded"
+              aria-label="Collapse"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -509,7 +509,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             tabindex="0"
           >
             <span
-              aria-label="expanded"
+              aria-label="Collapse"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
