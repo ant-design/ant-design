@@ -10,9 +10,10 @@ interface ColorHsbInputProps {
   prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabled?: boolean;
 }
 
-const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
+const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange, disabled }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
   const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
     generateColor(value || '#000'),
@@ -21,6 +22,10 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
   const hsbValue = value || internalValue;
 
   const handleHsbChange = (step: number, type: keyof HSB) => {
+    if (disabled) {
+      return;
+    }
+
     const hsb = hsbValue.toHsb();
     hsb[type] = type === 'h' ? step : (step || 0) / 100;
     const genColor = generateColor(hsb);
@@ -38,6 +43,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(hsbValue.toHsb().h)}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        disabled={disabled}
         formatter={(step) => getRoundNumber(step || 0).toString()}
         onChange={(step) => handleHsbChange(Number(step), 'h')}
       />
@@ -47,6 +53,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(hsbValue.toHsb().s) * 100}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        disabled={disabled}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 's')}
       />
@@ -56,6 +63,7 @@ const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) =
         value={Number(hsbValue.toHsb().b) * 100}
         prefixCls={prefixCls}
         className={colorHsbInputPrefixCls}
+        disabled={disabled}
         formatter={(step) => `${getRoundNumber(step || 0)}%`}
         onChange={(step) => handleHsbChange(Number(step), 'b')}
       />
