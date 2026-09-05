@@ -17,6 +17,7 @@ When a numeric value needs to be provided.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/allow-clear.tsx" version="6.7.0">Clear button</code>
 <code src="./demo/size.tsx">Sizes</code>
 <code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/disabled.tsx">Disabled</code>
@@ -46,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
+| allowClear | Whether to show a clear button | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 6.7.0 | × |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 | × |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
@@ -72,6 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | The current value of the component | number | - | - | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - | × |
+| onClear | Callback when the clear button is clicked | () => void | - | 6.7.0 | × |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - | × |
 | onStep | The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - |  | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |

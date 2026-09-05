@@ -18,6 +18,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/allow-clear.tsx" version="6.7.0">清除按钮</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/addon.tsx" debug>前置/后置标签</code>
 <code src="./demo/disabled.tsx">不可用</code>
@@ -47,6 +48,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 | × |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - | 4.17.0 | × |
+| allowClear | 是否显示清除按钮 | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 6.7.0 | × |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 | × |
 | changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
@@ -73,6 +75,7 @@ demo:
 | value | 当前值 | number | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - | × |
+| onClear | 点击清除按钮时的回调 | () => void | - | 6.7.0 | × |
 | onPressEnter | 按下回车的回调 | function(e) | - | - | × |
 | onStep | 点击上下箭头、键盘、滚轮的回调 | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - | 4.7.0 | × |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |

@@ -9,9 +9,12 @@ import type {
   InputNumberRef as RcInputNumberRef,
   ValueType,
 } from '@rc-component/input-number';
+import { useMergedState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import { useAllowClear } from '../_util/hooks';
+import type { AllowClear } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
@@ -38,6 +41,7 @@ export type InputNumberSemanticType = {
     suffix?: string;
     input?: string;
     actions?: string;
+    clear?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -45,6 +49,7 @@ export type InputNumberSemanticType = {
     suffix?: React.CSSProperties;
     input?: React.CSSProperties;
     actions?: React.CSSProperties;
+    clear?: React.CSSProperties;
   };
 };
 
@@ -105,6 +110,10 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @default "outlined"
    */
   variant?: Variant;
+  /** Whether to show a clear button. */
+  allowClear?: AllowClear;
+  /** Callback when the clear button is clicked. */
+  onClear?: () => void;
 }
 
 type InternalInputNumberProps = InputNumberProps & {
@@ -136,8 +145,18 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames,
       styles,
       mode,
+      allowClear,
+      onClear,
+      value,
+      defaultValue,
+      onChange,
       ...others
     } = props;
+
+    const [mergedValue, setMergedValue] = useMergedState<ValueType | null | undefined>(
+      defaultValue,
+      { value },
+    );
 
     const {
       direction,
@@ -175,12 +194,32 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
 
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
-    const suffixNode = (hasFeedback || suffix) && (
-      <>
-        {suffix}
-        {hasFeedback && feedbackIcon}
-      </>
-    );
+    const mergedAllowClear = useAllowClear({ allowClear, componentName: 'InputNumber' });
+    // Keep value ownership stable after allowClear has controlled an uncontrolled input.
+    const needMergedValueRef = React.useRef(false);
+    needMergedValueRef.current ||= !!mergedAllowClear;
+
+    const allowClearConfig = isPlainObject(mergedAllowClear) ? mergedAllowClear : undefined;
+    const needClear =
+      !!mergedAllowClear &&
+      mergedValue !== null &&
+      mergedValue !== undefined &&
+      mergedValue !== '' &&
+      !mergedDisabled &&
+      !readOnly &&
+      !allowClearConfig?.disabled;
+
+    const handleChange: RcInputNumberProps['onChange'] = (nextValue) => {
+      setMergedValue(nextValue);
+      onChange?.(nextValue);
+    };
+
+    const handleClear = () => {
+      setMergedValue(null);
+      onChange?.(null);
+      onClear?.();
+      inputRef.current?.focus();
+    };
 
     // =========== Merged Props for Semantic ==========
     const mergedProps: InputNumberProps = {
@@ -200,6 +239,30 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
       props: mergedProps,
     });
+
+    const clearIcon = mergedAllowClear && (
+      <button
+        type="button"
+        className={clsx(`${prefixCls}-clear-icon`, mergedClassNames.clear, {
+          [`${prefixCls}-clear-icon-hidden`]: !needClear,
+          [`${prefixCls}-clear-icon-has-suffix`]: !!suffix || hasFeedback,
+        })}
+        style={mergedStyles.clear}
+        onClick={handleClear}
+        onMouseDown={(event) => event.preventDefault()}
+      >
+        {allowClearConfig?.clearIcon}
+      </button>
+    );
+
+    const suffixNode =
+      hasFeedback || suffix || mergedAllowClear ? (
+        <>
+          {clearIcon}
+          {suffix}
+          {hasFeedback && feedbackIcon}
+        </>
+      ) : undefined;
 
     return (
       <RcInputNumber
@@ -233,6 +296,9 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         suffix={suffixNode}
         classNames={mergedClassNames}
         styles={mergedStyles}
+        value={needMergedValueRef.current ? mergedValue : value}
+        defaultValue={needMergedValueRef.current ? undefined : defaultValue}
+        onChange={handleChange}
         {...others}
       />
     );
