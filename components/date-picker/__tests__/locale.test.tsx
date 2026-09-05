@@ -9,6 +9,7 @@ import hyAM from '../../locale/hy_AM';
 import zhCN from '../../locale/zh_CN';
 import frFR from '../locale/fr_FR';
 import plPL from '../locale/pl_PL';
+import uzUZ from '../locale/uz_UZ';
 
 describe('DatePicker locale without application Day.js locale imports', () => {
   const value = dayjs('2026-08-24');
@@ -52,6 +53,16 @@ describe('DatePicker locale without application Day.js locale imports', () => {
 
     fireEvent.click(baseElement.querySelector('.ant-picker-month-btn')!);
     expect(baseElement.querySelector('[title="2026-08"]')).toHaveTextContent('sierpień');
+  });
+
+  it('keeps Uzbek month and weekday labels in the same Latin script as the controls', () => {
+    const { baseElement } = render(<DatePicker open value={value} locale={uzUZ} />);
+
+    expect(baseElement.querySelector('.ant-picker-now-btn')).toHaveTextContent('Bugun');
+    expect(baseElement.querySelector('.ant-picker-month-btn')).toHaveTextContent('Avg');
+    expect(
+      Array.from(baseElement.querySelectorAll('thead th'), (cell) => cell.textContent),
+    ).toEqual(['Du', 'Se', 'Cho', 'Pa', 'Ju', 'Sha', 'Ya']);
   });
 
   it('localizes an inline ConfigProvider DatePicker locale', () => {
