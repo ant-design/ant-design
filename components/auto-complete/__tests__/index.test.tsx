@@ -98,6 +98,21 @@ describe('AutoComplete', () => {
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 
+  it('should keep large custom Search input and button size classes', () => {
+    const { container } = render(
+      <AutoComplete>
+        <Input.Search size="large" />
+      </AutoComplete>,
+    );
+
+    const input = container.querySelector<HTMLInputElement>('.ant-input-lg')!;
+    const button = container.querySelector<HTMLButtonElement>('.ant-input-search-btn')!;
+
+    expect(container.querySelector('.ant-input-search-large')).toBeInTheDocument();
+    expect(input).toHaveClass('ant-input-lg');
+    expect(button).toHaveClass('ant-btn-lg');
+  });
+
   it('deprecated popupClassName', () => {
     resetWarned();
 
