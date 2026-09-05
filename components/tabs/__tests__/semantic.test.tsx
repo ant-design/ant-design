@@ -2,12 +2,12 @@ import React from 'react';
 
 import Tabs from '..';
 import type { TabsProps } from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Tabs.Semantic', () => {
   it('support classnames and styles', () => {
@@ -102,6 +102,27 @@ describe('Tabs.Semantic', () => {
     expect(root).toHaveClass('custom-card-root');
     expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
+  it('support popup classNames and styles', () => {
+    // `more.visible` is spread over rc-tabs' own `visible`, so the popup mounts
+    // without having to fake element sizes to force tab overflow.
+    render(
+      <Tabs
+        defaultActiveKey="0"
+        more={{ visible: true }}
+        classNames={{ popup: { root: 'test-popup' } }}
+        styles={{ popup: { root: { color: 'rgb(255, 0, 0)' } } }}
+        items={[
+          { key: '0', label: 'Tab-0', children: 'Content of tab 0' },
+          { key: '1', label: 'Tab-1', children: 'Content of tab 1' },
+        ]}
+      />,
+    );
+
+    const popup = document.body.querySelector('.ant-tabs-dropdown');
+    expect(popup).toHaveClass('test-popup');
+    expect(popup).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+  });
+
   it('should follow root style priority', () => {
     const { container } = render(
       <ConfigProvider
