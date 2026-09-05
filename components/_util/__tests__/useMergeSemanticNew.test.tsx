@@ -28,7 +28,7 @@ describe('useMergeSemantic,', () => {
       mergeStyles<{ root?: React.CSSProperties }>(contextStyles, undefined, localStyles, {
         root: undefined,
       }),
-    ).toEqual({
+    ).toStrictEqual({
       root: { color: undefined, padding: 0 },
     });
     expect(mergeStyles()).toEqual({});
