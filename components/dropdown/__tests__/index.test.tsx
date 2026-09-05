@@ -73,6 +73,16 @@ describe('Dropdown', () => {
     expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
   });
 
+  it.each([null, 'Custom popup'])('should support popupRender returning %p', (popup) => {
+    expect(() =>
+      render(
+        <Dropdown open menu={{ items }} popupRender={() => popup}>
+          <button type="button">button</button>
+        </Dropdown>,
+      ),
+    ).not.toThrow();
+  });
+
   it('support Menu expandIcon', async () => {
     jest.useFakeTimers();
     const props: DropDownProps = {
@@ -584,9 +594,7 @@ describe('Dropdown', () => {
       .join('');
     const verticalRule = cssText
       .split('}')
-      .find(
-        (rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'),
-      );
+      .find((rule) => rule.includes('-dropdown-menu-vertical') && rule.includes('max-height'));
 
     expect(verticalRule).toBeTruthy();
     expect(verticalRule).toContain('calc(100vh');
