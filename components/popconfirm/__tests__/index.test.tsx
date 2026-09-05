@@ -470,4 +470,14 @@ describe('Popconfirm', () => {
     const arrow = container.querySelector('.ant-popover-arrow');
     expect(arrow).not.toHaveStyle({ background: 'red' });
   });
+
+  it('should render numeric 0 icon', () => {
+    const { container } = render(
+      <Popconfirm title="Title" icon={0} open>
+        <span>Delete</span>
+      </Popconfirm>,
+    );
+
+    expect(container.querySelector('.ant-popconfirm-message-icon')?.textContent).toBe('0');
+  });
 });
