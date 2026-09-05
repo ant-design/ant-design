@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'شفاف',
     singleColor: 'تک‌رنگ',
     gradientColor: 'گرادینت',
+    clear: 'پاک کردن رنگ',
   },
 };
 

@@ -153,6 +153,7 @@ const localeValues: Locale = {
     transparent: 'Прозрачный',
     singleColor: 'Один цвет',
     gradientColor: 'Градиент',
+    clear: 'Очистить цвет',
   },
 };
 
