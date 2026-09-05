@@ -240,4 +240,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。
