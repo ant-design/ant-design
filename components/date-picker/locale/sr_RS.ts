@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Izaberi sedmicu',
     rangePlaceholder: ['Datum početka', 'Datum završetka'],
     rangeYearPlaceholder: ['Godina početka', 'Godina završetka'],
+    rangeQuarterPlaceholder: ['Tromesečje početka', 'Tromesečje završetka'],
     rangeMonthPlaceholder: ['Mesec početka', 'Mesec završetka'],
     rangeWeekPlaceholder: ['Sedmica početka', 'Sedmica završetka'],
     ...CalendarLocale,
