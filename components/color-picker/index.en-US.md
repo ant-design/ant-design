@@ -21,6 +21,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
 <code src="./demo/line-gradient.tsx" version="5.20.0">Line Gradient</code>
+<code src="./demo/gradient-angle.tsx" version="6.7.0">Gradient Angle</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
 <code src="./demo/disabled-alpha.tsx">Disabled Alpha</code>
@@ -60,6 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | presets | Preset colors | [PresetColorType](#presetcolortype) | - |  | × |
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` |  | × |
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 | × |
+| showGradientAngle | Whether to show the gradient angle input | boolean | false | 6.7.0 | × |
 | showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 | × |
 | size | Setting the trigger size | `large` \| `medium` \| `small` | `medium` | 5.7.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
@@ -80,8 +82,17 @@ type ColorType =
   | {
       color: string;
       percent: number;
-    }[];
+    }[]
+  | {
+      angle?: number;
+      colors: {
+        color: string;
+        percent: number;
+      }[];
+    };
 ```
+
+The gradient array form uses a default angle of `90`. To customize the linear gradient angle from `0` to `360` degrees, use the object form. `angle` is supported since `6.7.0`.
 
 #### PresetColorType
 
@@ -99,6 +110,7 @@ type PresetColorType = {
 <!-- prettier-ignore -->
 | Property | Description | Type | Version |
 | :-- | :-- | :-- | :-- |
+| getAngle | Get the linear gradient angle | `() => number` | 6.7.0 |
 | toCssString | Convert to CSS support format | `() => string` | 5.20.0 |
 | toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
 | toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |

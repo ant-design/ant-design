@@ -14,6 +14,7 @@ interface ColorSteppersProps {
   className?: string;
   prefix?: (prefixCls: string) => React.ReactNode;
   formatter?: InputNumberProps<number>['formatter'];
+  'aria-label'?: string;
 }
 
 const ColorSteppers: FC<ColorSteppersProps> = ({
@@ -24,6 +25,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   onChange,
   className,
   formatter,
+  'aria-label': ariaLabel,
 }) => {
   const colorSteppersPrefixCls = `${prefixCls}-steppers`;
   const [internalValue, setInternalValue] = useState<number | undefined>(0);
@@ -37,6 +39,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       max={max}
       value={stepValue}
       formatter={formatter}
+      aria-label={ariaLabel}
       size="small"
       onChange={(step) => {
         setInternalValue(step || 0);
