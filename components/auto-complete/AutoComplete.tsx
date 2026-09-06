@@ -193,6 +193,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       dataSource: 'options',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -260,17 +261,20 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [mergedStyles, style, dropdownStyle],
   );
 
+  const mergedSuffix = props.suffix !== undefined ? props.suffix : (props.suffixIcon ?? null);
+
   return (
     <Select
       ref={ref}
-      suffixIcon={null}
       {...omit(props, [
         'dataSource',
         'dropdownClassName',
         'popupClassName',
         'onDropdownVisibleChange',
         'onOpenChange',
+        'suffixIcon',
       ])}
+      suffix={mergedSuffix}
       prefixCls={prefixCls}
       classNames={finalClassNames}
       styles={finalStyles}
