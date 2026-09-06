@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { isNonNullable } from '@rc-component/util';
 import type { GetProp, TableProps } from 'antd';
 import { Table } from 'antd';
 import type { SorterResult } from 'antd/es/table/interface';
@@ -43,6 +42,10 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'email',
   },
 ];
+
+const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
+  return val !== undefined && val !== null;
+};
 
 const toURLSearchParams = <T extends Record<PropertyKey, any>>(record: T) => {
   const params = new URLSearchParams();

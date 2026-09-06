@@ -60,8 +60,8 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | ~~dropdownClassName~~ | 下拉菜单的 className 属性，请使用 `classNames.popup.root` 替代 | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | 下拉菜单和输入框是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean \| number | true | - |
-| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义下拉框内容 | (originNode: ReactElement) => ReactNode | - |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |

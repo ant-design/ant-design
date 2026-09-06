@@ -1,5 +1,5 @@
 import React from 'react';
-import { isNonNullable, omit } from '@rc-component/util';
+import { isNonNullable, omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
@@ -91,14 +91,9 @@ const CheckboxGroup = React.forwardRef(
     const contextDisabled = React.useContext(DisabledContext);
     const mergedDisabled = restProps.disabled ?? contextDisabled;
 
-    const [value, setValue] = React.useState<T[]>(restProps.value || defaultValue || []);
+    const [value, setValue] = useControlledState<T[]>(defaultValue || [], restProps.value);
+    const mergedValue = value || [];
     const [registeredValues, setRegisteredValues] = React.useState<T[]>([]);
-
-    React.useEffect(() => {
-      if ('value' in restProps) {
-        setValue(restProps.value || []);
-      }
-    }, [restProps.value]);
 
     const memoizedOptions = React.useMemo(() => {
       return options
@@ -122,16 +117,14 @@ const CheckboxGroup = React.forwardRef(
     };
 
     const toggleOption: CheckboxGroupContext<T>['toggleOption'] = (option) => {
-      const optionIndex = value.indexOf(option.value);
-      const newValue = [...value];
+      const optionIndex = mergedValue.indexOf(option.value);
+      const newValue = [...mergedValue];
       if (optionIndex === -1) {
         newValue.push(option.value);
       } else {
         newValue.splice(optionIndex, 1);
       }
-      if (!('value' in restProps)) {
-        setValue(newValue);
-      }
+      setValue(newValue);
       onChange?.(
         newValue
           .filter((val) => registeredValues.includes(val))
@@ -175,7 +168,7 @@ const CheckboxGroup = React.forwardRef(
               key={option.value.toString()}
               disabled={'disabled' in option ? option.disabled : restProps.disabled}
               value={option.value}
-              checked={value.includes(option.value)}
+              checked={mergedValue.includes(option.value)}
               onChange={option.onChange}
               className={clsx(`${groupPrefixCls}-item`, option.className)}
               style={option.style}
@@ -191,7 +184,7 @@ const CheckboxGroup = React.forwardRef(
     const memoizedContext = React.useMemo<CheckboxGroupContext<any>>(
       () => ({
         toggleOption,
-        value,
+        value: mergedValue,
         disabled: restProps.disabled,
         name: restProps.name,
         classNames: {
@@ -210,7 +203,7 @@ const CheckboxGroup = React.forwardRef(
       }),
       [
         toggleOption,
-        value,
+        mergedValue,
         restProps.disabled,
         restProps.name,
         mergedClassNames,
@@ -242,6 +235,7 @@ const CheckboxGroup = React.forwardRef(
 );
 
 export type { CheckboxGroupContext } from './GroupContext';
+
 export { GroupContext };
 
 export default CheckboxGroup as <T = any>(

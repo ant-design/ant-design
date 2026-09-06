@@ -19,6 +19,21 @@ title: FAQ
 
 注意：对于类 `Select` 组件的 `options`，我们**强烈不建议**使用 `undefined` 和 `null` 作为 `option` 中的 `value`，请使用 `string | number` 作为 `option` 的 `value`。
 
+## 为什么有些空内容仍然会渲染 DOM？ {#react-renderable}
+
+antd 在判断是否需要创建内容的包裹 DOM 时，采用 `@rc-component/util` 提供的 `isReactRenderable`。它的设计目标是做兼容性的“内容存在性”检查，而不是验证一个值是否为合法的 React 节点，也不会递归预测 React 最终能否渲染出可见内容。
+
+`isReactRenderable` 只将 `null`、`undefined`、`false` 和空字符串 `''` 判定为无内容，其他值均判定为有内容。因此，在由它控制包裹 DOM 是否渲染的场景中：
+
+| 传入值 | `isReactRenderable` | 渲染结果 |
+| --- | --- | --- |
+| `null`、`undefined`、`false`、`''` | `false` | 不创建包裹 DOM，也不渲染内容 |
+| `true` | `true` | 创建包裹 DOM，但 React 不会为 `true` 渲染文本内容 |
+| `0` | `true` | 创建包裹 DOM，并正常渲染 `0` |
+| 非空字符串、其他数字、React 元素等 | `true` | 创建包裹 DOM，并交由 React 渲染内容 |
+
+其中 `false` 被视为显式的无内容标记，而 `true` 则表示内容已提供。虽然 `true` 本身不会产生文本节点，但包裹 DOM 仍然会被创建。类似地，空数组、空 Fragment 或最终返回 `null` 的 React 元素也会通过检查。数字 `0` 则不会被误判为空内容，会被正常渲染。
+
 ## 官方文档中没有提供的隐藏 API 我可以使用吗？
 
 不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
@@ -124,7 +139,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 你应该自行部署 iconfont 文件到你的网络上，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#svg-icons)，你就不用担心本地部署 iconfont 的问题了！
+在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#about-svg-icons)，你就不用担心本地部署 iconfont 的问题了！
 
 ## 如何拓展 antd 的组件？
 
@@ -177,7 +192,7 @@ npm ls dayjs
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
-你可以通过 [ConfigProvider](/components/config-provider-cn#content-security-policy) 来配置 `nonce` 属性。
+你可以通过 [ConfigProvider](/components/config-provider-cn#csp) 来配置 `nonce` 属性。
 
 ## 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
@@ -198,9 +213,9 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#faq-context-redux) 和 [Modal.useModal](/components/modal-cn#faq-context-redux) 来调用这些方法。
 
-2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
+2. 使用 [App.useApp](/components/app-cn#basic-usage) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 

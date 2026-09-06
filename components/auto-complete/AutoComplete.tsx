@@ -81,8 +81,8 @@ export interface AutoCompleteProps<
   classNames?: AutoCompleteSemanticAllType['classNamesAndFn'];
   styles?: AutoCompleteSemanticAllType['stylesAndFn'];
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */

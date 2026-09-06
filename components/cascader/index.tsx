@@ -144,7 +144,7 @@ export interface CascaderProps<
   Multiple extends boolean = boolean,
 > extends Omit<
     RcCascaderProps<OptionType, ValueField, Multiple>,
-    'checkable' | 'classNames' | 'styles'
+    'checkable' | 'classNames' | 'styles' | 'popupRender'
   > {
   multiple?: Multiple;
   size?: SizeType;
@@ -175,8 +175,8 @@ export interface CascaderProps<
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.listItem` instead */
   dropdownMenuColumnStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.popup.listItem` instead */

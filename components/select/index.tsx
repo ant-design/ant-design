@@ -103,7 +103,7 @@ export interface InternalSelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     RcSelectProps<ValueType, OptionType>,
-    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange'
+    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange' | 'popupRender'
   > {
   rootClassName?: string;
   prefix?: React.ReactNode;
@@ -130,6 +130,7 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
 }
 
 export interface SelectProps<

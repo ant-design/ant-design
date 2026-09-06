@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'وسع',
     collapse: 'طي',
   },
+  Carousel: {
+    prevSlide: 'الشريحة السابقة',
+    nextSlide: 'الشريحة التالية',
+  },
   Form: {
     optional: '(اختياري)',
     defaultValidateMessages: {
