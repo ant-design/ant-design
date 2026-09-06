@@ -611,7 +611,7 @@ describe('Select', () => {
     it.each([1, 2])(
       'locks single content line box to font-height when global lineHeight is %s',
       (lineHeight) => {
-        const { unmount } = render(
+        const { container, unmount } = render(
           <ConfigProvider theme={{ token: { lineHeight } }}>
             <Select defaultValue="one" options={[{ value: 'one', label: 'One' }]} />
           </ConfigProvider>,
@@ -625,6 +625,12 @@ describe('Select', () => {
             style.innerHTML.includes('line-height:var(--ant-select-font-height)'),
         );
         expect(singleContentLocked).toBeTruthy();
+
+        // Snapshot the rendered single selector DOM per lineHeight so
+        // structural regressions in this scenario are caught as well.
+        expect(container.querySelector('.ant-select-single')).toMatchSnapshot(
+          `single-selector-lineHeight-${lineHeight}`,
+        );
 
         unmount();
       },
