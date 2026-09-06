@@ -39,6 +39,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/clear-suffix-debug.tsx" debug>Clear suffix</code>
+<code src="./demo/line-height-debug.tsx" debug>Line height</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
 <code src="./demo/custom-label-render.tsx">Custom Selected Label Render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
