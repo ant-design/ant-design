@@ -125,4 +125,43 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  // https://github.com/ant-design/ant-design/issues/59083
+  it('should respect min when explicit sizes are re-based on a smaller container', () => {
+    // Simulates: panels dragged to explicit px sizes under a 1000px container,
+    // then the container shrinks to 500px. The stale px values must be
+    // re-clamped against min instead of being scaled below it.
+    const items = [
+      {
+        size: 200,
+        min: 200,
+      },
+      {
+        size: 800,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 500));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeGreaterThanOrEqual(200);
+  });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/issues/59083:
+  // float-dust compensation must not write a real `max` leftover into a panel.
+  it('should keep max-capped panels at max instead of absorbing the leftover', () => {
+    const items = [
+      {
+        max: 200,
+      },
+      {
+        max: 200,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([200, 200]);
+  });
 });
