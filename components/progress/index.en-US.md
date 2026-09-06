@@ -21,6 +21,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <!-- prettier-ignore -->
 <code src="./demo/line.tsx">Progress bar</code>
 <code src="./demo/circle.tsx">Circular progress bar</code>
+<code src="./demo/circle-start-position.tsx" version="6.7.0">Custom starting position</code>
 <code src="./demo/line-mini.tsx">Mini size progress bar</code>
 <code src="./demo/circle-micro.tsx">Responsive circular progress bar</code>
 <code src="./demo/circle-mini.tsx">Mini size circular progress bar</code>
@@ -71,6 +72,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| startPosition | The starting position, as a percentage from 0 to 100 clockwise from 12 o'clock | number | 0 | 6.7.0 |
 | steps | The total step count. When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them. When passing a number, the default value for `gap` is 2. | number \| { count: number, gap: number } | - | 5.16.0 |
 | strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
