@@ -168,7 +168,7 @@
     "@ant-design/tools": "^19.2.1",
     "@ant-design/x": "^2.7.0",
     "@ant-design/x-sdk": "^2.7.0",
-    "@antfu/eslint-config": "~9.3.0",
+    "@antfu/eslint-config": "~9.5.0",
     "@biomejs/biome": "^2.5.0",
     "@blazediff/core": "^1.9.1",
     "@codecov/webpack-plugin": "^2.0.1",
@@ -261,11 +261,11 @@
     "immer": "^11.1.4",
     "is-ci": "^4.1.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "30.4.2",
+    "jest": "30.5.1",
     "jest-axe": "^11.0.0",
     "jest-canvas-mock": "2.5.8",
-    "jest-environment-jsdom": "30.4.1",
-    "jest-environment-node": "30.4.1",
+    "jest-environment-jsdom": "30.5.1",
+    "jest-environment-node": "30.5.1",
     "jest-image-snapshot": "^6.5.2",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
@@ -348,7 +348,7 @@
     }
   ],
   "overrides": {
-    "jest-environment-node": "30.4.1"
+    "jest-environment-node": "30.5.1"
   },
   "title": "Ant Design",
   "tnpm": {
