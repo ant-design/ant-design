@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Kārtot',
     expand: 'Izvērst rindu',
     collapse: 'Sakļaut rindu',
+    expandAll: 'Izvērst visas rindas',
+    collapseAll: 'Sakļaut visas rindas',
     triggerDesc: 'Noklikšķiniet, lai kārtotu dilstošā secībā',
     triggerAsc: 'Noklikšķiniet, lai kārtotu augošā secībā',
     cancelSort: 'Noklikšķiniet, lai atceltu kārtošanu',
