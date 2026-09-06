@@ -164,4 +164,26 @@ describe('useSizes', () => {
 
     expect(postPxSizes).toEqual([200, 200]);
   });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/pull/59232:
+  // when mins exactly fill the container, every panel must pin at its `min`
+  // instead of being scaled below it.
+  it('should pin every panel at min when mins exactly fill the container', () => {
+    const items = [
+      {
+        size: 900,
+        min: 500,
+      },
+      {
+        size: 300,
+        min: 500,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeGreaterThanOrEqual(500);
+    expect(postPxSizes[1]).toBeGreaterThanOrEqual(500);
+  });
 });

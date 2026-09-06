@@ -60,7 +60,11 @@ export function autoPtgSizes(
   // below `min`: sizes re-based on a shrunken container arrive here already
   // over `1` in total, and plain scaling would push clamped panels back
   // under `min` (see #59083). Shrink only the part above `min`,
-  // proportionally; an explicit `0` (collapsed) is left alone.
+  // proportionally; an explicit `0` (collapsed) is left alone. The
+  // `floorTotal > 1` boundary is strict: when mins exactly fill the
+  // container (`floorTotal === 1`), the reducible-space branch below still
+  // applies and pins every panel at its `min` instead of scaling (see
+  // #59232 review).
   if (ptgSizes.length && !undefinedIndexes.length && currentTotalPtg !== 1) {
     // Handle the case when all sizes are 0
     if (currentTotalPtg === 0) {
@@ -78,7 +82,7 @@ export function autoPtgSizes(
       floorTotal += floor;
       reducible += num - floor;
     });
-    if (reducible <= 0 || floorTotal >= 1) {
+    if (reducible <= 0 || floorTotal > 1) {
       // Impossible case (mins alone overflow the container, or nothing to
       // shrink): keep the previous proportional behavior.
       const scale = 1 / currentTotalPtg;

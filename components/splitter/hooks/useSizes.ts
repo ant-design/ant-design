@@ -105,12 +105,14 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     const dust = total - mergedContainerSize;
     const tolerance = Number.EPSILON * mergedContainerSize * pxSizes.length;
     if (dust !== 0 && Math.abs(dust) <= tolerance && pxSizes.length) {
-      // Prefer a panel that stays within its `max` after absorbing;
-      // fall back to the last panel.
+      // Prefer a panel that stays within `[min, max]` after absorbing;
+      // fall back to the last panel. Never push a panel below its `min`
+      // — the compensation must not undo the resize clamp above.
       let target = pxSizes.length - 1;
       for (let i = pxSizes.length - 1; i >= 0; i -= 1) {
         const max = postPercentMaxSizes[i] * mergedContainerSize;
-        if (pxSizes[i] - dust <= max) {
+        const min = postPercentMinSizes[i] * mergedContainerSize;
+        if (pxSizes[i] - dust <= max && pxSizes[i] - dust >= min) {
           target = i;
           break;
         }
