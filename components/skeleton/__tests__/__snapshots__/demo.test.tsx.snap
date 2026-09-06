@@ -8,6 +8,7 @@ exports[`renders components/skeleton/demo/active.tsx correctly 1`] = `
     class="ant-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -32,6 +33,7 @@ exports[`renders components/skeleton/demo/basic.tsx correctly 1`] = `
     class="ant-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -95,6 +97,7 @@ exports[`renders components/skeleton/demo/complex.tsx correctly 1`] = `
     class="ant-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="ant-skeleton-title"
       style="width:50%"
     />
@@ -118,6 +121,7 @@ exports[`renders components/skeleton/demo/componentToken.tsx correctly 1`] = `
     class="ant-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="ant-skeleton-title"
       style="width:38%"
     />
@@ -734,6 +738,7 @@ Array [
                 class="ant-skeleton-section"
               >
                 <h3
+                  aria-hidden="true"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />
@@ -763,6 +768,7 @@ Array [
                 class="ant-skeleton-section"
               >
                 <h3
+                  aria-hidden="true"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />
@@ -792,6 +798,7 @@ Array [
                 class="ant-skeleton-section"
               >
                 <h3
+                  aria-hidden="true"
                   class="ant-skeleton-title"
                   style="width:50%"
                 />
@@ -830,6 +837,7 @@ exports[`renders components/skeleton/demo/style-class.tsx correctly 1`] = `
       class="ant-skeleton-section"
     >
       <h3
+        aria-hidden="true"
         class="ant-skeleton-title"
         style="border:1px solid #aaa"
       />
@@ -843,6 +851,7 @@ exports[`renders components/skeleton/demo/style-class.tsx correctly 1`] = `
       class="ant-skeleton-section"
     >
       <h3
+        aria-hidden="true"
         class="ant-skeleton-title"
         style="width:38%;background-color:rgba(229, 243, 254, 0.5);height:20px;border-radius:20px"
       />
