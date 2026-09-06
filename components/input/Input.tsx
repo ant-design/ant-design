@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
-import { composeRef, triggerFocus } from '@rc-component/util';
+import { composeRef, isReactRenderable, triggerFocus } from '@rc-component/util';
 import type { InputFocusOptions } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -114,6 +114,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     disabled: customDisabled,
     onBlur,
     onFocus,
+    prefix,
     suffix,
     allowClear,
     addonAfter,
@@ -227,7 +228,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange?.(e);
   };
 
-  const suffixNode = (hasFeedback || suffix) && (
+  const prefixNode = isReactRenderable(prefix) ? <>{prefix}</> : undefined;
+  const suffixNode = (hasFeedback || isReactRenderable(suffix)) && (
     <>
       {suffix}
       {hasFeedback && feedbackIcon}
@@ -249,6 +251,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       style={mergedStyles.root}
       styles={mergedStyles}
+      prefix={prefixNode}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
       className={clsx(
@@ -262,14 +265,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       )}
       onChange={handleChange}
       addonBefore={
-        addonBefore && (
+        isReactRenderable(addonBefore) && (
           <ContextIsolator form space>
             {addonBefore}
           </ContextIsolator>
         )
       }
       addonAfter={
-        addonAfter && (
+        isReactRenderable(addonAfter) && (
           <ContextIsolator form space>
             {addonAfter}
           </ContextIsolator>
