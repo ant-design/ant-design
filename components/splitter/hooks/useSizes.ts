@@ -105,10 +105,11 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     const dust = total - mergedContainerSize;
     const tolerance = Number.EPSILON * mergedContainerSize * pxSizes.length;
     if (dust !== 0 && Math.abs(dust) <= tolerance && pxSizes.length) {
-      // Prefer a panel that stays within `[min, max]` after absorbing;
-      // fall back to the last panel. Never push a panel below its `min`
-      // — the compensation must not undo the resize clamp above.
-      let target = pxSizes.length - 1;
+      // Absorb into a panel that stays within `[min, max]` afterwards.
+      // If no such panel exists (every candidate would break its bounds),
+      // skip compensation entirely: preserving min/max beats exact
+      // total-size matching at 1e-13 magnitude (see #59232 review).
+      let target = -1;
       for (let i = pxSizes.length - 1; i >= 0; i -= 1) {
         const max = postPercentMaxSizes[i] * mergedContainerSize;
         const min = postPercentMinSizes[i] * mergedContainerSize;
@@ -117,7 +118,9 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
           break;
         }
       }
-      pxSizes[target] -= dust;
+      if (target >= 0) {
+        pxSizes[target] -= dust;
+      }
     }
     return pxSizes;
   }, [postPercentSizes, mergedContainerSize, postPercentMaxSizes]);

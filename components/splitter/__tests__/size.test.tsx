@@ -186,4 +186,31 @@ describe('useSizes', () => {
     expect(postPxSizes[0]).toBeGreaterThanOrEqual(500);
     expect(postPxSizes[1]).toBeGreaterThanOrEqual(500);
   });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/pull/59232:
+  // when no panel can absorb float dust within `[min, max]`, compensation
+  // must be skipped instead of breaking a panel bound (the old fallback
+  // wrote the dust into the last panel: 149.9999999999999 < min 150).
+  it('should skip dust compensation when no panel can absorb it within bounds', () => {
+    const items = [
+      {
+        size: 290,
+        min: 150,
+        max: 290,
+      },
+      {
+        size: 150,
+        min: 150,
+        max: 150,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    // Panel 1 is pinned at min=max=150 and cannot absorb the +1.1e-13 dust
+    // without breaking its bound; panel 0 is already at its max=290, so the
+    // dust stays unabsorbed and panel 1 keeps exactly 150.
+    expect(postPxSizes[1]).toBe(150);
+  });
 });
