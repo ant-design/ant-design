@@ -31,6 +31,8 @@ const locale: PickerLocale = {
       'Nov',
       'Dez',
     ],
+    fieldDateFormat: 'DD.MM.YYYY',
+    fieldDateTimeFormat: 'DD.MM.YYYY HH:mm:ss',
     ...CalendarLocale,
   },
   timePickerLocale: {
