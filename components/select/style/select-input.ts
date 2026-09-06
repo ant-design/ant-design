@@ -305,6 +305,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [`${componentCls}-content`]: {
             ...textEllipsis,
             alignSelf: 'center',
+            // Lock the content line box to font-height so the global
+            // `lineHeight` token cannot stretch the single selector box.
+            // Padding is computed from the same `font-height`, so the total
+            // stays at `controlHeight` (see #59091).
+            lineHeight: varRef('font-height'),
 
             '&-has-value': {
               display: 'block',

@@ -605,4 +605,29 @@ describe('Select', () => {
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/59091
+  describe('single selector height vs global lineHeight', () => {
+    it.each([1, 2])(
+      'locks single content line box to font-height when global lineHeight is %s',
+      (lineHeight) => {
+        const { unmount } = render(
+          <ConfigProvider theme={{ token: { lineHeight } }}>
+            <Select defaultValue="one" options={[{ value: 'one', label: 'One' }]} />
+          </ConfigProvider>,
+        );
+
+        const singleContentLocked = Array.from(
+          document.querySelectorAll('style[data-css-hash]'),
+        ).some(
+          (style) =>
+            style.innerHTML.includes('.ant-select-single') &&
+            style.innerHTML.includes('line-height:var(--ant-select-font-height)'),
+        );
+        expect(singleContentLocked).toBeTruthy();
+
+        unmount();
+      },
+    );
+  });
 });
