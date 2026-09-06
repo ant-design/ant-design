@@ -1,5 +1,6 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { isReactRenderable } from '@rc-component/util';
 
 import { isFunction } from '../_util/is';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
@@ -14,7 +15,11 @@ import { getConfirmLocale } from './locale';
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {isReactRenderable(closeIcon) ? (
+        closeIcon
+      ) : (
+        <CloseOutlined className={`${prefixCls}-close-icon`} />
+      )}
     </span>
   );
 }

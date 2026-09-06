@@ -312,4 +312,9 @@ describe('Avatar Render', () => {
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: rgb(0, 0, 255)');
   });
+
+  it('should render numeric 0 custom icon', () => {
+    const { container } = render(<Avatar icon={0} />);
+    expect(container.querySelector('.ant-avatar-icon')?.textContent).toBe('0');
+  });
 });
