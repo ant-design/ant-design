@@ -1,23 +1,23 @@
 import React from 'react';
 
 import { render } from '../../../tests/utils';
-import type { TooltipRef } from '../../tooltip';
+import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 let mockForceAlign: jest.Mock;
+let mockTooltipProps: TooltipProps;
 
 jest.mock('../../tooltip', () => {
   const ReactReal: typeof React = jest.requireActual('react');
   return {
     __esModule: true,
-    default: ReactReal.forwardRef<Partial<TooltipRef>, React.HTMLAttributes<HTMLDivElement>>(
-      (props, ref) => {
-        ReactReal.useImperativeHandle(ref, () => ({
-          forceAlign: mockForceAlign,
-        }));
-        return <div {...props} />;
-      },
-    ),
+    default: ReactReal.forwardRef<Partial<TooltipRef>, TooltipProps>((props, ref) => {
+      mockTooltipProps = props;
+      ReactReal.useImperativeHandle(ref, () => ({
+        forceAlign: mockForceAlign,
+      }));
+      return <div />;
+    }),
   };
 });
 
@@ -56,5 +56,22 @@ describe('SliderTooltip', () => {
     rerender(<SliderTooltip open draggingDelete value={3} />);
     jest.runAllTimers();
     expect(mockForceAlign).not.toHaveBeenCalled();
+  });
+
+  it('uses viewport-priority overflow adjustment by default', () => {
+    render(<SliderTooltip open />);
+
+    expect(mockTooltipProps.autoAdjustOverflow).toEqual({
+      adjustX: 1,
+      adjustY: 1,
+      shiftX: true,
+      shiftY: true,
+    });
+  });
+
+  it('preserves disabled overflow adjustment', () => {
+    render(<SliderTooltip open autoAdjustOverflow={false} />);
+
+    expect(mockTooltipProps.autoAdjustOverflow).toBe(false);
   });
 });
