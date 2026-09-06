@@ -4,6 +4,7 @@ import { warning } from '@rc-component/util';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
+import type { MaskType } from '../../_util/hooks';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import App from '../../app';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
@@ -1334,6 +1335,28 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       </ConfigProvider>,
     );
     expect(document.querySelector('.custom-error-icon')).toBeTruthy();
+  });
+
+  it('should not mutate the mask config object', async () => {
+    const mask: MaskType = { blur: true };
+    await open({ mask });
+    expect(mask).toEqual({ blur: true });
+  });
+
+  it('should keep mask closable when the mask config object is reused', async () => {
+    const mask: MaskType = { blur: true };
+    await open({ mask });
+    Modal.destroyAll();
+    await waitFakeTimer();
+
+    const onCancel = jest.fn();
+    render(<Modal open mask={mask} onCancel={onCancel} />);
+    await waitFakeTimer();
+
+    const wrap = $$('.ant-modal-wrap')[0];
+    fireEvent.mouseDown(wrap);
+    fireEvent.click(wrap);
+    expect(onCancel).toHaveBeenCalled();
   });
 
   it('should be able to config warning icon', async () => {
