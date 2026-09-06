@@ -209,13 +209,19 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
         // `display: inline-block` keeps it an atomic inline box so `vertical-align` still applies
         // even under a CSS reset that forces `svg { display: block }` (e.g. Tailwind Preflight),
         // which would otherwise drop the icon onto its own line. `vertical-align: middle` centres its
-        // margin box on the x-height line; `margin-block-end` then lifts it by half its own value onto
-        // the cap-height centre (capHeight − xHeight ≈ 0.2em across typical fonts), keeping it centred
-        // at any icon size.
+        // margin box on the x-height line.
         // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
         '&-icon > svg': {
           display: 'inline-block',
           verticalAlign: 'middle',
+        },
+
+        // When a label follows the icon, `margin-block-end` lifts the `<svg>` by half its own value
+        // from the x-height line onto the cap-height centre (capHeight − xHeight ≈ 0.2em across
+        // typical fonts), keeping it centred with the text at any icon size.
+        // An icon-only item has no text to align against, so the lift is skipped there:
+        // the `<svg>` would otherwise ride above the centre of the item.
+        '&-icon:not(:only-child) > svg': {
           marginBlockEnd: '0.2em',
         },
 

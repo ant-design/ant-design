@@ -327,6 +327,21 @@ describe('Segmented', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(container.querySelectorAll(`span.${prefixCls}-item-icon`).length).toBe(2);
+
+    // https://github.com/ant-design/ant-design/issues/59205
+    // The cap-height lift for a bare `<svg>` only applies when a label follows the icon;
+    // an icon-only item has no text to align against.
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    const svgRules = cssText
+      .split('}')
+      .filter((rule) => rule.includes(`${prefixCls}-item-icon`) && rule.includes('>svg'));
+    const liftRule = svgRules.find((rule) => rule.includes('margin-block-end'));
+    expect(liftRule).toContain(`${prefixCls}-item-icon:not(:only-child)>svg`);
+    const alignRule = svgRules.find((rule) => rule.includes('vertical-align:middle'));
+    expect(alignRule).not.toContain(':only-child');
+    expect(alignRule).not.toContain('margin-block-end');
     expect(
       container
         .querySelectorAll(`div.${prefixCls}-item-label`)[1]
