@@ -100,6 +100,7 @@ const jestShim: any = {
   runAllTimers: vi.runAllTimers,
   runOnlyPendingTimers: vi.runOnlyPendingTimers,
   clearAllTimers: vi.clearAllTimers,
+  getTimerCount: vi.getTimerCount,
   setSystemTime: vi.setSystemTime,
   getRealSystemTime: vi.getRealSystemTime,
   requireActual,
