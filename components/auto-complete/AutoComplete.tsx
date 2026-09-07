@@ -120,6 +120,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     onOpenChange,
     styles,
     classNames,
+    suffix,
+    suffixIcon,
     popupMatchSelectWidth,
     dropdownMatchSelectWidth,
   } = props;
@@ -261,7 +263,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [mergedStyles, style, dropdownStyle],
   );
 
-  const mergedSuffix = props.suffix !== undefined ? props.suffix : (props.suffixIcon ?? null);
+  const mergedSuffix = suffix !== undefined ? suffix : (suffixIcon ?? null);
 
   return (
     <Select

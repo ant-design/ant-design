@@ -211,6 +211,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     classNames,
     suffix: customSuffix,
     suffixIcon: customSuffixIcon,
+    showArrow,
     ...restProps
   } = props;
 
@@ -350,7 +351,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   }, [maxCount, showCheckedStrategy, treeCheckStrictly]);
 
   const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
-  const showSuffix = useShowArrow(mergedCustomSuffix, props.showArrow);
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -361,6 +362,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     suffix: mergedCustomSuffix,
     multiple: isMultiple,
     showSuffix,
+    showArrow,
     hasFeedback,
     feedbackIcon,
     prefixCls,

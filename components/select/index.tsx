@@ -214,6 +214,7 @@ const InternalSelect = <
     styles,
     classNames,
     clearIcon,
+    showArrow,
     showSearch,
     ...rest
   } = props;
@@ -277,7 +278,7 @@ const InternalSelect = <
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
   const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
-  const showSuffix = useShowArrow(mergedCustomSuffix, props.showArrow);
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -318,6 +319,7 @@ const InternalSelect = <
     hasFeedback,
     feedbackIcon,
     showSuffix,
+    showArrow,
     prefixCls,
     componentName: 'Select',
     clearIcon,
