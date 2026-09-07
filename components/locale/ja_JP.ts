@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: '展開する',
     collapse: '折り畳む',
   },
+  Carousel: {
+    prevSlide: '前のスライド',
+    nextSlide: '次のスライド',
+  },
   Form: {
     optional: '(オプション)',
     defaultValidateMessages: {

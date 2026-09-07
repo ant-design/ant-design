@@ -87,7 +87,7 @@ export interface AutoCompleteProps<
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   showSearch?:
     | boolean
     | Pick<

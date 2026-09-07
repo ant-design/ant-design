@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Hafta seç',
     rangePlaceholder: ['Başlangıç tarihi', 'Bitiş tarihi'],
     rangeYearPlaceholder: ['Başlangıç yılı', 'Bitiş yılı'],
+    rangeQuarterPlaceholder: ['Başlangıç çeyreği', 'Bitiş çeyreği'],
     rangeMonthPlaceholder: ['Başlangıç ayı', 'Bitiş ayı'],
     rangeWeekPlaceholder: ['Başlangıç haftası', 'Bitiş haftası'],
 
