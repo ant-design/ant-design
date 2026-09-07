@@ -8,6 +8,7 @@ import type {
   NotificationConfig as RcNotificationConfig,
   NotificationProps as RcNotificationProps,
 } from '@rc-component/notification';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import {
@@ -15,7 +16,7 @@ import {
   useMergeSemantic,
   useSemanticRootStyle,
 } from '../_util/hooks/useMergeSemantic';
-import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';

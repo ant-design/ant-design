@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Bontsa ki',
     collapse: 'Összeomlás',
   },
+  Carousel: {
+    prevSlide: 'Előző dia',
+    nextSlide: 'Következő dia',
+  },
   Form: {
     optional: '(választható)',
     defaultValidateMessages: {

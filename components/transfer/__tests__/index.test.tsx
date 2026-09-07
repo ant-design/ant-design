@@ -466,6 +466,29 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenCalledWith(['1'], []);
   });
 
+  it('should disable check all when filtered items are all disabled', () => {
+    const { container } = render(
+      <Transfer
+        dataSource={[
+          { key: 'enabled', title: 'Enabled item' },
+          { key: 'disabled', title: 'Only disabled item', disabled: true },
+        ]}
+        showSearch
+        render={(item) => item.title}
+      />,
+    );
+
+    const sourceSection = container.querySelectorAll('.ant-transfer-section').item(0);
+
+    fireEvent.change(sourceSection.querySelector('input[type="text"]')!, {
+      target: { value: 'Only disabled item' },
+    });
+
+    expect(
+      sourceSection.querySelector('.ant-transfer-list-header input[type="checkbox"]'),
+    ).toBeDisabled();
+  });
+
   it('should transfer just the filtered item after search by input', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);

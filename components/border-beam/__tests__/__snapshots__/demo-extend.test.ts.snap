@@ -169,24 +169,24 @@ exports[`renders components/border-beam/demo/count.tsx extend context correctly 
         <div
           class="ant-card-head-title"
         >
-          Multiple beams
+          Configured beams
         </div>
       </div>
     </div>
     <div
       class="ant-card-body"
     >
-      Set count to distribute multiple beams evenly around the container border.
+      Use items to customize the color and size of each beam.
     </div>
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent); --ant-border-beam-size: 48px; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #52c41a 0%, #52c41a 70%, transparent); --ant-border-beam-size: 72px; --ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
 </div>

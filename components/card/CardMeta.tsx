@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -88,19 +89,19 @@ const CardMeta = React.forwardRef<CardMetaRef, CardMetaProps>((props, ref) => {
 
   const sectionClassNames = clsx(`${metaPrefixCls}-section`, mergedClassNames.section);
 
-  const avatarDom: React.ReactNode = avatar ? (
+  const avatarDom: React.ReactNode = isReactRenderable(avatar) ? (
     <div className={avatarClassNames} style={mergedStyles.avatar}>
       {avatar}
     </div>
   ) : null;
 
-  const titleDom: React.ReactNode = title ? (
+  const titleDom: React.ReactNode = isReactRenderable(title) ? (
     <div className={titleClassNames} style={mergedStyles.title}>
       {title}
     </div>
   ) : null;
 
-  const descriptionDom: React.ReactNode = description ? (
+  const descriptionDom: React.ReactNode = isReactRenderable(description) ? (
     <div className={descriptionClassNames} style={mergedStyles.description}>
       {description}
     </div>

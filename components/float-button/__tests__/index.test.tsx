@@ -129,4 +129,10 @@ describe('FloatButton', () => {
     const element = container?.querySelector<HTMLButtonElement>('.ant-float-btn');
     expect(element?.type).toBe(type);
   });
+
+  it('should render numeric 0 content without fallback icon', () => {
+    const { container } = render(<FloatButton content={0} shape="square" />);
+    expect(container.querySelector('.ant-float-btn-icon-only')).toBeFalsy();
+    expect(container.querySelector('.ant-float-btn')?.textContent).toContain('0');
+  });
 });

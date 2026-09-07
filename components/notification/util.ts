@@ -1,8 +1,8 @@
 import type * as React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSMotionProps } from '@rc-component/motion';
+import { isNonNullable } from '@rc-component/util';
 
-import { isNonNullable } from '../_util/is';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import type { NotificationConfig } from './interface';
 

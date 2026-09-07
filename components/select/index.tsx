@@ -101,7 +101,10 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'styles' | 'classNames'> {
+> extends Omit<
+    RcSelectProps<ValueType, OptionType>,
+    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange' | 'popupRender'
+  > {
   rootClassName?: string;
   prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
@@ -124,6 +127,7 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
 }
 
 export interface SelectProps<
@@ -151,7 +155,7 @@ export interface SelectProps<
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: SelectProps['popupRender'];
   /** @deprecated Please use `onOpenChange` instead */
-  onDropdownVisibleChange?: SelectProps['onPopupVisibleChange'];
+  onDropdownVisibleChange?: RcSelectProps<ValueType, OptionType>['onPopupVisibleChange'];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
