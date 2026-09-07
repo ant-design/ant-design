@@ -80812,6 +80812,9 @@ exports[`Locale Provider should display the text as eu 1`] = `
                   <thead>
                     <tr>
                       <th>
+                        ig
+                      </th>
+                      <th>
                         al
                       </th>
                       <th>
@@ -80829,13 +80832,20 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       <th>
                         lr
                       </th>
-                      <th>
-                        ig
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td
+                        class="ant-picker-cell"
+                        title="2017-08-27"
+                      >
+                        <div
+                          class="ant-picker-cell-inner"
+                        >
+                          27
+                        </div>
+                      </td>
                       <td
                         class="ant-picker-cell"
                         title="2017-08-28"
@@ -80896,6 +80906,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           2
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-03"
@@ -80906,8 +80918,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           3
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-04"
@@ -80968,6 +80978,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           9
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-10"
@@ -80978,8 +80990,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           10
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-11"
@@ -81040,6 +81050,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           16
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-17"
@@ -81050,8 +81062,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           17
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2017-09-18"
@@ -81112,6 +81122,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           23
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-24"
@@ -81122,8 +81134,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           24
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-25"
@@ -81184,6 +81194,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           30
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-01"
@@ -81194,8 +81206,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           1
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-02"
@@ -81254,16 +81264,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           class="ant-picker-cell-inner"
                         >
                           7
-                        </div>
-                      </td>
-                      <td
-                        class="ant-picker-cell"
-                        title="2017-10-08"
-                      >
-                        <div
-                          class="ant-picker-cell-inner"
-                        >
-                          8
                         </div>
                       </td>
                     </tr>
@@ -83041,6 +83041,9 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            ig
+                          </th>
+                          <th>
                             al
                           </th>
                           <th>
@@ -83058,13 +83061,20 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           <th>
                             lr
                           </th>
-                          <th>
-                            ig
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-08-27"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              27
+                            </div>
+                          </td>
                           <td
                             class="ant-picker-cell"
                             title="2017-08-28"
@@ -83125,6 +83135,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               2
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-03"
@@ -83135,8 +83147,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               3
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-04"
@@ -83197,6 +83207,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               9
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-10"
@@ -83207,8 +83219,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               10
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-11"
@@ -83269,6 +83279,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               16
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-17"
@@ -83279,8 +83291,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               17
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2017-09-18"
@@ -83341,6 +83351,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               23
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-24"
@@ -83351,8 +83363,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               24
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-25"
@@ -83413,6 +83423,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               30
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-01"
@@ -83423,8 +83435,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-02"
@@ -83483,16 +83493,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               7
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-10-08"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              8
                             </div>
                           </td>
                         </tr>
@@ -83583,6 +83583,9 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            ig
+                          </th>
+                          <th>
                             al
                           </th>
                           <th>
@@ -83600,73 +83603,10 @@ exports[`Locale Provider should display the text as eu 1`] = `
                           <th>
                             lr
                           </th>
-                          <th>
-                            ig
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-25"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              25
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-26"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              26
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-27"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              27
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-28"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              28
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-29"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              29
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-30"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              30
-                            </div>
-                          </td>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-01"
@@ -83677,8 +83617,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-02"
@@ -83739,6 +83677,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               7
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-08"
@@ -83749,8 +83689,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               8
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-09"
@@ -83811,6 +83749,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               14
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-15"
@@ -83821,8 +83761,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               15
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-16"
@@ -83883,6 +83821,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               21
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-22"
@@ -83893,8 +83833,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               22
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-23"
@@ -83955,6 +83893,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               28
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-29"
@@ -83965,8 +83905,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               29
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-30"
@@ -84027,6 +83965,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               4
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-11-05"
@@ -84035,6 +83975,66 @@ exports[`Locale Provider should display the text as eu 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               5
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-06"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              6
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-07"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              7
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-08"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              8
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-09"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              9
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-10"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              10
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-11"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              11
                             </div>
                           </td>
                         </tr>
@@ -84703,6 +84703,9 @@ exports[`Locale Provider should display the text as eu 1`] = `
             <thead>
               <tr>
                 <th>
+                  ig
+                </th>
+                <th>
                   al
                 </th>
                 <th>
@@ -84720,13 +84723,27 @@ exports[`Locale Provider should display the text as eu 1`] = `
                 <th>
                   lr
                 </th>
-                <th>
-                  ig
-                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td
+                  class="ant-picker-cell"
+                  title="2017-08-27"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
                 <td
                   class="ant-picker-cell"
                   title="2017-08-28"
@@ -84829,6 +84846,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-03"
@@ -84846,8 +84865,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-04"
@@ -84950,6 +84967,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-10"
@@ -84967,8 +84986,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-11"
@@ -85071,6 +85088,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-17"
@@ -85088,8 +85107,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-18"
@@ -85192,6 +85209,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-24"
@@ -85209,8 +85228,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-25"
@@ -85313,6 +85330,8 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-01"
@@ -85330,8 +85349,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-02"
@@ -85428,23 +85445,6 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       class="ant-picker-calendar-date-value"
                     >
                       07
-                    </div>
-                    <div
-                      class="ant-picker-calendar-date-content"
-                    />
-                  </div>
-                </td>
-                <td
-                  class="ant-picker-cell"
-                  title="2017-10-08"
-                >
-                  <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
-                  >
-                    <div
-                      class="ant-picker-calendar-date-value"
-                    >
-                      08
                     </div>
                     <div
                       class="ant-picker-calendar-date-content"
@@ -243095,6 +243095,9 @@ exports[`Locale Provider should display the text as my 1`] = `
                   <thead>
                     <tr>
                       <th>
+                        နွေ
+                      </th>
+                      <th>
                         လာ
                       </th>
                       <th>
@@ -243112,13 +243115,20 @@ exports[`Locale Provider should display the text as my 1`] = `
                       <th>
                         နေ
                       </th>
-                      <th>
-                        နွေ
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td
+                        class="ant-picker-cell"
+                        title="2017-08-27"
+                      >
+                        <div
+                          class="ant-picker-cell-inner"
+                        >
+                          27
+                        </div>
+                      </td>
                       <td
                         class="ant-picker-cell"
                         title="2017-08-28"
@@ -243179,6 +243189,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                           2
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-03"
@@ -243189,8 +243201,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           3
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-04"
@@ -243251,6 +243261,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                           9
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-10"
@@ -243261,8 +243273,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           10
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-11"
@@ -243323,6 +243333,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                           16
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-17"
@@ -243333,8 +243345,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           17
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2017-09-18"
@@ -243395,6 +243405,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                           23
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-24"
@@ -243405,8 +243417,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           24
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-25"
@@ -243467,6 +243477,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                           30
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-01"
@@ -243477,8 +243489,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           1
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-02"
@@ -243537,16 +243547,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                           class="ant-picker-cell-inner"
                         >
                           7
-                        </div>
-                      </td>
-                      <td
-                        class="ant-picker-cell"
-                        title="2017-10-08"
-                      >
-                        <div
-                          class="ant-picker-cell-inner"
-                        >
-                          8
                         </div>
                       </td>
                     </tr>
@@ -245324,6 +245324,9 @@ exports[`Locale Provider should display the text as my 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            နွေ
+                          </th>
+                          <th>
                             လာ
                           </th>
                           <th>
@@ -245341,13 +245344,20 @@ exports[`Locale Provider should display the text as my 1`] = `
                           <th>
                             နေ
                           </th>
-                          <th>
-                            နွေ
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-08-27"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              27
+                            </div>
+                          </td>
                           <td
                             class="ant-picker-cell"
                             title="2017-08-28"
@@ -245408,6 +245418,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               2
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-03"
@@ -245418,8 +245430,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               3
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-04"
@@ -245480,6 +245490,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               9
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-10"
@@ -245490,8 +245502,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               10
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-11"
@@ -245552,6 +245562,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               16
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-17"
@@ -245562,8 +245574,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               17
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2017-09-18"
@@ -245624,6 +245634,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               23
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-24"
@@ -245634,8 +245646,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               24
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-25"
@@ -245696,6 +245706,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               30
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-01"
@@ -245706,8 +245718,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-02"
@@ -245766,16 +245776,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               7
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-10-08"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              8
                             </div>
                           </td>
                         </tr>
@@ -245866,6 +245866,9 @@ exports[`Locale Provider should display the text as my 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            နွေ
+                          </th>
+                          <th>
                             လာ
                           </th>
                           <th>
@@ -245883,73 +245886,10 @@ exports[`Locale Provider should display the text as my 1`] = `
                           <th>
                             နေ
                           </th>
-                          <th>
-                            နွေ
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-25"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              25
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-26"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              26
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-27"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              27
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-28"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              28
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-29"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              29
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-30"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              30
-                            </div>
-                          </td>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-01"
@@ -245960,8 +245900,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-02"
@@ -246022,6 +245960,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               7
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-08"
@@ -246032,8 +245972,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               8
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-09"
@@ -246094,6 +246032,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               14
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-15"
@@ -246104,8 +246044,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               15
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-16"
@@ -246166,6 +246104,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               21
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-22"
@@ -246176,8 +246116,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               22
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-23"
@@ -246238,6 +246176,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               28
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-29"
@@ -246248,8 +246188,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                               29
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-30"
@@ -246310,6 +246248,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                               4
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-11-05"
@@ -246318,6 +246258,66 @@ exports[`Locale Provider should display the text as my 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               5
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-06"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              6
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-07"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              7
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-08"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              8
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-09"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              9
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-10"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              10
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-11"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              11
                             </div>
                           </td>
                         </tr>
@@ -246986,6 +246986,9 @@ exports[`Locale Provider should display the text as my 1`] = `
             <thead>
               <tr>
                 <th>
+                  နွေ
+                </th>
+                <th>
                   လာ
                 </th>
                 <th>
@@ -247003,13 +247006,27 @@ exports[`Locale Provider should display the text as my 1`] = `
                 <th>
                   နေ
                 </th>
-                <th>
-                  နွေ
-                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td
+                  class="ant-picker-cell"
+                  title="2017-08-27"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
                 <td
                   class="ant-picker-cell"
                   title="2017-08-28"
@@ -247112,6 +247129,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-03"
@@ -247129,8 +247148,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-04"
@@ -247233,6 +247250,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-10"
@@ -247250,8 +247269,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-11"
@@ -247354,6 +247371,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-17"
@@ -247371,8 +247390,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-18"
@@ -247475,6 +247492,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-24"
@@ -247492,8 +247511,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-25"
@@ -247596,6 +247613,8 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-01"
@@ -247613,8 +247632,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-02"
@@ -247711,23 +247728,6 @@ exports[`Locale Provider should display the text as my 1`] = `
                       class="ant-picker-calendar-date-value"
                     >
                       07
-                    </div>
-                    <div
-                      class="ant-picker-calendar-date-content"
-                    />
-                  </div>
-                </td>
-                <td
-                  class="ant-picker-cell"
-                  title="2017-10-08"
-                >
-                  <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
-                  >
-                    <div
-                      class="ant-picker-calendar-date-value"
-                    >
-                      08
                     </div>
                     <div
                       class="ant-picker-calendar-date-content"
@@ -358265,6 +358265,9 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                   <thead>
                     <tr>
                       <th>
+                        Ya
+                      </th>
+                      <th>
                         Du
                       </th>
                       <th>
@@ -358282,13 +358285,20 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       <th>
                         Sha
                       </th>
-                      <th>
-                        Ya
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td
+                        class="ant-picker-cell"
+                        title="2017-08-27"
+                      >
+                        <div
+                          class="ant-picker-cell-inner"
+                        >
+                          27
+                        </div>
+                      </td>
                       <td
                         class="ant-picker-cell"
                         title="2017-08-28"
@@ -358349,6 +358359,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           2
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-03"
@@ -358359,8 +358371,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           3
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-04"
@@ -358421,6 +358431,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           9
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-10"
@@ -358431,8 +358443,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           10
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-11"
@@ -358493,6 +358503,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           16
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-17"
@@ -358503,8 +358515,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           17
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2017-09-18"
@@ -358565,6 +358575,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           23
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-24"
@@ -358575,8 +358587,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           24
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell ant-picker-cell-in-view"
                         title="2017-09-25"
@@ -358637,6 +358647,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           30
                         </div>
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-01"
@@ -358647,8 +358659,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           1
                         </div>
                       </td>
-                    </tr>
-                    <tr>
                       <td
                         class="ant-picker-cell"
                         title="2017-10-02"
@@ -358707,16 +358717,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           class="ant-picker-cell-inner"
                         >
                           7
-                        </div>
-                      </td>
-                      <td
-                        class="ant-picker-cell"
-                        title="2017-10-08"
-                      >
-                        <div
-                          class="ant-picker-cell-inner"
-                        >
-                          8
                         </div>
                       </td>
                     </tr>
@@ -360494,6 +360494,9 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            Ya
+                          </th>
+                          <th>
                             Du
                           </th>
                           <th>
@@ -360511,13 +360514,20 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           <th>
                             Sha
                           </th>
-                          <th>
-                            Ya
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-08-27"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              27
+                            </div>
+                          </td>
                           <td
                             class="ant-picker-cell"
                             title="2017-08-28"
@@ -360578,6 +360588,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               2
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-03"
@@ -360588,8 +360600,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               3
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-04"
@@ -360650,6 +360660,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               9
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-10"
@@ -360660,8 +360672,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               10
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-11"
@@ -360722,6 +360732,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               16
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-17"
@@ -360732,8 +360744,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               17
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2017-09-18"
@@ -360794,6 +360804,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               23
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-24"
@@ -360804,8 +360816,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               24
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-09-25"
@@ -360866,6 +360876,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               30
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-01"
@@ -360876,8 +360888,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-10-02"
@@ -360936,16 +360946,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               7
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-10-08"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              8
                             </div>
                           </td>
                         </tr>
@@ -361036,6 +361036,9 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       <thead>
                         <tr>
                           <th>
+                            Ya
+                          </th>
+                          <th>
                             Du
                           </th>
                           <th>
@@ -361053,73 +361056,10 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                           <th>
                             Sha
                           </th>
-                          <th>
-                            Ya
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-25"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              25
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-26"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              26
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-27"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              27
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-28"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              28
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-29"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              29
-                            </div>
-                          </td>
-                          <td
-                            class="ant-picker-cell"
-                            title="2017-09-30"
-                          >
-                            <div
-                              class="ant-picker-cell-inner"
-                            >
-                              30
-                            </div>
-                          </td>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-01"
@@ -361130,8 +361070,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               1
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-02"
@@ -361192,6 +361130,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               7
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-08"
@@ -361202,8 +361142,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               8
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-09"
@@ -361264,6 +361202,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               14
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-15"
@@ -361274,8 +361214,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               15
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-16"
@@ -361336,6 +361274,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               21
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-22"
@@ -361346,8 +361286,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               22
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-23"
@@ -361408,6 +361346,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               28
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-29"
@@ -361418,8 +361358,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               29
                             </div>
                           </td>
-                        </tr>
-                        <tr>
                           <td
                             class="ant-picker-cell ant-picker-cell-in-view"
                             title="2017-10-30"
@@ -361480,6 +361418,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               4
                             </div>
                           </td>
+                        </tr>
+                        <tr>
                           <td
                             class="ant-picker-cell"
                             title="2017-11-05"
@@ -361488,6 +361428,66 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                               class="ant-picker-cell-inner"
                             >
                               5
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-06"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              6
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-07"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              7
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-08"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              8
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-09"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              9
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-10"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              10
+                            </div>
+                          </td>
+                          <td
+                            class="ant-picker-cell"
+                            title="2017-11-11"
+                          >
+                            <div
+                              class="ant-picker-cell-inner"
+                            >
+                              11
                             </div>
                           </td>
                         </tr>
@@ -362156,6 +362156,9 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             <thead>
               <tr>
                 <th>
+                  Ya
+                </th>
+                <th>
                   Du
                 </th>
                 <th>
@@ -362173,13 +362176,27 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                 <th>
                   Sha
                 </th>
-                <th>
-                  Ya
-                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td
+                  class="ant-picker-cell"
+                  title="2017-08-27"
+                >
+                  <div
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                  >
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
+                  </div>
+                </td>
                 <td
                   class="ant-picker-cell"
                   title="2017-08-28"
@@ -362282,6 +362299,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-03"
@@ -362299,8 +362318,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-04"
@@ -362403,6 +362420,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-10"
@@ -362420,8 +362439,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-11"
@@ -362524,6 +362541,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-17"
@@ -362541,8 +362560,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-18"
@@ -362645,6 +362662,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-24"
@@ -362662,8 +362681,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-25"
@@ -362766,6 +362783,8 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-01"
@@ -362783,8 +362802,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     />
                   </div>
                 </td>
-              </tr>
-              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-10-02"
@@ -362881,23 +362898,6 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       class="ant-picker-calendar-date-value"
                     >
                       07
-                    </div>
-                    <div
-                      class="ant-picker-calendar-date-content"
-                    />
-                  </div>
-                </td>
-                <td
-                  class="ant-picker-cell"
-                  title="2017-10-08"
-                >
-                  <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
-                  >
-                    <div
-                      class="ant-picker-calendar-date-value"
-                    >
-                      08
                     </div>
                     <div
                       class="ant-picker-calendar-date-content"

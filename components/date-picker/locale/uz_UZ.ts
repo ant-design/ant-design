@@ -1,5 +1,3 @@
-import 'dayjs/locale/uz';
-
 import CalendarLocale from '@rc-component/picker/locale/uz_UZ';
 
 import TimePickerLocale from '../../time-picker/locale/uz_UZ';
@@ -18,21 +16,6 @@ const locale: PickerLocale = {
     rangeMonthPlaceholder: ['Boshlanish oyi', 'Tugallanish oyi'],
     rangeWeekPlaceholder: ['Boshlanish haftasi', 'Tugallanish haftasi'],
     ...CalendarLocale,
-    shortWeekDays: ['Ya', 'Du', 'Se', 'Cho', 'Pa', 'Ju', 'Sha'],
-    shortMonths: [
-      'Yan',
-      'Fev',
-      'Mar',
-      'Apr',
-      'May',
-      'Iyun',
-      'Iyul',
-      'Avg',
-      'Sen',
-      'Okt',
-      'Noy',
-      'Dek',
-    ],
   },
   timePickerLocale: {
     ...TimePickerLocale,

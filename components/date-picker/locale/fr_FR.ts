@@ -1,5 +1,3 @@
-import 'dayjs/locale/fr';
-
 import CalendarLocale from '@rc-component/picker/locale/fr_FR';
 
 import TimePickerLocale from '../../time-picker/locale/fr_FR';

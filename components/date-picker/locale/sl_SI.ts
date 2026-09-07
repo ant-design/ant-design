@@ -1,5 +1,3 @@
-import 'dayjs/locale/sl';
-
 import TimePickerLocale from '../../time-picker/locale/sl_SI';
 import type { PickerLocale } from '../generatePicker';
 

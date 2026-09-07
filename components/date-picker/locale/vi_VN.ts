@@ -1,5 +1,3 @@
-import 'dayjs/locale/vi';
-
 import CalendarLocale from '@rc-component/picker/locale/vi_VN';
 
 import TimePickerLocale from '../../time-picker/locale/vi_VN';

@@ -26,7 +26,7 @@ describe('DatePicker locale without application Day.js locale imports', () => {
     expect(baseElement.querySelector('.ant-picker-month-btn')).toHaveTextContent('8月');
     expect(
       Array.from(baseElement.querySelectorAll('thead th'), (cell) => cell.textContent),
-    ).toEqual(['一', '二', '三', '四', '五', '六', '日']);
+    ).toEqual(['日', '一', '二', '三', '四', '五', '六']);
 
     fireEvent.click(baseElement.querySelector('.ant-picker-month-btn')!);
     expect(baseElement.querySelector('[title="2026-08"]')).toHaveTextContent('8月');
@@ -43,7 +43,7 @@ describe('DatePicker locale without application Day.js locale imports', () => {
     expect(baseElement.querySelector('.ant-picker-month-btn')).toHaveTextContent('août');
     expect(
       Array.from(baseElement.querySelectorAll('thead th'), (cell) => cell.textContent),
-    ).toEqual(['lu', 'ma', 'me', 'je', 've', 'sa', 'di']);
+    ).toEqual(['di', 'lu', 'ma', 'me', 'je', 've', 'sa']);
   });
 
   it('preserves full month formatting in the header and month choices', () => {
@@ -62,7 +62,7 @@ describe('DatePicker locale without application Day.js locale imports', () => {
     expect(baseElement.querySelector('.ant-picker-month-btn')).toHaveTextContent('Avg');
     expect(
       Array.from(baseElement.querySelectorAll('thead th'), (cell) => cell.textContent),
-    ).toEqual(['Du', 'Se', 'Cho', 'Pa', 'Ju', 'Sha', 'Ya']);
+    ).toEqual(['Ya', 'Du', 'Se', 'Cho', 'Pa', 'Ju', 'Sha']);
   });
 
   it('localizes an inline ConfigProvider DatePicker locale', () => {
@@ -75,7 +75,7 @@ describe('DatePicker locale without application Day.js locale imports', () => {
     expect(baseElement.querySelector('.ant-picker-month-btn')).toHaveTextContent('օգս');
     expect(
       Array.from(baseElement.querySelectorAll('thead th'), (cell) => cell.textContent),
-    ).toEqual(['երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ', 'կրկ']);
+    ).toEqual(['կրկ', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ']);
   });
 
   it('also localizes Calendar month and weekday labels', () => {
@@ -87,13 +87,41 @@ describe('DatePicker locale without application Day.js locale imports', () => {
 
     expect(container.querySelector('.ant-picker-calendar-month-select')).toHaveTextContent('8月');
     expect(Array.from(container.querySelectorAll('thead th'), (cell) => cell.textContent)).toEqual([
+      '日',
       '一',
       '二',
       '三',
       '四',
       '五',
       '六',
-      '日',
+    ]);
+  });
+
+  it('localizes the months in the Calendar year view', () => {
+    const { container } = render(
+      <ConfigProvider locale={zhCN}>
+        <Calendar value={value} mode="year" />
+      </ConfigProvider>,
+    );
+
+    expect(
+      Array.from(
+        container.querySelectorAll('.ant-picker-calendar-date-value'),
+        (cell) => cell.textContent,
+      ),
+    ).toEqual([
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月',
     ]);
   });
 

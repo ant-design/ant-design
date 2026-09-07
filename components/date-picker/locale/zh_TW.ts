@@ -1,5 +1,3 @@
-import 'dayjs/locale/zh-tw';
-
 import CalendarLocale from '@rc-component/picker/locale/zh_TW';
 
 import TimePickerLocale from '../../time-picker/locale/zh_TW';

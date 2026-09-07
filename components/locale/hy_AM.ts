@@ -1,5 +1,3 @@
-import 'dayjs/locale/hy-am';
-
 import type { Locale } from '.';
 import type { PickerLocale } from '../date-picker/generatePicker';
 
@@ -8,6 +6,37 @@ const typeTemplate = '${label}-ը վավեր ${type} չէ';
 const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
+    calendarFallback: {
+      months: [
+        'հունվարի',
+        'փետրվարի',
+        'մարտի',
+        'ապրիլի',
+        'մայիսի',
+        'հունիսի',
+        'հուլիսի',
+        'օգոստոսի',
+        'սեպտեմբերի',
+        'հոկտեմբերի',
+        'նոյեմբերի',
+        'դեկտեմբերի',
+      ],
+      shortMonths: [
+        'հնվ',
+        'փտր',
+        'մրտ',
+        'ապր',
+        'մյս',
+        'հնս',
+        'հլս',
+        'օգս',
+        'սպտ',
+        'հկտ',
+        'նմբ',
+        'դկտ',
+      ],
+      shortWeekDays: ['կրկ', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ'],
+    },
     placeholder: 'Ընտրեք ամսաթիվը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
     today: 'Այսօր',
